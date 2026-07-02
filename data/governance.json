@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-02T01:09:38.956945+00:00",
+  "updated_at": "2026-07-02T13:09:15.679109+00:00",
   "total": 241,
-  "active_count": 33,
-  "passed_count": 208,
-  "tev_related": 60,
+  "active_count": 34,
+  "passed_count": 207,
+  "tev_related": 61,
   "monitored_protocols": 19,
   "protocols_meta": {
     "Aave": {
@@ -2714,6 +2714,21 @@
     {
       "source": "dYdX Cosmos",
       "protocol": "dYdX",
+      "title": "Fee Holiday for BTC-USD Market - July 2026",
+      "status": "active",
+      "link": "https://www.mintscan.io/dydx/proposals/389",
+      "created": "2026-07-02T07:37:43.093939662Z",
+      "end": "2026-07-05T07:37:43.093939662Z",
+      "tev_related": true,
+      "tev_keywords": [
+        "fee"
+      ],
+      "summary_en": "Fee Holiday for BTC-USD market - July 2026",
+      "summary_zh": "dYdX协议将于2026年7月为BTC-USD市场实行免手续费政策。"
+    },
+    {
+      "source": "dYdX Cosmos",
+      "protocol": "dYdX",
       "title": "Wind down AEVO-USD, KAITO-USD, SKY-USD, S-USD and XAUT-USD markets",
       "status": "active",
       "link": "https://www.mintscan.io/dydx/proposals/388",
@@ -2842,20 +2857,6 @@
       ],
       "summary_en": "100% fee discount (free trading) for BTC-USD and BONK-USD perpetual markets through May 2026.",
       "summary_zh": "dYdX协议治理提案：BTC & BONK市场免佣期——2026年5月。BTC-USD和BONK-USD永续市场自2026年5月起享受100%费率折扣（免费交易）。"
-    },
-    {
-      "source": "dYdX Cosmos",
-      "protocol": "dYdX",
-      "title": "Upgrade XAG-USD market from ISOLATED to CROSS and/or change liquidity tier",
-      "status": "passed",
-      "link": "https://www.mintscan.io/dydx/proposals/379",
-      "created": "2026-04-22T08:13:52.526322328Z",
-      "end": "2026-04-25T08:13:52.526322328Z",
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "Upgrade XAG-USD market from ISOLATED to CROSS and/or change liquidity tier",
-      "summary_zh": "将 XAG-USD 市场从隔离模式升级至交叉模式，以及/或更改流动性层级。",
-      "analysis_zh": ""
     },
     {
       "source": "GitHub BEP",
