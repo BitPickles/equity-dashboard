@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-03T01:09:10.303938+00:00",
+  "updated_at": "2026-07-03T13:11:21.713410+00:00",
   "total": 241,
-  "active_count": 33,
-  "passed_count": 208,
+  "active_count": 32,
+  "passed_count": 209,
   "tev_related": 61,
   "monitored_protocols": 19,
   "protocols_meta": {
@@ -2730,7 +2730,7 @@
       "source": "dYdX Cosmos",
       "protocol": "dYdX",
       "title": "Wind down AEVO-USD, KAITO-USD, SKY-USD, S-USD and XAUT-USD markets",
-      "status": "active",
+      "status": "passed",
       "link": "https://www.mintscan.io/dydx/proposals/388",
       "created": "2026-06-30T09:33:15.044473946Z",
       "end": "2026-07-03T09:33:15.044473946Z",
