@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-02T13:09:15.679109+00:00",
+  "updated_at": "2026-07-03T01:09:10.303938+00:00",
   "total": 241,
-  "active_count": 34,
-  "passed_count": 207,
+  "active_count": 33,
+  "passed_count": 208,
   "tev_related": 61,
   "monitored_protocols": 19,
   "protocols_meta": {
@@ -3272,7 +3272,7 @@
       "source": "Sky Polling",
       "protocol": "Sky (MakerDAO)",
       "title": "Atlas Edit Weekly Cycle Proposal - June 29, 2026",
-      "status": "active",
+      "status": "passed",
       "link": "https://vote.makerdao.com/polling/Qmd3gCcD",
       "created": "2026-06-29T16:00:00",
       "end": "2026-07-02T16:00:00",
