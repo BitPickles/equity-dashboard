@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>电话会 · 存储三巨头估值看板</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+  /* ===== 本页独有样式（列表部分值照抄原 电话会档案库.html） ===== */
+
+  /* 筛选栏 */
+  .filter-bar{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--r-card);
+    padding:14px 18px;display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;
+  }
+  .filter-bar .flabel{font-size:12px;color:var(--faint)}
+  .filter-bar select{
+    font-size:13px;padding:7px 10px;border:1px solid var(--border-line);
+    border-radius:var(--r-sm);background:var(--field-bg);cursor:pointer;color:var(--ink);
+  }
+  .filter-bar .count{
+    margin-left:auto;font:500 11px var(--font-mono);color:var(--faint);
+    white-space:nowrap;flex:none;
+  }
+
+  /* 文稿列表 */
+  .arch-list{display:flex;flex-direction:column;gap:10px}
+  .arch-row{
+    background:var(--card);border:1px solid var(--border);
+    border-left:3px solid var(--hairline);border-radius:var(--r-card);
+    padding:16px 20px;display:flex;flex-direction:column;gap:8px;
+  }
+  .arch-row .head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .arch-row .company{font-size:14.5px;font-weight:700}
+  .arch-row .period{font:600 12.5px var(--font-mono);color:var(--ink-2)}
+  .arch-row .date{font:400 11.5px var(--font-mono);color:var(--faint)}
+  .arch-row .head-right{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+
+  /* 对比模式 checkbox（仅 available 行） */
+  .cmp-pick{display:inline-flex;align-items:center;gap:5px;cursor:pointer;flex:none}
+  .cmp-pick input{width:14px;height:14px;accent-color:var(--dark);cursor:pointer;margin:0}
+  .cmp-pick .cp-lab{font-size:10.5px;color:var(--faint)}
+
+  /* 档位 pill（行内） */
+  .row-pill{
+    display:inline-flex;align-items:center;gap:5px;
+    font:500 10.5px var(--font-mono);color:var(--muted);
+    border:1px solid var(--border);border-radius:4px;padding:2px 7px;background:var(--field-bg);
+  }
+  .row-pill[title]{cursor:help}
+  .row-pill .tb{
+    width:13px;height:13px;border-radius:3px;color:#FFF;
+    font:700 9px/13px var(--font-mono);text-align:center;
+  }
+  .lang-pill{
+    font-size:10.5px;color:var(--muted);border:1px solid var(--border);
+    border-radius:4px;padding:2px 7px;background:var(--field-bg);
+  }
+
+  /* 摘要行 */
+  .arch-row .body{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .ai-badge{
+    flex:none;display:inline-flex;align-items:center;gap:5px;
+    font:500 10px var(--font-mono);color:var(--faint);cursor:help;
+  }
+  .ai-badge .tb{
+    width:13px;height:13px;border-radius:3px;background:var(--tier-d);color:#FFF;
+    font:700 9px/13px var(--font-mono);text-align:center;
+  }
+  .arch-row .summary{font-size:13px;color:var(--ink-2);line-height:1.7}
+  .read-btn{
+    margin-left:auto;flex:none;font-size:12.5px;font-weight:500;color:var(--ink);
+    text-decoration:none;border:1px solid var(--border-line);border-radius:var(--r-xs);
+    padding:5px 12px;transition:background .15s,color .15s,border-color .15s;
+  }
+  .read-btn:hover{background:var(--dark);color:var(--on-dark);border-color:var(--dark)}
+
+  /* 未获取占位 */
+  .arch-row .missing{
+    font-size:12.5px;color:var(--ghost);
+    border:1px dashed var(--border-line);border-radius:var(--r-xs);padding:9px 12px;
+  }
+
+  /* 空态 */
+  .empty-state{
+    border:1px dashed var(--border-line);border-radius:var(--r-card);
+    padding:28px;text-align:center;font-size:13px;color:var(--ghost);
+  }
+
+  /* 对比浮条：选中 ≥1 场时浮出 */
+  .cmp-bar{
+    position:fixed;left:50%;bottom:22px;transform:translateX(-50%);
+    z-index:40;display:none;align-items:center;gap:12px;flex-wrap:wrap;
+    background:var(--dark);color:var(--on-dark-muted);
+    border-radius:var(--r-card);padding:10px 16px;
+    box-shadow:0 6px 24px rgba(8,10,14,.28);max-width:92vw;
+  }
+  .cmp-bar.is-on{display:flex}
+  .cmp-bar .cb-note{font-size:12px}
+  .cmp-bar .cb-note b{color:var(--on-dark)}
+  .cmp-bar .cb-go{
+    font-size:12.5px;font-weight:600;text-decoration:none;
+    background:var(--on-dark);color:var(--dark);
+    border-radius:var(--r-xs);padding:6px 14px;flex:none;
+  }
+  .cmp-bar .cb-clear{
+    font-size:11.5px;background:none;border:1px solid var(--dark-line);
+    color:var(--on-dark-faint);border-radius:var(--r-xs);padding:5px 10px;cursor:pointer;flex:none;
+  }
+
+  /* 页脚 */
+  footer.pg a{color:var(--link);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 顶栏 -->
+  <header class="top">
+    <a href="index.html" class="crumb">← 看板</a>
+    <div class="title-wrap">
+      <div class="title">电话会</div>
+      <div class="subtitle">EARNINGS CALLS</div>
+    </div>
+    <nav class="top-nav" id="topNav"></nav>
+  </header>
+
+  <!-- 筛选栏 -->
+  <div class="filter-bar">
+    <span class="flabel">公司</span>
+    <select id="fCompany">
+      <option value="all">全部</option>
+      <option value="MU">Micron</option>
+      <option value="000660.KS">SK Hynix</option>
+      <option value="005930.KS">Samsung</option>
+    </select>
+    <span class="flabel">财季</span>
+    <select id="fPeriod">
+      <option value="all">全部</option>
+    </select>
+    <span class="flabel">语言</span>
+    <select id="fLang">
+      <option value="all">全部</option>
+    </select>
+    <span class="count" id="countText"></span>
+  </div>
+
+  <!-- 文稿列表 -->
+  <div class="arch-list" id="archList"></div>
+
+  <!-- 口径警示条 -->
+  <div class="caveat-bar">
+    <span class="lead">▲ 口径</span>
+    <span>AI 摘要为派生内容，以原文为准</span>
+    <span>三星条目为集团口径</span>
+    <span>取稿方式：⚙️ MU 自动（SEC/IR）· 🖥️ 韩股浏览器手动</span>
+  </div>
+
+  <footer class="pg">
+    <a href="数据与来源.html">关于数据与来源 →</a> ·
+    数据 schema 0.6 · 电话会内容演示样稿 · 最终由构建器抓取真稿填入。
+  </footer>
+
+</div>
+
+<!-- 对比浮条（勾选 2 场时出现「对比这两场 →」） -->
+<div class="cmp-bar" id="cmpBar">
+  <span class="cb-note" id="cmpNote"></span>
+  <a class="cb-go" id="cmpGo" href="#" style="display:none">对比这两场 →</a>
+  <button class="cb-clear" id="cmpClear">清空</button>
+</div>
+
+<script type="module">
+import {
+  loadJSON,
+  COMPANY_COLORS,
+  TIER_COLORS, TIER_DEFS,
+  injectTopNav,
+} from './assets/shared.js';
+
+/* ================= 常量（与设计稿/共享一致） ================= */
+const COLORS = COMPANY_COLORS;                 // MU / 000660.KS / 005930.KS 主色
+const TIER_COLOR = TIER_COLORS;                // S..D 档位色
+
+const state = {
+  data: null, fCompany: 'all', fPeriod: 'all', fLang: 'all',
+  selected: [],                                // 对比模式：已选 id（按先后顺序，最多 2 个）
+};
+
+/* ================= 演示样稿判定 =================
+   一手数据规则：文稿正文/季度数字目前为占位近似值，最终由构建器抓真稿填入。
+   优先读条目级 demo 标记；若数据未标条目级，则回退到数据集级信号
+   （transcripts.json schema 0.x 且 note 含"演示样稿"→ 整份即演示）。
+   构建器接入真稿后，把对应条目 demo 置 false / schema 升级，标即自动消失。 */
+function datasetIsDemo(d) {
+  if (!d) return false;
+  const sv = String(d.schema_version || '');
+  const schemaDemo = /^0\./.test(sv);                 // 0.x 视为演示形态
+  const noteDemo = /演示样稿/.test(String(d.note || ''));
+  return schemaDemo || noteDemo;
+}
+function isDemoRow(a) {
+  if (a && a.demo === true) return true;
+  if (a && a.demo === false) return false;
+  return datasetIsDemo(state.data);
+}
+
+/* ================= 列表渲染 ================= */
+function methodIcon(m) {
+  if (m === 'auto') return '⚙️';
+  if (m === 'browser') return '🖥️';
+  return '';
+}
+
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function rowHTML(a) {
+  const color = COLORS[a.ticker] || 'var(--faint)';
+  const available = !!a.available;
+  const opacity = available ? '1' : '0.75';
+  const groupScope = a.is_group_scope === true;
+
+  // 头部左侧：对比勾选（仅可用条目） + 圆点 + 公司 + 财季 + 日期 + 集团口径标
+  let head = '';
+  if (available) {
+    const checked = state.selected.includes(a.id) ? ' checked' : '';
+    head += `<label class="cmp-pick" title="勾选两场进行跨季对比">`
+      + `<input type="checkbox" data-id="${esc(a.id)}"${checked}>`
+      + `<span class="cp-lab">对比</span></label>`;
+  }
+  head += `<span class="dot dot--sm" style="--dot:${color};background:${color}"></span>`;
+  head += `<span class="company">${esc(a.company)}</span>`;
+  head += `<span class="period">${esc(a.period)}</span>`;
+  head += `<span class="date">${esc(a.date)}</span>`;
+  // 演示样稿标只挂在"有内容"的行——未获取的行本身没有正文可演示，
+  // 已由下方"该季未获取"自述，再贴内容级"演示"标反而混淆（把空占位说成有样稿）。
+  if (available && isDemoRow(a)) {
+    head += `<span class="tag-demo" title="演示样稿：文稿正文与季度数字为占位近似值，最终由构建器抓取真稿填入">演示样稿</span>`;
+  }
+  if (groupScope) {
+    head += `<span class="tag" title="三星为集团整体口径，非纯存储业务">集团口径</span>`;
+  }
+
+  // 头部右侧：档位 pill + 语言 pill（仅可用条目）
+  let headRight = '';
+  if (available) {
+    const tc = TIER_COLOR[a.tier] || 'var(--tier-c)';
+    const tip = '信源档位 ' + a.tier + '：' + (TIER_DEFS[a.tier] || '') + ' · 抓取 ' + a.date;
+    headRight += `<span class="row-pill" title="${esc(tip)}">`
+      + `<span class="tb" style="background:${tc}">${esc(a.tier)}</span>`
+      + `${esc(a.source)} ${methodIcon(a.method)}</span>`;
+    headRight += `<span class="lang-pill">${esc(a.langs)}</span>`;
+  }
+
+  // 主体：可用 → AI 摘要 + 阅读全文；不可用 → 未获取原因
+  let body = '';
+  if (available) {
+    const href = '电话会阅读页.html?id=' + encodeURIComponent(a.id);
+    body = `<div class="body">`
+      + `<span class="ai-badge" title="AI 提炼，以原文为准"><span class="tb">D</span>🤖</span>`
+      + `<span class="summary">${esc(a.ai_summary)}</span>`
+      + `<a class="read-btn" href="${href}">阅读全文 →</a>`
+      + `</div>`;
+  } else {
+    const reason = a.reason || '该季未获取';
+    body = `<div class="missing">${esc(reason)}</div>`;
+  }
+
+  return `<div class="arch-row" style="border-left-color:${color};opacity:${opacity}">`
+    + `<div class="head">${head}<span class="head-right">${headRight}</span></div>`
+    + body
+    + `</div>`;
+}
+
+function applyFilters() {
+  const all = (state.data && state.data.archive) || [];
+  const rows = all.filter((a) => {
+    if (state.fCompany !== 'all' && a.ticker !== state.fCompany) return false;
+    if (state.fPeriod !== 'all' && a.period !== state.fPeriod) return false;
+    if (state.fLang !== 'all' && a.langs !== state.fLang) return false;
+    return true;
+  });
+
+  const listEl = document.getElementById('archList');
+  if (rows.length === 0) {
+    listEl.innerHTML = `<div class="empty-state">当前筛选无结果</div>`;
+  } else {
+    listEl.innerHTML = rows.map(rowHTML).join('');
+  }
+  document.getElementById('countText').textContent = rows.length + ' / ' + all.length + ' 条';
+
+  // 勾选事件（列表每次重绘后重挂）
+  listEl.querySelectorAll('.cmp-pick input').forEach((cb) => {
+    cb.addEventListener('change', () => togglePick(cb.dataset.id, cb.checked));
+  });
+}
+
+/* ================= 对比模式（纯前端状态，无持久化） ================= */
+function togglePick(id, on) {
+  if (on) {
+    if (!state.selected.includes(id)) {
+      state.selected.push(id);
+      if (state.selected.length > 2) state.selected.shift();   // 选第 3 个 → 替换最早选的
+    }
+  } else {
+    state.selected = state.selected.filter((x) => x !== id);
+  }
+  applyFilters();     // 重绘以同步 checkbox 勾选态
+  renderCmpBar();
+}
+
+function pickMeta(id) {
+  const all = (state.data && state.data.archive) || [];
+  return all.find((a) => a.id === id);
+}
+
+function renderCmpBar() {
+  const bar = document.getElementById('cmpBar');
+  const note = document.getElementById('cmpNote');
+  const go = document.getElementById('cmpGo');
+  const n = state.selected.length;
+  if (n === 0) { bar.classList.remove('is-on'); return; }
+  bar.classList.add('is-on');
+
+  const names = state.selected.map((id) => {
+    const m = pickMeta(id);
+    return m ? `<b>${esc(m.company + ' ' + m.period)}</b>` : esc(id);
+  }).join(' vs ');
+  note.innerHTML = `已选 ${n}/2 场：${names}` + (n < 2 ? '（再选一场可对比）' : '');
+
+  if (n === 2) {
+    go.href = '跨季对比.html?a=' + encodeURIComponent(state.selected[0])
+      + '&b=' + encodeURIComponent(state.selected[1]);
+    go.style.display = '';
+  } else {
+    go.style.display = 'none';
+  }
+}
+
+function buildPeriodOptions() {
+  const all = (state.data && state.data.archive) || [];
+  const periods = Array.from(new Set(all.map((a) => a.period))).sort().reverse();
+  const sel = document.getElementById('fPeriod');
+  periods.forEach((p) => {
+    const opt = document.createElement('option');
+    opt.value = p;
+    opt.textContent = p;
+    sel.appendChild(opt);
+  });
+}
+
+/* 语言筛选项：从数据里出现过的 langs 值动态构建，避免硬编码只有"双语"
+   而漏掉非双语文稿（如仅英文 / 仅中文的场次）。
+   跨全部条目取值，只剔除占位符"—"（未获取条目的 langs，非真实语言）——
+   这样即便某语言只出现在尚未获取的条目上也不会被漏掉（不 漏筛）。 */
+const LANG_PLACEHOLDER = new Set(['—', '-', '', 'N/A', 'n/a']);
+function buildLangOptions() {
+  const all = (state.data && state.data.archive) || [];
+  const langs = Array.from(new Set(
+    all.map((a) => a.langs)
+       .filter((x) => x != null && !LANG_PLACEHOLDER.has(String(x).trim()))
+  )).sort();
+  const sel = document.getElementById('fLang');
+  langs.forEach((lg) => {
+    const opt = document.createElement('option');
+    opt.value = lg;
+    opt.textContent = lg;
+    sel.appendChild(opt);
+  });
+}
+
+/* ================= 启动 ================= */
+async function boot() {
+  // 统一顶栏导航
+  injectTopNav(document.getElementById('topNav'), 'calls');
+
+  // 文稿档案（列表数据）
+  try {
+    const t = await loadJSON('data/transcripts.json');
+    state.data = t;
+    buildPeriodOptions();
+    buildLangOptions();
+    applyFilters();
+  } catch (e) {
+    document.getElementById('archList').innerHTML =
+      `<div class="empty-state">档案数据加载失败：${esc(e.message)}</div>`;
+    document.getElementById('countText').textContent = '0 / 0 条';
+  }
+
+  // 筛选事件
+  document.getElementById('fCompany').addEventListener('change', (e) => { state.fCompany = e.target.value; applyFilters(); });
+  document.getElementById('fPeriod').addEventListener('change', (e) => { state.fPeriod = e.target.value; applyFilters(); });
+  document.getElementById('fLang').addEventListener('change', (e) => { state.fLang = e.target.value; applyFilters(); });
+
+  // 对比浮条：清空
+  document.getElementById('cmpClear').addEventListener('click', () => {
+    state.selected = [];
+    applyFilters();
+    renderCmpBar();
+  });
+}
+
+boot();
+</script>
+</body>
+</html>

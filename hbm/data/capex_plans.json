@@ -1,0 +1,113 @@
+{
+  "schema_version": "0.1",
+  "generated_at": "2026-07-04",
+  "note": "各公司公开披露的资本投入与扩产计划；为计划/指引，非承诺，可能随市况调整。逐条带官方一手来源（公司财报/8-K/官方新闻稿/官方 IR 演示、政府机构 CHIPS 公告），金额与时间以官方原文为准，已逐条 WebFetch 核实可达且对题。",
+  "companies": {
+    "MU": [
+      {
+        "title": "约 2000 亿美元美国本土 DRAM 制造与研发扩张",
+        "detail": "与美国政府共同宣布：约 1500 亿美元用于本土存储制造、约 500 亿美元用于研发；含爱达荷两座先进制程量产厂、纽约最多四座量产厂、弗吉尼亚 Manassas 厂现代化扩建，以及将端到端 HBM 先进封装引入美国；目标使公司约 40% 的 DRAM 在美国生产。",
+        "amount": "约 2000 亿美元（制造约 1500 亿 + 研发约 500 亿）",
+        "timeframe": "2025-06 宣布，跨未来 20 余年分阶段",
+        "source": "Micron Form 8-K 附件 99.1 官方新闻稿（SEC EDGAR）",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/723125/000110465925058741/tm2517778d1_ex99-1.htm",
+        "asof": "2025-06-12",
+        "tier": "S"
+      },
+      {
+        "title": "FY2026 资本开支指引约 270 亿美元",
+        "detail": "CFO 于 FY2026 第三季度业绩电话会指引：财季 Q4 资本开支约 100 亿美元，全财年 FY2026 资本开支约 270 亿美元（净额，已扣除预期政府补贴）；并预计 FY2027 季度资本开支高于 Q4 水平，逾半增量来自厂房建设（cleanroom 产能前置）。",
+        "amount": "约 270 亿美元（FY2026，净额；FQ4 约 100 亿）",
+        "timeframe": "FY2026（财年止 2026-08）",
+        "source": "Micron Fiscal Q3 2026 业绩电话会官方 Prepared Remarks（Micron IR 归档）",
+        "source_url": "https://investors.micron.com/static-files/631b1a32-5537-46ae-8f40-82e42fc79dfe",
+        "asof": "2026-06-24",
+        "tier": "S"
+      },
+      {
+        "title": "爱达荷 Boise 两座先进制程量产厂（ID1 / ID2）",
+        "detail": "在博伊西建设两座先进制程高产能量产厂，与爱达荷研发运营同址；ID1 已定于按计划推进，官方称首片晶圆（first wafer output）于 2027 自然年中，ID2 于 2028 自然年末；两厂合计创造逾 1.7 万个岗位。获地方/州/联邦支持，含《芯片法案》最高 64 亿美元直接拨款（支持两座爱达荷厂 + 两座纽约厂）。",
+        "amount": "含 CHIPS 直接拨款最高 64 亿美元（爱达荷+纽约共用）",
+        "timeframe": "ID1 首片约 2027 自然年中，ID2 约 2028 自然年末",
+        "source": "Micron 官方美国扩张页（爱达荷）；ID1/ID2 时间点见 FY2026Q3 官方 Prepared Remarks",
+        "source_url": "https://www.micron.com/us-expansion/id",
+        "asof": "2026-06-24",
+        "tier": "A"
+      },
+      {
+        "title": "纽约 Clay 巨型厂园区（最多四座量产厂）",
+        "detail": "计划在纽约建设最多四座先进制程量产厂，跨未来 20 余年，潜在投资最高约 1000 亿美元；每座洁净室约 60 万平方英尺，园区洁净室总面积最高约 240 万平方英尺。获纽约州 GREEN CHIPS 激励最高 55 亿美元。公司已于 2026 年 1 月在纽约破土（ground preparation）。",
+        "amount": "潜在投资最高约 1000 亿美元；州 GREEN CHIPS 最高 55 亿美元",
+        "timeframe": "2026-01 破土，跨 20 余年分阶段",
+        "source": "Micron 官方美国扩张页（纽约）",
+        "source_url": "https://www.micron.com/us-expansion/ny",
+        "asof": "2026-06-24",
+        "tier": "A"
+      }
+    ],
+    "000660.KS": [
+      {
+        "title": "1100 万亿韩元中长期投资战略（龙仁·清州·西南部集群）",
+        "detail": "为应对 AI 存储需求，公司公布总额 1100 万亿韩元中长期投资：龙仁半导体集群 600 万亿韩元（将第四座厂完工目标由 2045 提前至 2033）、清州 100 万亿韩元（新 NAND 厂、设备及先进 HBM 封装）、韩国西南部新集群 400 万亿韩元（分阶段，具体选址待定）。公司称 600 万亿投资将延续至 2033 年之后，资金随投资进度逐步筹措。",
+        "amount": "总额约 1100 万亿韩元（龙仁 600 / 清州 100 / 西南部 400）",
+        "timeframe": "2026-06-29 公布；龙仁完工目标提前至 2033",
+        "source": "SK hynix Newsroom 官方解读（Explainer：中长期投资战略）",
+        "source_url": "https://news.skhynix.com/fact-05/",
+        "asof": "2026-06-29",
+        "tier": "A"
+      },
+      {
+        "title": "清州 M15X DRAM 新厂",
+        "detail": "在清州建设 M15X 生产下一代 DRAM（含面向 AI 的 HBM），紧邻既有 M15 厂以优化 TSV/HBM 产能；初期厂房建设投资 5.3 万亿韩元，长期总投资超过 20 万亿韩元。2024 年 4 月底动工，官方称建成后进入量产，早于龙仁首座厂投产。",
+        "amount": "初期 5.3 万亿韩元；长期总投资超 20 万亿韩元",
+        "timeframe": "2024-04 动工，2024-04-24 公布",
+        "source": "SK hynix Newsroom 官方新闻稿（M15X 清州 DRAM）",
+        "source_url": "https://news.skhynix.com/sk-hynix-to-produce-dram-from-m15x-in-cheongju/",
+        "asof": "2024-04-24",
+        "tier": "A"
+      },
+      {
+        "title": "美国印第安纳州 West Lafayette HBM 先进封装厂",
+        "detail": "在印第安纳州西拉法叶 Purdue Research Park 投资约 38.7 亿美元建设先进封装量产及研发厂，量产下一代 HBM，称为美国首座面向 AI 产品的先进封装厂；与普渡大学合作研发与人才培养，为当地带来逾千个岗位。计划 2028 年下半年开始量产。",
+        "amount": "约 38.7 亿美元",
+        "timeframe": "2028 下半年量产；2024-04-03 公布",
+        "source": "SK hynix Newsroom 官方新闻稿（与印第安纳州签署投资协议）",
+        "source_url": "https://news.skhynix.com/sk-hynix-signs-investment-agreement-of-advanced-chip-packaging-with-indiana/",
+        "asof": "2024-04-03",
+        "tier": "A"
+      }
+    ],
+    "005930.KS": [
+      {
+        "title": "美国得州泰勒（Taylor）先进半导体制造厂",
+        "detail": "宣布在得州泰勒新建先进半导体制造厂，投资约 170 亿美元（含厂房、地产改良、机器设备），为当时三星在美最大单笔投资；生产面向移动、5G、高性能计算（HPC）与 AI 的先进制程逻辑产品；计划 2022 上半年破土。（注：本条为三星集团层面的代工/逻辑厂，非纯存储业务。）",
+        "amount": "约 170 亿美元",
+        "timeframe": "2021-11 宣布，2022 上半年破土",
+        "source": "Samsung Global Newsroom 官方新闻稿（泰勒新厂）",
+        "source_url": "https://news.samsung.com/global/samsung-electronics-announces-new-advanced-semiconductor-fab-site-in-taylor-texas",
+        "asof": "2021-11-24",
+        "tier": "A"
+      },
+      {
+        "title": "美国 CHIPS 法案直接拨款（最终确定）支持中德州先进制程生态",
+        "detail": "美国商务部与三星最终确定《芯片法案》直接拨款最高 47.45 亿美元，支持三星未来数年超过 370 亿美元投资，将中德州建成先进制程芯片的完整生态：泰勒两座先进制程逻辑量产厂 + 一座研发厂，以及既有奥斯汀厂扩建；五年内约 1.2 万个建设岗位、逾 3500 个制造岗位。",
+        "amount": "CHIPS 直接拨款最高 47.45 亿美元；支持超 370 亿美元投资",
+        "timeframe": "2024-12-20 最终确定",
+        "source": "美国商务部 / NIST CHIPS 官方公告（Samsung 激励最终确定）",
+        "source_url": "https://www.nist.gov/news-events/news/2024/12/biden-harris-administration-announces-chips-incentives-award-samsung",
+        "asof": "2024-12-20",
+        "tier": "S"
+      },
+      {
+        "title": "中德州（泰勒 + 奥斯汀）综合投资含先进封装与研发",
+        "detail": "三星官方表述：预计未来数年在中德州（泰勒与奥斯汀）投资超过 400 亿美元，扩建既有奥斯汀园区并在泰勒新建产能，配备尖端制程，面向汽车、消费电子、IoT、航空航天等；并含先进封装与研发能力。（此为 2024-04 初步条款阶段的三星自述口径，最终确定拨款见上一条政府公告。）",
+        "amount": "中德州投资超过 400 亿美元（三星自述口径）",
+        "timeframe": "2024-04-15 公布（初步条款）",
+        "source": "Samsung US Newsroom 官方新闻稿（CHIPS 直接拨款）",
+        "source_url": "https://news.samsung.com/us/samsung-electronics-to-receive-up-to-6-4-billion-in-direct-funding-under-the-chips-and-science-act/",
+        "asof": "2024-04-15",
+        "tier": "A"
+      }
+    ]
+  }
+}

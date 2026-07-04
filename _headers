@@ -34,3 +34,12 @@
 
 /images/*
   Cache-Control: public, max-age=86400
+
+# ── HBM 存储三巨头看板 (/hbm/) ──
+# 看板 JS/CSS 无指纹文件名，不能长缓存（否则更新后引用旧脚本）；数据 JSON 短缓存。
+# HTML 已由上面 /*.html no-store 规则覆盖。放末尾以覆盖 /*.js /*.css 的 86400 长缓存。
+/hbm/data/*.json
+  Cache-Control: public, max-age=300
+
+/hbm/assets/*
+  Cache-Control: no-cache

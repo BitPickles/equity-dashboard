@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>数据与来源 · 存储三巨头估值看板</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+  /* —— 本页独有样式；共享部分（顶栏 / 卡片 / 徽章 / amber 口径块 / 深色卡）用 shared.css —— */
+
+  /* 信源分级网格 */
+  .tier-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; }
+  .tier-cell { border:1px solid var(--border-soft); border-radius:var(--r-md); padding:13px 15px; display:flex; flex-direction:column; gap:7px; }
+  .tier-cell .name { font-size:13px; font-weight:700; }
+  .tier-cell .desc { font-size:12px; color:var(--muted); line-height:1.65; }
+  .legend { display:flex; gap:20px; flex-wrap:wrap; font-size:12.5px; color:var(--muted); border-top:1px solid var(--border-soft); padding-top:12px; }
+  .legend .lab { font-weight:700; color:var(--ink-2); }
+
+  /* 来源清单表（5 列网格） */
+  .src-table { min-width:640px; display:grid; grid-template-columns:1.4fr 2fr .9fr .5fr .5fr; font-size:12.5px; }
+  .src-td.metric { color:var(--ink); font-weight:500; }
+  .src-td.src { color:var(--muted); }
+  .src-td.date { color:var(--muted); font-family:var(--font-mono); font-size:11.5px; }
+
+  /* 口径说明网格 */
+  .cav-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:12px; }
+  /* 公式行：formula 非 body 子串时另起一行补出（等宽 + 左竖线，与散文区分） */
+  .caveat .p .formula-line {
+    margin-top:8px; padding:6px 10px;
+    border-left:2px solid var(--amber-line); background:rgba(255,255,255,.4);
+    border-radius:0 var(--r-xs) var(--r-xs) 0;
+  }
+  .caveat .p .formula-line code { font-family:var(--font-mono); font-size:11.5px; color:var(--amber-ink); }
+
+  /* 口径演示图（把口径说明里描述的“断点 / 红菱形 / 近4年区间”落成真图） */
+  .demo-head { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  .demo-head .sub { font:500 10.5px var(--font-mono); color:var(--faint); letter-spacing:.06em; }
+  .demo-note { font-size:12px; color:var(--muted); line-height:1.7; }
+  .demo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:16px; }
+  .demo-cell { display:flex; flex-direction:column; gap:6px; }
+  .demo-cell .cap { font-size:12.5px; font-weight:700; color:var(--ink); }
+  .demo-cell .cap .hint { font-weight:400; color:var(--muted); font-size:11.5px; margin-left:4px; }
+  .legend-inline { display:flex; flex-wrap:wrap; gap:6px 16px; align-items:center; font-size:11.5px; color:var(--muted); }
+  .legend-inline .co { display:inline-flex; align-items:center; gap:6px; }
+  .legend-inline .mk-nm { color:var(--loss); font-weight:600; }
+  .legend-inline .mk-imp { display:inline-flex; align-items:center; gap:5px; }
+  .legend-inline .mk-imp .dia { width:9px; height:9px; background:var(--loss); transform:rotate(45deg); display:inline-block; }
+  .chart--demo { height:280px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 顶栏（本页不在导航内：只留 crumb，导航不设 active） -->
+  <header class="top">
+    <a href="index.html" class="crumb">← 看板</a>
+    <div class="title-wrap">
+      <div class="title">数据与来源</div>
+      <div class="subtitle">DATA &amp; SOURCES</div>
+    </div>
+    <nav class="top-nav" id="topNav"></nav>
+  </header>
+
+  <!-- 信源分级 -->
+  <section class="card">
+    <h2>信源分级 · 每个数据点旁的小徽章</h2>
+    <div class="tier-grid" id="tierGrid"></div>
+    <div class="legend" id="legend">
+      <span class="lab">获取方式图标</span>
+    </div>
+  </section>
+
+  <!-- 来源清单 -->
+  <section class="card">
+    <h2>来源清单 · 每指标一行</h2>
+    <div class="grid-scroll">
+      <div class="src-table" id="srcTable">
+        <div class="grid-th">指标</div>
+        <div class="grid-th">来源</div>
+        <div class="grid-th">抓取日期</div>
+        <div class="grid-th">档位</div>
+        <div class="grid-th">方式</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 口径说明 -->
+  <section class="card">
+    <h2>口径说明 · 集中区</h2>
+    <div class="cav-grid" id="cavGrid"></div>
+  </section>
+
+  <!-- 口径演示图：把上面文字描述的口径落成可交互真图（数据来自 valuation.json） -->
+  <section class="card">
+    <div class="demo-head">
+      <h2>口径演示图 · 上述规则在图上的样子</h2>
+      <span class="sub">2022–2026 日频 · METHODOLOGY IN CHARTS</span>
+    </div>
+    <div class="demo-note" id="demoNote">
+      下面两张图用<b>日频</b> P/E、P/B 曲线（时间轴）直接演示口径说明里的规则：亏损期 <b>P/E = NM</b> 在图上<b>断开不插值</b>，并以淡红区间标出；减值/亏损期账面缩水把 <b>P/B</b> 推高，以<b>红菱形</b>标记；序列窗口内 <b>P/B 最高点</b>以黄圈标出。三星为集团口径、韩股比率为自算值，仅作参照，不可与 MU 直接比。
+    </div>
+    <div class="legend-inline" id="demoLegend"></div>
+    <div class="demo-grid">
+      <div class="demo-cell">
+        <div class="cap">trailing P/E<span class="hint">· 亏损年断点标 NM，不插值</span></div>
+        <div class="chart chart--demo" id="peChart"></div>
+      </div>
+      <div class="demo-cell">
+        <div class="cap">P/B<span class="hint">· 减值年红菱形，峰值黄圈</span></div>
+        <div class="chart chart--demo" id="pbChart"></div>
+      </div>
+    </div>
+    <div class="empty-note" id="demoEmpty" style="display:none">图表数据未获取——已断点留白，不回填、不插值。</div>
+  </section>
+
+  <!-- 方法论 -->
+  <section class="card-dark">
+    <h2>方法论 · 明写的边界</h2>
+    <ul id="methodList" style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px"></ul>
+  </section>
+
+  <footer class="pg" id="footer">数据 schema 0.6 · 估值/盈利/周期数据为真实抓取（SEC EDGAR / DART / Yahoo），电话会内容为演示样稿。</footer>
+
+</div>
+
+<script type="module">
+import {
+  loadJSON, echartsReady, initChart, baseOption, lineSeries,
+  injectTopNav, TIER_COLORS, COMPANY_COLORS, COMPANY_NAMES, C, FONT_MONO
+} from './assets/shared.js';
+
+/* ---------- 兜底数据（sources.json 取不到时用，值照抄设计稿 溯源与口径.dc.html） ---------- */
+const FALLBACK_SOURCES = {
+  tiers: [
+    { tier:'S', color:TIER_COLORS.S, name:'监管原文',            desc:'SEC EDGAR、DART 归档的原始文件（10-Q/10-K、사업보고서、8-K）' },
+    { tier:'A', color:TIER_COLORS.A, name:'第三方硬数据 / 官方 IR', desc:'交易所行情、公司 IR 官网发布（非监管归档）' },
+    { tier:'B', color:TIER_COLORS.B, name:'产业链',              desc:'合约价、渠道调研等产业链数据（如 TrendForce 类）' },
+    { tier:'C', color:TIER_COLORS.C, name:'媒体',                desc:'新闻报道、二手转述——仅作线索，不作依据' },
+    { tier:'D', color:TIER_COLORS.D, name:'AI / 估算',           desc:'AI 提炼、翻译、近似估算——统一挂"以原文为准"，可一键回原文' }
+  ],
+  method_icons: [
+    { icon:'⚙️', label:'自动抓取' },
+    { icon:'✋', label:'手动录入' },
+    { icon:'🖥️', label:'浏览器取稿（韩股）' },
+    { icon:'🤖', label:'AI 生成' }
+  ],
+  source_rows: [
+    { metric:'trailing P/E（MU）',    src:'SEC EDGAR 10-Q/10-K + 市值',    date:'2026-06-25', tier:'S', method:'⚙️' },
+    { metric:'trailing P/E（韩股）',  src:'DART 报表 ÷ 市值，自算',         date:'2026-05-15', tier:'S', method:'✋' },
+    { metric:'P/B（三家）',           src:'财报净资产 ÷ 市值（韩股自算）',   date:'2026-06-25', tier:'S', method:'⚙️ / ✋' },
+    { metric:'营业利润率',            src:'财报利润表',                     date:'2026-06-25', tier:'S', method:'⚙️ / ✋' },
+    { metric:'DIO 库存天数',          src:'存货 ÷ 营业成本 × 365，自算',     date:'2026-06-25', tier:'S', method:'✋' },
+    { metric:'合约价 QoQ%',           src:'产业链数据，手动录入（存本机）',  date:'随录随存',   tier:'B', method:'✋' },
+    { metric:'电话会文稿（MU）',      src:'Micron IR · 8-K（SEC EDGAR）',    date:'2026-06-25', tier:'S', method:'⚙️' },
+    { metric:'电话会文稿（韩股）',    src:'公司 IR 官网',                    date:'2026-04-24', tier:'A', method:'🖥️' },
+    { metric:'AI 摘要 / 翻译 / diff', src:'本站 AI 生成，以原文为准',        date:'随稿生成',   tier:'D', method:'🤖' }
+  ],
+  caliber_notes: [
+    { title:'韩股比率为自算值', body:'韩国交易所不提供官方 trailing 比率。本站自算：P/E = 市值 ÷ 归母净利（TTM）；P/B = 市值 ÷ 归母净资产。与数据商口径可能有差。', formula:'P/E = 市值 ÷ 归母净利（TTM）；P/B = 市值 ÷ 归母净资产' },
+    { title:'三星＝集团口径', body:'三星所有数据为集团整体（含手机、面板、代工等），非纯存储业务。与 MU、SK Hynix 同框仅作参照，不可直接比。', formula:null },
+    { title:'减值扭曲 P/B', body:'减值年份（如 SK Hynix 2023）账面净资产被一次性下调，P/B 分母变小、比率被推高。图上以红菱形标记，P/B 仅作相对 P/E 的补充视角。', formula:null },
+    { title:'IFRS vs US-GAAP 不可直接比', body:'MU 用 US-GAAP，韩股用 IFRS（K-IFRS）。折旧年限、减值转回规则等不同，利润与账面值口径存在系统性差异。', formula:null },
+    { title:'财年错位', body:'MU 财年止于每年 8 月底/9 月初，韩股按日历年。同一"FY"标签对应的自然时间相差最多约一季，逐年对比时注意错位。', formula:null },
+    { title:'区间统计的窗口', body:'统计行（min / 中位 / max / 当前值）基于各指标可得的全部历史：MU 季度序列约 17.5 年、韩股约 10 年、日频 P/E·P/B 为分母全程（MU 2009→ / 韩股 2016→）、股价日频为全部上市历史。窗口长短不同，跨指标比较分位时注意。', formula:null }
+  ],
+  methodology: [
+    '不对任何单一指标做顶部 / 底部预测；统计行只给描述性统计（当前值 / min / 中位 / max），不贴"高位 / 低位"判断标签、不用颜色暗示贵贱，判断留给读者。',
+    '跨季对比只做措辞变化 + 数据趋势，不解读管理层语气。',
+    'AI 派生内容（摘要 / 翻译 / diff）统一挂 D 档徽章与"以原文为准"，并保留回原文的锚点。',
+    '缺数据不回填、不插值：图上断点 + "无数据"，列表标"该季未获取（原因）"。',
+    '本站仅呈现事实与来源，不构成投资建议。'
+  ],
+  footer: '数据 schema 0.6 · 演示数据（离线兜底数据） · 来源：SEC EDGAR / DART / 公司 IR，抓取 2026-06。'
+};
+
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+/* ---------- 顶栏导航（本页不在导航里，不设 active） ---------- */
+injectTopNav(document.getElementById('topNav'), '');
+
+/* ---------- 渲染文字区块（sources.json 优先，失败回退 FALLBACK_SOURCES） ---------- */
+function renderSources(S) {
+  const tierColor = (t) => (S.tiers.find(x => x.tier === t) || {}).color || TIER_COLORS[t] || TIER_COLORS.C;
+
+  // 信源分级
+  document.getElementById('tierGrid').innerHTML = S.tiers.map(x => `
+    <div class="tier-cell">
+      <span class="tier tier--lg" style="background:${x.color}">${esc(x.tier)}</span>
+      <div class="name">${esc(x.name)}</div>
+      <div class="desc">${esc(x.desc)}</div>
+    </div>`).join('');
+
+  // 获取方式图例
+  const legend = document.getElementById('legend');
+  legend.insertAdjacentHTML('beforeend',
+    S.method_icons.map(m => `<span>${esc(m.icon)} ${esc(m.label)}</span>`).join(''));
+
+  // 来源清单
+  document.getElementById('srcTable').insertAdjacentHTML('beforeend', S.source_rows.map(r => `
+    <div class="grid-td src-td metric">${esc(r.metric)}</div>
+    <div class="grid-td src-td src">${esc(r.src)}</div>
+    <div class="grid-td src-td date">${esc(r.date)}</div>
+    <div class="grid-td src-td"><span class="tier tier--md" style="background:${tierColor(r.tier)}">${esc(r.tier)}</span></div>
+    <div class="grid-td src-td">${esc(r.method)}</div>`).join(''));
+
+  // 口径说明（formula 段用等宽字体标出；其余照抄，减值行会被图演示）
+  // formula 若是 body 子串 → 原位包 <code> 高亮；若不是子串（body 只作散文描述、
+  // 未逐字含公式）→ 不能靠 replace（会静默丢失公式），改为在 body 下另起一行 <code> 补出，
+  // 保证公式始终可见。
+  document.getElementById('cavGrid').innerHTML = S.caliber_notes.map(c => {
+    let body = esc(c.body);
+    if (c.formula) {
+      const f = esc(c.formula);
+      if (body.indexOf(f) !== -1) {
+        // 用函数式 replacer 返回字面串——避免 f 里含 "$"（如 "$B"、"$/GB"）时
+        // 被 String.replace 的 $& / $1 特殊模式误解析（子串搜索侧本就字面匹配）。
+        body = body.replace(f, () => `<code>${f}</code>`);
+      } else {
+        body += `<div class="formula-line"><code>${f}</code></div>`;
+      }
+    }
+    return `<div class="caveat"><div class="h">${esc(c.title)}</div><div class="p">${body}</div></div>`;
+  }).join('');
+
+  // 方法论
+  document.getElementById('methodList').innerHTML = S.methodology.map((m, i) => `
+    <li style="font-size:13px;color:var(--on-dark-muted);line-height:1.75;display:flex;gap:10px">
+      <span style="color:var(--on-dark-ghost);flex:none;font-family:var(--font-mono);font-size:11px">${String(i + 1).padStart(2, '0')}</span>${esc(m)}
+    </li>`).join('');
+
+  // 页脚
+  if (S.footer) document.getElementById('footer').textContent = S.footer;
+}
+
+/* ---------- ECharts 口径演示图（v0.2：日频 daily，时间轴 type:'time'） ---------- */
+const TICKERS = ['MU', '000660.KS', '005930.KS'];
+
+// 某公司是否有可用日频序列
+function hasDaily(v) {
+  return v && v.daily && Array.isArray(v.daily.dates) && v.daily.dates.length > 0;
+}
+
+// 把 daily.{dates, key} 转成 [dateStr, 值] 成对（null 原样保留，供 connectNulls:false 断点）
+function pairDaily(v, key) {
+  const d = v.daily;
+  return d.dates.map((dt, i) => {
+    const y = d[key] ? d[key][i] : null;
+    return [dt, (y == null ? null : y)];
+  });
+}
+
+// 求 daily 里某 key 的窗口最高点（跳过 null），返回 {date, val} 或 null
+function dailyPeak(v, key) {
+  const d = v.daily, arr = d[key] || [];
+  let maxI = -1, maxV = -Infinity;
+  arr.forEach((y, i) => { if (y != null && y > maxV) { maxV = y; maxI = i; } });
+  return maxI < 0 ? null : { date: d.dates[maxI], val: maxV };
+}
+
+// 求 daily.pe 里的 NM（null）连续区间列表，返回 [{from,to}, ...]（用于 markArea 淡标亏损期）
+function nmRanges(v) {
+  const dates = v.daily.dates, pe = v.daily.pe || [];
+  const out = [];
+  let start = null;
+  for (let i = 0; i < pe.length; i++) {
+    const isNull = pe[i] == null;
+    if (isNull && start == null) start = dates[i];
+    else if (!isNull && start != null) { out.push({ from: start, to: dates[i - 1] }); start = null; }
+  }
+  if (start != null) out.push({ from: start, to: dates[dates.length - 1] });
+  return out;
+}
+
+function renderDemoLegend() {
+  const el = document.getElementById('demoLegend');
+  const cos = TICKERS.map(t =>
+    `<span class="co"><span class="dot" style="--dot:${COMPANY_COLORS[t]}"></span>${esc(COMPANY_NAMES[t])}${t === '005930.KS' ? '（集团口径）' : ''}</span>`
+  ).join('');
+  el.innerHTML = cos +
+    `<span class="mk-nm">■ 亏损期 P/E=NM（断开留白）</span>` +
+    `<span class="mk-imp"><span class="dia"></span>减值/亏损期（分母缩水推高 P/B）</span>` +
+    `<span class="co"><span class="dot" style="--dot:${C.peak}"></span>序列窗口内 P/B 最高点</span>`;
+}
+
+// 时间轴通用配置：把 baseOption 的 category x 轴换成 time 轴（本页内配，不动 shared.js）
+function useTimeAxis(opt) {
+  opt.xAxis.type = 'time';
+  delete opt.xAxis.data;
+  opt.xAxis.boundaryGap = false;
+  // 时间轴按年显示，标注保持等宽字体风格
+  opt.xAxis.axisLabel = Object.assign({}, opt.xAxis.axisLabel, { formatter: '{yyyy}', hideOverlap: true });
+  return opt;
+}
+
+// 日频折线：走时间轴，成对数据，海量点降负载
+function dailyLine(t, pairs, extra) {
+  const ser = lineSeries({ name: COMPANY_NAMES[t], data: pairs, color: COMPANY_COLORS[t] });
+  ser.showSymbol = false;        // 约千点，不逐点画 symbol
+  ser.sampling = 'lttb';         // 抽稀保性能
+  ser.symbol = 'circle';
+  return Object.assign(ser, extra || {});
+}
+
+function buildPeChart(echarts, VAL) {
+  const opt = useTimeAxis(baseOption({}));
+  opt.grid = { left: 46, right: 20, top: 26, bottom: 26 };
+  opt.legend = { show: false };
+  opt.yAxis.name = 'P/E (×)';
+  opt.yAxis.min = 0;
+  opt.tooltip.formatter = (ps) => {
+    if (!ps.length) return '';
+    const d = ps[0].value ? ps[0].value[0] : ps[0].axisValueLabel;
+    let s = `<b>${esc(String(d))}</b>`;
+    ps.forEach(p => {
+      const v = p.value ? p.value[1] : null;
+      s += `<br>${p.marker}${p.seriesName}: ${v == null ? '<span style="color:' + C.loss + '">NM（亏损期）</span>' : Number(v).toFixed(2) + '×'}`;
+    });
+    return s;
+  };
+  opt.series = TICKERS.map(t => {
+    const v = VAL[t];
+    if (!hasDaily(v)) return dailyLine(t, []);
+    // pe=null 的亏损期在 connectNulls:false 下自然断开、不插值
+    const ser = dailyLine(t, pairDaily(v, 'pe'));
+    // 亏损期（NM 连续区间）用淡红 markArea 标出，替代旧的逐年 NM 方块
+    const ranges = nmRanges(v);
+    if (ranges.length) {
+      ser.markArea = {
+        silent: true,
+        itemStyle: { color: C.loss, opacity: 0.07 },
+        label: {
+          show: true, position: 'insideTop', color: C.loss,
+          fontSize: 9, fontFamily: FONT_MONO, fontWeight: 700, formatter: 'NM'
+        },
+        data: ranges.map(r => [{ xAxis: r.from }, { xAxis: r.to }])
+      };
+    }
+    return ser;
+  });
+  return opt;
+}
+
+function buildPbChart(echarts, VAL) {
+  const opt = useTimeAxis(baseOption({}));
+  opt.grid = { left: 46, right: 20, top: 26, bottom: 26 };
+  opt.legend = { show: false };
+  opt.yAxis.name = 'P/B (×)';
+  opt.yAxis.min = 0;
+  opt.tooltip.formatter = (ps) => {
+    if (!ps.length) return '';
+    const d = ps[0].value ? ps[0].value[0] : ps[0].axisValueLabel;
+    let s = `<b>${esc(String(d))}</b>`;
+    ps.forEach(p => {
+      const v = p.value ? p.value[1] : null;
+      s += `<br>${p.marker}${p.seriesName}: ${v == null ? '无数据' : Number(v).toFixed(2) + '×'}`;
+    });
+    return s;
+  };
+  opt.series = TICKERS.map(t => {
+    const v = VAL[t];
+    if (!hasDaily(v)) return dailyLine(t, []);
+    const ser = dailyLine(t, pairDaily(v, 'pb'));
+    const marks = [];
+    // 峰值黄圈：P/B 全窗口最高点（周期高位）
+    const pk = dailyPeak(v, 'pb');
+    if (pk) marks.push({
+      coord: [pk.date, pk.val],
+      symbol: 'circle', symbolSize: 16,
+      itemStyle: { color: 'transparent', borderColor: C.peak, borderWidth: 2.5 }
+    });
+    // 减值/亏损期红菱形：在亏损期(NM)结束处标一枚，示意分母缩水把 P/B 推高
+    nmRanges(v).forEach(r => {
+      const idx = v.daily.dates.indexOf(r.to);
+      const pb = idx >= 0 && v.daily.pb ? v.daily.pb[idx] : null;
+      if (pb != null) marks.push({
+        coord: [r.to, pb],
+        symbol: 'diamond', symbolSize: 13,
+        itemStyle: { color: C.loss, borderColor: '#fff', borderWidth: 1 }
+      });
+    });
+    if (marks.length) ser.markPoint = { silent: true, data: marks };
+    return ser;
+  });
+  return opt;
+}
+
+async function main() {
+  // 1) 文字区块
+  let S;
+  try {
+    S = await loadJSON('data/sources.json');
+    // sources.json 缺字段时用兜底补
+    S = Object.assign({}, FALLBACK_SOURCES, S);
+  } catch (e) {
+    S = FALLBACK_SOURCES;
+  }
+  renderSources(S);
+
+  // 2) 图表
+  let VAL = null;
+  try {
+    const vj = await loadJSON('data/valuation.json');
+    VAL = vj.valuation || {};
+  } catch (e) {
+    VAL = null;
+  }
+
+  if (!VAL || !TICKERS.some(t => hasDaily(VAL[t]))) {
+    // 缺数据不崩：断点留白
+    document.getElementById('demoLegend').style.display = 'none';
+    document.getElementById('peChart').style.display = 'none';
+    document.getElementById('pbChart').style.display = 'none';
+    document.querySelector('.demo-grid').style.display = 'none';
+    document.getElementById('demoEmpty').style.display = 'block';
+    return;
+  }
+
+  renderDemoLegend();
+  try {
+    const echarts = await echartsReady;
+    initChart(document.getElementById('peChart'), buildPeChart(echarts, VAL));
+    initChart(document.getElementById('pbChart'), buildPbChart(echarts, VAL));
+  } catch (e) {
+    // ECharts 加载失败也不崩
+    document.getElementById('peChart').style.display = 'none';
+    document.getElementById('pbChart').style.display = 'none';
+    document.querySelector('.demo-grid').style.display = 'none';
+    document.getElementById('demoEmpty').textContent = '图表引擎未加载（离线环境）——文字口径说明见上方各卡。';
+    document.getElementById('demoEmpty').style.display = 'block';
+  }
+}
+
+main();
+</script>
+</body>
+</html>

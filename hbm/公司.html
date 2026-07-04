@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>公司 · 存储三巨头估值看板</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+  /* ===== 本页独有样式 ===== */
+
+  /* 公司 Tab（一次一家；移动端横向滚动） */
+  .co-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; -webkit-overflow-scrolling: touch; }
+  .co-tabs .tab { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; flex: none; }
+  .co-tabs .tab .dot { width: 9px; height: 9px; }
+
+  /* 公司大卡 */
+  .co-card { border-top: 3px solid var(--hairline); gap: 16px; }
+  .co-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .co-head .dot { align-self: center; }
+  .co-head .co-name { font-size: 18px; font-weight: 900; }
+  .co-head .co-ticker { font: 600 12.5px var(--font-mono); color: var(--muted); }
+  .co-head .co-local { font-size: 11.5px; color: var(--ghost); }
+
+  /* 基本事实行 */
+  .fact-row { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 12px; color: var(--muted); }
+  .fact-row .f { display: inline-flex; gap: 6px; align-items: baseline; }
+  .fact-row .k { color: var(--faint); font-size: 11px; }
+
+  /* 业务描述 */
+  .co-desc { margin: 0; font-size: 13px; line-height: 1.85; color: var(--ink-2); }
+
+  /* 业务构成区块 */
+  .mix-block { display: flex; flex-direction: column; gap: 10px; border-top: 1px solid var(--border-soft); padding-top: 14px; }
+  .mix-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .mix-head h3 { margin: 0; font-size: 13.5px; font-weight: 700; }
+  .mix-head .asof { font: 500 11px var(--font-mono); color: var(--faint); }
+  .mix-chart { width: 100%; height: 150px; }
+  .mix-chart.rows-5 { height: 210px; }
+  .mix-chart.mix-chart--pie { height: 250px; }
+
+  /* 数字列表 */
+  .mix-list { display: flex; flex-direction: column; }
+  .mix-li {
+    display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+    border-top: 1px solid var(--row-line); padding: 7px 2px; font-size: 12.5px;
+  }
+  .mix-li .lbl { flex: 1; min-width: 160px; color: var(--ink-2); }
+  .mix-li .lbl.sub { color: var(--muted); padding-left: 10px; }
+  .mix-li .val { font: 500 12px var(--font-mono); color: var(--ink); }
+  .mix-li .pct { font: 600 12px var(--font-mono); color: var(--ink); width: 58px; text-align: right; }
+  .mix-note { font-size: 11px; color: var(--ghost); line-height: 1.7; }
+
+  /* 待补块（数据纪律：拿不到 = 显式待补，绝不编造） */
+  .pending-block {
+    border: 1px dashed var(--border-line); border-radius: var(--r-md);
+    padding: 14px 16px; color: var(--ghost); font-size: 12.5px; line-height: 1.8;
+    display: flex; flex-direction: column; gap: 4px; background: transparent;
+  }
+  .pending-block .pt { font-weight: 700; color: var(--faint); }
+
+  /* 核心竞争力 */
+  .str-block { display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--border-soft); padding-top: 14px; }
+  .str-block h3 { margin: 0; font-size: 13.5px; font-weight: 700; }
+  .str-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .str-list li { font-size: 12.5px; line-height: 1.8; color: var(--ink-2); display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+  .str-list li .bullet { color: var(--hairline); flex: none; }
+  .str-list li .body { flex: 1; min-width: 220px; }
+  .str-list li .src { display: inline-flex; flex-wrap: wrap; gap: 3px 6px; align-items: baseline; max-width: 100%; }
+
+  /* 近期电话会 */
+  .call-block { display: flex; flex-direction: column; gap: 10px; border-top: 1px solid var(--border-soft); padding-top: 14px; }
+  .call-block h3 { margin: 0; font-size: 13.5px; font-weight: 700; }
+  .call-card {
+    border: 1px solid var(--border-soft); border-radius: var(--r-md);
+    background: var(--subcard-bg); padding: 12px 15px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .call-card .row1 { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+  .call-card .period { font: 600 12.5px var(--font-mono); color: var(--ink); }
+  .call-card .date { font: 500 11px var(--font-mono); color: var(--faint); }
+  .call-card .sum { margin: 0; font-size: 12.5px; line-height: 1.8; color: var(--ink-2); }
+  .call-card .go { font-size: 12px; color: var(--link); text-decoration: none; align-self: flex-start; }
+  .call-card .go:hover { text-decoration: underline; }
+
+  /* 总量数字（headline metrics） */
+  .hm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; }
+  .hm-cell {
+    border: 1px solid var(--border-soft); border-radius: var(--r-md);
+    background: var(--subcard-bg); padding: 11px 14px;
+    display: flex; flex-direction: column; gap: 5px;
+  }
+  .hm-cell .k { font-size: 11px; color: var(--faint); }
+  .hm-cell .v { font: 600 16px var(--font-mono); }
+  .hm-cell .meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 10.5px; color: var(--ghost); }
+  .hm-cell .meta a { color: var(--link); text-decoration: none; }
+
+  /* 资本投入与扩产计划（卡内小节，W11 · F2b） */
+  .capex-block { display: flex; flex-direction: column; gap: 10px; border-top: 1px solid var(--border-soft); padding-top: 14px; }
+  .capex-block h3 { margin: 0; font-size: 13.5px; font-weight: 700; }
+  .capex-block .cx-lead { font-size: 11px; color: var(--ghost); line-height: 1.7; }
+  .capex-list { display: flex; flex-direction: column; gap: 10px; }
+  .cx-card {
+    border: 1px solid var(--border-soft); border-radius: var(--r-md);
+    background: var(--subcard-bg); padding: 11px 14px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .cx-card .cx-row1 { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .cx-card .cx-title { font-size: 13px; font-weight: 700; color: var(--ink); flex: 1; min-width: 200px; }
+  .cx-card .cx-detail { margin: 0; font-size: 12px; line-height: 1.8; color: var(--ink-2); }
+  .cx-meta { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+  .cx-meta .m { display: inline-flex; gap: 6px; align-items: baseline; font-size: 11.5px; color: var(--muted); }
+  .cx-meta .k { color: var(--faint); font-size: 10.5px; }
+  .cx-src { display: inline-flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; }
+
+  /* 公开披露资料（卡内小节，W9 包B） */
+  .res-block { display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--border-soft); padding-top: 14px; }
+  .res-block h3 { margin: 0; font-size: 13.5px; font-weight: 700; }
+  .res-list { display: flex; flex-direction: column; }
+  .res-li {
+    display: flex; align-items: baseline; gap: 4px 10px; flex-wrap: wrap;
+    border-top: 1px solid var(--row-line); padding: 7px 2px; font-size: 12.5px;
+  }
+  .res-li .name a { color: var(--link); text-decoration: none; }
+  .res-li .name a:hover { text-decoration: underline; }
+  .res-li .org { font-size: 11px; color: var(--faint); }
+  .res-li .tag-neutral { font-size: 10px; padding: 1px 6px; }
+  .res-li .rnote { flex-basis: 100%; font-size: 11px; color: var(--ghost); line-height: 1.6; }
+  .res-note { font-size: 11px; color: var(--ghost); line-height: 1.7; }
+
+  /* 行业研究与数据资源（页底共享卡） */
+  .ind-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; }
+  .ind-cell {
+    border: 1px solid var(--border-soft); border-radius: var(--r-md);
+    background: var(--subcard-bg); padding: 11px 14px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .ind-cell .name { display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; }
+  .ind-cell .name a { font-size: 13px; color: var(--link); text-decoration: none; }
+  .ind-cell .name a:hover { text-decoration: underline; }
+  .ind-cell .meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 10.5px; color: var(--faint); }
+  .ind-cell .meta .tag-neutral { font-size: 10px; padding: 1px 6px; }
+  .ind-cell .rnote { font-size: 11px; color: var(--ghost); line-height: 1.6; }
+
+  footer.pg a { color: var(--link); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 顶栏 -->
+  <header class="top">
+    <a href="index.html" class="crumb">← 看板</a>
+    <div class="title-wrap">
+      <div class="title">公司</div>
+      <div class="subtitle">COMPANIES</div>
+    </div>
+    <nav class="top-nav" id="topNav"></nav>
+  </header>
+
+  <!-- 公司 Tab（一次只显示一家） -->
+  <div class="co-tabs" id="coTabs" role="tablist"></div>
+  <div id="coList" style="display:flex;flex-direction:column;gap:var(--gap-page)"></div>
+
+  <!-- 口径警示条 -->
+  <div class="caveat-bar">
+    <span class="lead">▲ 口径</span>
+    <span>业务构成为人工/半自动从年报与官方 IR 摘录，约一年更新一次</span>
+    <span>三星为集团整体口径，非纯存储</span>
+    <span>取不到的数据显式标「待补」，不引用二手估算</span>
+    <span>「近期电话会」摘要为演示样稿（D 档），非真实电话会内容</span>
+  </div>
+
+  <!-- 行业研究与数据资源（共享；resources.json 缺失 → 显示「暂未整理」不崩） -->
+  <section class="card" id="indRes"></section>
+
+  <footer class="pg">
+    <a href="数据与来源.html">关于数据与来源 →</a> · 本站仅呈现事实与来源，不构成投资建议。
+  </footer>
+
+</div>
+
+<script type="module">
+import {
+  loadJSON, echartsReady, initChart, disposeChart, baseOption,
+  COMPANY_COLORS, TIER_COLORS, TIER_DEFS, C, FONT_MONO, FONT_SANS,
+  injectTopNav, tierBadgeHTML,
+} from './assets/shared.js';
+
+const $ = (id) => document.getElementById(id);
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+/* —— 信源 pill：徽章 + 来源名（可点原文） + asof —— */
+function srcPill({ tier, source, source_url, asof }) {
+  const t = String(tier || 'C').toUpperCase();
+  const tc = TIER_COLORS[t] || TIER_COLORS.C;
+  const tip = '信源档位 ' + t + '：' + (TIER_DEFS[t] || '');
+  const name = source_url
+    ? `<a href="${esc(source_url)}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">${esc(source)} ↗</a>`
+    : esc(source);
+  return `<span class="src-pill src-pill--sm" title="${esc(tip)}">`
+    + `<span class="tier tier--xs" style="background:${tc}">${t}</span>${name}</span>`
+    + (asof ? `<span class="asof">截至 ${esc(asof)}</span>` : '');
+}
+
+/* —— 待补块（零编造） —— */
+function pendingHTML(p) {
+  return `<div class="pending-block">`
+    + `<span class="pt">待补</span>`
+    + `<span>${esc(p.note || '待人工摘录')}</span>`
+    + (p.source ? `<span>来源：${esc(p.source)}</span>` : '')
+    + `</div>`;
+}
+
+/* —— 数字格式：千分位 + 占比固定一位小数（只格式化展示，不改数据） —— */
+function fmtVal(v) { return Number(v).toLocaleString('en-US'); }
+function fmtPct(v) { return Number(v).toFixed(1); }
+
+/* —— #RRGGBB + alpha → rgba()：饼图公司色系（按占比递减的透明度阶梯） —— */
+function hexA(hex, a) {
+  const n = parseInt(String(hex).replace('#', ''), 16);
+  if (Number.isNaN(n)) return hex;
+  return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+}
+
+/* —— 口径判定：主项（非 sub）占比加总 ≈ 100% 才允许画饼；
+      含内部销售等非加总口径（和≠100%）→ 条形兜底，绝不归一化画假饼 —— */
+function additiveItems(mix) {
+  const main = (mix.items || []).filter((it) => !it.sub);
+  const sum = main.reduce((s, it) => s + (+it.share_pct || 0), 0);
+  return Math.abs(sum - 100) <= 1.5 ? main : null;
+}
+
+/* —— 业务构成数字列表 —— */
+function mixListHTML(mix) {
+  const unit = mix.unit_short || mix.unit || '';
+  const rows = mix.items.map((it) => {
+    const subCls = it.sub ? ' sub' : '';
+    return `<div class="mix-li">`
+      + `<span class="lbl${subCls}">${esc(it.label)}</span>`
+      + `<span class="val">${fmtVal(it.value)} ${esc(unit)}</span>`
+      + `<span class="pct">${fmtPct(it.share_pct)}%</span>`
+      + `</div>`;
+  }).join('');
+  const totalRow = (mix.total != null)
+    ? `<div class="mix-li"><span class="lbl" style="font-weight:700">总营收</span>`
+      + `<span class="val">${fmtVal(mix.total)} ${esc(unit)}</span><span class="pct"></span></div>`
+    : '';
+  return `<div class="mix-list">${rows}${totalRow}</div>`;
+}
+
+/* —— 单家公司卡 —— */
+function cardHTML(co) {
+  const color = COMPANY_COLORS[co.ticker] || 'var(--hairline)';
+  const f = co.facts || {};
+  const groupTag = co.is_group_scope
+    ? `<span class="tag" title="三星为集团整体口径，非纯存储业务">集团口径</span>` : '';
+
+  let head = `<div class="co-head">`
+    + `<span class="dot" style="--dot:${color};background:${color}"></span>`
+    + `<span class="co-name">${esc(co.name)}</span>`
+    + `<span class="co-ticker">${esc(co.ticker)}</span>`
+    + (co.name_local ? `<span class="co-local">${esc(co.name_local)}</span>` : '')
+    + groupTag
+    + `</div>`;
+
+  let facts = `<div class="fact-row">`
+    + `<span class="f"><span class="k">上市地</span>${esc(f.listing || '—')}</span>`
+    + `<span class="f"><span class="k">财年</span>${esc(f.fiscal_year || '—')}</span>`
+    + `<span class="f"><span class="k">会计准则</span>${esc(f.accounting || '—')}</span>`
+    + `<span class="f"><span class="k">币种</span>${esc(f.currency || '—')}</span>`
+    + `</div>`;
+
+  let desc = co.description ? `<p class="co-desc">${esc(co.description)}</p>` : '';
+
+  /* 业务构成 */
+  const mix = co.revenue_mix || { pending: true, note: '数据未录入' };
+  let mixBody = '';
+  if (mix.pending) {
+    mixBody = pendingHTML(mix);
+  } else {
+    const chartCls = additiveItems(mix)
+      ? ' mix-chart--pie'
+      : (mix.items.length > 3 ? ' rows-5' : '');
+    mixBody =
+      (mix.basis ? `<div class="mix-note">${esc(mix.basis)}</div>` : '')
+      + `<div class="mix-chart${chartCls}" id="mix-${esc(co.ticker)}"></div>`
+      + mixListHTML(mix)
+      + (mix.share_note ? `<div class="mix-note">${esc(mix.share_note)}</div>` : '')
+      + ((mix.pending_items || []).map(pendingHTML).join(''));
+  }
+  const mixHead = `<div class="mix-head"><h3>业务构成</h3>`
+    + (mix.pending ? '' : srcPill({ tier: mix.tier, source: mix.source, source_url: mix.source_url, asof: mix.asof }))
+    + `</div>`;
+  const mixBlock = `<div class="mix-block">${mixHead}${mixBody}</div>`;
+
+  /* 总量数字 */
+  let hm = '';
+  if (co.headline_metrics && co.headline_metrics.length) {
+    hm = `<div class="hm-grid">` + co.headline_metrics.map((m) => {
+      const t = String(m.tier || 'C').toUpperCase();
+      const tc = TIER_COLORS[t] || TIER_COLORS.C;
+      const src = m.source_url
+        ? `<a href="${esc(m.source_url)}" target="_blank" rel="noopener">${esc(m.source)} ↗</a>`
+        : esc(m.source);
+      return `<div class="hm-cell">`
+        + `<span class="k">${esc(m.label)}</span>`
+        + `<span class="v">${esc(m.value)}</span>`
+        + `<span class="meta"><span class="tier tier--xs" style="background:${tc}" title="${esc('信源档位 ' + t + '：' + (TIER_DEFS[t] || ''))}">${t}</span>${src} · ${esc(m.asof)}</span>`
+        + `</div>`;
+    }).join('') + `</div>`;
+  }
+
+  return `<section class="card co-card" style="border-top-color:${color}">`
+    + head + facts + desc + mixBlock + strengthsHTML(co) + callHTML(co) + hm
+    + capexPlansHTML(co)
+    + disclosuresHTML(co)
+    + `</section>`;
+}
+
+/* —— 核心竞争力（B5）：每条可验证事实 + 真实公开来源 pill —— */
+function strengthsHTML(co) {
+  const arr = co.strengths || [];
+  if (!arr.length) return '';
+  const lis = arr.map((s) =>
+    `<li><span class="bullet">·</span><span class="body">${esc(s.text)}</span>`
+    + `<span class="src">${srcPill({ tier: s.tier, source: s.source, source_url: s.source_url, asof: s.asof })}</span></li>`
+  ).join('');
+  return `<div class="str-block"><h3>核心竞争力</h3><ul class="str-list">${lis}</ul></div>`;
+}
+
+/* —— 近期电话会（B6）：取该 ticker 最近一条 available 档案；
+      演示样稿明标（「演示数据」tag）+ 按档案真实 tier 显档位徽章（与阅读页一致）；
+      无档案/加载失败 → 优雅降级 —— */
+function callHTML(co) {
+  let body;
+  if (callsErr) {
+    body = `<div class="pending-block"><span class="pt">未能加载</span>`
+      + `<span>电话会档案加载失败：${esc(callsErr)}</span></div>`;
+  } else {
+    const list = ((callsData && callsData.archive) || [])
+      .filter((a) => a.ticker === co.ticker)
+      .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+    const latest = list.find((a) => a.available);
+    if (latest) {
+      // 摘要：archive.ai_summary 优先；缺失时兜底取 digest.core_metrics 前 3 条
+      let sum = latest.ai_summary || '';
+      if (!sum && callsData.transcripts && callsData.transcripts[latest.id]) {
+        const cm = (callsData.transcripts[latest.id].digest || {}).core_metrics || [];
+        sum = cm.slice(0, 3).map((it) => it.text || it.a || '').filter(Boolean).join('；');
+      }
+      // 档位徽章取该档案的真实 tier（MU 8-K=S / Hynix IR=A），与阅读页对同一场次一致；
+      // 缺失/占位（—）安全兜底 C。「演示数据」标记的是文稿正文为占位样稿，与来源档位是两码事，二者并列各表其义。
+      const dt = String(latest.tier || 'C').toUpperCase();
+      const dc = TIER_COLORS[dt] || TIER_COLORS.C;
+      body = `<div class="call-card">`
+        + `<div class="row1">`
+        + `<span class="period">${esc(latest.period)}</span>`
+        + `<span class="date">${esc(latest.date)}</span>`
+        + `<span class="tag" title="演示样稿，非真实电话会内容">演示数据</span>`
+        + `<span class="tier tier--xs" style="background:${dc}" title="${esc('信源档位 ' + dt + '：' + (TIER_DEFS[dt] || ''))}">${dt}</span>`
+        + `</div>`
+        + (sum ? `<p class="sum">${esc(sum)}</p>` : '')
+        + `<a class="go" href="电话会阅读页.html?id=${encodeURIComponent(latest.id)}">查看全文 →</a>`
+        + `</div>`;
+    } else {
+      const withReason = list.find((a) => a.reason);
+      body = `<div class="pending-block"><span class="pt">暂无文稿</span>`
+        + `<span>该公司暂未获取文稿${withReason ? '：' + esc(withReason.reason) : ''}</span></div>`;
+    }
+  }
+  return `<div class="call-block"><h3>近期电话会</h3>${body}</div>`;
+}
+
+/* —— 资本投入与扩产计划（W11 · F2b）：capex_plans.json 按 ticker 取计划列表；
+      每条 title + detail + amount/timeframe + 来源徽章（tierBadgeHTML）+ 外链↗；
+      头部注「计划非承诺，可能随市况调整」；数据缺失/该家为空 → 「暂未整理」占位，不崩 —— */
+function capexCardHTML(p) {
+  const t = String(p.tier || 'C').toUpperCase();
+  const tip = '信源档位 ' + t + '：' + (TIER_DEFS[t] || '');
+  const src = p.source_url
+    ? `<a href="${esc(p.source_url)}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">${esc(p.source)} ↗</a>`
+    : esc(p.source || '');
+  const badge = `<span title="${esc(tip)}" style="cursor:help">${tierBadgeHTML(p.tier, 'xs')}</span>`;
+  const meta = []
+    .concat(p.amount ? [`<span class="m"><span class="k">规模</span>${esc(p.amount)}</span>`] : [])
+    .concat(p.timeframe ? [`<span class="m"><span class="k">时间</span>${esc(p.timeframe)}</span>`] : [])
+    .join('');
+  return `<div class="cx-card">`
+    + `<div class="cx-row1"><span class="cx-title">${esc(p.title)}</span></div>`
+    + (p.detail ? `<p class="cx-detail">${esc(p.detail)}</p>` : '')
+    + (meta ? `<div class="cx-meta">${meta}</div>` : '')
+    + `<div class="cx-meta"><span class="m cx-src">${badge}<span>${src}</span></span>`
+    + (p.asof ? `<span class="m"><span class="k">截至</span>${esc(p.asof)}</span>` : '')
+    + `</div>`
+    + `</div>`;
+}
+function capexPlansHTML(co) {
+  const list = ((capexData && capexData.companies) || {})[co.ticker] || [];
+  let body;
+  if (!list.length) {
+    body = `<div class="pending-block"><span class="pt">暂未整理</span>`
+      + `<span>该公司资本投入与扩产计划暂未整理${capexErr ? '（资料库加载失败：' + esc(capexErr) + '）' : ''}。</span></div>`;
+  } else {
+    body = `<div class="cx-lead">以下为公司/官方披露的计划，非承诺，可能随市况调整。</div>`
+      + `<div class="capex-list">${list.filter((p) => p && p.title).map(capexCardHTML).join('')}</div>`;
+  }
+  return `<div class="capex-block"><h3>资本投入与扩产计划</h3>${body}</div>`;
+}
+
+/* —— 公开披露资料（W9 包B）：resources.json 按 ticker 取链接列表；
+      徽章带档位释义 tooltip；外链 target=_blank rel=noopener；
+      数据缺失/该家为空 → 「暂未整理」占位，不崩 —— */
+function resBadge(l) {
+  const t = String(l.tier || 'C').toUpperCase();
+  const tip = '信源档位 ' + t + '：' + (TIER_DEFS[t] || '');
+  return `<span title="${esc(tip)}" style="cursor:help">${tierBadgeHTML(l.tier, 'xs')}</span>`;
+}
+function resRowHTML(l) {
+  const vtip = l.verified_at ? ` title="${esc('已实测可达 · 验证于 ' + l.verified_at)}"` : '';
+  return `<div class="res-li">`
+    + resBadge(l)
+    + `<span class="name"><a href="${esc(l.url)}" target="_blank" rel="noopener"${vtip}>${esc(l.name)} ↗</a></span>`
+    + (l.org ? `<span class="org">${esc(l.org)}</span>` : '')
+    + (l.type ? `<span class="tag-neutral">${esc(l.type)}</span>` : '')
+    + (l.lang ? `<span class="tag-neutral">${esc(l.lang)}</span>` : '')
+    + (l.note ? `<span class="rnote">${esc(l.note)}</span>` : '')
+    + `</div>`;
+}
+function disclosuresHTML(co) {
+  const list = ((resData && resData.companies) || {})[co.ticker] || [];
+  let body;
+  if (!list.length) {
+    body = `<div class="pending-block"><span class="pt">暂未整理</span>`
+      + `<span>该公司公开披露入口暂未整理${resErr ? '（资料库加载失败：' + esc(resErr) + '）' : ''}。</span></div>`;
+  } else {
+    body = `<div class="res-list">${list.map(resRowHTML).join('')}</div>`
+      + (resData && resData.note ? `<div class="res-note">${esc(resData.note)}</div>` : '');
+  }
+  return `<div class="res-block"><h3>公开披露资料</h3>${body}</div>`;
+}
+
+/* —— 行业研究与数据资源（页底共享卡）：同样降级不崩 —— */
+function indCellHTML(l) {
+  const vtip = l.verified_at ? ` title="${esc('已实测可达 · 验证于 ' + l.verified_at)}"` : '';
+  return `<div class="ind-cell">`
+    + `<span class="name">${resBadge(l)}<a href="${esc(l.url)}" target="_blank" rel="noopener"${vtip}>${esc(l.name)} ↗</a></span>`
+    + `<span class="meta">`
+    + (l.org ? `<span>${esc(l.org)}</span>` : '')
+    + (l.type ? `<span class="tag-neutral">${esc(l.type)}</span>` : '')
+    + (l.lang ? `<span class="tag-neutral">${esc(l.lang)}</span>` : '')
+    + `</span>`
+    + (l.note ? `<span class="rnote">${esc(l.note)}</span>` : '')
+    + `</div>`;
+}
+function renderIndustryRes() {
+  const el = $('indRes');
+  if (!el) return;
+  const list = (resData && resData.industry) || [];
+  const head = `<h2>行业研究与数据资源</h2>`
+    + `<div class="res-note">以下为第三方公开资料入口（B 档=产业链研究），仅提供直达链接，不代表本站观点</div>`;
+  if (!list.length) {
+    el.innerHTML = head
+      + `<div class="pending-block"><span class="pt">暂未整理</span>`
+      + `<span>行业公开资源暂未整理${resErr ? '（资料库加载失败：' + esc(resErr) + '）' : ''}。</span></div>`;
+    return;
+  }
+  el.innerHTML = head + `<div class="ind-grid">${list.map(indCellHTML).join('')}</div>`;
+}
+
+/* —— 业务构成图（B2）：加总=100% → 饼图；非加总口径（含内部销售）→ 条形兜底 —— */
+function renderMixChart(co) {
+  const mix = co.revenue_mix;
+  if (!mix || mix.pending) return;
+  const el = document.getElementById('mix-' + co.ticker);
+  if (!el) return;
+  const main = additiveItems(mix);
+  if (main) renderMixPie(co, el, mix, main);
+  else renderMixBar(co, el, mix);
+}
+
+/* —— 饼图：label = 名称 share%，legend 底部，公司主题色系（透明度阶梯） —— */
+function renderMixPie(co, el, mix, items) {
+  const base = COMPANY_COLORS[co.ticker] || '#8A909B';
+  const alphas = [0.92, 0.68, 0.5, 0.36, 0.24, 0.16];
+  const unit = mix.unit_short || mix.unit || '';
+  const opt = {
+    animation: true,
+    backgroundColor: 'transparent',
+    textStyle: { fontFamily: FONT_SANS },
+    tooltip: {
+      trigger: 'item', confine: true, textStyle: { fontSize: 12 },
+      formatter: (p) => {
+        const it = items[p.dataIndex];
+        return esc(it.label) + '<br/>' + fmtVal(it.value) + ' ' + esc(unit) + ' · ' + fmtPct(it.share_pct) + '%';
+      },
+    },
+    legend: {
+      bottom: 0, left: 'center', itemGap: 14,
+      icon: 'circle', itemWidth: 9, itemHeight: 9,
+      textStyle: { color: C.muted, fontSize: 11 },
+    },
+    series: [{
+      type: 'pie',
+      radius: ['32%', '62%'],
+      center: ['50%', '44%'],
+      avoidLabelOverlap: true,
+      itemStyle: { borderColor: '#FFFFFF', borderWidth: 2 },
+      label: {
+        color: C.muted, fontSize: 11,
+        formatter: (p) => items[p.dataIndex].label + ' ' + fmtPct(items[p.dataIndex].share_pct) + '%',
+      },
+      labelLine: { lineStyle: { color: C.softLine } },
+      data: items.map((it, i) => ({
+        name: it.label, value: it.value,
+        itemStyle: { color: hexA(base, alphas[i] != null ? alphas[i] : 0.14) },
+      })),
+    }],
+  };
+  initChart(el, opt);
+}
+
+/* —— 横向条形图（占营收比重%）：非加总口径兜底 —— */
+function renderMixBar(co, el, mix) {
+  const color = COMPANY_COLORS[co.ticker] || '#8A909B';
+  const items = mix.items.slice().reverse();   // 横向条自下而上 → 反转保持列表顺序
+  const opt = baseOption({});
+  opt.grid = { left: 8, right: 46, top: 6, bottom: 22, containLabel: true };
+  opt.xAxis = {
+    type: 'value', max: 100,
+    axisLabel: { color: C.faint, fontSize: 10.5, fontFamily: FONT_MONO, formatter: '{value}%' },
+    splitLine: { lineStyle: { color: C.softLine } },
+  };
+  opt.yAxis = {
+    type: 'category',
+    data: items.map((it) => it.label),
+    axisLine: { lineStyle: { color: C.softLine } },
+    axisTick: { show: false },
+    axisLabel: { color: C.muted, fontSize: 11 },
+  };
+  opt.tooltip = {
+    trigger: 'item', confine: true, textStyle: { fontSize: 12 },
+    formatter: (p) => {
+      const it = items[p.dataIndex];
+      const unit = mix.unit_short || mix.unit || '';
+      return esc(it.label) + '<br/>' + fmtVal(it.value) + ' ' + esc(unit) + ' · ' + fmtPct(it.share_pct) + '%';
+    },
+  };
+  opt.series = [{
+    type: 'bar',
+    data: items.map((it) => ({
+      value: it.share_pct,
+      itemStyle: { color, opacity: it.sub ? 0.45 : 0.9, borderRadius: [0, 3, 3, 0] },
+    })),
+    barMaxWidth: 16,
+    label: {
+      show: true, position: 'right',
+      color: C.muted, fontSize: 10.5, fontFamily: FONT_MONO, formatter: '{c}%',
+    },
+  }];
+  initChart(el, opt);
+}
+
+/* ================= Tab（B1）：一次一家 + ?c= 深链 ================= */
+let companies = [];
+let activeIdx = 0;
+let callsData = null;   // transcripts.json（近期电话会）
+let callsErr = null;    // 加载失败信息 → 小卡显示「未能加载」，不崩
+let resData = null;     // resources.json（公开资料库，W9 包B）
+let resErr = null;      // 加载失败 → 两处小节显示「暂未整理」，不崩
+let capexData = null;   // capex_plans.json（资本投入与扩产计划，W11 · F2b）
+let capexErr = null;    // 加载失败 → 扩产小节显示「暂未整理」，不崩
+
+/* ?c=<ticker或简名> 解析：非法回退默认第一家（Micron） */
+function resolveCompanyIdx() {
+  let c = '';
+  try { c = (new URLSearchParams(window.location.search).get('c') || '').trim().toLowerCase(); } catch (e) {}
+  if (!c) return 0;
+  const norm = c.replace(/\s+/g, '');
+  let idx = companies.findIndex((co) =>
+    co.ticker.toLowerCase() === norm
+    || co.ticker.toLowerCase().split('.')[0] === norm
+    || String(co.name || '').toLowerCase().replace(/\s+/g, '') === norm);
+  if (idx >= 0) return idx;
+  const alias = { mu: 'MU', micron: 'MU', hynix: '000660.KS', skhynix: '000660.KS', samsung: '005930.KS' };
+  idx = companies.findIndex((co) => co.ticker === alias[norm]);
+  return idx >= 0 ? idx : 0;
+}
+
+function renderTabs() {
+  $('coTabs').innerHTML = companies.map((co, i) => {
+    const color = COMPANY_COLORS[co.ticker] || '#8A909B';
+    return `<button class="tab${i === activeIdx ? ' is-active' : ''}" role="tab"`
+      + ` aria-selected="${i === activeIdx}" data-i="${i}">`
+      + `<span class="dot" style="background:${color}"></span>${esc(co.name)}</button>`;
+  }).join('');
+  $('coTabs').querySelectorAll('.tab').forEach((b) => {
+    b.addEventListener('click', () => showCompany(+b.dataset.i, true));
+  });
+}
+
+async function showCompany(i, syncUrl) {
+  activeIdx = i;
+  renderTabs();
+  const co = companies[i];
+  // innerHTML 整体替换前先 dispose 旧图实例，否则实例被 shared.js 的
+  // _charts 集合与 resize 监听器引用，连同脱离文档的 canvas 一起泄漏
+  $('coList').querySelectorAll('.mix-chart').forEach(disposeChart);
+  $('coList').innerHTML = cardHTML(co);
+  if (syncUrl) {
+    try { history.replaceState(null, '', '?c=' + encodeURIComponent(co.ticker)); } catch (e) {}
+  }
+  // 图表：加载失败不崩——数字列表已在页面上，图只是补充
+  try {
+    await echartsReady;
+    renderMixChart(co);
+  } catch (e) {
+    console.warn('ECharts 加载失败，业务构成图不可用：', e && e.message);
+  }
+}
+
+/* ================= 启动 ================= */
+(async () => {
+  injectTopNav($('topNav'), 'companies');
+
+  let data;
+  try {
+    data = await loadJSON('data/companies_profile.json');
+  } catch (e) {
+    $('coList').innerHTML =
+      `<div class="empty-note">公司数据加载失败：${esc(e.message)}</div>`;
+    return;
+  }
+
+  companies = data.companies || [];
+  if (!companies.length) {
+    $('coList').innerHTML = `<div class="empty-note">公司数据为空——无数据。</div>`;
+    return;
+  }
+
+  // 电话会档案（B6）：失败只降级小卡，不影响主体
+  try {
+    callsData = await loadJSON('data/transcripts.json');
+  } catch (e) {
+    callsErr = (e && e.message) || '加载失败';
+  }
+
+  // 公开资料库（W9 包B）：失败只降级两处小节，不影响主体
+  try {
+    resData = await loadJSON('data/resources.json');
+  } catch (e) {
+    resErr = (e && e.message) || '加载失败';
+  }
+  renderIndustryRes();
+
+  // 资本投入与扩产计划（W11 · F2b）：失败只降级扩产小节，不影响主体
+  try {
+    capexData = await loadJSON('data/capex_plans.json');
+  } catch (e) {
+    capexErr = (e && e.message) || '加载失败';
+  }
+
+  activeIdx = resolveCompanyIdx();
+  await showCompany(activeIdx, false);
+})();
+</script>
+</body>
+</html>

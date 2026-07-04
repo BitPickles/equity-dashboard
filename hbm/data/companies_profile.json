@@ -1,0 +1,190 @@
+{
+  "schema_version": "0.2",
+  "generated_at": "2026-07-03",
+  "note": "人工/半自动从各公司年报与官方 IR 资料摘录，更新频率约一年一次。数据纪律：每个数字必须带 value + asof + source(+source_url) + tier；拿不到的项写 pending，前端渲染为「待补」，绝不编造。strengths 每条为可验证事实并带真实公开来源，禁止引用本项目演示 transcripts。",
+  "companies": [
+    {
+      "ticker": "MU",
+      "name": "Micron",
+      "name_local": "Micron Technology, Inc.",
+      "is_group_scope": false,
+      "facts": {
+        "listing": "NASDAQ: MU",
+        "fiscal_year": "财年止于每年 8 月底/9 月初（52/53 周制；FY2025 止 2025-08-28）",
+        "accounting": "US-GAAP",
+        "currency": "USD"
+      },
+      "description": "美国存储半导体公司，总部位于爱达荷州博伊西，产品覆盖 DRAM、NAND 及 NOR，形态包括 HBM、模组与 SSD 等。自 FY2025 起按四个事业部报告分部业绩：CMBU（云端存储）、CDBU（核心数据中心）、MCBU（移动与客户端）、AEBU（车用与嵌入式）。",
+      "revenue_mix": {
+        "asof": "FY2025（财年止 2025-08-28）",
+        "source": "Micron FY2025 Form 10-K · Note 21 Revenue and Customer Contract Liabilities（Revenue by Technology）",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000028/mu-20250828.htm",
+        "tier": "S",
+        "unit": "百万美元",
+        "unit_short": "$M",
+        "total": 37378,
+        "items": [
+          { "label": "DRAM", "value": 28578, "share_pct": 76.5 },
+          { "label": "NAND", "value": 8503, "share_pct": 22.7 },
+          { "label": "其他（主要为 NOR）", "value": 297, "share_pct": 0.8 }
+        ],
+        "share_note": "占比 = 各项 ÷ 总营收，由 10-K 原文金额自算"
+      },
+      "strengths": [
+        {
+          "text": "美国本土唯一的存储芯片（Memory）制造商；获美国《芯片法案》最高 61.65 亿美元直接拨款，用于爱达荷州与纽约州先进 DRAM 产能建设",
+          "source": "美国商务部新闻稿（2024-12-10）",
+          "source_url": "https://www.commerce.gov/news/press-releases/2024/12/department-commerce-awards-chips-incentives-micron-idaho-and-new-york",
+          "asof": "2024-12",
+          "tier": "A"
+        },
+        {
+          "text": "HBM4（基于 1β DRAM）已对首要客户平台大批量出货，并向多家终端客户交付验证样品；HBM4E（基于 1γ DRAM）开发中，预计 2027 自然年量产",
+          "source": "Micron FY2026Q3 业绩新闻稿（8-K，SEC EDGAR）",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/0000723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+          "asof": "2026-06-24",
+          "tier": "S"
+        },
+        {
+          "text": "1γ（1-gamma）制程 DRAM 已进入量产爬坡：16Gb LPDDR5X 在头部智能手机 OEM 大批量出货，24Gb LP5X 向多家手机客户送样",
+          "source": "Micron FY2026Q3 业绩新闻稿（8-K，SEC EDGAR）",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/0000723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+          "asof": "2026-06-24",
+          "tier": "S"
+        }
+      ],
+      "headline_metrics": []
+    },
+    {
+      "ticker": "000660.KS",
+      "name": "SK Hynix",
+      "name_local": "SK하이닉스 주식회사",
+      "is_group_scope": false,
+      "facts": {
+        "listing": "KRX: 000660",
+        "fiscal_year": "自然年（1–12 月）",
+        "accounting": "IFRS（K-IFRS）",
+        "currency": "KRW"
+      },
+      "description": "韩国存储半导体公司，总部位于京畿道利川，主营 DRAM（含 HBM）与 NAND（含企业级 SSD）。为纯存储业务公司，与 MU 同属可比口径（会计准则不同，见数据与来源页）。",
+      "revenue_mix": {
+        "asof": "FY2025（自然年）",
+        "source": "DART 전자공시 · SK하이닉스 사업보고서(2025.12) · 연결재무제표 주석 24. 매출액（按品目拆分的收入）",
+        "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000635",
+        "tier": "S",
+        "unit": "万亿韩元",
+        "unit_short": "조 KRW",
+        "total": 97.1467,
+        "basis": "按产品（品目）拆分，合并（对外销售）口径，加总 = 100%",
+        "items": [
+          { "label": "DRAM", "value": 74.9041, "share_pct": 77.1 },
+          { "label": "NAND Flash", "value": 20.6901, "share_pct": 21.3 },
+          { "label": "其他", "value": 1.5525, "share_pct": 1.6 }
+        ],
+        "share_note": "占比 = 各项 ÷ 总营收，由 DART 年报注记 24 原文金额（百万韩元）自算"
+      },
+      "strengths": [
+        {
+          "text": "2025 年 HBM 收入同比增长一倍以上，是公司创纪录业绩的主要贡献（公司官方表述）",
+          "source": "SK hynix Newsroom FY2025 业绩发布",
+          "source_url": "https://news.skhynix.com/sk-hynix-announces-fy25-financial-results/",
+          "asof": "2026-01-28",
+          "tier": "A"
+        },
+        {
+          "text": "NAND：2025 年完成 321 层 QLC 产品开发；下半年 eSSD 需求带动 NAND 年收入创历史新高",
+          "source": "SK hynix Newsroom FY2025 业绩发布",
+          "source_url": "https://news.skhynix.com/sk-hynix-announces-fy25-financial-results/",
+          "asof": "2026-01-28",
+          "tier": "A"
+        },
+        {
+          "text": "FY2025 营业利润率约 48.6%（自算：营业利润 47.2063 ÷ 营收 97.1467 万亿韩元）",
+          "source": "SK hynix Newsroom FY2025 业绩发布（金额为官方，比率自算）",
+          "source_url": "https://news.skhynix.com/sk-hynix-announces-fy25-financial-results/",
+          "asof": "2026-01-28",
+          "tier": "A"
+        }
+      ],
+      "headline_metrics": [
+        {
+          "label": "2025 营业利润",
+          "value": "47.2063 万亿韩元",
+          "asof": "FY2025（自然年，发布 2026-01-28）",
+          "source": "SK hynix Newsroom 官方业绩发布",
+          "source_url": "https://news.skhynix.com/sk-hynix-announces-fy25-financial-results/",
+          "tier": "A"
+        }
+      ]
+    },
+    {
+      "ticker": "005930.KS",
+      "name": "Samsung",
+      "name_local": "삼성전자 주식회사",
+      "is_group_scope": true,
+      "facts": {
+        "listing": "KRX: 005930",
+        "fiscal_year": "自然年（1–12 月）",
+        "accounting": "IFRS（K-IFRS）",
+        "currency": "KRW"
+      },
+      "description": "综合电子集团，业务涵盖 DX（手机/网络/电视/家电）、DS（半导体：存储/System LSI/代工）、SDC（显示面板）与 Harman（车载电子/音响）。存储（Memory）为 DS 部门的一部分。本站所有三星数据为集团整体口径，非纯存储业务。",
+      "revenue_mix": {
+        "asof": "FY2025（自然年）",
+        "source": "DART 전자공시 · 삼성전자 사업보고서(2025.12) · 연결재무제표 주석 30. 부문별 보고（按主要产品拆分的收入）",
+        "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260310002820",
+        "tier": "S",
+        "unit": "万亿韩元",
+        "unit_short": "조 KRW",
+        "total": 333.6059,
+        "basis": "按主要产品拆分，合并（对外销售、已消除内部交易）口径，加总 = 100%。非事业部口径：事业部（DX/DS 等）营收含事业部间内部销售，不适用饼图。",
+        "items": [
+          { "label": "智能手机等", "value": 126.4744, "share_pct": 37.9 },
+          { "label": "Memory（存储）", "value": 104.0812, "share_pct": 31.2 },
+          { "label": "TV・显示器等", "value": 30.8609, "share_pct": 9.3 },
+          { "label": "显示面板", "value": 29.8417, "share_pct": 8.9 },
+          { "label": "其他（年报未单列，差额自算）", "value": 42.3478, "share_pct": 12.7 }
+        ],
+        "share_note": "占比 = 各项 ÷ 集团总营收，由 DART 年报注记 30「제품과 용역에 대한 공시」原文金额（百万韩元）自算；「其他」= 总营收 − 已单列产品之和，自算",
+        "pending_items": [
+          {
+            "pending": true,
+            "note": "Memory 内 DRAM/NAND 拆分：三星未在年报或公开 IR 资料中披露，待补",
+            "source": "DART 전자공시（dart.fss.or.kr）· 삼성전자 2025 사업보고서（注记 30 只披露到 Memory 一级）"
+          }
+        ]
+      },
+      "strengths": [
+        {
+          "text": "Memory 业务 2025Q4 单季营收与营业利润创历史最高（HBM、服务器 DDR5、企业级 SSD 等高附加值产品扩销）",
+          "source": "Samsung Newsroom 4Q/FY2025 业绩发布",
+          "source_url": "https://news.samsung.com/global/samsung-electronics-announces-fourth-quarter-and-fy-2025-results",
+          "asof": "2026-01",
+          "tier": "A"
+        },
+        {
+          "text": "三星称 HBM4 按计划（on track）于 2026Q1 内开始交付，含 11.7Gbps 产品（公司称其性能为业界领先；截至 2026-01 为计划表述）",
+          "source": "Samsung Newsroom 4Q/FY2025 业绩发布",
+          "source_url": "https://news.samsung.com/global/samsung-electronics-announces-fourth-quarter-and-fy-2025-results",
+          "asof": "2026-01",
+          "tier": "A"
+        },
+        {
+          "text": "IDM 一体化：DS 部门同时涵盖存储、晶圆代工（Foundry）与 System LSI；集团另有显示（SDC）与整机（DX）业务",
+          "source": "Samsung Electronics FY2025 经审计合并财务报表（官方 IR）",
+          "source_url": "https://images.samsung.com/is/content/samsung/assets/global/ir/docs/2025_con_quarter04_all.pdf",
+          "asof": "FY2025",
+          "tier": "A"
+        },
+        {
+          "text": "2025 年研发投入 37.7 万亿韩元，创年度纪录",
+          "source": "Samsung Newsroom 4Q/FY2025 业绩发布",
+          "source_url": "https://news.samsung.com/global/samsung-electronics-announces-fourth-quarter-and-fy-2025-results",
+          "asof": "2026-01",
+          "tier": "A"
+        }
+      ],
+      "headline_metrics": []
+    }
+  ]
+}

@@ -1,0 +1,471 @@
+/* =====================================================================
+   存储三巨头估值看板 · 共享设计系统  shared.css
+   ---------------------------------------------------------------------
+   本地优先纯静态站。所有页面 <head> 里按此顺序引入：
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="assets/shared.css">
+   （字体 @import 已写在本文件顶部作为兜底；若已在 HTML 里用 <link> 引，
+     可保留，重复不冲突。为拿到 preconnect 提速建议仍在 HTML 里放 <link>。）
+
+   设计语言取自设计稿 溯源与口径.dc.html 等 6 页，值为确切复制。
+   约定：前端只读，改数据不改结构；类名稳定、语义化。
+   ===================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+/* ============================ Design Tokens ========================= */
+:root {
+  /* —— 底 / 面 / 线 —— */
+  --bg:          #F1F2F4;   /* 页面浅色底 */
+  --card:        #FFFFFF;   /* 白卡 */
+  --border:      #E4E7EB;   /* 卡片边框 */
+  --border-soft: #EDEFF2;   /* 卡内分隔 / 次级边框 */
+  --border-line: #D6DAE0;   /* 输入框 / 分段控件边框 */
+  --row-line:    #F2F3F5;   /* 表格行分隔线 */
+  --field-bg:    #FAFBFC;   /* 输入框 / 徽章 / select 背景 */
+  --subcard-bg:  #FCFCFD;   /* 卡内小卡背景 */
+
+  /* —— 文字墨色 —— */
+  --ink:      #1A1D23;      /* 主文字 */
+  --ink-2:    #3A404B;      /* 正文次强 */
+  --muted:    #5C6470;      /* 次要文字 / 链接 */
+  --faint:    #8A909B;      /* 弱文字 / 表头 / 标注 */
+  --ghost:    #A6ABB5;      /* 无数据 / 页脚 / 占位 */
+  --hairline: #C9CED6;      /* 极弱线 / 未选中点 */
+
+  /* —— 深色区（方法论卡 / 功能入口深卡 / 口诀条 / 导出弹层） —— */
+  --dark:        #14171D;   /* 深卡底 / 深按钮 */
+  --dark-2:      #1F242D;   /* 深卡 hover */
+  --dark-panel:  #12151C;   /* 导出弹层面板 */
+  --dark-canvas: #0D1117;   /* 导出画布底 */
+  --dark-border: #262C38;   /* 深色面板边框 */
+  --dark-line:   #3A4356;   /* 深色控件边框 */
+  --on-dark:        #F2F4F8; /* 深底主文字 */
+  --on-dark-muted:  #D5DAE2; /* 深底正文 */
+  --on-dark-faint:  #9AA3B2; /* 深底次要 */
+  --on-dark-ghost:  #5E6878; /* 深底弱文字 / 序号 */
+
+  /* —— 信源档位色（S 最硬 → D 最软） —— */
+  --tier-s: #1A7F4E;        /* 监管原文 */
+  --tier-a: #0E8C8C;        /* 第三方硬数据 / 官方 IR */
+  --tier-b: #5B6B8C;        /* 产业链 */
+  --tier-c: #8A8F98;        /* 媒体 */
+  --tier-d: #B8790E;        /* AI / 估算 */
+
+  /* —— 公司主色 —— */
+  --co-mu:      #2E6FE6;    /* Micron */
+  --co-hynix:   #F5822A;    /* SK Hynix */
+  --co-samsung: #7B61FF;    /* Samsung */
+
+  /* —— 语义色 —— */
+  --loss:       #E5484D;    /* 亏损 / 负值 / NM 红 */
+  --loss-strong:#A0501B;    /* 口径警示里的强调橙棕 */
+  --peak:       #F0B429;    /* 峰值黄（周期峰圈 / diff 高亮） */
+  --link:       #2E6FE6;    /* 蓝链接（跳原文 / 看全文） */
+
+  /* —— 口径警示 amber 三件套 —— */
+  --amber-bg:   #FBF5E4;
+  --amber-line: #EBDFBE;
+  --amber-ink:  #7A621F;
+
+  /* —— Q&A 段落浅蓝 —— */
+  --qa-bg: #EEF3FD;
+  --qa-fg: #2E6FE6;
+
+  /* —— 字体 —— */
+  --font-sans: 'Noto Sans SC', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* —— 圆角 —— */
+  --r-card:  10px;          /* 卡片 */
+  --r-md:    8px;           /* 小卡 / 弹层内块 */
+  --r-sm:    7px;           /* 按钮 / select / 分段控件 */
+  --r-xs:    6px;           /* 小按钮 / 输入框 */
+  --r-badge: 5px;           /* 徽章方块（22px 档） */
+  --r-pill:  99px;          /* 药丸 chip */
+
+  /* —— 间距 —— */
+  --gap-page:  18px;        /* 页面区块间距（默认，1080 宽） */
+  --gap-wide:  20px;        /* 宽页区块间距（1240 宽） */
+  --pad-card:  22px 24px;   /* 卡片内边距 */
+  --pad-wrap:  24px 28px 48px; /* 页面容器内边距 */
+
+  /* —— 容器最大宽（不同页宽度略有差异） —— */
+  --w-narrow: 1080px;       /* 溯源 / 档案库 / 阅读页 */
+  --w-mid:    1180px;       /* 跨季对比 */
+  --w-wide:   1240px;       /* 首页 / 周期证据 */
+
+  /* —— 阴影 —— */
+  --shadow-hover: 0 2px 10px rgba(20,23,29,0.06);
+}
+
+/* ============================ Base / Reset ========================= */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+input, select, button, textarea { font-family: inherit; }
+
+.mono { font-family: var(--font-mono); }
+
+/* 页面容器：默认窄。宽页加 .wrap--wide，中页加 .wrap--mid */
+.wrap {
+  max-width: var(--w-narrow);
+  margin: 0 auto;
+  padding: var(--pad-wrap);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-page);
+}
+.wrap--mid  { max-width: var(--w-mid); }
+.wrap--wide { max-width: var(--w-wide); gap: var(--gap-wide); }
+
+/* ============================ 顶栏 + 导航 ========================= */
+header.top {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  gap: 12px 24px; padding: 4px 2px;
+}
+.crumb { font-size: 13px; color: var(--muted); text-decoration: none; }
+.crumb:hover { color: var(--ink); }
+
+.title-wrap { display: flex; align-items: baseline; gap: 10px; }
+.title { font-size: 20px; font-weight: 900; letter-spacing: .02em; }
+.subtitle { font: 500 10.5px var(--font-mono); color: var(--faint); letter-spacing: .08em; }
+/* 顶栏里的一句话说明（“看数据，不做预测”等） */
+.top-note { font-size: 12.5px; color: var(--muted); }
+
+nav.top-nav {
+  margin-left: auto; display: flex; align-items: center;
+  gap: 18px; font-size: 13px;
+}
+nav.top-nav a { color: var(--muted); text-decoration: none; }
+nav.top-nav a:hover { color: var(--ink); }
+/* 当前页高亮：给对应链接加 .is-active */
+nav.top-nav a.is-active {
+  color: var(--ink); font-weight: 500;
+  border-bottom: 2px solid var(--ink); padding-bottom: 2px;
+}
+
+/* ============================ 卡片 ========================= */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  padding: var(--pad-card);
+  display: flex; flex-direction: column; gap: 14px;
+}
+.card h1 { margin: 0; font-size: 21px; font-weight: 900; line-height: 1.5; }
+.card h2 { margin: 0; font-size: 15.5px; font-weight: 700; }
+/* 公司色顶条 / 左条：配合内联 border-color 或 --co 变量 */
+.card--accent-top  { border-top: 3px solid var(--hairline); }
+.card--accent-left { border-left: 3px solid var(--hairline); }
+/* 悬停可点卡片（首页快照 / 功能入口白卡） */
+.card--link { text-decoration: none; color: inherit; display: block; transition: border-color .15s, box-shadow .15s; }
+.card--link:hover { border-color: var(--hairline); box-shadow: var(--shadow-hover); }
+
+/* 卡内小卡 / 单元格 */
+.subcard {
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-md);
+  padding: 13px 16px;
+  background: var(--subcard-bg);
+}
+/* 无数据占位小卡（虚线框） */
+.subcard--empty {
+  border: 1px dashed var(--border-line);
+  background: transparent;
+  color: var(--ghost);
+}
+
+/* 深色卡（方法论 / 功能入口深卡） */
+.card-dark {
+  background: var(--dark);
+  border-radius: var(--r-card);
+  padding: 22px 26px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.card-dark h2 { margin: 0; font-size: 15.5px; font-weight: 700; color: var(--on-dark); }
+a.card-dark { text-decoration: none; color: inherit; transition: background .15s; }
+a.card-dark:hover { background: var(--dark-2); }
+
+/* ============================ 信源档位徽章 ========================= */
+/* 用法：<span class="tier tier--s">S</span>  尺寸档见修饰类 */
+.tier {
+  display: inline-block; color: #fff; text-align: center;
+  font-family: var(--font-mono); font-weight: 700;
+  background: var(--tier-c); /* 兜底 = C 档灰 */
+}
+.tier--s { background: var(--tier-s); }
+.tier--a { background: var(--tier-a); }
+.tier--b { background: var(--tier-b); }
+.tier--c { background: var(--tier-c); }
+.tier--d { background: var(--tier-d); }
+
+/* 尺寸档（默认 = 22px 大徽章，溯源页信源分级用） */
+.tier            { width: 22px; height: 22px; border-radius: var(--r-badge); font-size: 12px; line-height: 22px; }
+.tier--lg        { width: 22px; height: 22px; border-radius: var(--r-badge); font-size: 12px; line-height: 22px; }
+.tier--md        { width: 17px; height: 17px; border-radius: 4px; font-size: 10px; line-height: 17px; } /* 表格内 */
+.tier--sm        { width: 15px; height: 15px; border-radius: 3px; font-size: 9.5px; line-height: 15px; } /* pill 内 */
+.tier--xs        { width: 13px; height: 13px; border-radius: 3px; font-size: 9px;  line-height: 13px; } /* 行内最小 */
+
+/* 信源 pill：徽章 + 来源名 + 方式图标，常见于图表工具行 / 列表行 */
+.src-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  font: 500 11px var(--font-mono); color: var(--muted);
+  border: 1px solid var(--border); border-radius: var(--r-badge);
+  padding: 3px 8px; background: var(--field-bg);
+}
+.src-pill[title] { cursor: help; }
+.src-pill--sm { gap: 5px; font-size: 10.5px; padding: 2px 7px; border-radius: 4px; }
+
+/* ============================ 公司标识 ========================= */
+/* 公司圆点：<span class="dot" style="--dot:var(--co-mu)"></span> */
+.dot {
+  display: inline-block; width: 10px; height: 10px;
+  border-radius: 50%; background: var(--dot, var(--hairline)); flex: none;
+}
+.dot--sm { width: 9px; height: 9px; }
+/* 公司色便捷类，配 .dot / border-color 用 */
+.co-mu      { --dot: var(--co-mu); }
+.co-hynix   { --dot: var(--co-hynix); }
+.co-samsung { --dot: var(--co-samsung); }
+
+/* ============================ 按钮 / 分段 / 标签 ========================= */
+/* 深色主按钮（导出视频帧等） */
+.btn-dark {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--dark); color: var(--on-dark);
+  border: none; border-radius: var(--r-sm);
+  padding: 9px 16px; font-size: 13px; font-weight: 500; cursor: pointer;
+}
+/* 次级白按钮（阅读全文 / 收起展开等） */
+.btn-ghost {
+  font-size: 12.5px; padding: 6px 12px;
+  border: 1px solid var(--border-line); border-radius: var(--r-xs);
+  background: var(--field-bg); color: var(--muted); cursor: pointer;
+  text-decoration: none;
+}
+.btn-ghost:hover { background: var(--dark); color: var(--on-dark); border-color: var(--dark); }
+
+/* Tab 按钮（周期证据顶部）：默认灰白，选中加 .is-active 变深 */
+.tab {
+  font-size: 13.5px; font-weight: 500; padding: 9px 18px;
+  border-radius: var(--r-md); cursor: pointer;
+  border: 1px solid var(--border-line); background: var(--card); color: var(--muted);
+}
+.tab.is-active { font-weight: 700; border-color: var(--dark); background: var(--dark); color: var(--on-dark); }
+
+/* 分段控件（叠加/小多图，中/英/双语）：容器 + 内部无边框按钮 */
+.segmented {
+  display: inline-flex; border: 1px solid var(--border-line);
+  border-radius: var(--r-sm); overflow: hidden;
+}
+.segmented button {
+  font-size: 12.5px; padding: 7px 13px; border: none; cursor: pointer;
+  background: var(--card); color: var(--muted);
+}
+.segmented button.is-active { background: var(--dark); color: var(--on-dark); }
+
+/* 公司开关 chip（药丸）：选中时内联着色，未选用 .is-off */
+.chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 12.5px; font-weight: 500; padding: 6px 12px;
+  border-radius: var(--r-pill); cursor: pointer;
+  border: 1.5px solid var(--border-line); background: var(--card); color: var(--ink);
+}
+.chip .dot { width: 9px; height: 9px; }
+.chip.is-off { border-color: var(--border-line); background: var(--card); color: var(--ghost); }
+.chip.is-off .dot { background: var(--hairline); }
+
+/* 小标签（集团口径 / 自算 / 减值 等 amber 标） */
+.tag {
+  font-size: 10.5px; font-weight: 500; color: var(--amber-ink);
+  background: var(--amber-bg); border: 1px solid var(--amber-line);
+  border-radius: 4px; padding: 1px 7px;
+}
+.tag[title] { cursor: help; }
+/* 中性小标签（语言 / 位置标签，灰底） */
+.tag-neutral {
+  font-size: 11.5px; font-weight: 500; color: var(--muted);
+  background: var(--row-line); border-radius: 4px; padding: 3px 9px;
+}
+/* 演示样稿标（醒目 amber 实底）：文稿正文/季度数字为占位近似值时挂此标，
+   读者一眼分清"演示 vs 真实"，不靠页脚小字。比普通 .tag 更实、更抢眼。 */
+.tag-demo {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 10.5px; font-weight: 700; letter-spacing: .02em;
+  color: #FFF; background: var(--tier-d);
+  border: 1px solid var(--tier-d); border-radius: 4px;
+  padding: 2px 8px; white-space: nowrap; flex: none;
+}
+.tag-demo[title] { cursor: help; }
+.tag-demo::before { content: "▲"; font-size: 8.5px; line-height: 1; }
+/* 阅读页顶栏用的稍大一档 */
+.tag-demo--lg { font-size: 11.5px; padding: 3px 10px; }
+
+/* 表单控件（select / number input） */
+.select, .field {
+  font-size: 13px; padding: 7px 10px;
+  border: 1px solid var(--border-line); border-radius: var(--r-sm);
+  background: var(--field-bg); color: var(--ink); cursor: pointer;
+}
+.field { font: 500 11.5px var(--font-mono); padding: 5px 6px; border-radius: var(--r-badge); cursor: text; }
+
+/* ============================ 口径警示条 ========================= */
+/* 横向 amber 条：▲ 口径 + 若干短句 */
+.caveat-bar {
+  display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: center;
+  background: var(--amber-bg); border: 1px solid var(--amber-line);
+  border-radius: var(--r-sm); padding: 9px 14px;
+  font-size: 12px; color: var(--amber-ink); line-height: 1.6;
+}
+.caveat-bar .lead { font-weight: 700; }
+.caveat-bar .strong { color: var(--loss-strong); }
+
+/* 口径说明大块（溯源页，amber 卡） */
+.caveat {
+  background: var(--amber-bg); border: 1px solid var(--amber-line);
+  border-radius: var(--r-md); padding: 14px 16px;
+}
+.caveat .h { font-size: 13px; font-weight: 700; color: var(--amber-ink); }
+.caveat .p { font-size: 12.5px; color: var(--amber-ink); line-height: 1.75; margin-top: 6px; }
+.caveat .p code { font-family: var(--font-mono); font-size: 11.5px; }
+
+/* 深色口诀条（周期证据指标簇底部） */
+.mantra {
+  background: var(--dark); border-radius: var(--r-md);
+  padding: 13px 18px; font-size: 13px; color: var(--on-dark-muted); line-height: 1.7;
+}
+.mantra .lab { font: 600 11px var(--font-mono); color: var(--on-dark-faint); margin-right: 10px; }
+.mantra b { color: var(--on-dark); }
+
+/* ============================ 无数据 / 缺失占位 ========================= */
+.empty-note {
+  font-size: 12.5px; color: var(--ghost);
+  border: 1px dashed var(--border-line); border-radius: var(--r-xs);
+  padding: 9px 12px;
+}
+
+/* ============================ 位置区间条（P/B 近 4 年区间） ========================= */
+.range-track {
+  position: relative; height: 6px; background: var(--border-soft);
+  border-radius: 3px; margin-top: 7px;
+}
+/* 指针：<span class="range-marker" style="left:42%;--dot:var(--co-mu)"></span> */
+.range-marker {
+  position: absolute; top: -4px; width: 3px; height: 14px;
+  border-radius: 2px; background: var(--dot, var(--ink)); transform: translateX(-50%);
+}
+
+/* ============================ 数字度量（快照大数字） ========================= */
+.metric-label { font-size: 11px; color: var(--faint); }
+.metric-value { font: 600 26px var(--font-mono); margin-top: 2px; }
+
+/* ============================ 表格（来源清单 / 趋势表通用） ========================= */
+.grid-scroll { overflow-x: auto; }
+.grid-th { padding: 8px 10px; font-weight: 700; color: var(--faint); font-size: 11px; border-bottom: 1px solid var(--border); }
+.grid-td { padding: 9px 10px; border-bottom: 1px solid var(--row-line); }
+
+/* ============================ 图表容器 ========================= */
+.chart { width: 100%; }
+.chart--hero  { height: 440px; }
+.chart--main  { height: 430px; }
+.chart--small { height: 260px; }
+.chart--mini  { height: 230px; }
+
+/* ============================ 导出弹层（视频帧） ========================= */
+.export-overlay {
+  position: fixed; inset: 0; background: rgba(8,10,14,0.78);
+  z-index: 50; display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.export-panel {
+  background: var(--dark-panel); border: 1px solid var(--dark-border);
+  border-radius: 12px; padding: 18px 20px;
+  display: flex; flex-direction: column; gap: 14px;
+  max-width: 96vw; max-height: 94vh; overflow: auto;
+}
+.export-canvas { background: var(--dark-canvas); border-radius: var(--r-xs); flex: none; }
+/* 弹层里的比例 / 关闭按钮 */
+.export-panel .seg-btn {
+  padding: 6px 13px; border-radius: var(--r-xs); cursor: pointer;
+  font-size: 12.5px; border: 1px solid var(--dark-line);
+  background: transparent; color: var(--on-dark-faint);
+}
+.export-panel .seg-btn.is-active { background: var(--on-dark); color: var(--dark); }
+.export-panel .dl-btn {
+  padding: 6px 14px; border-radius: var(--r-xs); cursor: pointer;
+  font-size: 12.5px; font-weight: 600; border: none;
+  background: var(--on-dark); color: var(--dark);
+}
+
+/* ============================ 页脚 ========================= */
+footer.pg {
+  font-size: 11.5px; color: var(--ghost); line-height: 1.8; padding: 4px 2px;
+}
+
+/* ============================ 键盘焦点可见（:focus-visible） ========================= */
+/* 仅在键盘导航（Tab）时显示焦点环，鼠标点击不显示——不打扰指针操作，保障可达性。
+   覆盖全站交互控件：链接 / 按钮 / select / input / checkbox / 可聚焦 chip 与卡片。 */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible,
+.chip:focus-visible,
+.tab:focus-visible,
+.btn-dark:focus-visible,
+.btn-ghost:focus-visible,
+.card--link:focus-visible,
+.segmented button:focus-visible,
+.export-panel .seg-btn:focus-visible,
+.export-panel .dl-btn:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+  border-radius: var(--r-xs);
+}
+/* 深色区里的控件焦点环换浅色，保证对比度 */
+.card-dark a:focus-visible,
+.export-panel *:focus-visible,
+.mantra a:focus-visible {
+  outline-color: var(--on-dark);
+}
+/* 不支持 :focus-visible 的旧环境兜底：至少给键盘用户一个可见焦点
+   （现代浏览器命中上面的 :focus-visible 规则，此块仅老引擎生效） */
+a:focus,
+button:focus,
+select:focus,
+input:focus {
+  outline-color: var(--link);
+}
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+input:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ============================ 降级动效（prefers-reduced-motion） ========================= */
+/* 系统开启"减少动态效果"时，压掉过渡 / 动画 / 平滑滚动，避免前庭不适。
+   （ECharts canvas 动画另在各页 option.animation 里按需关闭，此处覆盖 CSS 层。） */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+}

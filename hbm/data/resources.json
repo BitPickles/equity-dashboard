@@ -1,0 +1,243 @@
+{
+  "schema_version": "0.1",
+  "generated_at": "2026-07-03",
+  "note": "人工整理的公开资料直达链接,多数已实测可达;不代表本站背书其内容",
+  "companies": {
+    "MU": [
+      {
+        "name": "SEC EDGAR 公司档案(CIK 0000723125)",
+        "org": "美国证监会 SEC",
+        "type": "监管归档",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000723125&type=&dateb=&owner=include&count=40",
+        "lang": "EN",
+        "tier": "S",
+        "note": "10-K / 10-Q / 8-K 等监管原文归档",
+        "verified_at": "2026-07-03"
+      },
+      {
+        "name": "Micron 投资者关系首页",
+        "org": "Micron 官方 IR",
+        "type": "IR 首页",
+        "url": "https://investors.micron.com/",
+        "lang": "EN",
+        "tier": "A",
+        "verified_at": "2026-07-03"
+      },
+      {
+        "name": "季度业绩(Quarterly Results)",
+        "org": "Micron 官方 IR",
+        "type": "业绩材料",
+        "url": "https://investors.micron.com/quarterly-results",
+        "lang": "EN",
+        "tier": "A",
+        "note": "业绩新闻稿与演示材料按季归档",
+        "verified_at": "2026-07-03"
+      },
+      {
+        "name": "SEC 归档列表(含 10-K 年报 / 委托书)",
+        "org": "Micron 官方 IR",
+        "type": "年报档案",
+        "url": "https://investors.micron.com/sec-filings",
+        "lang": "EN",
+        "tier": "A",
+        "verified_at": "2026-07-03"
+      },
+      {
+        "name": "活动与演示(业绩电话会网络直播)",
+        "org": "Micron 官方 IR",
+        "type": "电话会·网络直播",
+        "url": "https://investors.micron.com/events-and-presentations",
+        "lang": "EN",
+        "tier": "A",
+        "verified_at": "2026-07-03"
+      }
+    ],
+    "000660.KS": [
+      {
+        "name": "DART 公司别公示检索(000660 / 에스케이하이닉스)",
+        "org": "韩国金融监督院 DART",
+        "type": "监管归档",
+        "url": "https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&option=corp&textCrpNm=000660",
+        "lang": "KR",
+        "tier": "S",
+        "note": "事业报告书 / 半期·分期报告书等监管原文",
+        "verified_at": "2026-07-03"
+      },
+      {
+        "name": "SK hynix 投资者关系首页",
+        "org": "SK hynix 官方 IR",
+        "type": "IR 首页",
+        "url": "https://www.skhynix.com/ir/UI-FR-IR01/",
+        "lang": "EN",
+        "tier": "A",
+        "verified_at": "2026-07-03"
+      },
+      {
+        "name": "业绩发布(Earnings Release)",
+        "org": "SK hynix 官方 IR",
+        "type": "业绩材料",
+        "url": "https://www.skhynix.com/ir/UI-FR-IR06/",
+        "lang": "EN",
+        "tier": "A",
+        "verified_at": "2026-07-03"
+      },
+      {
+        "name": "财务报表(Financial Statements)",
+        "org": "SK hynix 官方 IR",
+        "type": "年报档案",
+        "url": "https://www.skhynix.com/ir/UI-FR-IR07",
+        "lang": "EN",
+        "tier": "A",
+        "verified_at": "2026-07-03"
+      },
+      {
+        "name": "Newsroom(业绩新闻稿)",
+        "org": "SK hynix 官方",
+        "type": "业绩材料",
+        "url": "https://news.skhynix.com/",
+        "lang": "EN",
+        "tier": "A",
+        "verified_at": "2026-07-03"
+      },
+      {
+        "name": "可持续经营报告档案",
+        "org": "SK hynix 官方",
+        "type": "年报档案",
+        "url": "https://sustainability.skhynix.com",
+        "lang": "EN",
+        "tier": "A",
+        "verified_at": "2026-07-03"
+      }
+    ],
+    "005930.KS": [
+      {
+        "name": "DART 公司别公示检索(005930 / 삼성전자)",
+        "org": "韩国金融监督院 DART",
+        "type": "监管归档",
+        "url": "https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&option=corp&textCrpNm=005930",
+        "lang": "KR",
+        "tier": "S",
+        "note": "事业报告书 / 半期·分期报告书等监管原文",
+        "verified_at": "2026-07-03"
+      },
+      {
+        "name": "三星电子投资者关系首页",
+        "org": "Samsung 官方 IR",
+        "type": "IR 首页",
+        "url": "https://www.samsung.com/global/ir/",
+        "lang": "EN",
+        "tier": "A",
+        "verified_at": "2026-07-03"
+      },
+      {
+        "name": "业绩发布(Earnings Release)",
+        "org": "Samsung 官方 IR",
+        "type": "业绩材料",
+        "url": "https://www.samsung.com/global/ir/financial-information/earnings-release/",
+        "lang": "EN",
+        "tier": "A",
+        "note": "按季归档,含历史业绩材料",
+        "verified_at": "2026-07-03"
+      },
+      {
+        "name": "事业报告书档案(Business Report)",
+        "org": "Samsung 官方 IR",
+        "type": "年报档案",
+        "url": "https://www.samsung.com/global/ir/reports-disclosures/business-report/",
+        "lang": "EN",
+        "tier": "A",
+        "verified_at": "2026-07-03"
+      },
+      {
+        "name": "审计财务报表(Audited Financial Statements)",
+        "org": "Samsung 官方 IR",
+        "type": "年报档案",
+        "url": "https://www.samsung.com/global/ir/financial-information/audited-financial-statements/",
+        "lang": "EN",
+        "tier": "A",
+        "verified_at": "2026-07-03"
+      }
+    ]
+  },
+  "industry": [
+    {
+      "name": "TrendForce 新闻稿中心",
+      "org": "TrendForce(集邦咨询)",
+      "type": "新闻稿",
+      "url": "https://www.trendforce.com/presscenter/",
+      "lang": "EN",
+      "tier": "B",
+      "note": "DRAM / NAND 价格与供需公开稿件",
+      "verified_at": "2026-07-03"
+    },
+    {
+      "name": "DRAMeXchange 行情页",
+      "org": "TrendForce 旗下",
+      "type": "行情数据",
+      "url": "https://www.dramexchange.com/",
+      "lang": "EN",
+      "tier": "B",
+      "note": "DRAM / NAND 现货价参考(公开部分)",
+      "verified_at": "2026-07-03"
+    },
+    {
+      "name": "Counterpoint Insights",
+      "org": "Counterpoint Research",
+      "type": "行业洞察",
+      "url": "https://www.counterpointresearch.com/insights/",
+      "lang": "EN",
+      "tier": "B",
+      "note": "半导体 / 存储公开分析稿件",
+      "verified_at": "2026-07-03"
+    },
+    {
+      "name": "Omdia Newsroom",
+      "org": "Omdia(Informa Tech)",
+      "type": "新闻稿",
+      "url": "https://omdia.tech.informa.com/pr",
+      "lang": "EN",
+      "tier": "B",
+      "note": "半导体与存储(DRAM/NAND 份额)研究公开新闻稿;站点设有反爬保护,请在浏览器中打开"
+    },
+    {
+      "name": "Yole Group Press Center",
+      "org": "Yole Group",
+      "type": "新闻稿",
+      "url": "https://www.yolegroup.com/technology-press-release/",
+      "lang": "EN",
+      "tier": "B",
+      "note": "含存储(Memory)专题公开稿件",
+      "verified_at": "2026-07-03"
+    },
+    {
+      "name": "SemiAnalysis 公开文章",
+      "org": "SemiAnalysis",
+      "type": "行业洞察",
+      "url": "https://semianalysis.com/",
+      "lang": "EN",
+      "tier": "B",
+      "note": "部分文章付费;此处仅指向公开文章入口",
+      "verified_at": "2026-07-03"
+    },
+    {
+      "name": "SIA 数据与资源页",
+      "org": "美国半导体行业协会 SIA",
+      "type": "统计数据",
+      "url": "https://www.semiconductors.org/data-resources/",
+      "lang": "EN",
+      "tier": "B",
+      "note": "全球半导体月度销售额等公开数据",
+      "verified_at": "2026-07-03"
+    },
+    {
+      "name": "WSTS 统计首页",
+      "org": "世界半导体贸易统计 WSTS",
+      "type": "统计数据",
+      "url": "https://www.wsts.org/",
+      "lang": "EN",
+      "tier": "B",
+      "note": "全球半导体市场统计与预测新闻稿",
+      "verified_at": "2026-07-03"
+    }
+  ]
+}

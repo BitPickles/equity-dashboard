@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>跨季对比 · 存储三巨头估值看板</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+  /* ============ 页面独有样式（值照抄设计稿 跨季对比.dc.html） ============ */
+
+  /* 顶栏一句话说明 */
+  .top .top-note { font-size: 12.5px; color: var(--muted); }
+
+  /* 选择两场 */
+  .picker {
+    display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center;
+    padding: 14px 18px;
+  }
+  .picker .lab { font-size: 12px; color: var(--faint); }
+  .picker select {
+    font-size: 13px; padding: 7px 10px;
+    border: 1px solid var(--border-line); border-radius: 7px;
+    background: var(--field-bg); color: var(--ink); cursor: pointer;
+  }
+  .picker .ai-note {
+    margin-left: auto;
+    display: inline-flex; align-items: center; gap: 5px;
+    font: 500 10.5px var(--font-mono); color: var(--amber-ink);
+    background: var(--amber-bg); border: 1px solid var(--amber-line);
+    border-radius: 4px; padding: 2px 7px; white-space: nowrap; flex: none;
+  }
+  .picker .ai-note .badge {
+    width: 13px; height: 13px; border-radius: 3px; background: var(--tier-d);
+    color: #FFF; font: 700 9px/13px var(--font-mono); text-align: center; flex: none;
+  }
+
+  /* 通用：区块小标题行 */
+  .sec-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .sec-head h2 { margin: 0; font-size: 15px; font-weight: 700; }
+  .sec-head .hint { font-size: 11.5px; color: var(--faint); }
+  .hl-chip { background: rgba(240,180,41,0.35); padding: 0 4px; border-radius: 3px; }
+
+  /* 口径 diff —— 同话题措辞对比 */
+  .diff-headrow {
+    display: grid; grid-template-columns: 100px 1fr 1fr; gap: 0;
+    font-size: 12px; color: var(--faint); font-weight: 700;
+  }
+  .diff-headrow .col { padding: 0 12px 6px; display: flex; align-items: center; gap: 7px; }
+  .diff-headrow .col .dot { width: 8px; height: 8px; }
+  .diff-row {
+    display: grid; grid-template-columns: 100px 1fr 1fr; gap: 0;
+    border-top: 1px solid var(--border-soft); padding: 12px 0;
+  }
+  .diff-row .rlabel { font-size: 12.5px; font-weight: 700; color: var(--ink-2); padding-top: 4px; }
+  .diff-row .cell { padding: 0 12px; }
+  .diff-row .cell.right { border-left: 1px solid var(--border-soft); }
+  .diff-row .cell p { margin: 0; font-size: 13px; line-height: 1.8; color: var(--ink-2); }
+  .diff-row .cell a.back {
+    font-size: 11px; color: var(--link); text-decoration: none;
+  }
+  .diff-row .cell .miss {
+    font-size: 12.5px; color: var(--ghost);
+    border: 1px dashed var(--border-line); border-radius: 5px;
+    padding: 4px 10px; display: inline-block;
+  }
+  .hl-span { border-radius: 3px; }
+
+  /* 核心数据季度趋势 —— 表格 + 迷你折线 */
+  .trend-scroll { overflow-x: auto; }
+  .trend-grid {
+    min-width: 560px; display: grid; font-size: 12.5px; align-items: center;
+  }
+  .trend-grid .th {
+    padding: 7px 10px; font-size: 11px; font-weight: 700; color: var(--faint);
+    border-bottom: 1px solid var(--border);
+  }
+  .trend-grid .th.mono { font: 600 11px var(--font-mono); color: var(--faint); }
+  .trend-grid .td-metric { padding: 10px; font-weight: 500; border-bottom: 1px solid var(--row-line); }
+  .trend-grid .td-val {
+    padding: 10px; font: 500 12.5px var(--font-mono); color: var(--ink);
+    border-bottom: 1px solid var(--row-line);
+  }
+  .trend-grid .td-val.nd { color: var(--ghost); }
+  .trend-grid .td-spark { border-bottom: 1px solid var(--row-line); padding: 2px 6px; }
+  .trend-grid .td-spark .spark { width: 118px; height: 34px; }
+  .trend-note { font-size: 11px; color: var(--ghost); }
+  .trend-diffco {
+    font-size: 12.5px; color: var(--ghost);
+    border: 1px dashed var(--border-line); border-radius: 6px; padding: 12px 14px;
+  }
+
+  /* 全文并排 */
+  .side { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .side .pane {
+    height: 460px; overflow-y: auto;
+    border: 1px solid var(--border-soft); border-radius: 8px; padding: 4px 14px;
+  }
+  /* 窄屏（≤900px）：并排两栏在移动端极挤，改单栏上下堆叠；
+     每栏降低固定高度，避免两个 460px 滚动区把页面撑得过长 */
+  @media (max-width: 900px) {
+    .side { grid-template-columns: 1fr; }
+    .side .pane { height: 360px; }
+    /* 单栏下右栏原有的左分隔线不再需要（diff 行同理由 CSS 控制，见下） */
+  }
+  .seg {
+    border-bottom: 1px solid var(--row-line); padding: 12px 0;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .seg .meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .seg .sec {
+    font-size: 9.5px; font-weight: 700; border-radius: 4px; padding: 1px 6px;
+    white-space: nowrap; flex: none;
+  }
+  .seg .speaker { font-size: 11.5px; font-weight: 600; color: var(--muted); }
+  .seg .fail { font-size: 10px; color: var(--loss); }
+  .seg .en { margin: 0; font-size: 12px; line-height: 1.7; color: var(--faint); }
+  .seg .zh { margin: 0; font-size: 12.5px; line-height: 1.8; color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap wrap--mid">
+
+  <!-- 顶栏 -->
+  <header class="top">
+    <a href="电话会.html" class="crumb">← 电话会</a>
+    <div class="title-wrap">
+      <div class="title">跨季对比</div>
+      <div class="subtitle">QUARTER-OVER-QUARTER DIFF</div>
+    </div>
+    <span class="tag-demo tag-demo--lg" id="tagDemo" style="display:none"
+          title="演示样稿：两侧文稿正文、diff 措辞与季度趋势数字均为占位近似值，非真实电话会内容，最终由构建器抓取真稿填入">演示样稿</span>
+    <div class="top-note">只比措辞与数据，不解读语气</div>
+    <nav class="top-nav" id="topNav"></nav>
+  </header>
+
+  <!-- 选择两场 -->
+  <div class="card picker">
+    <span class="lab">本季（左）</span>
+    <select id="selA"></select>
+    <span class="lab">对比（右）</span>
+    <select id="selB"></select>
+    <span class="ai-note"><span class="badge">D</span>🤖 AI 派生，可点回原文</span>
+  </div>
+
+  <!-- 口径 diff：同话题措辞对比 -->
+  <section class="card">
+    <div class="sec-head">
+      <h2>同话题措辞对比</h2>
+      <span class="hint"><span class="hl-chip">高亮</span> = 关键措辞 · 只并排照录，不解读语气</span>
+    </div>
+    <div class="diff-headrow">
+      <div></div>
+      <div class="col" id="diffColA"></div>
+      <div class="col" id="diffColB"></div>
+    </div>
+    <div id="diffRows"></div>
+  </section>
+
+  <!-- 核心数据季度趋势 -->
+  <section class="card">
+    <h2 style="margin:0;font-size:15px;font-weight:700">核心数据季度趋势</h2>
+    <div id="trendBody"></div>
+  </section>
+
+  <!-- 全文并排 -->
+  <section class="card">
+    <div class="sec-head">
+      <h2>全文并排</h2>
+      <span class="hint">左本季 · 右对比季 · 中英上下排 · 同步滚动</span>
+    </div>
+    <div class="side">
+      <div class="pane" id="paneA"></div>
+      <div class="pane" id="paneB"></div>
+    </div>
+  </section>
+
+  <!-- 口径警示条 -->
+  <div class="caveat-bar">
+    <span class="lead">▲ 口径</span>
+    <span>diff 与摘要为 AI 派生（D 档），以原文为准</span>
+    <span>只比措辞变化与数据趋势，不解读语气</span>
+  </div>
+
+  <footer class="pg"><a href="数据与来源.html" style="color:var(--link);text-decoration:none">关于数据与来源 →</a> · 数据 schema 0.6 · 电话会内容演示样稿，最终由构建器抓取真稿填入。</footer>
+
+</div>
+
+<script type="module">
+import {
+  echartsReady, loadJSON, COMPANY_COLORS, C, FONT_MONO, injectTopNav
+} from './assets/shared.js';
+
+/* —— 状态 —— */
+const state = { data: null, idA: 'mu-fy2026q3', idB: 'mu-fy2026q2' };
+const charts = {};   // sparkline 实例集合，key = 'spark0' | 'spark1' | 'spark2'
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s == null ? '' : s)
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;');
+
+/* —— 演示样稿判定（与 电话会.html / 电话会阅读页.html 同规则）——
+   优先读条目级 t.demo；未标则回退数据集级信号（schema 0.x 或 note 含"演示样稿"）。
+   构建器接入真稿后置 false / 升 schema，标即消失。本页两侧任一为演示即整页视为演示。 */
+function datasetIsDemo(d) {
+  if (!d) return false;
+  const sv = String(d.schema_version || '');
+  return /^0\./.test(sv) || /演示样稿/.test(String(d.note || ''));
+}
+function isDemoEntry(t) {
+  if (t && t.demo === true) return true;
+  if (t && t.demo === false) return false;
+  return datasetIsDemo(state.data);
+}
+function pageIsDemo() {
+  // 两侧任一为演示 → 顶栏挂标（跨季对比整页正文都来自这两侧）
+  return isDemoEntry(tA()) || isDemoEntry(tB());
+}
+
+/* 章节标签配色（照抄设计稿：Q&A 浅蓝，陈述灰） */
+function secStyle(section) {
+  return section === 'Q&A'
+    ? { bg: 'var(--qa-bg)', fg: 'var(--qa-fg)' }
+    : { bg: 'var(--row-line)', fg: 'var(--muted)' };
+}
+
+/* —— 取当前两场 —— */
+function tA() { const d = state.data; return d && d.transcripts[state.idA]; }
+function tB() { const d = state.data; return d && d.transcripts[state.idB]; }
+function metaA() { const d = state.data; return d && d.archive.find(a => a.id === state.idA); }
+function metaB() { const d = state.data; return d && d.archive.find(a => a.id === state.idB); }
+
+/* ================= 选择器 ================= */
+function renderPickers() {
+  const d = state.data;
+  const opts = d.archive.filter(a => a.available)
+    .map(a => `<option value="${esc(a.id)}">${esc(a.company + ' ' + a.period)}</option>`)
+    .join('');
+  $('selA').innerHTML = opts;
+  $('selB').innerHTML = opts;
+  $('selA').value = state.idA;
+  $('selB').value = state.idB;
+  $('selA').addEventListener('change', (e) => { state.idA = e.target.value; syncURL(); renderAll(); });
+  $('selB').addEventListener('change', (e) => { state.idB = e.target.value; syncURL(); renderAll(); });
+}
+
+/* 把当前两场写回 URL（?a=&b=，可分享/收藏；replaceState 不产生历史记录） */
+function syncURL() {
+  try {
+    const u = new URL(window.location.href);
+    u.searchParams.set('a', state.idA);
+    u.searchParams.set('b', state.idB);
+    history.replaceState(null, '', u);
+  } catch (e) { /* file:// 等环境下失败不影响功能 */ }
+}
+
+/* ================= 口径 diff：同话题措辞对比 ================= */
+function tickerColor(ticker) { return COMPANY_COLORS[ticker] || 'var(--hairline)'; }
+
+function renderDiff() {
+  const d = state.data, a = tA(), b = tB();
+  if (!a || !b) return;
+
+  const demoTag = (t) => isDemoEntry(t)
+    ? ` <span class="tag-demo" title="演示样稿：该季文稿正文与 diff 措辞为占位近似值，非真实电话会内容">演示样稿</span>`
+    : '';
+  $('diffColA').innerHTML =
+    `<span class="dot" style="background:${tickerColor(a.ticker)}"></span>` +
+    esc(a.company + ' ' + a.period + '（本季）') + demoTag(a);
+  $('diffColB').innerHTML =
+    `<span class="dot" style="background:${tickerColor(b.ticker)}"></span>` +
+    esc(b.company + ' ' + b.period) + demoTag(b);
+
+  const cellHTML = (t, id, key, missingText, sideCls) => {
+    const topic = t.topics && t.topics[key];
+    if (!topic) {
+      return `<div class="cell ${sideCls}"><span class="miss">${esc(missingText)}</span></div>`;
+    }
+    const spans = topic.spans.map(sp => {
+      if (sp.hl) {
+        return `<span class="hl-span" style="background:rgba(240,180,41,0.35);padding:0 3px">${esc(sp.t)}</span>`;
+      }
+      return `<span>${esc(sp.t)}</span>`;
+    }).join('');
+    const link = '电话会阅读页.html?id=' + encodeURIComponent(id) +
+      (topic.anchor ? '#' + encodeURIComponent(topic.anchor) : '');
+    return `<div class="cell ${sideCls}"><p>${spans}</p>` +
+      `<a class="back" href="${link}">回原文 ↗</a></div>`;
+  };
+
+  const rows = d.topic_defs.map(td => {
+    const left = cellHTML(a, state.idA, td.key, '本季未提及', 'left');
+    const right = cellHTML(b, state.idB, td.key, '该季未提及', 'right');
+    return `<div class="diff-row">` +
+      `<div class="rlabel">${esc(td.label)}</div>` +
+      left + right + `</div>`;
+  }).join('');
+  $('diffRows').innerHTML = rows;
+}
+
+/* ================= 核心数据季度趋势 ================= */
+function fmtDram(v) {
+  if (v === null || v === undefined) return '无数据';
+  return (v > 0 ? '+' : '') + v + '%';
+}
+function fmtHbm(v) {
+  if (v === null || v === undefined) return '无数据';
+  return '$' + Number(v).toFixed(2) + 'B';
+}
+function fmtMargin(v) {
+  if (v === null || v === undefined) return '无数据';
+  return Math.round(v * 100) + '%';
+}
+
+function renderTrend() {
+  const d = state.data, a = tA(), b = tB();
+  const body = $('trendBody');
+  if (!a || !b) { body.innerHTML = ''; return; }
+
+  const same = a.ticker === b.ticker;
+  if (!same) {
+    // 清理旧图
+    Object.keys(charts).forEach(k => { charts[k].dispose(); delete charts[k]; });
+    body.innerHTML =
+      `<div class="trend-diffco">两场来自不同公司，口径不可直接比——趋势表仅在同公司两场之间显示。</div>`;
+    return;
+  }
+
+  const qm = (d.quarterly_metrics && d.quarterly_metrics[a.ticker]) || [];
+  const cols = qm.length;
+
+  const metricRows = [
+    { label: 'DRAM ASP QoQ', key: 'dram_asp_qoq', fmt: fmtDram },
+    { label: 'HBM 收入',     key: 'hbm_rev_b',    fmt: fmtHbm },
+    { label: '营业利润率',   key: 'op_margin',    fmt: fmtMargin },
+  ];
+
+  // grid 列：指标(1.2fr) + N×1fr + 迷你折线(130px)
+  const gridCols = `1.2fr repeat(${cols}, 1fr) 130px`;
+
+  let html = `<div class="trend-scroll"><div class="trend-grid" style="grid-template-columns:${gridCols}">`;
+  // 表头
+  html += `<div class="th">指标</div>`;
+  qm.forEach(m => { html += `<div class="th mono">${esc(m.period)}</div>`; });
+  html += `<div class="th">迷你折线</div>`;
+  // 各指标行
+  metricRows.forEach((mr, i) => {
+    html += `<div class="td-metric">${esc(mr.label)}</div>`;
+    qm.forEach(m => {
+      const v = m[mr.key];
+      const txt = mr.fmt(v);
+      const nd = (v === null || v === undefined) ? ' nd' : '';
+      html += `<div class="td-val${nd}">${esc(txt)}</div>`;
+    });
+    html += `<div class="td-spark"><div class="spark" id="spark${i}"></div></div>`;
+  });
+  html += `</div></div>`;
+  html += `<div class="trend-note">数字为演示近似值；来源：财报 / 电话会，AI 汇总（D 档），以原文为准。</div>`;
+  // innerHTML 覆写前先 dispose 旧 spark 实例——否则旧 DOM 被孤儿化而实例仍留在
+  // ECharts 注册表里，同公司组合间反复切换会持续泄漏
+  Object.keys(charts).forEach(k => {
+    if (k.startsWith('spark') && charts[k]) { try { charts[k].dispose(); } catch (e) {} delete charts[k]; }
+  });
+  body.innerHTML = html;
+
+  // 渲染 sparklines（真 ECharts）
+  const color = tickerColor(a.ticker);
+  renderSparks(qm, metricRows, color);
+}
+
+function renderSparks(qm, metricRows, color) {
+  if (!window.echarts) return;
+  const x = qm.map(m => m.period);
+  metricRows.forEach((mr, i) => {
+    const el = document.getElementById('spark' + i);
+    if (!el) return;
+    const vals = qm.map(m => {
+      const v = m[mr.key];
+      return (v === null || v === undefined) ? null : v;
+    });
+    let inst = window.echarts.getInstanceByDom(el);
+    if (!inst) inst = window.echarts.init(el);
+    charts['spark' + i] = inst;
+    inst.setOption({
+      animation: false,
+      grid: { left: 2, right: 2, top: 4, bottom: 2 },
+      xAxis: { type: 'category', show: false, data: x },
+      yAxis: { type: 'value', show: false },
+      tooltip: {
+        trigger: 'axis', confine: true,
+        textStyle: { fontSize: 11, fontFamily: FONT_MONO },
+        formatter: (ps) => {
+          if (!ps || !ps.length) return '';
+          const p = ps[0];
+          const raw = p.data;
+          const shown = (raw === null || raw === undefined) ? '无数据' : raw;
+          return p.axisValue + '<br/>' + mr.label + '：' + shown;
+        }
+      },
+      series: [{
+        type: 'line', data: vals, symbol: 'circle', symbolSize: 4,
+        color: color, lineStyle: { width: 1.6 }, connectNulls: false
+      }]
+    }, true);
+    inst.resize();
+  });
+}
+
+/* ================= 全文并排 ================= */
+function segHTML(s) {
+  const st = secStyle(s.section);
+  const hasZh = !!s.zh;
+  const zhFailed = !!s.zh_error;
+  let h = `<div class="seg">`;
+  h += `<div class="meta">`;
+  h += `<span class="sec" style="color:${st.fg};background:${st.bg}">${esc(s.section)}</span>`;
+  h += `<span class="speaker">${esc(s.speaker)}</span>`;
+  if (zhFailed) h += `<span class="fail">翻译失败</span>`;
+  h += `</div>`;
+  h += `<p class="en">${esc(s.en)}</p>`;
+  if (hasZh) h += `<p class="zh">${esc(s.zh)}</p>`;
+  h += `</div>`;
+  return h;
+}
+
+function paneDemoBanner(t) {
+  return isDemoEntry(t)
+    ? `<div class="seg" style="border-bottom:1px solid var(--row-line)"><div class="meta">` +
+      `<span class="tag-demo" title="演示样稿：以下全文为占位近似值，非真实电话会内容">演示样稿</span></div></div>`
+    : '';
+}
+function renderSide() {
+  const a = tA(), b = tB();
+  $('paneA').innerHTML = paneDemoBanner(a) + (a && a.segments ? a.segments : []).map(segHTML).join('');
+  $('paneB').innerHTML = paneDemoBanner(b) + (b && b.segments ? b.segments : []).map(segHTML).join('');
+  wireSyncScroll();
+}
+
+/* 同步滚动：按滚动比例映射 */
+let syncing = false;
+function wireSyncScroll() {
+  const pa = $('paneA'), pb = $('paneB');
+  if (!pa || !pb) return;
+  const mk = (from, to) => () => {
+    if (syncing) return;
+    syncing = true;
+    const denom = Math.max(1, from.scrollHeight - from.clientHeight);
+    const ratio = from.scrollTop / denom;
+    to.scrollTop = ratio * (to.scrollHeight - to.clientHeight);
+    requestAnimationFrame(() => { syncing = false; });
+  };
+  // 避免重复绑定：先移除再加
+  pa.onscroll = mk(pa, pb);
+  pb.onscroll = mk(pb, pa);
+}
+
+/* ================= 主渲染 ================= */
+function renderAll() {
+  // 顶栏演示样稿标：随当前两侧条目更新（切换选择后重判）
+  const dt = $('tagDemo');
+  if (dt) dt.style.display = pageIsDemo() ? '' : 'none';
+  renderDiff();
+  renderTrend();
+  renderSide();
+}
+
+/* 自适应 */
+window.addEventListener('resize', () => {
+  Object.keys(charts).forEach(k => { try { charts[k].resize(); } catch (e) {} });
+});
+
+/* ================= 启动 ================= */
+(async () => {
+  injectTopNav(document.getElementById('topNav'), 'calls');
+  try {
+    state.data = await loadJSON('data/transcripts.json');
+  } catch (e) {
+    document.querySelector('.wrap').insertAdjacentHTML('afterbegin',
+      `<div class="empty-note">数据加载失败：${esc(e.message)}</div>`);
+    return;
+  }
+  const avail = state.data.archive.filter(a => a.available).map(a => a.id);
+
+  // URL 参数 ?a=&b=（电话会页对比模式入口）：合法 id 则作为初始两场，非法/缺省回退默认
+  try {
+    const q = new URLSearchParams(window.location.search);
+    const qa = q.get('a'), qb = q.get('b');
+    if (qa && avail.includes(qa)) state.idA = qa;
+    if (qb && avail.includes(qb)) state.idB = qb;
+  } catch (e) { /* 参数解析失败 → 用默认 */ }
+
+  // 确保默认两场存在，否则回退到前两场可用记录
+  if (!avail.includes(state.idA)) state.idA = avail[0];
+  if (!avail.includes(state.idB)) state.idB = avail[1] || avail[0];
+
+  renderPickers();
+  renderAll();
+
+  // ECharts 就绪后重绘 sparklines（若当前为同公司）
+  try {
+    await echartsReady;
+    renderTrend();
+  } catch (e) {
+    // ECharts 加载失败：趋势表数字仍在，仅缺迷你折线
+    console.warn('ECharts 加载失败，迷你折线不可用：', e && e.message);
+  }
+})();
+</script>
+</body>
+</html>

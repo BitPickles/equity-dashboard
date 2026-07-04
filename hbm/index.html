@@ -1,0 +1,2643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>存储周期看板</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+  /* ===== 单图工作台 · 页面独有样式（设计 token 全部来自 shared.css） ===== */
+
+  /* [hidden] 权威：本页用 hidden 属性做显隐切换，需压过自带 display 的类 */
+  [hidden] { display: none !important; }
+
+  /* —— 两栏布局：左指标列表 240px + 右工作区 —— */
+  .workbench { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: var(--gap-wide); align-items: start; }
+
+  /* 左侧指标列表 */
+  .side { padding: 14px 12px; gap: 14px; position: sticky; top: 18px; }
+  .m-group { display: flex; flex-direction: column; gap: 5px; }
+  .m-group-title { font: 600 10.5px var(--font-mono); color: var(--faint); letter-spacing: .14em; padding: 0 10px; }
+  .m-group-items { display: flex; flex-direction: column; gap: 2px; }
+  .m-item {
+    display: block; width: 100%; text-align: left; font-size: 13px; padding: 7px 10px;
+    border: none; border-radius: var(--r-sm); background: transparent; color: var(--muted); cursor: pointer;
+  }
+  .m-item:hover { background: var(--row-line); color: var(--ink); }
+  .m-item.is-active { background: var(--dark); color: var(--on-dark); font-weight: 700; }
+
+  /* 右侧工作区 */
+  .work { gap: 13px; }
+  .work-head { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+  .work-title { margin: 0; font-size: 17px; font-weight: 900; letter-spacing: .01em; }
+  .ctrls { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .chip-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  /* 主图区：LWC / ECharts 严格分容器 */
+  .chart-stage { position: relative; width: 100%; height: 440px; }
+  #lwcMain > div { position: absolute; inset: 0; }   /* 叠加图各 metric×range 的 box 互斥显隐 */
+  .small-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+  .small-cell { border: 1px solid var(--border-soft); border-radius: var(--r-md); padding: 8px; }
+  .cell-head { font-size: 12.5px; font-weight: 700; padding: 2px 6px 6px; }
+  .chart-small { width: 100%; height: 250px; }
+  .cell-note { height: 250px; display: flex; align-items: center; justify-content: center; font: 500 11.5px var(--font-mono); color: var(--ghost); }
+
+  /* 图下三行：统计行（中性灰）/ 口径行（caveat-bar 复用）/ 来源行 */
+  .stats-block { display: flex; flex-direction: column; }
+  .stat-row { padding: 8px 0 10px; border-top: 1px solid var(--border-soft); }
+  .stat-row:first-child { border-top: none; padding-top: 0; }
+  .s-line { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .s-name { font-size: 12.5px; font-weight: 700; }
+  .s-body { font: 500 11px var(--font-mono); color: var(--muted); }
+  .stat-row .range-track { margin-top: 7px; }
+  .src-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 11.5px; color: var(--faint); }
+  .src-row a { color: var(--muted); }
+  .src-row a:hover { color: var(--ink); }
+
+  /* —— v0.5:叠加对比控件 / 统计分段头 / 指标解释 / 原始数据表 / 导出小按钮 —— */
+  .overlay-sel {
+    font-size: 12px; padding: 6px 10px; max-width: 138px;
+    border: 1px dashed var(--border-line); border-radius: var(--r-pill);
+    background: transparent; color: var(--muted); cursor: pointer;
+  }
+  .overlay-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 500; padding: 6px 11px;
+    border: 1.5px solid var(--dark); border-radius: var(--r-pill);
+    background: var(--dark); color: var(--on-dark);
+  }
+  .overlay-chip button {
+    border: none; background: transparent; color: inherit; cursor: pointer;
+    font-size: 14px; line-height: 1; padding: 0 1px;
+  }
+  .stat-sec-head { font: 600 10.5px var(--font-mono); color: var(--faint); letter-spacing: .12em; padding: 6px 0 4px; }
+  .stat-sec-head + .stat-row { border-top: none; }
+  .metric-explain { font-size: 11px; color: var(--faint); line-height: 1.75; }
+  .metric-explain .me-tag { font-weight: 700; margin-right: 6px; }
+  .metric-explain .me-name { font-weight: 700; margin-top: 6px; }
+  .metric-explain .me-name:first-child { margin-top: 0; }
+  .btn-export-min { font-size: 11.5px; padding: 5px 10px; }
+  /* F3:「历史周期」开关不可用态（非单公司视图 / 该公司无 bands） */
+  #bandSeg button:disabled { color: var(--ghost); cursor: not-allowed; }
+  .raw-data { border-top: 1px solid var(--border-soft); padding-top: 9px; }
+  /* F5:数据表入口按钮化——边框 + field-bg 底 + 圆角，行数加粗，hover 变 ink */
+  .raw-data > summary {
+    display: inline-block; cursor: pointer; list-style: none;
+    font: 500 11.5px var(--font-mono); color: var(--muted);
+    border: 1px solid var(--border-line); border-radius: var(--r-sm);
+    background: var(--field-bg); padding: 8px 12px;
+  }
+  .raw-data > summary:hover { color: var(--ink); }
+  .raw-data > summary b { font-weight: 700; }
+  .raw-data > summary::-webkit-details-marker { display: none; }
+  .raw-data > summary .caret::before { content: '▸ '; }
+  .raw-data[open] > summary .caret::before { content: '▾ '; }
+  .raw-head { display: flex; align-items: center; gap: 10px; margin: 10px 0 2px; }
+  .raw-sub { font: 600 11px var(--font-mono); color: var(--muted); padding: 10px 0 2px; }
+  .raw-wrap { overflow-x: auto; }
+  .raw-table { width: 100%; border-collapse: collapse; font: 400 11.5px var(--font-mono); color: var(--muted); }
+  .raw-table th {
+    text-align: left; font-weight: 600; color: var(--faint); padding: 6px 12px 6px 0;
+    border-bottom: 1px solid var(--border-line); white-space: nowrap;
+  }
+  .raw-table td { padding: 4px 12px 4px 0; border-bottom: 1px solid var(--row-line); white-space: nowrap; }
+  .raw-table th.num, .raw-table td.num { text-align: right; }
+  .raw-more {
+    margin: 10px 0 2px; font-size: 11.5px; padding: 5px 14px;
+    border: 1px solid var(--border-line); border-radius: var(--r-xs);
+    background: var(--field-bg); color: var(--muted); cursor: pointer;
+  }
+  .raw-total { margin: 10px 0 2px; font: 500 11px var(--font-mono); color: var(--ghost); }
+
+  /* —— W11 · F1：Forward P/E 当前值块（仅 pe 视图；浅琥珀 caveat 样式，与统计行中性灰区分） —— */
+  .fwd-block {
+    display: flex; flex-direction: column; gap: 8px;
+    background: var(--amber-bg); border: 1px solid var(--amber-line);
+    border-radius: var(--r-sm); padding: 10px 14px;
+  }
+  .fwd-head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .fwd-title { font-size: 12.5px; font-weight: 700; color: var(--amber-ink); }
+  .fwd-caveat { font: 500 10.5px var(--font-mono); color: var(--amber-ink); letter-spacing: .01em; }
+  .fwd-rows { display: flex; flex-wrap: wrap; gap: 8px 26px; }
+  .fwd-cell { display: inline-flex; align-items: baseline; gap: 7px; }
+  .fwd-cell .dot { align-self: center; }
+  .fwd-cell .fw-name { font-size: 12px; font-weight: 700; color: var(--ink-2); }
+  .fwd-cell .fw-val  { font: 600 13px var(--font-mono); color: var(--ink); }
+  .fwd-cell .fw-an   { font: 500 10.5px var(--font-mono); color: var(--faint); }
+  .fwd-cell .fw-na   { font: 600 13px var(--font-mono); color: var(--ghost); }
+
+  /* —— W11 · F2c：capex 视图扩产计划附注（不进曲线） —— */
+  .capex-note {
+    display: flex; flex-direction: column; gap: 7px;
+    border: 1px solid var(--border-soft); border-radius: var(--r-md);
+    background: var(--subcard-bg); padding: 11px 14px;
+  }
+  .capex-note .cn-head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .capex-note .cn-title { font-size: 12.5px; font-weight: 700; color: var(--ink-2); }
+  .capex-note .cn-sub { font: 500 10.5px var(--font-mono); color: var(--faint); }
+  .capex-note .cn-co { display: flex; flex-direction: column; gap: 2px; }
+  .capex-note .cn-co-name { font-size: 11.5px; font-weight: 700; }
+  .capex-note .cn-item { font-size: 11.5px; color: var(--ink-2); line-height: 1.7; padding-left: 10px; }
+  .capex-note .cn-item .b { color: var(--hairline); margin-right: 5px; }
+  .capex-note .cn-go { font-size: 12px; color: var(--link); text-decoration: none; align-self: flex-start; }
+  .capex-note .cn-go:hover { text-decoration: underline; }
+
+  footer.pg a { color: var(--muted); text-decoration: none; }
+  footer.pg a:hover { color: var(--ink); }
+
+  /* ===== W10 · F1 纯图表全屏 / F2 区间测量 / 折叠信息条 ===== */
+
+  /* 全屏态:CSS 回退（Fullscreen API 不可用/失败时)与 API 态共用同一批布局规则。
+     .work.is-fs 由 JS 切;CSS 回退再叠 .work--css-fs 补 position:fixed。 */
+  .work--css-fs { position: fixed; inset: 0; z-index: 9000; margin: 0; border-radius: 0; overflow: auto; }
+  /* W10 修复:全屏态(API/CSS 回退)下导出弹层须盖住全屏卡内容——
+     弹层现为 .work 子节点,在 .work 建立的堆叠上下文内以高 z-index 置顶(shared.css .export-overlay 仅 z-index:50)。 */
+  .work.is-fs #exportOverlay,
+  .work--css-fs #exportOverlay { z-index: 9500; }
+  /* Fullscreen API 下 .work 铺满屏幕,给足内边距 */
+  .work.is-fs { background: var(--card); display: flex; flex-direction: column; }
+  .work:fullscreen { background: var(--card); padding: 16px 20px; overflow: auto; }
+  .work:-webkit-full-screen { background: var(--card); padding: 16px 20px; overflow: auto; }
+  /* 全屏时图表区吃满剩余高度（用 flex,不硬编码像素） */
+  .work.is-fs .chart-stage { flex: 1 1 auto; height: auto; min-height: 0; }
+  .work.is-fs .small-grid { flex: 1 1 auto; overflow: auto; align-content: start; }
+  /* 全屏时:图下三行折叠进信息条,数据表不进全屏 */
+  .work.is-fs .stats-block,
+  .work.is-fs .fwd-block,
+  .work.is-fs .capex-note,
+  .work.is-fs .caveat-bar,
+  .work.is-fs .metric-explain,
+  .work.is-fs .src-row,
+  .work.is-fs .raw-data { display: none; }
+  .work.is-fs .fs-infobar { display: block; }
+
+  /* 折叠信息条（仅全屏可见;默认收起,点开显示统计行+口径行) */
+  .fs-infobar { display: none; flex: none; border-top: 1px solid var(--border-soft); margin-top: 8px; }
+  .fs-infobar > summary {
+    display: inline-block; cursor: pointer; list-style: none;
+    font: 500 11.5px var(--font-mono); color: var(--muted);
+    padding: 8px 2px; user-select: none;
+  }
+  .fs-infobar > summary:hover { color: var(--ink); }
+  .fs-infobar > summary::-webkit-details-marker { display: none; }
+  .fs-infobar > summary .caret::before { content: '▸ '; }
+  .fs-infobar[open] > summary .caret::before { content: '▾ '; }
+  .fs-infobar-body { max-height: 34vh; overflow: auto; padding-bottom: 8px; }
+
+  /* 全屏按钮态（激活时深底,与叠加 chip 一致语汇) */
+  #btnFs.is-active, #btnMeasure.is-active { background: var(--dark); color: var(--on-dark); border-color: var(--dark); }
+  #btnMeasure:disabled { color: var(--ghost); cursor: not-allowed; opacity: .6; }
+  #btnMeasure:disabled:hover { background: var(--field-bg); color: var(--ghost); border-color: var(--border-line); }
+
+  /* F2 测量覆盖层:绝对定位在 .chart-stage 内;仅测量态拦截指针 */
+  .measure-layer { position: absolute; inset: 0; z-index: 20; cursor: crosshair; display: none; }
+  .chart-stage.is-measuring .measure-layer { display: block; }
+  .measure-rect {
+    position: absolute; pointer-events: none; display: none;
+    background: rgba(90,110,150,0.12); border: 1px solid rgba(90,110,150,0.55);
+  }
+  .measure-hint {
+    position: absolute; left: 50%; top: 10px; transform: translateX(-50%);
+    pointer-events: none; font: 500 11px var(--font-mono); color: var(--muted);
+    background: var(--field-bg); border: 1px solid var(--border-line);
+    border-radius: var(--r-xs); padding: 4px 10px; white-space: nowrap; z-index: 21;
+  }
+  .measure-card {
+    position: absolute; pointer-events: none; display: none; z-index: 22;
+    background: rgba(20,23,29,0.94); color: var(--on-dark);
+    border: 1px solid var(--dark-border); border-radius: var(--r-md);
+    padding: 8px 11px; font: 500 11.5px var(--font-mono); line-height: 1.7;
+    white-space: nowrap; box-shadow: 0 4px 18px rgba(13,17,23,.35);
+  }
+  .measure-card .mc-hd { color: var(--on-dark-faint); font-size: 10.5px; }
+  .measure-card .mc-big { font-size: 13px; font-weight: 600; }
+  /* D1:涨跌值不用绿/红引导贵贱——统一中性墨色(on-dark),方向由 ↑↓ 箭头表达（事实方向，颜色不引导） */
+  .measure-card .mc-up,
+  .measure-card .mc-dn { color: var(--on-dark); }
+  .measure-card .mc-sub { color: var(--on-dark-muted); }
+
+  /* 导出弹层画布尺寸（预览）——必须是精确 16:9 / 9:16：
+     ECharts 路径按 pixelRatio 从此尺寸放大，比例不精确会输出 1920×1078 之类的非标 PNG */
+  .export-canvas-16 { width: 800px; height: 450px; }
+  .export-canvas-9  { width: 270px; height: 480px; }
+
+  /* —— ≤900px：左列表折叠为顶部横向滚动 chips，其余纵排 —— */
+  @media (max-width: 900px) {
+    .workbench { grid-template-columns: 1fr; gap: 14px; }
+    .side { position: static; flex-direction: row; overflow-x: auto; gap: 16px; padding: 10px 12px; }
+    .m-group { flex: none; flex-direction: row; align-items: center; gap: 8px; }
+    .m-group-title { padding: 0; }
+    .m-group-items { flex-direction: row; gap: 6px; }
+    .m-item { width: auto; white-space: nowrap; border: 1px solid var(--border-line); border-radius: var(--r-pill); padding: 6px 12px; }
+    .m-item.is-active { border-color: var(--dark); }
+    .ctrls { margin-left: 0; }
+    .chart-stage { height: 340px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap wrap--wide">
+
+  <!-- ============ 顶栏（手写导航，不用 injectTopNav） ============ -->
+  <header class="top">
+    <div class="title-wrap">
+      <div class="title">存储周期看板</div>
+      <div class="subtitle">MEMORY-CYCLE · MU / HYNIX / SAMSUNG</div>
+    </div>
+    <nav class="top-nav">
+      <a href="index.html" class="is-active">看板</a>
+      <a href="公司.html">公司</a>
+      <a href="电话会.html">电话会</a>
+    </nav>
+  </header>
+
+  <!-- 数据加载失败提示（默认隐藏） -->
+  <div class="empty-note" id="loadErr" hidden>数据加载失败 — 无法读取 data/valuation.json。图表与统计以「无数据」占位显示。</div>
+
+  <!-- ============ 主体：左指标列表 + 右工作区 ============ -->
+  <div class="workbench">
+
+    <aside class="card side" id="sideNav"></aside>
+
+    <section class="card work">
+
+      <!-- 控制行：指标名 + 公司 chips + 范围 + 叠加/小多图 + 导出 -->
+      <div class="work-head">
+        <h1 class="work-title" id="metricTitle">—</h1>
+        <div class="ctrls">
+          <div class="chip-row" id="chipRow"></div>
+          <div class="segmented" id="rangeSeg" hidden>
+            <button data-range="daily"></button>
+            <button data-range="long"></button>
+          </div>
+          <div class="segmented" id="bandSeg"><button id="bandBtn">历史周期</button></div>
+          <div id="overlayCtl"></div>
+          <div class="segmented" id="modeSeg">
+            <button data-mode="overlay">叠加</button>
+            <button data-mode="small">小多图</button>
+          </div>
+          <button class="btn-ghost btn-export-min" id="btnMeasure" title="框选两点测量区间">📏 测量</button>
+          <button class="btn-ghost btn-export-min" id="btnExport">导出图片</button>
+          <button class="btn-ghost btn-export-min" id="btnFs" title="纯图表全屏">⛶ 全屏</button>
+        </div>
+      </div>
+
+      <!-- 主图：LWC 与 ECharts 分容器；叠加与小多图分容器 -->
+      <div class="empty-note" id="chartNote" hidden></div>
+      <div class="chart-stage" id="lwcMain" hidden></div>
+      <div class="chart-stage" id="ecMain" hidden></div>
+      <div class="small-grid" id="lwcSmallGrid" hidden></div>
+      <div class="small-grid" id="ecSmallGrid" hidden></div>
+
+      <!-- 图下:统计行 / (W11·F1 Forward P/E 块，仅 pe 视图) / 口径行 / 指标解释 / (W11·F2c capex 扩产附注) / 来源行 / 原始数据折叠区 -->
+      <div class="stats-block" id="statsRows"></div>
+      <div class="fwd-block" id="forwardBlock" hidden></div>
+      <div class="caveat-bar" id="caveatBar"></div>
+      <div class="metric-explain" id="metricExplain"></div>
+      <div class="capex-note" id="capexNote" hidden></div>
+      <div class="src-row" id="srcRow"></div>
+      <!-- W10 · F1:全屏态可展开信息条（统计行 + 口径行;默认收起,不入数据表） -->
+      <details class="fs-infobar" id="fsInfobar">
+        <summary><span class="caret"></span><span id="fsInfobarLabel">统计与口径</span></summary>
+        <div class="fs-infobar-body" id="fsInfobarBody"></div>
+      </details>
+      <details class="raw-data" id="rawData" hidden>
+        <summary id="rawSummary"><span class="caret"></span>原始数据 · 来源见上</summary>
+        <div class="raw-head">
+          <button class="btn-ghost btn-export-min" id="btnCsv">↓ 下载 CSV（全量）</button>
+        </div>
+        <div id="rawBody"></div>
+      </details>
+
+      <!-- ============ 导出图片 弹层 ============ -->
+      <!-- W10 修复:置于 .work 内,使其落在 Fullscreen API 全屏根子树内(否则全屏时不渲染);
+           .export-overlay 为 position:fixed;inset:0,不影响 .work 常态布局。 -->
+      <div class="export-overlay" id="exportOverlay" style="display:none">
+        <div class="export-panel">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <span style="font-size:14px;font-weight:700;color:var(--on-dark)">导出图片</span>
+            <span style="font-size:11.5px;color:var(--on-dark-ghost)">深色底 · 大字号 · 右下角来源角标</span>
+            <div style="margin-left:auto;display:flex;gap:8px">
+              <button class="seg-btn is-active" id="ratio16">16:9</button>
+              <button class="seg-btn" id="ratio9">9:16</button>
+              <button class="dl-btn" id="downloadPng">↓ 下载 PNG</button>
+              <button class="seg-btn" id="closeExport">关闭</button>
+            </div>
+          </div>
+          <div class="export-canvas export-canvas-16" id="exportStage"></div>
+          <div style="font:400 11px var(--font-mono);color:var(--on-dark-ghost)" id="exportSizeNote">下载尺寸 1920 × 1080 PNG（横屏视频）</div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <footer class="pg">
+    <a href="数据与来源.html">关于数据与来源 →</a> · 不构成投资建议 · 数据生成 <span class="mono" id="genDate">—</span>
+  </footer>
+</div>
+
+<script type="module">
+import {
+  echartsReady, loadJSON,
+  COMPANY_COLORS, C, FONT_SANS, FONT_MONO, srcPillHTML,
+} from './assets/shared.js';
+import { createSeriesChart } from './assets/lwc.js';
+
+/* ======================================================================
+   单图工作台 —— vanilla ES module，零框架。
+   数据：data/valuation.json（schema 0.6，前端只读、零计算——统计行直读 stats；
+   daily 与 price_daily 均为全程日频，月频股价字段已删除；bands 为构建器
+   从各家财报算出的既定事实区间：亏损期 / 营收收缩期）。
+   纪律：纯数据展示；无合成指标、无判断性文案、无红绿估值色；
+   NM/null 一律断开不插值（LWC 分段 / ECharts connectNulls:false）；
+   金额类（revenue/capex）USD 与 KRW 不可同轴，强制小多图分图并标注币种。
+   ====================================================================== */
+
+/* ---------- 指标注册表（左列表顺序即此；key 同 stats key 与 URL ?m=） ---------- */
+const METRICS = [
+  { key: 'price',        label: '股价',           group: '估值', lib: 'lwc', log: true,  hasRange: false,
+    kind: 'price', tier: 'A', short: '股价',
+    explain: '收盘价:交易所收盘成交价(Yahoo Finance;含拆股回溯、不含股息复权)。',
+    explainCycle: '存储股股价与行业供需周期同步大幅波动;历史上股价拐点常早于财报数据反映——市场会提前计价预期变化。',
+    explainUsage: '常见用法:与营业利润率或 P/E 叠加(单公司),观察历次周期中股价顶/底与基本面顶/底出现的先后;配合「历史周期」开关对照过往下行段的时间与深度。' },
+  { key: 'pe',           label: 'P/E (trailing)', group: '估值', lib: 'lwc', log: true,  hasRange: true,
+    kind: 'ratio', tier: 'A', rangeLabels: { daily: '日频·全程', long: '季度' }, short: 'P/E',
+    explain: '市盈率(trailing)= 市值 ÷ 过去四个季度归母净利之和(TTM)。盈利为负时该比率无意义,图中断开(NM)。',
+    explainCycle: '周期股盈利大起大落:盈利峰值年分母被推到极高,trailing P/E 反而显得低;盈利谷底年 P/E 极高或直接失效(NM)——P/E 的高低随周期位置反转。',
+    explainUsage: '常见用法:对照自身历史分位而非绝对值;与营业利润率叠加,分辨「低 P/E 出现在盈利峰值段还是低谷段」;历次 NM 断口本身标记了亏损期的起止。' },
+  { key: 'pb',           label: 'P/B',            group: '估值', lib: 'lwc', log: false, hasRange: true,
+    kind: 'ratio', tier: 'A', rangeLabels: { daily: '日频·全程', long: '季度' }, short: 'P/B',
+    explain: '市净率 = 市值 ÷ 归母净资产(资产负债表股东权益)。',
+    explainCycle: '账面净资产比盈利稳定得多,受单季盈利摆动影响小,因此 P/B 的历史区间在周期股上比 P/E 更可比;减值年份账面值被一次性下调,会推高 P/B。',
+    explainUsage: '常见用法:看当前值在自身历史 min/中位/max 中的位置(见统计行);与 P/E 叠加,对比两者在同一时点给出的位置差异;跨公司比较注意口径(三星为集团口径)。' },
+  { key: 'revenue',      label: '营收',           group: '盈利', lib: 'ec', chart: 'bar',  forceSmall: true, kind: 'money', tier: 'S',
+    short: '营收', explain: '营业收入:单季销售额,按各家报表币种列示。',
+    explainCycle: '存储是「量×价」的生意:营收同时承接出货量与 ASP(均价)两个周期变量,是周期振幅在收入端最直接的体现。',
+    explainUsage: '常见用法:与营业利润率叠加(单公司),观察「收入创新高时利润率处于什么位置」;金额跨币种不可直接比,各家看自身趋势。' },
+  { key: 'rev_yoy',      label: '营收 YoY',       group: '盈利', lib: 'ec', chart: 'line', zeroLine: true, negRed: true, kind: 'pct', tier: 'S',
+    short: '营收YoY', explain: '营收同比 = 本季营收 ÷ 上年同季营收 − 1。',
+    explainCycle: '同比增速剥离了季节性,是周期方向最直接的读数;历史上同比转负的区间与行业下行段高度重合(「历史周期」中的营收收缩带即由此定义)。',
+    explainUsage: '常见用法:关注符号切换点与增速的加速/减速变化;三家叠加看谁先转向;与 DIO 叠加观察历次「增速回落」与「库存抬升」的先后。' },
+  { key: 'gross_margin', label: '毛利率',         group: '盈利', lib: 'ec', chart: 'line', zeroLine: true, negRed: true, kind: 'pct', tier: 'S',
+    short: '毛利率', explain: '毛利率 =(营收 − 营业成本)÷ 营收。',
+    explainCycle: '存储芯片制造成本相对刚性,合约价的涨跌几乎直接落入毛利率——毛利率是价格周期最贴身的财务映射。',
+    explainUsage: '常见用法:与营业利润率叠加看费用杠杆;对照自身历史区间与「历史周期」带,查看历次见顶/见底时毛利率所处的水平。' },
+  { key: 'op_margin',    label: '营业利润率',     group: '盈利', lib: 'ec', chart: 'line', zeroLine: true, negRed: true, kind: 'pct', tier: 'S',
+    short: '营业利润率', explain: '营业利润率 = 营业利润 ÷ 营收。',
+    explainCycle: '存储行业重资产、高折旧,经营杠杆极强:营收波动被放大为利润率的巨幅摆动(从深度亏损到 50% 以上)——这本身就是「存储是周期品」的直接证据;「亏损期」带即由本指标 <0 定义。',
+    explainUsage: '常见用法:与股价叠加(单公司),观察历次周期中股价顶/底与利润率顶/底的先后;与 DIO 叠加,查看历史上「利润率仍在高位而库存开始抬升」组合出现过的时点。' },
+  { key: 'net_margin',   label: '净利率',         group: '盈利', lib: 'ec', chart: 'line', zeroLine: true, negRed: true, kind: 'pct', tier: 'S',
+    short: '净利率', explain: '净利率 = 净利润 ÷ 营收(公司整体口径)。',
+    explainCycle: '在营业利润之外再计入利息、减值、税项等——下行周期中减值与财务负担常使净利率比营业利润率恶化得更快。',
+    explainUsage: '常见用法:与营业利润率叠加,两者裂口显著变大的时段多对应减值/一次性项目集中的年份;其余读法同营业利润率。' },
+  { key: 'dio',          label: 'DIO 库存天数',   group: '周期', lib: 'ec', chart: 'line', kind: 'days', tier: 'S',
+    short: 'DIO', explain: '库存周转天数 = 存货 ÷ 单季营业成本 × 365/4(约 91.3),即存货按当季消耗速度可支撑的天数。',
+    explainCycle: '存储芯片是会跌价的标准品,库存天数直接反映供需松紧:紧缺期出货快于生产、DIO 走低;过剩期存货积压、DIO 冲高并伴随跌价与减值(2023 年三家 DIO 均创阶段高位)。',
+    explainUsage: '常见用法:看当前值在自身历史区间的位置;与营业利润率叠加,查看历次「DIO 自低位回升、利润率仍在高位」组合出现的时点;判断留给读者。' },
+  { key: 'capex',        label: 'capex（金额）',  group: '周期', lib: 'ec', chart: 'bar',  forceSmall: true, kind: 'money', tier: 'S',
+    short: 'capex', explain: '资本开支:购建固定资产等支付的现金(现金流量表口径),展示取绝对值。',
+    explainCycle: '今天的资本开支是约 1.5–2 年后的产能:扩产决策多在景气段做出,产能却常在下一轮供给过剩时落地——这是存储周期自我强化的核心机制。',
+    explainUsage: '常见用法:与 capex/营收比对照;观察历次周期中 capex 高峰与其后利润率低谷之间的时间间隔(可与「历史周期」带对照)。' },
+  { key: 'capex_to_rev', label: 'capex / 营收',   group: '周期', lib: 'ec', chart: 'line', kind: 'pct', tier: 'S',
+    short: 'capex/营收', explain: '资本开支强度 = 资本开支 ÷ 营收。',
+    explainCycle: '剔除规模因素后的扩产意愿读数:比率抬升代表行业在加码供给;回落代表收缩开支——历史上多与下行段中后期的减产/缩支相伴(可与「历史周期」带对照验证)。',
+    explainUsage: '常见用法:三家叠加看扩产节奏是否同步;与营业利润率叠加,对照「高利润率+高开支强度」与「低利润率+压缩开支」两类历史时段。' },
+];
+const GROUPS = ['估值', '盈利', '周期'];
+
+/* ---------- 应用状态 ---------- */
+const state = {
+  metric: 'pe',
+  overlay: null,         // A1:叠加的第二指标 key（null=单指标视图,行为与 v0.4 完全一致）
+  range: 'daily',        // daily | long（仅 pe/pb 有效;price 只有全史日频一种）
+  bands: false,          // F3:「历史周期」开关（单公司视图下可用;URL &b=1）
+  mode: 'overlay',       // overlay | small（金额类强制 small，state 不改以便切回）
+  measure: false,        // W10 F2:区间测量激活态（仅单图视图可用）
+  active: {},            // { ticker: bool }
+  companies: [],
+  generated: '—',
+  ratio: '16:9',
+  exportOpen: false,
+};
+
+/* W11·F2c:各家扩产/资本投入计划（capex_plans.json；boot 中异步 fetch，失败置 null → capex 附注不显示） */
+let capexPlans = null;
+
+function curMetric() { return METRICS.find((x) => x.key === state.metric) || METRICS[1]; }
+/* 叠加指标（o===m 或非法值 → null，即回单指标视图） */
+function ovMetric() {
+  if (!state.overlay || state.overlay === state.metric) return null;
+  return METRICS.find((x) => x.key === state.overlay) || null;
+}
+function rangeVal(m) { return m.hasRange ? state.range : 'q'; }
+function effMode(m)  { return m.forceSmall ? 'small' : state.mode; }
+function activeCompanies() { return state.companies.filter((c) => state.active[c.ticker]); }
+
+/* ---------- 帮手 ---------- */
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+function hasAnyVal(arr) { return Array.isArray(arr) && arr.some((v) => v != null); }
+function trimNum(x) {
+  if (x == null || !isFinite(x)) return '—';
+  const r = Math.round(x * 10) / 10;
+  return (r % 1 === 0) ? String(Math.round(r)) : String(r);
+}
+
+/* F2:公司色变暗（hex 各通道 ×(1-pct)）——叠加指标序列用深色变体与主指标区分 */
+function shade(color, pct) {
+  const m = /^#([0-9a-fA-F]{6})$/.exec(String(color || ''));
+  if (!m) return color;
+  const n = parseInt(m[1], 16);
+  const ch = (x) => Math.max(0, Math.min(255, Math.round(x * (1 - pct))));
+  return '#' + ((1 << 24) | (ch((n >> 16) & 255) << 16) | (ch((n >> 8) & 255) << 8) | ch(n & 255))
+    .toString(16).slice(1);
+}
+const OVERLAY_SHADE = 0.42;
+/* 变亮（向白混合）：深色导出底上叠加线用——变暗在浅底是增对比、在深底是减对比，方向相反 */
+function tint(color, pct) {
+  const m = /^#([0-9a-fA-F]{6})$/.exec(String(color || ''));
+  if (!m) return color;
+  const n = parseInt(m[1], 16);
+  const ch = (x) => Math.max(0, Math.min(255, Math.round(x + (255 - x) * pct)));
+  return '#' + ((1 << 24) | (ch((n >> 16) & 255) << 16) | (ch((n >> 8) & 255) << 8) | ch(n & 255))
+    .toString(16).slice(1);
+}
+function overlayColor(baseColor, dark) {
+  return dark ? tint(baseColor, 0.38) : shade(baseColor, OVERLAY_SHADE);
+}
+
+/* 金额格式化：USD 用 $B/$M，KRW 用 조（1조 = 1e12 KRW），各自标注币种 */
+function moneyFmt(v, cur) {
+  if (v == null || !isFinite(v)) return '—';
+  if (cur === 'KRW') {
+    const t = v / 1e12;
+    return (Math.abs(t) >= 100 ? t.toFixed(0) : Math.abs(t) >= 1 ? t.toFixed(1) : t.toFixed(2)) + '조 KRW';
+  }
+  const b = v / 1e9;
+  if (Math.abs(b) >= 1) return '$' + (Math.abs(b) >= 100 ? b.toFixed(0) : b.toFixed(1)) + 'B';
+  return '$' + Math.round(v / 1e6) + 'M';
+}
+function moneyAxis(v, cur) {
+  if (v == null || !isFinite(v)) return '';
+  if (cur === 'KRW') {
+    const t = v / 1e12;
+    return (Math.abs(t) >= 10 ? Math.round(t) : Math.round(t * 10) / 10) + '조';
+  }
+  const b = v / 1e9;
+  if (Math.abs(b) >= 1) return '$' + (Math.abs(b) >= 10 ? Math.round(b) : Math.round(b * 10) / 10) + 'B';
+  return '$' + Math.round(v / 1e6) + 'M';
+}
+function priceFmt(v, cur) {
+  if (v == null || !isFinite(v)) return '—';
+  if (cur === 'KRW') return '₩' + Math.round(v).toLocaleString('en-US');
+  return '$' + (v >= 100 ? Math.round(v).toLocaleString('en-US') : v.toFixed(2));
+}
+/* 统计行值格式化（按指标 kind + 公司币种） */
+function fmtVal(m, v, cur) {
+  if (v == null || !isFinite(v)) return '—';
+  if (m.kind === 'ratio') return v >= 100 ? v.toFixed(0) : v.toFixed(2);
+  if (m.kind === 'pct')   return (v * 100).toFixed(1) + '%';
+  if (m.kind === 'days')  return Math.round(v) + ' 天';
+  if (m.kind === 'money') return moneyFmt(v, cur);
+  if (m.kind === 'price') return priceFmt(v, cur);
+  return String(v);
+}
+function tooltipFmt(m, v, cur) {
+  if (v == null) return '—';
+  if (m.kind === 'pct')   return (v * 100).toFixed(1) + '%';
+  if (m.kind === 'days')  return Math.round(v) + ' 天';
+  if (m.kind === 'money') return moneyFmt(v, cur);
+  return String(v);
+}
+
+/* ---------- 数据整形（schema 0.6；任何字段都可能缺，统一空值化） ---------- */
+function transform(raw) {
+  const companies = Array.isArray(raw.companies) ? raw.companies : [];
+  const valuation = (raw.valuation && typeof raw.valuation === 'object') ? raw.valuation : {};
+  return companies.map((cfg) => {
+    const ticker = cfg && cfg.ticker ? cfg.ticker : '';
+    const v = valuation[ticker] || {};
+    const ql = (Array.isArray(v.quarterly_long) ? v.quarterly_long : []).filter((q) => q && q.period_end);
+    const take = (f) => ql.map((q) => (q && q[f] != null ? q[f] : null));
+    const seq = (o, f) => (o && Array.isArray(o[f])) ? o[f] : [];
+    return {
+      ticker,
+      name: (cfg && cfg.name) || ticker,
+      color: (cfg && cfg.color) || COMPANY_COLORS[ticker] || '#5C6470',
+      currency: v.currency || (cfg && cfg.currency) || '',
+      selfCalc: !!v.is_self_calculated,
+      groupScope: !!v.is_group_scope,
+      daily:  { dates: seq(v.daily, 'dates'), pe: seq(v.daily, 'pe'), pb: seq(v.daily, 'pb') },
+      priceD: { dates: seq(v.price_daily, 'dates'), close: seq(v.price_daily, 'close') },
+      // W11·F1:Forward P/E（分析师一致预期，非历史事实）——仅 pe 视图图下标注块用，不入曲线
+      forwardPe: (v.forward_pe && typeof v.forward_pe === 'object') ? v.forward_pe : null,
+      // F3:该公司财报既定事实区间（亏损期/营收收缩期）+ definitions 原文
+      bands: (v.bands && typeof v.bands === 'object') ? v.bands : null,
+      longDates: ql.map((q) => q.period_end),
+      q: {
+        revenue: take('revenue'), rev_yoy: take('rev_yoy'),
+        gross_margin: take('gross_margin'), op_margin: take('op_margin'), net_margin: take('net_margin'),
+        dio: take('dio'),
+        // capex 为现金流出，展示取绝对值（口径行注明）
+        capex: ql.map((q) => (q && q.capex != null ? Math.abs(q.capex) : null)),
+        capex_to_rev: take('capex_to_rev'),
+        pe: take('pe'), pb: take('pb'),
+      },
+      stats: (v.stats && typeof v.stats === 'object') ? v.stats : {},
+      splice: (v.long_meta && v.long_meta.splice) ? v.long_meta.splice : null,
+      // 热身桥接披露:季度 TTM 暖机期(拼接口缺连续4季)以最近年报净利作尾随 P/E 分母的跨度
+      peBridge: (v.long_meta && Array.isArray(v.long_meta.pe_bridge)) ? v.long_meta.pe_bridge : [],
+    };
+  });
+}
+
+/* 按指标 + 范围取一家的序列（dates/values 等长；null=真缺口不插值） */
+function seriesFor(c, m, range) {
+  if (m.key === 'price') {
+    // 股价只有全史日频一种（月频股价字段已从 schema 删除）
+    return { dates: c.priceD.dates, values: c.priceD.close };
+  }
+  if (m.key === 'pe' || m.key === 'pb') {
+    if (range === 'long') return { dates: c.longDates, values: c.q[m.key] };
+    return { dates: c.daily.dates, values: c.daily[m.key] };
+  }
+  return { dates: c.longDates, values: c.q[m.key] || [] };
+}
+
+/* ======================================================================
+   F3 「历史周期」带 —— bands 为构建器从该公司自身财报算出的既定事实区间
+   （亏损期=营业利润率<0 连续季度；营收收缩期=营收同比<0 连续季度），
+   不构成周期判断。恰好 1 家公司激活且该家 bands 存在才可用；开启后当前
+   指标图（含叠加态）一律走 ECharts 渲染（markArea），关闭恢复原 LWC 路径。
+   ====================================================================== */
+function bandCompany() {
+  const list = activeCompanies();
+  return (list.length === 1 && list[0].bands) ? list[0] : null;
+}
+
+const BAND_STYLES = [
+  // 收缩带先画、亏损带后画（嵌套时亏损带在收缩带之上）
+  { key: 'rev_contraction', color: 'rgba(240,180,41,0.10)', label: '营收收缩', labelColor: 'rgba(158,116,10,0.85)' },
+  { key: 'loss',            color: 'rgba(229,72,77,0.08)',  label: '亏损期',   labelColor: 'rgba(191,54,60,0.85)' },
+];
+// 交集带（营收收缩 ∩ 亏损期）：两个单带都很淡，重叠处混色看不清 → 用更深的
+// 红棕单独画在最上层，让「既收缩又亏损」（周期最深段）一眼可辨。纯事实标记，无判断。
+const OVERLAP_STYLE = { color: 'rgba(150,34,44,0.32)', label: '收缩＋亏损', labelColor: 'rgba(140,28,38,0.95)' };
+
+/* markArea 数据：时间轴直接用 from/to（超出图数据范围由 ECharts 自然裁剪）；
+   类目轴（金额柱状）把 from/to 映射到区间内实际类目值，映射不到则跳过 */
+function bandMarkArea(c, catDates) {
+  const bands = (c && c.bands) || {};
+  const data = [];
+  // 生成一个 markArea 项（含零宽保护 / 类目轴映射 / 年度标签 / 分行错开）
+  const pushSeg = (rawFrom, rawTo, st, isManual, rowOffset) => {
+    let from = rawFrom, to = rawTo;
+    // 零宽保护（时间轴）：from>=to 会画成零宽矩形（带不可见、只剩悬空 label），
+    // 回退约一季长度（91 天）以覆盖整季
+    if (!catDates && from >= to) {
+      const t = new Date(to + 'T00:00:00Z');
+      t.setUTCDate(t.getUTCDate() - 91);
+      from = t.toISOString().slice(0, 10);
+    }
+    if (catDates) {
+      const inR = catDates.filter((d) => d >= rawFrom && d <= rawTo);
+      if (!inR.length) return;
+      from = inR[0]; to = inR[inR.length - 1];
+    }
+    data.push([
+      { xAxis: from, name: st.label + (isManual ? '·年度' : ''),
+        itemStyle: { color: st.color, opacity: isManual ? 0.8 : 1 },
+        label: { show: true, position: 'insideTop', offset: [0, rowOffset],
+                 fontSize: 9.5, color: st.labelColor, fontFamily: FONT_SANS } },
+      { xAxis: to },
+    ]);
+  };
+  // ① 收缩带（第 1 行标签）② 亏损带（第 2 行标签，常嵌在收缩带内）
+  BAND_STYLES.forEach((st) => {
+    (Array.isArray(bands[st.key]) ? bands[st.key] : []).forEach((seg) => {
+      if (!seg || !seg.from || !seg.to) return;
+      pushSeg(seg.from, seg.to, st, seg.method === 'manual-annual', st.key === 'loss' ? 15 : 0);
+    });
+  });
+  // ③ 交集带（收缩 ∩ 亏损）：最后画=最上层，深色盖过下方两淡带混色（第 3 行标签）。
+  //    日期为 YYYY-MM-DD，可直接字典序比较求交集；from>=to（无交集或零宽）跳过。
+  const losses = Array.isArray(bands.loss) ? bands.loss : [];
+  const contras = Array.isArray(bands.rev_contraction) ? bands.rev_contraction : [];
+  losses.forEach((L) => contras.forEach((C) => {
+    if (!L.from || !L.to || !C.from || !C.to) return;
+    const from = L.from > C.from ? L.from : C.from;
+    const to = L.to < C.to ? L.to : C.to;
+    if (from >= to) return;   // 无实质重叠
+    const isManual = L.method === 'manual-annual' || C.method === 'manual-annual';
+    pushSeg(from, to, OVERLAP_STYLE, isManual, 30);
+  }));
+  return data.length ? { silent: true, data } : null;
+}
+
+/* 周期带挂到 option 第一条 series（一条 markArea 内按数组顺序后画者在上） */
+function attachBands(opt, c, catDates) {
+  if (!opt || !Array.isArray(opt.series) || !opt.series.length) return opt;
+  const ma = bandMarkArea(c, catDates);
+  if (ma) opt.series[0].markArea = ma;
+  return opt;
+}
+
+/* 单指标 price/pe/pb 开启周期带时的 ECharts 渲染：日频数组直接给 time 轴
+   （sampling:'lttb'、不画符号）；pe/price 对数轴（log 轴不吃 ≤0——pe 的 NM
+   已为 null 断开、price 恒正）、pb 线性轴 */
+function ecBandLineOption(m, c) {
+  const range = rangeVal(m);
+  const s = seriesFor(c, m, range);
+  const daily = m.key === 'price' || (!!m.hasRange && range === 'daily');
+  const fs = 11.5;
+  const opt = {
+    animation: true,
+    textStyle: { fontFamily: FONT_SANS },
+    grid: { left: 58, right: 26, top: 30, bottom: 30 },
+    tooltip: {
+      trigger: 'axis', confine: true, textStyle: { fontSize: 12 },
+      valueFormatter: (v) => fmtVal(m, v, c.currency),
+    },
+    xAxis: {
+      type: 'time',
+      axisLine: { lineStyle: { color: axLine(false) } },
+      axisTick: { show: false },
+      axisLabel: {
+        color: axText(false), fontSize: fs, fontFamily: FONT_MONO,
+        formatter: { year: '{yyyy}', month: '{yyyy}-{MM}', day: '{yyyy}-{MM}' },
+      },
+      splitLine: { show: false },
+    },
+    yAxis: {
+      type: m.log ? 'log' : 'value',
+      axisLabel: {
+        color: axText(false), fontSize: fs, fontFamily: FONT_MONO,
+        // 股价轴紧凑格式:韩元价可达 7 位数,原样输出会撑爆/裁掉轴标签
+        formatter: m.kind === 'price'
+          ? (v) => (v >= 1e6 ? (v / 1e6) + 'M' : v >= 1e4 ? Math.round(v / 1e3) + 'k' : v)
+          : undefined,
+      },
+      splitLine: { lineStyle: { color: axLine(false) } },
+    },
+    series: [{
+      name: c.name, type: 'line',
+      data: s.dates.map((d, i) => [d, s.values[i]]),
+      connectNulls: false, symbol: 'circle', showSymbol: false, symbolSize: 0,
+      sampling: daily ? 'lttb' : undefined,
+      lineStyle: { width: daily ? 1.6 : 2 }, color: c.color,
+    }],
+    dataZoom: [{ type: 'inside' }],
+  };
+  return attachBands(opt, c, null);
+}
+
+/* ======================================================================
+   图表实例管理
+   —— ECharts：charts 表，按 key init/dispose。
+   —— LWC：lwcCache（key → {ctrl, box}）+ 在途 Promise 缓存 + 世代令牌。
+   ====================================================================== */
+let echarts = null;
+const charts = {};
+
+/* ======================================================================
+   W10 · F3 十字光标数值面板（统一）—— 所有 ECharts 图补 axis 十字 + 数值 tooltip。
+   在 renderChart 单一入口给 option.tooltip 挂 axisPointer:{type:'cross'} 与顶层
+   axisPointer 十字线样式（mono 字体、深色卡、confine 已在各 option 内)。
+   markArea(周期带 silent)不干扰;不新增任何判断性内容,只呈现数值。
+   ====================================================================== */
+const CROSS_LINE = { color: '#9AA3B2', width: 1, type: 'dashed' };
+function withCrosshair(option) {
+  if (!option || typeof option !== 'object') return option;
+  // 顶层 axisPointer:十字线视觉（label 深底 mono,与 LWC 浮框对齐)
+  if (!option.axisPointer) {
+    option.axisPointer = {
+      link: [{ xAxisIndex: 'all' }],
+      lineStyle: CROSS_LINE,
+      crossStyle: CROSS_LINE,
+      label: {
+        backgroundColor: '#3A404B', color: '#F2F4F8',
+        fontFamily: FONT_MONO, fontSize: 11, padding: [3, 6],
+      },
+    };
+  }
+  // tooltip:确保 trigger:'axis' + axisPointer:{type:'cross'} + mono 深色卡 + confine
+  const tips = Array.isArray(option.tooltip) ? option.tooltip : (option.tooltip ? [option.tooltip] : []);
+  tips.forEach((tp) => {
+    if (!tp || typeof tp !== 'object') return;
+    if (!tp.trigger) tp.trigger = 'axis';
+    if (!tp.axisPointer) tp.axisPointer = { type: 'cross', crossStyle: CROSS_LINE, lineStyle: CROSS_LINE };
+    else if (!tp.axisPointer.type) tp.axisPointer.type = 'cross';
+    if (tp.confine == null) tp.confine = true;
+    tp.backgroundColor = tp.backgroundColor || 'rgba(20,23,29,0.94)';
+    tp.borderColor = tp.borderColor || '#262C38';
+    tp.textStyle = Object.assign({ color: '#F2F4F8', fontFamily: FONT_MONO }, tp.textStyle || {});
+  });
+  return option;
+}
+
+function renderChart(key, el, option) {
+  if (!echarts || !el || !option) return;
+  withCrosshair(option);
+  if (!charts[key]) charts[key] = echarts.init(el);
+  charts[key].setOption(option, true);
+  charts[key].resize();
+}
+function disposeChart(key) {
+  if (charts[key]) { try { charts[key].dispose(); } catch (e) {} delete charts[key]; }
+}
+function disposeSmallEc() {
+  Object.keys(charts).forEach((k) => { if (k.indexOf('ecsm') === 0) disposeChart(k); });
+}
+
+const lwcCache = {};      // 'ov-<metric>-<range>' | 'sm-…' → { ctrl, box }
+const lwcPending = {};    // 在途 Promise 缓存（防快速切换并发重复建图）
+let smallGen = 0;         // 小多图世代令牌
+let elLwcMain, elEcMain, elLwcSmall, elEcSmall, elChartNote;
+
+function ovKey(m, range) { return 'ov-' + m.key + '-' + range; }
+
+function hideOverlayLwcBoxes() {
+  Object.keys(lwcCache).forEach((k) => {
+    if (k.indexOf('ov-') === 0) lwcCache[k].box.style.display = 'none';
+  });
+}
+function removeSmallLwc() {
+  smallGen++;   // 令在途的小多图建图循环过期
+  Object.keys(lwcCache).forEach((k) => {
+    if (k.indexOf('sm-') === 0) { lwcCache[k].ctrl.remove(); delete lwcCache[k]; }
+  });
+}
+
+/* 叠加大图（LWC）：按 metric×range 建一次缓存复用；在途 Promise 防并发 */
+function ensureOverlayLwc(m, range) {
+  const key = ovKey(m, range);
+  if (lwcCache[key]) return Promise.resolve(lwcCache[key]);
+  if (lwcPending[key]) return lwcPending[key];
+  const box = document.createElement('div');
+  elLwcMain.appendChild(box);
+  const series = state.companies.map((c) => {
+    const s = seriesFor(c, m, range);
+    return { name: c.name, color: c.color, dates: s.dates, values: s.values };
+  });
+  lwcPending[key] = createSeriesChart(box, { series, log: !!m.log })
+    .then((ctrl) => { lwcCache[key] = { ctrl, box }; delete lwcPending[key]; return lwcCache[key]; })
+    .catch(() => { delete lwcPending[key]; box.remove(); return null; });
+  return lwcPending[key];
+}
+
+async function renderOverlayLwc(m, range) {
+  const key = ovKey(m, range);
+  const entry = await ensureOverlayLwc(m, range);
+  const cm = curMetric();
+  const stillHere = cm.lib === 'lwc' && effMode(cm) === 'overlay' && ovKey(cm, rangeVal(cm)) === key;
+  if (!entry) {
+    // LWC 库加载失败（双 CDN 均挂）：占位不留白；缓存里的 box 已随之失效，一并清掉
+    if (stillHere) {
+      Object.keys(lwcCache).forEach((k) => { if (k.indexOf('ov-') === 0) delete lwcCache[k]; });
+      elLwcMain.innerHTML = '<div style="height:100%;display:flex;align-items:center;justify-content:center;font:500 12.5px var(--font-mono);color:var(--ghost)">图表组件加载失败（Lightweight Charts CDN）— 刷新重试</div>';
+    }
+    return;
+  }
+  // 并发守卫：await（首次 CDN 加载）期间用户可能已切指标/范围/模式——
+  // 过期续体只隐藏自己那张，显隐交给最新续体。
+  if (!stillHere) { entry.box.style.display = 'none'; return; }
+  Object.keys(lwcCache).forEach((k) => {
+    if (k.indexOf('ov-') === 0) lwcCache[k].box.style.display = (k === key) ? 'block' : 'none';
+  });
+  state.companies.forEach((c) => entry.ctrl.setVisible(c.name, !!state.active[c.ticker]));
+  entry.ctrl.fit();
+  // W10 F2:异步 LWC 建图完成后校准测量按钮可用态与覆盖层
+  // （首帧 render 时 lwcCache 尚未就绪,measurableView 会误判不可测量而置灰)
+  syncMeasureUI();
+}
+
+/* 小多图（LWC）：每次重铺；世代令牌防在途循环把旧图叠进新一轮 */
+async function renderSmallLwc(m, range) {
+  removeSmallLwc();
+  const gen = smallGen;
+  const list = activeCompanies();
+  elLwcSmall.innerHTML = list.map((c, i) => {
+    const sub = m.key === 'price' ? ' · ' + esc(c.currency) : '';
+    return '<div class="small-cell"><div class="cell-head" style="color:' + esc(c.color) + '">'
+      + esc(c.name) + sub + '</div><div class="chart-small" id="lwcSm' + i + '"></div></div>';
+  }).join('');
+  for (let i = 0; i < list.length; i++) {
+    const c = list[i];
+    const cell = document.getElementById('lwcSm' + i);
+    if (!cell) continue;
+    const s = seriesFor(c, m, range);
+    if (!hasAnyVal(s.values)) { cell.innerHTML = '<div class="cell-note">无数据</div>'; continue; }
+    let ctrl;
+    try {
+      ctrl = await createSeriesChart(cell, {
+        series: [{ name: c.name, color: c.color, dates: s.dates, values: s.values }],
+        log: !!m.log,
+      });
+    } catch (e) {
+      cell.innerHTML = '<div class="cell-note">图表组件加载失败</div>';
+      continue;
+    }
+    // 世代守卫：await 期间若已发生新一轮清理/重铺，销毁刚建的图并退出
+    if (gen !== smallGen) { ctrl.remove(); return; }
+    ctrl.fit();
+    lwcCache['sm-' + m.key + '-' + range + '-' + c.ticker] = { ctrl, box: cell };
+  }
+}
+
+/* ======================================================================
+   ECharts option 工厂（时间轴/类目轴；connectNulls:false；负值红点仅 margins/yoy）
+   ====================================================================== */
+const axText  = (dark) => (dark ? '#9AA3B2' : C.faint);
+const axLine  = (dark) => (dark ? '#232936' : C.softLine);
+
+function axisFmtFor(m, cur) {
+  if (m.kind === 'pct')   return (v) => Math.round(v * 100) + '%';
+  if (m.kind === 'money') return (v) => moneyAxis(v, cur);
+  return undefined;
+}
+
+/* 折线（时间轴，季度长序列）：叠加（only=null，取激活公司）或单家（only=c） */
+function ecLineOption(m, dark, only) {
+  const fs = dark ? 13 : 11.5;
+  const list = only ? [only] : activeCompanies();
+  const series = [];
+  list.forEach((c, ci) => {
+    const s = seriesFor(c, m, 'q');
+    const data = s.dates.map((d, i) => {
+      const val = s.values[i];
+      if (m.negRed) {
+        // 负值点标红：负值=亏损/负增长是数据事实（不加阴影、不加文字标签）
+        return {
+          value: [d, val],
+          itemStyle: (val != null && val < 0) ? { color: C.loss, borderColor: C.loss } : { color: c.color },
+        };
+      }
+      return [d, val];
+    });
+    const ser = {
+      name: c.name, type: 'line', data,
+      connectNulls: false,                        // 真缺口断开，不插值
+      symbol: 'circle',
+      showSymbol: !!m.negRed,
+      symbolSize: m.negRed ? (dark ? 7 : 4.5) : 0,
+      lineStyle: { width: dark ? 2.6 : 2 },
+      color: c.color,
+    };
+    if (ci === 0 && m.zeroLine) {
+      ser.markLine = {
+        silent: true, symbol: 'none', label: { show: false },
+        lineStyle: { color: dark ? '#3A4356' : '#C9CED6', width: 1, type: 'solid' },
+        data: [{ yAxis: 0 }],
+      };
+    }
+    series.push(ser);
+  });
+  const opt = {
+    animation: !dark,
+    textStyle: { fontFamily: FONT_SANS },
+    grid: { left: 58, right: 26, top: only ? 38 : 26, bottom: 30 },
+    tooltip: {
+      trigger: 'axis', confine: true, textStyle: { fontSize: 12 },
+      valueFormatter: (v) => tooltipFmt(m, v, only ? only.currency : ''),
+    },
+    xAxis: {
+      type: 'time',
+      axisLine: { lineStyle: { color: axLine(dark) } },
+      axisTick: { show: false },
+      axisLabel: {
+        color: axText(dark), fontSize: fs, fontFamily: FONT_MONO,
+        formatter: { year: '{yyyy}', month: '{yyyy}-{MM}', day: '{yyyy}-{MM}' },
+      },
+      splitLine: { show: false },
+    },
+    yAxis: {
+      type: 'value',
+      axisLabel: { color: axText(dark), fontSize: fs, fontFamily: FONT_MONO, formatter: axisFmtFor(m, only ? only.currency : '') },
+      splitLine: { lineStyle: { color: axLine(dark) } },
+    },
+    series,
+  };
+  if (!dark) opt.dataZoom = [{ type: 'inside' }];   // 原生拖拽缩放，无预设区间按钮
+  if (only) {
+    opt.title = {
+      text: only.name, left: 6, top: 0,
+      textStyle: { fontSize: 13, fontWeight: 700, color: only.color, fontFamily: FONT_SANS },
+    };
+  }
+  return opt;
+}
+
+/* 柱状（类目轴，季度长序列，单家一图）：revenue / capex（金额类，独立成图标币种） */
+function ecBarOption(m, c, dark) {
+  const s = seriesFor(c, m, 'q');
+  const fs = dark ? 11 : 10.5;
+  const opt = {
+    animation: !dark,
+    textStyle: { fontFamily: FONT_SANS },
+    title: {
+      text: c.name + ' · ' + c.currency, left: 6, top: 0,
+      textStyle: { fontSize: 12.5, fontWeight: 700, color: c.color, fontFamily: FONT_SANS },
+    },
+    grid: { left: 56, right: 14, top: 34, bottom: 28 },
+    tooltip: {
+      trigger: 'axis', confine: true, textStyle: { fontSize: 11.5 },
+      valueFormatter: (v) => moneyFmt(v, c.currency),
+    },
+    xAxis: {
+      type: 'category', data: s.dates,
+      axisLine: { lineStyle: { color: axLine(dark) } },
+      axisTick: { show: false },
+      axisLabel: { color: axText(dark), fontSize: fs, fontFamily: FONT_MONO, formatter: (v) => String(v).slice(0, 4) },
+    },
+    yAxis: {
+      type: 'value',
+      axisLabel: { color: axText(dark), fontSize: fs, fontFamily: FONT_MONO, formatter: (v) => moneyAxis(v, c.currency) },
+      splitLine: { lineStyle: { color: axLine(dark) } },
+    },
+    series: [{ type: 'bar', name: c.name, data: s.values, itemStyle: { color: c.color }, barMaxWidth: 14 }],
+  };
+  if (!dark) opt.dataZoom = [{ type: 'inside' }];
+  return opt;
+}
+
+/* ======================================================================
+   A1 二指标叠加（统一走 ECharts；单指标视图完全不动）
+   —— 无金额类组合：一张双轴图，主指标=左轴实线 / 叠加=右轴虚线，公司色不变。
+   —— 含 revenue/capex：强制小多图，每家一格格内双轴（金额=柱·左，另一指标=虚线·右；
+      双金额=左主柱/右叠柱，叠柱降不透明度区分——同为公司色，非估值语义色）。
+   ====================================================================== */
+
+/* 指标在当前 range 下是否日频（日频序列需 lttb 采样、不画符号；price 恒为全史日频） */
+function comboIsDaily(met) { return met.key === 'price' || (!!met.hasRange && state.range === 'daily'); }
+
+/* 组合序列数据：沿用单指标的 negRed 负值红点规则；[date, val] 时间轴对
+   baseColor 缺省=公司色（F2:叠加序列传入深色变体保持符号同色） */
+function comboSeriesData(met, c, s, baseColor) {
+  const col = baseColor || c.color;
+  return s.dates.map((d, i) => {
+    const val = s.values[i];
+    if (met.negRed) {
+      return {
+        value: [d, val],
+        itemStyle: (val != null && val < 0) ? { color: C.loss, borderColor: C.loss } : { color: col },
+      };
+    }
+    return [d, val];
+  });
+}
+
+/* 双轴大图的一条折线：name=公司名·指标短名
+   F2:叠加（虚线）序列颜色 = 变体色（浅底加深 / 深色导出底提亮），主指标（实线）公司色不变 */
+function comboLineSeries(met, c, axisIdx, dashed, dark) {
+  const s = seriesFor(c, met, rangeVal(met));
+  const col = dashed ? overlayColor(c.color, dark) : c.color;
+  const ser = {
+    name: c.name + '·' + met.short,
+    type: 'line', yAxisIndex: axisIdx,
+    data: comboSeriesData(met, c, s, col),
+    connectNulls: false,                        // 真缺口断开，不插值
+    symbol: 'circle',
+    showSymbol: !!met.negRed,
+    symbolSize: met.negRed ? (dark ? 6.5 : 4.5) : 0,
+    lineStyle: { width: dashed ? (dark ? 2.2 : 1.6) : (dark ? 2.6 : 2), type: dashed ? 'dashed' : 'solid' },
+    color: col,
+  };
+  if (comboIsDaily(met)) { ser.sampling = 'lttb'; ser.showSymbol = false; }
+  return ser;
+}
+
+/* 组合 tooltip：按 seriesIndex 找回指标与币种，各自单位格式化 */
+function comboTooltip(metaByIndex) {
+  return {
+    trigger: 'axis', confine: true, textStyle: { fontSize: 12 },
+    formatter: (params) => {
+      const list = Array.isArray(params) ? params : [params];
+      if (!list.length) return '';
+      const raw = Array.isArray(list[0].value) ? list[0].value[0] : list[0].axisValue;
+      let html = esc(typeof raw === 'number' ? new Date(raw).toISOString().slice(0, 10) : String(raw));
+      list.forEach((p) => {
+        const meta = metaByIndex[p.seriesIndex] || {};
+        const v = Array.isArray(p.value) ? p.value[1] : p.value;
+        html += '<br/>' + p.marker + esc(p.seriesName) + '&nbsp;&nbsp;<b>'
+          + esc(fmtVal(meta.met || {}, v, meta.cur || '')) + '</b>';
+      });
+      return html;
+    },
+  };
+}
+
+/* 双轴叠加大图（组合不含金额类；log 指标其轴 type:'log'，维持现有对数轴约定） */
+function ecComboOption(m, o, dark) {
+  const fs = dark ? 13 : 11.5;
+  const list = activeCompanies();
+  const series = [];
+  const metaByIndex = [];
+  const pushSer = (met, axisIdx, dashed) => {
+    list.forEach((c) => {
+      series.push(comboLineSeries(met, c, axisIdx, dashed, dark));
+      metaByIndex.push({ met, cur: c.currency });
+    });
+  };
+  pushSer(m, 0, false);
+  pushSer(o, 1, true);
+  const yAx = (met, right) => ({
+    type: met.log ? 'log' : 'value',
+    position: right ? 'right' : 'left',
+    name: met.short,
+    nameTextStyle: { color: axText(dark), fontSize: fs - 1, fontFamily: FONT_MONO },
+    axisLabel: { color: axText(dark), fontSize: fs, fontFamily: FONT_MONO, formatter: axisFmtFor(met, '') },
+    splitLine: right ? { show: false } : { lineStyle: { color: axLine(dark) } },
+  });
+  const opt = {
+    animation: !dark,
+    textStyle: { fontFamily: FONT_SANS },
+    grid: { left: 64, right: 64, top: 58, bottom: 30 },
+    legend: {
+      top: 0, left: 0, itemWidth: 20, itemHeight: 9,
+      textStyle: { fontSize: 11, color: C.muted, fontFamily: FONT_SANS },
+    },
+    tooltip: comboTooltip(metaByIndex),
+    xAxis: {
+      type: 'time',
+      axisLine: { lineStyle: { color: axLine(dark) } },
+      axisTick: { show: false },
+      axisLabel: {
+        color: axText(dark), fontSize: fs, fontFamily: FONT_MONO,
+        formatter: { year: '{yyyy}', month: '{yyyy}-{MM}', day: '{yyyy}-{MM}' },
+      },
+      splitLine: { show: false },
+    },
+    yAxis: [yAx(m, false), yAx(o, true)],
+    series,
+  };
+  if (!dark) opt.dataZoom = [{ type: 'inside' }];
+  return opt;
+}
+
+/* 金额组合的格内构成：金额=柱(左)、另一指标=虚线(右)；双金额=左主柱/右叠柱；
+   ov 标记该槽位是否叠加指标（F2:叠加序列一律用公司色深变体） */
+function comboCellPlan(m, o) {
+  const mM = m.kind === 'money', oM = o.kind === 'money';
+  if (mM && oM) return { left: { met: m, type: 'bar', faded: false }, right: { met: o, type: 'bar', faded: true, ov: true } };
+  if (mM)       return { left: { met: m, type: 'bar', faded: false }, right: { met: o, type: 'line', faded: false, ov: true } };
+  return               { left: { met: o, type: 'bar', faded: false, ov: true }, right: { met: m, type: 'line', faded: false } };
+}
+
+/* 格内一条序列（页内小多图与导出多 grid 共用；xi/yi=坐标系索引） */
+function comboCellSeriesDef(slot, c, xi, yi, dark) {
+  const met = slot.met;
+  const s = seriesFor(c, met, rangeVal(met));
+  const col = slot.ov ? overlayColor(c.color, dark) : c.color;   // F2:叠加=变体色(浅底加深/深底提亮)
+  if (slot.type === 'bar') {
+    return {
+      name: met.short, type: 'bar', xAxisIndex: xi, yAxisIndex: yi,
+      data: s.dates.map((d, i) => [d, s.values[i]]),
+      itemStyle: { color: col, opacity: slot.faded ? 0.45 : 1 },
+      barMaxWidth: 12,
+    };
+  }
+  const ser = {
+    name: met.short, type: 'line', xAxisIndex: xi, yAxisIndex: yi,
+    data: comboSeriesData(met, c, s, col),
+    connectNulls: false,
+    symbol: 'circle',
+    showSymbol: !!met.negRed,
+    symbolSize: met.negRed ? (dark ? 6 : 4) : 0,
+    lineStyle: { width: dark ? 2 : 1.6, type: 'dashed' },
+    color: col,
+  };
+  if (comboIsDaily(met)) { ser.sampling = 'lttb'; ser.showSymbol = false; }
+  return ser;
+}
+
+/* 金额组合小多图的一格（格标题=公司名·币种，格内双轴） */
+function ecComboCellOption(m, o, c, dark) {
+  const plan = comboCellPlan(m, o);
+  const fs = dark ? 11 : 10.5;
+  const metaByIndex = [{ met: plan.left.met, cur: c.currency }, { met: plan.right.met, cur: c.currency }];
+  const yAx = (slot, right) => ({
+    type: slot.met.log ? 'log' : 'value',
+    position: right ? 'right' : 'left',
+    axisLabel: { color: axText(dark), fontSize: fs, fontFamily: FONT_MONO, formatter: axisFmtFor(slot.met, c.currency) },
+    splitLine: right ? { show: false } : { lineStyle: { color: axLine(dark) } },
+  });
+  const opt = {
+    animation: !dark,
+    textStyle: { fontFamily: FONT_SANS },
+    title: {
+      text: c.name + ' · ' + c.currency, left: 6, top: 0,
+      textStyle: { fontSize: 12.5, fontWeight: 700, color: c.color, fontFamily: FONT_SANS },
+    },
+    legend: {
+      top: 2, right: 2, itemWidth: 14, itemHeight: 8,
+      textStyle: { fontSize: 10, color: axText(dark), fontFamily: FONT_SANS },
+    },
+    grid: { left: 56, right: 48, top: 34, bottom: 28 },
+    tooltip: comboTooltip(metaByIndex),
+    xAxis: {
+      type: 'time',
+      axisLine: { lineStyle: { color: axLine(dark) } },
+      axisTick: { show: false },
+      axisLabel: {
+        color: axText(dark), fontSize: fs, fontFamily: FONT_MONO,
+        formatter: { year: '{yyyy}', month: '{yyyy}-{MM}', day: '{yyyy}-{MM}' },
+      },
+      splitLine: { show: false },
+    },
+    yAxis: [yAx(plan.left, false), yAx(plan.right, true)],
+    series: [comboCellSeriesDef(plan.left, c, 0, 0, dark), comboCellSeriesDef(plan.right, c, 0, 1, dark)],
+  };
+  if (!dark) opt.dataZoom = [{ type: 'inside' }];
+  return opt;
+}
+
+/* 叠加态渲染：ECharts 实例全部纳入 charts 表；LWC 容器全部隐藏 */
+function renderComboCharts(m, o) {
+  const list = activeCompanies();
+  const money = m.kind === 'money' || o.kind === 'money';
+  const anyData = state.companies.some((c) =>
+    hasAnyVal(seriesFor(c, m, rangeVal(m)).values) || hasAnyVal(seriesFor(c, o, rangeVal(o)).values));
+
+  elChartNote.hidden = true;
+  const showNote = (msg) => { elChartNote.textContent = msg; elChartNote.hidden = false; };
+
+  const ok = state.companies.length && anyData && list.length && !!echarts;
+  elLwcMain.hidden  = true;
+  elLwcSmall.hidden = true;
+  elEcMain.hidden   = !(ok && !money);
+  elEcSmall.hidden  = !(ok && money);
+
+  if (!state.companies.length) { cleanupCharts(); showNote('无数据 — valuation.json 加载失败或为空'); return; }
+  if (!anyData)                { cleanupCharts(); showNote('无数据 — 该指标在数据文件中缺失'); return; }
+  if (!list.length)            { cleanupCharts(); showNote('未选择公司 — 点上方公司开关以显示图形'); return; }
+  if (!echarts)                { cleanupCharts(); showNote('图表组件加载失败（ECharts CDN）— 刷新重试'); return; }
+
+  hideOverlayLwcBoxes();
+  removeSmallLwc(); elLwcSmall.innerHTML = '';
+
+  const bc = state.bands ? bandCompany() : null;   // F3:叠加态同样可挂周期带
+  if (!money) {
+    disposeSmallEc(); elEcSmall.innerHTML = '';
+    const opt = ecComboOption(m, o, false);
+    if (bc) attachBands(opt, bc, null);
+    renderChart('main', elEcMain, opt);
+  } else {
+    disposeChart('main'); elEcMain.innerHTML = '';
+    disposeSmallEc();
+    elEcSmall.innerHTML = list.map((c, i) =>
+      '<div class="small-cell"><div class="chart-small" id="ecSm' + i + '"></div></div>').join('');
+    list.forEach((c, i) => {
+      const cell = document.getElementById('ecSm' + i);
+      if (!cell) return;
+      const has = hasAnyVal(seriesFor(c, m, rangeVal(m)).values) || hasAnyVal(seriesFor(c, o, rangeVal(o)).values);
+      if (!has) { cell.innerHTML = '<div class="cell-note">无数据</div>'; return; }
+      const cellOpt = ecComboCellOption(m, o, c, false);
+      if (bc && c === bc) attachBands(cellOpt, bc, null);   // 格内 time 轴
+      renderChart('ecsm' + i, cell, cellOpt);
+    });
+  }
+}
+
+/* ======================================================================
+   渲染
+   ====================================================================== */
+function renderSideNav() {
+  const el = document.getElementById('sideNav');
+  el.innerHTML = GROUPS.map((g) => {
+    const items = METRICS.filter((x) => x.group === g).map((x) =>
+      '<button class="m-item' + (x.key === state.metric ? ' is-active' : '') + '" data-m="' + esc(x.key) + '">' + esc(x.label) + '</button>'
+    ).join('');
+    return '<div class="m-group"><div class="m-group-title">' + esc(g) + '</div><div class="m-group-items">' + items + '</div></div>';
+  }).join('');
+}
+
+function renderChips() {
+  const el = document.getElementById('chipRow');
+  el.innerHTML = state.companies.map((c) => {
+    const on = !!state.active[c.ticker];
+    const style = on
+      ? 'border-color:' + esc(c.color) + ';background:' + esc(c.color) + '14;color:var(--ink)'
+      : '';
+    return '<button class="chip' + (on ? '' : ' is-off') + '" data-ticker="' + esc(c.ticker) + '" style="' + style + '">'
+      + '<span class="dot" style="background:' + (on ? esc(c.color) : 'var(--hairline)') + '"></span>' + esc(c.name) + '</button>';
+  }).join('');
+}
+
+function cleanupCharts() {
+  hideOverlayLwcBoxes();
+  removeSmallLwc();
+  disposeChart('main');
+  disposeSmallEc();
+  elEcMain.innerHTML = '';
+  elLwcSmall.innerHTML = '';
+  elEcSmall.innerHTML = '';
+}
+
+function renderCharts(m) {
+  const ov = ovMetric();
+  if (ov) { renderComboCharts(m, ov); return; }   // 叠加态独立分支；下方单指标路径零改动
+  const range = rangeVal(m);
+  const bc = state.bands ? bandCompany() : null;         // F3:周期带开启且可用
+  const isLwc = m.lib === 'lwc' && !bc;                  // 开启周期带时 lwc 指标改走 ECharts
+  const mode = (bc && m.lib === 'lwc') ? 'overlay' : effMode(m);   // 单公司周期带=单张主图
+  const list = activeCompanies();
+  const anyData = state.companies.some((c) => hasAnyVal(seriesFor(c, m, range).values));
+
+  elChartNote.hidden = true;
+  const showNote = (msg) => { elChartNote.textContent = msg; elChartNote.hidden = false; };
+
+  const ok = state.companies.length && anyData && list.length;
+  elLwcMain.hidden  = !(ok && isLwc && mode === 'overlay');
+  elEcMain.hidden   = !(ok && !isLwc && mode === 'overlay');
+  elLwcSmall.hidden = !(ok && isLwc && mode === 'small');
+  elEcSmall.hidden  = !(ok && !isLwc && mode === 'small');
+
+  if (!state.companies.length) { cleanupCharts(); showNote('无数据 — valuation.json 加载失败或为空'); return; }
+  if (!anyData)                { cleanupCharts(); showNote('无数据 — 该指标在数据文件中缺失'); return; }
+  if (!list.length)            { cleanupCharts(); showNote('未选择公司 — 点上方公司开关以显示图形'); return; }
+
+  if (isLwc && mode === 'overlay') {
+    disposeChart('main'); elEcMain.innerHTML = '';
+    removeSmallLwc(); elLwcSmall.innerHTML = '';
+    disposeSmallEc(); elEcSmall.innerHTML = '';
+    renderOverlayLwc(m, range);
+  } else if (isLwc) {
+    hideOverlayLwcBoxes();
+    disposeChart('main'); elEcMain.innerHTML = '';
+    disposeSmallEc(); elEcSmall.innerHTML = '';
+    renderSmallLwc(m, range);
+  } else if (mode === 'overlay') {
+    hideOverlayLwcBoxes();
+    removeSmallLwc(); elLwcSmall.innerHTML = '';
+    disposeSmallEc(); elEcSmall.innerHTML = '';
+    if (!echarts) { elEcMain.hidden = true; showNote('图表组件加载失败（ECharts CDN）— 刷新重试'); return; }
+    // F3:周期带开启——lwc 指标走专用时间轴 option；ec 折线在原 option 上挂 markArea
+    const opt = (bc && m.lib === 'lwc') ? ecBandLineOption(m, bc) : ecLineOption(m, false, null);
+    if (bc && m.lib !== 'lwc') attachBands(opt, bc, null);
+    renderChart('main', elEcMain, opt);
+  } else {
+    hideOverlayLwcBoxes();
+    removeSmallLwc(); elLwcSmall.innerHTML = '';
+    disposeChart('main'); elEcMain.innerHTML = '';
+    if (!echarts) { elEcSmall.hidden = true; showNote('图表组件加载失败（ECharts CDN）— 刷新重试'); return; }
+    disposeSmallEc();
+    elEcSmall.innerHTML = list.map((c, i) =>
+      '<div class="small-cell"><div class="chart-small" id="ecSm' + i + '"></div></div>'
+    ).join('');
+    list.forEach((c, i) => {
+      const cell = document.getElementById('ecSm' + i);
+      if (!cell) return;
+      const s = seriesFor(c, m, 'q');
+      if (!hasAnyVal(s.values)) { cell.innerHTML = '<div class="cell-note">无数据</div>'; return; }
+      const cellOpt = m.chart === 'bar' ? ecBarOption(m, c, false) : ecLineOption(m, false, c);
+      // F3:金额柱状为类目轴，from/to 映射到区间内实际类目；折线 time 轴直接挂
+      if (bc && c === bc) attachBands(cellOpt, bc, m.chart === 'bar' ? s.dates : null);
+      renderChart('ecsm' + i, cell, cellOpt);
+    });
+  }
+}
+
+/* —— 图下第 1 行：统计行（直读 stats，前端零计算；中性灰 + 公司色 marker）
+      叠加时分两段，段首标指标名 —— */
+function renderStats(m) {
+  const el = document.getElementById('statsRows');
+  if (!state.companies.length) { el.innerHTML = ''; return; }
+  const o = ovMetric();
+  if (!o) { el.innerHTML = statsRowsHTML(m); return; }
+  el.innerHTML =
+    '<div class="stat-sec-head">' + esc(m.label) + '</div>' + statsRowsHTML(m)
+    + '<div class="stat-sec-head">' + esc(o.label) + '</div>' + statsRowsHTML(o);
+}
+function statsRowsHTML(m) {
+  return state.companies.map((c) => {
+    const st = (c.stats && c.stats[m.key] && typeof c.stats[m.key] === 'object') ? c.stats[m.key] : null;
+    const head = '<span class="dot dot--sm" style="background:' + esc(c.color) + '"></span>'
+      + '<span class="s-name">' + esc(c.name) + '</span>';
+    if (!st || st.current == null) {
+      return '<div class="stat-row"><div class="s-line">' + head + '<span class="s-body">—</span></div></div>';
+    }
+    const f = (v) => esc(fmtVal(m, v, c.currency));
+    const wy = trimNum(st.window_years);
+    const p = (st.percentile != null && isFinite(st.percentile)) ? Math.max(0, Math.min(1, st.percentile)) : null;
+    const marker = p == null ? ''
+      : '<span class="range-marker" style="left:' + (p * 100).toFixed(1) + '%;background:' + esc(c.color)
+        + '" title="近' + esc(wy) + '年分位 ' + Math.round(p * 100) + '/100"></span>';
+    // E10:P/B 早期年度层分母为总权益口径,其极值(min/max)仅形态参考,不作定量估值
+    const pbShapeNote = (m.key === 'pb')
+      ? '<span class="s-body" style="color:var(--faint)"> · 早期年度分母口径极值仅形态参考</span>'
+      : '';
+    return '<div class="stat-row">'
+      + '<div class="s-line">' + head
+      + '<span class="s-body">当前 ' + f(st.current) + '（' + esc(st.current_date || '—') + '）'
+      + ' · 近' + esc(wy) + '年: min ' + f(st.min) + ' · 中位 ' + f(st.median) + ' · max ' + f(st.max) + '</span>'
+      + pbShapeNote + '</div>'
+      + '<div class="range-track">' + marker + '</div>'
+      + '</div>';
+  }).join('');
+}
+
+/* —— W11·F1:Forward P/E 当前值块（仅 pe 视图）——
+      三家横排 forward_pe.value + N 位分析师;null 显「—」;醒目标注「分析师一致预期·
+      非历史事实·随预期变动·来源 Yahoo」(浅琥珀 caveat 样式)。不画进曲线;切走隐藏。*/
+function renderForwardBlock(m) {
+  const el = document.getElementById('forwardBlock');
+  if (!el) return;
+  if (m.key !== 'pe' || !state.companies.length) { el.hidden = true; el.innerHTML = ''; return; }
+  const cells = state.companies.map((c) => {
+    const fp = c.forwardPe;
+    const head = '<span class="dot dot--sm" style="background:' + esc(c.color) + '"></span>'
+      + '<span class="fw-name">' + esc(c.name) + '</span>';
+    if (!fp || fp.value == null || !isFinite(fp.value)) {
+      return '<span class="fwd-cell">' + head + '<span class="fw-na">—</span></span>';
+    }
+    const val = (fp.value >= 100 ? fp.value.toFixed(0) : fp.value.toFixed(2));
+    const an = (fp.analysts != null && isFinite(fp.analysts))
+      ? '<span class="fw-an">' + esc(fp.analysts) + ' 位分析师</span>' : '';
+    // E6:韩股无 forwardEps,forward_pe 为 Yahoo 直引(无 EPS 支撑),与 MU(有 EPS 隐含)区分来源透明度
+    const srcAn = c.selfCalc
+      ? '<span class="fw-an">韩股为直引 · 无 EPS 支撑</span>' : '';
+    return '<span class="fwd-cell">' + head + '<span class="fw-val">' + esc(val) + '</span>' + an + srcAn + '</span>';
+  }).join('');
+  el.innerHTML =
+    '<div class="fwd-head"><span class="fwd-title">Forward P/E · 分析师预期</span>'
+    + '<span class="fwd-caveat">▲ 分析师一致预期 · 非历史事实 · 随预期变动 · 来源 Yahoo（韩股为直引，无 EPS 支撑）</span></div>'
+    + '<div class="fwd-rows">' + cells + '</div>';
+  el.hidden = false;
+}
+
+/* —— W11·F2c:capex 视图扩产计划附注（仅 capex 视图）——
+      读 capexPlans（前端 fetch;缺则不显示);每家取前 1-2 条 title + 「详见公司页 →」链。
+      不进曲线、不混入历史 capex 柱。*/
+function renderCapexNote(m) {
+  const el = document.getElementById('capexNote');
+  if (!el) return;
+  const cos = (capexPlans && capexPlans.companies && typeof capexPlans.companies === 'object')
+    ? capexPlans.companies : null;
+  if (m.key !== 'capex' || !cos || !state.companies.length) { el.hidden = true; el.innerHTML = ''; return; }
+  const blocks = state.companies.map((c) => {
+    const plans = Array.isArray(cos[c.ticker]) ? cos[c.ticker].filter((p) => p && p.title) : [];
+    if (!plans.length) return '';
+    const items = plans.slice(0, 2).map((p) =>
+      '<div class="cn-item"><span class="b">·</span>' + esc(p.title) + '</div>').join('');
+    return '<div class="cn-co"><div class="cn-co-name" style="color:' + esc(c.color) + '">'
+      + esc(c.name) + '</div>' + items + '</div>';
+  }).filter(Boolean).join('');
+  if (!blocks) { el.hidden = true; el.innerHTML = ''; return; }
+  el.innerHTML =
+    '<div class="cn-head"><span class="cn-title">各家扩产计划</span>'
+    + '<span class="cn-sub">公司/官方披露的计划，非承诺，可能随市况调整</span></div>'
+    + blocks
+    + '<a class="cn-go" href="公司.html">详见 公司页 →</a>';
+  el.hidden = false;
+}
+
+/* —— 图下第 2 行：口径行（按指标显示，纯事实） —— */
+function caveatsFor(m) {
+  const list = [];
+  if (m.key === 'price') {
+    list.push('股价为 Yahoo Finance 收盘价（含拆股回溯，不含股息复权）');
+    list.push('MU 以美元计价，韩股以韩元计价');
+    list.push('日频全史：MU 1984→ / 韩股 2000→');
+    return list;
+  }
+  list.push('韩股数值为自算（DART 原始报表）');
+  list.push('三星为集团口径，非纯存储');
+  if (m.key === 'pe') list.push('亏损期 TTM 净利 ≤ 0 时 P/E 无意义，折线断开（NM）');
+  // A1:韩股早期 P/B 权益口径切换（FY2011 前为总权益含少数股东，之后归母，两段不严格可比）
+  if (m.key === 'pb') list.push('韩股 P/B 2011 前分母为总权益（含少数股东），与后期归母不严格可比');
+  const muHasSplice = state.companies.some((c) => c.splice && c.splice.splice_point);
+  if ((m.key === 'revenue' || m.key === 'gross_margin' || m.key === 'op_margin' || m.key === 'net_margin') && muHasSplice) {
+    list.push('MU 营收 2017Q4 起为 ASC606 新准则口径');
+  }
+  if (m.key === 'capex') list.push('capex 为现金流出，展示取绝对值');
+  if (m.key === 'revenue' || m.key === 'capex') list.push('USD 与 KRW 不可直接比，故各家独立成图');
+  if (m.hasRange) {
+    if (state.range === 'long') {
+      list.push('长序列：MU FY2009→（SEC）/ 韩股 2015Q4→（DART），季度粒度');
+    } else {
+      list.push('日频：MU 1994→ / 韩股 2001→；分母分两段——早期为历史年报（年度跳档：MU 1994–2009 / 韩股 2001–2015，人工摘录），之后为 SEC/DART 季度跳档');
+      list.push('年度分母时代在资本结构剧变年份（如 Hynix 2001–03 债转股与 21:1 缩股）失真明显，仅供形态参考');
+      // 热身桥接披露(仅 pe 视图):季度滚动 TTM 需连续4季才成形,拼接口后头几季分母缺口
+      // 处以该公司最近年报净利作尾随分母(公司当年盈利、非亏损),标注清楚交给用户
+      if (m.key === 'pe') {
+        state.companies.forEach((c) => {
+          (c.peBridge || []).forEach((b) => {
+            if (b && b.basis_date && b.to) {
+              list.push(c.name + ' 以 FY' + b.basis_date.slice(0, 4) +
+                ' 年报净利作尾随 P/E 分母，桥接季度 TTM 暖机期（缺连续4季，至 ' + b.to.slice(0, 4) +
+                ' 滚动 TTM 成形接管；公司当年盈利、非亏损）');
+            }
+          });
+        });
+      }
+    }
+  } else {
+    list.push('季度长序列：MU FY2009→ / 韩股 2015Q4→');
+  }
+  return list;
+}
+function renderCaveats(m) {
+  const o = ovMetric();
+  let list = caveatsFor(m);
+  if (o) list = Array.from(new Set(list.concat(caveatsFor(o))));   // 叠加时合并去重
+  // F3:周期带开启时追加 bands.definitions 原文 + 事实性说明
+  const bc = state.bands ? bandCompany() : null;
+  if (bc && bc.bands && bc.bands.definitions) {
+    const defs = bc.bands.definitions;
+    if (defs.loss) list.push(defs.loss);
+    if (defs.rev_contraction) list.push(defs.rev_contraction);
+    // 年度人工史料层(前结构化时代)存在时,说明其粒度与来源方式
+    const hasManual = ['loss', 'rev_contraction'].some((k) =>
+      (bc.bands[k] || []).some((seg) => seg && seg.method === 'manual-annual'));
+    if (hasManual && defs.manual_annual) list.push(defs.manual_annual.replace(/\*\*/g, ''));
+    list.push('该带为本公司财报既定事实，不构成周期判断；进行中区间只画到最后一个数据点');
+  }
+  document.getElementById('caveatBar').innerHTML =
+    '<span class="lead">▲ 口径</span>' + list.map((t) => '<span>' + esc(t) + '</span>').join('');
+}
+
+/* —— 口径行下方：指标解释（三段式：定义／周期中／用法；叠加时两个指标各三行，按指标名分组） —— */
+function explainRowsHTML(m) {
+  return '<div><span class="me-tag">定义</span>' + esc(m.explain || '') + '</div>'
+    + '<div><span class="me-tag">周期中</span>' + esc(m.explainCycle || '') + '</div>'
+    + '<div><span class="me-tag">用法</span>' + esc(m.explainUsage || '') + '</div>';
+}
+function renderExplain(m) {
+  const el = document.getElementById('metricExplain');
+  const o = ovMetric();
+  if (!o) { el.innerHTML = explainRowsHTML(m); return; }
+  el.innerHTML =
+    '<div class="me-name">' + esc(m.short) + '</div>' + explainRowsHTML(m)
+    + '<div class="me-name">' + esc(o.short) + '</div>' + explainRowsHTML(o);
+}
+
+/* —— 图下第 3 行：来源行 —— */
+function srcPillFor(m, prefix) {
+  /* 档位与 build/fetch_data.py sources.json 契约对齐：
+     pe/pb 分子为 Yahoo 行情（非监管原文）→ 整行按短板计 A 档；纯报表指标才是 S 档。 */
+  const p = prefix ? prefix + ' · ' : '';
+  return m.kind === 'ratio'
+    ? srcPillHTML({ tier: 'A', source: p + 'Yahoo 收盘 × SEC/DART 自算', icon: '⚙️', tip: '信源档位 A：第三方硬数据（Yahoo Finance 收盘价 × SEC EDGAR / DART 报表股数、净利 / 净资产，自算；档位按短板计）' })
+    : m.tier === 'A'
+      ? srcPillHTML({ tier: 'A', source: p + 'Yahoo Finance', icon: '⚙️', tip: '信源档位 A：第三方硬数据（Yahoo Finance 收盘价，含拆股回溯、不含股息复权）' })
+      : srcPillHTML({ tier: 'S', source: p + 'SEC EDGAR · DART 自算', icon: '⚙️', tip: '信源档位 S：监管原文（SEC EDGAR / DART）；韩股数值由原始报表自算' });
+}
+function renderSrc(m) {
+  const o = ovMetric();
+  const pills = o ? srcPillFor(m, m.short) + ' ' + srcPillFor(o, o.short) : srcPillFor(m, '');
+  document.getElementById('srcRow').innerHTML = pills
+    + '<span class="mono">抓取 ' + esc(state.generated) + '</span>'
+    + '<a href="数据与来源.html">详见 数据与来源 →</a>';
+}
+
+/* —— 控制行：叠加对比控件（未叠加=select；已叠加=chip + ×） —— */
+function renderOverlayCtl() {
+  const el = document.getElementById('overlayCtl');
+  const o = ovMetric();
+  if (!o) {
+    el.innerHTML = '<select class="overlay-sel" id="overlaySel" title="叠加第二个指标对比">'
+      + '<option value="">+ 叠加对比</option>'
+      + METRICS.filter((x) => x.key !== state.metric).map((x) =>
+          '<option value="' + esc(x.key) + '">' + esc(x.label) + '</option>').join('')
+      + '</select>';
+  } else {
+    el.innerHTML = '<span class="overlay-chip">叠加：' + esc(o.label)
+      + '<button id="overlayOff" title="移除叠加" aria-label="移除叠加">×</button></span>';
+  }
+}
+
+/* ======================================================================
+   A2 原始数据表：全部三家 × 当前指标(+叠加) 全量时间点，长表、日期倒序；
+   默认折叠；首屏 100 行、加载更多 +200（追加 DOM，不整表重建）；
+   混粒度（日频×季度）不对齐合并，拆两张小表；CSV 全量 + BOM + 原始数值。
+   ====================================================================== */
+/* C1:折叠(details 未 open)时不构建/不排序 2.4 万行——只算轻量总行数刷新摘要;
+   首次展开(或展开态下切指标/公司)才懒构建 datasets(rawRows 排序+HTML)并按 key 缓存。
+   built=当前 key 的 body 是否已构建;shown 为各分组独立的已显示行数(混粒度双表各自计数)。 */
+const rawState = { key: '', shown: [], datasets: null, built: false };
+
+/* 指标在当前 range 下的粒度：daily / q（季度）；price 只有全史日频 */
+function granOf(met) {
+  if (met.key === 'price') return 'daily';
+  if (!met.hasRange) return 'q';
+  return state.range === 'daily' ? 'daily' : 'q';
+}
+/* 列头单位：表格里值已带单位符号，CSV 里数字为原始值 → 两套措辞 */
+function unitOf(met, csv) {
+  if (met.kind === 'pct')   return csv ? '（小数）' : '（%）';
+  if (met.kind === 'ratio') return '（倍）';
+  if (met.kind === 'days')  return '（天）';
+  return csv ? '（原币 USD/KRW）' : '（原币）';   // money / price
+}
+/* 当前视图的表组：同粒度合并为一张长表；混粒度拆两张（不造稀疏假行） */
+function rawGroups(m) {
+  const o = ovMetric();
+  if (!o) return [[m]];
+  return granOf(m) === granOf(o) ? [[m, o]] : [[m], [o]];
+}
+/* 一组指标（1~2 个，同粒度）→ 行数组 {d, ci, vals[]}：日期倒序、同日按公司序 */
+function rawRows(mets) {
+  const rows = [];
+  state.companies.forEach((c, ci) => {
+    if (mets.length === 1) {
+      const s = seriesFor(c, mets[0], rangeVal(mets[0]));
+      s.dates.forEach((d, i) => rows.push({ d, ci, vals: [s.values[i]] }));
+    } else {
+      const map = new Map();   // 同粒度双指标按日期对齐（真缺口保留为 null）
+      mets.forEach((met, k) => {
+        const s = seriesFor(c, met, rangeVal(met));
+        s.dates.forEach((d, i) => {
+          if (!map.has(d)) map.set(d, [null, null]);
+          map.get(d)[k] = s.values[i];
+        });
+      });
+      map.forEach((vals, d) => rows.push({ d, ci, vals }));
+    }
+  });
+  rows.sort((a, b) => (a.d < b.d ? 1 : a.d > b.d ? -1 : a.ci - b.ci));
+  return rows;
+}
+function rawRowsHTML(mets, rows, from, to) {
+  let html = '';
+  const end = Math.min(to, rows.length);
+  for (let i = from; i < end; i++) {
+    const r = rows[i];
+    const c = state.companies[r.ci];
+    html += '<tr><td>' + esc(r.d) + '</td>'
+      + '<td><span class="dot dot--sm" style="background:' + esc(c.color) + '"></span> ' + esc(c.name) + '</td>'
+      + mets.map((met, k) => '<td class="num">' + esc(fmtVal(met, r.vals[k], c.currency)) + '</td>').join('')
+      + '</tr>';
+  }
+  return html;
+}
+function rawFootHTML(gi, shown, total) {
+  return shown < total
+    ? '<button class="raw-more" data-g="' + gi + '">加载更多（已显示 ' + shown + ' / ' + total + ' 行）</button>'
+    : '<div class="raw-total">共 ' + total + ' 行 · 已全部显示</div>';
+}
+/* C1:轻量总行数——不建行、不排序,单指标按序列长度求和;混粒度双指标同公司按日期并集计数。
+   仅用于折叠态摘要显示,避免每次 render 全量 rawRows(2.4 万行排序)。 */
+function rawCount(groups) {
+  let n = 0;
+  groups.forEach((mets) => {
+    state.companies.forEach((c) => {
+      if (mets.length === 1) {
+        n += seriesFor(c, mets[0], rangeVal(mets[0])).dates.length;
+      } else {
+        const set = new Set();
+        mets.forEach((met) => { seriesFor(c, met, rangeVal(met)).dates.forEach((d) => set.add(d)); });
+        n += set.size;
+      }
+    });
+  });
+  return n;
+}
+/* C1:重活——构建 datasets(rawRows 排序) + body HTML。仅在 details 展开且当前 key 未构建时调用。 */
+function buildRawBody() {
+  const groups = rawGroups(curMetric());
+  // shown 长度须与分组数匹配(混粒度双表→2 组,各自独立索引);缺项补 100
+  if (!Array.isArray(rawState.shown) || rawState.shown.length !== groups.length) {
+    rawState.shown = groups.map((_, i) => (rawState.shown && rawState.shown[i]) || 100);
+  }
+  const datasets = groups.map((mets) => ({ mets, rows: rawRows(mets) }));
+  rawState.datasets = datasets;
+  document.getElementById('rawBody').innerHTML = datasets.map((g, gi) => {
+    const shown = Math.min(rawState.shown[gi] || 100, g.rows.length);
+    rawState.shown[gi] = shown;
+    const head = '<tr><th>日期</th><th>公司</th>'
+      + g.mets.map((met) => '<th class="num">' + esc(met.label + unitOf(met, false)) + '</th>').join('') + '</tr>';
+    const sub = datasets.length > 1 ? '<div class="raw-sub">' + esc(g.mets[0].label) + '</div>' : '';
+    return sub + '<div class="raw-wrap"><table class="raw-table">'
+      + '<thead>' + head + '</thead><tbody id="rawTbody' + gi + '">'
+      + rawRowsHTML(g.mets, g.rows, 0, shown) + '</tbody></table></div>'
+      + '<div id="rawFoot' + gi + '">' + rawFootHTML(gi, shown, g.rows.length) + '</div>';
+  }).join('');
+  rawState.built = true;
+}
+function renderRawData(m) {
+  const box = document.getElementById('rawData');
+  if (!state.companies.length) { box.hidden = true; return; }
+  box.hidden = false;
+  const o = ovMetric();
+  const key = m.key + '|' + (o ? o.key : '') + '|' + ((m.hasRange || (o && o.hasRange)) ? state.range : 'q');
+  const groups = rawGroups(m);
+  // key 变化(切指标/公司/范围/叠加)→ 作废缓存:重置各组 shown、标记未构建、清 datasets
+  if (key !== rawState.key) {
+    rawState.key = key;
+    rawState.shown = groups.map(() => 100);
+    rawState.built = false;
+    rawState.datasets = null;
+  }
+  // 摘要总行数用轻量计数(不排序);折叠态到此为止,不碰 2.4 万行
+  document.getElementById('rawSummary').innerHTML =
+    '<span class="caret"></span>原始数据（<b>' + rawCount(groups) + ' 行</b>）· 来源见上';
+  if (box.open) {
+    if (!rawState.built) buildRawBody();   // 展开态下 key 变化则重建
+  } else {
+    // 折叠态:不构建;清空 body 免残留上一 key 的表(下次展开触发 toggle 懒构建)
+    document.getElementById('rawBody').innerHTML = '';
+  }
+}
+/* CSV：全量（非仅已加载行）、UTF-8 带 BOM、列头含单位、数字原始值、日期 ISO；零请求 */
+function csvCell(v) {
+  const s = String(v == null ? '' : v);
+  return /[",\r\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+}
+function downloadCsv() {
+  if (!state.companies.length) return;
+  const m = curMetric();
+  const o = ovMetric();
+  const datasets = rawGroups(m).map((mets) => ({ mets, rows: rawRows(mets) }));
+  const blocks = datasets.map((g) => {
+    const head = ['日期', '公司'].concat(g.mets.map((met) => met.label + unitOf(met, true)));
+    const lines = [head.map(csvCell).join(',')];
+    g.rows.forEach((r) => {
+      const c = state.companies[r.ci];
+      lines.push([r.d, c.name].concat(g.mets.map((met, k) => (r.vals[k] == null ? '' : String(r.vals[k]))))
+        .map(csvCell).join(','));
+    });
+    return lines.join('\r\n');
+  });
+  const csv = String.fromCharCode(0xFEFF) + blocks.join('\r\n\r\n') + '\r\n';   // BOM：Excel 中文兼容
+  const rangeTok = (m.hasRange || (o && o.hasRange)) ? state.range : 'q';
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'memory-cycle_' + m.key + (o ? '_' + o.key : '') + '_' + rangeTok + '.csv';
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+/* —— URL 状态同步：?m=&o=&c=&r=&b=（replaceState，可分享恢复；r 对 price 无效）
+   &c= 为激活公司 chips（全选时省略）——&b=1 依赖恰好 1 家激活才生效，
+   chips 不进 URL 则分享/刷新后历史周期视图永远无法恢复 —— */
+function syncURL() {
+  try {
+    const m = curMetric();
+    const o = ovMetric();
+    let qs = '?m=' + encodeURIComponent(m.key);
+    if (o) qs += '&o=' + encodeURIComponent(o.key);
+    const act = state.companies.filter((c) => state.active[c.ticker]).map((c) => c.ticker);
+    if (act.length && act.length < state.companies.length) {
+      qs += '&c=' + act.map(encodeURIComponent).join(',');
+    }
+    if ((m.hasRange || (o && o.hasRange)) && state.range === 'long') qs += '&r=long';
+    // C2:小多图 mode 写入 URL,可分享/刷新恢复（默认 overlay 省略；金额类强制 small 时 state.mode 未改，此处只反映用户显式选择）
+    if (state.mode === 'small') qs += '&mode=small';
+    if (state.bands) qs += '&b=1';   // F3:历史周期开关
+    history.replaceState(null, '', qs);
+  } catch (e) { /* file:// 等环境不支持时静默 */ }
+}
+let pendingActive = null;   // URL &c= 解析结果（parseURL 时公司数据未就绪，boot 中套用）
+function parseURL() {
+  try {
+    const q = new URLSearchParams(location.search);
+    const mk = q.get('m');
+    if (mk && METRICS.some((x) => x.key === mk)) state.metric = mk;
+    const ok = q.get('o');   // 非法或与主指标相同 → 置 null
+    if (ok && ok !== state.metric && METRICS.some((x) => x.key === ok)) state.overlay = ok;
+    const cs = q.get('c');   // 公司 chips（URLSearchParams 已做 percent 解码）
+    if (cs != null) pendingActive = cs.split(',').filter(Boolean);
+    const r = q.get('r');
+    if (r === 'daily' || r === 'long') state.range = r;
+    const md = q.get('mode');   // C2:恢复小多图/叠加 mode
+    if (md === 'small' || md === 'overlay') state.mode = md;
+    if (q.get('b') === '1') state.bands = true;   // F3
+  } catch (e) {}
+}
+
+function render() {
+  const m = curMetric();
+  const o = ovMetric();
+  renderSideNav();
+  document.getElementById('metricTitle').textContent = o ? m.label + ' + ' + o.label : m.label;
+
+  // rangeSeg：任一参与指标 hasRange 即显示（range 只作用于 hasRange 的指标序列）
+  const rm = m.hasRange ? m : (o && o.hasRange ? o : null);
+  const rs = document.getElementById('rangeSeg');
+  rs.hidden = !rm;
+  if (rm) {
+    rs.querySelectorAll('button').forEach((b) => {
+      b.textContent = rm.rangeLabels[b.dataset.range] || b.dataset.range;
+      b.classList.toggle('is-active', b.dataset.range === state.range);
+    });
+  }
+  const ms = document.getElementById('modeSeg');
+  ms.hidden = !!m.forceSmall || !!o;   // 金额类锁小多图；叠加态布局由组合规则决定
+  ms.querySelectorAll('button').forEach((b) => {
+    b.classList.toggle('is-active', b.dataset.mode === state.mode);
+  });
+
+  // F3:「历史周期」开关——恰好 1 家激活且该家 bands 存在才可用（随公司 chips 联动）
+  const bcAvail = bandCompany();
+  const bandBtn = document.getElementById('bandBtn');
+  bandBtn.disabled = !bcAvail;
+  bandBtn.title = bcAvail
+    ? '标注该公司财报既定事实区间（亏损期 / 营收收缩期）'
+    : '单公司视图下可用';
+  bandBtn.classList.toggle('is-active', !!(state.bands && bcAvail));
+
+  renderOverlayCtl();
+  renderChips();
+  renderCharts(m);
+  renderStats(m);
+  renderForwardBlock(m);   // W11·F1:Forward P/E 块（仅 pe 视图）
+  renderCaveats(m);
+  renderExplain(m);
+  renderCapexNote(m);      // W11·F2c:扩产计划附注（仅 capex 视图）
+  renderSrc(m);
+  renderRawData(m);
+  syncMeasureUI();
+  if (fsActive()) fillFsInfobar();
+  syncURL();
+}
+
+/* W10 F2:测量按钮可用态 + 覆盖层重挂（每次 render 后校准)。
+   小多图 / 金额组合 / 未选公司 → 置灰;不可测量时强制关闭已激活的测量。*/
+function syncMeasureUI() {
+  const btn = document.getElementById('btnMeasure');
+  const view = measurableView();
+  btn.disabled = !view;
+  btn.title = view ? '框选两点测量区间' : '小多图下不可测量';
+  if (!view && state.measure) {
+    state.measure = false;
+    btn.classList.remove('is-active');
+  }
+  btn.classList.toggle('is-active', state.measure && !!view);
+  refreshMeasureAttach();
+}
+
+/* ======================================================================
+   导出图片（16:9 / 9:16 深色）
+   —— LWC 指标（price/pe/pb）：离屏深色 LWC → takeScreenshot() → 画布合成
+      （深底 + 标题 + 副题 + 图例 + 右下来源角标）。
+   —— ECharts 折线指标：深色重渲染 + graphic 标题。
+   —— 金额类（revenue/capex）：一画布多 grid，各家独立坐标轴（不同轴叠加）。
+   —— 叠加态：统一 ECharts 深色重渲染（双轴大图 / 金额组合多 grid）。
+   ====================================================================== */
+let exportGen = 0;
+const exportUI = { canvas: null };
+
+function exportTitle(m) {
+  const o = ovMetric();
+  const names = activeCompanies().map((c) => c.name).join(' / ');
+  return (o ? m.label + ' + ' + o.label : m.label) + ' · ' + (names || '—');
+}
+function exportSubtitle(m) {
+  const longSeq = '季度长序列（MU FY2009→ / 韩股 2015Q4→）';
+  const o = ovMetric();
+  if (o) {
+    if (m.kind === 'money' || o.kind === 'money') {
+      const plan = comboCellPlan(m, o);
+      return (plan.right.type === 'bar'
+        ? '柱=' + plan.left.met.short + '（左轴） · 柱=' + plan.right.met.short + '（右轴）'
+        : '柱=' + plan.left.met.short + '（左轴） · 虚线=' + plan.right.met.short + '（右轴）')
+        + ' · USD/KRW 各图独立';
+    }
+    return '实线=' + m.short + '（左轴） · 虚线=' + o.short + '（右轴）';
+  }
+  if (m.key === 'price') {
+    return '日频 · 全史（MU 1984→ / 韩股 2000→）· 对数轴 · Yahoo 收盘价（不含股息复权）';
+  }
+  if (m.key === 'pe') {
+    // B4:全程口径与方法论行一致（MU 1994→ / 韩股 2001→）；E7:补三星集团口径
+    return (state.range === 'long' ? '季度 · ' + longSeq : '日频 · 全程（MU 1994→ / 韩股 2001→）')
+      + ' · 对数轴 · 韩股自算 · 三星集团口径 · 亏损期断开（NM）';
+  }
+  if (m.key === 'pb') {
+    // B4:全程口径与方法论行一致（MU 1994→ / 韩股 2001→）
+    return (state.range === 'long' ? '季度 · ' + longSeq : '日频 · 全程（MU 1994→ / 韩股 2001→）')
+      + ' · 韩股自算 · 三星集团口径';
+  }
+  if (m.key === 'revenue') return longSeq + ' · USD/KRW 各图独立 · 三星集团口径';
+  if (m.key === 'capex')   return longSeq + ' · 现金流出取绝对值 · USD/KRW 各图独立 · 三星集团口径';
+  return longSeq + ' · 韩股自算 · 三星集团口径';
+}
+function exportCorner(m) {
+  const o = ovMetric();
+  if (o) {
+    const yahoo = [m, o].some((x) => x.tier === 'A' || x.kind === 'ratio');
+    return '来源 ' + (yahoo ? 'Yahoo Finance × SEC EDGAR · DART' : 'SEC EDGAR · DART')
+      + ' ｜ 韩股自算 ｜ 三星集团口径 ｜ 抓取 ' + state.generated;
+  }
+  if (m.kind === 'ratio') {
+    return '来源 Yahoo 收盘 × SEC EDGAR · DART 自算 ｜ 三星集团口径 ｜ 抓取 ' + state.generated;
+  }
+  return m.tier === 'A'
+    ? '来源 Yahoo Finance ｜ 收盘价（不含股息复权） ｜ 抓取 ' + state.generated
+    : '来源 SEC EDGAR · DART ｜ 韩股自算 ｜ 三星集团口径 ｜ 抓取 ' + state.generated;
+}
+function exportGraphic(v, title, sub, corner) {
+  return [
+    { type: 'text', left: v ? 40 : 20, top: v ? 26 : 20,
+      style: { text: title, fill: '#F2F4F8', font: (v ? '900 26px ' : '900 15px ') + FONT_SANS } },
+    { type: 'text', left: v ? 40 : 20, top: v ? 68 : 48,
+      style: { text: sub, fill: '#8A96A8', font: (v ? '500 13px ' : '500 9.5px ') + FONT_SANS } },
+    { type: 'text', right: v ? 20 : 10, bottom: v ? 14 : 10,
+      style: { text: corner, fill: '#5E6878', font: (v ? '500 11px ' : '500 7.5px ') + FONT_MONO } },
+    { type: 'text', left: v ? 40 : 20, bottom: v ? 14 : 10,
+      style: { text: 'MEMORY-CYCLE', fill: '#3A4356', font: (v ? '600 11px ' : '600 7.5px ') + FONT_MONO } },
+  ];
+}
+function darkNote(msg) {
+  return '<div style="height:100%;display:flex;align-items:center;justify-content:center;font:500 12px var(--font-mono);color:#5E6878;text-align:center;padding:0 16px">' + esc(msg) + '</div>';
+}
+
+/* ECharts 折线深色重渲染 */
+function exportLineOption(m) {
+  const v = state.ratio === '16:9';
+  const opt = ecLineOption(m, true, null);
+  opt.backgroundColor = C.darkCanvas || '#0D1117';
+  opt.grid = v ? { left: 74, right: 44, top: 124, bottom: 60 } : { left: 52, right: 26, top: 108, bottom: 66 };
+  opt.graphic = exportGraphic(v, exportTitle(m), exportSubtitle(m), exportCorner(m));
+  return opt;
+}
+
+/* 金额类：一画布多 grid（每家独立轴 + 币种标注） */
+function exportMoneyOption(m) {
+  const v = state.ratio === '16:9';
+  const list = activeCompanies();
+  const opt = {
+    animation: false,
+    backgroundColor: C.darkCanvas || '#0D1117',
+    textStyle: { fontFamily: FONT_SANS },
+    grid: [], xAxis: [], yAxis: [], series: [], title: [],
+    graphic: exportGraphic(v, exportTitle(m), exportSubtitle(m), exportCorner(m)),
+  };
+  const n = Math.max(1, list.length);
+  const push = (c, i, rect, titlePos) => {
+    const s = seriesFor(c, m, 'q');
+    opt.title.push({
+      text: c.name + ' · ' + c.currency, left: titlePos.left, top: titlePos.top,
+      textStyle: { fontSize: v ? 12 : 9.5, fontWeight: 700, color: c.color, fontFamily: FONT_SANS },
+    });
+    opt.grid.push(rect);
+    opt.xAxis.push({
+      gridIndex: i, type: 'category', data: s.dates,
+      axisLine: { lineStyle: { color: '#232936' } }, axisTick: { show: false },
+      axisLabel: { color: '#9AA3B2', fontSize: v ? 9 : 7.5, fontFamily: FONT_MONO, formatter: (x) => String(x).slice(0, 4) },
+    });
+    opt.yAxis.push({
+      gridIndex: i, type: 'value',
+      axisLabel: { color: '#9AA3B2', fontSize: v ? 9 : 7.5, fontFamily: FONT_MONO, formatter: (x) => moneyAxis(x, c.currency) },
+      splitLine: { lineStyle: { color: '#232936' } },
+    });
+    opt.series.push({ type: 'bar', xAxisIndex: i, yAxisIndex: i, data: s.values, itemStyle: { color: c.color }, barMaxWidth: 10 });
+  };
+  if (v) {
+    const L = 50, R = 20, gap = 36, top = 152, bottom = 50, W = 800, H = 450;
+    const w = (W - L - R - gap * (n - 1)) / n;
+    list.forEach((c, i) => {
+      const left = L + i * (w + gap);
+      push(c, i, { left, top, width: w, height: H - top - bottom }, { left, top: 132 });
+    });
+  } else {
+    const L = 38, R = 12, gap = 30, top0 = 96, bottom = 44, W = 270, H = 480;
+    const h = (H - top0 - bottom - gap * (n - 1)) / n;
+    list.forEach((c, i) => {
+      const top = top0 + i * (h + gap);
+      push(c, i, { left: L, top, width: W - L - R, height: h }, { left: L, top: top - 15 });
+    });
+  }
+  return opt;
+}
+
+/* 叠加态（无金额类组合）：双轴大图深色重渲染 + graphic 标题 */
+function exportComboOption(m, o) {
+  const v = state.ratio === '16:9';
+  const opt = ecComboOption(m, o, true);
+  opt.backgroundColor = C.darkCanvas || '#0D1117';
+  opt.grid = v ? { left: 80, right: 80, top: 158, bottom: 60 } : { left: 54, right: 54, top: 146, bottom: 66 };
+  opt.legend = Object.assign({}, opt.legend, {
+    top: v ? 116 : 100, left: v ? 40 : 20,
+    textStyle: { fontSize: v ? 12 : 9.5, color: '#D5DAE2', fontFamily: FONT_SANS },
+  });
+  opt.graphic = exportGraphic(v, exportTitle(m), exportSubtitle(m), exportCorner(m));
+  return opt;
+}
+
+/* 叠加态（含金额类组合）：一画布多 grid，每家一格格内双轴（同页内小多图构成） */
+function exportComboMoneyOption(m, o) {
+  const v = state.ratio === '16:9';
+  const list = activeCompanies();
+  const plan = comboCellPlan(m, o);
+  const opt = {
+    animation: false,
+    backgroundColor: C.darkCanvas || '#0D1117',
+    textStyle: { fontFamily: FONT_SANS },
+    grid: [], xAxis: [], yAxis: [], series: [], title: [],
+    graphic: exportGraphic(v, exportTitle(m), exportSubtitle(m), exportCorner(m)),
+  };
+  const n = Math.max(1, list.length);
+  const push = (c, i, rect, titlePos) => {
+    opt.title.push({
+      text: c.name + ' · ' + c.currency, left: titlePos.left, top: titlePos.top,
+      textStyle: { fontSize: v ? 12 : 9.5, fontWeight: 700, color: c.color, fontFamily: FONT_SANS },
+    });
+    opt.grid.push(rect);
+    opt.xAxis.push({
+      gridIndex: i, type: 'time',
+      axisLine: { lineStyle: { color: '#232936' } }, axisTick: { show: false },
+      axisLabel: {
+        color: '#9AA3B2', fontSize: v ? 9 : 7.5, fontFamily: FONT_MONO,
+        formatter: { year: '{yyyy}', month: '{yyyy}-{MM}', day: '{yyyy}-{MM}' },
+      },
+      splitLine: { show: false },
+    });
+    const yBase = opt.yAxis.length;
+    const yAx = (slot, right) => ({
+      gridIndex: i, position: right ? 'right' : 'left',
+      type: slot.met.log ? 'log' : 'value',
+      axisLabel: { color: '#9AA3B2', fontSize: v ? 9 : 7.5, fontFamily: FONT_MONO, formatter: axisFmtFor(slot.met, c.currency) },
+      splitLine: right ? { show: false } : { lineStyle: { color: '#232936' } },
+    });
+    opt.yAxis.push(yAx(plan.left, false));
+    opt.yAxis.push(yAx(plan.right, true));
+    const sL = comboCellSeriesDef(plan.left, c, i, yBase, true);
+    const sR = comboCellSeriesDef(plan.right, c, i, yBase + 1, true);
+    if (sL.type === 'bar') sL.barMaxWidth = 10;
+    if (sR.type === 'bar') sR.barMaxWidth = 10;
+    opt.series.push(sL, sR);
+  };
+  if (v) {
+    const L = 50, R = 40, gap = 56, top = 152, bottom = 50, W = 800, H = 450;
+    const w = (W - L - R - gap * (n - 1)) / n;
+    list.forEach((c, i) => {
+      const left = L + i * (w + gap);
+      push(c, i, { left, top, width: w, height: H - top - bottom }, { left, top: 132 });
+    });
+  } else {
+    const L = 38, R = 30, gap = 30, top0 = 96, bottom = 44, W = 270, H = 480;
+    const h = (H - top0 - bottom - gap * (n - 1)) / n;
+    list.forEach((c, i) => {
+      const top = top0 + i * (h + gap);
+      push(c, i, { left: L, top, width: W - L - R, height: h }, { left: L, top: top - 15 });
+    });
+  }
+  return opt;
+}
+
+/* LWC 指标：离屏深色图 → takeScreenshot → 画布合成 */
+async function renderExportLwc(m, stage) {
+  const gen = ++exportGen;
+  const is16 = state.ratio === '16:9';
+  const range = rangeVal(m);
+  const W = is16 ? 1920 : 1080, H = is16 ? 1080 : 1920;
+  const padX = is16 ? 48 : 40, headH = is16 ? 150 : 176, footH = is16 ? 60 : 64;
+  const cw = W - padX * 2, ch = H - headH - footH;
+  const off = document.createElement('div');
+  off.style.cssText = 'position:fixed;left:-100000px;top:0;width:' + cw + 'px;height:' + ch + 'px;';
+  document.body.appendChild(off);
+  let ctrl = null;
+  try {
+    const series = activeCompanies().map((c) => {
+      const s = seriesFor(c, m, range);
+      return { name: c.name, color: c.color, dates: s.dates, values: s.values };
+    });
+    ctrl = await createSeriesChart(off, { series, log: !!m.log, dark: true, fontSize: is16 ? 16 : 15 });
+    // 等一帧让 LWC 完成布局绘制；rAF 在后台/隐藏标签页可能被节流，加超时兜底防挂起
+    await new Promise((r) => {
+      let done = false;
+      const fin = () => { if (!done) { done = true; r(); } };
+      requestAnimationFrame(() => requestAnimationFrame(fin));
+      setTimeout(fin, 350);
+    });
+    if (gen !== exportGen || !state.exportOpen) return;
+
+    const shot = ctrl.chart.takeScreenshot();
+    const canvas = document.createElement('canvas');
+    canvas.width = W; canvas.height = H;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#0D1117'; ctx.fillRect(0, 0, W, H);
+    ctx.drawImage(shot, 0, 0, shot.width, shot.height, padX, headH, cw, ch);
+    // 标题 / 副题
+    ctx.fillStyle = '#F2F4F8';
+    ctx.font = (is16 ? '900 44px ' : '900 40px ') + '"Noto Sans SC", sans-serif';
+    ctx.fillText(exportTitle(m), padX, is16 ? 64 : 68);
+    ctx.fillStyle = '#8A96A8';
+    ctx.font = (is16 ? '500 21px ' : '500 20px ') + '"Noto Sans SC", sans-serif';
+    ctx.fillText(exportSubtitle(m), padX, is16 ? 102 : 108);
+    // 公司色图例
+    let lx = padX;
+    const ly = is16 ? 134 : 148;
+    activeCompanies().forEach((c) => {
+      ctx.fillStyle = c.color;
+      ctx.beginPath(); ctx.arc(lx + 7, ly - 7, 7, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#D5DAE2';
+      ctx.font = (is16 ? '500 19px ' : '500 18px ') + '"Noto Sans SC", sans-serif';
+      ctx.fillText(c.name, lx + 22, ly);
+      lx += 22 + ctx.measureText(c.name).width + 28;
+    });
+    // 右下来源角标 + 左下站名
+    ctx.fillStyle = '#5E6878';
+    ctx.font = '500 17px "IBM Plex Mono", monospace';
+    const corner = exportCorner(m);
+    ctx.fillText(corner, W - 24 - ctx.measureText(corner).width, H - 22);
+    ctx.fillStyle = '#3A4356';
+    ctx.font = '600 17px "IBM Plex Mono", monospace';
+    ctx.fillText('MEMORY-CYCLE', padX, H - 22);
+
+    if (gen !== exportGen || !state.exportOpen) return;
+    canvas.style.width = '100%'; canvas.style.height = '100%';
+    stage.innerHTML = '';
+    stage.appendChild(canvas);
+    exportUI.canvas = canvas;
+  } catch (e) {
+    if (gen === exportGen && state.exportOpen) stage.innerHTML = darkNote('图表组件加载失败（Lightweight Charts CDN）— 关闭后重试');
+  } finally {
+    if (ctrl) ctrl.remove();
+    off.remove();
+  }
+}
+
+function applyRatioUI() {
+  const is16 = state.ratio === '16:9';
+  document.getElementById('ratio16').classList.toggle('is-active', is16);
+  document.getElementById('ratio9').classList.toggle('is-active', !is16);
+  const stage = document.getElementById('exportStage');
+  stage.classList.toggle('export-canvas-16', is16);
+  stage.classList.toggle('export-canvas-9', !is16);
+  document.getElementById('exportSizeNote').textContent = is16
+    ? '下载尺寸 1920 × 1080 PNG（横屏视频）'
+    : '下载尺寸 1080 × 1920 PNG（竖屏短视频）';
+}
+
+function renderExport() {
+  exportGen++;                 // 使在途 LWC 合成过期
+  exportUI.canvas = null;
+  disposeChart('export');
+  applyRatioUI();
+  const stage = document.getElementById('exportStage');
+  stage.innerHTML = '';
+  const m = curMetric();
+  const o = ovMetric();
+  if (!state.companies.length) { stage.innerHTML = darkNote('无数据'); return; }
+  if (!activeCompanies().length) { stage.innerHTML = darkNote('未选择公司'); return; }
+  if (o) {   // 叠加态：统一 ECharts 深色重渲染（双轴大图 / 金额组合多 grid）
+    if (!echarts) { stage.innerHTML = darkNote('图表组件加载失败（ECharts CDN）'); return; }
+    const inner = document.createElement('div');
+    inner.style.cssText = 'width:100%;height:100%';
+    stage.appendChild(inner);
+    renderChart('export', inner, (m.kind === 'money' || o.kind === 'money')
+      ? exportComboMoneyOption(m, o) : exportComboOption(m, o));
+    return;
+  }
+  if (m.lib === 'lwc') {
+    stage.innerHTML = darkNote('生成中…');
+    renderExportLwc(m, stage);
+    return;
+  }
+  if (!echarts) { stage.innerHTML = darkNote('图表组件加载失败（ECharts CDN）'); return; }
+  const inner = document.createElement('div');
+  inner.style.cssText = 'width:100%;height:100%';
+  stage.appendChild(inner);
+  renderChart('export', inner, m.forceSmall ? exportMoneyOption(m) : exportLineOption(m));
+}
+
+function openExport() {
+  state.exportOpen = true;
+  document.getElementById('exportOverlay').style.display = 'flex';
+  renderExport();
+}
+function closeExport() {
+  state.exportOpen = false;
+  exportGen++;
+  exportUI.canvas = null;
+  disposeChart('export');
+  document.getElementById('exportOverlay').style.display = 'none';
+}
+function setRatio(r) {
+  if (state.ratio === r) return;
+  state.ratio = r;
+  renderExport();
+}
+function downloadPng() {
+  const m = curMetric();
+  const is16 = state.ratio === '16:9';
+  let url = null;
+  if (exportUI.canvas) {
+    url = exportUI.canvas.toDataURL('image/png');
+  } else if (charts['export']) {
+    url = charts['export'].getDataURL({
+      type: 'png',
+      pixelRatio: is16 ? 1920 / 800 : 1080 / 270,   // 预览画布为精确比例 → 输出恰为 1920×1080 / 1080×1920
+      backgroundColor: C.darkCanvas || '#0D1117',
+    });
+  }
+  if (!url) return;
+  const o = ovMetric();
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'memory-cycle_' + m.key + (o ? '_' + o.key : '') + '_' + (is16 ? '1920x1080' : '1080x1920') + '.png';
+  a.click();
+}
+
+/* ======================================================================
+   W10 · F1 纯图表全屏
+   —— 优先 Fullscreen API（.work 卡);不支持/失败回退 CSS 全屏。
+      进出后 resize 所有活动图表实例（LWC fit / ECharts resize)。
+      图下三行折叠进 .fs-infobar;数据表不进全屏。
+   ====================================================================== */
+const workEl = () => document.querySelector('.work');
+function fsActive() {
+  return !!(document.fullscreenElement || document.webkitFullscreenElement)
+    || workEl().classList.contains('work--css-fs');
+}
+function resizeAllCharts() {
+  // ECharts:除 export 外全部 resize
+  Object.keys(charts).forEach((k) => {
+    if (k === 'export') return;
+    try { charts[k].resize(); } catch (e) {}
+  });
+  // LWC:autoSize 已监听容器尺寸,这里再 fit 一次让内容重适配
+  Object.keys(lwcCache).forEach((k) => {
+    try { lwcCache[k].ctrl.fit(); } catch (e) {}
+  });
+}
+/* C3:导出弹层若在全屏切换时开着,其 ECharts 实例(排除在 resizeAllCharts 外)须 resize 回
+   非全屏下 #exportStage(.export-canvas-16/9)固定尺寸,否则画布残留全屏布局尺寸。
+   LWC 导出路径为静态 canvas 截图(exportUI.canvas),尺寸随容器 100% 自适应,无需 resize。 */
+function resizeExportChart() {
+  if (state.exportOpen && charts['export']) {
+    try { charts['export'].resize(); } catch (e) {}
+  }
+}
+function syncFsButton() {
+  const on = fsActive();
+  const btn = document.getElementById('btnFs');
+  btn.classList.toggle('is-active', on);
+  btn.textContent = on ? '⛶ 退出全屏' : '⛶ 全屏';
+  workEl().classList.toggle('is-fs', on);
+  // 全屏态填充信息条;退出时清空以免残留
+  if (on) fillFsInfobar();
+  // 进出全屏尺寸变化 → 下一帧 resize（等浏览器完成布局）;全屏切换布局在部分
+  // 环境（移动端/缩放)两帧内未必落定,再补一次延时 resize 兜底,确保图填满新尺寸。
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    resizeAllCharts();
+    resizeExportChart();
+    // 测量态下全屏切换后重挂覆盖层,坐标基准随新尺寸更新
+    if (state.measure) refreshMeasureAttach();
+  }));
+  setTimeout(() => {
+    resizeAllCharts();
+    resizeExportChart();
+    if (state.measure) refreshMeasureAttach();
+  }, 140);
+}
+function fillFsInfobar() {
+  const stats = document.getElementById('statsRows').innerHTML;
+  const caveat = document.getElementById('caveatBar').innerHTML;
+  document.getElementById('fsInfobarBody').innerHTML =
+    '<div class="stats-block">' + stats + '</div>'
+    + '<div class="caveat-bar" style="margin-top:8px">' + caveat + '</div>';
+}
+function enterCssFs() {
+  workEl().classList.add('work--css-fs');
+  syncFsButton();
+}
+function exitCssFs() {
+  workEl().classList.remove('work--css-fs');
+  syncFsButton();
+}
+function toggleFullscreen() {
+  const el = workEl();
+  // 已在 CSS 回退态 → 退出回退态
+  if (el.classList.contains('work--css-fs')) { exitCssFs(); return; }
+  const cur = document.fullscreenElement || document.webkitFullscreenElement;
+  if (cur) {
+    (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+    return;
+  }
+  const req = el.requestFullscreen || el.webkitRequestFullscreen;
+  if (req) {
+    Promise.resolve(req.call(el)).catch(() => { enterCssFs(); });   // API 失败 → CSS 回退
+  } else {
+    enterCssFs();   // 不支持 → CSS 回退
+  }
+}
+
+/* ======================================================================
+   W10 · F2 区间测量 —— 框选两点 → Δ值（按 kind)/涨跌%（或 Δpp/Δ天)/时间跨度。
+   仅"单图"视图可用（LWC 单张 或 ECharts 单张 main);小多图禁用。
+   叠加态作用于主指标左轴（seriesIndex:0 = 主指标)。覆盖层绝对定位在 .chart-stage,
+   仅测量态拦截指针;进出/切指标/切模式正确解绑。
+   ====================================================================== */
+let measureLayer = null, measureRect = null, measureHint = null, measureCard = null;
+let measureStage = null;        // 当前挂载的 .chart-stage
+const measureDrag = { on: false, x0: 0, y0: 0 };
+
+function buildMeasureLayer() {
+  if (measureLayer) return;
+  measureLayer = document.createElement('div');
+  measureLayer.className = 'measure-layer';
+  measureRect = document.createElement('div'); measureRect.className = 'measure-rect';
+  measureHint = document.createElement('div'); measureHint.className = 'measure-hint';
+  measureHint.textContent = '拖拽框选两点';
+  measureCard = document.createElement('div'); measureCard.className = 'measure-card';
+  measureLayer.appendChild(measureRect);
+  measureLayer.appendChild(measureHint);
+  measureLayer.appendChild(measureCard);
+  measureLayer.addEventListener('mousedown', onMeasureDown);
+  measureLayer.addEventListener('mousemove', onMeasureMove);
+  window.addEventListener('mouseup', onMeasureUp);
+  measureLayer.addEventListener('touchstart', onMeasureTouchStart, { passive: false });
+  measureLayer.addEventListener('touchmove', onMeasureTouchMove, { passive: false });
+  window.addEventListener('touchend', onMeasureUp);
+  // C3:系统手势/来电等中断触摸时 touchend 不触发,须 touchcancel 解绑清 measureDrag,否则拖拽态残留
+  window.addEventListener('touchcancel', onMeasureUp);
+  // 点空白（未拖动）清除已画选区
+  measureLayer.addEventListener('click', (e) => {
+    if (!measureDrag.on && e.target === measureLayer) clearMeasureSelection();
+  });
+}
+
+/* 当前是否为可测量的"单图"视图:返回 {kind:'lwc'|'ec', stage, met} 或 null。
+   —— LWC 单图:m.lib==='lwc' && !bands && overlay 模式 && 无叠加指标
+   —— ECharts 单图:ecMain 可见（单指标折线 overlay / 周期带 / 双轴组合大图) */
+function measurableView() {
+  const m = curMetric();
+  const o = ovMetric();
+  const list = activeCompanies();
+  if (!list.length) return null;
+  const bc = state.bands ? bandCompany() : null;
+  // 叠加含金额类 → 金额小多图,不可测量
+  if (o && (m.kind === 'money' || o.kind === 'money')) return null;
+  // ECharts 单张主图可见（#ecMain 未 hidden 且实例存在)
+  if (!elEcMain.hidden && charts['main']) {
+    return { kind: 'ec', stage: elEcMain, met: m };
+  }
+  // LWC 单张主图（overlay 模式、非周期带、无叠加)
+  if (!o && !bc && m.lib === 'lwc' && effMode(m) === 'overlay' && !elLwcMain.hidden) {
+    const key = ovKey(m, rangeVal(m));
+    if (lwcCache[key]) return { kind: 'lwc', stage: elLwcMain, met: m, ctrl: lwcCache[key].ctrl };
+  }
+  return null;
+}
+
+/* 把覆盖层挂到当前可测量视图的 stage;不可测量则卸载并清态 */
+function refreshMeasureAttach() {
+  if (!state.measure) { detachMeasure(); return; }
+  const view = measurableView();
+  if (!view) { detachMeasure(); return; }
+  buildMeasureLayer();
+  if (measureStage && measureStage !== view.stage) {
+    measureStage.classList.remove('is-measuring');
+    if (measureLayer.parentNode === measureStage) measureStage.removeChild(measureLayer);
+  }
+  measureStage = view.stage;
+  if (measureLayer.parentNode !== measureStage) measureStage.appendChild(measureLayer);
+  measureStage.classList.add('is-measuring');
+  clearMeasureSelection();
+}
+function detachMeasure() {
+  if (measureStage) {
+    measureStage.classList.remove('is-measuring');
+    if (measureLayer && measureLayer.parentNode === measureStage) measureStage.removeChild(measureLayer);
+    measureStage = null;
+  }
+  clearMeasureSelection();
+}
+function clearMeasureSelection() {
+  measureDrag.on = false;
+  if (measureRect) { measureRect.style.display = 'none'; }
+  if (measureCard) { measureCard.style.display = 'none'; }
+  if (measureHint) { measureHint.style.display = 'block'; }
+}
+
+/* 覆盖层内相对坐标 */
+function layerXY(clientX, clientY) {
+  const r = measureLayer.getBoundingClientRect();
+  return [clientX - r.left, clientY - r.top];
+}
+
+/* 像素 → {t(ISO日期), v(数值)}。落在缺口/越界时值为 null,由展示层兜底。 */
+function measurePoint(view, x, y) {
+  if (view.kind === 'lwc') {
+    const t = view.ctrl.timeAt(x);
+    const v = view.ctrl.priceAt(y);
+    return { t: isoFromLwcTime(t), v: (v == null || !isFinite(v)) ? null : v };
+  }
+  // ECharts:convertFromPixel 以主指标 seriesIndex:0（左轴)换算
+  try {
+    const p = charts['main'].convertFromPixel({ seriesIndex: 0 }, [x, y]);
+    if (!p) return { t: null, v: null };
+    const tv = p[0], vv = p[1];
+    return {
+      t: (typeof tv === 'number' && isFinite(tv)) ? new Date(tv).toISOString().slice(0, 10) : null,
+      v: (typeof vv === 'number' && isFinite(vv)) ? vv : null,
+    };
+  } catch (e) { return { t: null, v: null }; }
+}
+function isoFromLwcTime(t) {
+  if (t == null) return null;
+  if (typeof t === 'string') return t;
+  if (typeof t === 'object' && t.year) {
+    const p2 = (x) => (x < 10 ? '0' + x : '' + x);
+    return t.year + '-' + p2(t.month) + '-' + p2(t.day);
+  }
+  if (typeof t === 'number' && isFinite(t)) return new Date(t * 1000).toISOString().slice(0, 10);
+  return null;
+}
+
+/* Δ值格式化 + 涨跌/百分点/天 + 时间跨度 —— 只呈现数值,无判断词 */
+function fmtSpan(d1, d2) {
+  if (!d1 || !d2) return '';
+  const a = new Date(d1 + 'T00:00:00Z'), b = new Date(d2 + 'T00:00:00Z');
+  let lo = a, hi = b;
+  if (a > b) { lo = b; hi = a; }
+  const days = Math.round((hi - lo) / 86400000);
+  let span;
+  if (days < 60) {
+    span = days + ' 天';
+  } else {
+    let months = (hi.getUTCFullYear() - lo.getUTCFullYear()) * 12 + (hi.getUTCMonth() - lo.getUTCMonth());
+    if (hi.getUTCDate() < lo.getUTCDate()) months -= 1;
+    const yy = Math.floor(months / 12), mm = months % 12;
+    span = (yy ? yy + '年' : '') + (mm ? mm + '月' : (yy ? '' : '0月'));
+  }
+  return span + '（' + d1 + ' → ' + d2 + '）';
+}
+/* 测量卡币种:主指标为金额/股价类且激活公司跨币种时,轴为裸价格标度,
+   强制币种符号会误导（如 KRW 价被标成 $)——此时不带符号,只呈现裸数值。
+   单一币种时用该币种;非金额类（比率/百分点/天)本就不吃币种。 */
+function measureCurrency(m) {
+  if (m.kind !== 'price' && m.kind !== 'money') return '';
+  const curs = Array.from(new Set(activeCompanies().map((c) => c.currency).filter(Boolean)));
+  return curs.length === 1 ? curs[0] : '__BARE__';   // 跨币种 → 裸数值标记
+}
+/* 裸数值格式化（跨币种股价/金额:无符号,保留量级可读) */
+function bareNumFmt(m, v) {
+  if (v == null || !isFinite(v)) return '—';
+  if (m.kind === 'money') return moneyAxis(v, '');   // 复用轴格式（$/조 会退化;此处仅裸量级)
+  const a = Math.abs(v);
+  if (a >= 10000) return Math.round(v).toLocaleString('en-US');
+  if (a >= 100) return String(Math.round(v));
+  return v.toFixed(2);
+}
+function fmtMeasureVal(m, v, cur) {
+  if (cur === '__BARE__') return bareNumFmt(m, v);
+  return fmtVal(m, v, cur);
+}
+
+/* 测量结果卡 HTML（met 决定 Δ 语义:price/ratio/money=涨跌%;pct=Δpp;days=Δ天) */
+function measureCardHTML(view, p1, p2) {
+  const m = view.met;
+  const cur = measureCurrency(m);
+  const startD = p1.t, endD = p2.t;
+  // 按时间先后排序展示（左→右)
+  let a = p1, b = p2;
+  if (startD && endD && startD > endD) { a = p2; b = p1; }
+  const fa = (a.v == null) ? '—' : esc(fmtMeasureVal(m, a.v, cur));
+  const fb = (b.v == null) ? '—' : esc(fmtMeasureVal(m, b.v, cur));
+  let deltaHTML = '';
+  if (a.v != null && b.v != null && isFinite(a.v) && isFinite(b.v)) {
+    if (m.kind === 'pct') {
+      const dpp = (b.v - a.v) * 100;
+      // D1:方向由 ↑↓ 箭头(事实方向)表达,颜色中性;+/− 号保留数值符号语义
+      const sign = dpp >= 0 ? '↑ +' : '↓ −';
+      const cls = dpp >= 0 ? 'mc-up' : 'mc-dn';
+      deltaHTML = '<span class="' + cls + '">' + sign + Math.abs(dpp).toFixed(1) + 'pp</span>';
+    } else if (m.kind === 'days') {
+      const dd = b.v - a.v;
+      const sign = dd >= 0 ? '↑ +' : '↓ −';
+      const cls = dd >= 0 ? 'mc-up' : 'mc-dn';
+      deltaHTML = '<span class="' + cls + '">' + sign + Math.abs(Math.round(dd)) + ' 天</span>';
+    } else {
+      // price / ratio / money → 涨跌幅
+      if (a.v !== 0) {
+        const pct = (b.v / a.v - 1) * 100;
+        const up = pct >= 0;
+        const cls = up ? 'mc-up' : 'mc-dn';
+        deltaHTML = '<span class="' + cls + '">' + (up ? '↑ +' : '↓ −') + Math.abs(pct).toFixed(1) + '%</span>';
+      }
+    }
+  }
+  const span = fmtSpan(a.t, b.t);
+  let html = '<div class="mc-big">' + fa + ' → ' + fb + (deltaHTML ? ' · ' + deltaHTML : '') + '</div>';
+  if (span) html += '<div class="mc-sub">' + esc(span) + '</div>';
+  const note = (view.kind === 'ec' && ovMetric()) ? '<div class="mc-hd">按主指标 ' + esc(m.short) + '（左轴)</div>' : '';
+  return note + html;
+}
+
+function positionMeasureCard(x2, y2) {
+  const lw = measureLayer.clientWidth, lh = measureLayer.clientHeight;
+  measureCard.style.display = 'block';
+  const cw = measureCard.offsetWidth, ch = measureCard.offsetHeight;
+  let cx = x2 + 14, cy = y2 + 14;
+  if (cx + cw > lw - 4) cx = x2 - 14 - cw;
+  if (cy + ch > lh - 4) cy = y2 - 14 - ch;
+  measureCard.style.left = Math.max(2, cx) + 'px';
+  measureCard.style.top = Math.max(2, cy) + 'px';
+}
+function drawMeasureRect(x1, y1, x2, y2) {
+  const L = Math.min(x1, x2), T = Math.min(y1, y2), W = Math.abs(x2 - x1), H = Math.abs(y2 - y1);
+  measureRect.style.display = 'block';
+  measureRect.style.left = L + 'px';
+  measureRect.style.top = T + 'px';
+  measureRect.style.width = W + 'px';
+  measureRect.style.height = H + 'px';
+}
+function updateMeasure(x2, y2, live) {
+  const view = measurableView();
+  if (!view) return;
+  drawMeasureRect(measureDrag.x0, measureDrag.y0, x2, y2);
+  const p1 = measurePoint(view, measureDrag.x0, measureDrag.y0);
+  const p2 = measurePoint(view, x2, y2);
+  measureHint.style.display = 'none';
+  measureCard.innerHTML = measureCardHTML(view, p1, p2);
+  positionMeasureCard(x2, y2);
+}
+function onMeasureDown(e) {
+  if (e.button != null && e.button !== 0) return;
+  e.preventDefault();
+  const [x, y] = layerXY(e.clientX, e.clientY);
+  measureDrag.on = true; measureDrag.x0 = x; measureDrag.y0 = y;
+  updateMeasure(x, y, true);
+}
+function onMeasureMove(e) {
+  if (!measureDrag.on) return;
+  const [x, y] = layerXY(e.clientX, e.clientY);
+  updateMeasure(x, y, true);
+}
+function onMeasureUp(e) {
+  if (!measureDrag.on) return;
+  measureDrag.on = false;   // 选区保留展示,直至清除
+}
+function onMeasureTouchStart(e) {
+  if (!e.touches || !e.touches.length) return;
+  e.preventDefault();
+  const t = e.touches[0];
+  const [x, y] = layerXY(t.clientX, t.clientY);
+  measureDrag.on = true; measureDrag.x0 = x; measureDrag.y0 = y;
+  updateMeasure(x, y, true);
+}
+function onMeasureTouchMove(e) {
+  if (!measureDrag.on || !e.touches || !e.touches.length) return;
+  e.preventDefault();
+  const t = e.touches[0];
+  const [x, y] = layerXY(t.clientX, t.clientY);
+  updateMeasure(x, y, true);
+}
+function toggleMeasure() {
+  const btn = document.getElementById('btnMeasure');
+  if (btn.disabled) return;
+  state.measure = !state.measure;
+  btn.classList.toggle('is-active', state.measure);
+  refreshMeasureAttach();
+}
+
+/* ======================================================================
+   事件绑定 / 启动
+   ====================================================================== */
+function bindEvents() {
+  document.getElementById('sideNav').addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-m]');
+    if (!btn || btn.dataset.m === state.metric) return;
+    state.metric = btn.dataset.m;
+    if (state.overlay === state.metric) state.overlay = null;   // 主指标切到 overlay 同名 → 清叠加
+    render();
+  });
+  document.getElementById('overlayCtl').addEventListener('change', (e) => {
+    if (!e.target || e.target.id !== 'overlaySel') return;
+    const v = e.target.value;
+    state.overlay = (v && v !== state.metric && METRICS.some((x) => x.key === v)) ? v : null;
+    render();
+  });
+  document.getElementById('overlayCtl').addEventListener('click', (e) => {
+    if (e.target.closest('#overlayOff')) { state.overlay = null; render(); }
+  });
+  document.getElementById('rangeSeg').addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-range]');
+    if (!btn || btn.dataset.range === state.range) return;
+    state.range = btn.dataset.range;
+    render();
+  });
+  // F3:「历史周期」开关（disabled 时点击不触发 click，双保险再查一次）
+  document.getElementById('bandSeg').addEventListener('click', (e) => {
+    const btn = e.target.closest('#bandBtn');
+    if (!btn || btn.disabled) return;
+    state.bands = !state.bands;
+    render();
+  });
+  document.getElementById('modeSeg').addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-mode]');
+    if (!btn || btn.dataset.mode === state.mode) return;
+    state.mode = btn.dataset.mode;
+    render();
+  });
+  document.getElementById('chipRow').addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-ticker]');
+    if (!btn) return;
+    state.active[btn.dataset.ticker] = !state.active[btn.dataset.ticker];
+    // C2/回归:公司 chips 切换后若历史周期不再可用（激活≠1 家或该家无 bands），
+    // 立即校正 state.bands=false——否则 syncURL() 仍写 &b=1（多公司下自相矛盾），
+    // 且退回单公司时周期带会在用户未重新开启的情况下静默复活（boot 2609 同款保护，运行时补齐）
+    if (state.bands && !bandCompany()) state.bands = false;
+    render();
+  });
+
+  // C1:原始数据表展开时懒构建(折叠态从不排序 2.4 万行)。details 的 toggle 在 open 状态切换时触发。
+  document.getElementById('rawData').addEventListener('toggle', (e) => {
+    if (e.target.open && !rawState.built) buildRawBody();
+  });
+  // A2 原始数据表：加载更多（追加 DOM，不整表重建）+ CSV 全量下载
+  document.getElementById('rawBody').addEventListener('click', (e) => {
+    const btn = e.target.closest('button.raw-more');
+    if (!btn || !rawState.datasets) return;
+    const gi = +btn.dataset.g;
+    const g = rawState.datasets[gi];
+    if (!g) return;
+    const from = Math.min(rawState.shown[gi] || 100, g.rows.length);
+    const to = Math.min(from + 200, g.rows.length);
+    rawState.shown[gi] = to;
+    const tbody = document.getElementById('rawTbody' + gi);
+    if (tbody) tbody.insertAdjacentHTML('beforeend', rawRowsHTML(g.mets, g.rows, from, to));
+    const foot = document.getElementById('rawFoot' + gi);
+    if (foot) foot.innerHTML = rawFootHTML(gi, to, g.rows.length);
+  });
+  document.getElementById('btnCsv').addEventListener('click', downloadCsv);
+
+  document.getElementById('btnExport').addEventListener('click', openExport);
+  document.getElementById('closeExport').addEventListener('click', closeExport);
+  document.getElementById('ratio16').addEventListener('click', () => setRatio('16:9'));
+  document.getElementById('ratio9').addEventListener('click', () => setRatio('9:16'));
+  document.getElementById('downloadPng').addEventListener('click', downloadPng);
+  document.getElementById('exportOverlay').addEventListener('click', (e) => {
+    if (e.target.id === 'exportOverlay') closeExport();
+  });
+  // W10 F1 全屏 / F2 测量 按钮
+  document.getElementById('btnFs').addEventListener('click', toggleFullscreen);
+  document.getElementById('btnMeasure').addEventListener('click', toggleMeasure);
+  // Fullscreen API 态变化（含用户按 Esc 退原生全屏）→ 同步按钮/布局/resize
+  document.addEventListener('fullscreenchange', syncFsButton);
+  document.addEventListener('webkitfullscreenchange', syncFsButton);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (state.exportOpen) { closeExport(); return; }   // Esc 关闭导出覆盖层
+    // Esc:先清测量选区;再退 CSS 回退全屏（原生全屏由浏览器自身处理 Esc)
+    if (state.measure && measureRect && measureRect.style.display !== 'none') {
+      clearMeasureSelection(); return;
+    }
+    if (workEl().classList.contains('work--css-fs')) { exitCssFs(); return; }
+    if (state.measure) toggleMeasure();
+  });
+
+  window.addEventListener('resize', () => {
+    Object.keys(charts).forEach((k) => { try { charts[k].resize(); } catch (e) {} });
+  });
+}
+
+async function boot() {
+  elLwcMain = document.getElementById('lwcMain');
+  elEcMain = document.getElementById('ecMain');
+  elLwcSmall = document.getElementById('lwcSmallGrid');
+  elEcSmall = document.getElementById('ecSmallGrid');
+  elChartNote = document.getElementById('chartNote');
+
+  bindEvents();
+  parseURL();
+
+  let raw = null;
+  try {
+    raw = await loadJSON('data/valuation.json');
+  } catch (e) {
+    document.getElementById('loadErr').hidden = false;
+  }
+  if (raw) {
+    state.generated = (typeof raw.generated_at === 'string' && raw.generated_at.length >= 10)
+      ? raw.generated_at.slice(0, 10) : '—';
+    state.companies = transform(raw);
+    state.companies.forEach((c) => { state.active[c.ticker] = true; });
+    // URL &c= 恢复公司 chips（&b=1 的历史周期视图需单公司激活才能还原）；
+    // 无有效交集（全非法/空）则保持全选，避免坏链接渲染空图
+    if (Array.isArray(pendingActive)
+        && state.companies.some((c) => pendingActive.includes(c.ticker))) {
+      state.companies.forEach((c) => { state.active[c.ticker] = pendingActive.includes(c.ticker); });
+    }
+    // C2:&b=1 依赖恰好 1 家激活且该家有 bands；若加载后条件不成立（激活≠1 家或该家无 bands），
+    // 立即校正 state.bands=false,避免与置灰的按钮态不一致而静默残留（后续单选公司会突然复活周期带）
+    if (state.bands && !bandCompany()) state.bands = false;
+  }
+  document.getElementById('genDate').textContent = state.generated;
+
+  // W11·F2c:扩产计划（capex 视图附注用）——失败静默降级为 null，附注不显示，不影响主体
+  try { capexPlans = await loadJSON('data/capex_plans.json'); } catch (e) { capexPlans = null; }
+
+  try { echarts = await echartsReady; } catch (e) { echarts = null; }
+
+  render();
+}
+
+boot();
+</script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+{
+  "schema_version": "0.1",
+  "generated_at": "2026-07-01T20:35:51+00:00",
+  "note": "演示样稿：文稿正文与季度数字为占位近似值，最终由构建器抓取真稿（MU 走 SEC EDGAR / IR，韩股走浏览器取稿）填入。AI 派生内容（摘要/翻译/diff）统一 D 档，以原文为准。",
+  "tier_defs": {
+    "S": "监管原文（SEC EDGAR / DART / 8-K）",
+    "A": "公司官方 IR，非监管归档",
+    "B": "产业链数据（合约价、渠道调研）",
+    "C": "媒体、二手转述",
+    "D": "AI / 估算（摘要、翻译、diff）"
+  },
+  "topic_defs": [
+    {"key": "capex", "label": "capex 立场"},
+    {"key": "cycle", "label": "周期 / 见顶措辞"},
+    {"key": "lta", "label": "长约 LTA"},
+    {"key": "hbm", "label": "HBM"}
+  ],
+  "archive": [
+    {"id": "mu-fy2026q3", "demo": true, "ticker": "MU", "company": "Micron", "period": "FY2026Q3", "date": "2026-06-25",
+     "source": "Micron IR · 8-K (SEC EDGAR)", "tier": "S", "method": "auto", "langs": "双语",
+     "is_group_scope": false, "has_qa": true, "available": true,
+     "ai_summary": "DRAM ASP 环比 +mid-60s%，HBM 单季首破 $1B；capex 立场：disciplined"},
+    {"id": "mu-fy2026q2", "demo": true, "ticker": "MU", "company": "Micron", "period": "FY2026Q2", "date": "2026-03-20",
+     "source": "Micron IR · 8-K (SEC EDGAR)", "tier": "S", "method": "auto", "langs": "双语",
+     "is_group_scope": false, "has_qa": true, "available": true,
+     "ai_summary": "DRAM ASP 环比约 +20%，2026 年 HBM 产出基本售罄；capex：保持弹性"},
+    {"id": "hynix-fy2026q1", "demo": true, "ticker": "000660.KS", "company": "SK Hynix", "period": "FY2026Q1", "date": "2026-04-24",
+     "source": "SK Hynix IR 官网", "tier": "A", "method": "browser", "langs": "双语",
+     "is_group_scope": false, "has_qa": true, "available": true,
+     "ai_summary": "营业利润率 ~49% 创历史新高，HBM 占 DRAM 收入 >40%；capex 立场 mixed"},
+    {"id": "hynix-fy2025q4", "demo": true, "ticker": "000660.KS", "company": "SK Hynix", "period": "FY2025Q4", "date": "2026-01-23",
+     "source": "SK Hynix IR 官网", "tier": "A", "method": "browser", "langs": "—",
+     "is_group_scope": false, "has_qa": false, "available": false,
+     "reason": "该季未获取——官网仅提供音频，尚未转写"},
+    {"id": "samsung-fy2026q1", "demo": true, "ticker": "005930.KS", "company": "Samsung", "period": "FY2026Q1", "date": "2026-04-30",
+     "source": "—", "tier": "—", "method": "none", "langs": "—",
+     "is_group_scope": true, "has_qa": false, "available": false,
+     "reason": "该季未获取——暂未接入三星 IR 转写源（集团口径）"}
+  ],
+  "transcripts": {
+    "mu-fy2026q3": {
+      "demo": true,
+      "title": "Micron FY2026 Q3 Earnings Call",
+      "company": "Micron", "ticker": "MU", "period": "FY2026Q3", "date": "2026-06-25",
+      "source": "Micron IR · 8-K (SEC EDGAR)", "source_url": "https://investors.micron.com", "tier": "S", "method": "auto",
+      "is_group_scope": false, "has_qa": true,
+      "call_summary": {
+        "fiscal_period": "FY2026Q3",
+        "metrics": {"dram_asp_qoq": "+mid-60s%", "hbm_rev": ">$1B"},
+        "four_questions": {"capex_stance": "disciplined", "lta_2027_2028": "部分锁定"},
+        "source_tier": "D"
+      },
+      "digest": {
+        "core_metrics": [
+          {"text": "DRAM ASP 环比 +mid-60s%，历史罕见涨幅", "anchor": "p1"},
+          {"text": "HBM 单季收入首次超过 $1B，售罄至 2027 全年", "anchor": "p2"},
+          {"text": "DIO 136 天（去年同期 150 天）", "anchor": "p5"}
+        ],
+        "four_questions": [
+          {"q": "lead time", "a": "标准 DDR5 部分订单交期已超过 26 周", "anchor": "p3"},
+          {"q": "LTA 2027–28", "a": "部分 HBM 量已锁量锁价，比例未量化", "anchor": "q2"},
+          {"q": "capex 立场", "a": "disciplined：不新增 greenfield 晶圆产能，增量投向 HBM 封测", "anchor": "p4"},
+          {"q": "产能 vs 交付", "a": "称交付承诺与客户建置计划对齐，关注 pull-in", "anchor": "q5"}
+        ],
+        "stance": [
+          {"text": "\"We are prioritizing profitability and supply discipline over share.\"（照录）", "anchor": "q4"},
+          {"text": "\"Not adding greenfield wafer capacity this year.\"（照录）", "anchor": "p4"}
+        ],
+        "new_info": [
+          {"text": "首次披露 HBM 单季收入 >$1B", "anchor": "p2"},
+          {"text": "首次提到 2028 年部分量价已锁定", "anchor": "p2"}
+        ]
+      },
+      "topics": {
+        "capex": {"anchor": "p4", "spans": [{"t": "We remain disciplined on capital spending. "}, {"t": "We are not adding greenfield wafer capacity this year", "hl": true}, {"t": "; incremental spend is directed to HBM assembly and test."}]},
+        "cycle": {"anchor": "p3", "spans": [{"t": "Data center demand continues to outpace supply. "}, {"t": "Lead times for standard DDR5 modules have extended beyond 26 weeks", "hl": true}, {"t": " in some cases."}]},
+        "lta": {"anchor": "q2", "spans": [{"t": "A portion of 2027 and 2028 HBM volumes is locked with fixed pricing", "hl": true}, {"t": "; we won't quantify the exact percentage."}]},
+        "hbm": {"anchor": "p2", "spans": [{"t": "HBM revenue "}, {"t": "exceeded $1 billion in the quarter for the first time", "hl": true}, {"t": ". Our HBM output is "}, {"t": "sold out through calendar 2027", "hl": true}, {"t": "."}]}
+      },
+      "segments": [
+        {"id": "p1", "section": "陈述", "speaker": "Sanjay Mehrotra — CEO",
+         "en": "Micron delivered record revenue in fiscal Q3, driven by exceptional DRAM pricing. DRAM ASPs increased in the mid-60s percent range sequentially, an unprecedented move in our history.",
+         "zh": "美光第三财季营收创纪录，主要由异常强劲的 DRAM 价格驱动。DRAM 平均售价环比上涨约 60% 多（mid-60s%），为公司历史上前所未有的涨幅。"},
+        {"id": "p2", "section": "陈述", "speaker": "Sanjay Mehrotra — CEO",
+         "en": "HBM revenue exceeded $1 billion in the quarter for the first time. Our HBM output is sold out through calendar 2027, and we have locked in pricing for a portion of 2027 and 2028 volumes under long-term agreements.",
+         "zh": "HBM 收入单季首次超过 10 亿美元。我们的 HBM 产出已售罄至 2027 日历年，并已通过长期协议锁定 2027 与 2028 年部分量的价格。"},
+        {"id": "p3", "section": "陈述", "speaker": "Sanjay Mehrotra — CEO",
+         "en": "Data center demand continues to outpace supply. Lead times for standard DDR5 modules have extended beyond 26 weeks in some cases.",
+         "zh": "数据中心需求持续超过供给。标准 DDR5 模组的交期在部分情况下已延长至 26 周以上。"},
+        {"id": "p4", "section": "陈述", "speaker": "Mark Murphy — CFO",
+         "en": "We remain disciplined on capital spending. Fiscal 2026 capex will stay within our prior envelope, and we are not adding greenfield wafer capacity this year; incremental spend is directed to HBM assembly and test.",
+         "zh": "我们在资本开支上保持克制。2026 财年 capex 将维持在此前区间内，今年不新增 greenfield 晶圆产能；增量开支投向 HBM 封装与测试。"},
+        {"id": "p5", "section": "陈述", "speaker": "Mark Murphy — CFO",
+         "en": "Inventory days ended the quarter at 136, down from 150 a year ago.",
+         "zh": "季末库存天数为 136 天，低于一年前的 150 天。"},
+        {"id": "q1", "section": "Q&A", "speaker": "Analyst — 提问",
+         "en": "Can you help us understand how much of calendar 2027 and 2028 supply is covered by LTAs, and whether pricing is fixed?",
+         "zh": "能否帮我们理解 2027、2028 日历年有多少供给已被长期协议覆盖？价格是否锁定？"},
+        {"id": "q2", "section": "Q&A", "speaker": "Sanjay Mehrotra — CEO 回答",
+         "en": "A portion of 2027 and 2028 HBM volumes is locked with fixed pricing; we won't quantify the exact percentage. Standard DRAM remains largely spot and quarterly negotiated.",
+         "zh": "2027 与 2028 年部分 HBM 量已按固定价格锁定；具体比例不做量化。标准 DRAM 仍以现货与季度议价为主。"},
+        {"id": "q3", "section": "Q&A", "speaker": "Analyst — 提问",
+         "en": "Given the pricing environment, why not accelerate capacity additions?",
+         "zh": "在当前价格环境下，为什么不加速扩产？"},
+        {"id": "q4", "section": "Q&A", "speaker": "Sanjay Mehrotra — CEO 回答",
+         "en": "We are prioritizing profitability and supply discipline over share. Our capex stance is unchanged — disciplined.",
+         "zh": "我们把盈利能力与供给纪律置于市场份额之上。capex 立场不变——保持克制。"},
+        {"id": "q5", "section": "Q&A", "speaker": "Sanjay Mehrotra — CEO 回答",
+         "en": "On double-ordering: we monitor pull-ins closely; our delivery commitments are aligned with customers' build plans.",
+         "zh": "关于重复下单：我们密切关注客户提前拉货；我们的交付承诺与客户的建置计划保持一致。"}
+      ]
+    },
+    "mu-fy2026q2": {
+      "demo": true,
+      "title": "Micron FY2026 Q2 Earnings Call",
+      "company": "Micron", "ticker": "MU", "period": "FY2026Q2", "date": "2026-03-20",
+      "source": "Micron IR · 8-K (SEC EDGAR)", "source_url": "https://investors.micron.com", "tier": "S", "method": "auto",
+      "is_group_scope": false, "has_qa": true,
+      "call_summary": {
+        "fiscal_period": "FY2026Q2",
+        "metrics": {"dram_asp_qoq": "+~20%", "hbm_rev": "环比 +50%+"},
+        "four_questions": {"capex_stance": "flexible", "lta_2027_2028": "洽谈中，未签约"},
+        "source_tier": "D"
+      },
+      "digest": {
+        "core_metrics": [
+          {"text": "DRAM ASP 环比约 +20%", "anchor": "p1"},
+          {"text": "HBM 收入环比 +50% 以上，2026 年产出基本售罄", "anchor": "p2"}
+        ],
+        "four_questions": [
+          {"q": "lead time", "a": "本季未提及", "anchor": null},
+          {"q": "LTA 2027–28", "a": "洽谈中，2027 年量尚未签约", "anchor": "q2"},
+          {"q": "capex 立场", "a": "flexible：随可见度改善再投资", "anchor": "p4"},
+          {"q": "产能 vs 交付", "a": "本季未提及", "anchor": null}
+        ],
+        "stance": [
+          {"text": "\"We believe we are in the early innings of a broad-based memory recovery.\"（照录）", "anchor": "p3"}
+        ],
+        "new_info": []
+      },
+      "topics": {
+        "capex": {"anchor": "p4", "spans": [{"t": "We will "}, {"t": "remain flexible on capex", "hl": true}, {"t": " and invest with discipline as visibility improves."}]},
+        "cycle": {"anchor": "p3", "spans": [{"t": "We believe we are in the "}, {"t": "early innings of a broad-based memory recovery", "hl": true}, {"t": "."}]},
+        "lta": {"anchor": "q2", "spans": [{"t": "Discussions are ongoing; "}, {"t": "nothing signed for 2027 volumes at this point", "hl": true}, {"t": "."}]},
+        "hbm": {"anchor": "p2", "spans": [{"t": "HBM revenue grew more than 50% sequentially, and our "}, {"t": "2026 HBM output is effectively sold out", "hl": true}, {"t": "."}]}
+      },
+      "segments": [
+        {"id": "p1", "section": "陈述", "speaker": "Sanjay Mehrotra — CEO",
+         "en": "Fiscal Q2 marked a strong step-up in DRAM pricing, with ASPs up approximately 20% sequentially.",
+         "zh": "第二财季 DRAM 价格显著抬升，平均售价环比上涨约 20%。"},
+        {"id": "p2", "section": "陈述", "speaker": "Sanjay Mehrotra — CEO",
+         "en": "HBM revenue grew more than 50% sequentially, and our 2026 HBM output is effectively sold out. We are in active discussions with customers on 2027 agreements.",
+         "zh": "HBM 收入环比增长超过 50%，2026 年 HBM 产出基本售罄。我们正与客户积极洽谈 2027 年协议。"},
+        {"id": "p3", "section": "陈述", "speaker": "Sanjay Mehrotra — CEO",
+         "en": "We believe we are in the early innings of a broad-based memory recovery.",
+         "zh": "我们认为目前处于一轮广泛存储复苏的早期阶段。"},
+        {"id": "p4", "section": "陈述", "speaker": "Mark Murphy — CFO",
+         "en": "We will remain flexible on capex and invest with discipline as visibility improves.",
+         "zh": "我们将在 capex 上保持弹性，随可见度改善再有纪律地投资。"},
+        {"id": "q1", "section": "Q&A", "speaker": "Analyst — 提问",
+         "en": "Any update on long-term agreements for 2027?",
+         "zh": "2027 年长期协议有何进展？"},
+        {"id": "q2", "section": "Q&A", "speaker": "Sanjay Mehrotra — CEO 回答",
+         "en": "Discussions are ongoing; nothing signed for 2027 volumes at this point.",
+         "zh": "洽谈仍在进行；目前 2027 年的量尚未签约。"}
+      ]
+    },
+    "hynix-fy2026q1": {
+      "demo": true,
+      "title": "SK Hynix FY2026 Q1 Earnings Call",
+      "company": "SK Hynix", "ticker": "000660.KS", "period": "FY2026Q1", "date": "2026-04-24",
+      "source": "SK Hynix IR 官网", "source_url": "https://www.skhynix.com", "tier": "A", "method": "browser",
+      "is_group_scope": false, "has_qa": true,
+      "call_summary": {
+        "fiscal_period": "FY2026Q1",
+        "metrics": {"op_margin": "~49%", "hbm_share": ">40% of DRAM"},
+        "four_questions": {"capex_stance": "mixed"},
+        "source_tier": "D"
+      },
+      "digest": {
+        "core_metrics": [
+          {"text": "营业利润率约 49%，公司历史最高", "anchor": "p1"},
+          {"text": "HBM 占 DRAM 收入比重超过 40%", "anchor": "p2"}
+        ],
+        "four_questions": [
+          {"q": "lead time", "a": "本季未提及", "anchor": null},
+          {"q": "LTA 2027–28", "a": "本季未提及", "anchor": null},
+          {"q": "capex 立场", "a": "mixed：基建投资持续，设备投资视市况决定", "anchor": "p3"},
+          {"q": "产能 vs 交付", "a": "部分需求或为客户提前备货，需关注", "anchor": "p4"}
+        ],
+        "stance": [
+          {"text": "\"We will keep NAND utilization below full levels until profitability normalizes.\"（照录）", "anchor": "q2"}
+        ],
+        "new_info": [
+          {"text": "首次披露 HBM 占 DRAM 收入 >40%", "anchor": "p2"}
+        ]
+      },
+      "topics": {
+        "capex": {"anchor": "p3", "spans": [{"t": "We will maintain a flexible stance: "}, {"t": "infrastructure investment continues, while equipment investment will be decided in line with market conditions", "hl": true}, {"t": "."}]},
+        "cycle": {"anchor": "p4", "spans": [{"t": "Some of the demand strength reflects "}, {"t": "customers' inventory build ahead of anticipated price increases", "hl": true}, {"t": ", which warrants monitoring."}]},
+        "hbm": {"anchor": "p2", "spans": [{"t": "HBM revenue accounted for "}, {"t": "over 40% of total DRAM revenue", "hl": true}, {"t": " in the quarter."}]}
+      },
+      "segments": [
+        {"id": "p1", "section": "陈述", "speaker": "Kim Woo-hyun — CFO",
+         "en": "First-quarter operating margin reached approximately 49%, the highest in the company's history, on surging HBM and server DRAM demand.",
+         "zh": "第一季度营业利润率达到约 49%，为公司历史最高，受 HBM 与服务器 DRAM 需求激增带动。"},
+        {"id": "p2", "section": "陈述", "speaker": "Kim Woo-hyun — CFO",
+         "en": "HBM revenue accounted for over 40% of total DRAM revenue in the quarter.",
+         "zh": "本季 HBM 收入占 DRAM 总收入的比重超过 40%。"},
+        {"id": "p3", "section": "陈述", "speaker": "Kim Woo-hyun — CFO",
+         "en": "Regarding capital expenditure, we will maintain a flexible stance: infrastructure investment continues, while equipment investment will be decided in line with market conditions.",
+         "zh": "关于资本开支，我们将保持弹性立场：基础设施投资持续进行，设备投资将视市场状况决定。"},
+        {"id": "p4", "section": "陈述", "speaker": "Kim Woo-hyun — CFO",
+         "en": "Some of the demand strength reflects customers' inventory build ahead of anticipated price increases, which warrants monitoring.",
+         "zh": null, "zh_error": true},
+        {"id": "q1", "section": "Q&A", "speaker": "Analyst — 提问",
+         "en": "How should we think about NAND supply discipline from here?",
+         "zh": "接下来应如何看待 NAND 的供给纪律？"},
+        {"id": "q2", "section": "Q&A", "speaker": "Kim Woo-hyun — CFO 回答",
+         "en": "We will keep NAND utilization below full levels until profitability normalizes.",
+         "zh": "在盈利恢复正常之前，我们将维持 NAND 稼动率低于满载水平。"}
+      ]
+    }
+  },
+  "quarterly_metrics": {
+    "MU": [
+      {"period": "FY2026Q1", "dram_asp_qoq": 8, "hbm_rev_b": 0.45, "op_margin": 0.30},
+      {"period": "FY2026Q2", "dram_asp_qoq": 20, "hbm_rev_b": 0.70, "op_margin": 0.35},
+      {"period": "FY2026Q3", "dram_asp_qoq": 65, "hbm_rev_b": 1.05, "op_margin": 0.42}
+    ],
+    "000660.KS": [
+      {"period": "FY2025Q3", "dram_asp_qoq": 12, "hbm_rev_b": null, "op_margin": 0.40},
+      {"period": "FY2025Q4", "dram_asp_qoq": 18, "hbm_rev_b": null, "op_margin": 0.44},
+      {"period": "FY2026Q1", "dram_asp_qoq": 25, "hbm_rev_b": null, "op_margin": 0.49}
+    ]
+  }
+}

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>电话会阅读页 · 存储三巨头估值看板</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+  /* —— 本页独有布局：值照抄设计稿 电话会阅读页.dc.html —— */
+  .wrap-reader{max-width:1080px;margin:0 auto;padding:24px 28px 48px;display:flex;flex-direction:column;gap:16px}
+
+  /* 顶栏（设计稿 4px 2px、gap 12/24） */
+  header.top-reader{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px 24px;padding:4px 2px}
+  header.top-reader .crumb{font-size:13px;color:var(--muted);text-decoration:none}
+  header.top-reader .crumb:hover{color:var(--ink)}
+  header.top-reader nav{margin-left:auto;display:flex;align-items:center;gap:18px;font-size:13px}
+  header.top-reader nav a{color:var(--muted);text-decoration:none}
+  header.top-reader nav a:hover{color:var(--ink)}
+
+  /* 元信息卡（顶条为公司色，设计稿 20px 24px / gap 10） */
+  .meta-card{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--hairline);border-radius:10px;padding:20px 24px;display:flex;flex-direction:column;gap:10px}
+  .meta-row1{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .meta-row1 .co-dot{width:10px;height:10px;border-radius:50%;flex:none}
+  .meta-row1 h1{margin:0;font-size:19px;font-weight:900;text-wrap:balance}
+  .meta-row1 .period{font:600 13px var(--font-mono);color:var(--ink-2)}
+  .tag-group{font-size:10.5px;color:var(--amber-ink);background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:4px;padding:1px 7px}
+  .meta-row2{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+  .meta-row2 .date{font-family:var(--font-mono)}
+  .tier-pill{display:inline-flex;align-items:center;gap:5px;font:500 10.5px var(--font-mono);color:var(--muted);border:1px solid var(--border);border-radius:4px;padding:2px 7px;background:var(--field-bg);cursor:help}
+  .tier-pill .badge{width:13px;height:13px;border-radius:3px;color:#FFF;font:700 9px/13px var(--font-mono);text-align:center}
+  .meta-row2 .link{color:var(--link);text-decoration:none}
+  .ai-pill{display:inline-flex;align-items:center;gap:5px;font:500 10.5px var(--font-mono);color:var(--amber-ink);background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:4px;padding:2px 7px}
+  .ai-pill .badge{width:13px;height:13px;border-radius:3px;background:var(--tier-d);color:#FFF;font:700 9px/13px var(--font-mono);text-align:center}
+  .lang-seg{display:flex;border:1px solid var(--border-line);border-radius:7px;overflow:hidden}
+  .lang-seg button{font-size:12px;padding:6px 13px;border:none;cursor:pointer;background:var(--card);color:var(--muted)}
+  .lang-seg button.is-active{background:#14171D;color:#F2F4F8}
+
+  /* AI 提炼面板（设计稿 18px 24px / gap 14） */
+  .digest-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px 24px;display:flex;flex-direction:column;gap:14px}
+  .digest-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .digest-head h2{margin:0;font-size:15px;font-weight:700}
+  .digest-note{display:inline-flex;align-items:center;gap:5px;font:500 10.5px var(--font-mono);color:var(--faint)}
+  .digest-note .badge{width:13px;height:13px;border-radius:3px;background:var(--tier-d);color:#FFF;font:700 9px/13px var(--font-mono);text-align:center}
+  .digest-toggle{margin-left:auto;font-size:12px;padding:5px 12px;border:1px solid var(--border-line);border-radius:6px;background:var(--field-bg);color:var(--muted);cursor:pointer}
+  .digest-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+  .digest-block{border:1px solid var(--border-soft);border-radius:8px;padding:13px 16px;background:var(--subcard-bg)}
+  .digest-block .bt{font-size:12.5px;font-weight:700;color:var(--ink-2)}
+  .digest-block ul{margin:9px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+  .digest-block li{font-size:12.5px;line-height:1.65;color:var(--ink-2);display:flex;gap:8px;align-items:baseline}
+  .digest-block li .bullet{color:var(--hairline);flex:none}
+  .digest-block li .body{flex:1}
+  .digest-block li .q{font:600 11px var(--font-mono);color:var(--faint);margin-right:6px}
+  .digest-block li .jump{flex:none;white-space:nowrap;font-size:10.5px;color:var(--link);background:none;border:none;cursor:pointer;padding:0}
+
+  /* 季度趋势图（本页升级：设计稿无图，用 quarterly_metrics 真数据升级为可交互 ECharts） */
+  .trend-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px 24px;display:flex;flex-direction:column;gap:12px}
+  .trend-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .trend-head h2{margin:0;font-size:15px;font-weight:700}
+  .trend-head .sub{font-size:11.5px;color:var(--faint)}
+  .trend-chart{width:100%;height:260px}
+
+  /* 全文对照（设计稿 20px 24px / gap 4） */
+  .transcript-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px 24px;display:flex;flex-direction:column;gap:4px}
+  .transcript-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+  .transcript-head h2{margin:0;font-size:15px;font-weight:700}
+  .transcript-head .note{font-size:11.5px;color:var(--faint)}
+  .transcript-head .ai-pill{margin-left:auto}
+  .seg{border-top:1px solid var(--border-soft);padding:14px 4px;display:flex;flex-direction:column;gap:8px;background:transparent;border-radius:6px;transition:background 0.6s}
+  .seg.flash{background:var(--amber-bg)}
+  .seg-meta{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .seg-sec{font-size:10px;font-weight:700;letter-spacing:0.06em;border-radius:4px;padding:2px 7px;white-space:nowrap;flex:none}
+  .seg-sec.stmt{color:var(--muted);background:var(--row-line)}
+  .seg-sec.qa{color:var(--qa-fg);background:var(--qa-bg)}
+  .seg-speaker{font-size:12px;font-weight:600;color:var(--muted)}
+  .seg-failed{font-size:10.5px;color:var(--loss);border:1px solid #F3B7B9;background:#FDF1F1;border-radius:4px;padding:1px 7px}
+  .seg-body{display:grid;gap:18px}
+  .seg-body p{margin:0;font-size:13.5px}
+  .seg-body .en{line-height:1.75;color:var(--ink-2)}
+  .seg-body .zh{line-height:1.85;color:var(--ink)}
+
+  /* 口径条 + 页脚 */
+  .caveat-reader{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:center;background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:7px;padding:9px 14px;font-size:12px;color:var(--amber-ink);line-height:1.6}
+  .caveat-reader .lead{font-weight:700}
+  footer.pg-reader{font-size:11.5px;color:var(--ghost);line-height:1.8}
+
+  .load-err{font-size:12.5px;color:var(--ghost);border:1px dashed var(--border-line);border-radius:6px;padding:9px 12px}
+</style>
+</head>
+<body>
+<div class="wrap-reader">
+
+  <!-- 顶栏 -->
+  <header class="top-reader">
+    <a href="电话会.html" class="crumb">← 电话会</a>
+    <nav class="top-nav" id="topNav"></nav>
+  </header>
+
+  <!-- 元信息 -->
+  <section class="meta-card" id="metaCard">
+    <div class="meta-row1">
+      <span class="co-dot" id="coDot"></span>
+      <h1 id="title">加载中…</h1>
+      <span class="period" id="period"></span>
+      <span class="tag-demo tag-demo--lg" id="tagDemo" style="display:none"
+            title="演示样稿：文稿正文与季度数字为占位近似值，最终由构建器抓取真稿填入">演示样稿</span>
+      <span class="tag-group" id="tagGroup" style="display:none">集团口径</span>
+    </div>
+    <div class="meta-row2">
+      <span class="date" id="date"></span>
+      <span class="tier-pill" id="tierPill" title="">
+        <span class="badge" id="tierBadge"></span><span id="tierText"></span>
+      </span>
+      <a class="link" id="srcLink" href="#" target="_blank" rel="noopener noreferrer">原文链接 ↗</a>
+    </div>
+  </section>
+
+  <!-- AI 提炼面板 -->
+  <section class="digest-card" id="digestCard">
+    <div class="digest-head">
+      <h2>AI 框架提炼</h2>
+      <span class="digest-note"><span class="badge">D</span>🤖 AI 提炼，以原文为准 · 每条可跳回原文</span>
+      <button class="digest-toggle" id="digestToggle">收起 ▲</button>
+    </div>
+    <div class="digest-grid" id="digestGrid"></div>
+  </section>
+
+  <!-- 季度趋势图（本页升级：quarterly_metrics 真数据 → 可交互 ECharts） -->
+  <section class="trend-card" id="trendCard" style="display:none">
+    <div class="trend-head">
+      <h2>本公司季度趋势</h2>
+      <span class="sub" id="trendSub">DRAM ASP 环比% · 营业利润率 · HBM 单季收入 · 逐季（含估算，D 档）</span>
+    </div>
+    <div class="trend-chart" id="trendChart"></div>
+    <div class="caveat-reader" style="margin-top:2px">
+      <span class="lead">▲ 口径</span>
+      <span>季度 QoQ%／HBM 收入为演示样稿近似值（B/D 档），以原文为准</span>
+    </div>
+  </section>
+
+  <!-- 全文对照（语言切换控件与被控区域同框：C1） -->
+  <section class="transcript-card" id="transcriptCard">
+    <div class="transcript-head">
+      <h2>全文对照</h2>
+      <span class="note" id="langNote">左英右中 · 逐段对照</span>
+      <span class="ai-pill"><span class="badge">D</span>🤖 AI 翻译，以英文为准</span>
+      <div class="lang-seg" id="langSeg">
+        <button data-lang="zh">中</button>
+        <button data-lang="en">英</button>
+        <button data-lang="both">双语</button>
+      </div>
+    </div>
+    <div id="segments"></div>
+  </section>
+
+  <!-- 口径条 -->
+  <div class="caveat-reader" id="caveatBar">
+    <span class="lead">▲ 口径</span>
+    <span>中文为 AI 翻译，以英文原文为准</span>
+    <span>AI 提炼只归纳，不解读管理层语气</span>
+    <span id="caveatGroup" style="display:none">本场为集团口径，非纯存储</span>
+  </div>
+
+  <footer class="pg-reader"><a href="数据与来源.html" style="color:var(--link);text-decoration:none">关于数据与来源 →</a> · 数据 schema 0.6 · 电话会内容演示样稿，最终由构建器抓取真稿填入。</footer>
+</div>
+
+<script type="module">
+import { echartsReady, loadJSON, initChart, baseOption, lineSeries,
+         COMPANY_COLORS, TIER_COLORS, TIER_DEFS, C, FONT_MONO,
+         injectTopNav } from './assets/shared.js';
+
+/* —— 常量 —— */
+const DEFAULT_ID = 'mu-fy2026q3';
+
+/* —— 页面状态 —— */
+const state = { data:null, lang:'both', digestOpen:true, id:DEFAULT_ID };
+let flashTimer = null;
+
+/* —— DOM 快捷 —— */
+const $ = (id) => document.getElementById(id);
+function esc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function attrEsc(s){ return esc(s).replace(/"/g,'&quot;'); }
+
+/* —— 当前档案 id：优先 URL ?id= ——
+   带了参数就尊重参数：查无此档由 renderAll 显示「未找到该电话会档案」,
+   绝不静默回退到默认场次(深链失效时读者会在无提示下读到错误场次)。 */
+function resolveId(data){
+  try {
+    const q = new URLSearchParams(window.location.search).get('id');
+    if (q) return q;
+  } catch (e) {}
+  return DEFAULT_ID;
+}
+
+/* —— 跳转到原文段落并高亮 —— */
+function jumpTo(anchor){
+  const el = $('seg-' + anchor);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.scrollY - 90;
+  window.scrollTo({ top, behavior:'smooth' });
+  document.querySelectorAll('.seg.flash').forEach((n) => n.classList.remove('flash'));
+  el.classList.add('flash');
+  clearTimeout(flashTimer);
+  flashTimer = setTimeout(() => el.classList.remove('flash'), 1600);
+}
+
+/* —— 演示样稿判定（与列表页 电话会.html 同规则）——
+   优先读条目级 t.demo；未标则回退数据集级信号（schema 0.x 或 note 含"演示样稿"）。
+   构建器接入真稿后置 false / 升 schema，标即消失。 */
+function datasetIsDemo(d){
+  if (!d) return false;
+  const sv = String(d.schema_version || '');
+  return /^0\./.test(sv) || /演示样稿/.test(String(d.note || ''));
+}
+function isDemo(t){
+  if (t && t.demo === true) return true;
+  if (t && t.demo === false) return false;
+  return datasetIsDemo(state.data);
+}
+
+/* —— 渲染元信息 —— */
+function renderMeta(t){
+  const color = COMPANY_COLORS[t.ticker] || '#8A909B';
+  $('metaCard').style.borderTopColor = color;
+  $('coDot').style.background = color;
+  $('title').textContent = t.title;
+  $('period').textContent = t.period;
+
+  $('tagDemo').style.display = isDemo(t) ? '' : 'none';
+
+  const isGroup = !!t.is_group_scope;
+  $('tagGroup').style.display = isGroup ? '' : 'none';
+  $('caveatGroup').style.display = isGroup ? '' : 'none';
+
+  $('date').textContent = t.date;
+
+  const tier = t.tier || 'D';
+  const tc = TIER_COLORS[tier] || '#8A8F98';
+  $('tierBadge').textContent = tier;
+  $('tierBadge').style.background = tc;
+  const methodIcon = t.method === 'auto' ? '⚙️' : (t.method === 'browser' ? '🖥️' : '');
+  $('tierText').textContent = (t.source || '') + (methodIcon ? ' ' + methodIcon : '');
+  $('tierPill').title = '信源档位 ' + tier + '：' + (TIER_DEFS[tier] || '') + ' · 抓取 ' + t.date;
+
+  if (t.source_url){ $('srcLink').href = t.source_url; $('srcLink').style.display = ''; }
+  else { $('srcLink').style.display = 'none'; }
+}
+
+/* —— 渲染语言分段控件 + 说明 —— */
+function renderLang(){
+  document.querySelectorAll('#langSeg button').forEach((b) => {
+    b.classList.toggle('is-active', b.dataset.lang === state.lang);
+  });
+  $('langNote').textContent = state.lang === 'both'
+    ? '左英右中 · 逐段对照'
+    : (state.lang === 'zh' ? '仅中文（AI 翻译）' : '仅英文原文');
+}
+
+/* —— 渲染 AI 提炼 —— */
+function renderDigest(t){
+  const grid = $('digestGrid');
+  if (!state.digestOpen){ grid.style.display = 'none'; return; }
+  grid.style.display = '';
+
+  const mkItems = (arr) => (arr || []).map((it) => ({
+    text: it.a !== undefined ? it.a : it.text,
+    q: it.q || null,
+    anchor: it.anchor || null
+  }));
+  const d = t.digest || {};
+  const newInfoItems = (d.new_info && d.new_info.length)
+    ? mkItems(d.new_info)
+    : [{ text:'本季无明显新料', q:null, anchor:null }];
+
+  const blocks = [
+    { title:'① 核心数据', items: mkItems(d.core_metrics) },
+    { title:'② 听 ER 四问', items: mkItems(d.four_questions) },
+    { title:'③ 管理层立场（照录，不解读语气）', items: mkItems(d.stance) },
+    { title:'④ 新料', items: newInfoItems }
+  ];
+
+  grid.innerHTML = blocks.map((blk) => {
+    const items = (blk.items && blk.items.length) ? blk.items : [{ text:'—', q:null, anchor:null }];
+    const lis = items.map((it) => {
+      const q = it.q ? `<span class="q">${esc(it.q)}</span>` : '';
+      const jump = it.anchor
+        ? `<button class="jump" data-anchor="${attrEsc(it.anchor)}">跳原文 ↓</button>`
+        : '';
+      return `<li><span class="bullet">·</span><span class="body">${q}${esc(it.text)}</span>${jump}</li>`;
+    }).join('');
+    return `<div class="digest-block"><div class="bt">${esc(blk.title)}</div><ul>${lis}</ul></div>`;
+  }).join('');
+
+  grid.querySelectorAll('.jump').forEach((b) => {
+    b.addEventListener('click', () => jumpTo(b.dataset.anchor));
+  });
+}
+
+/* —— 渲染全文对照 —— */
+function renderSegments(t){
+  const lang = state.lang;
+  const wrap = $('segments');
+  const segs = t.segments || [];
+  if (!segs.length){ wrap.innerHTML = '<div class="load-err">本场暂无文稿正文——无数据。</div>'; return; }
+
+  wrap.innerHTML = segs.map((s) => {
+    const failed = !!s.zh_error;
+    const showEn = lang !== 'zh' || failed;   // 中文缺失/失败时兜底显示英文
+    const showZh = (lang !== 'en') && !failed && !!s.zh;
+    const isQa = s.section === 'Q&A';
+    const secCls = isQa ? 'qa' : 'stmt';
+    const cols = (showEn && showZh) ? '1fr 1fr' : '1fr';
+    const failedTag = failed ? '<span class="seg-failed">翻译失败 — 保留英文原文</span>' : '';
+    const enP = showEn ? `<p class="en">${esc(s.en)}</p>` : '';
+    const zhP = showZh ? `<p class="zh">${esc(s.zh)}</p>` : '';
+    return `<div class="seg" id="seg-${attrEsc(s.id)}">
+      <div class="seg-meta">
+        <span class="seg-sec ${secCls}">${esc(s.section)}</span>
+        <span class="seg-speaker">${esc(s.speaker)}</span>
+        ${failedTag}
+      </div>
+      <div class="seg-body" style="grid-template-columns:${cols}">${enP}${zhP}</div>
+    </div>`;
+  }).join('');
+}
+
+/* —— 季度趋势 ECharts（真数据：transcripts.json.quarterly_metrics） —— */
+async function renderTrend(t){
+  const qm = state.data.quarterly_metrics && state.data.quarterly_metrics[t.ticker];
+  const card = $('trendCard');
+  if (!qm || !qm.length){ card.style.display = 'none'; return; }
+  card.style.display = '';
+
+  let echarts;
+  try { echarts = await echartsReady; }
+  catch (e){ $('trendChart').innerHTML = '<div class="load-err">图表库加载失败——无法渲染趋势图。</div>'; return; }
+
+  const color = COMPANY_COLORS[t.ticker] || '#8A909B';
+  const cats = qm.map((r) => r.period);
+  const asp = qm.map((r) => (r.dram_asp_qoq == null ? null : r.dram_asp_qoq));
+  const opm = qm.map((r) => (r.op_margin == null ? null : +(r.op_margin * 100).toFixed(1)));
+  const hbm = qm.map((r) => (r.hbm_rev_b == null ? null : r.hbm_rev_b));
+  const hasHbm = hbm.some((v) => v != null);
+
+  const opt = baseOption({ categories: cats });
+  opt.grid = { left: 52, right: 56, top: 40, bottom: 30 };
+  opt.legend = {
+    top: 4, right: 8, itemGap: 14, icon: 'roundRect', itemWidth: 14, itemHeight: 4,
+    textStyle: { color: C.muted, fontSize: 11, fontFamily: FONT_MONO }
+  };
+  opt.tooltip = {
+    trigger: 'axis', confine: true, textStyle: { fontSize: 12 },
+    valueFormatter: null
+  };
+  opt.yAxis = [
+    { type:'value', name:'%（ASP QoQ / 营益率）', position:'left',
+      nameTextStyle:{ color: C.faint, fontSize: 10 },
+      axisLabel:{ color: C.faint, fontSize: 11, fontFamily: FONT_MONO, formatter: '{value}%' },
+      splitLine:{ lineStyle:{ color: C.softLine } } },
+    { type:'value', name:'HBM 收入 $B', position:'right',
+      nameTextStyle:{ color: C.faint, fontSize: 10 },
+      axisLabel:{ color: C.faint, fontSize: 11, fontFamily: FONT_MONO, formatter: '{value}' },
+      splitLine:{ show:false } }
+  ];
+  opt.series = [
+    lineSeries({ name:'DRAM ASP 环比%', data: asp, color, yAxisIndex:0 }),
+    lineSeries({ name:'营业利润率%', data: opm, color:'#8A909B', yAxisIndex:0, dashed:true }),
+  ];
+  if (hasHbm){
+    opt.series.push({
+      name:'HBM 单季收入 $B', type:'bar', data: hbm, yAxisIndex:1,
+      barWidth: 16, itemStyle:{ color: C.peak, opacity: 0.85, borderRadius:[3,3,0,0] }
+    });
+  }
+  initChart($('trendChart'), opt);
+}
+
+/* —— 顶层渲染 —— */
+async function renderAll(){
+  const t = state.data.transcripts[state.id];
+  if (!t){
+    $('title').textContent = '未找到该电话会档案';
+    $('digestGrid').innerHTML = '<div class="load-err">未找到该 id 的文稿——无数据。</div>';
+    $('segments').innerHTML = '';
+    $('trendCard').style.display = 'none';
+    return;
+  }
+  renderMeta(t);
+  renderLang();
+  renderDigest(t);
+  renderSegments(t);
+  await renderTrend(t);
+}
+
+/* —— 交互绑定 ——
+   守卫须判到 transcripts[state.id]:非法 ?id= 深链下页面显示「未找到」,
+   此时 t 为 undefined,直接传入 renderDigest/renderSegments 会抛 TypeError。 */
+function curTranscript() {
+  return (state.data && state.data.transcripts) ? state.data.transcripts[state.id] : null;
+}
+$('digestToggle').addEventListener('click', () => {
+  state.digestOpen = !state.digestOpen;
+  $('digestToggle').textContent = state.digestOpen ? '收起 ▲' : '展开 ▼';
+  const t = curTranscript();
+  if (t) renderDigest(t);
+});
+document.querySelectorAll('#langSeg button').forEach((b) => {
+  b.addEventListener('click', () => {
+    state.lang = b.dataset.lang;
+    const t = curTranscript();
+    if (t) {
+      renderLang();
+      renderSegments(t);
+    }
+  });
+});
+
+/* —— 启动 —— */
+injectTopNav(document.getElementById('topNav'), 'calls');
+(async () => {
+  let data;
+  try { data = await loadJSON('data/transcripts.json'); }
+  catch (e){
+    $('title').textContent = '文稿数据加载失败';
+    $('digestCard').innerHTML = '<div class="load-err">无法加载 data/transcripts.json——无数据。</div>';
+    $('transcriptCard').querySelector('#segments').innerHTML = '';
+    return;
+  }
+  state.data = data;
+  state.id = resolveId(data);
+  await renderAll();
+  // 深链定位：跨季对比页「回原文 ↗」带 #<segId>（如 #p4）跳入本页——
+  // 正文异步渲染，浏览器原生锚点必然落空，渲染完成后手动 jumpTo（兼容 #seg-p4 写法）
+  const hashAnchor = (window.location.hash || '').replace(/^#/, '').replace(/^seg-/, '');
+  if (hashAnchor) jumpTo(hashAnchor);
+})();
+</script>
+</body>
+</html>
