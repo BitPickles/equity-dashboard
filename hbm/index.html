@@ -237,14 +237,12 @@
     .chart-stage { height: 340px; }
   }
 
-  /* ===== 扩产时间线板块（并入看板，fab- 前缀避免与主图样式冲突） ===== */
-  .fab-section { margin-top: 20px; }
-  .fab-head { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:6px; }
-  .fab-h2 { font-size:18px; font-weight:800; margin:0; color:var(--ink); }
-  .fab-h2-sub { font-size:11px; font-weight:600; color:var(--faint); font-family:'IBM Plex Mono',monospace; letter-spacing:.3px; margin-left:6px; }
-  .fab-toggle { margin-left:auto; display:inline-flex; align-items:center; gap:7px; cursor:pointer; user-select:none; color:var(--muted); font-size:12.5px; }
+  /* ===== 扩产时间线视图（作为指标嵌入主图区，fab- 前缀避免与主图样式冲突） ===== */
+  .fab-view { --fablabw:240px; }
+  .fab-head-row { display:flex; align-items:flex-start; gap:16px; margin-bottom:4px; }
+  .fab-toggle { margin-left:auto; flex:0 0 auto; display:inline-flex; align-items:center; gap:7px; cursor:pointer; user-select:none; color:var(--muted); font-size:12.5px; white-space:nowrap; padding-top:2px; }
   .fab-toggle input { accent-color:var(--co-samsung); width:14px; height:14px; }
-  .fab-intro { color:var(--muted); font-size:13px; line-height:1.7; margin:2px 0 14px; }
+  .fab-intro { color:var(--muted); font-size:12.5px; line-height:1.65; margin:0 0 12px; }
   .fab-intro b { color:var(--ink); font-weight:700; }
   .fab-legend { display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center; margin-bottom:16px; font-size:12px; color:var(--muted); }
   .fab-lg { display:inline-flex; align-items:center; gap:6px; }
@@ -299,7 +297,7 @@
   .fab-tbd-card a { font-size:10px; color:var(--link); text-decoration:none; font-weight:600; }
   .fab-foot { font-size:11px; color:var(--faint); line-height:1.7; margin-top:18px; padding-top:12px; border-top:1px solid var(--border-soft); }
   @media (max-width:720px){
-    .fab-section { --fablabw:150px !important; }
+    .fab-view { --fablabw:140px; }
     .fab-gantt { overflow-x:auto; }
   }
 </style>
@@ -358,6 +356,9 @@
       <div class="small-grid" id="lwcSmallGrid" hidden></div>
       <div class="small-grid" id="ecSmallGrid" hidden></div>
 
+      <!-- 扩产时间线视图（选中「扩产时间线」指标时显示，替代图表；由 renderFabView 填充） -->
+      <div class="fab-view" id="fabView" hidden></div>
+
       <!-- 图下:统计行 / (W11·F1 Forward P/E 块，仅 pe 视图) / 口径行 / 指标解释 / (W11·F2c capex 扩产附注) / 来源行 / 原始数据折叠区 -->
       <div class="stats-block" id="statsRows"></div>
       <div class="fwd-block" id="forwardBlock" hidden></div>
@@ -401,111 +402,10 @@
     </section>
   </div>
 
-  <!-- ============ 扩产时间线（并入看板的整宽板块，非独立页） ============ -->
-  <section class="card fab-section" id="fabSection" style="--fablabw:290px;margin-top:20px">
-    <div class="fab-head">
-      <h2 class="fab-h2">扩产时间线 <span class="fab-h2-sub">FAB BUILDOUT · 开工 → 投产</span></h2>
-      <label class="fab-toggle"><input type="checkbox" id="fabFdToggle" checked>含代工厂（三星集团口径）</label>
-    </div>
-    <p class="fab-intro">
-      三家在建与规划的<b>晶圆厂 / 先进封装厂 / 扩建项目</b>——进度条从<b>开工（破土/动工）</b>横跨到<b>预计投产（首片/完工）</b>，实心为已推进、斜纹为剩余。日期取自可核实的一手来源（公司官方新闻稿 / SEC 8-K / 政府 CHIPS·NIST / 官方 IR），<b>为公司指引而非承诺</b>；拿不到的照实标「待定」。三星为集团口径，含代工厂仅作参照。
-    </p>
-    <div class="fab-legend">
-      <span class="fab-lg"><span class="fab-sw" style="background:var(--co-mu)"></span>Micron</span>
-      <span class="fab-lg"><span class="fab-sw" style="background:var(--co-hynix)"></span>SK Hynix</span>
-      <span class="fab-lg"><span class="fab-sw" style="background:var(--co-samsung)"></span>Samsung</span>
-      <span class="fab-lg"><span class="fab-tag storage">存储</span></span>
-      <span class="fab-lg"><span class="fab-tag packaging">封装</span></span>
-      <span class="fab-lg"><span class="fab-tag foundry">代工</span></span>
-      <span class="fab-lg" style="color:var(--co-mu)"><span class="fab-sw hatch"></span>剩余(至投产)</span>
-    </div>
-    <div id="fabBoard"></div>
-    <div id="fabErr" hidden style="color:var(--loss);padding:14px 0">无法加载 data/fabs.json</div>
-    <p class="fab-foot" id="fabFoot"></p>
-  </section>
-
   <footer class="pg">
     <a href="数据与来源.html">关于数据与来源 →</a> · 不构成投资建议 · 数据生成 <span class="mono" id="genDate">—</span>
   </footer>
 </div>
-
-<script>
-/* 扩产时间线：独立自足模块（不依赖看板主脚本状态），fetch fabs.json 渲染甘特进度条 */
-(function(){
-  var COLORS={'MU':'#2E6FE6','000660.KS':'#F5822A','005930.KS':'#7B61FF'};
-  var CO_NAME={'MU':'Micron','000660.KS':'SK Hynix','005930.KS':'Samsung'};
-  var SCOPE_LAB={storage:'存储',packaging:'封装',foundry:'代工'};
-  var STATUS_COLOR={planned:'#A6ABB5',construction:'#2E6FE6',ramping:'#0E8C8C',operational:'#1A7F4E'};
-  var STATUS_LAB={planned:'规划',construction:'在建',ramping:'爬产',operational:'已投产'};
-  var TODAY=2026+(7-1)/12;
-  function toYr(s){if(!s)return null;var m=String(s).match(/^(\d{4})(?:-(\d{2}))?$/);if(!m)return null;return m[2]?(+m[1]+(+m[2]-1)/12):(+m[1]+0.5);}
-  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-  var DATA=null,SHOW_FD=true;
-  fetch('data/fabs.json').then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(d){
-    DATA=d;
-    document.getElementById('fabFoot').innerHTML=esc(d.note||'')+' · 数据整理 <span class="mono">'+esc(d.generated_at||'')+'</span>';
-    var tg=document.getElementById('fabFdToggle');
-    if(tg)tg.addEventListener('change',function(e){SHOW_FD=e.target.checked;draw();});
-    draw();
-  }).catch(function(){var e=document.getElementById('fabErr');if(e)e.hidden=false;});
-  function draw(){
-    var d=DATA,board=document.getElementById('fabBoard');if(!d||!board)return;
-    var lo=Infinity,hi=-Infinity,co,f,i,v;
-    for(co in d.companies)for(i=0;i<d.companies[co].length;i++){f=d.companies[co][i];
-      [toYr(f.start_date),toYr(f.target_date)].forEach(function(v){if(v!=null){lo=Math.min(lo,v);hi=Math.max(hi,v);}});}
-    lo=Math.floor(Math.min(lo,TODAY));hi=Math.ceil(Math.max(hi,TODAY))+0.15;var span=hi-lo;
-    function pct(v){return (v-lo)/span*100;}
-    var order=['MU','000660.KS','005930.KS'],html='';
-    order.forEach(function(co){
-      var fabs=(d.companies[co]||[]).slice();
-      if(!SHOW_FD)fabs=fabs.filter(function(f){return f.scope!=='foundry';});
-      var timed=fabs.filter(function(f){return toYr(f.start_date)!=null||toYr(f.target_date)!=null;});
-      var tbd=fabs.filter(function(f){return toYr(f.start_date)==null&&toYr(f.target_date)==null;});
-      timed.sort(function(a,b){return ((toYr(a.start_date)!=null?toYr(a.start_date):toYr(a.target_date))-(toYr(b.start_date)!=null?toYr(b.start_date):toYr(b.target_date)));});
-      var col=COLORS[co];
-      html+='<div class="fab-co-block"><div class="fab-co-head"><span class="fab-dot" style="background:'+col+'"></span>'+
-        '<h3 style="color:'+col+'">'+CO_NAME[co]+'</h3><span class="fab-cnt">'+fabs.length+' 个项目</span></div>';
-      var axis='';for(var y=Math.ceil(lo);y<=Math.floor(hi);y++)axis+='<div class="fab-yr" style="left:'+pct(y)+'%">'+y+'</div>';
-      html+='<div class="fab-gantt"><div class="fab-axis">'+axis+'</div>';
-      timed.forEach(function(f){
-        var s=toYr(f.start_date),t=toYr(f.target_date),stc=STATUS_COLOR[f.status]||'#888';
-        var meta='<div class="fab-meta"><span class="fab-status-dot" style="background:'+stc+'" title="'+(STATUS_LAB[f.status]||'')+'"></span>'+
-          '<span class="fab-tag '+f.scope+'">'+(SCOPE_LAB[f.scope]||f.scope)+'</span>'+
-          '<span class="fab-tag loc">'+esc(f.location.split('（')[0].slice(0,14))+'</span>'+
-          '<a class="fab-src" href="'+esc(f.source_url)+'" target="_blank" rel="noopener" title="'+esc(f.source)+' · '+esc(f.asof)+'">来源↗</a>'+
-          (f.tier==='B'?'<span class="fab-lowconf" title="'+esc(f.note)+'">低置信</span>':'')+'</div>';
-        var bar='';
-        if(s!=null&&t!=null){
-          var x0=pct(s),w=Math.max(pct(t)-x0,1.2),done=t<=TODAY,fe=Math.min(Math.max((TODAY-s)/(t-s),0),1)*100;
-          bar='<div class="fab-bar '+(done?'full':'')+'" style="left:'+x0+'%;width:'+w+'%;background:'+col+'22" title="'+esc(f.start_label)+' → '+esc(f.target_label)+'">'+
-            '<span class="fab-fill" style="width:'+(done?100:fe)+'%;background:'+col+'"></span>'+
-            '<span class="fab-rem" style="color:'+col+';background:'+col+'"></span>'+
-            '<span class="fab-cap s">'+esc(f.start_date)+'</span>'+
-            '<span class="fab-cap e"><b>'+esc(f.target_date)+'</b> '+(STATUS_LAB[f.status]||'')+'</span></div>';
-        }else if(s!=null){
-          var x0b=pct(s),wb=Math.max(pct(Math.max(TODAY,s+0.4))-x0b,1.2);
-          bar='<div class="fab-bar open" style="left:'+x0b+'%;width:'+wb+'%;background:'+col+';color:'+col+'" title="'+esc(f.start_label)+' · 投产待定">'+
-            '<span class="fab-cap s">'+esc(f.start_date)+'</span>'+
-            '<span class="fab-cap e" style="left:calc(100% + 16px)">投产待定</span></div>';
-        }else{
-          var xd=pct(t);
-          bar='<span class="fab-diamond" style="left:'+xd+'%;background:'+col+'" title="'+esc(f.target_label)+' · 开工待定"></span>'+
-            '<span class="fab-diamond-cap" style="left:calc('+xd+'% + 11px)"><b>'+esc(f.target_date)+'</b> 完工·开工待定</span>';
-        }
-        html+='<div class="fab-row '+(f.scope==='foundry'?'is-fd':'')+'"><div class="fab-row-lab"><div class="fab-nm">'+esc(f.name)+'</div>'+meta+'</div><div class="fab-track">'+bar+'</div></div>';
-      });
-      html+='<div class="fab-today-wrap"><div class="fab-today" style="left:'+pct(TODAY)+'%"><span class="fab-today-lab">今天</span></div></div></div>';
-      if(tbd.length){
-        html+='<div class="fab-tbd"><h4>规划中 · 日期待定（官方未公布开工/投产时点）</h4><div class="fab-tbd-grid">';
-        tbd.forEach(function(f){html+='<div class="fab-tbd-card"><div class="fab-nm">'+esc(f.name)+'</div><div class="fab-why">'+esc(f.amount||'')+(f.amount?' · ':'')+esc(f.target_label||f.start_label||'')+'</div><a href="'+esc(f.source_url)+'" target="_blank" rel="noopener">来源↗ '+esc(f.source)+'</a></div>';});
-        html+='</div></div>';
-      }
-      html+='</div>';
-    });
-    board.innerHTML=html;
-  }
-})();
-</script>
 
 <script type="module">
 import {
@@ -573,8 +473,10 @@ const METRICS = [
     short: 'capex/营收', explain: '资本开支强度 = 资本开支 ÷ 营收。',
     explainCycle: '剔除规模因素后的扩产意愿读数:比率抬升代表行业在加码供给;回落代表收缩开支——历史上多与下行段中后期的减产/缩支相伴(可与「历史周期」带对照验证)。',
     explainUsage: '常见用法:三家叠加看扩产节奏是否同步;与营业利润率叠加,对照「高利润率+高开支强度」与「低利润率+压缩开支」两类历史时段。' },
+  // 特殊视图指标：非按公司时间序列，选中时主图区换成扩产甘特（renderFabView），不参与叠加/统计/图表流程
+  { key: 'fabs', label: '扩产时间线', group: '产能', isFabs: true },
 ];
-const GROUPS = ['估值', '盈利', '周期'];
+const GROUPS = ['估值', '盈利', '周期', '产能'];
 
 /* ---------- 应用状态 ---------- */
 const state = {
@@ -593,6 +495,9 @@ const state = {
 
 /* W11·F2c:各家扩产/资本投入计划（capex_plans.json；boot 中异步 fetch，失败置 null → capex 附注不显示） */
 let capexPlans = null;
+/* 扩产时间线数据（fabs.json；boot 中异步 fetch，供「扩产时间线」视图用） */
+let fabsData = null;
+let fabShowFoundry = true;
 
 function curMetric() { return METRICS.find((x) => x.key === state.metric) || METRICS[1]; }
 /* 叠加指标（o===m 或非法值 → null，即回单指标视图） */
@@ -1671,7 +1576,7 @@ function renderOverlayCtl() {
   if (!o) {
     el.innerHTML = '<select class="overlay-sel" id="overlaySel" title="叠加第二个指标对比">'
       + '<option value="">+ 叠加对比</option>'
-      + METRICS.filter((x) => x.key !== state.metric).map((x) =>
+      + METRICS.filter((x) => x.key !== state.metric && !x.isFabs).map((x) =>
           '<option value="' + esc(x.key) + '">' + esc(x.label) + '</option>').join('')
       + '</select>';
   } else {
@@ -1881,11 +1786,114 @@ function parseURL() {
   } catch (e) {}
 }
 
+/* ===== 扩产时间线视图（作为特殊指标 fabs，主图区渲染甘特进度条） ===== */
+const FAB_COLORS = { 'MU':'#2E6FE6', '000660.KS':'#F5822A', '005930.KS':'#7B61FF' };
+const FAB_CO_NAME = { 'MU':'Micron', '000660.KS':'SK Hynix', '005930.KS':'Samsung' };
+const FAB_SCOPE_LAB = { storage:'存储', packaging:'封装', foundry:'代工' };
+const FAB_STATUS_COLOR = { planned:'#A6ABB5', construction:'#2E6FE6', ramping:'#0E8C8C', operational:'#1A7F4E' };
+const FAB_STATUS_LAB = { planned:'规划', construction:'在建', ramping:'爬产', operational:'已投产' };
+const FAB_TODAY = 2026 + (7 - 1) / 12;
+const FAB_HIDE_IDS = ['chartNote','lwcMain','ecMain','lwcSmallGrid','ecSmallGrid','statsRows','forwardBlock','caveatBar','metricExplain','capexNote','srcRow','fsInfobar','rawData'];
+function fabToYr(s) {
+  if (!s) return null;
+  const m = String(s).match(/^(\d{4})(?:-(\d{2}))?$/);
+  if (!m) return null;
+  return m[2] ? (+m[1] + (+m[2] - 1) / 12) : (+m[1] + 0.5);
+}
+function fabStart(f) { return fabToYr(f.start_date); }
+function exitFabView() {
+  document.getElementById('fabView').hidden = true;
+  const c = document.querySelector('.work-head .ctrls'); if (c) c.hidden = false;
+  ['statsRows','caveatBar','metricExplain','srcRow'].forEach((id) => { const e = document.getElementById(id); if (e) e.hidden = false; });
+}
+function renderFabView() {
+  const c = document.querySelector('.work-head .ctrls'); if (c) c.hidden = true;
+  FAB_HIDE_IDS.forEach((id) => { const e = document.getElementById(id); if (e) e.hidden = true; });
+  cleanupCharts();
+  const fv = document.getElementById('fabView');
+  fv.hidden = false;
+  if (!fabsData) { fv.innerHTML = '<div class="empty-note">无法加载 data/fabs.json</div>'; syncURL(); return; }
+  fv.innerHTML =
+    '<div class="fab-head-row">'
+    + '<p class="fab-intro">三家在建与规划的<b>晶圆厂 / 先进封装厂 / 扩建项目</b>——进度条从<b>开工（破土/动工）</b>横跨到<b>预计投产（首片/完工）</b>，实心为已推进、斜纹为剩余。日期取自可核实的一手来源（官方新闻稿 / SEC 8-K / 政府 CHIPS·NIST / 官方 IR），<b>为公司指引而非承诺</b>；拿不到的照实标「待定」。三星为集团口径，含代工厂仅作参照。</p>'
+    + '<label class="fab-toggle"><input type="checkbox" id="fabFdToggle"' + (fabShowFoundry ? ' checked' : '') + '>含代工厂</label>'
+    + '</div>'
+    + '<div class="fab-legend">'
+    + '<span class="fab-lg"><span class="fab-sw" style="background:var(--co-mu)"></span>Micron</span>'
+    + '<span class="fab-lg"><span class="fab-sw" style="background:var(--co-hynix)"></span>SK Hynix</span>'
+    + '<span class="fab-lg"><span class="fab-sw" style="background:var(--co-samsung)"></span>Samsung</span>'
+    + '<span class="fab-lg"><span class="fab-tag storage">存储</span></span>'
+    + '<span class="fab-lg"><span class="fab-tag packaging">封装</span></span>'
+    + '<span class="fab-lg"><span class="fab-tag foundry">代工</span></span>'
+    + '<span class="fab-lg" style="color:var(--co-mu)"><span class="fab-sw hatch"></span>剩余(至投产)</span>'
+    + '</div>'
+    + '<div id="fabBoard"></div>'
+    + '<p class="fab-foot">' + esc(fabsData.note || '') + ' · 数据整理 <span class="mono">' + esc(fabsData.generated_at || '') + '</span></p>';
+  const tg = document.getElementById('fabFdToggle');
+  if (tg) tg.addEventListener('change', (e) => { fabShowFoundry = e.target.checked; drawFabBoard(); });
+  drawFabBoard();
+  syncURL();
+}
+function drawFabBoard() {
+  const d = fabsData, board = document.getElementById('fabBoard'); if (!d || !board) return;
+  const ORDER = ['MU','000660.KS','005930.KS'];
+  let lo = Infinity, hi = -Infinity;
+  ORDER.forEach((co) => (d.companies[co] || []).forEach((f) => {
+    [fabToYr(f.start_date), fabToYr(f.target_date)].forEach((v) => { if (v != null) { lo = Math.min(lo, v); hi = Math.max(hi, v); } });
+  }));
+  lo = Math.floor(Math.min(lo, FAB_TODAY)); hi = Math.ceil(Math.max(hi, FAB_TODAY)) + 0.15;
+  const span = hi - lo, pct = (v) => (v - lo) / span * 100;
+  let html = '';
+  ORDER.forEach((co) => {
+    let fabs = (d.companies[co] || []).slice();
+    if (!fabShowFoundry) fabs = fabs.filter((f) => f.scope !== 'foundry');
+    const timed = fabs.filter((f) => fabToYr(f.start_date) != null || fabToYr(f.target_date) != null);
+    const tbd = fabs.filter((f) => fabToYr(f.start_date) == null && fabToYr(f.target_date) == null);
+    timed.sort((a, b) => ((fabStart(a) != null ? fabStart(a) : fabToYr(a.target_date)) - (fabStart(b) != null ? fabStart(b) : fabToYr(b.target_date))));
+    const col = FAB_COLORS[co];
+    html += '<div class="fab-co-block"><div class="fab-co-head"><span class="fab-dot" style="background:' + col + '"></span><h3 style="color:' + col + '">' + FAB_CO_NAME[co] + '</h3><span class="fab-cnt">' + fabs.length + ' 个项目</span></div>';
+    let axis = ''; for (let y = Math.ceil(lo); y <= Math.floor(hi); y++) axis += '<div class="fab-yr" style="left:' + pct(y) + '%">' + y + '</div>';
+    html += '<div class="fab-gantt"><div class="fab-axis">' + axis + '</div>';
+    timed.forEach((f) => {
+      const s = fabToYr(f.start_date), t = fabToYr(f.target_date), stc = FAB_STATUS_COLOR[f.status] || '#888';
+      const meta = '<div class="fab-meta"><span class="fab-status-dot" style="background:' + stc + '" title="' + (FAB_STATUS_LAB[f.status] || '') + '"></span>'
+        + '<span class="fab-tag ' + f.scope + '">' + (FAB_SCOPE_LAB[f.scope] || f.scope) + '</span>'
+        + '<span class="fab-tag loc">' + esc(f.location.split('（')[0].slice(0, 14)) + '</span>'
+        + '<a class="fab-src" href="' + esc(f.source_url) + '" target="_blank" rel="noopener" title="' + esc(f.source) + ' · ' + esc(f.asof) + '">来源↗</a>'
+        + (f.tier === 'B' ? '<span class="fab-lowconf" title="' + esc(f.note) + '">低置信</span>' : '') + '</div>';
+      let bar = '';
+      if (s != null && t != null) {
+        const x0 = pct(s), w = Math.max(pct(t) - x0, 1.2), done = t <= FAB_TODAY, fe = Math.min(Math.max((FAB_TODAY - s) / (t - s), 0), 1) * 100;
+        bar = '<div class="fab-bar ' + (done ? 'full' : '') + '" style="left:' + x0 + '%;width:' + w + '%;background:' + col + '22" title="' + esc(f.start_label) + ' → ' + esc(f.target_label) + '"><span class="fab-fill" style="width:' + (done ? 100 : fe) + '%;background:' + col + '"></span><span class="fab-rem" style="color:' + col + ';background:' + col + '"></span><span class="fab-cap s">' + esc(f.start_date) + '</span><span class="fab-cap e"><b>' + esc(f.target_date) + '</b> ' + (FAB_STATUS_LAB[f.status] || '') + '</span></div>';
+      } else if (s != null) {
+        const x0 = pct(s), w = Math.max(pct(Math.max(FAB_TODAY, s + 0.4)) - x0, 1.2);
+        bar = '<div class="fab-bar open" style="left:' + x0 + '%;width:' + w + '%;background:' + col + ';color:' + col + '" title="' + esc(f.start_label) + ' · 投产待定"><span class="fab-cap s">' + esc(f.start_date) + '</span><span class="fab-cap e" style="left:calc(100% + 16px)">投产待定</span></div>';
+      } else {
+        const x = pct(t);
+        bar = '<span class="fab-diamond" style="left:' + x + '%;background:' + col + '" title="' + esc(f.target_label) + ' · 开工待定"></span><span class="fab-diamond-cap" style="left:calc(' + x + '% + 11px)"><b>' + esc(f.target_date) + '</b> 完工·开工待定</span>';
+      }
+      html += '<div class="fab-row ' + (f.scope === 'foundry' ? 'is-fd' : '') + '"><div class="fab-row-lab"><div class="fab-nm">' + esc(f.name) + '</div>' + meta + '</div><div class="fab-track">' + bar + '</div></div>';
+    });
+    html += '<div class="fab-today-wrap"><div class="fab-today" style="left:' + pct(FAB_TODAY) + '%"><span class="fab-today-lab">今天</span></div></div></div>';
+    if (tbd.length) {
+      html += '<div class="fab-tbd"><h4>规划中 · 日期待定（官方未公布开工/投产时点）</h4><div class="fab-tbd-grid">';
+      tbd.forEach((f) => { html += '<div class="fab-tbd-card"><div class="fab-nm">' + esc(f.name) + '</div><div class="fab-why">' + esc(f.amount || '') + (f.amount ? ' · ' : '') + esc(f.target_label || f.start_label || '') + '</div><a href="' + esc(f.source_url) + '" target="_blank" rel="noopener">来源↗ ' + esc(f.source) + '</a></div>'; });
+      html += '</div></div>';
+    }
+    html += '</div>';
+  });
+  board.innerHTML = html;
+}
+
 function render() {
   const m = curMetric();
   const o = ovMetric();
   renderSideNav();
   document.getElementById('metricTitle').textContent = o ? m.label + ' + ' + o.label : m.label;
+
+  // 「扩产时间线」是特殊视图：主图区换成甘特，隐藏所有图表控件/统计/图表容器，提前返回
+  if (m.isFabs) { renderFabView(); return; }
+  exitFabView();
 
   // rangeSeg：任一参与指标 hasRange 即显示（range 只作用于 hasRange 的指标序列）
   const rm = m.hasRange ? m : (o && o.hasRange ? o : null);
@@ -2801,6 +2809,7 @@ async function boot() {
 
   // W11·F2c:扩产计划（capex 视图附注用）——失败静默降级为 null，附注不显示，不影响主体
   try { capexPlans = await loadJSON('data/capex_plans.json'); } catch (e) { capexPlans = null; }
+  try { fabsData = await loadJSON('data/fabs.json'); } catch (e) { fabsData = null; }
 
   try { echarts = await echartsReady; } catch (e) { echarts = null; }
 
