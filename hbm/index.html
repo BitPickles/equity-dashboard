@@ -2616,7 +2616,10 @@ async function boot() {
     state.generated = (typeof raw.generated_at === 'string' && raw.generated_at.length >= 10)
       ? raw.generated_at.slice(0, 10) : '—';
     state.companies = transform(raw);
-    state.companies.forEach((c) => { state.active[c.ticker] = true; });
+    // 默认只显示 SK 海力士（000660.KS）；数据里没有该家时兜底为全选，避免空图
+    const DEFAULT_TICKER = '000660.KS';
+    const hasDefault = state.companies.some((c) => c.ticker === DEFAULT_TICKER);
+    state.companies.forEach((c) => { state.active[c.ticker] = hasDefault ? (c.ticker === DEFAULT_TICKER) : true; });
     // URL &c= 恢复公司 chips（&b=1 的历史周期视图需单公司激活才能还原）；
     // 无有效交集（全非法/空）则保持全选，避免坏链接渲染空图
     if (Array.isArray(pendingActive)
