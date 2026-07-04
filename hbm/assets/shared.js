@@ -84,7 +84,6 @@ export const FONT_MONO = 'IBM Plex Mono';
 export const NAV_LINKS = [
   { key: 'board',     href: 'index.html',   label: '看板' },
   { key: 'companies', href: '公司.html',     label: '公司' },
-  { key: 'fabs',      href: '扩产.html',     label: '扩产' },
   { key: 'calls',     href: '电话会.html',   label: '电话会' },
 ];
 

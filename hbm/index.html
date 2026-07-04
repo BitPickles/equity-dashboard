@@ -236,6 +236,72 @@
     .ctrls { margin-left: 0; }
     .chart-stage { height: 340px; }
   }
+
+  /* ===== 扩产时间线板块（并入看板，fab- 前缀避免与主图样式冲突） ===== */
+  .fab-section { margin-top: 20px; }
+  .fab-head { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:6px; }
+  .fab-h2 { font-size:18px; font-weight:800; margin:0; color:var(--ink); }
+  .fab-h2-sub { font-size:11px; font-weight:600; color:var(--faint); font-family:'IBM Plex Mono',monospace; letter-spacing:.3px; margin-left:6px; }
+  .fab-toggle { margin-left:auto; display:inline-flex; align-items:center; gap:7px; cursor:pointer; user-select:none; color:var(--muted); font-size:12.5px; }
+  .fab-toggle input { accent-color:var(--co-samsung); width:14px; height:14px; }
+  .fab-intro { color:var(--muted); font-size:13px; line-height:1.7; margin:2px 0 14px; }
+  .fab-intro b { color:var(--ink); font-weight:700; }
+  .fab-legend { display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center; margin-bottom:16px; font-size:12px; color:var(--muted); }
+  .fab-lg { display:inline-flex; align-items:center; gap:6px; }
+  .fab-sw { width:22px; height:11px; border-radius:3px; display:inline-block; }
+  .fab-sw.hatch { background-image:repeating-linear-gradient(45deg,currentColor 0 3px,transparent 3px 6px); opacity:.55; }
+  .fab-co-block { margin-bottom:22px; }
+  .fab-co-block:last-child { margin-bottom:0; }
+  .fab-co-head { display:flex; align-items:center; gap:9px; margin:0 0 9px; }
+  .fab-co-head .fab-dot { width:11px; height:11px; border-radius:50%; }
+  .fab-co-head h3 { font-size:15.5px; margin:0; font-weight:800; }
+  .fab-co-head .fab-cnt { font-size:11.5px; color:var(--faint); font-weight:500; }
+  .fab-gantt { position:relative; border:1px solid var(--border); border-radius:12px; background:var(--card); overflow:hidden; }
+  .fab-axis { position:relative; height:24px; margin-left:var(--fablabw); border-bottom:1px solid var(--border-soft); background:var(--field-bg); }
+  .fab-yr { position:absolute; top:0; height:100%; display:flex; align-items:center; font-size:10.5px; color:var(--faint); font-family:'IBM Plex Mono',monospace; padding-left:5px; border-left:1px solid var(--border-soft); }
+  .fab-row { position:relative; display:flex; align-items:stretch; border-top:1px solid var(--row-line); min-height:44px; }
+  .fab-row.is-fd { background:var(--subcard-bg); }
+  .fab-row-lab { width:var(--fablabw); flex:0 0 var(--fablabw); box-sizing:border-box; padding:8px 12px 8px 14px; border-right:1px solid var(--border-soft); }
+  .fab-nm { font-size:12.5px; font-weight:700; color:var(--ink); line-height:1.35; }
+  .fab-meta { margin-top:3px; display:flex; flex-wrap:wrap; gap:4px 6px; align-items:center; }
+  .fab-tag { font-size:9.5px; font-weight:700; padding:1px 5px; border-radius:4px; letter-spacing:.2px; white-space:nowrap; }
+  .fab-tag.storage { background:rgba(46,111,230,.10); color:#2258b8; }
+  .fab-tag.packaging { background:rgba(14,140,140,.12); color:#0b6d6d; }
+  .fab-tag.foundry { background:rgba(138,143,155,.15); color:#5c6470; }
+  .fab-tag.loc { background:var(--field-bg); color:var(--faint); font-weight:600; border:1px solid var(--border-soft); }
+  .fab-src { font-size:10px; color:var(--link); text-decoration:none; font-weight:600; }
+  .fab-src:hover { text-decoration:underline; }
+  .fab-lowconf { font-size:9px; color:var(--tier-b); font-weight:700; }
+  .fab-status-dot { width:7px; height:7px; border-radius:50%; display:inline-block; flex:0 0 auto; }
+  .fab-track { position:relative; flex:1; min-width:0; }
+  .fab-bar { position:absolute; top:50%; transform:translateY(-50%); height:16px; border-radius:5px; box-shadow:0 1px 2px rgba(20,23,29,.08); }
+  .fab-fill { position:absolute; left:0; top:0; bottom:0; border-radius:5px 0 0 5px; }
+  .fab-rem { position:absolute; right:0; top:0; bottom:0; border-radius:0 5px 5px 0; background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.55) 0 3px,transparent 3px 6px); }
+  .fab-bar.full .fab-rem { display:none; }
+  .fab-bar.full .fab-fill { border-radius:5px; }
+  .fab-cap { position:absolute; font-size:10px; font-family:'IBM Plex Mono',monospace; white-space:nowrap; color:var(--faint); top:50%; transform:translateY(-50%); }
+  .fab-cap.s { right:calc(100% + 6px); }
+  .fab-cap.e { left:calc(100% + 6px); }
+  .fab-cap.e b { color:var(--muted); font-weight:600; }
+  .fab-bar.open { border-radius:5px; }
+  .fab-bar.open::after { content:'▸'; position:absolute; right:-13px; top:50%; transform:translateY(-50%); font-size:11px; }
+  .fab-diamond { position:absolute; top:50%; width:12px; height:12px; transform:translate(-50%,-50%) rotate(45deg); border-radius:2px; box-shadow:0 1px 2px rgba(20,23,29,.12); }
+  .fab-diamond-cap { position:absolute; top:50%; transform:translateY(-50%); font-size:10px; font-family:'IBM Plex Mono',monospace; color:var(--faint); }
+  .fab-today-wrap { position:absolute; left:var(--fablabw); right:0; top:24px; bottom:0; pointer-events:none; z-index:3; }
+  .fab-today { position:absolute; top:0; bottom:0; width:0; border-left:2px dashed var(--loss); }
+  .fab-today-lab { position:absolute; top:-20px; left:-15px; font-size:10px; font-weight:700; color:var(--loss); font-family:'IBM Plex Mono',monospace; }
+  .fab-tbd { margin-top:12px; }
+  .fab-tbd h4 { font-size:12px; color:var(--faint); font-weight:700; margin:0 0 8px; }
+  .fab-tbd-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:10px; }
+  .fab-tbd-card { border:1px dashed var(--border-line); border-radius:10px; padding:10px 12px; background:var(--field-bg); }
+  .fab-tbd-card .fab-nm { font-size:12.5px; }
+  .fab-tbd-card .fab-why { font-size:11.5px; color:var(--muted); margin:4px 0; line-height:1.5; }
+  .fab-tbd-card a { font-size:10px; color:var(--link); text-decoration:none; font-weight:600; }
+  .fab-foot { font-size:11px; color:var(--faint); line-height:1.7; margin-top:18px; padding-top:12px; border-top:1px solid var(--border-soft); }
+  @media (max-width:720px){
+    .fab-section { --fablabw:150px !important; }
+    .fab-gantt { overflow-x:auto; }
+  }
 </style>
 </head>
 <body>
@@ -250,7 +316,6 @@
     <nav class="top-nav">
       <a href="index.html" class="is-active">看板</a>
       <a href="公司.html">公司</a>
-      <a href="扩产.html">扩产</a>
       <a href="电话会.html">电话会</a>
     </nav>
   </header>
@@ -336,10 +401,111 @@
     </section>
   </div>
 
+  <!-- ============ 扩产时间线（并入看板的整宽板块，非独立页） ============ -->
+  <section class="card fab-section" id="fabSection" style="--fablabw:290px;margin-top:20px">
+    <div class="fab-head">
+      <h2 class="fab-h2">扩产时间线 <span class="fab-h2-sub">FAB BUILDOUT · 开工 → 投产</span></h2>
+      <label class="fab-toggle"><input type="checkbox" id="fabFdToggle" checked>含代工厂（三星集团口径）</label>
+    </div>
+    <p class="fab-intro">
+      三家在建与规划的<b>晶圆厂 / 先进封装厂 / 扩建项目</b>——进度条从<b>开工（破土/动工）</b>横跨到<b>预计投产（首片/完工）</b>，实心为已推进、斜纹为剩余。日期取自可核实的一手来源（公司官方新闻稿 / SEC 8-K / 政府 CHIPS·NIST / 官方 IR），<b>为公司指引而非承诺</b>；拿不到的照实标「待定」。三星为集团口径，含代工厂仅作参照。
+    </p>
+    <div class="fab-legend">
+      <span class="fab-lg"><span class="fab-sw" style="background:var(--co-mu)"></span>Micron</span>
+      <span class="fab-lg"><span class="fab-sw" style="background:var(--co-hynix)"></span>SK Hynix</span>
+      <span class="fab-lg"><span class="fab-sw" style="background:var(--co-samsung)"></span>Samsung</span>
+      <span class="fab-lg"><span class="fab-tag storage">存储</span></span>
+      <span class="fab-lg"><span class="fab-tag packaging">封装</span></span>
+      <span class="fab-lg"><span class="fab-tag foundry">代工</span></span>
+      <span class="fab-lg" style="color:var(--co-mu)"><span class="fab-sw hatch"></span>剩余(至投产)</span>
+    </div>
+    <div id="fabBoard"></div>
+    <div id="fabErr" hidden style="color:var(--loss);padding:14px 0">无法加载 data/fabs.json</div>
+    <p class="fab-foot" id="fabFoot"></p>
+  </section>
+
   <footer class="pg">
     <a href="数据与来源.html">关于数据与来源 →</a> · 不构成投资建议 · 数据生成 <span class="mono" id="genDate">—</span>
   </footer>
 </div>
+
+<script>
+/* 扩产时间线：独立自足模块（不依赖看板主脚本状态），fetch fabs.json 渲染甘特进度条 */
+(function(){
+  var COLORS={'MU':'#2E6FE6','000660.KS':'#F5822A','005930.KS':'#7B61FF'};
+  var CO_NAME={'MU':'Micron','000660.KS':'SK Hynix','005930.KS':'Samsung'};
+  var SCOPE_LAB={storage:'存储',packaging:'封装',foundry:'代工'};
+  var STATUS_COLOR={planned:'#A6ABB5',construction:'#2E6FE6',ramping:'#0E8C8C',operational:'#1A7F4E'};
+  var STATUS_LAB={planned:'规划',construction:'在建',ramping:'爬产',operational:'已投产'};
+  var TODAY=2026+(7-1)/12;
+  function toYr(s){if(!s)return null;var m=String(s).match(/^(\d{4})(?:-(\d{2}))?$/);if(!m)return null;return m[2]?(+m[1]+(+m[2]-1)/12):(+m[1]+0.5);}
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  var DATA=null,SHOW_FD=true;
+  fetch('data/fabs.json').then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(d){
+    DATA=d;
+    document.getElementById('fabFoot').innerHTML=esc(d.note||'')+' · 数据整理 <span class="mono">'+esc(d.generated_at||'')+'</span>';
+    var tg=document.getElementById('fabFdToggle');
+    if(tg)tg.addEventListener('change',function(e){SHOW_FD=e.target.checked;draw();});
+    draw();
+  }).catch(function(){var e=document.getElementById('fabErr');if(e)e.hidden=false;});
+  function draw(){
+    var d=DATA,board=document.getElementById('fabBoard');if(!d||!board)return;
+    var lo=Infinity,hi=-Infinity,co,f,i,v;
+    for(co in d.companies)for(i=0;i<d.companies[co].length;i++){f=d.companies[co][i];
+      [toYr(f.start_date),toYr(f.target_date)].forEach(function(v){if(v!=null){lo=Math.min(lo,v);hi=Math.max(hi,v);}});}
+    lo=Math.floor(Math.min(lo,TODAY));hi=Math.ceil(Math.max(hi,TODAY))+0.15;var span=hi-lo;
+    function pct(v){return (v-lo)/span*100;}
+    var order=['MU','000660.KS','005930.KS'],html='';
+    order.forEach(function(co){
+      var fabs=(d.companies[co]||[]).slice();
+      if(!SHOW_FD)fabs=fabs.filter(function(f){return f.scope!=='foundry';});
+      var timed=fabs.filter(function(f){return toYr(f.start_date)!=null||toYr(f.target_date)!=null;});
+      var tbd=fabs.filter(function(f){return toYr(f.start_date)==null&&toYr(f.target_date)==null;});
+      timed.sort(function(a,b){return ((toYr(a.start_date)!=null?toYr(a.start_date):toYr(a.target_date))-(toYr(b.start_date)!=null?toYr(b.start_date):toYr(b.target_date)));});
+      var col=COLORS[co];
+      html+='<div class="fab-co-block"><div class="fab-co-head"><span class="fab-dot" style="background:'+col+'"></span>'+
+        '<h3 style="color:'+col+'">'+CO_NAME[co]+'</h3><span class="fab-cnt">'+fabs.length+' 个项目</span></div>';
+      var axis='';for(var y=Math.ceil(lo);y<=Math.floor(hi);y++)axis+='<div class="fab-yr" style="left:'+pct(y)+'%">'+y+'</div>';
+      html+='<div class="fab-gantt"><div class="fab-axis">'+axis+'</div>';
+      timed.forEach(function(f){
+        var s=toYr(f.start_date),t=toYr(f.target_date),stc=STATUS_COLOR[f.status]||'#888';
+        var meta='<div class="fab-meta"><span class="fab-status-dot" style="background:'+stc+'" title="'+(STATUS_LAB[f.status]||'')+'"></span>'+
+          '<span class="fab-tag '+f.scope+'">'+(SCOPE_LAB[f.scope]||f.scope)+'</span>'+
+          '<span class="fab-tag loc">'+esc(f.location.split('（')[0].slice(0,14))+'</span>'+
+          '<a class="fab-src" href="'+esc(f.source_url)+'" target="_blank" rel="noopener" title="'+esc(f.source)+' · '+esc(f.asof)+'">来源↗</a>'+
+          (f.tier==='B'?'<span class="fab-lowconf" title="'+esc(f.note)+'">低置信</span>':'')+'</div>';
+        var bar='';
+        if(s!=null&&t!=null){
+          var x0=pct(s),w=Math.max(pct(t)-x0,1.2),done=t<=TODAY,fe=Math.min(Math.max((TODAY-s)/(t-s),0),1)*100;
+          bar='<div class="fab-bar '+(done?'full':'')+'" style="left:'+x0+'%;width:'+w+'%;background:'+col+'22" title="'+esc(f.start_label)+' → '+esc(f.target_label)+'">'+
+            '<span class="fab-fill" style="width:'+(done?100:fe)+'%;background:'+col+'"></span>'+
+            '<span class="fab-rem" style="color:'+col+';background:'+col+'"></span>'+
+            '<span class="fab-cap s">'+esc(f.start_date)+'</span>'+
+            '<span class="fab-cap e"><b>'+esc(f.target_date)+'</b> '+(STATUS_LAB[f.status]||'')+'</span></div>';
+        }else if(s!=null){
+          var x0b=pct(s),wb=Math.max(pct(Math.max(TODAY,s+0.4))-x0b,1.2);
+          bar='<div class="fab-bar open" style="left:'+x0b+'%;width:'+wb+'%;background:'+col+';color:'+col+'" title="'+esc(f.start_label)+' · 投产待定">'+
+            '<span class="fab-cap s">'+esc(f.start_date)+'</span>'+
+            '<span class="fab-cap e" style="left:calc(100% + 16px)">投产待定</span></div>';
+        }else{
+          var xd=pct(t);
+          bar='<span class="fab-diamond" style="left:'+xd+'%;background:'+col+'" title="'+esc(f.target_label)+' · 开工待定"></span>'+
+            '<span class="fab-diamond-cap" style="left:calc('+xd+'% + 11px)"><b>'+esc(f.target_date)+'</b> 完工·开工待定</span>';
+        }
+        html+='<div class="fab-row '+(f.scope==='foundry'?'is-fd':'')+'"><div class="fab-row-lab"><div class="fab-nm">'+esc(f.name)+'</div>'+meta+'</div><div class="fab-track">'+bar+'</div></div>';
+      });
+      html+='<div class="fab-today-wrap"><div class="fab-today" style="left:'+pct(TODAY)+'%"><span class="fab-today-lab">今天</span></div></div></div>';
+      if(tbd.length){
+        html+='<div class="fab-tbd"><h4>规划中 · 日期待定（官方未公布开工/投产时点）</h4><div class="fab-tbd-grid">';
+        tbd.forEach(function(f){html+='<div class="fab-tbd-card"><div class="fab-nm">'+esc(f.name)+'</div><div class="fab-why">'+esc(f.amount||'')+(f.amount?' · ':'')+esc(f.target_label||f.start_label||'')+'</div><a href="'+esc(f.source_url)+'" target="_blank" rel="noopener">来源↗ '+esc(f.source)+'</a></div>';});
+        html+='</div></div>';
+      }
+      html+='</div>';
+    });
+    board.innerHTML=html;
+  }
+})();
+</script>
 
 <script type="module">
 import {
