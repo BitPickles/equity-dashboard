@@ -1482,7 +1482,7 @@ function caveatsFor(m) {
   if (m.key === 'price') {
     list.push('股价为 Yahoo Finance 收盘价（含拆股回溯，不含股息复权）');
     list.push('MU 以美元计价，韩股以韩元计价');
-    list.push('日频全史：MU 1984→ / 韩股 2000→');
+    list.push('数据全量保留（MU 1984→ / 韩股 2000→ / SK Hynix 2003→）；默认视窗自 2003，可向左拖看更早');
     return list;
   }
   list.push('韩股数值为自算（DART 原始报表）');
@@ -1984,16 +1984,16 @@ function exportSubtitle(m) {
     return '实线=' + m.short + '（左轴） · 虚线=' + o.short + '（右轴）';
   }
   if (m.key === 'price') {
-    return '日频 · 全史（MU 1984→ / 韩股 2000→）· 对数轴 · Yahoo 收盘价（不含股息复权）';
+    return '日频 · 默认 2003 起（可向左拖看更早，全量 MU 1984→）· 对数轴 · Yahoo 收盘价（不含股息复权）';
   }
   if (m.key === 'pe') {
     // B4:全程口径与方法论行一致（MU 1994→ / 韩股 2001→）；E7:补三星集团口径
-    return (state.range === 'long' ? '季度 · ' + longSeq : '日频 · 全程（MU 1994→ / 韩股 2001→）')
+    return (state.range === 'long' ? '季度 · ' + longSeq : '日频 · 默认 2003 起（可拖看更早）')
       + ' · 对数轴 · 韩股自算 · 三星集团口径 · 亏损期断开（NM）';
   }
   if (m.key === 'pb') {
     // B4:全程口径与方法论行一致（MU 1994→ / 韩股 2001→）
-    return (state.range === 'long' ? '季度 · ' + longSeq : '日频 · 全程（MU 1994→ / 韩股 2001→）')
+    return (state.range === 'long' ? '季度 · ' + longSeq : '日频 · 默认 2003 起（可拖看更早）')
       + ' · 韩股自算 · 三星集团口径';
   }
   if (m.key === 'revenue') return longSeq + ' · USD/KRW 各图独立 · 三星集团口径';

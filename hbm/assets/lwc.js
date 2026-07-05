@@ -4,6 +4,25 @@
 
 let _lwcPromise = null;
 
+// 全看板默认视窗起点：数据全量保留，但初始只显示 2003→今；fixLeftEdge 允许向左拖看更早。
+const DEFAULT_VIEW_START = '2003-01-01';
+function setDefaultView(chart, series, viewStart) {
+  const ts = chart.timeScale();
+  if (!viewStart) { ts.fitContent(); return; }
+  let firstT = null, lastT = null;
+  (series || []).forEach((s) => {
+    const ds = s.dates || [];
+    if (!ds.length) return;
+    const f = ds[0], l = ds[ds.length - 1];
+    if (firstT === null || f < firstT) firstT = f;
+    if (lastT === null || l > lastT) lastT = l;
+  });
+  if (firstT && lastT && firstT < viewStart && viewStart < lastT) {
+    try { ts.setVisibleRange({ from: viewStart, to: lastT }); return; } catch (e) {}
+  }
+  ts.fitContent();   // 全部数据都 ≥ 起点（如 SK Hynix 已裁 2003）→ 直接铺满
+}
+
 /** 从 CDN 懒加载 Lightweight Charts（standalone），resolve 出 window.LightweightCharts。 */
 export function lwcReady() {
   if (_lwcPromise) return _lwcPromise;
@@ -217,7 +236,8 @@ export async function createSeriesChart(container, opts = {}) {
     });
     entries.push({ name: def.name, color: def.color, segs, visible });
   });
-  chart.timeScale().fitContent();
+  // 默认视窗自 2003 起（全量数据保留，可向左拖看更早）；opts.viewStart:null → 铺满全部
+  setDefaultView(chart, opts.series, opts.viewStart === undefined ? DEFAULT_VIEW_START : opts.viewStart);
 
   // ---- 浮框 / 图例是容器内绝对定位的覆盖层：容器无定位上下文时补 relative ----
   const hoverTip = opts.hoverTip !== false;
@@ -343,7 +363,7 @@ export async function createSeriesChart(container, opts = {}) {
         if (legendItems[name]) legendItems[name].style.display = vis ? 'inline-flex' : 'none';
       }
     },
-    fit() { chart.timeScale().fitContent(); },
+    fit() { setDefaultView(chart, opts.series, opts.viewStart === undefined ? DEFAULT_VIEW_START : opts.viewStart); },
     remove() {
       // 先退订并清理覆盖层 DOM，再销毁 chart（防订阅/节点泄漏）
       if (onCrosshair) { try { chart.unsubscribeCrosshairMove(onCrosshair); } catch (e) {} onCrosshair = null; }
