@@ -1860,6 +1860,7 @@ function drawFabBoard() {
     timed.forEach((f) => {
       const s = fabToYr(f.start_date), t = fabToYr(f.target_date), stc = FAB_STATUS_COLOR[f.status] || '#888';
       const meta = '<div class="fab-meta"><span class="fab-status-dot" style="background:' + stc + '" title="' + (FAB_STATUS_LAB[f.status] || '') + '"></span>'
+        + '<span class="fab-tag ' + f.scope + '">' + (FAB_SCOPE_LAB[f.scope] || f.scope) + '</span>'
         + '<span class="fab-tag loc">' + esc(f.location.split('（')[0].slice(0, 14)) + '</span>'
         + '<a class="fab-src" href="' + esc(f.source_url) + '" target="_blank" rel="noopener" title="' + esc(f.source) + ' · ' + esc(f.asof) + '">来源↗</a>'
         + (f.tier === 'B' ? '<span class="fab-lowconf" title="' + esc(f.note) + '">低置信</span>' : '') + '</div>';
