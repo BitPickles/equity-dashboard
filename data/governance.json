@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-05T01:09:00.087662+00:00",
-  "total": 238,
-  "active_count": 30,
+  "updated_at": "2026-07-05T13:10:33.121345+00:00",
+  "total": 237,
+  "active_count": 29,
   "passed_count": 208,
-  "tev_related": 61,
+  "tev_related": 60,
   "monitored_protocols": 19,
   "protocols_meta": {
     "Aave": {
@@ -2668,21 +2668,6 @@
       "summary_en": "Can we introduce more LST on Eignelayer ?",
       "summary_zh": "EigenLayer 社区讨论：是否在 EigenLayer 上引入更多 LST（流动性质押代币），增加再质押资产种类？",
       "analysis_zh": ""
-    },
-    {
-      "source": "dYdX Cosmos",
-      "protocol": "dYdX",
-      "title": "Fee Holiday for BTC-USD Market - July 2026",
-      "status": "active",
-      "link": "https://www.mintscan.io/dydx/proposals/389",
-      "created": "2026-07-02T07:37:43.093939662Z",
-      "end": "2026-07-05T07:37:43.093939662Z",
-      "tev_related": true,
-      "tev_keywords": [
-        "fee"
-      ],
-      "summary_en": "Fee Holiday for BTC-USD market - July 2026",
-      "summary_zh": "dYdX协议将于2026年7月为BTC-USD市场实行免手续费政策。"
     },
     {
       "source": "dYdX Cosmos",
