@@ -9,18 +9,24 @@ const DEFAULT_VIEW_START = '2003-01-01';
 function setDefaultView(chart, series, viewStart) {
   const ts = chart.timeScale();
   if (!viewStart) { ts.fitContent(); return; }
-  let firstT = null, lastT = null;
+  // 用「实际绘制的点」(非空值)算范围：setVisibleRange 的 from/to 必须是真实 bar，
+  // 否则(如 P/E 在起点当天为 NM/非交易日)会抛错、回退成显示全部。
+  let fromT = null, lastT = null, hasBefore = false;
   (series || []).forEach((s) => {
-    const ds = s.dates || [];
-    if (!ds.length) return;
-    const f = ds[0], l = ds[ds.length - 1];
-    if (firstT === null || f < firstT) firstT = f;
-    if (lastT === null || l > lastT) lastT = l;
+    const ds = s.dates || [], vs = s.values || [];
+    const n = Math.min(ds.length, vs.length);
+    for (let i = 0; i < n; i++) {
+      if (vs[i] == null) continue;           // 只认非空实点
+      const d = ds[i];
+      if (d < viewStart) { hasBefore = true; continue; }
+      if (fromT === null || d < fromT) fromT = d;   // ≥ 起点的首个实点
+      if (lastT === null || d > lastT) lastT = d;
+    }
   });
-  if (firstT && lastT && firstT < viewStart && viewStart < lastT) {
-    try { ts.setVisibleRange({ from: viewStart, to: lastT }); return; } catch (e) {}
+  if (hasBefore && fromT && lastT && fromT < lastT) {
+    try { ts.setVisibleRange({ from: fromT, to: lastT }); return; } catch (e) {}
   }
-  ts.fitContent();   // 全部数据都 ≥ 起点（如 SK Hynix 已裁 2003）→ 直接铺满
+  ts.fitContent();   // 无更早数据（如 SK Hynix 已裁 2003）→ 直接铺满
 }
 
 /** 从 CDN 懒加载 Lightweight Charts（standalone），resolve 出 window.LightweightCharts。 */
