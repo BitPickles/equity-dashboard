@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-04T13:09:14.027316+00:00",
-  "total": 241,
-  "active_count": 32,
-  "passed_count": 209,
+  "updated_at": "2026-07-05T01:09:00.087662+00:00",
+  "total": 238,
+  "active_count": 30,
+  "passed_count": 208,
   "tev_related": 61,
   "monitored_protocols": 19,
   "protocols_meta": {
@@ -420,7 +420,7 @@
       "source": "Snapshot",
       "protocol": "Uniswap",
       "title": "[Temp Check] - Update Crosschain Governance Parameters for Avalanche, MegaETH, Soneium, and X Layer",
-      "status": "active",
+      "status": "passed",
       "link": "https://snapshot.org/#/uniswapgovernance.eth/proposal/0x5d596a4b437b2e7fe598a3c12552d8c91704f5615108d152b9facababac3a975",
       "created": 1782746897,
       "end": 1783178897,
@@ -640,20 +640,6 @@
       "summary_en": "is for chain selection feedback for the ongoing proposal.",
       "summary_zh": "为 Uniswap 振兴与增长计划中的分析中心选定四条目标链的反馈投票。",
       "analysis_zh": "Uniswap 振兴计划启动四链筛选，Unichain 仅作兴趣测试不计入最终名额。\n\nUniswap DAO 推进“Analytics Hub 振兴计划”，旨在通过 Snapshot 投票选出 4 条目标链以集中资源。值得玩味的是，Unichain 虽被列入选项以测试社区热度，但即便进入前四也会被“跳过”，名额顺延给下一条链。这种“只看不算”的机制设计，暗示了 Uniswap 对自家 L2 有着独立且更宏大的激励规划，不愿在此处挤占其他生态的资源和曝光，体现了 DAO 在资源分配上的精细化管理，避免了“既得利益者”通吃局面，确保了多链扩张的公平性。"
-    },
-    {
-      "source": "Snapshot",
-      "protocol": "Uniswap",
-      "title": "[Temp Check] Analytics Hub for Uniswap’s Revitalization and Growth Program",
-      "status": "passed",
-      "link": "https://snapshot.org/#/uniswapgovernance.eth/proposal/0x675c9697cc6c8d1cab27e1cffab3fdc7740b3e978eb37d8b6dcce76d1726670f",
-      "created": 1746119608,
-      "end": 1746551608,
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "This proposal seeks to utilize Forse to help analyze the effectiveness of the four other chains the Uniswap community chooses as part of the Uniswap Revitalization and Growth Program.",
-      "summary_zh": "提案利用 Forse 分析工具，评估 Uniswap 振兴与增长计划中社区选择的四条链上的部署效果。",
-      "analysis_zh": ""
     },
     {
       "source": "Snapshot",
@@ -1522,20 +1508,6 @@
     {
       "source": "Snapshot",
       "protocol": "Morpho",
-      "title": "MIP 132 - Morpho Worldcoin Mini-App Transition Grant Proposal",
-      "status": "active",
-      "link": "https://snapshot.org/#/morpho.eth/proposal/0x00dfdb5223605b0fc058ac941062363296fd2633e6289323566865d137b714cd",
-      "created": 1782941968,
-      "end": 1783201168,
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "Allocate $50,000 worth of MORPHO, measured by a 60-day TWAP prior to the date of proposal approval, for Feather to take over the current Morpho mini app on World.",
-      "summary_zh": "协议：Morpho\n标题：MIP 132 - Morpho Worldcoin Mini-App 过渡资助提案\n摘要：批准提案前60天TWAP计算出的价值50,000美元MORPHO，用于Feather接管World上的当前Morpho小程序。",
-      "analysis_zh": ""
-    },
-    {
-      "source": "Snapshot",
-      "protocol": "Morpho",
       "title": "MIP 131 - Allocation of a Grant for the Morpho Association’s Strategic Support Program (2026-2030)",
       "status": "passed",
       "link": "https://snapshot.org/#/morpho.eth/proposal/0x83443370986177da725526ef2f3bdab380ee831d14e697b9cae21cc4bf7eb848",
@@ -1804,20 +1776,6 @@
       "summary_en": "represents the first operational step in a broader multichain vision for Morpho token bridging, one that may eventually standardize LayerZero as Morpho’s cross-chain bridge infrastructure.",
       "summary_zh": "MIP 113：选择 LayerZero OFT 标准桥接 MORPHO 代币至 Arbitrum，这是 Morpho 多链代币桥接愿景的首个运营步骤。",
       "analysis_zh": "Morpho 借力 LayerZero 跨链 Arbitrum，迈出多链治理关键一步\n\nMorpho DAO 提出 MIP 113，计划采用 LayerZero OFT 标准将治理代币 MORPHO 扩展至 Arbitrum。鉴于 Morpho TVL 高达 $6.98B，跨链不仅能捕捉 L2 流动性，更是其多链愿景的实质性落地。技术上采用 L1 锁定/释放与 L2 铸造/销毁模式，"
-    },
-    {
-      "source": "Snapshot",
-      "protocol": "Morpho",
-      "title": "MIP 112 - OP Grant Allocation for USDC Growth on Base",
-      "status": "passed",
-      "link": "https://snapshot.org/#/morpho.eth/proposal/0xc19ca9f90764dd39e7ab57a3fe7241d8ea339c2e236617dbf2229a25d0e267ee",
-      "created": 1753463747,
-      "end": 1753722947,
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "The Morpho Association proposes to allocate 200,000 OP tokens from the Optimism Council Grant Cycle 33 to incentivize USDC growth on Base, targeting an additional $5M TVL increase to satisfy the grant criteria.",
-      "summary_zh": "MIP 112：将 Optimism Council 第 33 轮拨款的 20 万 OP 代币用于激励 Base 上 USDC 增长，目标新增 500 万美元 TVL。",
-      "analysis_zh": ""
     },
     {
       "source": "Snapshot",
