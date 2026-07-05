@@ -247,7 +247,11 @@
   .fab-legend { display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center; margin-bottom:16px; font-size:12px; color:var(--muted); }
   .fab-lg { display:inline-flex; align-items:center; gap:6px; }
   .fab-sw { width:22px; height:11px; border-radius:3px; display:inline-block; }
-  .fab-sw.hatch { background-image:repeating-linear-gradient(45deg,currentColor 0 3px,transparent 3px 6px); opacity:.55; }
+  /* 进度示意 swatch：左半实心=已推进，右半斜纹=剩余（与实际条形一致，用 Micron 蓝举例） */
+  .fab-prog { width:40px; height:11px; border-radius:3px; display:inline-block; position:relative; overflow:hidden; background:rgba(46,111,230,.14); vertical-align:middle; }
+  .fab-prog::before { content:''; position:absolute; left:0; top:0; bottom:0; width:52%; background:var(--co-mu); border-radius:3px 0 0 3px; }
+  .fab-prog::after { content:''; position:absolute; left:52%; right:0; top:0; bottom:0; background-image:repeating-linear-gradient(45deg,var(--co-mu) 0 3px,transparent 3px 6px); opacity:.5; }
+  .fab-today-sw { width:0; height:13px; border-left:2px dashed var(--loss); display:inline-block; vertical-align:middle; }
   .fab-co-block { margin-bottom:22px; }
   .fab-co-block:last-child { margin-bottom:0; }
   .fab-co-head { display:flex; align-items:center; gap:9px; margin:0 0 9px; }
@@ -274,7 +278,8 @@
   .fab-track { position:relative; flex:1; min-width:0; }
   .fab-bar { position:absolute; top:50%; transform:translateY(-50%); height:16px; border-radius:5px; box-shadow:0 1px 2px rgba(20,23,29,.08); }
   .fab-fill { position:absolute; left:0; top:0; bottom:0; border-radius:5px 0 0 5px; }
-  .fab-rem { position:absolute; right:0; top:0; bottom:0; border-radius:0 5px 5px 0; background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.55) 0 3px,transparent 3px 6px); }
+  /* 剩余(今→投产)段：公司色斜纹，left 由内联设为已推进比例 fe% */
+  .fab-rem { position:absolute; right:0; top:0; bottom:0; border-radius:0 5px 5px 0; background-image:repeating-linear-gradient(45deg, currentColor 0 3px, transparent 3px 6px); opacity:.5; }
   .fab-bar.full .fab-rem { display:none; }
   .fab-bar.full .fab-fill { border-radius:5px; }
   .fab-cap { position:absolute; font-size:10px; font-family:'IBM Plex Mono',monospace; white-space:nowrap; color:var(--faint); top:50%; transform:translateY(-50%); }
@@ -1825,7 +1830,8 @@ function renderFabView() {
     + '<span class="fab-lg"><span class="fab-tag storage">存储</span></span>'
     + '<span class="fab-lg"><span class="fab-tag packaging">封装</span></span>'
     + '<span class="fab-lg"><span class="fab-tag foundry">代工</span></span>'
-    + '<span class="fab-lg" style="color:var(--co-mu)"><span class="fab-sw hatch"></span>剩余(至投产)</span>'
+    + '<span class="fab-lg"><span class="fab-prog"></span>实心=已推进(开工→今) · 斜纹=剩余(今→投产)</span>'
+    + '<span class="fab-lg"><span class="fab-today-sw"></span>今天</span>'
     + '</div>'
     + '<div id="fabBoard"></div>'
     + '<p class="fab-foot">' + esc(fabsData.note || '') + ' · 数据整理 <span class="mono">' + esc(fabsData.generated_at || '') + '</span></p>';
@@ -1864,7 +1870,7 @@ function drawFabBoard() {
       let bar = '';
       if (s != null && t != null) {
         const x0 = pct(s), w = Math.max(pct(t) - x0, 1.2), done = t <= FAB_TODAY, fe = Math.min(Math.max((FAB_TODAY - s) / (t - s), 0), 1) * 100;
-        bar = '<div class="fab-bar ' + (done ? 'full' : '') + '" style="left:' + x0 + '%;width:' + w + '%;background:' + col + '22" title="' + esc(f.start_label) + ' → ' + esc(f.target_label) + '"><span class="fab-fill" style="width:' + (done ? 100 : fe) + '%;background:' + col + '"></span><span class="fab-rem" style="color:' + col + ';background:' + col + '"></span><span class="fab-cap s">' + esc(f.start_date) + '</span><span class="fab-cap e"><b>' + esc(f.target_date) + '</b> ' + (FAB_STATUS_LAB[f.status] || '') + '</span></div>';
+        bar = '<div class="fab-bar ' + (done ? 'full' : '') + '" style="left:' + x0 + '%;width:' + w + '%;background:' + col + '22" title="' + esc(f.start_label) + ' → ' + esc(f.target_label) + '"><span class="fab-fill" style="width:' + (done ? 100 : fe) + '%;background:' + col + '"></span><span class="fab-rem" style="left:' + (done ? 100 : fe) + '%;color:' + col + '"></span><span class="fab-cap s">' + esc(f.start_date) + '</span><span class="fab-cap e"><b>' + esc(f.target_date) + '</b> ' + (FAB_STATUS_LAB[f.status] || '') + '</span></div>';
       } else if (s != null) {
         const x0 = pct(s), w = Math.max(pct(Math.max(FAB_TODAY, s + 0.4)) - x0, 1.2);
         bar = '<div class="fab-bar open" style="left:' + x0 + '%;width:' + w + '%;background:' + col + ';color:' + col + '" title="' + esc(f.start_label) + ' · 投产待定"><span class="fab-cap s">' + esc(f.start_date) + '</span><span class="fab-cap e" style="left:calc(100% + 16px)">投产待定</span></div>';
