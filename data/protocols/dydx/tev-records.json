@@ -1,6 +1,6 @@
 {
   "protocol": "dydx",
-  "updated_at": "2026-06-14T01:14:35.915Z",
+  "updated_at": "2026-07-05T01:13:23.592Z",
   "data_source": "DefiLlama API (dailyHoldersRevenue)",
   "data_source_url": "https://api.llama.fi/summary/fees/dydx?dataType=dailyHoldersRevenue",
   "records": [
@@ -536,9 +536,9 @@
       "date": "2026-06-01",
       "type": "aggregate",
       "mechanism": "DYDX Staker Fee Distribution",
-      "amount_usd": 52585,
+      "amount_usd": 102724,
       "period": "2026-06",
-      "days_with_data": 12,
+      "days_with_data": 25,
       "source": {
         "type": "api",
         "provider": "DefiLlama",
@@ -546,14 +546,31 @@
         "data_type": "dailyHoldersRevenue",
         "methodology": "Fees going to governance token holders"
       },
-      "notes": "Monthly aggregate from 12 days of data"
+      "notes": "Monthly aggregate from 25 days of data"
+    },
+    {
+      "id": "dydx-staking-reward-2026-07",
+      "date": "2026-07-01",
+      "type": "aggregate",
+      "mechanism": "DYDX Staker Fee Distribution",
+      "amount_usd": 12957,
+      "period": "2026-07",
+      "days_with_data": 3,
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama",
+        "endpoint": "https://api.llama.fi/summary/fees/dydx?dataType=dailyHoldersRevenue",
+        "data_type": "dailyHoldersRevenue",
+        "methodology": "Fees going to governance token holders"
+      },
+      "notes": "Monthly aggregate from 3 days of data"
     }
   ],
   "summary": {
-    "total_tev_usd": 63343667,
-    "total_30d_usd": 131891,
+    "total_tev_usd": 63406763,
+    "total_30d_usd": 99654,
     "by_mechanism": {
-      "staking_reward": 63343667
+      "staking_reward": 63406763
     },
     "by_period": {
       "2023-Q4": 1394107,
@@ -566,7 +583,8 @@
       "2025-Q3": 4870497,
       "2025-Q4": 3306619,
       "2026-Q1": 993089,
-      "2026-Q2": 564933
+      "2026-Q2": 615072,
+      "2026-Q3": 12957
     }
   }
 }

@@ -78,10 +78,10 @@
   "last_updated": "2026-04-24",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 3.52,
+    "tev_yield_percent": 3.39,
     "annual_tev_usd": 30000000,
     "market_cap_usd": 1799059173.84,
-    "calculation_date": "2026-06-14",
+    "calculation_date": "2026-07-05",
     "sources": [
       {
         "name": "Annual Buyback Program",
@@ -101,9 +101,9 @@
       "method": "TEV = 固定 Buyback $30M/年（2026-03 治理）+ Safety Module (Umbrella) DefiLlama dailyHoldersRevenue 按窗口年化",
       "fixed_buyback_usd_annual": 30000000,
       "sm_7d_usd": 0,
-      "sm_30d_usd": 135368,
-      "sm_90d_usd": 155556,
-      "sm_365d_usd": 33303009,
+      "sm_30d_usd": 576548,
+      "sm_90d_usd": 732104,
+      "sm_365d_usd": 30989272,
       "caveats": [
         "Buyback 是 treasury-accumulated，不是真 burn（买入 AAVE → Ecosystem Reserve，治理可 redistribute）",
         "Safety Module 分发是脉冲式（每 1-2 周一次大包），短周期窗口可能为 0",
@@ -119,31 +119,31 @@
     "zh": "治理提案 AIP-1 明确年回购预算，链上可追踪",
     "en": "AIP-1 governance proposal with fixed annual buyback budget, on-chain trackable"
   },
-  "tevRatio": 0.5072,
-  "earning_yield_percent": 6.94,
+  "tevRatio": 0.4985,
+  "earning_yield_percent": 6.8,
   "market_cap_usd": 1799059173.84,
-  "tev_yield_percent": 3.52,
+  "tev_yield_percent": 3.39,
   "metrics": {
     "current_market_cap_usd": 1799059173.84,
-    "trailing_365d_revenue_usd": 124815085,
-    "trailing_30d_revenue_usd": 5377391,
+    "trailing_365d_revenue_usd": 122329408,
+    "trailing_30d_revenue_usd": 4766565,
     "trailing_365d_tev_usd": 30000000,
     "trailing_30d_tev_usd": 2500000,
     "trailing_365d_holders_revenue_usd": 42212267,
     "trailing_30d_holders_revenue_usd": 6155965,
-    "trailing_7d_revenue_usd": 900069,
-    "trailing_90d_revenue_usd": 21075224,
+    "trailing_7d_revenue_usd": 882315,
+    "trailing_90d_revenue_usd": 19680920,
     "tev_yield_7d_ann": 1.67,
-    "tev_yield_30d_ann": 1.76,
-    "tev_yield_90d_ann": 1.7,
-    "earning_yield_7d_ann": 2.61,
-    "earning_yield_30d_ann": 3.64,
-    "earning_yield_90d_ann": 4.75,
+    "tev_yield_30d_ann": 2.06,
+    "tev_yield_90d_ann": 1.83,
+    "earning_yield_7d_ann": 2.56,
+    "earning_yield_30d_ann": 3.22,
+    "earning_yield_90d_ann": 4.44,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 1.67,
-    "dividend_yield_30d_ann": 0.09,
+    "dividend_yield_30d_ann": 0.39,
     "buyback_yield_30d_ann": 1.67,
-    "dividend_yield_90d_ann": 0.04,
+    "dividend_yield_90d_ann": 0.17,
     "buyback_yield_90d_ann": 1.66
   },
   "calc_pipeline": [
@@ -205,7 +205,7 @@
       "unit": "%"
     }
   ],
-  "dividend_yield_percent": 1.85,
+  "dividend_yield_percent": 1.72,
   "buyback_yield_percent": 1.67,
   "style": "cash_cow"
 }

@@ -1,6 +1,6 @@
 {
   "protocol": "hyperliquid",
-  "updated_at": "2026-06-14T01:10:03.888685Z",
+  "updated_at": "2026-07-05T01:10:07.374633Z",
   "data_source": "DefiLlama dailyRevenue (= holdersRevenue for Hyperliquid)",
   "data_source_url": "https://api.llama.fi/summary/fees/hyperliquid?dataType=dailyRevenue",
   "records": [
@@ -2177,7 +2177,7 @@
     {
       "date": "2025-08-01",
       "type": "buyback_burn",
-      "amount_usd": 5565168,
+      "amount_usd": 5051611,
       "period": "2025-08-01",
       "source": {
         "type": "api",
@@ -2187,7 +2187,7 @@
     {
       "date": "2025-08-02",
       "type": "buyback_burn",
-      "amount_usd": 2475722,
+      "amount_usd": 2309376,
       "period": "2025-08-02",
       "source": {
         "type": "api",
@@ -2197,7 +2197,7 @@
     {
       "date": "2025-08-03",
       "type": "buyback_burn",
-      "amount_usd": 1770981,
+      "amount_usd": 1658714,
       "period": "2025-08-03",
       "source": {
         "type": "api",
@@ -2207,7 +2207,7 @@
     {
       "date": "2025-08-04",
       "type": "buyback_burn",
-      "amount_usd": 2825805,
+      "amount_usd": 2528101,
       "period": "2025-08-04",
       "source": {
         "type": "api",
@@ -2217,7 +2217,7 @@
     {
       "date": "2025-08-05",
       "type": "buyback_burn",
-      "amount_usd": 2981289,
+      "amount_usd": 2792245,
       "period": "2025-08-05",
       "source": {
         "type": "api",
@@ -2227,7 +2227,7 @@
     {
       "date": "2025-08-06",
       "type": "buyback_burn",
-      "amount_usd": 2225496,
+      "amount_usd": 2080983,
       "period": "2025-08-06",
       "source": {
         "type": "api",
@@ -2237,7 +2237,7 @@
     {
       "date": "2025-08-07",
       "type": "buyback_burn",
-      "amount_usd": 3135016,
+      "amount_usd": 2941674,
       "period": "2025-08-07",
       "source": {
         "type": "api",
@@ -2247,7 +2247,7 @@
     {
       "date": "2025-08-08",
       "type": "buyback_burn",
-      "amount_usd": 3384426,
+      "amount_usd": 3031647,
       "period": "2025-08-08",
       "source": {
         "type": "api",
@@ -2257,7 +2257,7 @@
     {
       "date": "2025-08-09",
       "type": "buyback_burn",
-      "amount_usd": 3113749,
+      "amount_usd": 2923686,
       "period": "2025-08-09",
       "source": {
         "type": "api",
@@ -2267,7 +2267,7 @@
     {
       "date": "2025-08-10",
       "type": "buyback_burn",
-      "amount_usd": 2793999,
+      "amount_usd": 2623386,
       "period": "2025-08-10",
       "source": {
         "type": "api",
@@ -2277,7 +2277,7 @@
     {
       "date": "2025-08-11",
       "type": "buyback_burn",
-      "amount_usd": 5185766,
+      "amount_usd": 4633983,
       "period": "2025-08-11",
       "source": {
         "type": "api",
@@ -2287,7 +2287,7 @@
     {
       "date": "2025-08-12",
       "type": "buyback_burn",
-      "amount_usd": 4854351,
+      "amount_usd": 4554420,
       "period": "2025-08-12",
       "source": {
         "type": "api",
@@ -2297,7 +2297,7 @@
     {
       "date": "2025-08-13",
       "type": "buyback_burn",
-      "amount_usd": 5914876,
+      "amount_usd": 5533565,
       "period": "2025-08-13",
       "source": {
         "type": "api",
@@ -2307,7 +2307,7 @@
     {
       "date": "2025-08-14",
       "type": "buyback_burn",
-      "amount_usd": 8513405,
+      "amount_usd": 7573652,
       "period": "2025-08-14",
       "source": {
         "type": "api",
@@ -2317,7 +2317,7 @@
     {
       "date": "2025-08-15",
       "type": "buyback_burn",
-      "amount_usd": 4444759,
+      "amount_usd": 3894104,
       "period": "2025-08-15",
       "source": {
         "type": "api",
@@ -2327,7 +2327,7 @@
     {
       "date": "2025-08-16",
       "type": "buyback_burn",
-      "amount_usd": 1646689,
+      "amount_usd": 1435560,
       "period": "2025-08-16",
       "source": {
         "type": "api",
@@ -2337,7 +2337,7 @@
     {
       "date": "2025-08-17",
       "type": "buyback_burn",
-      "amount_usd": 2072438,
+      "amount_usd": 1810300,
       "period": "2025-08-17",
       "source": {
         "type": "api",
@@ -2347,7 +2347,7 @@
     {
       "date": "2025-08-18",
       "type": "buyback_burn",
-      "amount_usd": 4600842,
+      "amount_usd": 4301414,
       "period": "2025-08-18",
       "source": {
         "type": "api",
@@ -2357,7 +2357,7 @@
     {
       "date": "2025-08-19",
       "type": "buyback_burn",
-      "amount_usd": 4913118,
+      "amount_usd": 4358459,
       "period": "2025-08-19",
       "source": {
         "type": "api",
@@ -2367,7 +2367,7 @@
     {
       "date": "2025-08-20",
       "type": "buyback_burn",
-      "amount_usd": 4482737,
+      "amount_usd": 3988830,
       "period": "2025-08-20",
       "source": {
         "type": "api",
@@ -2377,7 +2377,7 @@
     {
       "date": "2025-08-21",
       "type": "buyback_burn",
-      "amount_usd": 3576052,
+      "amount_usd": 3176177,
       "period": "2025-08-21",
       "source": {
         "type": "api",
@@ -2387,7 +2387,7 @@
     {
       "date": "2025-08-22",
       "type": "buyback_burn",
-      "amount_usd": 6916345,
+      "amount_usd": 6183377,
       "period": "2025-08-22",
       "source": {
         "type": "api",
@@ -2397,7 +2397,7 @@
     {
       "date": "2025-08-23",
       "type": "buyback_burn",
-      "amount_usd": 2739257,
+      "amount_usd": 2567145,
       "period": "2025-08-23",
       "source": {
         "type": "api",
@@ -2407,7 +2407,7 @@
     {
       "date": "2025-08-24",
       "type": "buyback_burn",
-      "amount_usd": 6033585,
+      "amount_usd": 5625476,
       "period": "2025-08-24",
       "source": {
         "type": "api",
@@ -2417,7 +2417,7 @@
     {
       "date": "2025-08-25",
       "type": "buyback_burn",
-      "amount_usd": 6411836,
+      "amount_usd": 5969966,
       "period": "2025-08-25",
       "source": {
         "type": "api",
@@ -2427,7 +2427,7 @@
     {
       "date": "2025-08-26",
       "type": "buyback_burn",
-      "amount_usd": 5216518,
+      "amount_usd": 4681548,
       "period": "2025-08-26",
       "source": {
         "type": "api",
@@ -2437,7 +2437,7 @@
     {
       "date": "2025-08-27",
       "type": "buyback_burn",
-      "amount_usd": 4145319,
+      "amount_usd": 3891964,
       "period": "2025-08-27",
       "source": {
         "type": "api",
@@ -2447,7 +2447,7 @@
     {
       "date": "2025-08-28",
       "type": "buyback_burn",
-      "amount_usd": 3395840,
+      "amount_usd": 3033787,
       "period": "2025-08-28",
       "source": {
         "type": "api",
@@ -2457,7 +2457,7 @@
     {
       "date": "2025-08-29",
       "type": "buyback_burn",
-      "amount_usd": 5170855,
+      "amount_usd": 4826665,
       "period": "2025-08-29",
       "source": {
         "type": "api",
@@ -2467,7 +2467,7 @@
     {
       "date": "2025-08-30",
       "type": "buyback_burn",
-      "amount_usd": 2216684,
+      "amount_usd": 1992536,
       "period": "2025-08-30",
       "source": {
         "type": "api",
@@ -2477,7 +2477,7 @@
     {
       "date": "2025-08-31",
       "type": "buyback_burn",
-      "amount_usd": 2111819,
+      "amount_usd": 1880766,
       "period": "2025-08-31",
       "source": {
         "type": "api",
@@ -2487,7 +2487,7 @@
     {
       "date": "2025-09-01",
       "type": "buyback_burn",
-      "amount_usd": 3509635,
+      "amount_usd": 3276566,
       "period": "2025-09-01",
       "source": {
         "type": "api",
@@ -2497,7 +2497,7 @@
     {
       "date": "2025-09-02",
       "type": "buyback_burn",
-      "amount_usd": 3393401,
+      "amount_usd": 3175629,
       "period": "2025-09-02",
       "source": {
         "type": "api",
@@ -2507,7 +2507,7 @@
     {
       "date": "2025-09-03",
       "type": "buyback_burn",
-      "amount_usd": 2485497,
+      "amount_usd": 2331292,
       "period": "2025-09-03",
       "source": {
         "type": "api",
@@ -2517,7 +2517,7 @@
     {
       "date": "2025-09-04",
       "type": "buyback_burn",
-      "amount_usd": 2860057,
+      "amount_usd": 2680729,
       "period": "2025-09-04",
       "source": {
         "type": "api",
@@ -2527,7 +2527,7 @@
     {
       "date": "2025-09-05",
       "type": "buyback_burn",
-      "amount_usd": 4136138,
+      "amount_usd": 3640496,
       "period": "2025-09-05",
       "source": {
         "type": "api",
@@ -2537,7 +2537,7 @@
     {
       "date": "2025-09-06",
       "type": "buyback_burn",
-      "amount_usd": 1086792,
+      "amount_usd": 1026804,
       "period": "2025-09-06",
       "source": {
         "type": "api",
@@ -2547,7 +2547,7 @@
     {
       "date": "2025-09-07",
       "type": "buyback_burn",
-      "amount_usd": 1331387,
+      "amount_usd": 1116861,
       "period": "2025-09-07",
       "source": {
         "type": "api",
@@ -2557,7 +2557,7 @@
     {
       "date": "2025-09-08",
       "type": "buyback_burn",
-      "amount_usd": 3239677,
+      "amount_usd": 2808372,
       "period": "2025-09-08",
       "source": {
         "type": "api",
@@ -2567,7 +2567,7 @@
     {
       "date": "2025-09-09",
       "type": "buyback_burn",
-      "amount_usd": 3582659,
+      "amount_usd": 3030772,
       "period": "2025-09-09",
       "source": {
         "type": "api",
@@ -2577,7 +2577,7 @@
     {
       "date": "2025-09-10",
       "type": "buyback_burn",
-      "amount_usd": 3445841,
+      "amount_usd": 3260466,
       "period": "2025-09-10",
       "source": {
         "type": "api",
@@ -2587,7 +2587,7 @@
     {
       "date": "2025-09-11",
       "type": "buyback_burn",
-      "amount_usd": 4143545,
+      "amount_usd": 3316189,
       "period": "2025-09-11",
       "source": {
         "type": "api",
@@ -2597,7 +2597,7 @@
     {
       "date": "2025-09-12",
       "type": "buyback_burn",
-      "amount_usd": 4627223,
+      "amount_usd": 3724399,
       "period": "2025-09-12",
       "source": {
         "type": "api",
@@ -2607,7 +2607,7 @@
     {
       "date": "2025-09-13",
       "type": "buyback_burn",
-      "amount_usd": 3223167,
+      "amount_usd": 2473584,
       "period": "2025-09-13",
       "source": {
         "type": "api",
@@ -2617,7 +2617,7 @@
     {
       "date": "2025-09-14",
       "type": "buyback_burn",
-      "amount_usd": 2713682,
+      "amount_usd": 2566839,
       "period": "2025-09-14",
       "source": {
         "type": "api",
@@ -2627,7 +2627,7 @@
     {
       "date": "2025-09-15",
       "type": "buyback_burn",
-      "amount_usd": 4032465,
+      "amount_usd": 3307993,
       "period": "2025-09-15",
       "source": {
         "type": "api",
@@ -2637,7 +2637,7 @@
     {
       "date": "2025-09-16",
       "type": "buyback_burn",
-      "amount_usd": 3276886,
+      "amount_usd": 2657341,
       "period": "2025-09-16",
       "source": {
         "type": "api",
@@ -2647,7 +2647,7 @@
     {
       "date": "2025-09-17",
       "type": "buyback_burn",
-      "amount_usd": 4716497,
+      "amount_usd": 3820376,
       "period": "2025-09-17",
       "source": {
         "type": "api",
@@ -2657,7 +2657,7 @@
     {
       "date": "2025-09-18",
       "type": "buyback_burn",
-      "amount_usd": 3284810,
+      "amount_usd": 3100106,
       "period": "2025-09-18",
       "source": {
         "type": "api",
@@ -2667,7 +2667,7 @@
     {
       "date": "2025-09-19",
       "type": "buyback_burn",
-      "amount_usd": 3006069,
+      "amount_usd": 2834767,
       "period": "2025-09-19",
       "source": {
         "type": "api",
@@ -2677,7 +2677,7 @@
     {
       "date": "2025-09-20",
       "type": "buyback_burn",
-      "amount_usd": 1863615,
+      "amount_usd": 1482654,
       "period": "2025-09-20",
       "source": {
         "type": "api",
@@ -2687,7 +2687,7 @@
     {
       "date": "2025-09-21",
       "type": "buyback_burn",
-      "amount_usd": 1893011,
+      "amount_usd": 1800075,
       "period": "2025-09-21",
       "source": {
         "type": "api",
@@ -2697,7 +2697,7 @@
     {
       "date": "2025-09-22",
       "type": "buyback_burn",
-      "amount_usd": 5394320,
+      "amount_usd": 5088267,
       "period": "2025-09-22",
       "source": {
         "type": "api",
@@ -2707,7 +2707,7 @@
     {
       "date": "2025-09-23",
       "type": "buyback_burn",
-      "amount_usd": 2995070,
+      "amount_usd": 2966209,
       "period": "2025-09-23",
       "source": {
         "type": "api",
@@ -2717,7 +2717,7 @@
     {
       "date": "2025-09-24",
       "type": "buyback_burn",
-      "amount_usd": 2624261,
+      "amount_usd": 2759260,
       "period": "2025-09-24",
       "source": {
         "type": "api",
@@ -2727,7 +2727,7 @@
     {
       "date": "2025-09-25",
       "type": "buyback_burn",
-      "amount_usd": 5099569,
+      "amount_usd": 5311271,
       "period": "2025-09-25",
       "source": {
         "type": "api",
@@ -2737,7 +2737,7 @@
     {
       "date": "2025-09-26",
       "type": "buyback_burn",
-      "amount_usd": 2965533,
+      "amount_usd": 3118614,
       "period": "2025-09-26",
       "source": {
         "type": "api",
@@ -2747,7 +2747,7 @@
     {
       "date": "2025-09-27",
       "type": "buyback_burn",
-      "amount_usd": 1409390,
+      "amount_usd": 1458903,
       "period": "2025-09-27",
       "source": {
         "type": "api",
@@ -2757,7 +2757,7 @@
     {
       "date": "2025-09-28",
       "type": "buyback_burn",
-      "amount_usd": 1794500,
+      "amount_usd": 1880829,
       "period": "2025-09-28",
       "source": {
         "type": "api",
@@ -2767,7 +2767,7 @@
     {
       "date": "2025-09-29",
       "type": "buyback_burn",
-      "amount_usd": 2406723,
+      "amount_usd": 2537952,
       "period": "2025-09-29",
       "source": {
         "type": "api",
@@ -2777,7 +2777,7 @@
     {
       "date": "2025-09-30",
       "type": "buyback_burn",
-      "amount_usd": 2522986,
+      "amount_usd": 2643016,
       "period": "2025-09-30",
       "source": {
         "type": "api",
@@ -2787,7 +2787,7 @@
     {
       "date": "2025-10-01",
       "type": "buyback_burn",
-      "amount_usd": 2893165,
+      "amount_usd": 3044612,
       "period": "2025-10-01",
       "source": {
         "type": "api",
@@ -2797,7 +2797,7 @@
     {
       "date": "2025-10-02",
       "type": "buyback_burn",
-      "amount_usd": 3194653,
+      "amount_usd": 3339384,
       "period": "2025-10-02",
       "source": {
         "type": "api",
@@ -2807,7 +2807,7 @@
     {
       "date": "2025-10-03",
       "type": "buyback_burn",
-      "amount_usd": 3052927,
+      "amount_usd": 3245564,
       "period": "2025-10-03",
       "source": {
         "type": "api",
@@ -2817,7 +2817,7 @@
     {
       "date": "2025-10-04",
       "type": "buyback_burn",
-      "amount_usd": 1419963,
+      "amount_usd": 1477279,
       "period": "2025-10-04",
       "source": {
         "type": "api",
@@ -2827,7 +2827,7 @@
     {
       "date": "2025-10-05",
       "type": "buyback_burn",
-      "amount_usd": 2738253,
+      "amount_usd": 2878524,
       "period": "2025-10-05",
       "source": {
         "type": "api",
@@ -2837,7 +2837,7 @@
     {
       "date": "2025-10-06",
       "type": "buyback_burn",
-      "amount_usd": 3026664,
+      "amount_usd": 3267246,
       "period": "2025-10-06",
       "source": {
         "type": "api",
@@ -2847,7 +2847,7 @@
     {
       "date": "2025-10-07",
       "type": "buyback_burn",
-      "amount_usd": 4058462,
+      "amount_usd": 4579084,
       "period": "2025-10-07",
       "source": {
         "type": "api",
@@ -2857,7 +2857,7 @@
     {
       "date": "2025-10-08",
       "type": "buyback_burn",
-      "amount_usd": 2683725,
+      "amount_usd": 2846057,
       "period": "2025-10-08",
       "source": {
         "type": "api",
@@ -2867,7 +2867,7 @@
     {
       "date": "2025-10-09",
       "type": "buyback_burn",
-      "amount_usd": 3125531,
+      "amount_usd": 3709198,
       "period": "2025-10-09",
       "source": {
         "type": "api",
@@ -2877,7 +2877,7 @@
     {
       "date": "2025-10-10",
       "type": "buyback_burn",
-      "amount_usd": 9332745,
+      "amount_usd": 8813108,
       "period": "2025-10-10",
       "source": {
         "type": "api",
@@ -2887,7 +2887,7 @@
     {
       "date": "2025-10-11",
       "type": "buyback_burn",
-      "amount_usd": 3079566,
+      "amount_usd": 3140796,
       "period": "2025-10-11",
       "source": {
         "type": "api",
@@ -2897,7 +2897,7 @@
     {
       "date": "2025-10-12",
       "type": "buyback_burn",
-      "amount_usd": 3296298,
+      "amount_usd": 3521581,
       "period": "2025-10-12",
       "source": {
         "type": "api",
@@ -2907,7 +2907,7 @@
     {
       "date": "2025-10-13",
       "type": "buyback_burn",
-      "amount_usd": 2591120,
+      "amount_usd": 2910967,
       "period": "2025-10-13",
       "source": {
         "type": "api",
@@ -2917,7 +2917,7 @@
     {
       "date": "2025-10-14",
       "type": "buyback_burn",
-      "amount_usd": 4261064,
+      "amount_usd": 4694313,
       "period": "2025-10-14",
       "source": {
         "type": "api",
@@ -2927,7 +2927,7 @@
     {
       "date": "2025-10-15",
       "type": "buyback_burn",
-      "amount_usd": 2537855,
+      "amount_usd": 3171265,
       "period": "2025-10-15",
       "source": {
         "type": "api",
@@ -2937,7 +2937,7 @@
     {
       "date": "2025-10-16",
       "type": "buyback_burn",
-      "amount_usd": 3185996,
+      "amount_usd": 3392051,
       "period": "2025-10-16",
       "source": {
         "type": "api",
@@ -2947,7 +2947,7 @@
     {
       "date": "2025-10-17",
       "type": "buyback_burn",
-      "amount_usd": 3309162,
+      "amount_usd": 3585027,
       "period": "2025-10-17",
       "source": {
         "type": "api",
@@ -2957,7 +2957,7 @@
     {
       "date": "2025-10-18",
       "type": "buyback_burn",
-      "amount_usd": 1134176,
+      "amount_usd": 1067075,
       "period": "2025-10-18",
       "source": {
         "type": "api",
@@ -2967,7 +2967,7 @@
     {
       "date": "2025-10-19",
       "type": "buyback_burn",
-      "amount_usd": 1714047,
+      "amount_usd": 1593365,
       "period": "2025-10-19",
       "source": {
         "type": "api",
@@ -2977,7 +2977,7 @@
     {
       "date": "2025-10-20",
       "type": "buyback_burn",
-      "amount_usd": 2673121,
+      "amount_usd": 2534018,
       "period": "2025-10-20",
       "source": {
         "type": "api",
@@ -2987,7 +2987,7 @@
     {
       "date": "2025-10-21",
       "type": "buyback_burn",
-      "amount_usd": 4585454,
+      "amount_usd": 4283968,
       "period": "2025-10-21",
       "source": {
         "type": "api",
@@ -2997,7 +2997,7 @@
     {
       "date": "2025-10-22",
       "type": "buyback_burn",
-      "amount_usd": 3709218,
+      "amount_usd": 3474673,
       "period": "2025-10-22",
       "source": {
         "type": "api",
@@ -3007,7 +3007,7 @@
     {
       "date": "2025-10-23",
       "type": "buyback_burn",
-      "amount_usd": 2802889,
+      "amount_usd": 2650415,
       "period": "2025-10-23",
       "source": {
         "type": "api",
@@ -3017,7 +3017,7 @@
     {
       "date": "2025-10-24",
       "type": "buyback_burn",
-      "amount_usd": 2180950,
+      "amount_usd": 2011212,
       "period": "2025-10-24",
       "source": {
         "type": "api",
@@ -3027,7 +3027,7 @@
     {
       "date": "2025-10-25",
       "type": "buyback_burn",
-      "amount_usd": 1118362,
+      "amount_usd": 1034917,
       "period": "2025-10-25",
       "source": {
         "type": "api",
@@ -3037,7 +3037,7 @@
     {
       "date": "2025-10-26",
       "type": "buyback_burn",
-      "amount_usd": 2134467,
+      "amount_usd": 1999168,
       "period": "2025-10-26",
       "source": {
         "type": "api",
@@ -3047,7 +3047,7 @@
     {
       "date": "2025-10-27",
       "type": "buyback_burn",
-      "amount_usd": 2840313,
+      "amount_usd": 2646613,
       "period": "2025-10-27",
       "source": {
         "type": "api",
@@ -3057,7 +3057,7 @@
     {
       "date": "2025-10-28",
       "type": "buyback_burn",
-      "amount_usd": 3209152,
+      "amount_usd": 2969111,
       "period": "2025-10-28",
       "source": {
         "type": "api",
@@ -3067,7 +3067,7 @@
     {
       "date": "2025-10-29",
       "type": "buyback_burn",
-      "amount_usd": 3502782,
+      "amount_usd": 3272982,
       "period": "2025-10-29",
       "source": {
         "type": "api",
@@ -3077,7 +3077,7 @@
     {
       "date": "2025-10-30",
       "type": "buyback_burn",
-      "amount_usd": 4065575,
+      "amount_usd": 3807095,
       "period": "2025-10-30",
       "source": {
         "type": "api",
@@ -3087,7 +3087,7 @@
     {
       "date": "2025-10-31",
       "type": "buyback_burn",
-      "amount_usd": 2394663,
+      "amount_usd": 2235116,
       "period": "2025-10-31",
       "source": {
         "type": "api",
@@ -3097,7 +3097,7 @@
     {
       "date": "2025-11-01",
       "type": "buyback_burn",
-      "amount_usd": 1011278,
+      "amount_usd": 959029,
       "period": "2025-11-01",
       "source": {
         "type": "api",
@@ -3107,7 +3107,7 @@
     {
       "date": "2025-11-02",
       "type": "buyback_burn",
-      "amount_usd": 1399872,
+      "amount_usd": 1324606,
       "period": "2025-11-02",
       "source": {
         "type": "api",
@@ -3117,7 +3117,7 @@
     {
       "date": "2025-11-03",
       "type": "buyback_burn",
-      "amount_usd": 3916324,
+      "amount_usd": 3664825,
       "period": "2025-11-03",
       "source": {
         "type": "api",
@@ -3127,7 +3127,7 @@
     {
       "date": "2025-11-04",
       "type": "buyback_burn",
-      "amount_usd": 5987176,
+      "amount_usd": 5604258,
       "period": "2025-11-04",
       "source": {
         "type": "api",
@@ -3137,7 +3137,7 @@
     {
       "date": "2025-11-05",
       "type": "buyback_burn",
-      "amount_usd": 2999504,
+      "amount_usd": 2826420,
       "period": "2025-11-05",
       "source": {
         "type": "api",
@@ -3147,7 +3147,7 @@
     {
       "date": "2025-11-06",
       "type": "buyback_burn",
-      "amount_usd": 3227333,
+      "amount_usd": 3028805,
       "period": "2025-11-06",
       "source": {
         "type": "api",
@@ -3157,7 +3157,7 @@
     {
       "date": "2025-11-07",
       "type": "buyback_burn",
-      "amount_usd": 3689970,
+      "amount_usd": 3473167,
       "period": "2025-11-07",
       "source": {
         "type": "api",
@@ -3167,7 +3167,7 @@
     {
       "date": "2025-11-08",
       "type": "buyback_burn",
-      "amount_usd": 1812505,
+      "amount_usd": 1712108,
       "period": "2025-11-08",
       "source": {
         "type": "api",
@@ -3177,7 +3177,7 @@
     {
       "date": "2025-11-09",
       "type": "buyback_burn",
-      "amount_usd": 1972693,
+      "amount_usd": 1857632,
       "period": "2025-11-09",
       "source": {
         "type": "api",
@@ -3187,7 +3187,7 @@
     {
       "date": "2025-11-10",
       "type": "buyback_burn",
-      "amount_usd": 2838013,
+      "amount_usd": 2673152,
       "period": "2025-11-10",
       "source": {
         "type": "api",
@@ -3197,7 +3197,7 @@
     {
       "date": "2025-11-11",
       "type": "buyback_burn",
-      "amount_usd": 2998438,
+      "amount_usd": 2825631,
       "period": "2025-11-11",
       "source": {
         "type": "api",
@@ -3207,7 +3207,7 @@
     {
       "date": "2025-11-12",
       "type": "buyback_burn",
-      "amount_usd": 2589355,
+      "amount_usd": 2439108,
       "period": "2025-11-12",
       "source": {
         "type": "api",
@@ -3217,7 +3217,7 @@
     {
       "date": "2025-11-13",
       "type": "buyback_burn",
-      "amount_usd": 4226574,
+      "amount_usd": 3964066,
       "period": "2025-11-13",
       "source": {
         "type": "api",
@@ -3227,7 +3227,7 @@
     {
       "date": "2025-11-14",
       "type": "buyback_burn",
-      "amount_usd": 4403366,
+      "amount_usd": 4127415,
       "period": "2025-11-14",
       "source": {
         "type": "api",
@@ -3237,7 +3237,7 @@
     {
       "date": "2025-11-15",
       "type": "buyback_burn",
-      "amount_usd": 1541094,
+      "amount_usd": 1452131,
       "period": "2025-11-15",
       "source": {
         "type": "api",
@@ -3247,7 +3247,7 @@
     {
       "date": "2025-11-16",
       "type": "buyback_burn",
-      "amount_usd": 2351335,
+      "amount_usd": 2212100,
       "period": "2025-11-16",
       "source": {
         "type": "api",
@@ -3257,7 +3257,7 @@
     {
       "date": "2025-11-17",
       "type": "buyback_burn",
-      "amount_usd": 3226496,
+      "amount_usd": 3031005,
       "period": "2025-11-17",
       "source": {
         "type": "api",
@@ -3267,7 +3267,7 @@
     {
       "date": "2025-11-18",
       "type": "buyback_burn",
-      "amount_usd": 2815201,
+      "amount_usd": 3089762,
       "period": "2025-11-18",
       "source": {
         "type": "api",
@@ -3277,7 +3277,7 @@
     {
       "date": "2025-11-19",
       "type": "buyback_burn",
-      "amount_usd": 3350593,
+      "amount_usd": 3155609,
       "period": "2025-11-19",
       "source": {
         "type": "api",
@@ -3287,7 +3287,7 @@
     {
       "date": "2025-11-20",
       "type": "buyback_burn",
-      "amount_usd": 3830750,
+      "amount_usd": 3582972,
       "period": "2025-11-20",
       "source": {
         "type": "api",
@@ -3297,7 +3297,7 @@
     {
       "date": "2025-11-21",
       "type": "buyback_burn",
-      "amount_usd": 5030095,
+      "amount_usd": 5041462,
       "period": "2025-11-21",
       "source": {
         "type": "api",
@@ -3307,7 +3307,7 @@
     {
       "date": "2025-11-22",
       "type": "buyback_burn",
-      "amount_usd": 1594849,
+      "amount_usd": 1460149,
       "period": "2025-11-22",
       "source": {
         "type": "api",
@@ -3317,7 +3317,7 @@
     {
       "date": "2025-11-23",
       "type": "buyback_burn",
-      "amount_usd": 2111504,
+      "amount_usd": 1958753,
       "period": "2025-11-23",
       "source": {
         "type": "api",
@@ -3327,7 +3327,7 @@
     {
       "date": "2025-11-24",
       "type": "buyback_burn",
-      "amount_usd": 3044005,
+      "amount_usd": 2798443,
       "period": "2025-11-24",
       "source": {
         "type": "api",
@@ -3337,7 +3337,7 @@
     {
       "date": "2025-11-25",
       "type": "buyback_burn",
-      "amount_usd": 2586840,
+      "amount_usd": 2419743,
       "period": "2025-11-25",
       "source": {
         "type": "api",
@@ -3347,7 +3347,7 @@
     {
       "date": "2025-11-26",
       "type": "buyback_burn",
-      "amount_usd": 2275418,
+      "amount_usd": 2118900,
       "period": "2025-11-26",
       "source": {
         "type": "api",
@@ -3357,7 +3357,7 @@
     {
       "date": "2025-11-27",
       "type": "buyback_burn",
-      "amount_usd": 1547380,
+      "amount_usd": 1450788,
       "period": "2025-11-27",
       "source": {
         "type": "api",
@@ -3367,7 +3367,7 @@
     {
       "date": "2025-11-28",
       "type": "buyback_burn",
-      "amount_usd": 1766574,
+      "amount_usd": 1658600,
       "period": "2025-11-28",
       "source": {
         "type": "api",
@@ -3377,7 +3377,7 @@
     {
       "date": "2025-11-29",
       "type": "buyback_burn",
-      "amount_usd": 944220,
+      "amount_usd": 885057,
       "period": "2025-11-29",
       "source": {
         "type": "api",
@@ -3387,7 +3387,7 @@
     {
       "date": "2025-11-30",
       "type": "buyback_burn",
-      "amount_usd": 916980,
+      "amount_usd": 856846,
       "period": "2025-11-30",
       "source": {
         "type": "api",
@@ -3397,7 +3397,7 @@
     {
       "date": "2025-12-01",
       "type": "buyback_burn",
-      "amount_usd": 3342382,
+      "amount_usd": 3121199,
       "period": "2025-12-01",
       "source": {
         "type": "api",
@@ -3407,7 +3407,7 @@
     {
       "date": "2025-12-02",
       "type": "buyback_burn",
-      "amount_usd": 2397314,
+      "amount_usd": 2383830,
       "period": "2025-12-02",
       "source": {
         "type": "api",
@@ -3417,7 +3417,7 @@
     {
       "date": "2025-12-03",
       "type": "buyback_burn",
-      "amount_usd": 2374378,
+      "amount_usd": 2197819,
       "period": "2025-12-03",
       "source": {
         "type": "api",
@@ -3427,7 +3427,7 @@
     {
       "date": "2025-12-04",
       "type": "buyback_burn",
-      "amount_usd": 1993845,
+      "amount_usd": 1830455,
       "period": "2025-12-04",
       "source": {
         "type": "api",
@@ -3437,7 +3437,7 @@
     {
       "date": "2025-12-05",
       "type": "buyback_burn",
-      "amount_usd": 2315793,
+      "amount_usd": 2164924,
       "period": "2025-12-05",
       "source": {
         "type": "api",
@@ -3447,7 +3447,7 @@
     {
       "date": "2025-12-06",
       "type": "buyback_burn",
-      "amount_usd": 777054,
+      "amount_usd": 724963,
       "period": "2025-12-06",
       "source": {
         "type": "api",
@@ -3457,7 +3457,7 @@
     {
       "date": "2025-12-07",
       "type": "buyback_burn",
-      "amount_usd": 2068932,
+      "amount_usd": 1883348,
       "period": "2025-12-07",
       "source": {
         "type": "api",
@@ -3467,7 +3467,7 @@
     {
       "date": "2025-12-08",
       "type": "buyback_burn",
-      "amount_usd": 1994989,
+      "amount_usd": 1862051,
       "period": "2025-12-08",
       "source": {
         "type": "api",
@@ -3477,7 +3477,7 @@
     {
       "date": "2025-12-09",
       "type": "buyback_burn",
-      "amount_usd": 2797304,
+      "amount_usd": 2621806,
       "period": "2025-12-09",
       "source": {
         "type": "api",
@@ -3487,7 +3487,7 @@
     {
       "date": "2025-12-10",
       "type": "buyback_burn",
-      "amount_usd": 2643413,
+      "amount_usd": 2465542,
       "period": "2025-12-10",
       "source": {
         "type": "api",
@@ -3497,7 +3497,7 @@
     {
       "date": "2025-12-11",
       "type": "buyback_burn",
-      "amount_usd": 2656683,
+      "amount_usd": 2378891,
       "period": "2025-12-11",
       "source": {
         "type": "api",
@@ -3507,7 +3507,7 @@
     {
       "date": "2025-12-12",
       "type": "buyback_burn",
-      "amount_usd": 1966206,
+      "amount_usd": 1833473,
       "period": "2025-12-12",
       "source": {
         "type": "api",
@@ -3517,7 +3517,7 @@
     {
       "date": "2025-12-13",
       "type": "buyback_burn",
-      "amount_usd": 510407,
+      "amount_usd": 481913,
       "period": "2025-12-13",
       "source": {
         "type": "api",
@@ -3527,7 +3527,7 @@
     {
       "date": "2025-12-14",
       "type": "buyback_burn",
-      "amount_usd": 1101766,
+      "amount_usd": 1023414,
       "period": "2025-12-14",
       "source": {
         "type": "api",
@@ -3537,7 +3537,7 @@
     {
       "date": "2025-12-15",
       "type": "buyback_burn",
-      "amount_usd": 2306430,
+      "amount_usd": 2277411,
       "period": "2025-12-15",
       "source": {
         "type": "api",
@@ -3547,7 +3547,7 @@
     {
       "date": "2025-12-16",
       "type": "buyback_burn",
-      "amount_usd": 1744872,
+      "amount_usd": 1638639,
       "period": "2025-12-16",
       "source": {
         "type": "api",
@@ -3557,7 +3557,7 @@
     {
       "date": "2025-12-17",
       "type": "buyback_burn",
-      "amount_usd": 2567305,
+      "amount_usd": 2426260,
       "period": "2025-12-17",
       "source": {
         "type": "api",
@@ -3567,7 +3567,7 @@
     {
       "date": "2025-12-18",
       "type": "buyback_burn",
-      "amount_usd": 2861053,
+      "amount_usd": 2655735,
       "period": "2025-12-18",
       "source": {
         "type": "api",
@@ -3577,7 +3577,7 @@
     {
       "date": "2025-12-19",
       "type": "buyback_burn",
-      "amount_usd": 2236651,
+      "amount_usd": 2147684,
       "period": "2025-12-19",
       "source": {
         "type": "api",
@@ -3587,7 +3587,7 @@
     {
       "date": "2025-12-20",
       "type": "buyback_burn",
-      "amount_usd": 552922,
+      "amount_usd": 520733,
       "period": "2025-12-20",
       "source": {
         "type": "api",
@@ -3597,7 +3597,7 @@
     {
       "date": "2025-12-21",
       "type": "buyback_burn",
-      "amount_usd": 814800,
+      "amount_usd": 763605,
       "period": "2025-12-21",
       "source": {
         "type": "api",
@@ -3607,7 +3607,7 @@
     {
       "date": "2025-12-22",
       "type": "buyback_burn",
-      "amount_usd": 1970397,
+      "amount_usd": 1833843,
       "period": "2025-12-22",
       "source": {
         "type": "api",
@@ -3617,7 +3617,7 @@
     {
       "date": "2025-12-23",
       "type": "buyback_burn",
-      "amount_usd": 1755839,
+      "amount_usd": 1549395,
       "period": "2025-12-23",
       "source": {
         "type": "api",
@@ -3627,7 +3627,7 @@
     {
       "date": "2025-12-24",
       "type": "buyback_burn",
-      "amount_usd": 1098325,
+      "amount_usd": 1014492,
       "period": "2025-12-24",
       "source": {
         "type": "api",
@@ -3637,7 +3637,7 @@
     {
       "date": "2025-12-25",
       "type": "buyback_burn",
-      "amount_usd": 770456,
+      "amount_usd": 718144,
       "period": "2025-12-25",
       "source": {
         "type": "api",
@@ -3647,7 +3647,7 @@
     {
       "date": "2025-12-26",
       "type": "buyback_burn",
-      "amount_usd": 1542340,
+      "amount_usd": 1395255,
       "period": "2025-12-26",
       "source": {
         "type": "api",
@@ -3657,7 +3657,7 @@
     {
       "date": "2025-12-27",
       "type": "buyback_burn",
-      "amount_usd": 481106,
+      "amount_usd": 454070,
       "period": "2025-12-27",
       "source": {
         "type": "api",
@@ -3667,7 +3667,7 @@
     {
       "date": "2025-12-28",
       "type": "buyback_burn",
-      "amount_usd": 628476,
+      "amount_usd": 590078,
       "period": "2025-12-28",
       "source": {
         "type": "api",
@@ -3677,7 +3677,7 @@
     {
       "date": "2025-12-29",
       "type": "buyback_burn",
-      "amount_usd": 2187790,
+      "amount_usd": 2043582,
       "period": "2025-12-29",
       "source": {
         "type": "api",
@@ -3687,7 +3687,7 @@
     {
       "date": "2025-12-30",
       "type": "buyback_burn",
-      "amount_usd": 1301219,
+      "amount_usd": 1212409,
       "period": "2025-12-30",
       "source": {
         "type": "api",
@@ -3697,7 +3697,7 @@
     {
       "date": "2025-12-31",
       "type": "buyback_burn",
-      "amount_usd": 1069899,
+      "amount_usd": 997471,
       "period": "2025-12-31",
       "source": {
         "type": "api",
@@ -3707,7 +3707,7 @@
     {
       "date": "2026-01-01",
       "type": "buyback_burn",
-      "amount_usd": 804805,
+      "amount_usd": 755646,
       "period": "2026-01-01",
       "source": {
         "type": "api",
@@ -3717,7 +3717,7 @@
     {
       "date": "2026-01-02",
       "type": "buyback_burn",
-      "amount_usd": 2298476,
+      "amount_usd": 2092453,
       "period": "2026-01-02",
       "source": {
         "type": "api",
@@ -3727,7 +3727,7 @@
     {
       "date": "2026-01-03",
       "type": "buyback_burn",
-      "amount_usd": 1103382,
+      "amount_usd": 1063521,
       "period": "2026-01-03",
       "source": {
         "type": "api",
@@ -3737,7 +3737,7 @@
     {
       "date": "2026-01-04",
       "type": "buyback_burn",
-      "amount_usd": 1187296,
+      "amount_usd": 1109956,
       "period": "2026-01-04",
       "source": {
         "type": "api",
@@ -3747,7 +3747,7 @@
     {
       "date": "2026-01-05",
       "type": "buyback_burn",
-      "amount_usd": 2454795,
+      "amount_usd": 2266791,
       "period": "2026-01-05",
       "source": {
         "type": "api",
@@ -3757,7 +3757,7 @@
     {
       "date": "2026-01-06",
       "type": "buyback_burn",
-      "amount_usd": 2789500,
+      "amount_usd": 2630611,
       "period": "2026-01-06",
       "source": {
         "type": "api",
@@ -3767,7 +3767,7 @@
     {
       "date": "2026-01-07",
       "type": "buyback_burn",
-      "amount_usd": 2107782,
+      "amount_usd": 1956441,
       "period": "2026-01-07",
       "source": {
         "type": "api",
@@ -3777,7 +3777,7 @@
     {
       "date": "2026-01-08",
       "type": "buyback_burn",
-      "amount_usd": 2484247,
+      "amount_usd": 2285788,
       "period": "2026-01-08",
       "source": {
         "type": "api",
@@ -3787,7 +3787,7 @@
     {
       "date": "2026-01-09",
       "type": "buyback_burn",
-      "amount_usd": 2095503,
+      "amount_usd": 1961270,
       "period": "2026-01-09",
       "source": {
         "type": "api",
@@ -3797,7 +3797,7 @@
     {
       "date": "2026-01-10",
       "type": "buyback_burn",
-      "amount_usd": 522612,
+      "amount_usd": 493819,
       "period": "2026-01-10",
       "source": {
         "type": "api",
@@ -3807,7 +3807,7 @@
     {
       "date": "2026-01-11",
       "type": "buyback_burn",
-      "amount_usd": 946506,
+      "amount_usd": 899483,
       "period": "2026-01-11",
       "source": {
         "type": "api",
@@ -3827,7 +3827,7 @@
     {
       "date": "2026-01-13",
       "type": "buyback_burn",
-      "amount_usd": 2725043,
+      "amount_usd": 2539882,
       "period": "2026-01-13",
       "source": {
         "type": "api",
@@ -3837,7 +3837,7 @@
     {
       "date": "2026-01-14",
       "type": "buyback_burn",
-      "amount_usd": 2785930,
+      "amount_usd": 2582306,
       "period": "2026-01-14",
       "source": {
         "type": "api",
@@ -3847,7 +3847,7 @@
     {
       "date": "2026-01-15",
       "type": "buyback_burn",
-      "amount_usd": 2194726,
+      "amount_usd": 2074668,
       "period": "2026-01-15",
       "source": {
         "type": "api",
@@ -3857,7 +3857,7 @@
     {
       "date": "2026-01-16",
       "type": "buyback_burn",
-      "amount_usd": 1319578,
+      "amount_usd": 1225802,
       "period": "2026-01-16",
       "source": {
         "type": "api",
@@ -3867,7 +3867,7 @@
     {
       "date": "2026-01-17",
       "type": "buyback_burn",
-      "amount_usd": 580946,
+      "amount_usd": 561272,
       "period": "2026-01-17",
       "source": {
         "type": "api",
@@ -3877,7 +3877,7 @@
     {
       "date": "2026-01-18",
       "type": "buyback_burn",
-      "amount_usd": 931664,
+      "amount_usd": 878586,
       "period": "2026-01-18",
       "source": {
         "type": "api",
@@ -3887,7 +3887,7 @@
     {
       "date": "2026-01-19",
       "type": "buyback_burn",
-      "amount_usd": 2015611,
+      "amount_usd": 1867434,
       "period": "2026-01-19",
       "source": {
         "type": "api",
@@ -3897,7 +3897,7 @@
     {
       "date": "2026-01-20",
       "type": "buyback_burn",
-      "amount_usd": 2841952,
+      "amount_usd": 2650898,
       "period": "2026-01-20",
       "source": {
         "type": "api",
@@ -3907,7 +3907,7 @@
     {
       "date": "2026-01-21",
       "type": "buyback_burn",
-      "amount_usd": 2958635,
+      "amount_usd": 2754489,
       "period": "2026-01-21",
       "source": {
         "type": "api",
@@ -3917,7 +3917,7 @@
     {
       "date": "2026-01-22",
       "type": "buyback_burn",
-      "amount_usd": 1765029,
+      "amount_usd": 1611672,
       "period": "2026-01-22",
       "source": {
         "type": "api",
@@ -3927,7 +3927,7 @@
     {
       "date": "2026-01-23",
       "type": "buyback_burn",
-      "amount_usd": 1940423,
+      "amount_usd": 1769364,
       "period": "2026-01-23",
       "source": {
         "type": "api",
@@ -3937,7 +3937,7 @@
     {
       "date": "2026-01-24",
       "type": "buyback_burn",
-      "amount_usd": 482037,
+      "amount_usd": 454973,
       "period": "2026-01-24",
       "source": {
         "type": "api",
@@ -3947,7 +3947,7 @@
     {
       "date": "2026-01-25",
       "type": "buyback_burn",
-      "amount_usd": 1734920,
+      "amount_usd": 1611801,
       "period": "2026-01-25",
       "source": {
         "type": "api",
@@ -3957,7 +3957,7 @@
     {
       "date": "2026-01-26",
       "type": "buyback_burn",
-      "amount_usd": 1970981,
+      "amount_usd": 1852752,
       "period": "2026-01-26",
       "source": {
         "type": "api",
@@ -3967,7 +3967,7 @@
     {
       "date": "2026-01-27",
       "type": "buyback_burn",
-      "amount_usd": 1850879,
+      "amount_usd": 1803039,
       "period": "2026-01-27",
       "source": {
         "type": "api",
@@ -3977,7 +3977,7 @@
     {
       "date": "2026-01-28",
       "type": "buyback_burn",
-      "amount_usd": 2560256,
+      "amount_usd": 2390759,
       "period": "2026-01-28",
       "source": {
         "type": "api",
@@ -3987,7 +3987,7 @@
     {
       "date": "2026-01-29",
       "type": "buyback_burn",
-      "amount_usd": 4055214,
+      "amount_usd": 3796145,
       "period": "2026-01-29",
       "source": {
         "type": "api",
@@ -3997,7 +3997,7 @@
     {
       "date": "2026-01-30",
       "type": "buyback_burn",
-      "amount_usd": 4093951,
+      "amount_usd": 3807893,
       "period": "2026-01-30",
       "source": {
         "type": "api",
@@ -4007,7 +4007,7 @@
     {
       "date": "2026-01-31",
       "type": "buyback_burn",
-      "amount_usd": 4096359,
+      "amount_usd": 3843466,
       "period": "2026-01-31",
       "source": {
         "type": "api",
@@ -4017,7 +4017,7 @@
     {
       "date": "2026-02-01",
       "type": "buyback_burn",
-      "amount_usd": 2684274,
+      "amount_usd": 2454880,
       "period": "2026-02-01",
       "source": {
         "type": "api",
@@ -4027,7 +4027,7 @@
     {
       "date": "2026-02-02",
       "type": "buyback_burn",
-      "amount_usd": 3197189,
+      "amount_usd": 2976923,
       "period": "2026-02-02",
       "source": {
         "type": "api",
@@ -4037,7 +4037,7 @@
     {
       "date": "2026-02-03",
       "type": "buyback_burn",
-      "amount_usd": 3767324,
+      "amount_usd": 3498241,
       "period": "2026-02-03",
       "source": {
         "type": "api",
@@ -4047,7 +4047,7 @@
     {
       "date": "2026-02-04",
       "type": "buyback_burn",
-      "amount_usd": 3729057,
+      "amount_usd": 3387835,
       "period": "2026-02-04",
       "source": {
         "type": "api",
@@ -4057,7 +4057,7 @@
     {
       "date": "2026-02-05",
       "type": "buyback_burn",
-      "amount_usd": 6472454,
+      "amount_usd": 5990971,
       "period": "2026-02-05",
       "source": {
         "type": "api",
@@ -4067,7 +4067,7 @@
     {
       "date": "2026-02-06",
       "type": "buyback_burn",
-      "amount_usd": 4575108,
+      "amount_usd": 4265536,
       "period": "2026-02-06",
       "source": {
         "type": "api",
@@ -4077,7 +4077,7 @@
     {
       "date": "2026-02-07",
       "type": "buyback_burn",
-      "amount_usd": 1862183,
+      "amount_usd": 1813886,
       "period": "2026-02-07",
       "source": {
         "type": "api",
@@ -4087,7 +4087,7 @@
     {
       "date": "2026-02-08",
       "type": "buyback_burn",
-      "amount_usd": 1246366,
+      "amount_usd": 1164390,
       "period": "2026-02-08",
       "source": {
         "type": "api",
@@ -4097,7 +4097,7 @@
     {
       "date": "2026-02-09",
       "type": "buyback_burn",
-      "amount_usd": 1934308,
+      "amount_usd": 1794946,
       "period": "2026-02-09",
       "source": {
         "type": "api",
@@ -4107,7 +4107,7 @@
     {
       "date": "2026-02-10",
       "type": "buyback_burn",
-      "amount_usd": 1672406,
+      "amount_usd": 1512320,
       "period": "2026-02-10",
       "source": {
         "type": "api",
@@ -4117,7 +4117,7 @@
     {
       "date": "2026-02-11",
       "type": "buyback_burn",
-      "amount_usd": 2157298,
+      "amount_usd": 1954221,
       "period": "2026-02-11",
       "source": {
         "type": "api",
@@ -4127,7 +4127,7 @@
     {
       "date": "2026-02-12",
       "type": "buyback_burn",
-      "amount_usd": 1705471,
+      "amount_usd": 1601528,
       "period": "2026-02-12",
       "source": {
         "type": "api",
@@ -4137,7 +4137,7 @@
     {
       "date": "2026-02-13",
       "type": "buyback_burn",
-      "amount_usd": 1471894,
+      "amount_usd": 1359021,
       "period": "2026-02-13",
       "source": {
         "type": "api",
@@ -4147,7 +4147,7 @@
     {
       "date": "2026-02-14",
       "type": "buyback_burn",
-      "amount_usd": 854903,
+      "amount_usd": 806944,
       "period": "2026-02-14",
       "source": {
         "type": "api",
@@ -4157,7 +4157,7 @@
     {
       "date": "2026-02-15",
       "type": "buyback_burn",
-      "amount_usd": 1148536,
+      "amount_usd": 1079582,
       "period": "2026-02-15",
       "source": {
         "type": "api",
@@ -4167,7 +4167,7 @@
     {
       "date": "2026-02-16",
       "type": "buyback_burn",
-      "amount_usd": 1087620,
+      "amount_usd": 1044931,
       "period": "2026-02-16",
       "source": {
         "type": "api",
@@ -4177,7 +4177,7 @@
     {
       "date": "2026-02-17",
       "type": "buyback_burn",
-      "amount_usd": 1465148,
+      "amount_usd": 1374973,
       "period": "2026-02-17",
       "source": {
         "type": "api",
@@ -4187,7 +4187,7 @@
     {
       "date": "2026-02-18",
       "type": "buyback_burn",
-      "amount_usd": 1356067,
+      "amount_usd": 1275824,
       "period": "2026-02-18",
       "source": {
         "type": "api",
@@ -4197,7 +4197,7 @@
     {
       "date": "2026-02-19",
       "type": "buyback_burn",
-      "amount_usd": 1193139,
+      "amount_usd": 1131609,
       "period": "2026-02-19",
       "source": {
         "type": "api",
@@ -4207,7 +4207,7 @@
     {
       "date": "2026-02-20",
       "type": "buyback_burn",
-      "amount_usd": 1610974,
+      "amount_usd": 1502980,
       "period": "2026-02-20",
       "source": {
         "type": "api",
@@ -4217,7 +4217,7 @@
     {
       "date": "2026-02-21",
       "type": "buyback_burn",
-      "amount_usd": 564693,
+      "amount_usd": 531922,
       "period": "2026-02-21",
       "source": {
         "type": "api",
@@ -4227,7 +4227,7 @@
     {
       "date": "2026-02-22",
       "type": "buyback_burn",
-      "amount_usd": 562441,
+      "amount_usd": 544310,
       "period": "2026-02-22",
       "source": {
         "type": "api",
@@ -4237,7 +4237,7 @@
     {
       "date": "2026-02-23",
       "type": "buyback_burn",
-      "amount_usd": 1973377,
+      "amount_usd": 1871576,
       "period": "2026-02-23",
       "source": {
         "type": "api",
@@ -4247,7 +4247,7 @@
     {
       "date": "2026-02-24",
       "type": "buyback_burn",
-      "amount_usd": 1835794,
+      "amount_usd": 1682481,
       "period": "2026-02-24",
       "source": {
         "type": "api",
@@ -4257,7 +4257,7 @@
     {
       "date": "2026-02-25",
       "type": "buyback_burn",
-      "amount_usd": 2284838,
+      "amount_usd": 2308735,
       "period": "2026-02-25",
       "source": {
         "type": "api",
@@ -4267,7 +4267,7 @@
     {
       "date": "2026-02-26",
       "type": "buyback_burn",
-      "amount_usd": 1605706,
+      "amount_usd": 1537808,
       "period": "2026-02-26",
       "source": {
         "type": "api",
@@ -4277,7 +4277,7 @@
     {
       "date": "2026-02-27",
       "type": "buyback_burn",
-      "amount_usd": 1515092,
+      "amount_usd": 1438392,
       "period": "2026-02-27",
       "source": {
         "type": "api",
@@ -4287,7 +4287,7 @@
     {
       "date": "2026-02-28",
       "type": "buyback_burn",
-      "amount_usd": 2232534,
+      "amount_usd": 2097285,
       "period": "2026-02-28",
       "source": {
         "type": "api",
@@ -4297,7 +4297,7 @@
     {
       "date": "2026-03-01",
       "type": "buyback_burn",
-      "amount_usd": 1714043,
+      "amount_usd": 1616215,
       "period": "2026-03-01",
       "source": {
         "type": "api",
@@ -4307,7 +4307,7 @@
     {
       "date": "2026-03-02",
       "type": "buyback_burn",
-      "amount_usd": 2375406,
+      "amount_usd": 2242097,
       "period": "2026-03-02",
       "source": {
         "type": "api",
@@ -4317,7 +4317,7 @@
     {
       "date": "2026-03-03",
       "type": "buyback_burn",
-      "amount_usd": 2353897,
+      "amount_usd": 2225165,
       "period": "2026-03-03",
       "source": {
         "type": "api",
@@ -4327,7 +4327,7 @@
     {
       "date": "2026-03-04",
       "type": "buyback_burn",
-      "amount_usd": 2887227,
+      "amount_usd": 2725844,
       "period": "2026-03-04",
       "source": {
         "type": "api",
@@ -4337,7 +4337,7 @@
     {
       "date": "2026-03-05",
       "type": "buyback_burn",
-      "amount_usd": 1920339,
+      "amount_usd": 1812466,
       "period": "2026-03-05",
       "source": {
         "type": "api",
@@ -4347,7 +4347,7 @@
     {
       "date": "2026-03-06",
       "type": "buyback_burn",
-      "amount_usd": 2213432,
+      "amount_usd": 2093087,
       "period": "2026-03-06",
       "source": {
         "type": "api",
@@ -4357,7 +4357,7 @@
     {
       "date": "2026-03-07",
       "type": "buyback_burn",
-      "amount_usd": 865617,
+      "amount_usd": 818420,
       "period": "2026-03-07",
       "source": {
         "type": "api",
@@ -4367,7 +4367,7 @@
     {
       "date": "2026-03-08",
       "type": "buyback_burn",
-      "amount_usd": 1350132,
+      "amount_usd": 1273518,
       "period": "2026-03-08",
       "source": {
         "type": "api",
@@ -4377,7 +4377,7 @@
     {
       "date": "2026-03-09",
       "type": "buyback_burn",
-      "amount_usd": 2376101,
+      "amount_usd": 2253351,
       "period": "2026-03-09",
       "source": {
         "type": "api",
@@ -4387,7 +4387,7 @@
     {
       "date": "2026-03-10",
       "type": "buyback_burn",
-      "amount_usd": 2074160,
+      "amount_usd": 1961757,
       "period": "2026-03-10",
       "source": {
         "type": "api",
@@ -4397,7 +4397,7 @@
     {
       "date": "2026-03-11",
       "type": "buyback_burn",
-      "amount_usd": 1633974,
+      "amount_usd": 1546589,
       "period": "2026-03-11",
       "source": {
         "type": "api",
@@ -4407,7 +4407,7 @@
     {
       "date": "2026-03-12",
       "type": "buyback_burn",
-      "amount_usd": 1607739,
+      "amount_usd": 1523347,
       "period": "2026-03-12",
       "source": {
         "type": "api",
@@ -4417,7 +4417,7 @@
     {
       "date": "2026-03-13",
       "type": "buyback_burn",
-      "amount_usd": 2193505,
+      "amount_usd": 2073581,
       "period": "2026-03-13",
       "source": {
         "type": "api",
@@ -4427,7 +4427,7 @@
     {
       "date": "2026-03-14",
       "type": "buyback_burn",
-      "amount_usd": 709255,
+      "amount_usd": 673681,
       "period": "2026-03-14",
       "source": {
         "type": "api",
@@ -4437,7 +4437,7 @@
     {
       "date": "2026-03-15",
       "type": "buyback_burn",
-      "amount_usd": 1124069,
+      "amount_usd": 1063670,
       "period": "2026-03-15",
       "source": {
         "type": "api",
@@ -4447,7 +4447,7 @@
     {
       "date": "2026-03-16",
       "type": "buyback_burn",
-      "amount_usd": 2445490,
+      "amount_usd": 2314094,
       "period": "2026-03-16",
       "source": {
         "type": "api",
@@ -4457,7 +4457,7 @@
     {
       "date": "2026-03-17",
       "type": "buyback_burn",
-      "amount_usd": 1992936,
+      "amount_usd": 1882804,
       "period": "2026-03-17",
       "source": {
         "type": "api",
@@ -4467,7 +4467,7 @@
     {
       "date": "2026-03-18",
       "type": "buyback_burn",
-      "amount_usd": 2390778,
+      "amount_usd": 2262822,
       "period": "2026-03-18",
       "source": {
         "type": "api",
@@ -4477,7 +4477,7 @@
     {
       "date": "2026-03-19",
       "type": "buyback_burn",
-      "amount_usd": 2331572,
+      "amount_usd": 2206262,
       "period": "2026-03-19",
       "source": {
         "type": "api",
@@ -4487,7 +4487,7 @@
     {
       "date": "2026-03-20",
       "type": "buyback_burn",
-      "amount_usd": 1723332,
+      "amount_usd": 1625848,
       "period": "2026-03-20",
       "source": {
         "type": "api",
@@ -4497,7 +4497,7 @@
     {
       "date": "2026-03-21",
       "type": "buyback_burn",
-      "amount_usd": 661560,
+      "amount_usd": 618800,
       "period": "2026-03-21",
       "source": {
         "type": "api",
@@ -4507,7 +4507,7 @@
     {
       "date": "2026-03-22",
       "type": "buyback_burn",
-      "amount_usd": 1400269,
+      "amount_usd": 1322200,
       "period": "2026-03-22",
       "source": {
         "type": "api",
@@ -4517,7 +4517,7 @@
     {
       "date": "2026-03-23",
       "type": "buyback_burn",
-      "amount_usd": 2606885,
+      "amount_usd": 2446838,
       "period": "2026-03-23",
       "source": {
         "type": "api",
@@ -4527,7 +4527,7 @@
     {
       "date": "2026-03-24",
       "type": "buyback_burn",
-      "amount_usd": 1765931,
+      "amount_usd": 1650365,
       "period": "2026-03-24",
       "source": {
         "type": "api",
@@ -4537,7 +4537,7 @@
     {
       "date": "2026-03-25",
       "type": "buyback_burn",
-      "amount_usd": 1623145,
+      "amount_usd": 1536493,
       "period": "2026-03-25",
       "source": {
         "type": "api",
@@ -4547,7 +4547,7 @@
     {
       "date": "2026-03-26",
       "type": "buyback_burn",
-      "amount_usd": 1590631,
+      "amount_usd": 1498330,
       "period": "2026-03-26",
       "source": {
         "type": "api",
@@ -4557,7 +4557,7 @@
     {
       "date": "2026-03-27",
       "type": "buyback_burn",
-      "amount_usd": 1501992,
+      "amount_usd": 1427827,
       "period": "2026-03-27",
       "source": {
         "type": "api",
@@ -4567,7 +4567,7 @@
     {
       "date": "2026-03-28",
       "type": "buyback_burn",
-      "amount_usd": 707224,
+      "amount_usd": 661786,
       "period": "2026-03-28",
       "source": {
         "type": "api",
@@ -4577,7 +4577,7 @@
     {
       "date": "2026-03-29",
       "type": "buyback_burn",
-      "amount_usd": 794256,
+      "amount_usd": 752506,
       "period": "2026-03-29",
       "source": {
         "type": "api",
@@ -4587,7 +4587,7 @@
     {
       "date": "2026-03-30",
       "type": "buyback_burn",
-      "amount_usd": 1428372,
+      "amount_usd": 1355254,
       "period": "2026-03-30",
       "source": {
         "type": "api",
@@ -4597,7 +4597,7 @@
     {
       "date": "2026-03-31",
       "type": "buyback_burn",
-      "amount_usd": 2173673,
+      "amount_usd": 2041983,
       "period": "2026-03-31",
       "source": {
         "type": "api",
@@ -4607,7 +4607,7 @@
     {
       "date": "2026-04-01",
       "type": "buyback_burn",
-      "amount_usd": 1782202,
+      "amount_usd": 1706247,
       "period": "2026-04-01",
       "source": {
         "type": "api",
@@ -4617,7 +4617,7 @@
     {
       "date": "2026-04-02",
       "type": "buyback_burn",
-      "amount_usd": 1978690,
+      "amount_usd": 1885244,
       "period": "2026-04-02",
       "source": {
         "type": "api",
@@ -4627,7 +4627,7 @@
     {
       "date": "2026-04-03",
       "type": "buyback_burn",
-      "amount_usd": 842903,
+      "amount_usd": 794288,
       "period": "2026-04-03",
       "source": {
         "type": "api",
@@ -4637,7 +4637,7 @@
     {
       "date": "2026-04-04",
       "type": "buyback_burn",
-      "amount_usd": 436364,
+      "amount_usd": 422471,
       "period": "2026-04-04",
       "source": {
         "type": "api",
@@ -4647,7 +4647,7 @@
     {
       "date": "2026-04-05",
       "type": "buyback_burn",
-      "amount_usd": 894728,
+      "amount_usd": 853487,
       "period": "2026-04-05",
       "source": {
         "type": "api",
@@ -4657,7 +4657,7 @@
     {
       "date": "2026-04-06",
       "type": "buyback_burn",
-      "amount_usd": 1694115,
+      "amount_usd": 1604151,
       "period": "2026-04-06",
       "source": {
         "type": "api",
@@ -4667,7 +4667,7 @@
     {
       "date": "2026-04-07",
       "type": "buyback_burn",
-      "amount_usd": 2408490,
+      "amount_usd": 2245674,
       "period": "2026-04-07",
       "source": {
         "type": "api",
@@ -4677,7 +4677,7 @@
     {
       "date": "2026-04-08",
       "type": "buyback_burn",
-      "amount_usd": 1969629,
+      "amount_usd": 1865099,
       "period": "2026-04-08",
       "source": {
         "type": "api",
@@ -4687,7 +4687,7 @@
     {
       "date": "2026-04-09",
       "type": "buyback_burn",
-      "amount_usd": 1902423,
+      "amount_usd": 1795595,
       "period": "2026-04-09",
       "source": {
         "type": "api",
@@ -4697,7 +4697,7 @@
     {
       "date": "2026-04-10",
       "type": "buyback_burn",
-      "amount_usd": 1468020,
+      "amount_usd": 1402435,
       "period": "2026-04-10",
       "source": {
         "type": "api",
@@ -4707,7 +4707,7 @@
     {
       "date": "2026-04-11",
       "type": "buyback_burn",
-      "amount_usd": 835727,
+      "amount_usd": 793723,
       "period": "2026-04-11",
       "source": {
         "type": "api",
@@ -4717,7 +4717,7 @@
     {
       "date": "2026-04-12",
       "type": "buyback_burn",
-      "amount_usd": 1312118,
+      "amount_usd": 1218489,
       "period": "2026-04-12",
       "source": {
         "type": "api",
@@ -4727,7 +4727,7 @@
     {
       "date": "2026-04-13",
       "type": "buyback_burn",
-      "amount_usd": 1945029,
+      "amount_usd": 1723353,
       "period": "2026-04-13",
       "source": {
         "type": "api",
@@ -4737,7 +4737,7 @@
     {
       "date": "2026-04-14",
       "type": "buyback_burn",
-      "amount_usd": 2136498,
+      "amount_usd": 2111719,
       "period": "2026-04-14",
       "source": {
         "type": "api",
@@ -4747,7 +4747,7 @@
     {
       "date": "2026-04-15",
       "type": "buyback_burn",
-      "amount_usd": 1484229,
+      "amount_usd": 1406227,
       "period": "2026-04-15",
       "source": {
         "type": "api",
@@ -4757,7 +4757,7 @@
     {
       "date": "2026-04-16",
       "type": "buyback_burn",
-      "amount_usd": 1820027,
+      "amount_usd": 1689447,
       "period": "2026-04-16",
       "source": {
         "type": "api",
@@ -4767,7 +4767,7 @@
     {
       "date": "2026-04-17",
       "type": "buyback_burn",
-      "amount_usd": 2190996,
+      "amount_usd": 2117086,
       "period": "2026-04-17",
       "source": {
         "type": "api",
@@ -4777,7 +4777,7 @@
     {
       "date": "2026-04-18",
       "type": "buyback_burn",
-      "amount_usd": 976180,
+      "amount_usd": 922902,
       "period": "2026-04-18",
       "source": {
         "type": "api",
@@ -4787,7 +4787,7 @@
     {
       "date": "2026-04-19",
       "type": "buyback_burn",
-      "amount_usd": 1521098,
+      "amount_usd": 1386006,
       "period": "2026-04-19",
       "source": {
         "type": "api",
@@ -4797,7 +4797,7 @@
     {
       "date": "2026-04-20",
       "type": "buyback_burn",
-      "amount_usd": 1488801,
+      "amount_usd": 1409776,
       "period": "2026-04-20",
       "source": {
         "type": "api",
@@ -4807,7 +4807,7 @@
     {
       "date": "2026-04-21",
       "type": "buyback_burn",
-      "amount_usd": 1859688,
+      "amount_usd": 1759925,
       "period": "2026-04-21",
       "source": {
         "type": "api",
@@ -4817,7 +4817,7 @@
     {
       "date": "2026-04-22",
       "type": "buyback_burn",
-      "amount_usd": 1782192,
+      "amount_usd": 1682862,
       "period": "2026-04-22",
       "source": {
         "type": "api",
@@ -4827,7 +4827,7 @@
     {
       "date": "2026-04-23",
       "type": "buyback_burn",
-      "amount_usd": 1803847,
+      "amount_usd": 1697011,
       "period": "2026-04-23",
       "source": {
         "type": "api",
@@ -4837,7 +4837,7 @@
     {
       "date": "2026-04-24",
       "type": "buyback_burn",
-      "amount_usd": 1193766,
+      "amount_usd": 1124800,
       "period": "2026-04-24",
       "source": {
         "type": "api",
@@ -4847,7 +4847,7 @@
     {
       "date": "2026-04-25",
       "type": "buyback_burn",
-      "amount_usd": 484298,
+      "amount_usd": 458444,
       "period": "2026-04-25",
       "source": {
         "type": "api",
@@ -4857,7 +4857,7 @@
     {
       "date": "2026-04-26",
       "type": "buyback_burn",
-      "amount_usd": 749245,
+      "amount_usd": 711485,
       "period": "2026-04-26",
       "source": {
         "type": "api",
@@ -4867,7 +4867,7 @@
     {
       "date": "2026-04-27",
       "type": "buyback_burn",
-      "amount_usd": 1441201,
+      "amount_usd": 1364419,
       "period": "2026-04-27",
       "source": {
         "type": "api",
@@ -4877,7 +4877,7 @@
     {
       "date": "2026-04-28",
       "type": "buyback_burn",
-      "amount_usd": 1326735,
+      "amount_usd": 1253855,
       "period": "2026-04-28",
       "source": {
         "type": "api",
@@ -4887,7 +4887,7 @@
     {
       "date": "2026-04-29",
       "type": "buyback_burn",
-      "amount_usd": 1780427,
+      "amount_usd": 1686579,
       "period": "2026-04-29",
       "source": {
         "type": "api",
@@ -4897,7 +4897,7 @@
     {
       "date": "2026-04-30",
       "type": "buyback_burn",
-      "amount_usd": 1339101,
+      "amount_usd": 1263596,
       "period": "2026-04-30",
       "source": {
         "type": "api",
@@ -4907,7 +4907,7 @@
     {
       "date": "2026-05-01",
       "type": "buyback_burn",
-      "amount_usd": 1411120,
+      "amount_usd": 1331010,
       "period": "2026-05-01",
       "source": {
         "type": "api",
@@ -4917,7 +4917,7 @@
     {
       "date": "2026-05-02",
       "type": "buyback_burn",
-      "amount_usd": 583603,
+      "amount_usd": 552752,
       "period": "2026-05-02",
       "source": {
         "type": "api",
@@ -4927,7 +4927,7 @@
     {
       "date": "2026-05-03",
       "type": "buyback_burn",
-      "amount_usd": 798445,
+      "amount_usd": 755351,
       "period": "2026-05-03",
       "source": {
         "type": "api",
@@ -4937,7 +4937,7 @@
     {
       "date": "2026-05-04",
       "type": "buyback_burn",
-      "amount_usd": 2185483,
+      "amount_usd": 2059779,
       "period": "2026-05-04",
       "source": {
         "type": "api",
@@ -4947,7 +4947,7 @@
     {
       "date": "2026-05-05",
       "type": "buyback_burn",
-      "amount_usd": 1845543,
+      "amount_usd": 1745298,
       "period": "2026-05-05",
       "source": {
         "type": "api",
@@ -4957,7 +4957,7 @@
     {
       "date": "2026-05-06",
       "type": "buyback_burn",
-      "amount_usd": 2230169,
+      "amount_usd": 2107324,
       "period": "2026-05-06",
       "source": {
         "type": "api",
@@ -4967,7 +4967,7 @@
     {
       "date": "2026-05-07",
       "type": "buyback_burn",
-      "amount_usd": 1777118,
+      "amount_usd": 1679292,
       "period": "2026-05-07",
       "source": {
         "type": "api",
@@ -4977,7 +4977,7 @@
     {
       "date": "2026-05-08",
       "type": "buyback_burn",
-      "amount_usd": 1513123,
+      "amount_usd": 1428272,
       "period": "2026-05-08",
       "source": {
         "type": "api",
@@ -4987,7 +4987,7 @@
     {
       "date": "2026-05-09",
       "type": "buyback_burn",
-      "amount_usd": 913361,
+      "amount_usd": 869113,
       "period": "2026-05-09",
       "source": {
         "type": "api",
@@ -4997,7 +4997,7 @@
     {
       "date": "2026-05-10",
       "type": "buyback_burn",
-      "amount_usd": 1340486,
+      "amount_usd": 1271087,
       "period": "2026-05-10",
       "source": {
         "type": "api",
@@ -5007,7 +5007,7 @@
     {
       "date": "2026-05-11",
       "type": "buyback_burn",
-      "amount_usd": 1558778,
+      "amount_usd": 1473514,
       "period": "2026-05-11",
       "source": {
         "type": "api",
@@ -5017,7 +5017,7 @@
     {
       "date": "2026-05-12",
       "type": "buyback_burn",
-      "amount_usd": 1470275,
+      "amount_usd": 1395197,
       "period": "2026-05-12",
       "source": {
         "type": "api",
@@ -5027,7 +5027,7 @@
     {
       "date": "2026-05-13",
       "type": "buyback_burn",
-      "amount_usd": 1512363,
+      "amount_usd": 1438780,
       "period": "2026-05-13",
       "source": {
         "type": "api",
@@ -5037,7 +5037,7 @@
     {
       "date": "2026-05-14",
       "type": "buyback_burn",
-      "amount_usd": 1987976,
+      "amount_usd": 1886463,
       "period": "2026-05-14",
       "source": {
         "type": "api",
@@ -5047,7 +5047,7 @@
     {
       "date": "2026-05-15",
       "type": "buyback_burn",
-      "amount_usd": 1933495,
+      "amount_usd": 1833601,
       "period": "2026-05-15",
       "source": {
         "type": "api",
@@ -5057,7 +5057,7 @@
     {
       "date": "2026-05-16",
       "type": "buyback_burn",
-      "amount_usd": 1107191,
+      "amount_usd": 1050332,
       "period": "2026-05-16",
       "source": {
         "type": "api",
@@ -5067,7 +5067,7 @@
     {
       "date": "2026-05-17",
       "type": "buyback_burn",
-      "amount_usd": 1257690,
+      "amount_usd": 1190130,
       "period": "2026-05-17",
       "source": {
         "type": "api",
@@ -5077,7 +5077,7 @@
     {
       "date": "2026-05-18",
       "type": "buyback_burn",
-      "amount_usd": 1943958,
+      "amount_usd": 1834785,
       "period": "2026-05-18",
       "source": {
         "type": "api",
@@ -5087,7 +5087,7 @@
     {
       "date": "2026-05-19",
       "type": "buyback_burn",
-      "amount_usd": 1284967,
+      "amount_usd": 1217870,
       "period": "2026-05-19",
       "source": {
         "type": "api",
@@ -5097,7 +5097,7 @@
     {
       "date": "2026-05-20",
       "type": "buyback_burn",
-      "amount_usd": 1659677,
+      "amount_usd": 1576395,
       "period": "2026-05-20",
       "source": {
         "type": "api",
@@ -5107,7 +5107,7 @@
     {
       "date": "2026-05-21",
       "type": "buyback_burn",
-      "amount_usd": 2051651,
+      "amount_usd": 1948574,
       "period": "2026-05-21",
       "source": {
         "type": "api",
@@ -5117,7 +5117,7 @@
     {
       "date": "2026-05-22",
       "type": "buyback_burn",
-      "amount_usd": 1966297,
+      "amount_usd": 1861556,
       "period": "2026-05-22",
       "source": {
         "type": "api",
@@ -5127,7 +5127,7 @@
     {
       "date": "2026-05-23",
       "type": "buyback_burn",
-      "amount_usd": 1842256,
+      "amount_usd": 1742143,
       "period": "2026-05-23",
       "source": {
         "type": "api",
@@ -5137,7 +5137,7 @@
     {
       "date": "2026-05-24",
       "type": "buyback_burn",
-      "amount_usd": 1670291,
+      "amount_usd": 1584992,
       "period": "2026-05-24",
       "source": {
         "type": "api",
@@ -5147,7 +5147,7 @@
     {
       "date": "2026-05-25",
       "type": "buyback_burn",
-      "amount_usd": 1193830,
+      "amount_usd": 1131431,
       "period": "2026-05-25",
       "source": {
         "type": "api",
@@ -5157,7 +5157,7 @@
     {
       "date": "2026-05-26",
       "type": "buyback_burn",
-      "amount_usd": 1921504,
+      "amount_usd": 1820053,
       "period": "2026-05-26",
       "source": {
         "type": "api",
@@ -5167,7 +5167,7 @@
     {
       "date": "2026-05-27",
       "type": "buyback_burn",
-      "amount_usd": 1787797,
+      "amount_usd": 1692477,
       "period": "2026-05-27",
       "source": {
         "type": "api",
@@ -5177,7 +5177,7 @@
     {
       "date": "2026-05-28",
       "type": "buyback_burn",
-      "amount_usd": 2002233,
+      "amount_usd": 1893938,
       "period": "2026-05-28",
       "source": {
         "type": "api",
@@ -5187,7 +5187,7 @@
     {
       "date": "2026-05-29",
       "type": "buyback_burn",
-      "amount_usd": 1888461,
+      "amount_usd": 1787127,
       "period": "2026-05-29",
       "source": {
         "type": "api",
@@ -5197,7 +5197,7 @@
     {
       "date": "2026-05-30",
       "type": "buyback_burn",
-      "amount_usd": 976509,
+      "amount_usd": 926103,
       "period": "2026-05-30",
       "source": {
         "type": "api",
@@ -5207,7 +5207,7 @@
     {
       "date": "2026-05-31",
       "type": "buyback_burn",
-      "amount_usd": 1310565,
+      "amount_usd": 1243054,
       "period": "2026-05-31",
       "source": {
         "type": "api",
@@ -5217,7 +5217,7 @@
     {
       "date": "2026-06-01",
       "type": "buyback_burn",
-      "amount_usd": 2895667,
+      "amount_usd": 2746575,
       "period": "2026-06-01",
       "source": {
         "type": "api",
@@ -5227,7 +5227,7 @@
     {
       "date": "2026-06-02",
       "type": "buyback_burn",
-      "amount_usd": 3990732,
+      "amount_usd": 3770851,
       "period": "2026-06-02",
       "source": {
         "type": "api",
@@ -5237,7 +5237,7 @@
     {
       "date": "2026-06-03",
       "type": "buyback_burn",
-      "amount_usd": 3504616,
+      "amount_usd": 3308892,
       "period": "2026-06-03",
       "source": {
         "type": "api",
@@ -5247,7 +5247,7 @@
     {
       "date": "2026-06-04",
       "type": "buyback_burn",
-      "amount_usd": 4471805,
+      "amount_usd": 4223670,
       "period": "2026-06-04",
       "source": {
         "type": "api",
@@ -5257,7 +5257,7 @@
     {
       "date": "2026-06-05",
       "type": "buyback_burn",
-      "amount_usd": 5355849,
+      "amount_usd": 5027608,
       "period": "2026-06-05",
       "source": {
         "type": "api",
@@ -5267,7 +5267,7 @@
     {
       "date": "2026-06-06",
       "type": "buyback_burn",
-      "amount_usd": 1818311,
+      "amount_usd": 1706369,
       "period": "2026-06-06",
       "source": {
         "type": "api",
@@ -5277,7 +5277,7 @@
     {
       "date": "2026-06-07",
       "type": "buyback_burn",
-      "amount_usd": 2030216,
+      "amount_usd": 1917843,
       "period": "2026-06-07",
       "source": {
         "type": "api",
@@ -5287,7 +5287,7 @@
     {
       "date": "2026-06-08",
       "type": "buyback_burn",
-      "amount_usd": 2194967,
+      "amount_usd": 2070576,
       "period": "2026-06-08",
       "source": {
         "type": "api",
@@ -5297,7 +5297,7 @@
     {
       "date": "2026-06-09",
       "type": "buyback_burn",
-      "amount_usd": 2244245,
+      "amount_usd": 2117875,
       "period": "2026-06-09",
       "source": {
         "type": "api",
@@ -5307,7 +5307,7 @@
     {
       "date": "2026-06-10",
       "type": "buyback_burn",
-      "amount_usd": 2242406,
+      "amount_usd": 2109791,
       "period": "2026-06-10",
       "source": {
         "type": "api",
@@ -5317,7 +5317,7 @@
     {
       "date": "2026-06-11",
       "type": "buyback_burn",
-      "amount_usd": 1906046,
+      "amount_usd": 1791502,
       "period": "2026-06-11",
       "source": {
         "type": "api",
@@ -5327,8 +5327,218 @@
     {
       "date": "2026-06-12",
       "type": "buyback_burn",
-      "amount_usd": 1572091,
+      "amount_usd": 1483769,
       "period": "2026-06-12",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-06-13",
+      "type": "buyback_burn",
+      "amount_usd": 769446,
+      "period": "2026-06-13",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-06-14",
+      "type": "buyback_burn",
+      "amount_usd": 1299238,
+      "period": "2026-06-14",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-06-15",
+      "type": "buyback_burn",
+      "amount_usd": 1848853,
+      "period": "2026-06-15",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-06-16",
+      "type": "buyback_burn",
+      "amount_usd": 1923451,
+      "period": "2026-06-16",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-06-17",
+      "type": "buyback_burn",
+      "amount_usd": 2158542,
+      "period": "2026-06-17",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-06-18",
+      "type": "buyback_burn",
+      "amount_usd": 2045290,
+      "period": "2026-06-18",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-06-19",
+      "type": "buyback_burn",
+      "amount_usd": 1164902,
+      "period": "2026-06-19",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-06-20",
+      "type": "buyback_burn",
+      "amount_usd": 833179,
+      "period": "2026-06-20",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-06-21",
+      "type": "buyback_burn",
+      "amount_usd": 961175,
+      "period": "2026-06-21",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-06-22",
+      "type": "buyback_burn",
+      "amount_usd": 1865990,
+      "period": "2026-06-22",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-06-23",
+      "type": "buyback_burn",
+      "amount_usd": 1820571,
+      "period": "2026-06-23",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-06-24",
+      "type": "buyback_burn",
+      "amount_usd": 2260187,
+      "period": "2026-06-24",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-06-25",
+      "type": "buyback_burn",
+      "amount_usd": 2020952,
+      "period": "2026-06-25",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-06-26",
+      "type": "buyback_burn",
+      "amount_usd": 2007928,
+      "period": "2026-06-26",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-06-27",
+      "type": "buyback_burn",
+      "amount_usd": 704471,
+      "period": "2026-06-27",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-06-28",
+      "type": "buyback_burn",
+      "amount_usd": 799088,
+      "period": "2026-06-28",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-06-29",
+      "type": "buyback_burn",
+      "amount_usd": 1703644,
+      "period": "2026-06-29",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "type": "buyback_burn",
+      "amount_usd": 1499363,
+      "period": "2026-06-30",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-07-01",
+      "type": "buyback_burn",
+      "amount_usd": 2062067,
+      "period": "2026-07-01",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-07-02",
+      "type": "buyback_burn",
+      "amount_usd": 1890705,
+      "period": "2026-07-02",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-07-03",
+      "type": "buyback_burn",
+      "amount_usd": 1260451,
+      "period": "2026-07-03",
       "source": {
         "type": "api",
         "provider": "DefiLlama"

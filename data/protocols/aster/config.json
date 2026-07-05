@@ -79,8 +79,8 @@
   "tev_data": {
     "has_tev": true,
     "tev_yield_percent": 1.47,
-    "market_cap_usd": 1706386853.5392313,
-    "calculation_date": "2026-06-14",
+    "market_cap_usd": 1716663562.3475666,
+    "calculation_date": "2026-07-05",
     "sources": [
       {
         "name": "DefiLlama holdersRevenue",
@@ -94,9 +94,9 @@
       "method": "A 口径：Stage5/6 buyback wallet 累积 ASTER × 当前价（treasury buyback，非真 burn）",
       "buy_7d_aster": 0,
       "buy_30d_aster": 0,
-      "buy_90d_aster": 1613954,
+      "buy_90d_aster": 0,
       "buy_365d_aster": 36177482,
-      "aster_price_usd": 0.6937,
+      "aster_price_usd": 0.6978,
       "data_days": 95,
       "data_range": {
         "start": "2025-12-23",
@@ -121,25 +121,25 @@
   },
   "tevRatio": 0.7,
   "earning_yield_percent": 1.47,
-  "market_cap_usd": 1706386853.5392313,
+  "market_cap_usd": 1716663562.3475666,
   "tev_yield_percent": 1.47,
   "metrics": {
     "tev_yield_7d_ann": 0,
     "tev_yield_30d_ann": 0,
-    "tev_yield_90d_ann": 0.27,
+    "tev_yield_90d_ann": 0,
     "earning_yield_7d_ann": 0,
     "earning_yield_30d_ann": 0,
-    "earning_yield_90d_ann": 0.27,
+    "earning_yield_90d_ann": 0,
     "trailing_7d_revenue_usd": 0,
     "trailing_30d_revenue_usd": 0,
-    "trailing_90d_revenue_usd": 1119525,
-    "trailing_365d_revenue_usd": 25094626,
+    "trailing_90d_revenue_usd": 0,
+    "trailing_365d_revenue_usd": 25245758,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 0,
     "buyback_yield_30d_ann": 0,
     "dividend_yield_90d_ann": 0,
-    "buyback_yield_90d_ann": 0.27
+    "buyback_yield_90d_ann": 0
   },
   "calc_pipeline": [
     {

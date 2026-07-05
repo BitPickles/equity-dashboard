@@ -1,6 +1,6 @@
 {
   "protocol": "pancakeswap",
-  "updated_at": "2026-06-14T01:14:39.067Z",
+  "updated_at": "2026-07-05T01:13:26.737Z",
   "data_source": "DefiLlama API (dailyHoldersRevenue)",
   "data_source_url": "https://api.llama.fi/summary/fees/pancakeswap?dataType=dailyHoldersRevenue",
   "records": [
@@ -1063,9 +1063,9 @@
       "date": "2026-06-01",
       "type": "aggregate",
       "mechanism": "CAKE Buyback & Burn",
-      "amount_usd": 1175791,
+      "amount_usd": 2225649,
       "period": "2026-06",
-      "days_with_data": 13,
+      "days_with_data": 30,
       "source": {
         "type": "api",
         "provider": "DefiLlama",
@@ -1073,14 +1073,31 @@
         "data_type": "dailyHoldersRevenue",
         "methodology": "0.0575% is used to facilitate CAKE buyback and burn."
       },
-      "notes": "Monthly aggregate from 13 days of data"
+      "notes": "Monthly aggregate from 30 days of data"
+    },
+    {
+      "id": "pancakeswap-buyback-burn-2026-07",
+      "date": "2026-07-01",
+      "type": "aggregate",
+      "mechanism": "CAKE Buyback & Burn",
+      "amount_usd": 129579,
+      "period": "2026-07",
+      "days_with_data": 4,
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama",
+        "endpoint": "https://api.llama.fi/summary/fees/pancakeswap?dataType=dailyHoldersRevenue",
+        "data_type": "dailyHoldersRevenue",
+        "methodology": "0.0575% is used to facilitate CAKE buyback and burn."
+      },
+      "notes": "Monthly aggregate from 4 days of data"
     }
   ],
   "summary": {
-    "total_tev_usd": 398757688,
-    "total_30d_usd": 2213773,
+    "total_tev_usd": 399937125,
+    "total_30d_usd": 1971655,
     "by_mechanism": {
-      "buyback_burn": 398757688
+      "buyback_burn": 399937125
     },
     "by_period": {
       "2021-Q2": 52728676,
@@ -1103,7 +1120,8 @@
       "2025-Q3": 18184799,
       "2025-Q4": 28456807,
       "2026-Q1": 9103887,
-      "2026-Q2": 5960504
+      "2026-Q2": 7010362,
+      "2026-Q3": 129579
     }
   }
 }
