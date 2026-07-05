@@ -1,11 +1,11 @@
 {
   "protocol": "curve",
   "method": "Community Fund Treasury crvUSD inflow × 9 (FeeAllocator 90/10 比例反推)",
-  "updated_at": "2026-07-05T01:12:01.471414Z",
-  "crv_price_usd": 0.212792,
-  "crv_market_cap_usd": 325570163.57552236,
-  "crv_locked_in_vecrv": 855013910.4703188,
-  "vecrv_tvl_usd": 181940120.0368001,
+  "updated_at": "2026-07-05T13:12:21.520886Z",
+  "crv_price_usd": 0.211337,
+  "crv_market_cap_usd": 323270048.1412082,
+  "crv_locked_in_vecrv": 855013814.340758,
+  "vecrv_tvl_usd": 180696054.48133275,
   "lock_ratio_pct": 55.9,
   "addresses": {
     "CRV": "0xD533a949740bb3306d119CC777fa900bA034cd52",
@@ -13,35 +13,354 @@
     "Community_Fund_Treasury": "0x6508ef65b0bd57eabd0f1d52685a70433b2d290b",
     "Old_3CRV_FeeDistributor": "0xA464e6DCda8AC41e03616F95f4BC98a13b8922Dc"
   },
-  "daily": [],
+  "daily": [
+    {
+      "date": "2025-07-09",
+      "crvusd_to_treasury": 20152.34,
+      "vecrv_inferred_tev": 181371.05,
+      "tx_count": 4
+    },
+    {
+      "date": "2025-07-16",
+      "crvusd_to_treasury": 23129.58,
+      "vecrv_inferred_tev": 208166.23,
+      "tx_count": 3
+    },
+    {
+      "date": "2025-07-23",
+      "crvusd_to_treasury": 9250.09,
+      "vecrv_inferred_tev": 83250.77,
+      "tx_count": 4
+    },
+    {
+      "date": "2025-07-30",
+      "crvusd_to_treasury": 63003.78,
+      "vecrv_inferred_tev": 567033.99,
+      "tx_count": 3
+    },
+    {
+      "date": "2025-08-06",
+      "crvusd_to_treasury": 27190.79,
+      "vecrv_inferred_tev": 244717.08,
+      "tx_count": 2
+    },
+    {
+      "date": "2025-08-13",
+      "crvusd_to_treasury": 26297.99,
+      "vecrv_inferred_tev": 236681.95,
+      "tx_count": 4
+    },
+    {
+      "date": "2025-08-20",
+      "crvusd_to_treasury": 26843.93,
+      "vecrv_inferred_tev": 241595.36,
+      "tx_count": 1
+    },
+    {
+      "date": "2025-08-27",
+      "crvusd_to_treasury": 34077.23,
+      "vecrv_inferred_tev": 306695.09,
+      "tx_count": 5
+    },
+    {
+      "date": "2025-09-03",
+      "crvusd_to_treasury": 22828.37,
+      "vecrv_inferred_tev": 205455.31,
+      "tx_count": 3
+    },
+    {
+      "date": "2025-09-10",
+      "crvusd_to_treasury": 20719.59,
+      "vecrv_inferred_tev": 186476.28,
+      "tx_count": 9
+    },
+    {
+      "date": "2025-09-17",
+      "crvusd_to_treasury": 20625.2,
+      "vecrv_inferred_tev": 185626.8,
+      "tx_count": 11
+    },
+    {
+      "date": "2025-09-24",
+      "crvusd_to_treasury": 27394.84,
+      "vecrv_inferred_tev": 246553.53,
+      "tx_count": 20
+    },
+    {
+      "date": "2025-10-01",
+      "crvusd_to_treasury": 31242.83,
+      "vecrv_inferred_tev": 281185.44,
+      "tx_count": 11
+    },
+    {
+      "date": "2025-10-08",
+      "crvusd_to_treasury": 27528.66,
+      "vecrv_inferred_tev": 247757.9,
+      "tx_count": 17
+    },
+    {
+      "date": "2025-10-15",
+      "crvusd_to_treasury": 40000.14,
+      "vecrv_inferred_tev": 360001.27,
+      "tx_count": 2
+    },
+    {
+      "date": "2025-10-22",
+      "crvusd_to_treasury": 20793.88,
+      "vecrv_inferred_tev": 187144.95,
+      "tx_count": 13
+    },
+    {
+      "date": "2025-10-29",
+      "crvusd_to_treasury": 29057.27,
+      "vecrv_inferred_tev": 261515.43,
+      "tx_count": 13
+    },
+    {
+      "date": "2025-11-05",
+      "crvusd_to_treasury": 21584.74,
+      "vecrv_inferred_tev": 194262.64,
+      "tx_count": 11
+    },
+    {
+      "date": "2025-11-12",
+      "crvusd_to_treasury": 35219.02,
+      "vecrv_inferred_tev": 316971.14,
+      "tx_count": 7
+    },
+    {
+      "date": "2025-11-19",
+      "crvusd_to_treasury": 27026.67,
+      "vecrv_inferred_tev": 243240.07,
+      "tx_count": 13
+    },
+    {
+      "date": "2025-11-26",
+      "crvusd_to_treasury": 28902.72,
+      "vecrv_inferred_tev": 260124.5,
+      "tx_count": 11
+    },
+    {
+      "date": "2025-12-03",
+      "crvusd_to_treasury": 10870.04,
+      "vecrv_inferred_tev": 97830.38,
+      "tx_count": 5
+    },
+    {
+      "date": "2025-12-10",
+      "crvusd_to_treasury": 10392.03,
+      "vecrv_inferred_tev": 93528.25,
+      "tx_count": 2
+    },
+    {
+      "date": "2025-12-17",
+      "crvusd_to_treasury": 12598.09,
+      "vecrv_inferred_tev": 113382.81,
+      "tx_count": 15
+    },
+    {
+      "date": "2025-12-24",
+      "crvusd_to_treasury": 12056.97,
+      "vecrv_inferred_tev": 108512.77,
+      "tx_count": 13
+    },
+    {
+      "date": "2025-12-31",
+      "crvusd_to_treasury": 6427.77,
+      "vecrv_inferred_tev": 57849.97,
+      "tx_count": 13
+    },
+    {
+      "date": "2026-01-07",
+      "crvusd_to_treasury": 10975.1,
+      "vecrv_inferred_tev": 98775.9,
+      "tx_count": 27
+    },
+    {
+      "date": "2026-01-14",
+      "crvusd_to_treasury": 12649.24,
+      "vecrv_inferred_tev": 113843.13,
+      "tx_count": 25
+    },
+    {
+      "date": "2026-01-21",
+      "crvusd_to_treasury": 13991.07,
+      "vecrv_inferred_tev": 125919.63,
+      "tx_count": 24
+    },
+    {
+      "date": "2026-01-28",
+      "crvusd_to_treasury": 27657.31,
+      "vecrv_inferred_tev": 248915.8,
+      "tx_count": 22
+    },
+    {
+      "date": "2026-02-04",
+      "crvusd_to_treasury": 52778.58,
+      "vecrv_inferred_tev": 475007.25,
+      "tx_count": 27
+    },
+    {
+      "date": "2026-02-11",
+      "crvusd_to_treasury": 35896.49,
+      "vecrv_inferred_tev": 323068.43,
+      "tx_count": 35
+    },
+    {
+      "date": "2026-02-18",
+      "crvusd_to_treasury": 9635.14,
+      "vecrv_inferred_tev": 86716.29,
+      "tx_count": 18
+    },
+    {
+      "date": "2026-02-25",
+      "crvusd_to_treasury": 8718.11,
+      "vecrv_inferred_tev": 78463.0,
+      "tx_count": 17
+    },
+    {
+      "date": "2026-03-04",
+      "crvusd_to_treasury": 12206.43,
+      "vecrv_inferred_tev": 109857.91,
+      "tx_count": 14
+    },
+    {
+      "date": "2026-03-11",
+      "crvusd_to_treasury": 8837.9,
+      "vecrv_inferred_tev": 79541.14,
+      "tx_count": 15
+    },
+    {
+      "date": "2026-03-18",
+      "crvusd_to_treasury": 8914.84,
+      "vecrv_inferred_tev": 80233.52,
+      "tx_count": 9
+    },
+    {
+      "date": "2026-03-25",
+      "crvusd_to_treasury": 12960.63,
+      "vecrv_inferred_tev": 116645.69,
+      "tx_count": 9
+    },
+    {
+      "date": "2026-04-01",
+      "crvusd_to_treasury": 5534.4,
+      "vecrv_inferred_tev": 49809.6,
+      "tx_count": 9
+    },
+    {
+      "date": "2026-04-08",
+      "crvusd_to_treasury": 7429.65,
+      "vecrv_inferred_tev": 66866.83,
+      "tx_count": 8
+    },
+    {
+      "date": "2026-04-15",
+      "crvusd_to_treasury": 8679.01,
+      "vecrv_inferred_tev": 78111.09,
+      "tx_count": 11
+    },
+    {
+      "date": "2026-04-22",
+      "crvusd_to_treasury": 19725.27,
+      "vecrv_inferred_tev": 177527.42,
+      "tx_count": 4
+    },
+    {
+      "date": "2026-04-29",
+      "crvusd_to_treasury": 13575.01,
+      "vecrv_inferred_tev": 122175.08,
+      "tx_count": 4
+    },
+    {
+      "date": "2026-05-06",
+      "crvusd_to_treasury": 7023.09,
+      "vecrv_inferred_tev": 63207.83,
+      "tx_count": 7
+    },
+    {
+      "date": "2026-05-13",
+      "crvusd_to_treasury": 11673.92,
+      "vecrv_inferred_tev": 105065.3,
+      "tx_count": 13
+    },
+    {
+      "date": "2026-05-20",
+      "crvusd_to_treasury": 18675.23,
+      "vecrv_inferred_tev": 168077.11,
+      "tx_count": 17
+    },
+    {
+      "date": "2026-05-27",
+      "crvusd_to_treasury": 13271.81,
+      "vecrv_inferred_tev": 119446.28,
+      "tx_count": 14
+    },
+    {
+      "date": "2026-06-03",
+      "crvusd_to_treasury": 13098.21,
+      "vecrv_inferred_tev": 117883.92,
+      "tx_count": 11
+    },
+    {
+      "date": "2026-06-10",
+      "crvusd_to_treasury": 20975.32,
+      "vecrv_inferred_tev": 188777.85,
+      "tx_count": 12
+    },
+    {
+      "date": "2026-06-17",
+      "crvusd_to_treasury": 20169.86,
+      "vecrv_inferred_tev": 181528.75,
+      "tx_count": 10
+    },
+    {
+      "date": "2026-06-24",
+      "crvusd_to_treasury": 7075.84,
+      "vecrv_inferred_tev": 63682.57,
+      "tx_count": 8
+    },
+    {
+      "date": "2026-06-30",
+      "crvusd_to_treasury": 270246.59,
+      "vecrv_inferred_tev": 2432219.28,
+      "tx_count": 1
+    },
+    {
+      "date": "2026-07-01",
+      "crvusd_to_treasury": 7911.05,
+      "vecrv_inferred_tev": 71199.47,
+      "tx_count": 14
+    }
+  ],
   "summary": {
     "7d": {
-      "treasury_crvusd": 0,
-      "vecrv_tev_usd": 0,
-      "annualized_usd": 0,
-      "yield_pct_nominal": 0.0,
-      "yield_pct_vecrv_only": 0.0
+      "treasury_crvusd": 278158,
+      "vecrv_tev_usd": 2503419,
+      "annualized_usd": 130535407,
+      "yield_pct_nominal": 40.38,
+      "yield_pct_vecrv_only": 72.24
     },
     "30d": {
-      "treasury_crvusd": 0,
-      "vecrv_tev_usd": 0,
-      "annualized_usd": 0,
-      "yield_pct_nominal": 0.0,
-      "yield_pct_vecrv_only": 0.0
+      "treasury_crvusd": 326379,
+      "vecrv_tev_usd": 2937408,
+      "annualized_usd": 35738463,
+      "yield_pct_nominal": 11.06,
+      "yield_pct_vecrv_only": 19.78
     },
     "90d": {
-      "treasury_crvusd": 0,
-      "vecrv_tev_usd": 0,
-      "annualized_usd": 0,
-      "yield_pct_nominal": 0.0,
-      "yield_pct_vecrv_only": 0.0
+      "treasury_crvusd": 439530,
+      "vecrv_tev_usd": 3955769,
+      "annualized_usd": 16042840,
+      "yield_pct_nominal": 4.96,
+      "yield_pct_vecrv_only": 8.88
     },
     "365d": {
-      "treasury_crvusd": 0,
-      "vecrv_tev_usd": 0,
-      "annualized_usd": 0,
-      "yield_pct_nominal": 0.0,
-      "yield_pct_vecrv_only": 0.0
+      "treasury_crvusd": 1295500,
+      "vecrv_tev_usd": 11659497,
+      "annualized_usd": 11659497,
+      "yield_pct_nominal": 3.61,
+      "yield_pct_vecrv_only": 6.45
     }
   },
   "caveats": [
