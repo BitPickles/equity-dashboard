@@ -131,7 +131,7 @@
   "tev_data": {
     "has_tev": true,
     "tev_yield_percent": 0.67,
-    "market_cap_usd": 1982458744.557712,
+    "market_cap_usd": 1915382623.1558867,
     "calculation_date": "2026-07-06",
     "sources": [
       {
@@ -152,7 +152,7 @@
       "burn_365d_uni": 4246003,
       "retro_events_count": 1,
       "retro_total_uni": 100000000,
-      "uni_price_usd": 3.13,
+      "uni_price_usd": 3.02,
       "data_days": 169,
       "data_range": {
         "start": "2025-06-07",
@@ -191,19 +191,19 @@
   },
   "tevRatio": 1,
   "earning_yield_percent": 0.67,
-  "market_cap_usd": 1982458744.557712,
+  "market_cap_usd": 1915382623.1558867,
   "tev_yield_percent": 0.67,
   "metrics": {
-    "trailing_7d_revenue_usd": 300391,
-    "trailing_30d_revenue_usd": 1207821,
-    "trailing_90d_revenue_usd": 4699863,
+    "trailing_7d_revenue_usd": 290227,
+    "trailing_30d_revenue_usd": 1166955,
+    "trailing_90d_revenue_usd": 4540844,
     "tev_yield_7d_ann": 0.79,
     "tev_yield_30d_ann": 0.74,
     "tev_yield_90d_ann": 0.96,
     "earning_yield_7d_ann": 0.79,
     "earning_yield_30d_ann": 0.74,
     "earning_yield_90d_ann": 0.96,
-    "trailing_365d_revenue_usd": 13286043,
+    "trailing_365d_revenue_usd": 12836512,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0.79,
     "dividend_yield_30d_ann": 0,
