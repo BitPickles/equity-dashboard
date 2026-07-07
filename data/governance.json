@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-06T13:08:56.005267+00:00",
-  "total": 237,
-  "active_count": 29,
-  "passed_count": 208,
-  "tev_related": 60,
+  "updated_at": "2026-07-07T01:10:15.912840+00:00",
+  "total": 245,
+  "active_count": 38,
+  "passed_count": 207,
+  "tev_related": 63,
   "monitored_protocols": 19,
   "protocols_meta": {
     "Aave": {
@@ -130,6 +130,34 @@
     }
   },
   "proposals": [
+    {
+      "source": "Snapshot",
+      "protocol": "Aave",
+      "title": "[ARFC] Launch sGHO Cross-Chain",
+      "status": "active",
+      "link": "https://snapshot.org/#/aavedao.eth/proposal/0xb1d38e7e1ba56f867badf45154f949d3366c86f7043931482af944d2779168a6",
+      "created": 1783286306,
+      "end": 1783631906,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "This proposal defines the cross-chain deployment strategy for sGHO, extending the savings product introduced in the sGHO Launch Configuration ARFC to Layer 2 networks. The design maintains a single ERC-4626 vault on Ethereum mainnet as the sole sourc",
+      "summary_zh": "Aave治理提案：[ARFC] 推出sGHO跨链部署。此提案定义sGHO的跨链部署策略，将sGHO启动配置ARFC中引入的储蓄产品扩展至Layer 2网络。设计维持以太坊主网上单一ERC-4626保险库作为唯一来源。",
+      "analysis_zh": ""
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Aave",
+      "title": "[ARFC] Aave Risk Framework",
+      "status": "active",
+      "link": "https://snapshot.org/#/aavedao.eth/proposal/0xe40b377bd4a207aaaaf126738e6e0bc18f16f65a34802c3f143697b2d90666ac",
+      "created": 1783284462,
+      "end": 1783630062,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "This framework sets the risk standard that governs every asset on Aave V3, V4, and Aave Horizon. It is binding at onboarding, at every quarterly due diligence refresh, at every material-change re-evaluation, and at every parameter or deprecation deci",
+      "summary_zh": "[ARFC] Aave风险框架规定Aave V3、V4和Aave Horizon上所有资产的风险标准。该框架在资产加入、每季度尽职调查更新、重大变更重新评估以及参数或弃用决策时均具约束力。",
+      "analysis_zh": ""
+    },
     {
       "source": "Snapshot",
       "protocol": "Aave",
@@ -2210,6 +2238,93 @@
     {
       "source": "Snapshot",
       "protocol": "Spark",
+      "title": "[Robinhood Chain] Spark Liquidity Layer - Activate SLL and Spark Savings Infrastructure and Enable USDG Bridging to Robinhood Chain",
+      "status": "active",
+      "link": "https://snapshot.org/#/sparkfi.eth/proposal/0xd177bc28b65afb23dc39a5e7cfdded7084b3b722b230e08d7067b68fa0f4486a",
+      "created": 1783355263,
+      "end": 1783614463,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": ">\n> - Spark Liquidity Layer roles (Robinhood Chain)\n>   - Backstop relayer: 2/5 gnosis safe matching configuration on Ethereum - to be deployed\n>   - Freezer: 2/4 gnosis safe matching configuration on Ethereum - to be deployed\n> - Spark Savings (spUS",
+      "summary_zh": "Spark协议：[Robinhood Chain] Spark流动性层 - 激活SLL和Spark储蓄基础设施，并启用USDG与Robinhood Chain的桥接\n摘要：\n- Spark流动性层角色（Robinhood Chain）\n  - 后备中继器：2/5 Gnosis Safe匹配配置在以太坊上 - 将部署\n  - 冻结器：2/4 Gnosis Safe匹配配置在以太坊上 - 将部署\n- Spark储蓄（spUSDC、spUSDT、spUSDP）",
+      "analysis_zh": ""
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Spark",
+      "title": "[Ethereum] Spark Treasury - USDS Transfer to Spark Foundation for Incentives",
+      "status": "active",
+      "link": "https://snapshot.org/#/sparkfi.eth/proposal/0x2df281a276e0c17eff9a05e65bfc05937c2f600edec1a82386a6efb6dbe9d63d",
+      "created": 1783354619,
+      "end": 1783613819,
+      "tev_related": true,
+      "tev_keywords": [
+        "treasury"
+      ],
+      "summary_en": ">\n> - USDS transfer from Spark SubDAO Proxy to Spark Foundation\n>   - Transfer amount: 2,000,000 USDS\n>   - Recipient: to be confirmed (4-of-5 Gnosis Safe multisig).",
+      "summary_zh": "Spark协议治理提案：2023年X月X日，Spark SubDAO Proxy将200万USDS转至Spark Foundation，用于激励，接收方待确认（4-of-5 Gnosis Safe多重签名）。"
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Spark",
+      "title": "[Ethereum] Spark Treasury - USDS Transfer to Spark Assets Foundation for Anchorage Fees",
+      "status": "active",
+      "link": "https://snapshot.org/#/sparkfi.eth/proposal/0x3cb4165f1357d553445b0de790e4e8b4a71358f42f39d35f7de51b308ade558c",
+      "created": 1783354579,
+      "end": 1783613779,
+      "tev_related": true,
+      "tev_keywords": [
+        "fee",
+        "treasury"
+      ],
+      "summary_en": ">\n> - USDS transfer from Spark SubDAO Proxy to Spark Assets Foundation\n>   - Transfer amount: 500,000 USDS\n>   - Recipient: to be confirmed (4-of-5 Gnosis Safe multisig).",
+      "summary_zh": "协议：Spark\n标题：[以太坊] Spark 财务库 - 将 500,000 USDS 转移至 Spark 资产基金会用于锚定费\n摘要：将 500,000 USDS 从 Spark 子 DAO 代理转移至 Spark 资产基金会，接收方待确认（4-of-5 Gnosis Safe 多签）。"
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Spark",
+      "title": "[Ethereum] Spark Liquidity Layer - Transfer USDS to Grove",
+      "status": "active",
+      "link": "https://snapshot.org/#/sparkfi.eth/proposal/0x451bb53f80ad2906ff06cc3d03c88a6b09f350db371c4782e0621e26a1d55a43",
+      "created": 1783354501,
+      "end": 1783613701,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": ">\n> - Mint USDS to ALM Proxy and transfer to Grove\n>   - Recipient: `0x491EDFB0B8b608044e227225C715981a30F3A44E` (Grove Liquidity Layer ALM Proxy)\n>   - Amount: 85,943,747.637271  syrupUSDC/USDC conversion rate at time of execution, in USDS.",
+      "summary_zh": "Spark协议：[Ethereum] Spark流动性层 - 将USDS转移到Grove\n摘要：将85,943,747.637271 USDS以执行时的syrupUSDC/USDC转换率，从ALM代理地址`0x491EDFB0B8b608044e227225C715981a30F3A44E`（Grove流动性层ALM代理）铸造并转移至Grove。",
+      "analysis_zh": ""
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Spark",
+      "title": "[Ethereum] Spark Liquidity Layer - Deactivate Old USDT Morpho V2 Vault",
+      "status": "active",
+      "link": "https://snapshot.org/#/sparkfi.eth/proposal/0xf99372ccca4b99dd04dc0ddb038e949b62f4d25810b0203572dc90bce025e805",
+      "created": 1783354414,
+      "end": 1783613614,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": ">\n> - Remove the deprecated USDT Morpho V2 vault from the Spark Liquidity Layer (full deprecation)\n>   - Deposit and withdrawal rate limits\n>     - `maxAmount`: 0\n>     - `slope`: 0.",
+      "summary_zh": "协议：Spark\n标题：[以太坊] Spark流动性层 - 禁用旧USDT Morpho V2保险库\n摘要：\n- 从Spark流动性层完全移除已弃用的USDT Morpho V2保险库\n- 存款和提款速率限制\n  - `maxAmount`: 0\n  - `slope`: 0",
+      "analysis_zh": ""
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Spark",
+      "title": "[Ethereum, X Layer] Spark Savings, Spark Liquidity Layer - Deploy spUSDT, Enable USDT Bridging to X Layer",
+      "status": "active",
+      "link": "https://snapshot.org/#/sparkfi.eth/proposal/0xdde478db4ba5882a5d48d19fdbae057fd703688e4f1e16fb673407fc08476a9f",
+      "created": 1783354339,
+      "end": 1783613539,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": ">\n> - spUSDT parameters\n>   - Default admin: governance (Spark Executor on X Layer) - to be deployed\n>   - Setter: ALM Proxy Freezable - to be deployed\n>   - Taker: ALM Proxy on X Layer - to be deployed\n>   - Max yield: 6%\n>   - Current yield (at lau",
+      "summary_zh": "协议：Spark\n标题：[以太坊，X 层] Spark 储蓄，Spark 流动性层 - 部署 spUSDT，启用 USDT 至 X 层桥接\n摘要：\n- spUSDT 参数\n  - 默认管理员：治理（X 层 Spark 执行器）- 将部署\n  - 设置者：ALM 代理可冻结 - 将部署\n  - 采取者：X 层 ALM 代理 - 将部署\n  - 最大收益：6%\n  - 当前收益（在上线时）",
+      "analysis_zh": ""
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Spark",
       "title": "[Ethereum] Spark USDT Morpho V2 Vault Allocator Updates",
       "status": "passed",
       "link": "https://snapshot.org/#/sparkfi.eth/proposal/0x5926137d1131bd8c2d0fcbf121ef0dba29b7897695efae666720db4c1f4d81d2",
@@ -3214,6 +3329,21 @@
     {
       "source": "Sky Polling",
       "protocol": "Sky (MakerDAO)",
+      "title": "Atlas Edit Weekly Cycle Proposal - July 6, 2026",
+      "status": "active",
+      "link": "https://vote.makerdao.com/polling/QmUnVyGg",
+      "created": "2026-07-06T16:00:00",
+      "end": "2026-07-09T16:00:00",
+      "tev_related": true,
+      "tev_keywords": [
+        "distribution"
+      ],
+      "summary_en": "This Atlas edit proposal 1) adds the Shared Diamond PAU Framework, 2) prepares the Osero Artifact for the July 16 Spell, 3) prepares the Grove Artifact for the July 16 Spell, 4) clarifies the Peg Defense Obligation calculation basis, 5) terminates th",
+      "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas编辑每周周期提案 - 2026年7月6日\n摘要：本提案1）增加共享钻石PAU框架，2）为7月16日的Spell准备Osero神器，3）为7月16日的Spell准备Grove神器，4）明确Peg防御义务的计算依据，5）终止..."
+    },
+    {
+      "source": "Sky Polling",
+      "protocol": "Sky (MakerDAO)",
       "title": "Atlas Edit Weekly Cycle Proposal - June 29, 2026",
       "status": "passed",
       "link": "https://vote.makerdao.com/polling/Qmd3gCcD",
@@ -3269,20 +3399,6 @@
       "tev_keywords": [],
       "summary_en": "This Atlas edit proposal 1) adds Audit Process, 2) adds USD Stablecoin to USDS swap authorization for Grove, 3) updates documents to reflect a single Core Facilitator, 4) removes duplicate sentences and fixes a broken cross-reference.",
       "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas编辑每周周期提案 - 2026年6月8日\n摘要：本提案1）添加审计流程，2）为Grove添加USDS兑换授权中的USD稳定币，3）更新文件以反映单一核心促进者，4）删除重复句子并修复断开的交叉引用。",
-      "analysis_zh": ""
-    },
-    {
-      "source": "Sky Polling",
-      "protocol": "Sky (MakerDAO)",
-      "title": "Atlas Edit Weekly Cycle Proposal - June 1, 2026",
-      "status": "passed",
-      "link": "https://vote.makerdao.com/polling/QmQUKfNW",
-      "created": "2026-06-01T16:00:00",
-      "end": "2026-06-04T16:00:00",
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "This Atlas edit proposal 1) unifies reward recipient and sharing across Sky Primitive reward mechanisms, 2) renames Capital Requirement Ratio to Capital Ratio Requirement, 3) removes irrelevant Facilitator Ecosystem exemptions, 4) amends Circle CCTP ",
-      "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas编辑每周周期提案 - 2026年6月1日\n摘要：本提案1）统一Sky原始奖励机制中的奖励接收和分享，2）将资本要求比率更名为资本比率要求，3）移除无关的促进者生态系统豁免，4）修订Circle CCTP。",
       "analysis_zh": ""
     },
     {
