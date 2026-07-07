@@ -1,25 +1,9 @@
 {
-  "updated_at": "2026-07-07T01:11:52.961023Z",
+  "updated_at": "2026-07-07T13:27:13.899636Z",
   "source": "TRONGrid TRC-20 transfers to TRON Black Hole, filtered to JustLend DAO executor",
   "burn_address": "T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",
   "burn_executor": "TZJVQuU3CJqBScwoxhRtkxQ7JjsNNrpEag",
   "jst_contract": "TCFLL5dx5ZJdKnWuesXxi1VPwjLVmWZZy9",
-  "burns": [
-    {
-      "date": "2025-10-19",
-      "jst": 559890753.0,
-      "tx": "471bef34bb013dad46f9f132cd1fbca6bd3de584c54b7190718acd5949d4453d"
-    },
-    {
-      "date": "2026-01-14",
-      "jst": 525000000.0,
-      "tx": "5c7cd68483f1d32aebe1084b3dc9a6b742092bde1153db72b79a866617c14314"
-    },
-    {
-      "date": "2026-04-15",
-      "jst": 271337579.0,
-      "tx": "1e9f55e8ffa8033c238f34f5ebe57f544d424f7016810dd0f1ba792392eeb1e5"
-    }
-  ],
-  "total_burned_jst": 1356228332.0
+  "burns": [],
+  "total_burned_jst": 0
 }

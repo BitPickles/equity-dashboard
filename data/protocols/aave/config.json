@@ -141,10 +141,10 @@
     "earning_yield_90d_ann": 4.4,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 1.67,
-    "dividend_yield_30d_ann": 0.39,
-    "buyback_yield_30d_ann": 1.67,
-    "dividend_yield_90d_ann": 0.17,
-    "buyback_yield_90d_ann": 1.66
+    "dividend_yield_30d_ann": 0,
+    "buyback_yield_30d_ann": 2.06,
+    "dividend_yield_90d_ann": 0,
+    "buyback_yield_90d_ann": 1.83
   },
   "calc_pipeline": [
     {
@@ -205,7 +205,7 @@
       "unit": "%"
     }
   ],
-  "dividend_yield_percent": 1.72,
-  "buyback_yield_percent": 1.67,
+  "dividend_yield_percent": 0,
+  "buyback_yield_percent": 3.39,
   "style": "cash_cow"
 }
