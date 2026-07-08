@@ -87,9 +87,9 @@
   "last_updated": "2026-04-26",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 8.99,
-    "annual_tev_usd": 9813217,
-    "market_cap_usd": 109196245.14,
+    "tev_yield_percent": 8.86,
+    "annual_tev_usd": 9765443,
+    "market_cap_usd": 110208649,
     "calculation_date": "2026-07-08",
     "sources": [
       {
@@ -119,28 +119,28 @@
     "en": "100% fees-to-staker on dYdX Chain (Cosmos) is verifiable, but 75% buyback (Proposal #313) has no public on-chain tracker. ethDYDX bridge closed."
   },
   "tevRatio": 0.75,
-  "earning_yield_percent": 8.99,
-  "market_cap_usd": 109196245.14,
-  "tev_yield_percent": 8.99,
+  "earning_yield_percent": 8.86,
+  "market_cap_usd": 110208649,
+  "tev_yield_percent": 8.86,
   "metrics": {
-    "current_market_cap_usd": 109196245.14,
-    "trailing_365d_revenue_usd": 9813217,
-    "trailing_30d_revenue_usd": 154775,
-    "trailing_365d_tev_usd": 9813217,
-    "trailing_30d_tev_usd": 817768.0833333334,
-    "trailing_7d_revenue_usd": 58359,
-    "trailing_90d_revenue_usd": 648529,
-    "tev_yield_7d_ann": 2.79,
-    "tev_yield_30d_ann": 1.72,
-    "tev_yield_90d_ann": 2.41,
-    "earning_yield_7d_ann": 2.79,
-    "earning_yield_30d_ann": 1.72,
-    "earning_yield_90d_ann": 2.41,
-    "dividend_yield_7d_ann": 2.79,
+    "current_market_cap_usd": 110208649,
+    "trailing_365d_revenue_usd": 9765443,
+    "trailing_30d_revenue_usd": 167110,
+    "trailing_365d_tev_usd": 9765443,
+    "trailing_30d_tev_usd": 813786.9166666666,
+    "trailing_7d_revenue_usd": 70109,
+    "trailing_90d_revenue_usd": 661696,
+    "tev_yield_7d_ann": 3.32,
+    "tev_yield_30d_ann": 1.84,
+    "tev_yield_90d_ann": 2.43,
+    "earning_yield_7d_ann": 3.32,
+    "earning_yield_30d_ann": 1.84,
+    "earning_yield_90d_ann": 2.43,
+    "dividend_yield_7d_ann": 3.32,
     "buyback_yield_7d_ann": 0,
-    "dividend_yield_30d_ann": 1.72,
+    "dividend_yield_30d_ann": 1.84,
     "buyback_yield_30d_ann": 0,
-    "dividend_yield_90d_ann": 2.41,
+    "dividend_yield_90d_ann": 2.43,
     "buyback_yield_90d_ann": 0
   },
   "calc_pipeline": [
@@ -200,7 +200,7 @@
       "unit": "%"
     }
   ],
-  "dividend_yield_percent": 8.99,
+  "dividend_yield_percent": 8.86,
   "buyback_yield_percent": 0,
   "style": "cash_cow"
 }

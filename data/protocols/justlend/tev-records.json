@@ -1,6 +1,6 @@
 {
   "protocol": "justlend",
-  "updated_at": "2026-07-08T01:12:16.897274Z",
+  "updated_at": "2026-07-08T13:12:32.922423Z",
   "data_source": "TRONGrid TRC-20 transfers × CoinGecko JST price",
   "records": [
     {
@@ -9,7 +9,7 @@
       "type": "buyback_burn",
       "mechanism": "JustLend DAO Buyback & Burn (Quarterly)",
       "amount_jst": 559890753.0,
-      "amount_usd": 52313393,
+      "amount_usd": 53441012,
       "period": "2025-10-19",
       "tx": "471bef34bb013dad46f9f132cd1fbca6bd3de584c54b7190718acd5949d4453d",
       "source": {
@@ -24,7 +24,7 @@
       "type": "buyback_burn",
       "mechanism": "JustLend DAO Buyback & Burn (Quarterly)",
       "amount_jst": 525000000.0,
-      "amount_usd": 49053375,
+      "amount_usd": 50110725,
       "period": "2026-01-14",
       "tx": "5c7cd68483f1d32aebe1084b3dc9a6b742092bde1153db72b79a866617c14314",
       "source": {
@@ -39,7 +39,7 @@
       "type": "buyback_burn",
       "mechanism": "JustLend DAO Buyback & Burn (Quarterly)",
       "amount_jst": 271337579.0,
-      "amount_usd": 25352427,
+      "amount_usd": 25898901,
       "period": "2026-04-15",
       "tx": "1e9f55e8ffa8033c238f34f5ebe57f544d424f7016810dd0f1ba792392eeb1e5",
       "source": {
