@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-07-08T01:09:58.273689+00:00",
-  "total": 247,
-  "active_count": 41,
+  "updated_at": "2026-07-08T13:10:42.964764+00:00",
+  "total": 248,
+  "active_count": 42,
   "passed_count": 206,
   "tev_related": 65,
   "monitored_protocols": 19,
@@ -130,6 +130,20 @@
     }
   },
   "proposals": [
+    {
+      "source": "Snapshot",
+      "protocol": "Aave",
+      "title": "[TEMP CHECK] Deploy a Dedicated Aave V4 Whitelabel Instance fully managed by EtherFi on OP",
+      "status": "active",
+      "link": "https://snapshot.org/#/aavedao.eth/proposal/0xf4019e2bfcf1c15460957fa47078402edd10af000139725178f34b6a50b476f8",
+      "created": 1783428034,
+      "end": 1783773634,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "EtherFi requests that a dedicated, EtherFi operated Aave V4 hub on OP Mainnet is deployed to serve as the credit backend for EtherFi Cash, our Visa card product used by tens of thousands of cardholders. This instance would replace the bespoke borrow/",
+      "summary_zh": "Aave协议，标题：[TEMP CHECK] 在OP主网上部署由EtherFi完全管理的专用Aave V4白标实例，摘要：EtherFi请求在OP主网上部署一个由EtherFi运营的专用Aave V4中心，作为EtherFi Cash信用卡产品的信用后端，服务于数万名持卡人。此实例将取代定制化的借款/",
+      "analysis_zh": ""
+    },
     {
       "source": "Snapshot",
       "protocol": "Aave",
