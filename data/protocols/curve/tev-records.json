@@ -1,6 +1,6 @@
 {
   "protocol": "curve",
-  "updated_at": "2026-07-09T01:14:19.183Z",
+  "updated_at": "2026-07-09T13:14:16.841Z",
   "data_source": "DefiLlama API (dailyHoldersRevenue)",
   "data_source_url": "https://api.llama.fi/summary/fees/curve-finance?dataType=dailyHoldersRevenue",
   "records": [
@@ -927,7 +927,7 @@
       "date": "2026-03-01",
       "type": "aggregate",
       "mechanism": "veCRV Fee Distribution",
-      "amount_usd": 1921756,
+      "amount_usd": 2119532,
       "period": "2026-03",
       "days_with_data": 31,
       "source": {
@@ -944,7 +944,7 @@
       "date": "2026-04-01",
       "type": "aggregate",
       "mechanism": "veCRV Fee Distribution",
-      "amount_usd": 1658303,
+      "amount_usd": 2090403,
       "period": "2026-04",
       "days_with_data": 30,
       "source": {
@@ -961,7 +961,7 @@
       "date": "2026-05-01",
       "type": "aggregate",
       "mechanism": "veCRV Fee Distribution",
-      "amount_usd": 2034436,
+      "amount_usd": 1712224,
       "period": "2026-05",
       "days_with_data": 31,
       "source": {
@@ -978,7 +978,7 @@
       "date": "2026-06-01",
       "type": "aggregate",
       "mechanism": "veCRV Fee Distribution",
-      "amount_usd": 1271122,
+      "amount_usd": 1318891,
       "period": "2026-06",
       "days_with_data": 30,
       "source": {
@@ -995,9 +995,9 @@
       "date": "2026-07-01",
       "type": "aggregate",
       "mechanism": "veCRV Fee Distribution",
-      "amount_usd": 169208,
+      "amount_usd": 498840,
       "period": "2026-07",
-      "days_with_data": 8,
+      "days_with_data": 9,
       "source": {
         "type": "api",
         "provider": "DefiLlama",
@@ -1005,14 +1005,14 @@
         "data_type": "dailyHoldersRevenue",
         "methodology": "Fees distributed to veCRV governance token holders"
       },
-      "notes": "Monthly aggregate from 8 days of data"
+      "notes": "Monthly aggregate from 9 days of data"
     }
   ],
   "summary": {
-    "total_tev_usd": 165691154,
-    "total_30d_usd": 990695,
+    "total_tev_usd": 166376219,
+    "total_30d_usd": 1206234,
     "by_mechanism": {
-      "ve_reward": 165691154
+      "ve_reward": 166376219
     },
     "by_period": {
       "2020-Q4": 202505,
@@ -1033,9 +1033,9 @@
       "2025-Q2": 2957482,
       "2025-Q3": 3966657,
       "2025-Q4": 2519274,
-      "2026-Q1": 7379708,
-      "2026-Q2": 4963861,
-      "2026-Q3": 169208
+      "2026-Q1": 7577484,
+      "2026-Q2": 5121518,
+      "2026-Q3": 498840
     }
   }
 }
