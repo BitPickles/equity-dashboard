@@ -87,10 +87,10 @@
   "last_updated": "2026-04-26",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 8.86,
+    "tev_yield_percent": 8.18,
     "annual_tev_usd": 9765443,
-    "market_cap_usd": 110208649,
-    "calculation_date": "2026-07-08",
+    "market_cap_usd": 119377921.33,
+    "calculation_date": "2026-07-09",
     "sources": [
       {
         "name": "DefiLlama dailyHoldersRevenue",
@@ -119,28 +119,28 @@
     "en": "100% fees-to-staker on dYdX Chain (Cosmos) is verifiable, but 75% buyback (Proposal #313) has no public on-chain tracker. ethDYDX bridge closed."
   },
   "tevRatio": 0.75,
-  "earning_yield_percent": 8.86,
-  "market_cap_usd": 110208649,
-  "tev_yield_percent": 8.86,
+  "earning_yield_percent": 8.18,
+  "market_cap_usd": 119377921.33,
+  "tev_yield_percent": 8.18,
   "metrics": {
-    "current_market_cap_usd": 110208649,
+    "current_market_cap_usd": 119377921.33,
     "trailing_365d_revenue_usd": 9765443,
     "trailing_30d_revenue_usd": 167110,
     "trailing_365d_tev_usd": 9765443,
     "trailing_30d_tev_usd": 813786.9166666666,
     "trailing_7d_revenue_usd": 70109,
     "trailing_90d_revenue_usd": 661696,
-    "tev_yield_7d_ann": 3.32,
-    "tev_yield_30d_ann": 1.84,
-    "tev_yield_90d_ann": 2.43,
-    "earning_yield_7d_ann": 3.32,
-    "earning_yield_30d_ann": 1.84,
-    "earning_yield_90d_ann": 2.43,
-    "dividend_yield_7d_ann": 3.32,
+    "tev_yield_7d_ann": 3.06,
+    "tev_yield_30d_ann": 1.7,
+    "tev_yield_90d_ann": 2.25,
+    "earning_yield_7d_ann": 3.06,
+    "earning_yield_30d_ann": 1.7,
+    "earning_yield_90d_ann": 2.25,
+    "dividend_yield_7d_ann": 3.06,
     "buyback_yield_7d_ann": 0,
-    "dividend_yield_30d_ann": 1.84,
+    "dividend_yield_30d_ann": 1.7,
     "buyback_yield_30d_ann": 0,
-    "dividend_yield_90d_ann": 2.43,
+    "dividend_yield_90d_ann": 2.25,
     "buyback_yield_90d_ann": 0
   },
   "calc_pipeline": [
@@ -200,7 +200,7 @@
       "unit": "%"
     }
   ],
-  "dividend_yield_percent": 8.86,
+  "dividend_yield_percent": 8.18,
   "buyback_yield_percent": 0,
   "style": "cash_cow"
 }
