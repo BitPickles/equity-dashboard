@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-10T01:09:51.474238+00:00",
-  "total": 240,
+  "updated_at": "2026-07-10T13:15:41.943395+00:00",
+  "total": 241,
   "active_count": 33,
-  "passed_count": 207,
+  "passed_count": 208,
   "tev_related": 65,
   "monitored_protocols": 19,
   "protocols_meta": {
@@ -130,6 +130,20 @@
     }
   },
   "proposals": [
+    {
+      "source": "Snapshot",
+      "protocol": "Aave",
+      "title": "[ARFC] Technical Asset Listing Framework",
+      "status": "active",
+      "link": "https://snapshot.org/#/aavedao.eth/proposal/0x92600751abd36540057b84a808903e3e1a005d78e9ab1eec712ac0574bca7431",
+      "created": 1783581793,
+      "end": 1783927393,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "Aave Labs proposes adopting a standardized Technical Asset Listing Framework for assets seeking listing, continued listing, or material parameter expansion on Aave V3, Aave V4 and Horizon.",
+      "summary_zh": "Aave Labs提议在Aave V3、V4和Horizon上采用标准化的技术资产上市框架，以规范资产上市、持续上市或重大参数扩展流程。",
+      "analysis_zh": ""
+    },
     {
       "source": "Snapshot",
       "protocol": "Aave",
@@ -2720,7 +2734,7 @@
       "source": "dYdX Cosmos",
       "protocol": "dYdX",
       "title": "dYdX Surge Program - Season 15 Distribution",
-      "status": "active",
+      "status": "passed",
       "link": "https://www.mintscan.io/dydx/proposals/390",
       "created": "2026-07-07T12:19:59.991856502Z",
       "end": "2026-07-10T12:19:59.991856502Z",
