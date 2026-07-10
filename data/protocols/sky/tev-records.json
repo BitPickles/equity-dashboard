@@ -1,6 +1,6 @@
 {
   "protocol": "sky",
-  "updated_at": "2026-07-09T13:14:12.151Z",
+  "updated_at": "2026-07-10T01:14:37.870Z",
   "data_source": "DefiLlama API (dailyHoldersRevenue)",
   "data_source_url": "https://api.llama.fi/summary/fees/sky?dataType=dailyHoldersRevenue",
   "records": [
@@ -330,7 +330,7 @@
   ],
   "summary": {
     "total_tev_usd": 159645784,
-    "total_30d_usd": 1116216,
+    "total_30d_usd": 1081018,
     "by_mechanism": {
       "buyback_burn": 159645784
     },

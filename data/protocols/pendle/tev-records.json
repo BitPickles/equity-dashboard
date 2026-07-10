@@ -1,6 +1,6 @@
 {
   "protocol": "pendle",
-  "updated_at": "2026-07-09T13:14:13.736Z",
+  "updated_at": "2026-07-10T01:14:39.439Z",
   "data_source": "DefiLlama API (dailyHoldersRevenue)",
   "data_source_url": "https://api.llama.fi/summary/fees/pendle?dataType=dailyHoldersRevenue",
   "records": [
@@ -570,7 +570,7 @@
       "date": "2026-07-01",
       "type": "aggregate",
       "mechanism": "vePENDLE Revenue Share",
-      "amount_usd": 71288,
+      "amount_usd": 76230,
       "period": "2026-07",
       "days_with_data": 9,
       "source": {
@@ -584,10 +584,10 @@
     }
   ],
   "summary": {
-    "total_tev_usd": 55200952,
-    "total_30d_usd": 651388,
+    "total_tev_usd": 55205894,
+    "total_30d_usd": 655309,
     "by_mechanism": {
-      "ve_reward": 55200952
+      "ve_reward": 55205894
     },
     "by_period": {
       "2023-Q4": 41653,
@@ -601,7 +601,7 @@
       "2025-Q4": 6704445,
       "2026-Q1": 2093283,
       "2026-Q2": 3041169,
-      "2026-Q3": 71288
+      "2026-Q3": 76230
     }
   }
 }

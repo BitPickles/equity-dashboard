@@ -1,24 +1,19 @@
 {
   "protocol": "etherfi",
   "method": "ETHFI inflows to sETHFI staking contract (UPPER BOUND, includes user stakes)",
-  "updated_at": "2026-07-09T13:12:48.264011Z",
+  "updated_at": "2026-07-10T01:13:12.104565Z",
   "ethfi_token": "0xFe0c30065B384F05761f15d0CC899D4F9F9Cc0eB",
   "sethfi_contract": "0x86B5780b606940Eb59A062aA85a07959518c0161",
   "foundation_multisig": "0x7A6A41F353B3002751d94118aA7f4935dA39bB53",
   "foundation_multisig_365d_inflow_ethfi": 0,
   "foundation_multisig_status": "no_buyback_executed_365d",
-  "ethfi_price_usd": 0.419101,
-  "market_cap_usd": 388684068.68102574,
+  "ethfi_price_usd": 0.389315,
+  "market_cap_usd": 360961672.5008306,
   "daily": [
     {
-      "date": "2025-07-09",
-      "ethfi": 3673.981162,
-      "tx_count": 5
-    },
-    {
       "date": "2025-07-10",
-      "ethfi": 12796.870913,
-      "tx_count": 5
+      "ethfi": 7581.723871,
+      "tx_count": 4
     },
     {
       "date": "2025-07-11",
@@ -1827,30 +1822,35 @@
     },
     {
       "date": "2026-07-09",
-      "ethfi": 68445.681673,
-      "tx_count": 2
+      "ethfi": 95031.738552,
+      "tx_count": 3
+    },
+    {
+      "date": "2026-07-10",
+      "ethfi": 764.073665,
+      "tx_count": 1
     }
   ],
   "summary": {
     "7d": {
-      "ethfi": 709764,
-      "usd": 297463,
-      "yield_pct": 3.99
+      "ethfi": 716038,
+      "usd": 278764,
+      "yield_pct": 4.03
     },
     "30d": {
-      "ethfi": 2931555,
-      "usd": 1228618,
-      "yield_pct": 3.85
+      "ethfi": 2721000,
+      "usd": 1059326,
+      "yield_pct": 3.57
     },
     "90d": {
-      "ethfi": 16414931,
-      "usd": 6879514,
-      "yield_pct": 7.18
+      "ethfi": 16429118,
+      "usd": 6396102,
+      "yield_pct": 7.19
     },
     "365d": {
-      "ethfi": 110945275,
-      "usd": 46497276,
-      "yield_pct": 11.96
+      "ethfi": 110959828,
+      "usd": 43198325,
+      "yield_pct": 11.97
     }
   },
   "caveats": [
