@@ -79,8 +79,8 @@
   "tev_data": {
     "has_tev": true,
     "tev_yield_percent": 1.47,
-    "market_cap_usd": 1686420062.3256853,
-    "calculation_date": "2026-07-10",
+    "market_cap_usd": 1680409036.7064583,
+    "calculation_date": "2026-07-11",
     "sources": [
       {
         "name": "DefiLlama holdersRevenue",
@@ -96,7 +96,7 @@
       "buy_30d_aster": 0,
       "buy_90d_aster": 0,
       "buy_365d_aster": 36177482,
-      "aster_price_usd": 0.6855,
+      "aster_price_usd": 0.6831,
       "data_days": 95,
       "data_range": {
         "start": "2025-12-23",
@@ -121,7 +121,7 @@
   },
   "tevRatio": 0.7,
   "earning_yield_percent": 1.47,
-  "market_cap_usd": 1686420062.3256853,
+  "market_cap_usd": 1680409036.7064583,
   "tev_yield_percent": 1.47,
   "metrics": {
     "tev_yield_7d_ann": 0,
@@ -133,7 +133,7 @@
     "trailing_7d_revenue_usd": 0,
     "trailing_30d_revenue_usd": 0,
     "trailing_90d_revenue_usd": 0,
-    "trailing_365d_revenue_usd": 24800989,
+    "trailing_365d_revenue_usd": 24712589,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 0,
