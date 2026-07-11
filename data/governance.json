@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-11T01:09:36.530070+00:00",
+  "updated_at": "2026-07-11T13:13:03.665245+00:00",
   "total": 240,
   "active_count": 32,
   "passed_count": 208,
-  "tev_related": 64,
+  "tev_related": 65,
   "monitored_protocols": 19,
   "protocols_meta": {
     "Aave": {
@@ -148,7 +148,7 @@
       "source": "Snapshot",
       "protocol": "Aave",
       "title": "[TEMP CHECK] Deploy a Dedicated Aave V4 Whitelabel Instance fully managed by EtherFi on OP",
-      "status": "active",
+      "status": "passed",
       "link": "https://snapshot.org/#/aavedao.eth/proposal/0xf4019e2bfcf1c15460957fa47078402edd10af000139725178f34b6a50b476f8",
       "created": 1783428034,
       "end": 1783773634,
@@ -432,17 +432,18 @@
     },
     {
       "source": "Snapshot",
-      "protocol": "Aave",
-      "title": "[ARFC] rsETH Incident Funding Update",
-      "status": "passed",
-      "link": "https://snapshot.org/#/aavedao.eth/proposal/0xb866cbbcb08f094ac815d9be305f167642cd3c0c1ceb6fe78afc4a373dc1243e",
-      "created": 1777302175,
-      "end": 1777647775,
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "This publication presents to the Aave community, for discussion and vote, a proposal to have the Aave DAO provide financial assistance to restore the backing of Kelp DAO’s rsETH product following the April 18, 2026, bridge incident.",
-      "summary_zh": "[ARFC] rsETH事件资金更新提案：本提案提交Aave社区讨论和投票，建议Aave DAO向Kelp DAO的rsETH产品提供资金支持，以恢复其在2026年4月18日桥接事件后的抵押。",
-      "analysis_zh": ""
+      "protocol": "Uniswap",
+      "title": "[Temp Check] Protocol Fee Expansion: Robinhood Chain",
+      "status": "active",
+      "link": "https://snapshot.org/#/uniswapgovernance.eth/proposal/0xc5fd6e916655b293c903b060906c994ff1ff1df348336b3b3e22ceecd2d13d7c",
+      "created": 1783770071,
+      "end": 1784202071,
+      "tev_related": true,
+      "tev_keywords": [
+        "fee"
+      ],
+      "summary_en": "is part of the protocol fee rollout, following proposals_ _93__,_ _94__,_ _95__, and_ _96__. It uses the expedited governance process_ _approved_ _in UNIfication, where fee parameter update proposals can bypass the RFC stage and go directly to a five",
+      "summary_zh": "协议：Uniswap\n标题：[体温检测] 协议费用扩展：Robinhood 链\n摘要：此提案是继提案_93_、_94_、_95_和_96_之后的协议费用实施计划的一部分。它采用在UNIfication中批准的加速治理流程，其中费用参数更新提案可绕过RFC阶段，直接进入五人评审团。"
     },
     {
       "source": "Snapshot",
