@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-10T13:15:41.943395+00:00",
-  "total": 241,
-  "active_count": 33,
+  "updated_at": "2026-07-11T01:09:36.530070+00:00",
+  "total": 240,
+  "active_count": 32,
   "passed_count": 208,
-  "tev_related": 65,
+  "tev_related": 64,
   "monitored_protocols": 19,
   "protocols_meta": {
     "Aave": {
@@ -162,7 +162,7 @@
       "source": "Snapshot",
       "protocol": "Aave",
       "title": "[ARFC] Deploy Aave V4 on Avalanche",
-      "status": "active",
+      "status": "passed",
       "link": "https://snapshot.org/#/aavedao.eth/proposal/0xe5c4a9387ce1096075f2ad5c3840a915ef730a1ad9180118be8bd4b6f10dacfe",
       "created": 1783352194,
       "end": 1783697794,
@@ -443,21 +443,6 @@
       "summary_en": "This publication presents to the Aave community, for discussion and vote, a proposal to have the Aave DAO provide financial assistance to restore the backing of Kelp DAO’s rsETH product following the April 18, 2026, bridge incident.",
       "summary_zh": "[ARFC] rsETH事件资金更新提案：本提案提交Aave社区讨论和投票，建议Aave DAO向Kelp DAO的rsETH产品提供资金支持，以恢复其在2026年4月18日桥接事件后的抵押。",
       "analysis_zh": ""
-    },
-    {
-      "source": "Snapshot",
-      "protocol": "Aave",
-      "title": "[ARFC] Pause AAVE Buybacks",
-      "status": "passed",
-      "link": "https://snapshot.org/#/aavedao.eth/proposal/0x10a2af0110b1ad6f4afd7a3a052b2a119d102cc22949e80e9bbd5132587107c8",
-      "created": 1777280718,
-      "end": 1777626318,
-      "tev_related": true,
-      "tev_keywords": [
-        "buyback"
-      ],
-      "summary_en": "Following the rsETH bridge incident on April 18, 2026, AAVE buybacks have been paused since April 19, 2026. This ARFC formalises the pause and outlines the conditions under which the buyback cadence will be reassessed.",
-      "summary_zh": "[ARFC] 自2026年4月18日rsETH桥接事件后，AAVE回购已自4月19日起暂停。此提案正式化暂停，并明确评估回购节奏的条件。"
     },
     {
       "source": "Snapshot",
