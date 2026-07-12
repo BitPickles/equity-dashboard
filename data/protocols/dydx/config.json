@@ -87,10 +87,10 @@
   "last_updated": "2026-04-26",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 8.92,
+    "tev_yield_percent": 9,
     "annual_tev_usd": 9729459,
-    "market_cap_usd": 109039301.65,
-    "calculation_date": "2026-07-11",
+    "market_cap_usd": 108164370.25,
+    "calculation_date": "2026-07-12",
     "sources": [
       {
         "name": "DefiLlama dailyHoldersRevenue",
@@ -119,28 +119,28 @@
     "en": "100% fees-to-staker on dYdX Chain (Cosmos) is verifiable, but 75% buyback (Proposal #313) has no public on-chain tracker. ethDYDX bridge closed."
   },
   "tevRatio": 0.75,
-  "earning_yield_percent": 8.92,
-  "market_cap_usd": 109039301.65,
-  "tev_yield_percent": 8.92,
+  "earning_yield_percent": 9,
+  "market_cap_usd": 108164370.25,
+  "tev_yield_percent": 9,
   "metrics": {
-    "current_market_cap_usd": 109039301.65,
+    "current_market_cap_usd": 108164370.25,
     "trailing_365d_revenue_usd": 9729459,
     "trailing_30d_revenue_usd": 197144,
     "trailing_365d_tev_usd": 9729459,
     "trailing_30d_tev_usd": 810788.25,
     "trailing_7d_revenue_usd": 103223,
     "trailing_90d_revenue_usd": 686585,
-    "tev_yield_7d_ann": 4.94,
-    "tev_yield_30d_ann": 2.2,
-    "tev_yield_90d_ann": 2.55,
-    "earning_yield_7d_ann": 4.94,
-    "earning_yield_30d_ann": 2.2,
-    "earning_yield_90d_ann": 2.55,
-    "dividend_yield_7d_ann": 4.94,
+    "tev_yield_7d_ann": 4.98,
+    "tev_yield_30d_ann": 2.22,
+    "tev_yield_90d_ann": 2.57,
+    "earning_yield_7d_ann": 4.98,
+    "earning_yield_30d_ann": 2.22,
+    "earning_yield_90d_ann": 2.57,
+    "dividend_yield_7d_ann": 4.98,
     "buyback_yield_7d_ann": 0,
-    "dividend_yield_30d_ann": 2.2,
+    "dividend_yield_30d_ann": 2.22,
     "buyback_yield_30d_ann": 0,
-    "dividend_yield_90d_ann": 2.55,
+    "dividend_yield_90d_ann": 2.57,
     "buyback_yield_90d_ann": 0
   },
   "calc_pipeline": [
@@ -200,7 +200,7 @@
       "unit": "%"
     }
   ],
-  "dividend_yield_percent": 8.92,
+  "dividend_yield_percent": 9,
   "buyback_yield_percent": 0,
   "style": "cash_cow"
 }

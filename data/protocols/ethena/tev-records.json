@@ -1,6 +1,6 @@
 {
   "protocol": "ethena",
-  "updated_at": "2026-07-11T13:13:48.798Z",
+  "updated_at": "2026-07-12T01:14:29.081Z",
   "data_source": "DefiLlama API (dailyHoldersRevenue)",
   "data_source_url": "https://api.llama.fi/summary/fees/ethena?dataType=dailyRevenue",
   "records": [
@@ -568,7 +568,7 @@
   ],
   "summary": {
     "total_tev_usd": 332896968,
-    "total_30d_usd": 84245,
+    "total_30d_usd": 73921,
     "by_mechanism": {
       "staking_reward": 332896968
     },
