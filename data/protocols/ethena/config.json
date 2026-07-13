@@ -149,7 +149,7 @@
     "has_tev": false,
     "tev_yield_percent": 0,
     "annual_tev_usd": 0,
-    "market_cap_usd": 766106262.04,
+    "market_cap_usd": 756172440.12,
     "calculation_date": "2026-07-13",
     "sources": [
       {
@@ -172,17 +172,17 @@
     "en": "机制复杂但 ENA 当前不分润. sUSDe 收益给 sUSDe 持有人, 不给 ENA/sENA"
   },
   "tevRatio": 0,
-  "earning_yield_percent": 1.62,
-  "market_cap_usd": 766106262.04,
+  "earning_yield_percent": 1.64,
+  "market_cap_usd": 756172440.12,
   "tev_yield_percent": 0,
   "metrics": {
-    "current_market_cap_usd": 766106262.04,
-    "trailing_365d_revenue_usd": 12402255,
-    "trailing_30d_revenue_usd": 71318,
+    "current_market_cap_usd": 756172440.12,
+    "trailing_365d_revenue_usd": 12402163,
+    "trailing_30d_revenue_usd": 71071,
     "trailing_365d_tev_usd": 0,
     "trailing_30d_tev_usd": 0,
-    "trailing_7d_revenue_usd": 9113,
-    "trailing_90d_revenue_usd": 1093252,
+    "trailing_7d_revenue_usd": 8328,
+    "trailing_90d_revenue_usd": 1077392,
     "tev_yield_7d_ann": 0,
     "tev_yield_30d_ann": 0,
     "tev_yield_90d_ann": 0,
