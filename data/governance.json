@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-07-13T01:09:53.038919+00:00",
-  "total": 239,
-  "active_count": 31,
+  "updated_at": "2026-07-13T13:11:05.665919+00:00",
+  "total": 238,
+  "active_count": 30,
   "passed_count": 208,
   "tev_related": 64,
   "monitored_protocols": 19,
@@ -134,7 +134,7 @@
       "source": "Snapshot",
       "protocol": "Aave",
       "title": "[ARFC] Technical Asset Listing Framework",
-      "status": "active",
+      "status": "passed",
       "link": "https://snapshot.org/#/aavedao.eth/proposal/0x92600751abd36540057b84a808903e3e1a005d78e9ab1eec712ac0574bca7431",
       "created": 1783581793,
       "end": 1783927393,
@@ -414,20 +414,6 @@
       "tev_keywords": [],
       "summary_en": "It has been one year since LlamaRisk’s last renewal. LlamaRisk submits this proposal to renew its role as Aave’s Risk Service Provider.",
       "summary_zh": "自上次LlamaRisk续约以来已满一年。LlamaRisk提交此提案，续任Aave风险管理服务商。",
-      "analysis_zh": ""
-    },
-    {
-      "source": "Snapshot",
-      "protocol": "Aave",
-      "title": "[ARFC] Aave Protocol Bug Bounty Programs Restructure",
-      "status": "passed",
-      "link": "https://snapshot.org/#/aavedao.eth/proposal/0x9e9787393696ed265f986e969c4f77b878bddbc4833b97e939108141078919eb",
-      "created": 1778023948,
-      "end": 1778369548,
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "Aave Labs proposes restructuring the Aave DAO bug bounty framework into multiple subsystem-specific programs, each with its own scope, severity criteria, payout framework, and operating platform.",
-      "summary_zh": "协议：Aave\n标题：[ARFC] 重构Aave协议漏洞赏金计划\n摘要：Aave Labs提议将Aave DAO的漏洞赏金框架重构为多个子系统特定计划，每个计划拥有独立的范围、严重性标准、支付框架和运营平台。",
       "analysis_zh": ""
     },
     {
