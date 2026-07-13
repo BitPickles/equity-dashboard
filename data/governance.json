@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-12T13:12:17.862147+00:00",
-  "total": 240,
-  "active_count": 32,
+  "updated_at": "2026-07-13T01:09:53.038919+00:00",
+  "total": 239,
+  "active_count": 31,
   "passed_count": 208,
-  "tev_related": 65,
+  "tev_related": 64,
   "monitored_protocols": 19,
   "protocols_meta": {
     "Aave": {
@@ -449,7 +449,7 @@
       "source": "Snapshot",
       "protocol": "Uniswap",
       "title": "[Temp Check] Activate v4 Protocol Fees",
-      "status": "active",
+      "status": "passed",
       "link": "https://snapshot.org/#/uniswapgovernance.eth/proposal/0x3fda3c04fa106ad45173011ef4dfa5db2f14cd35c3c3a7a40f067a44cbadd5f4",
       "created": 1783435278,
       "end": 1783867278,
@@ -668,22 +668,6 @@
       "summary_en": "Unichain is currently the main focus of Uniswap’s growth strategy, presenting a significant opportunity for collaborative growth. The launch of USDS and sUSDS opens doors for close collaboration among two of the premier DeFi protocols Uniswap and Sky",
       "summary_zh": "Unichain 是 Uniswap 增长战略核心。USDS 和 sUSDS 的上线为 Uniswap 与 Sky（MakerDAO）两大 DeFi 协议在 Unichain 上的深度合作开辟机会。",
       "analysis_zh": ""
-    },
-    {
-      "source": "Snapshot",
-      "protocol": "Uniswap",
-      "title": "Four Chains for Analytics Hub for Uniswap’s Revitalization and Growth Program",
-      "status": "passed",
-      "link": "https://snapshot.org/#/uniswapgovernance.eth/proposal/0xd0e154ab11dfeed1fb652c4a4db011937ffa7dd3333847936c09a668b5e5e804",
-      "created": 1746120649,
-      "end": 1746552649,
-      "tev_related": true,
-      "tev_keywords": [
-        "fee"
-      ],
-      "summary_en": "is for chain selection feedback for the ongoing proposal.",
-      "summary_zh": "为 Uniswap 振兴与增长计划中的分析中心选定四条目标链的反馈投票。",
-      "analysis_zh": "Uniswap 振兴计划启动四链筛选，Unichain 仅作兴趣测试不计入最终名额。\n\nUniswap DAO 推进“Analytics Hub 振兴计划”，旨在通过 Snapshot 投票选出 4 条目标链以集中资源。值得玩味的是，Unichain 虽被列入选项以测试社区热度，但即便进入前四也会被“跳过”，名额顺延给下一条链。这种“只看不算”的机制设计，暗示了 Uniswap 对自家 L2 有着独立且更宏大的激励规划，不愿在此处挤占其他生态的资源和曝光，体现了 DAO 在资源分配上的精细化管理，避免了“既得利益者”通吃局面，确保了多链扩张的公平性。"
     },
     {
       "source": "Snapshot",
