@@ -87,10 +87,10 @@
   "last_updated": "2026-04-26",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 8.6,
+    "tev_yield_percent": 8.84,
     "annual_tev_usd": 9716552,
-    "market_cap_usd": 113001204.34,
-    "calculation_date": "2026-07-12",
+    "market_cap_usd": 109948058.01,
+    "calculation_date": "2026-07-13",
     "sources": [
       {
         "name": "DefiLlama dailyHoldersRevenue",
@@ -119,28 +119,28 @@
     "en": "100% fees-to-staker on dYdX Chain (Cosmos) is verifiable, but 75% buyback (Proposal #313) has no public on-chain tracker. ethDYDX bridge closed."
   },
   "tevRatio": 0.75,
-  "earning_yield_percent": 8.6,
-  "market_cap_usd": 113001204.34,
-  "tev_yield_percent": 8.6,
+  "earning_yield_percent": 8.84,
+  "market_cap_usd": 109948058.01,
+  "tev_yield_percent": 8.84,
   "metrics": {
-    "current_market_cap_usd": 113001204.34,
+    "current_market_cap_usd": 109948058.01,
     "trailing_365d_revenue_usd": 9716552,
     "trailing_30d_revenue_usd": 195354,
     "trailing_365d_tev_usd": 9716552,
     "trailing_30d_tev_usd": 809712.6666666666,
     "trailing_7d_revenue_usd": 93908,
     "trailing_90d_revenue_usd": 672236,
-    "tev_yield_7d_ann": 4.33,
-    "tev_yield_30d_ann": 2.1,
-    "tev_yield_90d_ann": 2.41,
-    "earning_yield_7d_ann": 4.33,
-    "earning_yield_30d_ann": 2.1,
-    "earning_yield_90d_ann": 2.41,
-    "dividend_yield_7d_ann": 4.33,
+    "tev_yield_7d_ann": 4.45,
+    "tev_yield_30d_ann": 2.16,
+    "tev_yield_90d_ann": 2.48,
+    "earning_yield_7d_ann": 4.45,
+    "earning_yield_30d_ann": 2.16,
+    "earning_yield_90d_ann": 2.48,
+    "dividend_yield_7d_ann": 4.45,
     "buyback_yield_7d_ann": 0,
-    "dividend_yield_30d_ann": 2.1,
+    "dividend_yield_30d_ann": 2.16,
     "buyback_yield_30d_ann": 0,
-    "dividend_yield_90d_ann": 2.41,
+    "dividend_yield_90d_ann": 2.48,
     "buyback_yield_90d_ann": 0
   },
   "calc_pipeline": [
@@ -200,7 +200,7 @@
       "unit": "%"
     }
   ],
-  "dividend_yield_percent": 8.6,
+  "dividend_yield_percent": 8.84,
   "buyback_yield_percent": 0,
   "style": "cash_cow"
 }
