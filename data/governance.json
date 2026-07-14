@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-13T13:11:05.665919+00:00",
-  "total": 238,
-  "active_count": 30,
-  "passed_count": 208,
+  "updated_at": "2026-07-14T01:10:16.365124+00:00",
+  "total": 240,
+  "active_count": 33,
+  "passed_count": 207,
   "tev_related": 64,
   "monitored_protocols": 19,
   "protocols_meta": {
@@ -1259,6 +1259,34 @@
       "tev_keywords": [],
       "summary_en": "to recognize Mancake as an affiliate DEX.",
       "summary_zh": "正式承认 Mancake 为 PancakeSwap 在 Mantle Network 上的关联 DEX。",
+      "analysis_zh": ""
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Lido",
+      "title": "0x02 CSM: New Permissionless Module Launch",
+      "status": "active",
+      "link": "https://snapshot.org/#/lido-snapshot.eth/proposal/0xed2a3b1f796cefdd531abe14ba01363b2da7887434cefdd54ba71ffb6dff59a7",
+      "created": 1783697092,
+      "end": 1784563200,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "This proposal introduces 0x02 CSM, a new permissionless staking module that gives Node Operators a way to run validators with 0x02 withdrawal credentials, supporting an effective balance of up to 2,048 ETH. It complements the existing module, referre",
+      "summary_zh": "协议：Lido\n标题：0x02 CSM：新无许可模块发布\n摘要：本提案引入0x02 CSM，一种新无许可质押模块，使节点运营商能够使用0x02提现凭证运行验证器，支持最高达2,048 ETH的有效余额。该模块补充了现有模块。",
+      "analysis_zh": ""
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Lido",
+      "title": "Adopt the CMv2 Penalty Framework",
+      "status": "active",
+      "link": "https://snapshot.org/#/lido-snapshot.eth/proposal/0xa4179234377bab093a8ee46da0f430d51bb343d00ca74ce8bf1d7d8cdb0db9dd",
+      "created": 1783689205,
+      "end": 1784563200,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "This proposal introduces the Penalty Framework for the Curated Module v2 (CMv2) as the baseline process for assessing and applying penalties to Node Operators. The Framework establishes how the Curated Module Committee (CMC), with analysis and suppor",
+      "summary_zh": "Lido协议治理提案：采用CMv2惩罚框架。本提案引入Curated Module v2（CMv2）惩罚框架，作为评估和实施对节点运营商惩罚的基准流程。框架规定了Curated Module委员会（CMC）如何进行分析和支持。",
       "analysis_zh": ""
     },
     {
@@ -3232,6 +3260,20 @@
     {
       "source": "Sky Polling",
       "protocol": "Sky (MakerDAO)",
+      "title": "Atlas Edit Weekly Cycle Proposal - July 13, 2026",
+      "status": "active",
+      "link": "https://vote.makerdao.com/polling/Qmd3yk9L",
+      "created": "2026-07-13T16:00:00",
+      "end": "2026-07-16T16:00:00",
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "This Atlas edit proposal 1) updates the Monthly Settlement Cycle Process, 2) adds a timeliness requirement to Aligned Delegate voting participation, 3) clarifies that Genesis Capital phase-out is not a repayment to Sky, 4) adds the canonical Sky Fron",
+      "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas 编辑每周周期提案 - 2026年7月13日\n摘要：本提案1）更新月度结算周期流程，2）对对齐代表投票参与设定时效性要求，3）明确Genesis Capital逐步退出非Sky还款，4）增加Sky Fron",
+      "analysis_zh": ""
+    },
+    {
+      "source": "Sky Polling",
+      "protocol": "Sky (MakerDAO)",
       "title": "Atlas Edit Weekly Cycle Proposal - July 6, 2026",
       "status": "passed",
       "link": "https://vote.makerdao.com/polling/QmUnVyGg",
@@ -3288,20 +3330,6 @@
       "tev_keywords": [],
       "summary_en": "This Atlas edit proposal 1) codifies Core Facilitator authority over final Spell inclusion, 2) updates the Ethereum SkyLink Freezer Multisig configuration from 2/4 to 2/5, 3) adds Spark Foundation grant authorization for Q3 2026, 4) adds a second All",
       "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas编辑每周周期提案 - 2026年6月15日\n摘要：本提案1）将核心促进者对最终咒语加入的权限进行法典化，2）将以太坊SkyLink Freezer多重签名配置从2/4更改为2/5，3）增加2026年第三季度Spark基金会拨款授权，4）增加第二次所有者治理投票。",
-      "analysis_zh": ""
-    },
-    {
-      "source": "Sky Polling",
-      "protocol": "Sky (MakerDAO)",
-      "title": "Atlas Edit Weekly Cycle Proposal - June 8, 2026",
-      "status": "passed",
-      "link": "https://vote.makerdao.com/polling/Qme7Pt6e",
-      "created": "2026-06-08T16:00:00",
-      "end": "2026-06-11T16:00:00",
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "This Atlas edit proposal 1) adds Audit Process, 2) adds USD Stablecoin to USDS swap authorization for Grove, 3) updates documents to reflect a single Core Facilitator, 4) removes duplicate sentences and fixes a broken cross-reference.",
-      "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas编辑每周周期提案 - 2026年6月8日\n摘要：本提案1）添加审计流程，2）为Grove添加USDS兑换授权中的USD稳定币，3）更新文件以反映单一核心促进者，4）删除重复句子并修复断开的交叉引用。",
       "analysis_zh": ""
     },
     {
