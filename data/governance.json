@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-14T13:12:08.310035+00:00",
+  "updated_at": "2026-07-15T01:09:55.234960+00:00",
   "total": 240,
   "active_count": 33,
   "passed_count": 207,
@@ -2850,6 +2850,20 @@
     {
       "source": "GitHub BEP",
       "protocol": "BNB Chain",
+      "title": "Revert \"Refactor BEP-657: Change from fixed modulo 10 to parameterized modulo N\"",
+      "status": "active",
+      "link": "https://github.com/bnb-chain/BEPs/pull/701",
+      "created": "2026-07-15T00:22:33",
+      "end": "",
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "Revert \"Refactor BEP-657: Change from fixed modulo 10 to parameterized modulo N\"",
+      "summary_zh": "撤销“重构BEP-657：从固定模10更改为参数化模N”提案。",
+      "analysis_zh": ""
+    },
+    {
+      "source": "GitHub BEP",
+      "protocol": "BNB Chain",
       "title": "BEP-673: add BEP-675 integration note for Pasteur hardfork",
       "status": "passed",
       "link": "https://github.com/bnb-chain/BEPs/pull/700",
@@ -2971,20 +2985,6 @@
       "tev_keywords": [],
       "summary_en": "BAP-692: BNBChain Agentic SDK — Identity, Commerce, Payment, Memory",
       "summary_zh": "BAP-692：BNBChain Agentic SDK — 身份、商业、支付、记忆",
-      "analysis_zh": ""
-    },
-    {
-      "source": "GitHub BEP",
-      "protocol": "BNB Chain",
-      "title": "BAP : Token Name Registry Standard, UNIQUE Registry",
-      "status": "active",
-      "link": "https://github.com/bnb-chain/BEPs/pull/691",
-      "created": "2026-05-08T16:35:24",
-      "end": "",
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "Submitting UNIQUE Registry as a BNB Application Proposal. Contract live since April 18, 2026. Following a conversation with the BNBChain BD team who suggested this path.",
-      "summary_zh": "提交 UNIQUE 注册系统作为 BNB 应用提案。合约自 2026 年 4 月 18 日起运行。经与 BNBChain BD 团队沟通建议此路径。",
       "analysis_zh": ""
     },
     {
