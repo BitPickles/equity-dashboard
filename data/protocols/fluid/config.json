@@ -87,10 +87,10 @@
   "data_source_note": "链上追踪 (FLUID 流入储备钱包)",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 5.86,
+    "tev_yield_percent": 5.87,
     "annual_tev_usd": 4745308,
-    "market_cap_usd": 81019083.94,
-    "calculation_date": "2026-07-14",
+    "market_cap_usd": 80832286.71,
+    "calculation_date": "2026-07-15",
     "sources": [
       {
         "name": "DefiLlama dailyHoldersRevenue",
@@ -147,11 +147,11 @@
     "tvl_updated": "2026-03-27T01:00:50.616Z"
   },
   "tevRatio": 0.35,
-  "earning_yield_percent": 5.86,
-  "market_cap_usd": 81019083.94,
-  "tev_yield_percent": 5.86,
+  "earning_yield_percent": 5.87,
+  "market_cap_usd": 80832286.71,
+  "tev_yield_percent": 5.87,
   "metrics": {
-    "current_market_cap_usd": 81019083.94,
+    "current_market_cap_usd": 80832286.71,
     "trailing_365d_revenue_usd": 4745308,
     "trailing_30d_revenue_usd": 0,
     "trailing_365d_tev_usd": 4745308,
@@ -226,6 +226,6 @@
     }
   ],
   "dividend_yield_percent": 0,
-  "buyback_yield_percent": 5.86,
+  "buyback_yield_percent": 5.87,
   "style": "cash_cow"
 }
