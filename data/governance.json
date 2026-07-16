@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-16T01:09:58.905792+00:00",
+  "updated_at": "2026-07-16T13:13:19.224857+00:00",
   "total": 240,
-  "active_count": 33,
-  "passed_count": 207,
+  "active_count": 32,
+  "passed_count": 208,
   "tev_related": 64,
   "monitored_protocols": 19,
   "protocols_meta": {
@@ -420,7 +420,7 @@
       "source": "Snapshot",
       "protocol": "Uniswap",
       "title": "[Temp Check] Protocol Fee Expansion: Robinhood Chain",
-      "status": "active",
+      "status": "passed",
       "link": "https://snapshot.org/#/uniswapgovernance.eth/proposal/0xc5fd6e916655b293c903b060906c994ff1ff1df348336b3b3e22ceecd2d13d7c",
       "created": 1783770071,
       "end": 1784202071,
@@ -2850,6 +2850,20 @@
     {
       "source": "GitHub BEP",
       "protocol": "BNB Chain",
+      "title": "doc: add New Tokens on BNB Smart Chain bep",
+      "status": "active",
+      "link": "https://github.com/bnb-chain/BEPs/pull/702",
+      "created": "2026-07-16T03:58:56",
+      "end": "",
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "doc: add New Tokens on BNB Smart Chain bep",
+      "summary_zh": "提案：BNB Chain\n标题：关于在BNB智能链上添加新代币的BEP\n摘要：在BNB智能链上添加新代币的相关BEP",
+      "analysis_zh": ""
+    },
+    {
+      "source": "GitHub BEP",
+      "protocol": "BNB Chain",
       "title": "Revert \"Refactor BEP-657: Change from fixed modulo 10 to parameterized modulo N\"",
       "status": "active",
       "link": "https://github.com/bnb-chain/BEPs/pull/701",
@@ -2971,20 +2985,6 @@
       "tev_keywords": [],
       "summary_en": "fix: update bep-675 description",
       "summary_zh": "修复：更新BEP-675描述",
-      "analysis_zh": ""
-    },
-    {
-      "source": "GitHub BEP",
-      "protocol": "BNB Chain",
-      "title": "BAP-692: BNBAgent SDK — Identity, Commerce, Payment, Memory",
-      "status": "active",
-      "link": "https://github.com/bnb-chain/BEPs/pull/692",
-      "created": "2026-05-14T09:29:36",
-      "end": "",
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "BAP-692: BNBChain Agentic SDK — Identity, Commerce, Payment, Memory",
-      "summary_zh": "BAP-692：BNBChain Agentic SDK — 身份、商业、支付、记忆",
       "analysis_zh": ""
     },
     {
