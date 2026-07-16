@@ -1,6 +1,6 @@
 {
   "protocol": "bnb",
-  "updated_at": "2026-07-15T13:10:18.160596Z",
+  "updated_at": "2026-07-16T01:10:13.510705Z",
   "data_source": "config.json.burn_history (全量 Quarterly Auto-Burn) + asBNB APY 估算（最近 4 季）",
   "records": [
     {
@@ -442,7 +442,7 @@
       "date": "2025-07-10",
       "type": "staking_reward",
       "mechanism": "asBNB 综合收益 (Staking + Launchpool/HODLer/Megadrop)",
-      "amount_usd": 1332839497,
+      "amount_usd": 1324721861,
       "period": "Q3 2025",
       "source": {
         "type": "proxy",
@@ -484,7 +484,7 @@
       "date": "2025-10-27",
       "type": "staking_reward",
       "mechanism": "asBNB 综合收益 (Staking + Launchpool/HODLer/Megadrop)",
-      "amount_usd": 1332839497,
+      "amount_usd": 1324721861,
       "period": "Q4 2025",
       "source": {
         "type": "proxy",
@@ -512,7 +512,7 @@
       "date": "2026-01-15",
       "type": "staking_reward",
       "mechanism": "asBNB 综合收益 (Staking + Launchpool/HODLer/Megadrop)",
-      "amount_usd": 1332839497,
+      "amount_usd": 1324721861,
       "period": "Q1 2026",
       "source": {
         "type": "proxy",
@@ -540,7 +540,7 @@
       "date": "2026-04-15",
       "type": "staking_reward",
       "mechanism": "asBNB 综合收益 (Staking + Launchpool/HODLer/Megadrop)",
-      "amount_usd": 1332839497,
+      "amount_usd": 1324721861,
       "period": "Q2 2026",
       "source": {
         "type": "proxy",

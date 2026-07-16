@@ -1,6 +1,6 @@
 {
   "protocol": "uniswap",
-  "updated_at": "2026-07-15T13:10:31.929126Z",
+  "updated_at": "2026-07-16T01:10:29.285390Z",
   "data_source": "Etherscan V2 (UNI → 0xdead) × 当前 UNI 价 (CoinGecko)",
   "records": [
     {
@@ -2648,10 +2648,10 @@
       "date": "2026-07-13",
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
-      "amount_uni": 96000.0,
-      "amount_usd": 349440,
+      "amount_uni": 92000.0,
+      "amount_usd": 334880,
       "period": "2026-07-13",
-      "tx_count": 38,
+      "tx_count": 37,
       "source": {
         "type": "onchain",
         "provider": "Etherscan V2",
@@ -2678,10 +2678,10 @@
       "date": "2026-07-15",
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
-      "amount_uni": 20000.0,
-      "amount_usd": 72800,
+      "amount_uni": 28000.0,
+      "amount_usd": 101920,
       "period": "2026-07-15",
-      "tx_count": 7,
+      "tx_count": 9,
       "source": {
         "type": "onchain",
         "provider": "Etherscan V2",

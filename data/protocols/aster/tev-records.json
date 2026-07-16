@@ -1,6 +1,6 @@
 {
   "protocol": "aster",
-  "updated_at": "2026-07-15T13:11:52.600484Z",
+  "updated_at": "2026-07-16T01:11:32.661192Z",
   "data_source": "Moralis ASTER → Stage5/6 buyback wallets × 当前 ASTER 价 (CoinGecko)",
   "note": "Stage5/6 是 treasury buyback（wallet 持仓），部分 burn 部分给 community rewards；不是全部真销毁",
   "records": [
@@ -10,7 +10,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 566079.44,
-      "amount_usd": 360326,
+      "amount_usd": 355909,
       "period": "2025-12-23",
       "tx_count": 80,
       "source": {
@@ -26,7 +26,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 468000.53,
-      "amount_usd": 297896,
+      "amount_usd": 294245,
       "period": "2025-12-24",
       "tx_count": 60,
       "source": {
@@ -42,7 +42,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 340344.31,
-      "amount_usd": 216639,
+      "amount_usd": 213984,
       "period": "2025-12-25",
       "tx_count": 40,
       "source": {
@@ -58,7 +58,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 286289.72,
-      "amount_usd": 182232,
+      "amount_usd": 179998,
       "period": "2025-12-26",
       "tx_count": 40,
       "source": {
@@ -74,7 +74,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 445895.04,
-      "amount_usd": 283825,
+      "amount_usd": 280346,
       "period": "2025-12-27",
       "tx_count": 60,
       "source": {
@@ -90,7 +90,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 222591.0,
-      "amount_usd": 141686,
+      "amount_usd": 139949,
       "period": "2025-12-28",
       "tx_count": 30,
       "source": {
@@ -106,7 +106,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 163967.36,
-      "amount_usd": 104370,
+      "amount_usd": 103091,
       "period": "2025-12-29",
       "tx_count": 25,
       "source": {
@@ -122,7 +122,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 573296.92,
-      "amount_usd": 364920,
+      "amount_usd": 360447,
       "period": "2025-12-30",
       "tx_count": 80,
       "source": {
@@ -138,7 +138,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 517150.18,
-      "amount_usd": 329181,
+      "amount_usd": 325146,
       "period": "2025-12-31",
       "tx_count": 65,
       "source": {
@@ -154,7 +154,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 459626.33,
-      "amount_usd": 292565,
+      "amount_usd": 288979,
       "period": "2026-01-01",
       "tx_count": 65,
       "source": {
@@ -170,7 +170,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 224197.31,
-      "amount_usd": 142708,
+      "amount_usd": 140959,
       "period": "2026-01-02",
       "tx_count": 35,
       "source": {
@@ -186,7 +186,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 474531.0,
-      "amount_usd": 302053,
+      "amount_usd": 298350,
       "period": "2026-01-03",
       "tx_count": 70,
       "source": {
@@ -202,7 +202,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 265953.32,
-      "amount_usd": 169287,
+      "amount_usd": 167212,
       "period": "2026-01-04",
       "tx_count": 40,
       "source": {
@@ -218,7 +218,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 310632.54,
-      "amount_usd": 197727,
+      "amount_usd": 195303,
       "period": "2026-01-05",
       "tx_count": 50,
       "source": {
@@ -234,7 +234,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 663052.77,
-      "amount_usd": 422052,
+      "amount_usd": 416879,
       "period": "2026-01-06",
       "tx_count": 100,
       "source": {
@@ -250,7 +250,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 414786.88,
-      "amount_usd": 264024,
+      "amount_usd": 260788,
       "period": "2026-01-07",
       "tx_count": 65,
       "source": {
@@ -266,7 +266,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 930076.04,
-      "amount_usd": 592020,
+      "amount_usd": 584764,
       "period": "2026-01-08",
       "tx_count": 120,
       "source": {
@@ -282,7 +282,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 663652.75,
-      "amount_usd": 422434,
+      "amount_usd": 417256,
       "period": "2026-01-09",
       "tx_count": 100,
       "source": {
@@ -298,7 +298,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 560689.47,
-      "amount_usd": 356895,
+      "amount_usd": 352521,
       "period": "2026-01-10",
       "tx_count": 80,
       "source": {
@@ -314,7 +314,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 220856.01,
-      "amount_usd": 140581,
+      "amount_usd": 138858,
       "period": "2026-01-11",
       "tx_count": 30,
       "source": {
@@ -330,7 +330,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 220406.58,
-      "amount_usd": 140295,
+      "amount_usd": 138576,
       "period": "2026-01-12",
       "tx_count": 30,
       "source": {
@@ -346,7 +346,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 631437.61,
-      "amount_usd": 401928,
+      "amount_usd": 397002,
       "period": "2026-01-13",
       "tx_count": 80,
       "source": {
@@ -362,7 +362,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 754358.83,
-      "amount_usd": 480171,
+      "amount_usd": 474286,
       "period": "2026-01-14",
       "tx_count": 110,
       "source": {
@@ -378,7 +378,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 711546.04,
-      "amount_usd": 452920,
+      "amount_usd": 447368,
       "period": "2026-01-15",
       "tx_count": 100,
       "source": {
@@ -394,7 +394,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 611108.85,
-      "amount_usd": 388989,
+      "amount_usd": 384221,
       "period": "2026-01-16",
       "tx_count": 90,
       "source": {
@@ -410,7 +410,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 443362.12,
-      "amount_usd": 282213,
+      "amount_usd": 278754,
       "period": "2026-01-17",
       "tx_count": 70,
       "source": {
@@ -426,7 +426,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 221812.26,
-      "amount_usd": 141190,
+      "amount_usd": 139459,
       "period": "2026-01-18",
       "tx_count": 30,
       "source": {
@@ -442,7 +442,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 309260.5,
-      "amount_usd": 196853,
+      "amount_usd": 194440,
       "period": "2026-01-19",
       "tx_count": 40,
       "source": {
@@ -458,7 +458,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 510272.97,
-      "amount_usd": 324804,
+      "amount_usd": 320822,
       "period": "2026-01-20",
       "tx_count": 60,
       "source": {
@@ -474,7 +474,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 806413.25,
-      "amount_usd": 513305,
+      "amount_usd": 507014,
       "period": "2026-01-21",
       "tx_count": 100,
       "source": {
@@ -490,7 +490,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 835656.22,
-      "amount_usd": 531919,
+      "amount_usd": 525400,
       "period": "2026-01-22",
       "tx_count": 100,
       "source": {
@@ -506,7 +506,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 513061.06,
-      "amount_usd": 326578,
+      "amount_usd": 322575,
       "period": "2026-01-23",
       "tx_count": 60,
       "source": {
@@ -522,7 +522,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 434960.47,
-      "amount_usd": 276865,
+      "amount_usd": 273471,
       "period": "2026-01-24",
       "tx_count": 50,
       "source": {
@@ -538,7 +538,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 242127.82,
-      "amount_usd": 154121,
+      "amount_usd": 152232,
       "period": "2026-01-25",
       "tx_count": 30,
       "source": {
@@ -554,7 +554,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 522599.31,
-      "amount_usd": 332650,
+      "amount_usd": 328572,
       "period": "2026-01-26",
       "tx_count": 60,
       "source": {
@@ -570,7 +570,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 371596.22,
-      "amount_usd": 236532,
+      "amount_usd": 233633,
       "period": "2026-01-27",
       "tx_count": 40,
       "source": {
@@ -586,7 +586,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 293442.35,
-      "amount_usd": 186785,
+      "amount_usd": 184495,
       "period": "2026-01-28",
       "tx_count": 40,
       "source": {
@@ -602,7 +602,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 548105.88,
-      "amount_usd": 348885,
+      "amount_usd": 344609,
       "period": "2026-01-29",
       "tx_count": 70,
       "source": {
@@ -618,7 +618,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 845925.59,
-      "amount_usd": 538456,
+      "amount_usd": 531856,
       "period": "2026-01-30",
       "tx_count": 100,
       "source": {
@@ -634,7 +634,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 923182.49,
-      "amount_usd": 587632,
+      "amount_usd": 580430,
       "period": "2026-01-31",
       "tx_count": 100,
       "source": {
@@ -650,7 +650,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 928270.39,
-      "amount_usd": 590871,
+      "amount_usd": 583629,
       "period": "2026-02-01",
       "tx_count": 100,
       "source": {
@@ -666,7 +666,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 664597.79,
-      "amount_usd": 423036,
+      "amount_usd": 417851,
       "period": "2026-02-02",
       "tx_count": 60,
       "source": {
@@ -698,7 +698,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 1605718.46,
-      "amount_usd": 1022086,
+      "amount_usd": 1009559,
       "period": "2026-02-04",
       "tx_count": 180,
       "source": {
@@ -714,7 +714,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 721459.18,
-      "amount_usd": 459230,
+      "amount_usd": 453601,
       "period": "2026-02-05",
       "tx_count": 80,
       "source": {
@@ -730,7 +730,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 1533879.23,
-      "amount_usd": 976359,
+      "amount_usd": 964391,
       "period": "2026-02-06",
       "tx_count": 150,
       "source": {
@@ -746,7 +746,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 1152129.99,
-      "amount_usd": 733364,
+      "amount_usd": 724375,
       "period": "2026-02-07",
       "tx_count": 120,
       "source": {
@@ -762,7 +762,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 835386.79,
-      "amount_usd": 531748,
+      "amount_usd": 525230,
       "period": "2026-02-08",
       "tx_count": 90,
       "source": {
@@ -778,7 +778,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 317141.17,
-      "amount_usd": 201870,
+      "amount_usd": 199395,
       "period": "2026-02-09",
       "tx_count": 40,
       "source": {
@@ -794,7 +794,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 455449.38,
-      "amount_usd": 289907,
+      "amount_usd": 286353,
       "period": "2026-02-10",
       "tx_count": 50,
       "source": {
@@ -810,7 +810,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 363994.48,
-      "amount_usd": 231693,
+      "amount_usd": 228853,
       "period": "2026-02-11",
       "tx_count": 50,
       "source": {
@@ -826,7 +826,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 340532.39,
-      "amount_usd": 216759,
+      "amount_usd": 214102,
       "period": "2026-02-12",
       "tx_count": 50,
       "source": {
@@ -842,7 +842,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 278256.93,
-      "amount_usd": 177119,
+      "amount_usd": 174948,
       "period": "2026-02-13",
       "tx_count": 40,
       "source": {
@@ -858,7 +858,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 220184.82,
-      "amount_usd": 140154,
+      "amount_usd": 138436,
       "period": "2026-02-14",
       "tx_count": 30,
       "source": {
@@ -874,7 +874,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 163165.77,
-      "amount_usd": 103860,
+      "amount_usd": 102587,
       "period": "2026-02-15",
       "tx_count": 25,
       "source": {
@@ -890,7 +890,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 219859.54,
-      "amount_usd": 139947,
+      "amount_usd": 138232,
       "period": "2026-02-16",
       "tx_count": 30,
       "source": {
@@ -906,7 +906,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 217633.79,
-      "amount_usd": 138530,
+      "amount_usd": 136832,
       "period": "2026-02-17",
       "tx_count": 30,
       "source": {
@@ -922,7 +922,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 223710.58,
-      "amount_usd": 142398,
+      "amount_usd": 140653,
       "period": "2026-02-18",
       "tx_count": 30,
       "source": {
@@ -938,7 +938,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 224865.42,
-      "amount_usd": 143133,
+      "amount_usd": 141379,
       "period": "2026-02-19",
       "tx_count": 30,
       "source": {
@@ -954,7 +954,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 166479.36,
-      "amount_usd": 105969,
+      "amount_usd": 104670,
       "period": "2026-02-20",
       "tx_count": 30,
       "source": {
@@ -970,7 +970,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 220488.95,
-      "amount_usd": 140348,
+      "amount_usd": 138627,
       "period": "2026-02-21",
       "tx_count": 30,
       "source": {
@@ -986,7 +986,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 111453.12,
-      "amount_usd": 70943,
+      "amount_usd": 70074,
       "period": "2026-02-22",
       "tx_count": 15,
       "source": {
@@ -1002,7 +1002,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 116439.18,
-      "amount_usd": 74117,
+      "amount_usd": 73208,
       "period": "2026-02-23",
       "tx_count": 15,
       "source": {
@@ -1018,7 +1018,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 286611.33,
-      "amount_usd": 182436,
+      "amount_usd": 180200,
       "period": "2026-02-24",
       "tx_count": 40,
       "source": {
@@ -1034,7 +1034,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 225711.69,
-      "amount_usd": 143672,
+      "amount_usd": 141911,
       "period": "2026-02-25",
       "tx_count": 30,
       "source": {
@@ -1050,7 +1050,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 341323.27,
-      "amount_usd": 217262,
+      "amount_usd": 214599,
       "period": "2026-02-26",
       "tx_count": 50,
       "source": {
@@ -1066,7 +1066,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 228541.86,
-      "amount_usd": 145474,
+      "amount_usd": 143690,
       "period": "2026-02-27",
       "tx_count": 30,
       "source": {
@@ -1082,7 +1082,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 170757.18,
-      "amount_usd": 108692,
+      "amount_usd": 107360,
       "period": "2026-02-28",
       "tx_count": 25,
       "source": {
@@ -1098,7 +1098,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 218282.82,
-      "amount_usd": 138943,
+      "amount_usd": 137240,
       "period": "2026-03-01",
       "tx_count": 35,
       "source": {
@@ -1114,7 +1114,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 169339.91,
-      "amount_usd": 107790,
+      "amount_usd": 106469,
       "period": "2026-03-02",
       "tx_count": 25,
       "source": {
@@ -1130,7 +1130,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 227117.65,
-      "amount_usd": 144567,
+      "amount_usd": 142795,
       "period": "2026-03-03",
       "tx_count": 35,
       "source": {
@@ -1146,7 +1146,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 171361.63,
-      "amount_usd": 109077,
+      "amount_usd": 107740,
       "period": "2026-03-04",
       "tx_count": 25,
       "source": {
@@ -1162,7 +1162,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 223361.75,
-      "amount_usd": 142176,
+      "amount_usd": 140434,
       "period": "2026-03-05",
       "tx_count": 35,
       "source": {
@@ -1178,7 +1178,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 169938.92,
-      "amount_usd": 108171,
+      "amount_usd": 106845,
       "period": "2026-03-06",
       "tx_count": 25,
       "source": {
@@ -1194,7 +1194,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 170556.44,
-      "amount_usd": 108564,
+      "amount_usd": 107233,
       "period": "2026-03-07",
       "tx_count": 30,
       "source": {
@@ -1210,7 +1210,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 57981.55,
-      "amount_usd": 36907,
+      "amount_usd": 36455,
       "period": "2026-03-08",
       "tx_count": 10,
       "source": {
@@ -1226,7 +1226,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 115749.95,
-      "amount_usd": 73678,
+      "amount_usd": 72775,
       "period": "2026-03-09",
       "tx_count": 20,
       "source": {
@@ -1242,7 +1242,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 169095.93,
-      "amount_usd": 107634,
+      "amount_usd": 106315,
       "period": "2026-03-10",
       "tx_count": 25,
       "source": {
@@ -1258,7 +1258,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 170880.06,
-      "amount_usd": 108770,
+      "amount_usd": 107437,
       "period": "2026-03-11",
       "tx_count": 30,
       "source": {
@@ -1274,7 +1274,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 170348.27,
-      "amount_usd": 108432,
+      "amount_usd": 107103,
       "period": "2026-03-12",
       "tx_count": 30,
       "source": {
@@ -1290,7 +1290,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 112272.68,
-      "amount_usd": 71465,
+      "amount_usd": 70589,
       "period": "2026-03-13",
       "tx_count": 20,
       "source": {
@@ -1306,7 +1306,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 228458.7,
-      "amount_usd": 145421,
+      "amount_usd": 143638,
       "period": "2026-03-14",
       "tx_count": 35,
       "source": {
@@ -1322,7 +1322,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 166838.98,
-      "amount_usd": 106198,
+      "amount_usd": 104896,
       "period": "2026-03-15",
       "tx_count": 25,
       "source": {
@@ -1338,7 +1338,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 165595.39,
-      "amount_usd": 105406,
+      "amount_usd": 104114,
       "period": "2026-03-16",
       "tx_count": 30,
       "source": {
@@ -1354,7 +1354,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 159976.37,
-      "amount_usd": 101830,
+      "amount_usd": 100581,
       "period": "2026-03-17",
       "tx_count": 30,
       "source": {
@@ -1370,7 +1370,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 158998.02,
-      "amount_usd": 101207,
+      "amount_usd": 99966,
       "period": "2026-03-18",
       "tx_count": 30,
       "source": {
@@ -1386,7 +1386,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 171789.36,
-      "amount_usd": 109349,
+      "amount_usd": 108009,
       "period": "2026-03-19",
       "tx_count": 30,
       "source": {
@@ -1402,7 +1402,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 174627.74,
-      "amount_usd": 111156,
+      "amount_usd": 109793,
       "period": "2026-03-20",
       "tx_count": 30,
       "source": {
@@ -1418,7 +1418,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 172700.5,
-      "amount_usd": 109929,
+      "amount_usd": 108581,
       "period": "2026-03-21",
       "tx_count": 30,
       "source": {
@@ -1434,7 +1434,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 60310.6,
-      "amount_usd": 38389,
+      "amount_usd": 37919,
       "period": "2026-03-22",
       "tx_count": 10,
       "source": {
@@ -1450,7 +1450,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 118604.15,
-      "amount_usd": 75495,
+      "amount_usd": 74570,
       "period": "2026-03-23",
       "tx_count": 20,
       "source": {
@@ -1466,7 +1466,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 180864.74,
-      "amount_usd": 115126,
+      "amount_usd": 113715,
       "period": "2026-03-24",
       "tx_count": 25,
       "source": {
@@ -1482,7 +1482,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 177519.65,
-      "amount_usd": 112996,
+      "amount_usd": 111611,
       "period": "2026-03-25",
       "tx_count": 30,
       "source": {
@@ -1498,7 +1498,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 120160.05,
-      "amount_usd": 76485,
+      "amount_usd": 75548,
       "period": "2026-03-26",
       "tx_count": 20,
       "source": {
@@ -1514,7 +1514,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 118403.22,
-      "amount_usd": 75367,
+      "amount_usd": 74443,
       "period": "2026-03-27",
       "tx_count": 20,
       "source": {
