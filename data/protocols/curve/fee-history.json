@@ -1,12 +1,12 @@
 {
   "protocol": "curve",
   "method": "Community Fund Treasury crvUSD inflow × 9 (FeeAllocator 90/10 比例反推)",
-  "updated_at": "2026-07-14T13:13:17.238010Z",
-  "crv_price_usd": 0.22638,
-  "crv_market_cap_usd": 347809678.1952597,
-  "crv_locked_in_vecrv": 851032071.8381191,
-  "vecrv_tvl_usd": 192656640.4227134,
-  "lock_ratio_pct": 55.4,
+  "updated_at": "2026-07-17T01:26:18.543777Z",
+  "crv_price_usd": 0.217027,
+  "crv_market_cap_usd": 333849629.5561365,
+  "crv_locked_in_vecrv": 850636736.1916978,
+  "vecrv_tvl_usd": 184611138.9454756,
+  "lock_ratio_pct": 55.3,
   "addresses": {
     "CRV": "0xD533a949740bb3306d119CC777fa900bA034cd52",
     "veCRV_lock": "0x5f3b5DfEb7B28CDbD7FAba78963EE202a494e2A2",
@@ -14,12 +14,6 @@
     "Old_3CRV_FeeDistributor": "0xA464e6DCda8AC41e03616F95f4BC98a13b8922Dc"
   },
   "daily": [
-    {
-      "date": "2025-07-16",
-      "crvusd_to_treasury": 23129.58,
-      "vecrv_inferred_tev": 208166.23,
-      "tx_count": 3
-    },
     {
       "date": "2025-07-23",
       "crvusd_to_treasury": 9250.09,
@@ -331,36 +325,42 @@
       "crvusd_to_treasury": 11679.1,
       "vecrv_inferred_tev": 105111.88,
       "tx_count": 14
+    },
+    {
+      "date": "2026-07-15",
+      "crvusd_to_treasury": 482436.04,
+      "vecrv_inferred_tev": 4341924.37,
+      "tx_count": 13
     }
   ],
   "summary": {
     "7d": {
-      "treasury_crvusd": 11679,
-      "vecrv_tev_usd": 105112,
-      "annualized_usd": 5480835,
-      "yield_pct_nominal": 1.58,
-      "yield_pct_vecrv_only": 2.84
+      "treasury_crvusd": 482436,
+      "vecrv_tev_usd": 4341924,
+      "annualized_usd": 226400342,
+      "yield_pct_nominal": 67.82,
+      "yield_pct_vecrv_only": 122.64
     },
     "30d": {
-      "treasury_crvusd": 317082,
-      "vecrv_tev_usd": 2853742,
-      "annualized_usd": 34720527,
-      "yield_pct_nominal": 9.98,
-      "yield_pct_vecrv_only": 18.02
+      "treasury_crvusd": 779349,
+      "vecrv_tev_usd": 7014138,
+      "annualized_usd": 85338674,
+      "yield_pct_nominal": 25.56,
+      "yield_pct_vecrv_only": 46.23
     },
     "90d": {
-      "treasury_crvusd": 435100,
-      "vecrv_tev_usd": 3915903,
-      "annualized_usd": 15881161,
-      "yield_pct_nominal": 4.57,
-      "yield_pct_vecrv_only": 8.24
+      "treasury_crvusd": 917536,
+      "vecrv_tev_usd": 8257827,
+      "annualized_usd": 33490076,
+      "yield_pct_nominal": 10.03,
+      "yield_pct_vecrv_only": 18.14
     },
     "365d": {
-      "treasury_crvusd": 1287026,
-      "vecrv_tev_usd": 11583238,
-      "annualized_usd": 11583238,
-      "yield_pct_nominal": 3.33,
-      "yield_pct_vecrv_only": 6.01
+      "treasury_crvusd": 1746333,
+      "vecrv_tev_usd": 15716996,
+      "annualized_usd": 15716996,
+      "yield_pct_nominal": 4.71,
+      "yield_pct_vecrv_only": 8.51
     }
   },
   "caveats": [

@@ -1,6 +1,6 @@
 {
   "protocol": "uniswap",
-  "updated_at": "2026-07-16T13:10:43.416771Z",
+  "updated_at": "2026-07-17T01:22:51.368697Z",
   "data_source": "Etherscan V2 (UNI → 0xdead) × 当前 UNI 价 (CoinGecko)",
   "records": [
     {
@@ -54,7 +54,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2025-12-29",
       "tx_count": 3,
       "source": {
@@ -69,7 +69,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8003.34,
-      "amount_usd": 29292,
+      "amount_usd": 28412,
       "period": "2025-12-30",
       "tx_count": 4,
       "source": {
@@ -84,7 +84,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2025-12-31",
       "tx_count": 2,
       "source": {
@@ -99,7 +99,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 4000.0,
-      "amount_usd": 14640,
+      "amount_usd": 14200,
       "period": "2026-01-01",
       "tx_count": 1,
       "source": {
@@ -114,7 +114,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 20000.0,
-      "amount_usd": 73200,
+      "amount_usd": 71000,
       "period": "2026-01-02",
       "tx_count": 6,
       "source": {
@@ -129,7 +129,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-01-03",
       "tx_count": 2,
       "source": {
@@ -144,7 +144,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-01-04",
       "tx_count": 3,
       "source": {
@@ -159,7 +159,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-01-05",
       "tx_count": 4,
       "source": {
@@ -174,7 +174,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 20000.0,
-      "amount_usd": 73200,
+      "amount_usd": 71000,
       "period": "2026-01-06",
       "tx_count": 5,
       "source": {
@@ -189,7 +189,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-01-07",
       "tx_count": 4,
       "source": {
@@ -204,7 +204,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-01-08",
       "tx_count": 4,
       "source": {
@@ -219,7 +219,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-01-09",
       "tx_count": 4,
       "source": {
@@ -234,7 +234,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 4000.0,
-      "amount_usd": 14640,
+      "amount_usd": 14200,
       "period": "2026-01-10",
       "tx_count": 1,
       "source": {
@@ -249,7 +249,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-01-11",
       "tx_count": 3,
       "source": {
@@ -264,7 +264,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-01-12",
       "tx_count": 4,
       "source": {
@@ -279,7 +279,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-01-13",
       "tx_count": 4,
       "source": {
@@ -294,7 +294,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 20000.0,
-      "amount_usd": 73200,
+      "amount_usd": 71000,
       "period": "2026-01-14",
       "tx_count": 5,
       "source": {
@@ -309,7 +309,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 20000.0,
-      "amount_usd": 73200,
+      "amount_usd": 71000,
       "period": "2026-01-15",
       "tx_count": 5,
       "source": {
@@ -324,7 +324,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-01-16",
       "tx_count": 3,
       "source": {
@@ -339,7 +339,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 4000.0,
-      "amount_usd": 14640,
+      "amount_usd": 14200,
       "period": "2026-01-17",
       "tx_count": 1,
       "source": {
@@ -354,7 +354,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-01-18",
       "tx_count": 2,
       "source": {
@@ -369,7 +369,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-01-19",
       "tx_count": 4,
       "source": {
@@ -384,7 +384,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 24000.0,
-      "amount_usd": 87840,
+      "amount_usd": 85200,
       "period": "2026-01-20",
       "tx_count": 6,
       "source": {
@@ -399,7 +399,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 26000.0,
-      "amount_usd": 95160,
+      "amount_usd": 92300,
       "period": "2026-01-21",
       "tx_count": 7,
       "source": {
@@ -414,7 +414,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-01-22",
       "tx_count": 4,
       "source": {
@@ -429,7 +429,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-01-23",
       "tx_count": 3,
       "source": {
@@ -444,7 +444,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 4000.0,
-      "amount_usd": 14640,
+      "amount_usd": 14200,
       "period": "2026-01-24",
       "tx_count": 1,
       "source": {
@@ -459,7 +459,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 20000.0,
-      "amount_usd": 73200,
+      "amount_usd": 71000,
       "period": "2026-01-25",
       "tx_count": 5,
       "source": {
@@ -474,7 +474,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 20000.0,
-      "amount_usd": 73200,
+      "amount_usd": 71000,
       "period": "2026-01-26",
       "tx_count": 5,
       "source": {
@@ -489,7 +489,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-01-27",
       "tx_count": 3,
       "source": {
@@ -504,7 +504,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-01-28",
       "tx_count": 4,
       "source": {
@@ -519,7 +519,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 24000.0,
-      "amount_usd": 87840,
+      "amount_usd": 85200,
       "period": "2026-01-29",
       "tx_count": 6,
       "source": {
@@ -534,7 +534,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 34000.0,
-      "amount_usd": 124440,
+      "amount_usd": 120700,
       "period": "2026-01-30",
       "tx_count": 9,
       "source": {
@@ -549,7 +549,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 68000.0,
-      "amount_usd": 248880,
+      "amount_usd": 241400,
       "period": "2026-01-31",
       "tx_count": 17,
       "source": {
@@ -564,7 +564,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 36000.0,
-      "amount_usd": 131760,
+      "amount_usd": 127800,
       "period": "2026-02-01",
       "tx_count": 9,
       "source": {
@@ -579,7 +579,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 40000.0,
-      "amount_usd": 146400,
+      "amount_usd": 142000,
       "period": "2026-02-02",
       "tx_count": 10,
       "source": {
@@ -594,7 +594,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 36000.0,
-      "amount_usd": 131760,
+      "amount_usd": 127800,
       "period": "2026-02-03",
       "tx_count": 9,
       "source": {
@@ -609,7 +609,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 44000.0,
-      "amount_usd": 161040,
+      "amount_usd": 156200,
       "period": "2026-02-04",
       "tx_count": 11,
       "source": {
@@ -624,7 +624,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 126000.0,
-      "amount_usd": 461160,
+      "amount_usd": 447300,
       "period": "2026-02-05",
       "tx_count": 32,
       "source": {
@@ -639,7 +639,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 80000.0,
-      "amount_usd": 292800,
+      "amount_usd": 284000,
       "period": "2026-02-06",
       "tx_count": 20,
       "source": {
@@ -654,7 +654,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 40000.0,
-      "amount_usd": 146400,
+      "amount_usd": 142000,
       "period": "2026-02-07",
       "tx_count": 10,
       "source": {
@@ -669,7 +669,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 24000.0,
-      "amount_usd": 87840,
+      "amount_usd": 85200,
       "period": "2026-02-08",
       "tx_count": 7,
       "source": {
@@ -684,7 +684,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 28000.0,
-      "amount_usd": 102480,
+      "amount_usd": 99400,
       "period": "2026-02-09",
       "tx_count": 7,
       "source": {
@@ -699,7 +699,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 24000.0,
-      "amount_usd": 87840,
+      "amount_usd": 85200,
       "period": "2026-02-10",
       "tx_count": 6,
       "source": {
@@ -714,7 +714,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 32000.0,
-      "amount_usd": 117120,
+      "amount_usd": 113600,
       "period": "2026-02-11",
       "tx_count": 8,
       "source": {
@@ -729,7 +729,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 28000.0,
-      "amount_usd": 102480,
+      "amount_usd": 99400,
       "period": "2026-02-12",
       "tx_count": 7,
       "source": {
@@ -744,7 +744,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 20000.0,
-      "amount_usd": 73200,
+      "amount_usd": 71000,
       "period": "2026-02-13",
       "tx_count": 5,
       "source": {
@@ -759,7 +759,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-02-14",
       "tx_count": 4,
       "source": {
@@ -774,7 +774,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 24000.0,
-      "amount_usd": 87840,
+      "amount_usd": 85200,
       "period": "2026-02-15",
       "tx_count": 6,
       "source": {
@@ -789,7 +789,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 20000.0,
-      "amount_usd": 73200,
+      "amount_usd": 71000,
       "period": "2026-02-16",
       "tx_count": 5,
       "source": {
@@ -804,7 +804,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 20000.0,
-      "amount_usd": 73200,
+      "amount_usd": 71000,
       "period": "2026-02-17",
       "tx_count": 5,
       "source": {
@@ -819,7 +819,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 26000.0,
-      "amount_usd": 95160,
+      "amount_usd": 92300,
       "period": "2026-02-18",
       "tx_count": 8,
       "source": {
@@ -834,7 +834,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 20000.0,
-      "amount_usd": 73200,
+      "amount_usd": 71000,
       "period": "2026-02-19",
       "tx_count": 5,
       "source": {
@@ -849,7 +849,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 24000.0,
-      "amount_usd": 87840,
+      "amount_usd": 85200,
       "period": "2026-02-20",
       "tx_count": 6,
       "source": {
@@ -864,7 +864,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 4000.0,
-      "amount_usd": 14640,
+      "amount_usd": 14200,
       "period": "2026-02-21",
       "tx_count": 1,
       "source": {
@@ -879,7 +879,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-02-22",
       "tx_count": 3,
       "source": {
@@ -894,7 +894,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 24000.0,
-      "amount_usd": 87840,
+      "amount_usd": 85200,
       "period": "2026-02-23",
       "tx_count": 6,
       "source": {
@@ -909,7 +909,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-02-24",
       "tx_count": 4,
       "source": {
@@ -924,7 +924,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 32000.0,
-      "amount_usd": 117120,
+      "amount_usd": 113600,
       "period": "2026-02-25",
       "tx_count": 8,
       "source": {
@@ -939,7 +939,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 20000.0,
-      "amount_usd": 73200,
+      "amount_usd": 71000,
       "period": "2026-02-26",
       "tx_count": 5,
       "source": {
@@ -954,7 +954,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 24000.0,
-      "amount_usd": 87840,
+      "amount_usd": 85200,
       "period": "2026-02-27",
       "tx_count": 6,
       "source": {
@@ -969,7 +969,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 24000.0,
-      "amount_usd": 87840,
+      "amount_usd": 85200,
       "period": "2026-02-28",
       "tx_count": 6,
       "source": {
@@ -984,7 +984,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 32000.0,
-      "amount_usd": 117120,
+      "amount_usd": 113600,
       "period": "2026-03-01",
       "tx_count": 8,
       "source": {
@@ -999,7 +999,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 32000.0,
-      "amount_usd": 117120,
+      "amount_usd": 113600,
       "period": "2026-03-02",
       "tx_count": 8,
       "source": {
@@ -1014,7 +1014,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 28000.0,
-      "amount_usd": 102480,
+      "amount_usd": 99400,
       "period": "2026-03-03",
       "tx_count": 7,
       "source": {
@@ -1029,7 +1029,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 36000.0,
-      "amount_usd": 131760,
+      "amount_usd": 127800,
       "period": "2026-03-04",
       "tx_count": 9,
       "source": {
@@ -1044,7 +1044,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 20000.0,
-      "amount_usd": 73200,
+      "amount_usd": 71000,
       "period": "2026-03-05",
       "tx_count": 5,
       "source": {
@@ -1059,7 +1059,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 22000.0,
-      "amount_usd": 80520,
+      "amount_usd": 78100,
       "period": "2026-03-06",
       "tx_count": 6,
       "source": {
@@ -1074,7 +1074,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-03-07",
       "tx_count": 2,
       "source": {
@@ -1089,7 +1089,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 20000.0,
-      "amount_usd": 73200,
+      "amount_usd": 71000,
       "period": "2026-03-08",
       "tx_count": 5,
       "source": {
@@ -1104,7 +1104,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 24000.0,
-      "amount_usd": 87840,
+      "amount_usd": 85200,
       "period": "2026-03-09",
       "tx_count": 6,
       "source": {
@@ -1119,7 +1119,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 20000.0,
-      "amount_usd": 73200,
+      "amount_usd": 71000,
       "period": "2026-03-10",
       "tx_count": 5,
       "source": {
@@ -1134,7 +1134,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 20000.0,
-      "amount_usd": 73200,
+      "amount_usd": 71000,
       "period": "2026-03-11",
       "tx_count": 5,
       "source": {
@@ -1149,7 +1149,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 24000.0,
-      "amount_usd": 87840,
+      "amount_usd": 85200,
       "period": "2026-03-12",
       "tx_count": 6,
       "source": {
@@ -1164,7 +1164,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 28000.0,
-      "amount_usd": 102480,
+      "amount_usd": 99400,
       "period": "2026-03-13",
       "tx_count": 7,
       "source": {
@@ -1179,7 +1179,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-03-14",
       "tx_count": 7,
       "source": {
@@ -1194,7 +1194,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 20000.0,
-      "amount_usd": 73200,
+      "amount_usd": 71000,
       "period": "2026-03-15",
       "tx_count": 6,
       "source": {
@@ -1209,7 +1209,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 56000.0,
-      "amount_usd": 204960,
+      "amount_usd": 198800,
       "period": "2026-03-16",
       "tx_count": 21,
       "source": {
@@ -1224,7 +1224,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 24000.0,
-      "amount_usd": 87840,
+      "amount_usd": 85200,
       "period": "2026-03-17",
       "tx_count": 8,
       "source": {
@@ -1239,7 +1239,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 74000.0,
-      "amount_usd": 270840,
+      "amount_usd": 262700,
       "period": "2026-03-18",
       "tx_count": 31,
       "source": {
@@ -1254,7 +1254,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 28000.0,
-      "amount_usd": 102480,
+      "amount_usd": 99400,
       "period": "2026-03-19",
       "tx_count": 8,
       "source": {
@@ -1269,7 +1269,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 20000.0,
-      "amount_usd": 73200,
+      "amount_usd": 71000,
       "period": "2026-03-20",
       "tx_count": 5,
       "source": {
@@ -1284,7 +1284,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 74000.0,
-      "amount_usd": 270840,
+      "amount_usd": 262700,
       "period": "2026-03-21",
       "tx_count": 35,
       "source": {
@@ -1299,7 +1299,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 28000.0,
-      "amount_usd": 102480,
+      "amount_usd": 99400,
       "period": "2026-03-22",
       "tx_count": 9,
       "source": {
@@ -1314,7 +1314,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 46000.0,
-      "amount_usd": 168360,
+      "amount_usd": 163300,
       "period": "2026-03-23",
       "tx_count": 14,
       "source": {
@@ -1329,7 +1329,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 40000.0,
-      "amount_usd": 146400,
+      "amount_usd": 142000,
       "period": "2026-03-24",
       "tx_count": 15,
       "source": {
@@ -1344,7 +1344,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 18000.0,
-      "amount_usd": 65880,
+      "amount_usd": 63900,
       "period": "2026-03-25",
       "tx_count": 5,
       "source": {
@@ -1359,7 +1359,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 74000.0,
-      "amount_usd": 270840,
+      "amount_usd": 262700,
       "period": "2026-03-26",
       "tx_count": 32,
       "source": {
@@ -1374,7 +1374,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 38000.0,
-      "amount_usd": 139080,
+      "amount_usd": 134900,
       "period": "2026-03-27",
       "tx_count": 13,
       "source": {
@@ -1389,7 +1389,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 20000.0,
-      "amount_usd": 73200,
+      "amount_usd": 71000,
       "period": "2026-03-28",
       "tx_count": 7,
       "source": {
@@ -1404,7 +1404,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 58000.0,
-      "amount_usd": 212280,
+      "amount_usd": 205900,
       "period": "2026-03-29",
       "tx_count": 26,
       "source": {
@@ -1419,7 +1419,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 38000.0,
-      "amount_usd": 139080,
+      "amount_usd": 134900,
       "period": "2026-03-30",
       "tx_count": 14,
       "source": {
@@ -1434,7 +1434,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 50000.0,
-      "amount_usd": 183000,
+      "amount_usd": 177500,
       "period": "2026-03-31",
       "tx_count": 18,
       "source": {
@@ -1449,7 +1449,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 40000.0,
-      "amount_usd": 146400,
+      "amount_usd": 142000,
       "period": "2026-04-01",
       "tx_count": 13,
       "source": {
@@ -1464,7 +1464,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 30000.0,
-      "amount_usd": 109800,
+      "amount_usd": 106500,
       "period": "2026-04-02",
       "tx_count": 9,
       "source": {
@@ -1479,7 +1479,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 76000.0,
-      "amount_usd": 278160,
+      "amount_usd": 269800,
       "period": "2026-04-03",
       "tx_count": 35,
       "source": {
@@ -1494,7 +1494,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-04-04",
       "tx_count": 3,
       "source": {
@@ -1509,7 +1509,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 26000.0,
-      "amount_usd": 95160,
+      "amount_usd": 92300,
       "period": "2026-04-05",
       "tx_count": 10,
       "source": {
@@ -1524,7 +1524,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 42000.0,
-      "amount_usd": 153720,
+      "amount_usd": 149100,
       "period": "2026-04-06",
       "tx_count": 15,
       "source": {
@@ -1539,7 +1539,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 62000.0,
-      "amount_usd": 226920,
+      "amount_usd": 220100,
       "period": "2026-04-07",
       "tx_count": 23,
       "source": {
@@ -1554,7 +1554,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 30000.0,
-      "amount_usd": 109800,
+      "amount_usd": 106500,
       "period": "2026-04-08",
       "tx_count": 11,
       "source": {
@@ -1569,7 +1569,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 68000.0,
-      "amount_usd": 248880,
+      "amount_usd": 241400,
       "period": "2026-04-09",
       "tx_count": 29,
       "source": {
@@ -1584,7 +1584,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 26000.0,
-      "amount_usd": 95160,
+      "amount_usd": 92300,
       "period": "2026-04-10",
       "tx_count": 8,
       "source": {
@@ -1599,7 +1599,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 36000.0,
-      "amount_usd": 131760,
+      "amount_usd": 127800,
       "period": "2026-04-11",
       "tx_count": 15,
       "source": {
@@ -1614,7 +1614,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 18000.0,
-      "amount_usd": 65880,
+      "amount_usd": 63900,
       "period": "2026-04-12",
       "tx_count": 5,
       "source": {
@@ -1629,7 +1629,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 32000.0,
-      "amount_usd": 117120,
+      "amount_usd": 113600,
       "period": "2026-04-13",
       "tx_count": 11,
       "source": {
@@ -1644,7 +1644,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 40000.0,
-      "amount_usd": 146400,
+      "amount_usd": 142000,
       "period": "2026-04-14",
       "tx_count": 14,
       "source": {
@@ -1659,7 +1659,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 70000.0,
-      "amount_usd": 256200,
+      "amount_usd": 248500,
       "period": "2026-04-15",
       "tx_count": 31,
       "source": {
@@ -1674,7 +1674,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 30000.0,
-      "amount_usd": 109800,
+      "amount_usd": 106500,
       "period": "2026-04-16",
       "tx_count": 10,
       "source": {
@@ -1689,7 +1689,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 70000.0,
-      "amount_usd": 256200,
+      "amount_usd": 248500,
       "period": "2026-04-17",
       "tx_count": 28,
       "source": {
@@ -1704,7 +1704,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 38000.0,
-      "amount_usd": 139080,
+      "amount_usd": 134900,
       "period": "2026-04-18",
       "tx_count": 11,
       "source": {
@@ -1719,7 +1719,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 36000.0,
-      "amount_usd": 131760,
+      "amount_usd": 127800,
       "period": "2026-04-19",
       "tx_count": 9,
       "source": {
@@ -1734,7 +1734,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-04-20",
       "tx_count": 4,
       "source": {
@@ -1749,7 +1749,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-04-21",
       "tx_count": 4,
       "source": {
@@ -1764,7 +1764,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-04-22",
       "tx_count": 3,
       "source": {
@@ -1779,7 +1779,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-04-23",
       "tx_count": 3,
       "source": {
@@ -1794,7 +1794,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-04-24",
       "tx_count": 3,
       "source": {
@@ -1809,7 +1809,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-04-25",
       "tx_count": 3,
       "source": {
@@ -1824,7 +1824,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-04-26",
       "tx_count": 2,
       "source": {
@@ -1839,7 +1839,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-04-27",
       "tx_count": 3,
       "source": {
@@ -1854,7 +1854,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-04-28",
       "tx_count": 2,
       "source": {
@@ -1869,7 +1869,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-04-29",
       "tx_count": 4,
       "source": {
@@ -1884,7 +1884,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-04-30",
       "tx_count": 2,
       "source": {
@@ -1899,7 +1899,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-05-01",
       "tx_count": 2,
       "source": {
@@ -1914,7 +1914,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-05-02",
       "tx_count": 2,
       "source": {
@@ -1929,7 +1929,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-05-03",
       "tx_count": 2,
       "source": {
@@ -1944,7 +1944,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-05-04",
       "tx_count": 4,
       "source": {
@@ -1959,7 +1959,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-05-05",
       "tx_count": 2,
       "source": {
@@ -1974,7 +1974,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-05-06",
       "tx_count": 3,
       "source": {
@@ -1989,7 +1989,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-05-07",
       "tx_count": 2,
       "source": {
@@ -2004,7 +2004,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-05-08",
       "tx_count": 3,
       "source": {
@@ -2019,7 +2019,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 4000.0,
-      "amount_usd": 14640,
+      "amount_usd": 14200,
       "period": "2026-05-09",
       "tx_count": 1,
       "source": {
@@ -2034,7 +2034,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-05-10",
       "tx_count": 2,
       "source": {
@@ -2049,7 +2049,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-05-11",
       "tx_count": 2,
       "source": {
@@ -2064,7 +2064,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-05-12",
       "tx_count": 2,
       "source": {
@@ -2079,7 +2079,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-05-13",
       "tx_count": 2,
       "source": {
@@ -2094,7 +2094,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-05-14",
       "tx_count": 3,
       "source": {
@@ -2109,7 +2109,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-05-15",
       "tx_count": 3,
       "source": {
@@ -2124,7 +2124,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 4000.0,
-      "amount_usd": 14640,
+      "amount_usd": 14200,
       "period": "2026-05-16",
       "tx_count": 1,
       "source": {
@@ -2139,7 +2139,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-05-17",
       "tx_count": 3,
       "source": {
@@ -2154,7 +2154,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-05-18",
       "tx_count": 4,
       "source": {
@@ -2169,7 +2169,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-05-19",
       "tx_count": 2,
       "source": {
@@ -2184,7 +2184,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-05-20",
       "tx_count": 3,
       "source": {
@@ -2199,7 +2199,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-05-21",
       "tx_count": 2,
       "source": {
@@ -2214,7 +2214,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-05-22",
       "tx_count": 3,
       "source": {
@@ -2229,7 +2229,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-05-23",
       "tx_count": 4,
       "source": {
@@ -2244,7 +2244,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-05-24",
       "tx_count": 3,
       "source": {
@@ -2259,7 +2259,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 4000.0,
-      "amount_usd": 14640,
+      "amount_usd": 14200,
       "period": "2026-05-25",
       "tx_count": 1,
       "source": {
@@ -2274,7 +2274,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-05-26",
       "tx_count": 4,
       "source": {
@@ -2289,7 +2289,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-05-27",
       "tx_count": 4,
       "source": {
@@ -2304,7 +2304,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-05-28",
       "tx_count": 3,
       "source": {
@@ -2319,7 +2319,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-05-29",
       "tx_count": 4,
       "source": {
@@ -2334,7 +2334,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 4000.0,
-      "amount_usd": 14640,
+      "amount_usd": 14200,
       "period": "2026-05-30",
       "tx_count": 1,
       "source": {
@@ -2349,7 +2349,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-05-31",
       "tx_count": 2,
       "source": {
@@ -2364,7 +2364,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-06-01",
       "tx_count": 4,
       "source": {
@@ -2379,7 +2379,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 42000.0,
-      "amount_usd": 153720,
+      "amount_usd": 149100,
       "period": "2026-06-02",
       "tx_count": 11,
       "source": {
@@ -2394,7 +2394,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 74000.0,
-      "amount_usd": 270840,
+      "amount_usd": 262700,
       "period": "2026-06-03",
       "tx_count": 22,
       "source": {
@@ -2409,7 +2409,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 46000.0,
-      "amount_usd": 168360,
+      "amount_usd": 163300,
       "period": "2026-06-04",
       "tx_count": 13,
       "source": {
@@ -2424,7 +2424,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_usd": 56800,
       "period": "2026-06-10",
       "tx_count": 4,
       "source": {
@@ -2439,7 +2439,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 208000.0,
-      "amount_usd": 761280,
+      "amount_usd": 738400,
       "period": "2026-06-11",
       "tx_count": 98,
       "source": {
@@ -2454,7 +2454,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 48000.0,
-      "amount_usd": 175680,
+      "amount_usd": 170400,
       "period": "2026-06-12",
       "tx_count": 18,
       "source": {
@@ -2469,7 +2469,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 18000.0,
-      "amount_usd": 65880,
+      "amount_usd": 63900,
       "period": "2026-06-13",
       "tx_count": 7,
       "source": {
@@ -2484,7 +2484,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-07-02",
       "tx_count": 3,
       "source": {
@@ -2499,7 +2499,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 60000.0,
-      "amount_usd": 219600,
+      "amount_usd": 213000,
       "period": "2026-07-03",
       "tx_count": 27,
       "source": {
@@ -2514,7 +2514,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-07-04",
       "tx_count": 3,
       "source": {
@@ -2529,7 +2529,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-07-05",
       "tx_count": 2,
       "source": {
@@ -2544,7 +2544,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-07-06",
       "tx_count": 3,
       "source": {
@@ -2559,7 +2559,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 12000.0,
-      "amount_usd": 43920,
+      "amount_usd": 42600,
       "period": "2026-07-07",
       "tx_count": 3,
       "source": {
@@ -2574,7 +2574,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-07-08",
       "tx_count": 2,
       "source": {
@@ -2589,7 +2589,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-07-09",
       "tx_count": 2,
       "source": {
@@ -2604,7 +2604,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-07-10",
       "tx_count": 2,
       "source": {
@@ -2619,7 +2619,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 8000.0,
-      "amount_usd": 29280,
+      "amount_usd": 28400,
       "period": "2026-07-11",
       "tx_count": 2,
       "source": {
@@ -2634,7 +2634,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 4000.0,
-      "amount_usd": 14640,
+      "amount_usd": 14200,
       "period": "2026-07-12",
       "tx_count": 1,
       "source": {
@@ -2649,7 +2649,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 84000.0,
-      "amount_usd": 307440,
+      "amount_usd": 298200,
       "period": "2026-07-13",
       "tx_count": 35,
       "source": {
@@ -2664,7 +2664,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 270000.0,
-      "amount_usd": 988200,
+      "amount_usd": 958500,
       "period": "2026-07-14",
       "tx_count": 127,
       "source": {
@@ -2679,7 +2679,7 @@
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
       "amount_uni": 28000.0,
-      "amount_usd": 102480,
+      "amount_usd": 99400,
       "period": "2026-07-15",
       "tx_count": 9,
       "source": {
@@ -2693,10 +2693,25 @@
       "date": "2026-07-16",
       "type": "buyback_burn",
       "mechanism": "Firepit Burn (via fee switch)",
-      "amount_uni": 16000.0,
-      "amount_usd": 58560,
+      "amount_uni": 20000.0,
+      "amount_usd": 71000,
       "period": "2026-07-16",
-      "tx_count": 5,
+      "tx_count": 6,
+      "source": {
+        "type": "onchain",
+        "provider": "Etherscan V2",
+        "note": "过去 365 天 UNI → 0xdead (排除 >=10M 一次性事件)"
+      }
+    },
+    {
+      "id": "uni-burn-2026-07-17",
+      "date": "2026-07-17",
+      "type": "buyback_burn",
+      "mechanism": "Firepit Burn (via fee switch)",
+      "amount_uni": 4000.0,
+      "amount_usd": 14200,
+      "period": "2026-07-17",
+      "tx_count": 1,
       "source": {
         "type": "onchain",
         "provider": "Etherscan V2",
