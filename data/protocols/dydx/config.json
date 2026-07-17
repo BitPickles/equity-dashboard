@@ -87,9 +87,9 @@
   "last_updated": "2026-04-26",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 8.86,
+    "tev_yield_percent": 9,
     "annual_tev_usd": 9497735,
-    "market_cap_usd": 107217408.49,
+    "market_cap_usd": 105571049.03,
     "calculation_date": "2026-07-17",
     "sources": [
       {
@@ -119,28 +119,28 @@
     "en": "100% fees-to-staker on dYdX Chain (Cosmos) is verifiable, but 75% buyback (Proposal #313) has no public on-chain tracker. ethDYDX bridge closed."
   },
   "tevRatio": 0.75,
-  "earning_yield_percent": 8.86,
-  "market_cap_usd": 107217408.49,
-  "tev_yield_percent": 8.86,
+  "earning_yield_percent": 9,
+  "market_cap_usd": 105571049.03,
+  "tev_yield_percent": 9,
   "metrics": {
-    "current_market_cap_usd": 107217408.49,
+    "current_market_cap_usd": 105571049.03,
     "trailing_365d_revenue_usd": 9497735,
     "trailing_30d_revenue_usd": 241451,
     "trailing_365d_tev_usd": 9497735,
     "trailing_30d_tev_usd": 791477.9166666666,
     "trailing_7d_revenue_usd": 80587,
     "trailing_90d_revenue_usd": 703899,
-    "tev_yield_7d_ann": 3.92,
-    "tev_yield_30d_ann": 2.74,
-    "tev_yield_90d_ann": 2.66,
-    "earning_yield_7d_ann": 3.92,
-    "earning_yield_30d_ann": 2.74,
-    "earning_yield_90d_ann": 2.66,
-    "dividend_yield_7d_ann": 3.92,
+    "tev_yield_7d_ann": 3.98,
+    "tev_yield_30d_ann": 2.78,
+    "tev_yield_90d_ann": 2.7,
+    "earning_yield_7d_ann": 3.98,
+    "earning_yield_30d_ann": 2.78,
+    "earning_yield_90d_ann": 2.7,
+    "dividend_yield_7d_ann": 3.98,
     "buyback_yield_7d_ann": 0,
-    "dividend_yield_30d_ann": 2.74,
+    "dividend_yield_30d_ann": 2.78,
     "buyback_yield_30d_ann": 0,
-    "dividend_yield_90d_ann": 2.66,
+    "dividend_yield_90d_ann": 2.7,
     "buyback_yield_90d_ann": 0
   },
   "calc_pipeline": [
@@ -200,7 +200,7 @@
       "unit": "%"
     }
   ],
-  "dividend_yield_percent": 8.86,
+  "dividend_yield_percent": 9,
   "buyback_yield_percent": 0,
   "style": "cash_cow"
 }
