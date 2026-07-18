@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-18T01:08:32.571857+00:00",
-  "total": 240,
+  "updated_at": "2026-07-18T13:08:13.390196+00:00",
+  "total": 235,
   "active_count": 32,
-  "passed_count": 208,
-  "tev_related": 64,
+  "passed_count": 203,
+  "tev_related": 61,
   "monitored_protocols": 19,
   "protocols_meta": {
     "Aave": {
@@ -3255,81 +3255,6 @@
       "tev_keywords": [],
       "summary_en": "Flashloan Aggregator and Instadapp Flashloan Source",
       "summary_zh": "闪电贷聚合器与 Instadapp 闪电贷源提案，构建跨协议闪电贷聚合服务，优化闪电贷资金路由效率。",
-      "analysis_zh": ""
-    },
-    {
-      "source": "Sky Polling",
-      "protocol": "Sky (MakerDAO)",
-      "title": "Atlas Edit Weekly Cycle Proposal - July 13, 2026",
-      "status": "passed",
-      "link": "https://vote.makerdao.com/polling/Qmd3yk9L",
-      "created": "2026-07-13T16:00:00",
-      "end": "2026-07-16T16:00:00",
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "This Atlas edit proposal 1) updates the Monthly Settlement Cycle Process, 2) adds a timeliness requirement to Aligned Delegate voting participation, 3) clarifies that Genesis Capital phase-out is not a repayment to Sky, 4) adds the canonical Sky Fron",
-      "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas 编辑每周周期提案 - 2026年7月13日\n摘要：本提案1）更新月度结算周期流程，2）对对齐代表投票参与设定时效性要求，3）明确Genesis Capital逐步退出非Sky还款，4）增加Sky Fron",
-      "analysis_zh": ""
-    },
-    {
-      "source": "Sky Polling",
-      "protocol": "Sky (MakerDAO)",
-      "title": "Atlas Edit Weekly Cycle Proposal - July 6, 2026",
-      "status": "passed",
-      "link": "https://vote.makerdao.com/polling/QmUnVyGg",
-      "created": "2026-07-06T16:00:00",
-      "end": "2026-07-09T16:00:00",
-      "tev_related": true,
-      "tev_keywords": [
-        "distribution"
-      ],
-      "summary_en": "This Atlas edit proposal 1) adds the Shared Diamond PAU Framework, 2) prepares the Osero Artifact for the July 16 Spell, 3) prepares the Grove Artifact for the July 16 Spell, 4) clarifies the Peg Defense Obligation calculation basis, 5) terminates th",
-      "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas编辑每周周期提案 - 2026年7月6日\n摘要：本提案1）增加共享钻石PAU框架，2）为7月16日的Spell准备Osero神器，3）为7月16日的Spell准备Grove神器，4）明确Peg防御义务的计算依据，5）终止..."
-    },
-    {
-      "source": "Sky Polling",
-      "protocol": "Sky (MakerDAO)",
-      "title": "Atlas Edit Weekly Cycle Proposal - June 29, 2026",
-      "status": "passed",
-      "link": "https://vote.makerdao.com/polling/Qmd3gCcD",
-      "created": "2026-06-29T16:00:00",
-      "end": "2026-07-02T16:00:00",
-      "tev_related": true,
-      "tev_keywords": [
-        "distribution",
-        "revenue"
-      ],
-      "summary_en": "This Atlas edit proposal 1) adds a 100% Capital Ratio Requirement for unauthorized exposures, 2) transitions the Galaxy Warehouse out of Interim Deployment, 3) credits Grove for owed Prime revenue, 4) adds a GROVE token reward distribution schedule, ",
-      "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas编辑每周周期提案 - 2026年6月29日\n摘要：本提案1）为未经授权的敞口增加100%资本比率要求，2）将Galaxy仓库从临时部署过渡，3）为Grove偿还欠款Prime收入，4）增加GROVE代币奖励分配计划。"
-    },
-    {
-      "source": "Sky Polling",
-      "protocol": "Sky (MakerDAO)",
-      "title": "Atlas Edit Weekly Cycle Proposal - June 22, 2026",
-      "status": "passed",
-      "link": "https://vote.makerdao.com/polling/QmdXjfm6",
-      "created": "2026-06-22T16:00:00",
-      "end": "2026-06-25T16:00:00",
-      "tev_related": true,
-      "tev_keywords": [
-        "distribution",
-        "treasury"
-      ],
-      "summary_en": "This Atlas edit proposal 1) re-grounds broad discretionary authority in the Core Council, 2) adds Core Council authority to modify the Treasury Allocation, 3) authorizes transfers to the Sky Frontier Foundation from Executor Agents, 4) clarifies repe",
-      "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas 编辑每周周期提案 - 2026年6月22日\n摘要：本提案1）将广泛的自由裁量权重新赋予核心委员会，2）赋予核心委员会修改金库分配的权力，3）授权从执行代理向Sky Frontier基金会转账，4）明确重复..."
-    },
-    {
-      "source": "Sky Polling",
-      "protocol": "Sky (MakerDAO)",
-      "title": "Atlas Edit Weekly Cycle Proposal - June 15, 2026",
-      "status": "passed",
-      "link": "https://vote.makerdao.com/polling/QmdYpnYS",
-      "created": "2026-06-15T16:00:00",
-      "end": "2026-06-18T16:00:00",
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "This Atlas edit proposal 1) codifies Core Facilitator authority over final Spell inclusion, 2) updates the Ethereum SkyLink Freezer Multisig configuration from 2/4 to 2/5, 3) adds Spark Foundation grant authorization for Q3 2026, 4) adds a second All",
-      "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas编辑每周周期提案 - 2026年6月15日\n摘要：本提案1）将核心促进者对最终咒语加入的权限进行法典化，2）将以太坊SkyLink Freezer多重签名配置从2/4更改为2/5，3）增加2026年第三季度Spark基金会拨款授权，4）增加第二次所有者治理投票。",
       "analysis_zh": ""
     },
     {
