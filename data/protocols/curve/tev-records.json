@@ -1,6 +1,6 @@
 {
   "protocol": "curve",
-  "updated_at": "2026-07-17T13:12:31.127Z",
+  "updated_at": "2026-07-18T01:12:54.373Z",
   "data_source": "DefiLlama API (dailyHoldersRevenue)",
   "data_source_url": "https://api.llama.fi/summary/fees/curve-finance?dataType=dailyHoldersRevenue",
   "records": [
@@ -655,7 +655,7 @@
       "date": "2024-11-01",
       "type": "aggregate",
       "mechanism": "veCRV Fee Distribution",
-      "amount_usd": 1710707,
+      "amount_usd": 1674245,
       "period": "2024-11",
       "days_with_data": 30,
       "source": {
@@ -672,7 +672,7 @@
       "date": "2024-12-01",
       "type": "aggregate",
       "mechanism": "veCRV Fee Distribution",
-      "amount_usd": 1636239,
+      "amount_usd": 1747165,
       "period": "2024-12",
       "days_with_data": 31,
       "source": {
@@ -689,7 +689,7 @@
       "date": "2025-01-01",
       "type": "aggregate",
       "mechanism": "veCRV Fee Distribution",
-      "amount_usd": 1386991,
+      "amount_usd": 1326128,
       "period": "2025-01",
       "days_with_data": 31,
       "source": {
@@ -757,7 +757,7 @@
       "date": "2025-05-01",
       "type": "aggregate",
       "mechanism": "veCRV Fee Distribution",
-      "amount_usd": 730360,
+      "amount_usd": 730697,
       "period": "2025-05",
       "days_with_data": 31,
       "source": {
@@ -774,7 +774,7 @@
       "date": "2025-06-01",
       "type": "aggregate",
       "mechanism": "veCRV Fee Distribution",
-      "amount_usd": 648664,
+      "amount_usd": 809578,
       "period": "2025-06",
       "days_with_data": 30,
       "source": {
@@ -995,7 +995,7 @@
       "date": "2026-07-01",
       "type": "aggregate",
       "mechanism": "veCRV Fee Distribution",
-      "amount_usd": 608680,
+      "amount_usd": 615925,
       "period": "2026-07",
       "days_with_data": 17,
       "source": {
@@ -1009,10 +1009,10 @@
     }
   ],
   "summary": {
-    "total_tev_usd": 184213784,
-    "total_30d_usd": 1024323,
+    "total_tev_usd": 184395881,
+    "total_30d_usd": 881377,
     "by_mechanism": {
-      "ve_reward": 184213784
+      "ve_reward": 184395881
     },
     "by_period": {
       "2020-Q4": 202505,
@@ -1028,14 +1028,14 @@
       "2024-Q1": 8135963,
       "2024-Q2": 7510643,
       "2024-Q3": 4837673,
-      "2024-Q4": 4421588,
-      "2025-Q1": 3089991,
-      "2025-Q2": 2036068,
+      "2024-Q4": 4496052,
+      "2025-Q1": 3029128,
+      "2025-Q2": 2197319,
       "2025-Q3": 13664176,
       "2025-Q4": 11613541,
       "2026-Q1": 8526574,
       "2026-Q2": 5144841,
-      "2026-Q3": 608680
+      "2026-Q3": 615925
     }
   }
 }

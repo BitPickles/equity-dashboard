@@ -89,8 +89,8 @@
     "has_tev": true,
     "tev_yield_percent": 9,
     "annual_tev_usd": 9497735,
-    "market_cap_usd": 105571049.03,
-    "calculation_date": "2026-07-17",
+    "market_cap_usd": 105557171.31,
+    "calculation_date": "2026-07-18",
     "sources": [
       {
         "name": "DefiLlama dailyHoldersRevenue",
@@ -120,10 +120,10 @@
   },
   "tevRatio": 0.75,
   "earning_yield_percent": 9,
-  "market_cap_usd": 105571049.03,
+  "market_cap_usd": 105557171.31,
   "tev_yield_percent": 9,
   "metrics": {
-    "current_market_cap_usd": 105571049.03,
+    "current_market_cap_usd": 105557171.31,
     "trailing_365d_revenue_usd": 9497735,
     "trailing_30d_revenue_usd": 241451,
     "trailing_365d_tev_usd": 9497735,
