@@ -81,7 +81,7 @@
     "tev_yield_percent": 3.31,
     "annual_tev_usd": 30000000,
     "market_cap_usd": 1799059173.84,
-    "calculation_date": "2026-07-18",
+    "calculation_date": "2026-07-19",
     "sources": [
       {
         "name": "Annual Buyback Program",
@@ -125,14 +125,14 @@
   "tev_yield_percent": 3.31,
   "metrics": {
     "current_market_cap_usd": 1799059173.84,
-    "trailing_365d_revenue_usd": 119428028,
-    "trailing_30d_revenue_usd": 3863627,
+    "trailing_365d_revenue_usd": 119427881,
+    "trailing_30d_revenue_usd": 3863480,
     "trailing_365d_tev_usd": 30000000,
     "trailing_30d_tev_usd": 2500000,
     "trailing_365d_holders_revenue_usd": 42212267,
     "trailing_30d_holders_revenue_usd": 6155965,
-    "trailing_7d_revenue_usd": 876660,
-    "trailing_90d_revenue_usd": 17943464,
+    "trailing_7d_revenue_usd": 876513,
+    "trailing_90d_revenue_usd": 17943317,
     "tev_yield_7d_ann": 1.67,
     "tev_yield_30d_ann": 2.06,
     "tev_yield_90d_ann": 1.83,

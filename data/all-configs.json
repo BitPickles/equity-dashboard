@@ -70,11 +70,11 @@
     "notes": "Aave 在 2024 年通过 Aavenomics 升级开启了代币回购机制，每周从协议收入中拿出一部分回购 AAVE。Safety Module 也是重要的 TEV 来源。",
     "last_updated": "2026-02-02",
     "market_data": {
-      "price_usd": 88.12,
-      "market_cap": 1337373582,
-      "volume_24h": 180331419,
-      "price_change_24h": -2.41154,
-      "fees_30d": 29169015,
+      "price_usd": 90.16,
+      "market_cap": 1390101575,
+      "volume_24h": 150817554,
+      "price_change_24h": 0.56535,
+      "fees_30d": 29082489,
       "revenue_30d": 0,
       "tvl": [
         {
@@ -9079,14 +9079,18 @@
         },
         {
           "date": 1784332800,
-          "totalLiquidityUSD": 14077757912
+          "totalLiquidityUSD": 14202407052
         },
         {
-          "date": 1784375051,
-          "totalLiquidityUSD": 14075750508
+          "date": 1784419200,
+          "totalLiquidityUSD": 14202407052
+        },
+        {
+          "date": 1784419211,
+          "totalLiquidityUSD": 14202445267
         }
       ],
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama"
     },
     "tevStatus": "active",
@@ -9190,17 +9194,17 @@
       "primary_value_accrual": "协议收入 → ASTER 回购"
     },
     "market_data": {
-      "price_usd": 0.619679,
+      "price_usd": 0.622687,
       "circulating_market_cap": 1346353083,
       "total_supply": 8000000000,
       "tvl_usd": 1091092274,
       "volume_24h_usd": 236804925,
       "mcap_to_tvl_ratio": 1.23,
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama",
-      "market_cap": 1664325653,
-      "volume_24h": 58964429,
-      "price_change_24h": 0.72788
+      "market_cap": 1672156760,
+      "volume_24h": 48688123,
+      "price_change_24h": -0.02094
     },
     "calculated_tev": {
       "tev_yield_percent": null,
@@ -9346,14 +9350,14 @@
       "primary_value_accrual": "回购销毁 - 季度用平台收入回购销毁 BGB"
     },
     "market_data": {
-      "price_usd": 1.64,
+      "price_usd": 1.65,
       "circulating_market_cap": 1888393751,
       "total_supply": 2000000000,
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama",
-      "market_cap": 1150958533,
-      "volume_24h": 7411098,
-      "price_change_24h": 0.85523
+      "market_cap": 1153811957,
+      "volume_24h": 5998001,
+      "price_change_24h": 0.68317
     },
     "calculated_tev": {
       "tev_yield_percent": null,
@@ -9465,19 +9469,19 @@
       "primary_value_accrual": "销毁 - 通过持续销毁减少总供应量，目标 100M BNB"
     },
     "market_data": {
-      "price_usd": 570.27,
-      "circulating_supply": 133166008.95,
+      "price_usd": 570.26,
+      "circulating_supply": 133165992.99,
       "circulating_market_cap": 85309283181,
       "target_supply": 100000000,
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama",
-      "market_cap": 75944776265,
-      "volume_24h": 480974730,
-      "price_change_24h": 2.1489,
-      "tvl": 4918761133.013079,
+      "market_cap": 75938219133,
+      "volume_24h": 420342510,
+      "price_change_24h": 0.58532,
+      "tvl": 4939189897.502031,
       "tvl_note": "BNB Chain 全链 TVL (DefiLlama)",
-      "total_supply": 133166008.95,
-      "total_burned": 66833991.05
+      "total_supply": 133165992.99,
+      "total_burned": 66834007.010000005
     },
     "calculated_tev": {
       "tev_yield_percent": null,
@@ -9594,11 +9598,11 @@
     "notes": "Compound 作为 DeFi 借贷的先驱，COMP 代币开创了治理代币模式。尽管协议收入可观，但 COMP 始终是纯治理代币，费用开关从未开启。社区多次讨论过开启费用分配但未通过。",
     "last_updated": "2026-02-04",
     "market_data": {
-      "price_usd": 17.21,
-      "market_cap": 166376126,
-      "volume_24h": 9436003,
-      "price_change_24h": 0.84093,
-      "snapshot_date": "2026-07-18",
+      "price_usd": 17.37,
+      "market_cap": 167960670,
+      "volume_24h": 8373310,
+      "price_change_24h": 2.35019,
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama"
     },
     "tevStatus": "none",
@@ -9666,16 +9670,16 @@
       ]
     },
     "market_data": {
-      "price_usd": 0.212847,
+      "price_usd": 0.212478,
       "circulating_supply": 1461799676,
       "circulating_market_cap": 355558659,
       "total_supply": 2349219713,
       "holders": 97359,
-      "snapshot_date": "2026-07-18",
-      "market_cap": 327423401,
-      "volume_24h": 21118410,
-      "price_change_24h": 0.67712,
-      "fees_30d": 2504068,
+      "snapshot_date": "2026-07-19",
+      "market_cap": 326880185,
+      "volume_24h": 16018145,
+      "price_change_24h": -1.5325,
+      "fees_30d": 2415512,
       "revenue_30d": 0,
       "tvl": [
         {
@@ -19059,8 +19063,8 @@
           "totalLiquidityUSD": 1278616446
         },
         {
-          "date": 1784373095,
-          "totalLiquidityUSD": 1278549845
+          "date": 1784416739,
+          "totalLiquidityUSD": 1282782969
         }
       ],
       "data_source": "CoinGecko + DefiLlama"
@@ -19141,15 +19145,15 @@
       "primary_value_accrual": "回购 - 75% 协议净收入用于 DYDX 回购"
     },
     "market_data": {
-      "price_usd": 0.120391,
+      "price_usd": 0.120552,
       "circulating_market_cap": 90016535,
       "total_supply": 1000000000,
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama",
-      "market_cap": 102181663,
-      "volume_24h": 3191422,
-      "price_change_24h": -3.86872,
-      "fees_30d": 231401,
+      "market_cap": 102337470,
+      "volume_24h": 2274654,
+      "price_change_24h": -3.10071,
+      "fees_30d": 221681,
       "revenue_30d": 0,
       "tvl": [
         {
@@ -27462,11 +27466,15 @@
         },
         {
           "date": 1784332800,
-          "totalLiquidityUSD": 122141803
+          "totalLiquidityUSD": 122008376
         },
         {
-          "date": 1784375171,
-          "totalLiquidityUSD": 122122346
+          "date": 1784419200,
+          "totalLiquidityUSD": 122008376
+        },
+        {
+          "date": 1784419211,
+          "totalLiquidityUSD": 122038719
         }
       ]
     },
@@ -27546,11 +27554,11 @@
     "notes": "EigenLayer 作为再质押基础设施，当前 EIGEN 代币仅有治理功能。协议收入（AVS 费用）目前未分配给代币持有者。未来可能通过治理开启费用开关。",
     "last_updated": "2026-02-04",
     "market_data": {
-      "price_usd": 0.2296,
-      "market_cap": 170279704,
-      "volume_24h": 23480387,
-      "price_change_24h": -0.17678,
-      "fees_30d": 734333,
+      "price_usd": 0.229958,
+      "market_cap": 170484987,
+      "volume_24h": 20168222,
+      "price_change_24h": -2.61548,
+      "fees_30d": 664327,
       "revenue_30d": 0,
       "tvl": [
         {
@@ -32070,11 +32078,11 @@
           "totalLiquidityUSD": 4986039705
         },
         {
-          "date": 1784373275,
-          "totalLiquidityUSD": 4991106916
+          "date": 1784417819,
+          "totalLiquidityUSD": 5042473572
         }
       ],
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama"
     },
     "tevStatus": "none",
@@ -32168,11 +32176,11 @@
     "notes": "Ethena 是 2024-2025 年增长最快的协议之一。⚠️ 收入分配复杂且不完全公开：大部分收入分配给 sUSDe 持有者（质押收益），剩余部分进入风险储备基金(Reserve Fund)。sENA 质押可获得治理权和部分收益分配。sUSDe APY ~7.83%，USDe 总供应 $14.55B。协议担保率 100.57%，储备金 $62M。Foundation Multisig: 0x3B0AAf6e6fCd4a7cEEf8c92C32DFeA9E64dC1862。",
     "last_updated": "2026-02-05",
     "market_data": {
-      "price_usd": 0.080391,
-      "market_cap": 768948094,
-      "volume_24h": 103112644,
-      "price_change_24h": 0.58527,
-      "fees_30d": 17429709,
+      "price_usd": 0.080657,
+      "market_cap": 771223082,
+      "volume_24h": 79445573,
+      "price_change_24h": -2.14839,
+      "fees_30d": 14110058,
       "revenue_30d": 0,
       "tvl": [
         {
@@ -35960,11 +35968,11 @@
           "totalLiquidityUSD": 4019037775
         },
         {
-          "date": 1784374499,
-          "totalLiquidityUSD": 4015326056
+          "date": 1784419211,
+          "totalLiquidityUSD": 4015812668
         }
       ],
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama"
     },
     "tevStatus": "none",
@@ -36068,11 +36076,11 @@
     "notes": "ether.fi 拥有完善的 TEV 体系：(1) 100% 提现收入回购 ETHFI 分配给质押者；(2) $50M 国库回购额度。多个 DAO 提案通过，链上完全透明。⚠️ TEV Yield 计算说明：年化回购约 $15M / 代币市值约 $6亿 ≈ 2.5%（非67.48%，原数据计算错误）。Foundation Multisig: 0x7A6A41F353B3002751d94118aA7f4935dA39bB53。",
     "last_updated": "2026-02-05",
     "market_data": {
-      "price_usd": 0.45924,
-      "market_cap": 445798979,
-      "volume_24h": 38761972,
-      "price_change_24h": 10.2356,
-      "fees_30d": 10915337,
+      "price_usd": 0.450305,
+      "market_cap": 437764598,
+      "volume_24h": 37282384,
+      "price_change_24h": 2.0849,
+      "fees_30d": 10941661,
       "revenue_30d": 0,
       "tvl": [
         {
@@ -41013,14 +41021,14 @@
         },
         {
           "date": 1784332800,
-          "totalLiquidityUSD": 3275714923.6086197
+          "totalLiquidityUSD": 3309350664.42703
         },
         {
-          "date": 1784374379,
-          "totalLiquidityUSD": 3275441145.92344
+          "date": 1784417639,
+          "totalLiquidityUSD": 3309350664.42703
         }
       ],
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama"
     },
     "tevStatus": "active",
@@ -41068,16 +41076,16 @@
       "primary_value_accrual": "分红 - 质押 GMX 获得 ETH/AVAX 分红"
     },
     "market_data": {
-      "price_usd": 6.23,
+      "price_usd": 6.42,
       "circulating_supply": 10386388,
       "circulating_market_cap": 61633069,
       "total_supply": 10685596,
       "holders": 300830,
-      "snapshot_date": "2026-07-18",
-      "market_cap": 65085009,
-      "volume_24h": 2589965,
-      "price_change_24h": 5.1912,
-      "fees_30d": 1754427,
+      "snapshot_date": "2026-07-19",
+      "market_cap": 66847374,
+      "volume_24h": 2728747,
+      "price_change_24h": 5.83035,
+      "fees_30d": 1704205,
       "revenue_30d": 0,
       "tvl": [
         {
@@ -48206,11 +48214,11 @@
         },
         {
           "date": 1784332800,
-          "totalLiquidityUSD": 177201134
+          "totalLiquidityUSD": 177926549
         },
         {
-          "date": 1784374811,
-          "totalLiquidityUSD": 177293955
+          "date": 1784417699,
+          "totalLiquidityUSD": 177926549
         }
       ],
       "data_source": "CoinGecko + DefiLlama"
@@ -48299,13 +48307,13 @@
       "primary_value_accrual": "回购销毁 - Assistance Fund 使用约90%费用回购并销毁 HYPE"
     },
     "market_data": {
-      "price_usd": 58.7,
+      "price_usd": 60.45,
       "circulating_market_cap": 7762595982,
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama",
-      "market_cap": 13063091476,
-      "volume_24h": 361043279,
-      "price_change_24h": -1.45492
+      "market_cap": 13445636688,
+      "volume_24h": 283896007,
+      "price_change_24h": 1.08801
     },
     "calculated_tev": {
       "tev_yield_percent": 12.29,
@@ -48415,11 +48423,11 @@
     "notes": "Jito 是 Solana MEV 基础设施的领导者。JTO 代币目前主要用于治理，协议的 MEV 收益直接流向 JitoSOL 持有者（更高的 APY），而非 JTO 持有者。未来可能引入 JTO staking 收入分成。",
     "last_updated": "2026-02-02",
     "market_data": {
-      "price_usd": 0.544775,
-      "market_cap": 272265072,
-      "volume_24h": 21369641,
-      "price_change_24h": -0.68394,
-      "fees_30d": 6575670,
+      "price_usd": 0.549481,
+      "market_cap": 274951918,
+      "volume_24h": 16493371,
+      "price_change_24h": -2.95516,
+      "fees_30d": 6597146,
       "revenue_30d": 0,
       "tvl": [
         {
@@ -53752,14 +53760,14 @@
         },
         {
           "date": 1784332800,
-          "totalLiquidityUSD": 755688512.83658
+          "totalLiquidityUSD": 759493638.85962
         },
         {
-          "date": 1784375111,
-          "totalLiquidityUSD": 753616787.00107
+          "date": 1784417327,
+          "totalLiquidityUSD": 759493638.85962
         }
       ],
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama"
     },
     "tevStatus": "none",
@@ -53834,13 +53842,13 @@
     "notes": "⚠️ 维持 PARTIAL，原因：(1) JST staking 机制缺乏透明文档，无法确认具体分配比例；(2) TRON 生态整体透明度较低，缺少 Dune 等独立数据分析工具；(3) DefiLlama 无 tokenRights 数据；(4) JST 代币跨多个 JUST 产品使用，实际 TEV 归属不清；(5) 与 Justin Sun 团队关联，中心化程度较高。如需进一步确认，建议通过浏览器直接操作 JustLend DApp 验证 staking 功能。",
     "last_updated": "2026-02-05",
     "market_data": {
-      "price_usd": 0.098473,
-      "market_cap": 806409363,
-      "volume_24h": 17792545,
-      "price_change_24h": -0.18114,
-      "fees_30d": 1732658,
+      "price_usd": 0.098203,
+      "market_cap": 804138404,
+      "volume_24h": 13546552,
+      "price_change_24h": 0.46847,
+      "fees_30d": 1707154,
       "revenue_30d": 0,
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama",
       "tvl": [
         {
@@ -60725,11 +60733,11 @@
         },
         {
           "date": 1784332800,
-          "totalLiquidityUSD": 3227944794
+          "totalLiquidityUSD": 3249955082
         },
         {
-          "date": 1784374679,
-          "totalLiquidityUSD": 3230537408
+          "date": 1784417699,
+          "totalLiquidityUSD": 3249955082
         }
       ]
     },
@@ -60799,11 +60807,11 @@
     "notes": "⚠️ 从 PARTIAL 降级为 NONE。经深入调研确认：KMNO staking 不是协议收入分配，而是 farming 奖励加成（boost）机制。具体：(1) 新质押者起始 3% boost，每天 +0.1%；(2) 每 1 KMNO 质押对 $1 仓位施加 boost；(3) Season 奖励每 3 月最多 100M KMNO，来自代币国库（inflation），非协议费用；(4) 有 6 个月 vesting 期。Kamino 是优秀的 Solana 借贷协议（$3.34B AUM，零坏账），但 KMNO 代币目前无真正的 fee distribution 机制。2026 路线图专注机构产品（固定利率、链下抵押品），未来可能引入真正的 TEV。",
     "last_updated": "2026-02-05",
     "market_data": {
-      "price_usd": 0.01848745,
-      "market_cap": 94045221,
-      "volume_24h": 3570703,
-      "price_change_24h": 2.7787,
-      "fees_30d": 4632311,
+      "price_usd": 0.01839447,
+      "market_cap": 93726672,
+      "volume_24h": 3461714,
+      "price_change_24h": 2.27142,
+      "fees_30d": 4515169,
       "revenue_30d": 0,
       "tvl": [
         {
@@ -66456,14 +66464,14 @@
         },
         {
           "date": 1784332800,
-          "totalLiquidityUSD": 1123477600
+          "totalLiquidityUSD": 1130121455
         },
         {
-          "date": 1784374499,
-          "totalLiquidityUSD": 1124719017
+          "date": 1784416739,
+          "totalLiquidityUSD": 1130121455
         }
       ],
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama"
     },
     "tevStatus": "none",
@@ -66510,11 +66518,11 @@
     "notes": "【收入规模】年化协议费用约 $677M，DAO 分成（10%费率的50%）约 $34M/年。尽管 Lido 是最大的 DeFi 协议之一（TVL $22B+），但 LDO 代币不分享任何协议收入（fee switch OFF）。协议收入完全归 DAO 国库控制。若未来开启 fee switch，潜在 TEV 基数较大。",
     "last_updated": "2026-02-04",
     "market_data": {
-      "price_usd": 0.357439,
-      "market_cap": 298987961,
-      "volume_24h": 36356940,
-      "price_change_24h": -4.47411,
-      "fees_30d": 32535628,
+      "price_usd": 0.360653,
+      "market_cap": 301495507,
+      "volume_24h": 27324289,
+      "price_change_24h": -2.37971,
+      "fees_30d": 32535032,
       "revenue_30d": 0,
       "tvl": [
         {
@@ -74666,11 +74674,11 @@
           "totalLiquidityUSD": 16962951469
         },
         {
-          "date": 1784373275,
-          "totalLiquidityUSD": 16981407290
+          "date": 1784416811,
+          "totalLiquidityUSD": 17124791126
         }
       ],
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama"
     },
     "tevStatus": "none",
@@ -74736,11 +74744,11 @@
     "notes": "【数据说明】MIP-019 提案于 2024 年通过（25% 协议收入回购 SYRUP），但实际 TEV 数据从 2025-11 才开始记录（DefiLlama dailyHoldersRevenue）。Maple 于 2024 年将代币从 MPL 迁移到 SYRUP，新代币经济模型强化了收入分配机制。作为机构借贷协议，收入主要来自贷款利差。",
     "last_updated": "2026-02-05",
     "market_data": {
-      "price_usd": 0.177288,
-      "market_cap": 206389305,
-      "volume_24h": 8094765,
-      "price_change_24h": -1.09688,
-      "fees_30d": 9690383,
+      "price_usd": 0.177569,
+      "market_cap": 206702832,
+      "volume_24h": 5058118,
+      "price_change_24h": -2.03176,
+      "fees_30d": 9336064,
       "revenue_30d": 0,
       "tvl": [
         {
@@ -82280,11 +82288,11 @@
           "totalLiquidityUSD": 2303040202
         },
         {
-          "date": 1784373095,
-          "totalLiquidityUSD": 2263267456
+          "date": 1784419211,
+          "totalLiquidityUSD": 2262826350
         }
       ],
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama"
     },
     "tevStatus": "active",
@@ -82339,15 +82347,15 @@
       "primary_value_accrual": "待确认 - Gas 消耗 + 潜在的质押奖励"
     },
     "market_data": {
-      "price_usd": 0.420163,
+      "price_usd": 0.41942,
       "circulating_supply": 3252944056,
       "circulating_market_cap": 1981231322,
       "total_supply": 6219316794,
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama",
-      "market_cap": 1388034660,
-      "volume_24h": 27284957,
-      "price_change_24h": -4.03271
+      "market_cap": 1385139868,
+      "volume_24h": 22330751,
+      "price_change_24h": -1.31669
     },
     "calculated_tev": {
       "tev_yield_percent": null,
@@ -82460,11 +82468,11 @@
     "notes": "【收入确认】Morpho 当前无协议收入（fee switch OFF）。年化总借贷费用约 $180M，但 100% 归 LP，协议不抽成。DAO 可通过治理投票激活收费机制，但目前未启用。若启用收费（如10%），潜在年化协议收入约 $18M。",
     "last_updated": "2026-02-04",
     "market_data": {
-      "price_usd": 1.97,
-      "market_cap": 1287711919,
-      "volume_24h": 14134988,
-      "price_change_24h": -2.32142,
-      "fees_30d": 26034715,
+      "price_usd": 2.02,
+      "market_cap": 1321669289,
+      "volume_24h": 14038467,
+      "price_change_24h": 3.51218,
+      "fees_30d": 26113921,
       "revenue_30d": 0,
       "tvl": [
         {
@@ -87421,543 +87429,543 @@
         },
         {
           "date": 1767830400,
-          "totalLiquidityUSD": 6227270549
+          "totalLiquidityUSD": 6230931465
         },
         {
           "date": 1767916800,
-          "totalLiquidityUSD": 6194544025
+          "totalLiquidityUSD": 6194673039
         },
         {
           "date": 1768003200,
-          "totalLiquidityUSD": 6360108974
+          "totalLiquidityUSD": 6358689266
         },
         {
           "date": 1768089600,
-          "totalLiquidityUSD": 6292694655
+          "totalLiquidityUSD": 6294034315
         },
         {
           "date": 1768176000,
-          "totalLiquidityUSD": 6350401098
+          "totalLiquidityUSD": 6355630010
         },
         {
           "date": 1768262400,
-          "totalLiquidityUSD": 6295857415
+          "totalLiquidityUSD": 6296655137
         },
         {
           "date": 1768348800,
-          "totalLiquidityUSD": 6696444648
+          "totalLiquidityUSD": 6705255358
         },
         {
           "date": 1768435200,
-          "totalLiquidityUSD": 6687996196
+          "totalLiquidityUSD": 6709072901
         },
         {
           "date": 1768521600,
-          "totalLiquidityUSD": 6774877305
+          "totalLiquidityUSD": 6701234324
         },
         {
           "date": 1768608000,
-          "totalLiquidityUSD": 6782163253
+          "totalLiquidityUSD": 6738289082
         },
         {
           "date": 1768694400,
-          "totalLiquidityUSD": 6914391490
+          "totalLiquidityUSD": 6852882337
         },
         {
           "date": 1768780800,
-          "totalLiquidityUSD": 6755621491
+          "totalLiquidityUSD": 6732921897
         },
         {
           "date": 1768867200,
-          "totalLiquidityUSD": 6728953493
+          "totalLiquidityUSD": 6675747844
         },
         {
           "date": 1768953600,
-          "totalLiquidityUSD": 6397628377
+          "totalLiquidityUSD": 6348743254
         },
         {
           "date": 1769040000,
-          "totalLiquidityUSD": 6560691138
+          "totalLiquidityUSD": 6487313515
         },
         {
           "date": 1769126400,
-          "totalLiquidityUSD": 6569142121
+          "totalLiquidityUSD": 6520689181
         },
         {
           "date": 1769212800,
-          "totalLiquidityUSD": 6606128905
+          "totalLiquidityUSD": 6557972580
         },
         {
           "date": 1769299200,
-          "totalLiquidityUSD": 6547676416
+          "totalLiquidityUSD": 6496644377
         },
         {
           "date": 1769385600,
-          "totalLiquidityUSD": 6397477240
+          "totalLiquidityUSD": 6353170722
         },
         {
           "date": 1769472000,
-          "totalLiquidityUSD": 6577280643
+          "totalLiquidityUSD": 6528044280
         },
         {
           "date": 1769558400,
-          "totalLiquidityUSD": 6685207622
+          "totalLiquidityUSD": 6643339759
         },
         {
           "date": 1769644800,
-          "totalLiquidityUSD": 6698832480
+          "totalLiquidityUSD": 6647651729
         },
         {
           "date": 1769731200,
-          "totalLiquidityUSD": 6449052622
+          "totalLiquidityUSD": 6395350859
         },
         {
           "date": 1769817600,
-          "totalLiquidityUSD": 6493940925
+          "totalLiquidityUSD": 6440580813
         },
         {
           "date": 1769904000,
-          "totalLiquidityUSD": 6168493643
+          "totalLiquidityUSD": 6120055858
         },
         {
           "date": 1769990400,
-          "totalLiquidityUSD": 6060755579
+          "totalLiquidityUSD": 5989299034
         },
         {
           "date": 1770076800,
-          "totalLiquidityUSD": 6073656136
+          "totalLiquidityUSD": 6054319513
         },
         {
           "date": 1770163200,
-          "totalLiquidityUSD": 5965421907
+          "totalLiquidityUSD": 5912054478
         },
         {
           "date": 1770249600,
-          "totalLiquidityUSD": 5873259880
+          "totalLiquidityUSD": 5821007848
         },
         {
           "date": 1770336000,
-          "totalLiquidityUSD": 5320710685
+          "totalLiquidityUSD": 5314564703
         },
         {
           "date": 1770422400,
-          "totalLiquidityUSD": 5796369670
+          "totalLiquidityUSD": 5762657654
         },
         {
           "date": 1770508800,
-          "totalLiquidityUSD": 5768563367
+          "totalLiquidityUSD": 5716731681
         },
         {
           "date": 1770595200,
-          "totalLiquidityUSD": 5870175164
+          "totalLiquidityUSD": 5819674129
         },
         {
           "date": 1770681600,
-          "totalLiquidityUSD": 5863887252
+          "totalLiquidityUSD": 5827200617
         },
         {
           "date": 1770768000,
-          "totalLiquidityUSD": 5739623993
+          "totalLiquidityUSD": 5688181001
         },
         {
           "date": 1770854400,
-          "totalLiquidityUSD": 5709628899
+          "totalLiquidityUSD": 5643802752
         },
         {
           "date": 1770940800,
-          "totalLiquidityUSD": 5659441000
+          "totalLiquidityUSD": 5608880611
         },
         {
           "date": 1771027200,
-          "totalLiquidityUSD": 5721065645
+          "totalLiquidityUSD": 5672461617
         },
         {
           "date": 1771113600,
-          "totalLiquidityUSD": 5809348382
+          "totalLiquidityUSD": 5761929251
         },
         {
           "date": 1771200000,
-          "totalLiquidityUSD": 5711472823
+          "totalLiquidityUSD": 5661534021
         },
         {
           "date": 1771286400,
-          "totalLiquidityUSD": 5768657141
+          "totalLiquidityUSD": 5718260546
         },
         {
           "date": 1771372800,
-          "totalLiquidityUSD": 5683670117
+          "totalLiquidityUSD": 5631925325
         },
         {
           "date": 1771459200,
-          "totalLiquidityUSD": 5607077259
+          "totalLiquidityUSD": 5544892497
         },
         {
           "date": 1771545600,
-          "totalLiquidityUSD": 5604056071
+          "totalLiquidityUSD": 5553010694
         },
         {
           "date": 1771632000,
-          "totalLiquidityUSD": 5652600792
+          "totalLiquidityUSD": 5600778443
         },
         {
           "date": 1771718400,
-          "totalLiquidityUSD": 5642363854
+          "totalLiquidityUSD": 5593378327
         },
         {
           "date": 1771804800,
-          "totalLiquidityUSD": 5567397578
+          "totalLiquidityUSD": 5516766804
         },
         {
           "date": 1771891200,
-          "totalLiquidityUSD": 5434180874
+          "totalLiquidityUSD": 5384773160
         },
         {
           "date": 1771977600,
-          "totalLiquidityUSD": 5485223247
+          "totalLiquidityUSD": 5432735556
         },
         {
           "date": 1772064000,
-          "totalLiquidityUSD": 5728151603
+          "totalLiquidityUSD": 5676289797
         },
         {
           "date": 1772150400,
-          "totalLiquidityUSD": 5698205154
+          "totalLiquidityUSD": 5648146257
         },
         {
           "date": 1772236800,
-          "totalLiquidityUSD": 5674219125
+          "totalLiquidityUSD": 5623956970
         },
         {
           "date": 1772323200,
-          "totalLiquidityUSD": 5770029969
+          "totalLiquidityUSD": 5718899501
         },
         {
           "date": 1772409600,
-          "totalLiquidityUSD": 5706445061
+          "totalLiquidityUSD": 5655340502
         },
         {
           "date": 1772496000,
-          "totalLiquidityUSD": 5898133281
+          "totalLiquidityUSD": 5834067065
         },
         {
           "date": 1772582400,
-          "totalLiquidityUSD": 5834985228
+          "totalLiquidityUSD": 5787805049
         },
         {
           "date": 1772668800,
-          "totalLiquidityUSD": 6406418514
+          "totalLiquidityUSD": 6352726082
         },
         {
           "date": 1772755200,
-          "totalLiquidityUSD": 6507770480
+          "totalLiquidityUSD": 6395215755
         },
         {
           "date": 1772841600,
-          "totalLiquidityUSD": 6417265260
+          "totalLiquidityUSD": 6366488266
         },
         {
           "date": 1772928000,
-          "totalLiquidityUSD": 6413094526
+          "totalLiquidityUSD": 6361847927
         },
         {
           "date": 1773014400,
-          "totalLiquidityUSD": 6356713594
+          "totalLiquidityUSD": 6304982544
         },
         {
           "date": 1773100800,
-          "totalLiquidityUSD": 6583142518
+          "totalLiquidityUSD": 6521944493
         },
         {
           "date": 1773187200,
-          "totalLiquidityUSD": 6672994771
+          "totalLiquidityUSD": 6620627139
         },
         {
           "date": 1773273600,
-          "totalLiquidityUSD": 6759439084
+          "totalLiquidityUSD": 6694046965
         },
         {
           "date": 1773360000,
-          "totalLiquidityUSD": 6904210401
+          "totalLiquidityUSD": 6826563830
         },
         {
           "date": 1773446400,
-          "totalLiquidityUSD": 6814583158
+          "totalLiquidityUSD": 6764250042
         },
         {
           "date": 1773532800,
-          "totalLiquidityUSD": 6847140982
+          "totalLiquidityUSD": 6799346372
         },
         {
           "date": 1773619200,
-          "totalLiquidityUSD": 6954903607
+          "totalLiquidityUSD": 6911183672
         },
         {
           "date": 1773705600,
-          "totalLiquidityUSD": 7080611572
+          "totalLiquidityUSD": 7030217859
         },
         {
           "date": 1773792000,
-          "totalLiquidityUSD": 7027463020
+          "totalLiquidityUSD": 6979080622
         },
         {
           "date": 1773878400,
-          "totalLiquidityUSD": 6836012247
+          "totalLiquidityUSD": 6793727860
         },
         {
           "date": 1773964800,
-          "totalLiquidityUSD": 6698769878
+          "totalLiquidityUSD": 6651656067
         },
         {
           "date": 1774051200,
-          "totalLiquidityUSD": 6799783889
+          "totalLiquidityUSD": 6748823231
         },
         {
           "date": 1774137600,
-          "totalLiquidityUSD": 6803008481
+          "totalLiquidityUSD": 6759347193
         },
         {
           "date": 1774224000,
-          "totalLiquidityUSD": 6446315910
+          "totalLiquidityUSD": 6380357480
         },
         {
           "date": 1774310400,
-          "totalLiquidityUSD": 6611766353
+          "totalLiquidityUSD": 6563634005
         },
         {
           "date": 1774396800,
-          "totalLiquidityUSD": 6727063313
+          "totalLiquidityUSD": 6677131703
         },
         {
           "date": 1774483200,
-          "totalLiquidityUSD": 7023975497
+          "totalLiquidityUSD": 6978871944
         },
         {
           "date": 1774569600,
-          "totalLiquidityUSD": 6848611274
+          "totalLiquidityUSD": 6798892003
         },
         {
           "date": 1774656000,
-          "totalLiquidityUSD": 6698336197
+          "totalLiquidityUSD": 6648639670
         },
         {
           "date": 1774742400,
-          "totalLiquidityUSD": 6732919609
+          "totalLiquidityUSD": 6683644722
         },
         {
           "date": 1774828800,
-          "totalLiquidityUSD": 6742778759
+          "totalLiquidityUSD": 6694604876
         },
         {
           "date": 1774915200,
-          "totalLiquidityUSD": 6783458214
+          "totalLiquidityUSD": 6737285437
         },
         {
           "date": 1775001600,
-          "totalLiquidityUSD": 6755033675
+          "totalLiquidityUSD": 6707580726
         },
         {
           "date": 1775088000,
-          "totalLiquidityUSD": 6891517004
+          "totalLiquidityUSD": 6840756102
         },
         {
           "date": 1775174400,
-          "totalLiquidityUSD": 6685263192
+          "totalLiquidityUSD": 6635793396
         },
         {
           "date": 1775260800,
-          "totalLiquidityUSD": 6844295109
+          "totalLiquidityUSD": 6789765289
         },
         {
           "date": 1775347200,
-          "totalLiquidityUSD": 6884716633
+          "totalLiquidityUSD": 6835596492
         },
         {
           "date": 1775433600,
-          "totalLiquidityUSD": 7030938441
+          "totalLiquidityUSD": 6971498983
         },
         {
           "date": 1775520000,
-          "totalLiquidityUSD": 7001342700
+          "totalLiquidityUSD": 6959092520
         },
         {
           "date": 1775606400,
-          "totalLiquidityUSD": 7278231485
+          "totalLiquidityUSD": 7227867937
         },
         {
           "date": 1775692800,
-          "totalLiquidityUSD": 7185644731
+          "totalLiquidityUSD": 7143025747
         },
         {
           "date": 1775779200,
-          "totalLiquidityUSD": 7230848333
+          "totalLiquidityUSD": 7193914409
         },
         {
           "date": 1775865600,
-          "totalLiquidityUSD": 7297269309
+          "totalLiquidityUSD": 7248699376
         },
         {
           "date": 1775952000,
-          "totalLiquidityUSD": 7346629628
+          "totalLiquidityUSD": 7296800678
         },
         {
           "date": 1776038400,
-          "totalLiquidityUSD": 7170274516
+          "totalLiquidityUSD": 7121484266
         },
         {
           "date": 1776124800,
-          "totalLiquidityUSD": 7491191633
+          "totalLiquidityUSD": 7468744237
         },
         {
           "date": 1776211200,
-          "totalLiquidityUSD": 7522109112
+          "totalLiquidityUSD": 7473505254
         },
         {
           "date": 1776297600,
-          "totalLiquidityUSD": 7564743595
+          "totalLiquidityUSD": 7512053606
         },
         {
           "date": 1776384000,
-          "totalLiquidityUSD": 7555479288
+          "totalLiquidityUSD": 7502875987
         },
         {
           "date": 1776470400,
-          "totalLiquidityUSD": 7653051435
+          "totalLiquidityUSD": 7598524099
         },
         {
           "date": 1776556800,
-          "totalLiquidityUSD": 7212524479
+          "totalLiquidityUSD": 7166066471
         },
         {
           "date": 1776643200,
-          "totalLiquidityUSD": 6573207600
+          "totalLiquidityUSD": 6521790422
         },
         {
           "date": 1776729600,
-          "totalLiquidityUSD": 6512412851
+          "totalLiquidityUSD": 6458543289
         },
         {
           "date": 1776816000,
-          "totalLiquidityUSD": 6577377879
+          "totalLiquidityUSD": 6535604498
         },
         {
           "date": 1776902400,
-          "totalLiquidityUSD": 6678192521
+          "totalLiquidityUSD": 6645734186
         },
         {
           "date": 1776988800,
-          "totalLiquidityUSD": 6659733869
+          "totalLiquidityUSD": 6611611186
         },
         {
           "date": 1777075200,
-          "totalLiquidityUSD": 6715687460
+          "totalLiquidityUSD": 6647735159
         },
         {
           "date": 1777161600,
-          "totalLiquidityUSD": 6729731206
+          "totalLiquidityUSD": 6659662810
         },
         {
           "date": 1777248000,
-          "totalLiquidityUSD": 6816470382
+          "totalLiquidityUSD": 6756713284
         },
         {
           "date": 1777334400,
-          "totalLiquidityUSD": 6802888198
+          "totalLiquidityUSD": 6730170764
         },
         {
           "date": 1777420800,
-          "totalLiquidityUSD": 6762683619
+          "totalLiquidityUSD": 6690290349
         },
         {
           "date": 1777507200,
-          "totalLiquidityUSD": 6977282311
+          "totalLiquidityUSD": 6898279671
         },
         {
           "date": 1777593600,
-          "totalLiquidityUSD": 7104795129
+          "totalLiquidityUSD": 6963927028
         },
         {
           "date": 1777680000,
-          "totalLiquidityUSD": 7268682092
+          "totalLiquidityUSD": 7176464499
         },
         {
           "date": 1777766400,
-          "totalLiquidityUSD": 7353099799
+          "totalLiquidityUSD": 7256383444
         },
         {
           "date": 1777852800,
-          "totalLiquidityUSD": 7367376606
+          "totalLiquidityUSD": 7267675341
         },
         {
           "date": 1777939200,
-          "totalLiquidityUSD": 7468570352
+          "totalLiquidityUSD": 7396452313
         },
         {
           "date": 1778025600,
-          "totalLiquidityUSD": 7562747150
+          "totalLiquidityUSD": 7497564615
         },
         {
           "date": 1778112000,
-          "totalLiquidityUSD": 7517316474
+          "totalLiquidityUSD": 7441553516
         },
         {
           "date": 1778198400,
-          "totalLiquidityUSD": 7488242900
+          "totalLiquidityUSD": 7410716913
         },
         {
           "date": 1778284800,
-          "totalLiquidityUSD": 7447494385
+          "totalLiquidityUSD": 7362595874
         },
         {
           "date": 1778371200,
-          "totalLiquidityUSD": 7577373655
+          "totalLiquidityUSD": 7491805667
         },
         {
           "date": 1778457600,
-          "totalLiquidityUSD": 7675336928
+          "totalLiquidityUSD": 7602014594
         },
         {
           "date": 1778544000,
-          "totalLiquidityUSD": 7657605300
+          "totalLiquidityUSD": 7583148402
         },
         {
           "date": 1778630400,
-          "totalLiquidityUSD": 7592060762
+          "totalLiquidityUSD": 7494054919
         },
         {
           "date": 1778716800,
-          "totalLiquidityUSD": 7538105496
+          "totalLiquidityUSD": 7437471959
         },
         {
           "date": 1778803200,
-          "totalLiquidityUSD": 7668093666
+          "totalLiquidityUSD": 7555839655
         },
         {
           "date": 1778889600,
-          "totalLiquidityUSD": 7557167909
+          "totalLiquidityUSD": 7461201283
         },
         {
           "date": 1778976000,
-          "totalLiquidityUSD": 7461926292
+          "totalLiquidityUSD": 7373602460
         },
         {
           "date": 1779062400,
-          "totalLiquidityUSD": 7400553460
+          "totalLiquidityUSD": 7318909043
         },
         {
           "date": 1779148800,
-          "totalLiquidityUSD": 7429253562
+          "totalLiquidityUSD": 7313859875
         },
         {
           "date": 1779235200,
-          "totalLiquidityUSD": 7424826144
+          "totalLiquidityUSD": 7310934421
         },
         {
           "date": 1779321600,
-          "totalLiquidityUSD": 7482856405
+          "totalLiquidityUSD": 7376350222
         },
         {
           "date": 1779408000,
-          "totalLiquidityUSD": 7507715284
+          "totalLiquidityUSD": 7409373607
         },
         {
           "date": 1779494400,
@@ -88125,27 +88133,27 @@
         },
         {
           "date": 1783036800,
-          "totalLiquidityUSD": 6846671159
+          "totalLiquidityUSD": 6846671107
         },
         {
           "date": 1783123200,
-          "totalLiquidityUSD": 6990985113
+          "totalLiquidityUSD": 6990968589
         },
         {
           "date": 1783209600,
-          "totalLiquidityUSD": 7019804959
+          "totalLiquidityUSD": 7019588617
         },
         {
           "date": 1783296000,
-          "totalLiquidityUSD": 7075686539
+          "totalLiquidityUSD": 7075611313
         },
         {
           "date": 1783382400,
-          "totalLiquidityUSD": 7154516800
+          "totalLiquidityUSD": 7155702168
         },
         {
           "date": 1783468800,
-          "totalLiquidityUSD": 7091350861
+          "totalLiquidityUSD": 7041369697
         },
         {
           "date": 1783555200,
@@ -88185,14 +88193,14 @@
         },
         {
           "date": 1784332800,
-          "totalLiquidityUSD": 7318244767
+          "totalLiquidityUSD": 7457693622
         },
         {
-          "date": 1784374379,
-          "totalLiquidityUSD": 7371927381
+          "date": 1784417699,
+          "totalLiquidityUSD": 7457693622
         }
       ],
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama"
     },
     "tevStatus": "none",
@@ -88242,14 +88250,14 @@
       "primary_value_accrual": "回购销毁 - 季度用 30% 收入回购销毁 OKB"
     },
     "market_data": {
-      "price_usd": 80.81,
+      "price_usd": 80.93,
       "circulating_supply": 21000000,
       "circulating_market_cap": 1503276222,
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama",
-      "market_cap": 1696944405,
-      "volume_24h": 12974368,
-      "price_change_24h": 0.92007
+      "market_cap": 1699479377,
+      "volume_24h": 12286639,
+      "price_change_24h": 0.00645
     },
     "calculated_tev": {
       "tev_yield_percent": null,
@@ -88398,10 +88406,10 @@
     "last_updated": "2026-02-04",
     "market_data": {
       "price_usd": 1.41,
-      "market_cap": 454154238,
-      "volume_24h": 21503807,
-      "price_change_24h": 2.44527,
-      "fees_30d": 6623648,
+      "market_cap": 454644513,
+      "volume_24h": 14077214,
+      "price_change_24h": 0.42498,
+      "fees_30d": 6431565,
       "revenue_30d": 0,
       "tvl": [
         {
@@ -96058,14 +96066,14 @@
         },
         {
           "date": 1784332800,
-          "totalLiquidityUSD": 2026025856
+          "totalLiquidityUSD": 2036252708
         },
         {
-          "date": 1784374559,
-          "totalLiquidityUSD": 2038707094
+          "date": 1784419091,
+          "totalLiquidityUSD": 2036252708
         }
       ],
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama"
     },
     "tevStatus": "active",
@@ -96140,11 +96148,11 @@
     "notes": "【机制说明】Pendle 于 2026-01-29 从 vePENDLE 切换至 sPENDLE 模式，80% 协议收入回购 PENDLE 并分配给 sPENDLE 持有者。sPENDLE 有 14天解锁冷却期，或支付 5% 费用即时赎回。是 TEV 表现最好的协议之一。",
     "last_updated": "2026-02-05",
     "market_data": {
-      "price_usd": 1.52,
-      "market_cap": 259476186,
-      "volume_24h": 21787653,
-      "price_change_24h": -0.63129,
-      "fees_30d": 886569,
+      "price_usd": 1.54,
+      "market_cap": 263077330,
+      "volume_24h": 16535847,
+      "price_change_24h": -0.60339,
+      "fees_30d": 855347,
       "revenue_30d": 0,
       "tvl": [
         {
@@ -103472,11 +103480,11 @@
           "totalLiquidityUSD": 1097113141
         },
         {
-          "date": 1784373743,
-          "totalLiquidityUSD": 1105926853
+          "date": 1784417387,
+          "totalLiquidityUSD": 1105334656
         }
       ],
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama"
     },
     "tevStatus": "active",
@@ -103550,11 +103558,11 @@
     "notes": "Radiant 是 TEV 机制设计较好的协议：锁定 RDNT-ETH LP 获得平台收入分成，且以蓝筹资产 (BTC, ETH, USDC) 而非协议代币支付，避免了代币抛压。但 2023 年遭遇两次安全事件后 TVL 大幅下降。",
     "last_updated": "2026-02-04",
     "market_data": {
-      "price_usd": 0.00056541,
-      "market_cap": 812484,
-      "volume_24h": 361364,
-      "price_change_24h": 1.40357,
-      "fees_30d": 441,
+      "price_usd": 0.00054947,
+      "market_cap": 789556,
+      "volume_24h": 174004,
+      "price_change_24h": -7.67589,
+      "fees_30d": 472,
       "revenue_30d": 0,
       "tvl": [
         {
@@ -109375,14 +109383,14 @@
         },
         {
           "date": 1784332800,
-          "totalLiquidityUSD": 848587
+          "totalLiquidityUSD": 853743
         },
         {
-          "date": 1784375051,
-          "totalLiquidityUSD": 849175
+          "date": 1784417819,
+          "totalLiquidityUSD": 853743
         }
       ],
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama"
     }
   },
@@ -109448,11 +109456,11 @@
     "notes": "MakerDAO (现 Sky) 是最早实现代币回购销毁的 DeFi 协议之一。Smart Burn Engine 机制确保协议盈余持续回馈给 MKR 持有者。",
     "last_updated": "2026-02-02",
     "market_data": {
-      "price_usd": 0.058734,
-      "market_cap": 1370482314,
-      "volume_24h": 8881019,
-      "price_change_24h": -1.05324,
-      "fees_30d": 29641290,
+      "price_usd": 0.06193,
+      "market_cap": 1444989003,
+      "volume_24h": 14856051,
+      "price_change_24h": 4.16685,
+      "fees_30d": 29574327,
       "revenue_30d": 0,
       "tvl": [
         {
@@ -120465,14 +120473,14 @@
         },
         {
           "date": 1784332800,
-          "totalLiquidityUSD": 6073379718
+          "totalLiquidityUSD": 6090899468
         },
         {
-          "date": 1784374679,
-          "totalLiquidityUSD": 6074839620
+          "date": 1784417879,
+          "totalLiquidityUSD": 6090899468
         }
       ],
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama"
     },
     "tevStatus": "active",
@@ -120533,11 +120541,11 @@
     "notes": "Spark 是 Sky 生态的 SubDAO，SPK 代币于 2024 年 Q3 启动。作为新代币，TEV 机制仍在发展中。协议收入主要流向 Sky 主 DAO，通过 Smart Burn Engine 回购 MKR。",
     "last_updated": "2026-02-02",
     "market_data": {
-      "price_usd": 0.01720848,
-      "market_cap": 51854811,
-      "volume_24h": 13369685,
-      "price_change_24h": 2.00471,
-      "fees_30d": 10796659,
+      "price_usd": 0.01700881,
+      "market_cap": 51304312,
+      "volume_24h": 9238219,
+      "price_change_24h": 2.05242,
+      "fees_30d": 10779850,
       "revenue_30d": 0,
       "tvl": [
         {
@@ -125238,14 +125246,14 @@
         },
         {
           "date": 1784332800,
-          "totalLiquidityUSD": 4447862310.77027
+          "totalLiquidityUSD": 4532798930.709559
         },
         {
-          "date": 1784374739,
-          "totalLiquidityUSD": 4473925420.47642
+          "date": 1784417111,
+          "totalLiquidityUSD": 4532798930.709559
         }
       ],
-      "snapshot_date": "2026-07-18",
+      "snapshot_date": "2026-07-19",
       "data_source": "CoinGecko + DefiLlama"
     },
     "tevStatus": "none",
@@ -125345,16 +125353,16 @@
       "primary_value_accrual": "多源 UNI 销毁 - 协议费 + Sequencer 收入 + PFDA + Aggregator hooks"
     },
     "market_data": {
-      "price_usd": 3.5,
+      "price_usd": 3.55,
       "circulating_supply": 634247278,
       "circulating_market_cap": 2292835462,
       "total_supply": 1000000000,
       "holders": 387973,
-      "snapshot_date": "2026-07-18",
-      "market_cap": 2188337624,
-      "volume_24h": 149648778,
-      "price_change_24h": 0.78701,
-      "fees_30d": 36788444,
+      "snapshot_date": "2026-07-19",
+      "market_cap": 2217567834,
+      "volume_24h": 106706907,
+      "price_change_24h": -1.41531,
+      "fees_30d": 37550834,
       "revenue_30d": 0,
       "tvl": [
         {
@@ -132894,8 +132902,8 @@
           "totalLiquidityUSD": 1481498923
         },
         {
-          "date": 1784374379,
-          "totalLiquidityUSD": 1478299264
+          "date": 1784417207,
+          "totalLiquidityUSD": 1489304945
         }
       ],
       "data_source": "CoinGecko + DefiLlama"
