@@ -1,6 +1,6 @@
 {
   "protocol": "curve",
-  "updated_at": "2026-07-19T13:22:28.281Z",
+  "updated_at": "2026-07-20T01:16:19.757Z",
   "data_source": "DefiLlama API (dailyHoldersRevenue)",
   "data_source_url": "https://api.llama.fi/summary/fees/curve-finance?dataType=dailyHoldersRevenue",
   "records": [
@@ -553,7 +553,7 @@
       "date": "2024-05-01",
       "type": "aggregate",
       "mechanism": "veCRV Fee Distribution",
-      "amount_usd": 2171793,
+      "amount_usd": 2011130,
       "period": "2024-05",
       "days_with_data": 31,
       "source": {
@@ -570,7 +570,7 @@
       "date": "2024-06-01",
       "type": "aggregate",
       "mechanism": "veCRV Fee Distribution",
-      "amount_usd": 2693962,
+      "amount_usd": 2212096,
       "period": "2024-06",
       "days_with_data": 30,
       "source": {
@@ -587,7 +587,7 @@
       "date": "2024-07-01",
       "type": "aggregate",
       "mechanism": "veCRV Fee Distribution",
-      "amount_usd": 2584273,
+      "amount_usd": 2209817,
       "period": "2024-07",
       "days_with_data": 31,
       "source": {
@@ -604,7 +604,7 @@
       "date": "2024-08-01",
       "type": "aggregate",
       "mechanism": "veCRV Fee Distribution",
-      "amount_usd": 1189510,
+      "amount_usd": 1126306,
       "period": "2024-08",
       "days_with_data": 31,
       "source": {
@@ -995,7 +995,7 @@
       "date": "2026-07-01",
       "type": "aggregate",
       "mechanism": "veCRV Fee Distribution",
-      "amount_usd": 620825,
+      "amount_usd": 623560,
       "period": "2026-07",
       "days_with_data": 19,
       "source": {
@@ -1009,10 +1009,10 @@
     }
   ],
   "summary": {
-    "total_tev_usd": 184206819,
-    "total_30d_usd": 868657,
+    "total_tev_usd": 183129365,
+    "total_30d_usd": 865951,
     "by_mechanism": {
-      "ve_reward": 184206819
+      "ve_reward": 183129365
     },
     "by_period": {
       "2020-Q4": 202505,
@@ -1026,8 +1026,8 @@
       "2023-Q3": 3107255,
       "2023-Q4": 6686058,
       "2024-Q1": 8135963,
-      "2024-Q2": 7510643,
-      "2024-Q3": 4720136,
+      "2024-Q2": 6868114,
+      "2024-Q3": 4282476,
       "2024-Q4": 4419627,
       "2025-Q1": 3029128,
       "2025-Q2": 2197319,
@@ -1035,7 +1035,7 @@
       "2025-Q4": 11613541,
       "2026-Q1": 8526574,
       "2026-Q2": 5144841,
-      "2026-Q3": 620825
+      "2026-Q3": 623560
     }
   }
 }
