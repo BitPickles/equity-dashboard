@@ -1,6 +1,6 @@
 {
   "protocol": "sky",
-  "updated_at": "2026-07-20T01:16:14.324Z",
+  "updated_at": "2026-07-20T13:13:01.208Z",
   "data_source": "DefiLlama API (dailyHoldersRevenue)",
   "data_source_url": "https://api.llama.fi/summary/fees/sky?dataType=dailyHoldersRevenue",
   "records": [
@@ -315,9 +315,9 @@
       "date": "2026-07-01",
       "type": "aggregate",
       "mechanism": "Smart Burn Engine",
-      "amount_usd": 680178,
+      "amount_usd": 716167,
       "period": "2026-07",
-      "days_with_data": 18,
+      "days_with_data": 19,
       "source": {
         "type": "api",
         "provider": "DefiLlama",
@@ -325,14 +325,14 @@
         "data_type": "dailyHoldersRevenue",
         "methodology": "SKY token buybacks + staking rewards for sky stakers"
       },
-      "notes": "Monthly aggregate from 18 days of data"
+      "notes": "Monthly aggregate from 19 days of data"
     }
   ],
   "summary": {
-    "total_tev_usd": 160024948,
-    "total_30d_usd": 1089998,
+    "total_tev_usd": 160060937,
+    "total_30d_usd": 1125987,
     "by_mechanism": {
-      "buyback_burn": 160024948
+      "buyback_burn": 160060937
     },
     "by_period": {
       "2024-Q4": 366417,
@@ -342,7 +342,7 @@
       "2025-Q4": 29093932,
       "2026-Q1": 20606959,
       "2026-Q2": 3392071,
-      "2026-Q3": 680178
+      "2026-Q3": 716167
     }
   }
 }
