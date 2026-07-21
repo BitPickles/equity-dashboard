@@ -90,8 +90,8 @@
     "has_tev": false,
     "tev_yield_percent": 0,
     "annual_tev_usd": 0,
-    "market_cap_usd": 67744588.49,
-    "calculation_date": "2026-07-20",
+    "market_cap_usd": 68162971.13,
+    "calculation_date": "2026-07-21",
     "sources": [
       {
         "name": "协议机制 (paused)",
@@ -120,11 +120,11 @@
     "en": "ETH/AVAX real-time distributions halted since 2026-03-04. Switched to Treasury GMX accumulation, awaiting GMX price ≥ $90 to trigger distribution. Currently ~$7, far from trigger."
   },
   "tevRatio": 0.27,
-  "earning_yield_percent": 19.78,
-  "market_cap_usd": 67744588.49,
+  "earning_yield_percent": 19.66,
+  "market_cap_usd": 68162971.13,
   "tev_yield_percent": 0,
   "metrics": {
-    "current_market_cap_usd": 67744588.49,
+    "current_market_cap_usd": 68162971.13,
     "trailing_365d_revenue_usd": 13398280,
     "trailing_30d_revenue_usd": 633333,
     "trailing_365d_tev_usd": 0,
@@ -134,9 +134,9 @@
     "tev_yield_7d_ann": 0,
     "tev_yield_30d_ann": 0,
     "tev_yield_90d_ann": 0,
-    "earning_yield_7d_ann": 9.14,
-    "earning_yield_30d_ann": 11.37,
-    "earning_yield_90d_ann": 12.7,
+    "earning_yield_7d_ann": 9.08,
+    "earning_yield_30d_ann": 11.3,
+    "earning_yield_90d_ann": 12.63,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 0,
