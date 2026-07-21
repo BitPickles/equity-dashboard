@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-20T13:10:44.193824+00:00",
+  "updated_at": "2026-07-21T01:09:53.207191+00:00",
   "total": 240,
-  "active_count": 32,
-  "passed_count": 208,
-  "tev_related": 64,
+  "active_count": 33,
+  "passed_count": 207,
+  "tev_related": 63,
   "monitored_protocols": 19,
   "protocols_meta": {
     "Aave": {
@@ -1265,7 +1265,7 @@
       "source": "Snapshot",
       "protocol": "Lido",
       "title": "0x02 CSM: New Permissionless Module Launch",
-      "status": "active",
+      "status": "passed",
       "link": "https://snapshot.org/#/lido-snapshot.eth/proposal/0xed2a3b1f796cefdd531abe14ba01363b2da7887434cefdd54ba71ffb6dff59a7",
       "created": 1783697092,
       "end": 1784563200,
@@ -1279,7 +1279,7 @@
       "source": "Snapshot",
       "protocol": "Lido",
       "title": "Adopt the CMv2 Penalty Framework",
-      "status": "active",
+      "status": "passed",
       "link": "https://snapshot.org/#/lido-snapshot.eth/proposal/0xa4179234377bab093a8ee46da0f430d51bb343d00ca74ce8bf1d7d8cdb0db9dd",
       "created": 1783689205,
       "end": 1784563200,
@@ -1515,36 +1515,6 @@
       "tev_keywords": [],
       "summary_en": "The proposal introduces the Curated Module Committee (CMC) as a dedicated body to handle the day-to-day operations of Lido’s Curated Modules in light of the upcoming Curated Module v2 (CMv2). The CMC is proposed to be granted governance authority ove",
       "summary_zh": "The proposal introduces the Curated Module Committee (CMC) as a dedicated body to handle the day-to-day operations of Lido’s Curated Modules in light of the upcoming Curated Module v2 (CMv2). The CMC is proposed to be granted governance authority ove",
-      "analysis_zh": ""
-    },
-    {
-      "source": "Snapshot",
-      "protocol": "Lido",
-      "title": "Redirect DVT & APM Incentives to Current Meta Treasury and LoL",
-      "status": "passed",
-      "link": "https://snapshot.org/#/lido-snapshot.eth/proposal/0x60cfe3531cd13ab84f5f6aaef7bcaab1747cbea4544dc7d18daaf642e36c9d39",
-      "created": 1775495860,
-      "end": 1776096000,
-      "tev_related": true,
-      "tev_keywords": [
-        "treasury"
-      ],
-      "summary_en": "This proposal aims to formalize the change in destination and utilization of post-Node Operator share of DVT incentives and APM incentives flows, and seeks DAO approval to:.",
-      "summary_zh": "本提案旨在正式变更DVT激励和APM激励的节点运营商份额流向及用途，并寻求DAO于2023年X月X日批准：",
-      "analysis_zh": "Lido 拟将 DVT 及 APM 激励转入 Lido Earn 金库，支持 ETH 收益策略。\n\n该提案建议将 Obol 和 SSV Network 产生的 DVT 激励及 APM 激励，从 Decentralized Validator Vault 转向 Lido Earn Current Meta Treasury 多重签名钱包，以支持 Lido Earn ETH 金库策略。尽管 Lido 坐拥 $18.99B 的 TVL 和 $78.6M 年收入，LDO 代币本身仍无收入分配机制，此次资金流向调整仅属于国库资金运作的战术优化。这种“左倒右手”式的资金重新分配虽有助于提升资金利用效率并丰富收益产品，但并未触及代币价值捕获的核心痛点，持有者无法从中获得直接财务回报。"
-    },
-    {
-      "source": "Snapshot",
-      "protocol": "Lido",
-      "title": "Introduce an Identified DVT Cluster type in the Community Staking Module",
-      "status": "passed",
-      "link": "https://snapshot.org/#/lido-snapshot.eth/proposal/0x1d416954538fb9b82aae05daca1be29f7b20d5f9fac61bd2eb9da1f5901a3867",
-      "created": 1775487761,
-      "end": 1776096000,
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "This proposal introduces a new CSM Node Operator type — Identified DVT Cluster (IDVTC) — allowing groups of 4 Identified Community Stakers (ICS) to run validators collaboratively using DVT. The design combines the trust guarantees of ICS with the res",
-      "summary_zh": "引入社区质押模块中的已识别DVT集群类型\n\n本提案引入一种新的社区质押节点运营商类型——已识别DVT集群（IDVTC），允许4个已识别社区质押者（ICS）协作使用DVT运行验证器。该设计结合了ICS的信任保证与DVT的冗余和可扩展性。",
       "analysis_zh": ""
     },
     {
@@ -2247,6 +2217,34 @@
       "tev_keywords": [],
       "summary_en": "This proposal introduces Ethereal: an integrated spot & perpetual futures DEX built on the upcoming Ethena Network using USDe. Ethereal are requesting that the exchange be directly integrated into Ethena-related reserve management from launch to prov",
       "summary_zh": "Ethereal 提案：在即将上线的 Ethena Network 上构建现货和永续合约 DEX，使用 USDe 作为核心资产，申请从发布起直接集成到 Ethena 储备管理体系中。",
+      "analysis_zh": ""
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Spark",
+      "title": "SAEP-18: Update Spark Liquidity Layer Freezer Multisig",
+      "status": "active",
+      "link": "https://snapshot.org/#/sparkfi.eth/proposal/0x5ac67ae3e4808faf16cbd271d9c7398f86116747c4b395ba56e47fb2b4068627",
+      "created": 1784563210,
+      "end": 1784822410,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": ">\n> This proposal is submitted by Phoenix Labs in its role as a nested contributor, as defined in section A.6.1.1.1.2.2.2.2.1.2.1.1.1 of the Spark Artifact. The proposal recommends that Spark governance update the Spark Artifact section documenting t",
+      "summary_zh": "提案：SAEP-18：更新Spark流动性层冻结多重签名\n摘要：此提案由凤凰实验室以嵌套贡献者身份提交，根据Spark工件A.6.1.1.1.2.2.2.1.2.1.1.1部分定义。提案建议Spark治理更新Spark工件中记录t",
+      "analysis_zh": ""
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Spark",
+      "title": "SAEP-17: Update Spark Savings Artifact Section",
+      "status": "active",
+      "link": "https://snapshot.org/#/sparkfi.eth/proposal/0xfb113d1fd10d91a693967d380e17331884eb74af679af496e0e983db009749e6",
+      "created": 1784562929,
+      "end": 1784822129,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": ">\n> This proposal is submitted by Phoenix Labs in its role as a nested contributor, as defined in section A.6.1.1.1.2.2.2.2.1.2.1.1.1 of the Spark Artifact. The proposal recommends that Spark governance update the Spark Savings section of the Spark A",
+      "summary_zh": "SAEP-17: 更新Spark储蓄条目\n由Phoenix Labs作为嵌套贡献者提出，建议Spark治理更新Spark Aave、AAVE、Uniswap、FLUID储蓄条目。",
       "analysis_zh": ""
     },
     {
@@ -3260,6 +3258,20 @@
     {
       "source": "Sky Polling",
       "protocol": "Sky (MakerDAO)",
+      "title": "Atlas Edit Weekly Cycle Proposal - July 20, 2026",
+      "status": "active",
+      "link": "https://vote.makerdao.com/polling/Qmbh5CZM",
+      "created": "2026-07-20T16:00:00",
+      "end": "2026-07-23T16:00:00",
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "This Atlas edit proposal 1) reduces the Sky Spread and updates the Reference Rate to SOFR, 2) migrates per-Agent Foundation and Development Company entries into standard parameters, 3) corrects a mislabeled capital term from RRC to CRR, 4) renames SE",
+      "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas 编辑周循环提案 - 2026年7月20日\n摘要：本提案1）降低Sky Spread并更新参考利率为SOFR，2）将每个代理基金会和开发公司条目迁移到标准参数，3）纠正从RRC到CRR的错误标示资本术语，4）重命名SE",
+      "analysis_zh": ""
+    },
+    {
+      "source": "Sky Polling",
+      "protocol": "Sky (MakerDAO)",
       "title": "Atlas Edit Weekly Cycle Proposal - July 13, 2026",
       "status": "passed",
       "link": "https://vote.makerdao.com/polling/Qmd3yk9L",
@@ -3317,20 +3329,6 @@
       ],
       "summary_en": "This Atlas edit proposal 1) re-grounds broad discretionary authority in the Core Council, 2) adds Core Council authority to modify the Treasury Allocation, 3) authorizes transfers to the Sky Frontier Foundation from Executor Agents, 4) clarifies repe",
       "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas 编辑每周周期提案 - 2026年6月22日\n摘要：本提案1）将广泛的自由裁量权重新赋予核心委员会，2）赋予核心委员会修改金库分配的权力，3）授权从执行代理向Sky Frontier基金会转账，4）明确重复..."
-    },
-    {
-      "source": "Sky Polling",
-      "protocol": "Sky (MakerDAO)",
-      "title": "Atlas Edit Weekly Cycle Proposal - June 15, 2026",
-      "status": "passed",
-      "link": "https://vote.makerdao.com/polling/QmdYpnYS",
-      "created": "2026-06-15T16:00:00",
-      "end": "2026-06-18T16:00:00",
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "This Atlas edit proposal 1) codifies Core Facilitator authority over final Spell inclusion, 2) updates the Ethereum SkyLink Freezer Multisig configuration from 2/4 to 2/5, 3) adds Spark Foundation grant authorization for Q3 2026, 4) adds a second All",
-      "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas编辑每周周期提案 - 2026年6月15日\n摘要：本提案1）将核心促进者对最终咒语加入的权限进行法典化，2）将以太坊SkyLink Freezer多重签名配置从2/4更改为2/5，3）增加2026年第三季度Spark基金会拨款授权，4）增加第二次所有者治理投票。",
-      "analysis_zh": ""
     },
     {
       "source": "Mantle Forum",
