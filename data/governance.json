@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-07-22T01:09:56.421152+00:00",
-  "total": 243,
-  "active_count": 36,
+  "updated_at": "2026-07-22T13:11:24.648271+00:00",
+  "total": 244,
+  "active_count": 37,
   "passed_count": 207,
   "tev_related": 64,
   "monitored_protocols": 19,
@@ -130,6 +130,20 @@
     }
   },
   "proposals": [
+    {
+      "source": "Snapshot",
+      "protocol": "Aave",
+      "title": "[ARFC] Aave App Launch",
+      "status": "active",
+      "link": "https://snapshot.org/#/aavedao.eth/proposal/0x2f86020fc038694a5c4738e3982e4fa92eb315aaa4d3ce2fa2be2a5808a9280b",
+      "created": 1784630043,
+      "end": 1784975643,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "away individual stablecoin balances behind a reported dollar value. Stablecoins inside of the Stable Vault are rebalanced toward the target allocation automatically and uniformly across pooled balances, without discretionary per-user management.",
+      "summary_zh": "[ARFC] Aave应用上线，将Aave个人稳定币余额转换为报告美元价值。稳定币库中的稳定币将自动、统一地根据目标分配重新平衡，无需用户个性化管理。",
+      "analysis_zh": ""
+    },
     {
       "source": "Snapshot",
       "protocol": "Aave",
