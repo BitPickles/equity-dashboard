@@ -1,6 +1,6 @@
 {
  "schema_version": "0.6",
- "generated_at": "2026-07-21T23:39:31+00:00",
+ "generated_at": "2026-07-22T10:49:54+00:00",
  "note": "由 build/fetch_data.py build_sources() 生成。估值/盈利/周期数据为真实抓取；仅“电话会文稿 / AI 摘要”行为演示样稿（D 档）。",
  "tiers": [
   {
@@ -48,56 +48,56 @@
   {
    "metric": "P/E · P/B 日频（分母全程 · 三家：MU 1994→ / 韩股 2001→）",
    "src": "SEC EDGAR / DART 财报分母（季度层）+ 更早年度史料层，自算（分子 Yahoo 日收盘）",
-   "date": "2026-07-21",
+   "date": "2026-07-22",
    "tier": "A",
    "method": "⚙️"
   },
   {
    "metric": "MU 季度长序列（营收/毛利/营业利润/净利/COGS/存货/权益/capex，FY2009→）",
    "src": "SEC EDGAR companyconcept（10-Q/10-K/8-K XBRL）",
-   "date": "2026-07-21",
+   "date": "2026-07-22",
    "tier": "S",
    "method": "⚙️"
   },
   {
    "metric": "SK Hynix / 三星 季度长序列（2015Q4→，流量项 2016Q1→）",
    "src": "DART OpenAPI fnlttSinglAcntAll（연결 CFS）",
-   "date": "2026-07-21",
+   "date": "2026-07-22",
    "tier": "S",
    "method": "⚙️"
   },
   {
    "metric": "MU 股数",
    "src": "SEC dei:EntityCommonStockSharesOutstanding（封面截至日）",
-   "date": "2026-07-21",
+   "date": "2026-07-22",
    "tier": "S",
    "method": "⚙️"
   },
   {
    "metric": "韩股普通股股数",
    "src": "DART stockTotqySttus（报告期末口径，避开优先股）",
-   "date": "2026-07-21",
+   "date": "2026-07-22",
    "tier": "S",
    "method": "⚙️"
   },
   {
    "metric": "季度 P/E · P/B 长序列 + 历史区间统计",
    "src": "自算：季末收盘 × 股数 ÷ 归母权益 / TTM归母净利",
-   "date": "2026-07-21",
+   "date": "2026-07-22",
    "tier": "A",
    "method": "⚙️"
   },
   {
    "metric": "股价（全部上市历史 · 日频：MU 1984→ / 韩股 2000→；月频已废弃）",
    "src": "Yahoo Finance 行情（auto_adjust=False 复权价）",
-   "date": "2026-07-21",
+   "date": "2026-07-22",
    "tier": "A",
    "method": "⚙️"
   },
   {
    "metric": "电话会文稿 / AI 摘要",
    "src": "演示样稿（真源未接入，一期后续）",
-   "date": "2026-07-21",
+   "date": "2026-07-22",
    "tier": "D",
    "method": "🤖"
   }
@@ -183,5 +183,5 @@
   "两条独立数据管道对同一指标交叉校验，偏差超阈值构建即告警。",
   "本站仅呈现事实与来源，不构成投资建议。"
  ],
- "footer": "schema 0.6 · 估值/盈利/周期数据为真实抓取（SEC EDGAR / DART / Yahoo），电话会内容为演示样稿 · 生成 2026-07-21。"
+ "footer": "schema 0.6 · 估值/盈利/周期数据为真实抓取（SEC EDGAR / DART / Yahoo），电话会内容为演示样稿 · 生成 2026-07-22。"
 }
