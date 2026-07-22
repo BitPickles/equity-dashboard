@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-21T13:12:07.142066+00:00",
-  "total": 240,
-  "active_count": 33,
+  "updated_at": "2026-07-22T01:09:56.421152+00:00",
+  "total": 243,
+  "active_count": 36,
   "passed_count": 207,
-  "tev_related": 63,
+  "tev_related": 64,
   "monitored_protocols": 19,
   "protocols_meta": {
     "Aave": {
@@ -130,6 +130,34 @@
     }
   },
   "proposals": [
+    {
+      "source": "Snapshot",
+      "protocol": "Aave",
+      "title": "[ARFC] Onboard USDai & sUSDai to Aave V3 Arbitrum Instance",
+      "status": "active",
+      "link": "https://snapshot.org/#/aavedao.eth/proposal/0xea4a214958299ff36fb85c53cf2f727ce2df3e145279e8f6bef6766f26297d76",
+      "created": 1784562881,
+      "end": 1784908481,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "We propose the onboarding of USDai and sUSDai on Aave V3 Arbitrum Instance.",
+      "summary_zh": "关于 Aave 协议的治理提案：[ARFC] 将 USDai 和 sUSDai 纳入 Aave V3 Arbitrum 实例。",
+      "analysis_zh": ""
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Aave",
+      "title": "[ARFC] Onboard syrupUSDC to Aave V3 Core Instance",
+      "status": "active",
+      "link": "https://snapshot.org/#/aavedao.eth/proposal/0x0800663767b84a5bdcdeb417cc0eb7a55b80561684d763bca593363dd83dfcc2",
+      "created": 1784562503,
+      "end": 1784908103,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "This proposal seeks to onboard syrupUSDC — a USDC-based yield-bearing token issued by Maple Finance — as a collateral asset on Aave V3 Core Instance. syrupUSDC is built on top of Maple’s infrastructure and offers access to overcollateralized, fixed-r",
+      "summary_zh": "[ARFC] 将基于Maple Finance发行的USDC收益代币syrupUSDC纳入Aave V3核心实例的抵押资产。",
+      "analysis_zh": ""
+    },
     {
       "source": "Snapshot",
       "protocol": "Aave",
@@ -415,6 +443,22 @@
       "summary_en": "It has been one year since LlamaRisk’s last renewal. LlamaRisk submits this proposal to renew its role as Aave’s Risk Service Provider.",
       "summary_zh": "自上次LlamaRisk续约以来已满一年。LlamaRisk提交此提案，续任Aave风险管理服务商。",
       "analysis_zh": ""
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Uniswap",
+      "title": "[Temp Check] - Four for V4",
+      "status": "active",
+      "link": "https://snapshot.org/#/uniswapgovernance.eth/proposal/0x5ae3426216321df66a67eb677874b725f80e51888ad2da72b382b21669c554ee",
+      "created": 1784675724,
+      "end": 1785107724,
+      "tev_related": true,
+      "tev_keywords": [
+        "fee",
+        "treasury"
+      ],
+      "summary_en": "GFX Labs/Oku Trade proposes deploying Uniswap V4 on four EVM-compatible networks: Sei, Etherlink, Pharos, and 0G. These deployments expand V4's footprint, generate protocol fees across new chains, and give hook developers new environments to build on",
+      "summary_zh": "协议：Uniswap\n标题：[温测] - V4四部署\n摘要：GFX Labs/Oku Trade提议在四个EVM兼容网络Sei、Etherlink、Pharos和0G上部署Uniswap V4。这些部署扩大了V4的影响范围，在新的链上产生协议费用，并为开发者提供新的构建环境。"
     },
     {
       "source": "Snapshot",
