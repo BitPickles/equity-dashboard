@@ -157,7 +157,7 @@
   },
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 10.79,
+    "tev_yield_percent": 10.75,
     "market_cap_usd": 7368065201,
     "calculation_date": "2026-07-24",
     "sources": [
@@ -188,24 +188,24 @@
     "en": "On-chain AF balance verifiable + DefiLlama holdersRevenue cross-validated"
   },
   "tevRatio": 1,
-  "earning_yield_percent": 10.79,
+  "earning_yield_percent": 10.75,
   "market_cap_usd": 7368065201,
-  "tev_yield_percent": 10.79,
+  "tev_yield_percent": 10.75,
   "metrics": {
-    "trailing_7d_revenue_usd": 7967976,
-    "trailing_30d_revenue_usd": 40809623,
-    "trailing_90d_revenue_usd": 142145981,
-    "tev_yield_7d_ann": 5.64,
-    "tev_yield_30d_ann": 6.74,
+    "trailing_7d_revenue_usd": 7649393,
+    "trailing_30d_revenue_usd": 40053220,
+    "trailing_90d_revenue_usd": 142085349,
+    "tev_yield_7d_ann": 5.41,
+    "tev_yield_30d_ann": 6.61,
     "tev_yield_90d_ann": 7.82,
-    "earning_yield_7d_ann": 5.64,
-    "earning_yield_30d_ann": 6.74,
+    "earning_yield_7d_ann": 5.41,
+    "earning_yield_30d_ann": 6.61,
     "earning_yield_90d_ann": 7.82,
-    "trailing_365d_revenue_usd": 794956342,
+    "trailing_365d_revenue_usd": 792146570,
     "dividend_yield_7d_ann": 0,
-    "buyback_yield_7d_ann": 5.64,
+    "buyback_yield_7d_ann": 5.41,
     "dividend_yield_30d_ann": 0,
-    "buyback_yield_30d_ann": 6.74,
+    "buyback_yield_30d_ann": 6.61,
     "dividend_yield_90d_ann": 0,
     "buyback_yield_90d_ann": 7.82
   },
@@ -260,6 +260,6 @@
     }
   ],
   "dividend_yield_percent": 0,
-  "buyback_yield_percent": 10.79,
+  "buyback_yield_percent": 10.75,
   "style": "cash_cow"
 }

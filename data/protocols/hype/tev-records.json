@@ -1,6 +1,6 @@
 {
   "protocol": "hyperliquid",
-  "updated_at": "2026-07-24T01:11:10.215696Z",
+  "updated_at": "2026-07-24T13:10:45.146526Z",
   "data_source": "DefiLlama dailyRevenue (= holdersRevenue for Hyperliquid)",
   "data_source_url": "https://api.llama.fi/summary/fees/hyperliquid?dataType=dailyRevenue",
   "records": [
@@ -5729,6 +5729,16 @@
       "type": "buyback_burn",
       "amount_usd": 1029393,
       "period": "2026-07-22",
+      "source": {
+        "type": "api",
+        "provider": "DefiLlama"
+      }
+    },
+    {
+      "date": "2026-07-23",
+      "type": "buyback_burn",
+      "amount_usd": 1064168,
+      "period": "2026-07-23",
       "source": {
         "type": "api",
         "provider": "DefiLlama"
