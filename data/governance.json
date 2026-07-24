@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-24T01:12:42.481474+00:00",
-  "total": 242,
-  "active_count": 34,
+  "updated_at": "2026-07-24T13:12:21.562541+00:00",
+  "total": 243,
+  "active_count": 35,
   "passed_count": 208,
-  "tev_related": 64,
+  "tev_related": 65,
   "monitored_protocols": 19,
   "protocols_meta": {
     "Aave": {
@@ -130,6 +130,21 @@
     }
   },
   "proposals": [
+    {
+      "source": "Snapshot",
+      "protocol": "Aave",
+      "title": "[Temp Check] Deploy Aave V4 on Tempo",
+      "status": "active",
+      "link": "https://snapshot.org/#/aavedao.eth/proposal/0xdca149f83dc6fd292f76a10a20a36a8aa7358255b31cf7f27645d28a1d489b69",
+      "created": 1784806433,
+      "end": 1785152033,
+      "tev_related": true,
+      "tev_keywords": [
+        "fee"
+      ],
+      "summary_en": "This Temp Check seeks community feedback on deploying Aave v4 on Tempo Mainnet.",
+      "summary_zh": "Aave社区投票：在Tempo主网上部署Aave v4版本。"
+    },
     {
       "source": "Snapshot",
       "protocol": "Aave",
