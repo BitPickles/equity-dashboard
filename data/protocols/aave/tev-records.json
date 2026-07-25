@@ -1,6 +1,6 @@
 {
   "protocol": "aave",
-  "updated_at": "2026-07-24T13:13:35.781Z",
+  "updated_at": "2026-07-25T01:13:03.511Z",
   "data_source": "DefiLlama API (dailyHoldersRevenue)",
   "data_source_url": "https://api.llama.fi/summary/fees/aave?dataType=dailyHoldersRevenue",
   "records": [
@@ -262,7 +262,7 @@
   ],
   "summary": {
     "total_tev_usd": 42944371,
-    "total_30d_usd": 576537,
+    "total_30d_usd": 0,
     "by_mechanism": {
       "buyback_burn": 42944371
     },
