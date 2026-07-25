@@ -1,30 +1,30 @@
 {
   "protocol": "pancakeswap",
   "method": "DefiLlama dailyHoldersRevenue (CAKE buyback&burn, gross)",
-  "updated_at": "2026-07-25T01:11:18.131207Z",
+  "updated_at": "2026-07-25T13:10:32.263184Z",
   "cake_price_usd": 1.4,
-  "market_cap_usd": 450639008.98521334,
-  "data_latest_date": "2026-07-24",
+  "market_cap_usd": 451727617.1652966,
+  "data_latest_date": "2026-07-25",
   "net_burns": {
     "7": {
-      "burn_usd": 234179,
-      "annualized_usd": 12210762,
-      "yield_pct": 2.71
+      "burn_usd": 233764,
+      "annualized_usd": 12189135,
+      "yield_pct": 2.7
     },
     "30": {
-      "burn_usd": 1380846,
-      "annualized_usd": 16800293,
-      "yield_pct": 3.73
+      "burn_usd": 1346464,
+      "annualized_usd": 16381981,
+      "yield_pct": 3.63
     },
     "90": {
-      "burn_usd": 5760677,
-      "annualized_usd": 23362746,
-      "yield_pct": 5.18
+      "burn_usd": 5747128,
+      "annualized_usd": 23307798,
+      "yield_pct": 5.16
     },
     "365": {
-      "burn_usd": 59450533,
-      "annualized_usd": 59450533,
-      "yield_pct": 13.19
+      "burn_usd": 59331259,
+      "annualized_usd": 59331259,
+      "yield_pct": 13.13
     }
   },
   "data_sources": [

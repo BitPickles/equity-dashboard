@@ -71,14 +71,14 @@
     "calculation_date": "2026-07-25",
     "note": "JST 质押奖励，透明度低",
     "sources": [],
-    "market_cap_usd": 833373687.7581221,
+    "market_cap_usd": 840561235.9583848,
     "validation": {
       "method": "TEV 归零（pocket-to-pocket 做账销毁，非真市场 buyback）",
       "burn_7d_jst": 0,
       "burn_30d_jst": 248357799,
       "burn_90d_jst": 248357799,
       "burn_365d_jst": 1604586131,
-      "jst_price_usd": 0.097585,
+      "jst_price_usd": 0.098426,
       "total_burned_jst": 1604586131,
       "burn_events": 4,
       "caveats": [
@@ -104,7 +104,7 @@
   },
   "tevRatio": null,
   "earning_yield_percent": 0,
-  "market_cap_usd": 833373687.7581221,
+  "market_cap_usd": 840561235.9583848,
   "tev_yield_percent": 0,
   "metrics": {
     "current_market_cap_usd": 558330511.4309741,

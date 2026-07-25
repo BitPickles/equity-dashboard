@@ -79,9 +79,9 @@
   "analyst_notes": "【2026-06-14 重写 — 回退 DefiLlama buyback&burn 口径】\n\n## 为什么从链上口径切回 DefiLlama\n\n2026 上半年公共 BSC RPC 全行业取消 archive 节点支持（1rpc / Ankr / publicnode / bscrpc 全部拒绝历史 state），且 Etherscan V2 免费 key 不覆盖 BSC（chainid=56 需付费）。原链上 net-deflation 口径依赖 archive node 查历史 block 余额，已无法运行——burn-history.json 的 net_burns 退化为空，前端 yield 失真为 0（active 但 0%，已失真约 47 天）。\n\n故改用 DefiLlama dailyHoldersRevenue（= CAKE buyback&burn 的 USD 金额），免费、稳定、不依赖 archive。\n\n## DefiLlama buyback&burn 口径\n\nDefiLlama HoldersRevenue 对 PancakeSwap = 各产品 fee 路由去回购销毁的部分：\n- AMM v2: 0.0575% of swap → buyback&burn\n- StableSwap: 40% of fees → buyback&burn\n- AMM v3: 15-23% of fees → buyback&burn\nTokenomics 3.0 后 veCAKE sunset，100% 回购直接 burn 到 0xdead。\n\n这是 gross buyback 口径（不扣 LP 增发对冲），与原链上 net-deflation 口径定义不同，但 365d 数值已收敛：\n```\n窗口累加 USD → 年化（N<365 时 ×365/N）→ ÷ 流通市值 = TEV Yield\n```\n\n365d 实测（2026-06-13 数据）：\n- buyback&burn 365d ≈ $65.1M（与上次链上 net-deflation $65M gross 量级一致）\n- 流通市值 ≈ $474M\n- yield = $65.1M / $474M = 13.73%\n\n## 口径迁移前后差异\n\n- 上次链上口径报 11.5%（× CAKE $1.51）；本次 13.73%。差异主因 CAKE 价格回落 + gross vs net 定义差，非数据异常。\n- 短周期年化偏低（7d 6.42% / 30d 5.68% / 90d 6.37%）是近月 buyback 放缓的真实反映。\n\n## 数据源\n\n- DefiLlama summary/fees/pancakeswap?dataType=dailyHoldersRevenue（日度序列）\n- CoinGecko（CAKE 价格 + 流通市值）\n\n## 关键地址\n\n- CAKE: 0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82\n- Dead: 0x000000000000000000000000000000000000dEaD\n\n## 历史变更\n\n- 2026-06-14: BSC 公共 archive RPC 全行业退役，链上口径不可运行，回退 DefiLlama buyback&burn 口径\n- 2026-04-26: 曾切链上 net deflation 口径（现已失效）\n- 2025-04-23: veCAKE sunset, Tokenomics 3.0 上线\n",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 13.19,
-    "annual_tev_usd": 59450533,
-    "market_cap_usd": 450639008.98521334,
+    "tev_yield_percent": 13.13,
+    "annual_tev_usd": 59331259,
+    "market_cap_usd": 451727617.1652966,
     "calculation_date": "2026-07-25",
     "sources": [
       {
@@ -107,10 +107,10 @@
     "validation": {
       "method": "DefiLlama dailyHoldersRevenue (CAKE buyback&burn, gross)",
       "cake_price_usd": 1.4,
-      "burn_7d_usd": 234179,
-      "burn_30d_usd": 1380846,
-      "burn_90d_usd": 5760677,
-      "burn_365d_usd": 59450533
+      "burn_7d_usd": 233764,
+      "burn_30d_usd": 1346464,
+      "burn_90d_usd": 5747128,
+      "burn_365d_usd": 59331259
     }
   },
   "market_data": {
@@ -130,29 +130,29 @@
     "en": "DefiLlama dailyHoldersRevenue (CAKE buyback&burn USD), stable traceable daily series"
   },
   "tevRatio": 1,
-  "earning_yield_percent": 13.19,
-  "market_cap_usd": 450639008.98521334,
-  "tev_yield_percent": 13.19,
+  "earning_yield_percent": 13.13,
+  "market_cap_usd": 451727617.1652966,
+  "tev_yield_percent": 13.13,
   "metrics": {
-    "current_market_cap_usd": 450639008.98521334,
-    "trailing_365d_revenue_usd": 59450533,
-    "trailing_30d_revenue_usd": 1380846,
-    "trailing_365d_tev_usd": 59450533,
+    "current_market_cap_usd": 451727617.1652966,
+    "trailing_365d_revenue_usd": 59331259,
+    "trailing_30d_revenue_usd": 1346464,
+    "trailing_365d_tev_usd": 59331259,
     "trailing_30d_tev_usd": 8326244.666666667,
-    "trailing_7d_revenue_usd": 234179,
-    "trailing_90d_revenue_usd": 5760677,
-    "tev_yield_7d_ann": 2.71,
-    "tev_yield_30d_ann": 3.73,
-    "tev_yield_90d_ann": 5.18,
-    "earning_yield_7d_ann": 2.71,
-    "earning_yield_30d_ann": 3.73,
-    "earning_yield_90d_ann": 5.18,
+    "trailing_7d_revenue_usd": 233764,
+    "trailing_90d_revenue_usd": 5747128,
+    "tev_yield_7d_ann": 2.7,
+    "tev_yield_30d_ann": 3.63,
+    "tev_yield_90d_ann": 5.16,
+    "earning_yield_7d_ann": 2.7,
+    "earning_yield_30d_ann": 3.63,
+    "earning_yield_90d_ann": 5.16,
     "dividend_yield_7d_ann": 0,
-    "buyback_yield_7d_ann": 2.71,
+    "buyback_yield_7d_ann": 2.7,
     "dividend_yield_30d_ann": 0,
-    "buyback_yield_30d_ann": 3.73,
+    "buyback_yield_30d_ann": 3.63,
     "dividend_yield_90d_ann": 0,
-    "buyback_yield_90d_ann": 5.18
+    "buyback_yield_90d_ann": 5.16
   },
   "calc_pipeline": [
     {
@@ -217,6 +217,6 @@
     }
   ],
   "dividend_yield_percent": 0,
-  "buyback_yield_percent": 13.19,
+  "buyback_yield_percent": 13.13,
   "style": "cash_cow"
 }
