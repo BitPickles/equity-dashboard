@@ -80,9 +80,9 @@
   "tev_data": {
     "has_tev": true,
     "tev_yield_percent": 13.13,
-    "annual_tev_usd": 59331259,
-    "market_cap_usd": 451727617.1652966,
-    "calculation_date": "2026-07-25",
+    "annual_tev_usd": 59342084,
+    "market_cap_usd": 451974379.62642026,
+    "calculation_date": "2026-07-26",
     "sources": [
       {
         "name": "DefiLlama dailyHoldersRevenue (CAKE buyback&burn, gross)",
@@ -107,10 +107,10 @@
     "validation": {
       "method": "DefiLlama dailyHoldersRevenue (CAKE buyback&burn, gross)",
       "cake_price_usd": 1.4,
-      "burn_7d_usd": 233764,
-      "burn_30d_usd": 1346464,
-      "burn_90d_usd": 5747128,
-      "burn_365d_usd": 59331259
+      "burn_7d_usd": 244588,
+      "burn_30d_usd": 1357288,
+      "burn_90d_usd": 5757952,
+      "burn_365d_usd": 59342084
     }
   },
   "market_data": {
@@ -131,28 +131,28 @@
   },
   "tevRatio": 1,
   "earning_yield_percent": 13.13,
-  "market_cap_usd": 451727617.1652966,
+  "market_cap_usd": 451974379.62642026,
   "tev_yield_percent": 13.13,
   "metrics": {
-    "current_market_cap_usd": 451727617.1652966,
-    "trailing_365d_revenue_usd": 59331259,
-    "trailing_30d_revenue_usd": 1346464,
-    "trailing_365d_tev_usd": 59331259,
+    "current_market_cap_usd": 451974379.62642026,
+    "trailing_365d_revenue_usd": 59342084,
+    "trailing_30d_revenue_usd": 1357288,
+    "trailing_365d_tev_usd": 59342084,
     "trailing_30d_tev_usd": 8326244.666666667,
-    "trailing_7d_revenue_usd": 233764,
-    "trailing_90d_revenue_usd": 5747128,
-    "tev_yield_7d_ann": 2.7,
-    "tev_yield_30d_ann": 3.63,
-    "tev_yield_90d_ann": 5.16,
-    "earning_yield_7d_ann": 2.7,
-    "earning_yield_30d_ann": 3.63,
-    "earning_yield_90d_ann": 5.16,
+    "trailing_7d_revenue_usd": 244588,
+    "trailing_90d_revenue_usd": 5757952,
+    "tev_yield_7d_ann": 2.82,
+    "tev_yield_30d_ann": 3.65,
+    "tev_yield_90d_ann": 5.17,
+    "earning_yield_7d_ann": 2.82,
+    "earning_yield_30d_ann": 3.65,
+    "earning_yield_90d_ann": 5.17,
     "dividend_yield_7d_ann": 0,
-    "buyback_yield_7d_ann": 2.7,
+    "buyback_yield_7d_ann": 2.82,
     "dividend_yield_30d_ann": 0,
-    "buyback_yield_30d_ann": 3.63,
+    "buyback_yield_30d_ann": 3.65,
     "dividend_yield_90d_ann": 0,
-    "buyback_yield_90d_ann": 5.16
+    "buyback_yield_90d_ann": 5.17
   },
   "calc_pipeline": [
     {

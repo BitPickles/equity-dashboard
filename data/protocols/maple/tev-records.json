@@ -1,6 +1,6 @@
 {
   "protocol": "maple",
-  "updated_at": "2026-07-25T13:12:23.174Z",
+  "updated_at": "2026-07-26T01:12:28.804Z",
   "data_source": "DefiLlama API (dailyHoldersRevenue)",
   "data_source_url": "https://api.llama.fi/summary/fees/maple?dataType=dailyHoldersRevenue",
   "records": [
@@ -160,7 +160,7 @@
   ],
   "summary": {
     "total_tev_usd": 2562938,
-    "total_30d_usd": 277739,
+    "total_30d_usd": 272386,
     "by_mechanism": {
       "staking_reward": 2562938
     },
