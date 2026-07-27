@@ -2,11 +2,11 @@
   "updated_at": "2026-07-27",
   "1m": {
     "current": {
-      "value": 73.33,
+      "value": 73.44,
       "date": "2026-07-27",
       "rates": 67.0,
       "liq": 99.8,
-      "risk": 53.2,
+      "risk": 53.5,
       "regime": "RISK_OFF"
     },
     "thresholds": {
@@ -28191,20 +28191,20 @@
       },
       {
         "date": "2026-07-27",
-        "bmri": 73.33,
+        "bmri": 73.44,
         "rates": 67.0,
         "liq": 99.8,
-        "risk": 53.2
+        "risk": 53.5
       }
     ]
   },
   "6m": {
     "current": {
-      "value": 73.33,
+      "value": 73.44,
       "date": "2026-07-27",
       "rates": 67.0,
       "liq": 99.8,
-      "risk": 53.2,
+      "risk": 53.5,
       "regime": "RISK_OFF"
     },
     "thresholds": {
@@ -32911,10 +32911,10 @@
       },
       {
         "date": "2026-07-27",
-        "bmri": 73.33,
+        "bmri": 73.44,
         "rates": 67.0,
         "liq": 99.8,
-        "risk": 53.2
+        "risk": 53.5
       }
     ]
   }

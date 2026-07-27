@@ -78,7 +78,7 @@
   "last_updated": "2026-04-24",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 3.25,
+    "tev_yield_percent": 3.24,
     "annual_tev_usd": 30000000,
     "market_cap_usd": 1799059173.84,
     "calculation_date": "2026-07-27",
@@ -103,7 +103,7 @@
       "sm_7d_usd": 0,
       "sm_30d_usd": 0,
       "sm_90d_usd": 732104,
-      "sm_365d_usd": 28424101,
+      "sm_365d_usd": 28277676,
       "caveats": [
         "Buyback 是 treasury-accumulated，不是真 burn（买入 AAVE → Ecosystem Reserve，治理可 redistribute）",
         "Safety Module 分发是脉冲式（每 1-2 周一次大包），短周期窗口可能为 0",
@@ -119,26 +119,26 @@
     "zh": "治理提案 AIP-1 明确年回购预算，链上可追踪",
     "en": "AIP-1 governance proposal with fixed annual buyback budget, on-chain trackable"
   },
-  "tevRatio": 0.4985,
-  "earning_yield_percent": 6.52,
+  "tevRatio": 0.4977,
+  "earning_yield_percent": 6.51,
   "market_cap_usd": 1799059173.84,
-  "tev_yield_percent": 3.25,
+  "tev_yield_percent": 3.24,
   "metrics": {
     "current_market_cap_usd": 1799059173.84,
-    "trailing_365d_revenue_usd": 117286057,
-    "trailing_30d_revenue_usd": 3761334,
+    "trailing_365d_revenue_usd": 117048406,
+    "trailing_30d_revenue_usd": 3781727,
     "trailing_365d_tev_usd": 30000000,
     "trailing_30d_tev_usd": 2500000,
     "trailing_365d_holders_revenue_usd": 42212267,
     "trailing_30d_holders_revenue_usd": 6155965,
-    "trailing_7d_revenue_usd": 914930,
-    "trailing_90d_revenue_usd": 15823924,
+    "trailing_7d_revenue_usd": 923405,
+    "trailing_90d_revenue_usd": 15687427,
     "tev_yield_7d_ann": 1.67,
     "tev_yield_30d_ann": 1.67,
     "tev_yield_90d_ann": 1.83,
-    "earning_yield_7d_ann": 2.65,
-    "earning_yield_30d_ann": 2.54,
-    "earning_yield_90d_ann": 3.57,
+    "earning_yield_7d_ann": 2.68,
+    "earning_yield_30d_ann": 2.56,
+    "earning_yield_90d_ann": 3.54,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 1.67,
     "dividend_yield_30d_ann": 0,
@@ -205,7 +205,7 @@
       "unit": "%"
     }
   ],
-  "dividend_yield_percent": 1.58,
+  "dividend_yield_percent": 1.57,
   "buyback_yield_percent": 1.67,
   "style": "cash_cow"
 }
