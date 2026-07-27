@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-07-27T01:08:31.931604+00:00",
-  "total": 241,
-  "active_count": 32,
+  "updated_at": "2026-07-27T13:09:46.848247+00:00",
+  "total": 240,
+  "active_count": 31,
   "passed_count": 209,
   "tev_related": 64,
   "monitored_protocols": 19,
@@ -148,7 +148,7 @@
       "source": "Snapshot",
       "protocol": "Aave",
       "title": "[Temp Check] Deploy Aave V4 on Tempo",
-      "status": "active",
+      "status": "passed",
       "link": "https://snapshot.org/#/aavedao.eth/proposal/0xdca149f83dc6fd292f76a10a20a36a8aa7358255b31cf7f27645d28a1d489b69",
       "created": 1784806433,
       "end": 1785152033,
@@ -429,20 +429,6 @@
       ],
       "summary_en": "This proposal seeks community feedback on deploying Aave V4 on Avalanche, including a dedicated RWA hub.",
       "summary_zh": "关于在Avalanche上部署Aave V4及设立专门RWA中心的提案，征求社区意见。"
-    },
-    {
-      "source": "Snapshot",
-      "protocol": "Aave",
-      "title": "[ARFC] stkAAVE Emissions Update",
-      "status": "passed",
-      "link": "https://snapshot.org/#/aavedao.eth/proposal/0xd416e6cb09416cc4effdd2ad869373db2ac005ea63e7d7baeec0db4934281352",
-      "created": 1779768597,
-      "end": 1780114197,
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "This proposal restores stkAAVE emissions to reflect the targeted 2.75% staking APR, as mentioned in the https://governance.aave.com/t/aave-dao-funding-insights/24192.",
-      "summary_zh": "协议：Aave\n标题：[ARFC] stkAAVE 发射量更新\n摘要：本提案将 stkAAVE 发射量恢复至目标 2.75% 抵押年利率，如 https://governance.aave.com/t/aave-dao-funding-insights/24192 所述。",
-      "analysis_zh": ""
     },
     {
       "source": "Snapshot",
