@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-26T13:09:50.671442+00:00",
+  "updated_at": "2026-07-27T01:08:31.931604+00:00",
   "total": 241,
-  "active_count": 33,
-  "passed_count": 208,
+  "active_count": 32,
+  "passed_count": 209,
   "tev_related": 64,
   "monitored_protocols": 19,
   "protocols_meta": {
@@ -448,7 +448,7 @@
       "source": "Snapshot",
       "protocol": "Uniswap",
       "title": "[Temp Check] - Four for V4",
-      "status": "active",
+      "status": "passed",
       "link": "https://snapshot.org/#/uniswapgovernance.eth/proposal/0x5ae3426216321df66a67eb677874b725f80e51888ad2da72b382b21669c554ee",
       "created": 1784675724,
       "end": 1785107724,
