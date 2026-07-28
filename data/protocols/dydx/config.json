@@ -87,9 +87,9 @@
   "last_updated": "2026-04-26",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 9.16,
-    "annual_tev_usd": 8889515,
-    "market_cap_usd": 97017833.49,
+    "tev_yield_percent": 8.93,
+    "annual_tev_usd": 8797982,
+    "market_cap_usd": 98513945.75,
     "calculation_date": "2026-07-28",
     "sources": [
       {
@@ -119,28 +119,28 @@
     "en": "100% fees-to-staker on dYdX Chain (Cosmos) is verifiable, but 75% buyback (Proposal #313) has no public on-chain tracker. ethDYDX bridge closed."
   },
   "tevRatio": 0.75,
-  "earning_yield_percent": 9.16,
-  "market_cap_usd": 97017833.49,
-  "tev_yield_percent": 9.16,
+  "earning_yield_percent": 8.93,
+  "market_cap_usd": 98513945.75,
+  "tev_yield_percent": 8.93,
   "metrics": {
-    "current_market_cap_usd": 97017833.49,
-    "trailing_365d_revenue_usd": 8889515,
-    "trailing_30d_revenue_usd": 262726,
-    "trailing_365d_tev_usd": 8889515,
-    "trailing_30d_tev_usd": 740792.9166666666,
-    "trailing_7d_revenue_usd": 44032,
-    "trailing_90d_revenue_usd": 676042,
+    "current_market_cap_usd": 98513945.75,
+    "trailing_365d_revenue_usd": 8797982,
+    "trailing_30d_revenue_usd": 266638,
+    "trailing_365d_tev_usd": 8797982,
+    "trailing_30d_tev_usd": 733165.1666666666,
+    "trailing_7d_revenue_usd": 44706,
+    "trailing_90d_revenue_usd": 675134,
     "tev_yield_7d_ann": 2.37,
     "tev_yield_30d_ann": 3.29,
-    "tev_yield_90d_ann": 2.83,
+    "tev_yield_90d_ann": 2.78,
     "earning_yield_7d_ann": 2.37,
     "earning_yield_30d_ann": 3.29,
-    "earning_yield_90d_ann": 2.83,
+    "earning_yield_90d_ann": 2.78,
     "dividend_yield_7d_ann": 2.37,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 3.29,
     "buyback_yield_30d_ann": 0,
-    "dividend_yield_90d_ann": 2.83,
+    "dividend_yield_90d_ann": 2.78,
     "buyback_yield_90d_ann": 0
   },
   "calc_pipeline": [
@@ -200,7 +200,7 @@
       "unit": "%"
     }
   ],
-  "dividend_yield_percent": 9.16,
+  "dividend_yield_percent": 8.93,
   "buyback_yield_percent": 0,
   "style": "cash_cow"
 }

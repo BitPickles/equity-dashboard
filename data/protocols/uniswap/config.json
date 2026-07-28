@@ -131,7 +131,7 @@
   "tev_data": {
     "has_tev": true,
     "tev_yield_percent": 0.72,
-    "market_cap_usd": 2303363831.587272,
+    "market_cap_usd": 2458340135.7948294,
     "calculation_date": "2026-07-28",
     "sources": [
       {
@@ -146,13 +146,13 @@
     "last_updated": "2026-03-27",
     "validation": {
       "method": "A 口径：365d UNI 转入 0xdead（链上）减去 >=10M UNI 一次性事件",
-      "burn_7d_uni": 96000,
-      "burn_30d_uni": 388000,
-      "burn_90d_uni": 1180000,
-      "burn_365d_uni": 4538003,
+      "burn_7d_uni": 112000,
+      "burn_30d_uni": 404000,
+      "burn_90d_uni": 1196000,
+      "burn_365d_uni": 4554003,
       "retro_events_count": 1,
       "retro_total_uni": 100000000,
-      "uni_price_usd": 3.64,
+      "uni_price_usd": 3.88,
       "data_days": 192,
       "data_range": {
         "start": "2025-06-07",
@@ -191,25 +191,25 @@
   },
   "tevRatio": 1,
   "earning_yield_percent": 0.72,
-  "market_cap_usd": 2303363831.587272,
+  "market_cap_usd": 2458340135.7948294,
   "tev_yield_percent": 0.72,
   "metrics": {
-    "trailing_7d_revenue_usd": 349016,
-    "trailing_30d_revenue_usd": 1410605,
-    "trailing_90d_revenue_usd": 4289984,
-    "tev_yield_7d_ann": 0.79,
-    "tev_yield_30d_ann": 0.75,
-    "tev_yield_90d_ann": 0.76,
-    "earning_yield_7d_ann": 0.79,
-    "earning_yield_30d_ann": 0.75,
-    "earning_yield_90d_ann": 0.76,
-    "trailing_365d_revenue_usd": 16498274,
+    "trailing_7d_revenue_usd": 434581,
+    "trailing_30d_revenue_usd": 1567597,
+    "trailing_90d_revenue_usd": 4640709,
+    "tev_yield_7d_ann": 0.92,
+    "tev_yield_30d_ann": 0.78,
+    "tev_yield_90d_ann": 0.77,
+    "earning_yield_7d_ann": 0.92,
+    "earning_yield_30d_ann": 0.78,
+    "earning_yield_90d_ann": 0.77,
+    "trailing_365d_revenue_usd": 17670404,
     "dividend_yield_7d_ann": 0,
-    "buyback_yield_7d_ann": 0.79,
+    "buyback_yield_7d_ann": 0.92,
     "dividend_yield_30d_ann": 0,
-    "buyback_yield_30d_ann": 0.75,
+    "buyback_yield_30d_ann": 0.78,
     "dividend_yield_90d_ann": 0,
-    "buyback_yield_90d_ann": 0.76
+    "buyback_yield_90d_ann": 0.77
   },
   "calc_pipeline": [
     {
