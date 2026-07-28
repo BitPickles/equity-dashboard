@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-27T13:09:46.848247+00:00",
+  "updated_at": "2026-07-28T01:08:30.260078+00:00",
   "total": 240,
-  "active_count": 31,
-  "passed_count": 209,
-  "tev_related": 64,
+  "active_count": 32,
+  "passed_count": 208,
+  "tev_related": 63,
   "monitored_protocols": 19,
   "protocols_meta": {
     "Aave": {
@@ -3260,6 +3260,20 @@
     {
       "source": "Sky Polling",
       "protocol": "Sky (MakerDAO)",
+      "title": "Atlas Edit Weekly Cycle Proposal - July 27, 2026",
+      "status": "active",
+      "link": "https://vote.makerdao.com/polling/QmQPSFVU",
+      "created": "2026-07-27T16:00:00",
+      "end": "2026-07-30T16:00:00",
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "This Atlas edit proposal 1) reassigns the Core GovOps role from Atlas Axis to Soter Labs, 2) enables Grove self-governance with a new Delegation Framework, 3) requires mutual consent to modify or terminate Ecosystem Accords, 4) adds a Morpho deployme",
+      "summary_zh": "Sky（MakerDAO）协议“Atlas Edit Weekly Cycle提案 - 2026年7月27日”：1）将核心治理运营角色从Atlas Axis转移到Soter Labs；2）启用Grove自我治理的新委托框架；3）修改或终止生态系统协定的需双方同意；4）增加Morpho部署功能。",
+      "analysis_zh": ""
+    },
+    {
+      "source": "Sky Polling",
+      "protocol": "Sky (MakerDAO)",
       "title": "Atlas Edit Weekly Cycle Proposal - July 20, 2026",
       "status": "passed",
       "link": "https://vote.makerdao.com/polling/Qmbh5CZM",
@@ -3315,22 +3329,6 @@
       ],
       "summary_en": "This Atlas edit proposal 1) adds a 100% Capital Ratio Requirement for unauthorized exposures, 2) transitions the Galaxy Warehouse out of Interim Deployment, 3) credits Grove for owed Prime revenue, 4) adds a GROVE token reward distribution schedule, ",
       "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas编辑每周周期提案 - 2026年6月29日\n摘要：本提案1）为未经授权的敞口增加100%资本比率要求，2）将Galaxy仓库从临时部署过渡，3）为Grove偿还欠款Prime收入，4）增加GROVE代币奖励分配计划。"
-    },
-    {
-      "source": "Sky Polling",
-      "protocol": "Sky (MakerDAO)",
-      "title": "Atlas Edit Weekly Cycle Proposal - June 22, 2026",
-      "status": "passed",
-      "link": "https://vote.makerdao.com/polling/QmdXjfm6",
-      "created": "2026-06-22T16:00:00",
-      "end": "2026-06-25T16:00:00",
-      "tev_related": true,
-      "tev_keywords": [
-        "distribution",
-        "treasury"
-      ],
-      "summary_en": "This Atlas edit proposal 1) re-grounds broad discretionary authority in the Core Council, 2) adds Core Council authority to modify the Treasury Allocation, 3) authorizes transfers to the Sky Frontier Foundation from Executor Agents, 4) clarifies repe",
-      "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas 编辑每周周期提案 - 2026年6月22日\n摘要：本提案1）将广泛的自由裁量权重新赋予核心委员会，2）赋予核心委员会修改金库分配的权力，3）授权从执行代理向Sky Frontier基金会转账，4）明确重复..."
     },
     {
       "source": "Mantle Forum",
