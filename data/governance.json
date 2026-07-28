@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-28T01:08:30.260078+00:00",
-  "total": 240,
-  "active_count": 32,
+  "updated_at": "2026-07-28T13:08:36.657060+00:00",
+  "total": 239,
+  "active_count": 31,
   "passed_count": 208,
-  "tev_related": 63,
+  "tev_related": 62,
   "monitored_protocols": 19,
   "protocols_meta": {
     "Aave": {
@@ -134,7 +134,7 @@
       "source": "Snapshot",
       "protocol": "Aave",
       "title": "[ARFC] Deploy a Dedicated Aave V4 Whitelabel Instance fully managed by EtherFi on OP Mainnet to Power Ether.fi Cash",
-      "status": "active",
+      "status": "passed",
       "link": "https://snapshot.org/#/aavedao.eth/proposal/0x80e97094ab81bf2bad8fc4976bce8971c9781b876f2926c55709b9c509f9cdb7",
       "created": 1784886539,
       "end": 1785232139,
@@ -414,21 +414,6 @@
       "summary_en": "This Temperature Check seeks community input on the deployment of two new Aave V4 Spokes (Babylon Core Lending Spoke and BTC Vault Swap Spoke) to onboard native BTC as collateral, via the Trustless Bitcoin Vaults protocol. In TBV, a depositor locks B",
       "summary_zh": "[TEMP CHECK] Aave V4上Babylon无信任BTC保险库集成提案\n本提案征求社区意见，关于在Aave V4部署两个新支点（Babylon核心借贷支点和BTC保险库交易支点），通过无信任比特币保险库协议将原生BTC作为抵押品。在TBV中，存款人锁定BTC，以获得AAVE代币。",
       "analysis_zh": ""
-    },
-    {
-      "source": "Snapshot",
-      "protocol": "Aave",
-      "title": "[TEMP CHECK] Deploy Aave V4 on Avalanche",
-      "status": "passed",
-      "link": "https://snapshot.org/#/aavedao.eth/proposal/0xd156f75952dc0d57dd31c4d68b31576f534e5f2a85243148daeeadbf2d650d76",
-      "created": 1780489201,
-      "end": 1780834801,
-      "tev_related": true,
-      "tev_keywords": [
-        "fee"
-      ],
-      "summary_en": "This proposal seeks community feedback on deploying Aave V4 on Avalanche, including a dedicated RWA hub.",
-      "summary_zh": "关于在Avalanche上部署Aave V4及设立专门RWA中心的提案，征求社区意见。"
     },
     {
       "source": "Snapshot",
