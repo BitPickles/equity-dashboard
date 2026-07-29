@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Crypto3D Daily</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 838px;
+  height: 1490px;
+  background: #f5f5f7;
+  zoom: 1.289;
+  font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.poster {
+  width: 838px;
+  height: 1490px;
+  padding: 32px 56px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+/* === HEADER === */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-logo { height: 44px; width: auto; }
+.brand-text { font-weight: 800; font-size: 28px; color: #18181b; letter-spacing: -0.02em; }
+
+.header-right { display: flex; align-items: center; gap: 14px; }
+.header-url { font-family: 'JetBrains Mono'; font-size: 18px; font-weight: 600; color: #71717a; }
+.header-dot { width: 4px; height: 4px; border-radius: 50%; background: #d4d4d8; }
+.header-social { font-size: 18px; font-weight: 500; color: #a1a1aa; }
+
+/* === TITLE === */
+.title-section {
+  flex-shrink: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: 0;
+}
+
+.title-day {
+  font-family: 'JetBrains Mono'; font-size: 120px; font-weight: 800;
+  color: rgba(0,0,0,0.04); letter-spacing: -0.06em; line-height: 0.82;
+}
+
+.title { font-family: 'Noto Sans SC', sans-serif; font-size: 56px; font-weight: 900; color: #18181b; letter-spacing: -0.02em; }
+.date-line { font-family: 'JetBrains Mono'; font-size: 20px; font-weight: 500; color: #a1a1aa; letter-spacing: 0.04em; margin-top: 4px; }
+
+/* === CARDS === */
+.card {
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 20px;
+  padding: 28px 32px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-label {
+  font-size: 16px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: #a1a1aa; margin-bottom: 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+.card-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+.card-footer {
+  display: flex; justify-content: space-between; align-items: center; margin-top: 12px;
+}
+.card-tag { font-size: 16px; font-weight: 500; color: #c4c4cc; }
+.card-change { font-family: 'JetBrains Mono'; font-size: 17px; font-weight: 600; }
+
+.up { color: #16a34a; }
+.down { color: #dc2626; }
+
+/* === BTC HERO (full width) === */
+.card-btc {
+  background: #fff;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.btc-price-row { display: flex; align-items: baseline; gap: 16px; margin-top: 4px; }
+.btc-price { font-family: 'JetBrains Mono'; font-size: 72px; font-weight: 800; color: #18181b; letter-spacing: -0.04em; line-height: 1; }
+.btc-dollar { font-size: 42px; color: #d4d4d8; font-weight: 600; }
+.btc-change { font-family: 'JetBrains Mono'; font-size: 24px; font-weight: 700; }
+
+.btc-sub { display: flex; gap: 20px; margin-top: 10px; }
+.btc-sub span { font-size: 16px; color: #a1a1aa; }
+.btc-sub b { font-family: 'JetBrains Mono'; font-weight: 600; color: #71717a; }
+
+/* Sparkline backgrounds for all cards */
+.spark-bg {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 70%;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* BTC sparkline - background behind content */
+.btc-spark-bg {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 75%;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* BTC bottom stats */
+.btc-bottom {
+  display: flex; align-items: stretch; gap: 24px;
+  margin-top: 16px; padding-top: 16px;
+  border-top: 1px solid rgba(0,0,0,0.04);
+  position: relative; z-index: 1;
+}
+
+.range-block { flex: 1; }
+.range-top { display: flex; justify-content: space-between; margin-bottom: 6px; }
+.range-val { font-family: 'JetBrains Mono'; font-size: 15px; font-weight: 600; color: #a1a1aa; }
+.range-tag { font-size: 13px; font-weight: 600; color: #d4d4d8; letter-spacing: 0.06em; text-transform: uppercase; }
+.range-track { width: 100%; height: 7px; background: linear-gradient(90deg, rgba(220,38,38,0.1), rgba(0,0,0,0.02) 30%, rgba(0,0,0,0.02) 70%, rgba(22,163,74,0.1)); border-radius: 4px; position: relative; }
+.range-dot { position: absolute; top: -4px; width: 4px; height: 15px; background: #18181b; border-radius: 2px; transform: translateX(-50%); }
+
+.btc-vsep { width: 1px; background: #f0f0f2; }
+
+.gold-block { flex: 1; }
+.gold-label { font-size: 15px; font-weight: 500; color: #a1a1aa; margin-bottom: 6px; }
+.gold-row { display: flex; align-items: center; gap: 12px; }
+.gold-track { flex: 1; height: 8px; background: #f0f0f2; border-radius: 4px; overflow: hidden; }
+.gold-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+.gold-val { font-family: 'JetBrains Mono'; font-size: 20px; font-weight: 700; color: #f59e0b; }
+
+.mcap-block {}
+.mcap-label { font-size: 15px; font-weight: 500; color: #a1a1aa; margin-bottom: 2px; }
+.mcap-val { font-family: 'JetBrains Mono'; font-size: 20px; font-weight: 700; color: #3f3f46; }
+
+/* === AHR999 (full width, featured) === */
+.card-ahr {
+  background: linear-gradient(160deg, #eef2ff 0%, #fff 40%);
+  flex-shrink: 0;
+}
+
+.ahr-value { font-family: 'JetBrains Mono'; font-size: 80px; font-weight: 800; color: #18181b; letter-spacing: -0.05em; line-height: 1; margin-bottom: 8px; }
+
+.ahr-zone { margin-bottom: 4px; }
+
+/* AHR extras row */
+.ahr-extras {
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(0,0,0,0.04);
+}
+
+.ahr-extra-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.ahr-extra-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #a1a1aa;
+}
+
+.ahr-extra-val {
+  font-family: 'JetBrains Mono';
+  font-size: 15px;
+  font-weight: 700;
+  color: #3f3f46;
+}
+
+.ahr-extra-sep {
+  width: 1px;
+  height: 24px;
+  background: #f0f0f2;
+  flex-shrink: 0;
+  margin: 0 10px;
+}
+.zone-bar { width: 100%; height: 7px; border-radius: 4px; display: flex; overflow: hidden; background: #f0f0f2; }
+.zone-seg { height: 100%; }
+.zone-labels { display: flex; justify-content: space-between; margin-top: 5px; }
+.zone-label { font-size: 14px; color: #c4c4cc; font-weight: 500; }
+
+.ahr-stats { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; }
+.ahr-stat { background: rgba(0,0,0,0.02); border-radius: 12px; padding: 14px 16px; }
+.ahr-stat-label { font-size: 13px; font-weight: 600; color: #a1a1aa; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 4px; }
+.ahr-stat-val { font-family: 'JetBrains Mono'; font-size: 21px; font-weight: 700; color: #3f3f46; }
+
+/* AHR chart (full width bottom) */
+.ahr-chart { width: 100%; height: 100px; border-radius: 10px; overflow: hidden; margin-top: 10px; }
+
+/* === TWO-COL ROW === */
+.two-col { display: flex; gap: 16px; flex-shrink: 0; }
+.two-col > .card { flex: 1; }
+
+/* === MVRV === */
+.card-mvrv { background: linear-gradient(160deg, #f0fdf4 0%, #fff 40%); }
+.mvrv-value { font-family: 'JetBrains Mono'; font-size: 56px; font-weight: 700; color: #18181b; letter-spacing: -0.04em; line-height: 1; margin: 4px 0 10px; }
+.mvrv-chips { display: flex; gap: 12px; margin-top: 10px; }
+.mvrv-chip { flex: 1; background: rgba(0,0,0,0.02); border-radius: 10px; padding: 10px 12px; text-align: center; }
+.mvrv-chip-val { font-family: 'JetBrains Mono'; font-size: 20px; font-weight: 700; color: #3f3f46; }
+.mvrv-chip-label { font-size: 13px; color: #a1a1aa; margin-top: 2px; }
+
+/* === BTC.D === */
+.card-btcd { background: linear-gradient(160deg, #f0f7ff 0%, #fff 40%); }
+.btcd-headline { display: flex; align-items: baseline; gap: 4px; margin-bottom: 12px; }
+.btcd-num { font-family: 'JetBrains Mono'; font-size: 56px; font-weight: 800; color: #18181b; letter-spacing: -0.04em; line-height: 1; }
+.btcd-pct { font-size: 24px; color: #a1a1aa; font-weight: 600; }
+.btcd-bars { display: flex; flex-direction: column; gap: 8px; }
+.btcd-bar-row { display: flex; align-items: center; gap: 12px; }
+.btcd-bar-label { font-size: 15px; font-weight: 600; color: #a1a1aa; width: 40px; }
+.btcd-bar-track { flex: 1; height: 10px; background: #f0f0f2; border-radius: 5px; overflow: hidden; }
+.btcd-bar-fill { height: 100%; border-radius: 5px; }
+.btcd-bar-val { font-family: 'JetBrains Mono'; font-size: 15px; font-weight: 600; color: #71717a; width: 56px; text-align: right; }
+
+/* === BMRI === */
+.card-bmri { background: linear-gradient(160deg, #fffbf0 0%, #fff 40%); }
+.bmri-row { display: flex; align-items: center; gap: 28px; }
+.bmri-left {}
+.bmri-num { font-family: 'JetBrains Mono'; font-size: 64px; font-weight: 800; color: #18181b; letter-spacing: -0.04em; line-height: 1; margin-bottom: 10px; }
+.bmri-gauge { width: 120px; height: 8px; background: #f0f0f2; border-radius: 4px; position: relative; overflow: visible; }
+.bmri-gauge-grad { position: absolute; inset: 0; border-radius: 4px; background: linear-gradient(90deg, #22c55e 0%, #eab308 50%, #ef4444 100%); opacity: 0.35; }
+.bmri-gauge-needle { position: absolute; top: -5px; width: 4px; height: 18px; background: #18181b; border-radius: 2px; }
+.bmri-gauge-labels { display: flex; justify-content: space-between; width: 120px; margin-top: 5px; }
+.bmri-gauge-label { font-size: 13px; color: #c4c4cc; font-weight: 500; }
+.bmri-factors { flex: 1; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; }
+.bmri-factor { background: rgba(0,0,0,0.02); border-radius: 10px; padding: 12px 10px; text-align: center; }
+.bmri-fv { font-family: 'JetBrains Mono'; font-size: 21px; font-weight: 700; color: #3f3f46; }
+.bmri-fn { font-size: 12px; color: #a1a1aa; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 2px; }
+
+/* === GOVERNANCE (full width) === */
+.card-gov { background: linear-gradient(160deg, #f5f3ff 0%, #fff 40%); flex-shrink: 0; }
+.gov-status-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.gov-status { font-size: 16px; font-weight: 700; padding: 5px 16px; border-radius: 6px; }
+.gov-active { background: rgba(34,197,94,0.1); color: #16a34a; }
+.gov-vote-inline { display: flex; align-items: center; gap: 10px; flex: 1; }
+.gov-vote-bar { flex: 1; height: 7px; background: #f0f0f2; border-radius: 4px; overflow: hidden; }
+.gov-vote-fill { height: 100%; border-radius: 4px; background: #16a34a; }
+.gov-vote-label { font-family: 'JetBrains Mono'; font-size: 17px; font-weight: 700; color: #16a34a; }
+.gov-title { font-size: 22px; font-weight: 700; color: #18181b; line-height: 1.3; margin-bottom: 8px; }
+.gov-desc { font-size: 17px; color: #71717a; line-height: 1.6; margin-bottom: 8px; }
+.gov-meta { display: flex; align-items: center; gap: 10px; }
+.gov-protocol { font-size: 16px; font-weight: 600; color: #52525b; }
+.gov-sep { color: #e4e4e7; }
+.gov-detail { font-size: 15px; color: #a1a1aa; }
+
+/* === WATERMARK === */
+.watermark {
+  position: absolute; bottom: 120px; right: 50px;
+  width: 200px; height: 200px; opacity: 0.03;
+  pointer-events: none; z-index: 0;
+}
+.watermark img { width: 100%; height: 100%; object-fit: contain; }
+
+/* === FOOTER === */
+.footer {
+  display: flex; justify-content: space-between; align-items: center; flex-shrink: 0;
+  padding-top: 8px; height: 40px;
+}
+.footer-brand { display: flex; align-items: center; gap: 14px; height: 40px; }
+.footer-logo { height: 32px; width: auto; display: block; }
+.footer-url { font-family: 'JetBrains Mono'; font-size: 20px; font-weight: 600; color: #52525b; line-height: 40px; }
+.footer-social { display: flex; align-items: center; gap: 20px; height: 40px; }
+.footer-social span { font-size: 18px; font-weight: 500; color: #71717a; line-height: 40px; }
+
+/* === Card alignment fixes === */
+.two-col { align-items: stretch !important; }
+.two-col > .card { display: flex !important; flex-direction: column !important; }
+.card-ahr .card-footer { margin-top: auto; }
+.card-bmri .bmri-factors { margin-top: auto; }
+.card-mvrv .mvrv-chips { margin-top: auto; }
+.card-mvrv .card-footer { margin-top: 8px; }
+.card-btcd .card-footer { margin-top: auto; }
+
+/* === BTC bottom row: align the two progress bars horizontally === */
+/* range-block: label(15px) + mb(6px) + track(7px) = track starts at ~21px from top
+   gold-block:  label(15px) + mb(6px) + row with track = track starts at ~21px from top
+   The gold-row has align-items:center with the gold-val (20px text) which pushes
+   the 8px track up. Fix: give gold-row explicit top margin to push track down. */
+.gold-row {
+  margin-top: 3px !important;
+}
+.range-top {
+  margin-bottom: 17px !important;
+}
+</style>
+</head>
+<body>
+<div class="poster">
+  <!-- HEADER -->
+  <div class="header">
+    <div class="brand">
+      <img src="../logo-3d.jpg" class="brand-logo" alt="3D">
+      <span class="brand-text">Crypto3D</span>
+    </div>
+    <div class="header-right">
+      <span class="header-url">crypto3d.pro</span>
+      <div class="header-dot"></div>
+      <span class="header-social">𝕏 @22333D</span>
+    </div>
+  </div>
+
+  <!-- TITLE -->
+  <div class="title-section" style="position:relative;">
+    <span class="title-day">29</span>
+    <div>
+      <div class="title">每日数据</div>
+      <div class="date-line">JULY 2026 · WEDNESDAY</div>
+    <span style="position:absolute;right:0;bottom:0;font-family:JetBrains Mono,monospace;font-size:14px;font-weight:500;color:#c4c4cc;">Updated 2026-07-29</span></div>
+  </div>
+
+  <!-- BTC (full width) -->
+  <div class="card card-btc">
+    <!-- Sparkline as background -->
+    <div class="btc-spark-bg">
+      <svg width="100%" height="100%" viewBox="0 0 960 200" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="sf" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#18181b" stop-opacity="0.08"/>
+            <stop offset="100%" stop-color="#18181b" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="lineAlpha" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#18181b" stop-opacity="0"/>
+            <stop offset="20%" stop-color="#18181b" stop-opacity="0.12"/>
+            <stop offset="100%" stop-color="#18181b" stop-opacity="0.2"/>
+          </linearGradient>
+        </defs>
+        <path d="M0,40 C80,40 80,99 160,99 C240,99 240,145 320,145 C400,145 400,124 480,124 C560,124 560,92 640,92 C720,92 720,180 800,180 C880,180 880,156 960,156 L960,200 L0,200Z" fill="url(#sf)"/>
+        <path d="M0,40 C80,40 80,99 160,99 C240,99 240,145 320,145 C400,145 400,124 480,124 C560,124 560,92 640,92 C720,92 720,180 800,180 C880,180 880,156 960,156" stroke="url(#lineAlpha)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+    <div style="position:relative;z-index:1;">
+      <div class="card-label"><span class="card-dot" style="background:#f59e0b;"></span>Bitcoin</div>
+      <div class="btc-price-row">
+        <div class="btc-price"><span class="btc-dollar">$</span>63,872</div>
+        <span class="btc-change down">-4.1% 7d</span>
+      </div>
+      <div class="btc-sub">
+        <span>7d Low <b>$63,419</b></span>
+        <span>MCap <b>$1.26T</b></span>
+      </div>
+    </div>
+    <div class="btc-bottom">
+      <div class="range-block">
+        <div class="range-top">
+          <span class="range-val">$63,419</span>
+          <span class="range-tag">7D RANGE</span>
+          <span class="range-val">$66,023</span>
+        </div>
+        <div class="range-track"><div class="range-dot" style="left:17.4%;"></div></div>
+      </div>
+      <div class="btc-vsep"></div>
+      <div class="gold-block">
+        <div class="gold-label">vs 黄金 ($17.1T)</div>
+        <div class="gold-row">
+          <div class="gold-track"><div class="gold-fill" style="width:7.4%;"></div></div>
+          <span class="gold-val">7.4%</span>
+        </div>
+      </div>
+      <div class="btc-vsep"></div>
+      <div class="mcap-block">
+        <div class="mcap-label">加密总市值</div>
+        <div class="mcap-val">$2.16T</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AHR999 + BMRI (two columns) -->
+  <div class="two-col">
+    <div class="card card-ahr">
+      <div class="card-label"><span class="card-dot" style="background:#3b82f6;"></span>AHR999</div>
+      <div class="ahr-value" style="font-size:56px;">0.34</div>
+      <div class="ahr-zone">
+        <div class="zone-bar">
+          <div class="zone-seg" style="width:36%;background:rgba(34,197,94,0.35);position:relative;">
+            <div style="position:absolute;left:75%;top:-5px;width:3px;height:17px;background:#18181b;border-radius:2px;"></div>
+          </div>
+          <div class="zone-seg" style="width:44%;background:rgba(59,130,246,0.15);"></div>
+          <div class="zone-seg" style="width:20%;background:rgba(239,68,68,0.15);"></div>
+        </div>
+        <div class="zone-labels">
+          <span class="zone-label">&lt; 0.45</span>
+          <span class="zone-label">1.2</span>
+          <span class="zone-label">&gt; 5.0</span>
+        </div>
+      </div>
+      <div class="ahr-extras">
+        <div class="ahr-extra-item">
+          <span class="ahr-extra-label">200D 成本</span>
+          <span class="ahr-extra-val">$71,707</span>
+        </div>
+        <div class="ahr-extra-sep"></div>
+        <div class="ahr-extra-item">
+          <span class="ahr-extra-label">拟合价格</span>
+          <span class="ahr-extra-val">$167,658</span>
+        </div>
+        <div class="ahr-extra-sep"></div>
+        <div class="ahr-extra-item">
+          <span class="ahr-extra-label">偏离度</span>
+          <span class="ahr-extra-val" style="color:#16a34a">↓61.9%</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="card-tag">定投指标</span>
+        <span class="card-change down">-0.3% 7d</span>
+      </div>
+    </div>
+
+    <div class="card card-bmri">
+      <div class="card-label"><span class="card-dot" style="background:#f59e0b;"></span>BMRI 宏观风险</div>
+      <div style="display:flex;align-items:center;justify-content:center;padding:8px 0;">
+        <div class="bmri-num" style="font-size:56px;">72</div>
+      </div>
+      <div class="bmri-gauge" style="width:100%;margin-bottom:6px;">
+        <div class="bmri-gauge-grad"></div>
+        <div class="bmri-gauge-needle" style="left:72%;"></div>
+      </div>
+      <div class="bmri-gauge-labels" style="width:100%;">
+        <span class="bmri-gauge-label">Low</span>
+        <span class="bmri-gauge-label">High</span>
+      </div>
+      <div class="bmri-factors" style="grid-template-columns:1fr 1fr 1fr 1fr;margin-top:10px;">
+        <div class="bmri-factor"><div class="bmri-fv">4.16%</div><div class="bmri-fn">10Y</div></div>
+        <div class="bmri-factor"><div class="bmri-fv">6.6T</div><div class="bmri-fn">M2</div></div>
+        <div class="bmri-factor"><div class="bmri-fv">17.8</div><div class="bmri-fn">VIX</div></div>
+        <div class="bmri-factor"><div class="bmri-fv">118.2</div><div class="bmri-fn">DXY</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MVRV + BTC.D (two columns) -->
+  <div class="two-col">
+    <div class="card card-mvrv">
+      <div class="card-label"><span class="card-dot" style="background:#22c55e;"></span>MVRV</div>
+      <div class="mvrv-value">1.21</div>
+      <div class="zone-bar">
+        <div class="zone-seg" style="width:32%;background:rgba(34,197,94,0.2);position:relative;">
+          <div style="position:absolute;left:36%;top:-5px;width:3px;height:17px;background:#18181b;border-radius:2px;"></div>
+        </div>
+        <div class="zone-seg" style="width:38%;background:rgba(34,197,94,0.06);"></div>
+        <div class="zone-seg" style="width:30%;background:rgba(239,68,68,0.08);"></div>
+      </div>
+      <div class="zone-labels"><span class="zone-label">底部</span><span class="zone-label">合理</span><span class="zone-label">过热</span></div>
+      <div class="mvrv-chips">
+        <div class="mvrv-chip">
+          <div class="mvrv-chip-val">20%</div>
+          <div class="mvrv-chip-label">历史百分位</div>
+        </div>
+        <div class="mvrv-chip">
+          <div class="mvrv-chip-val">1.03</div>
+          <div class="mvrv-chip-label">上轮同期</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="card-tag">周期位置</span>
+        <span class="card-change down">−1.4% 7d</span>
+      </div>
+    </div>
+
+    <div class="card card-btcd">
+      <div class="card-label"><span class="card-dot" style="background:#3b82f6;"></span>BTC Dominance</div>
+      <div class="btcd-headline">
+        <span class="btcd-num">58.5</span>
+        <span class="btcd-pct">%</span>
+      </div>
+      <div class="btcd-bars">
+        <div class="btcd-bar-row">
+          <span class="btcd-bar-label">BTC</span>
+          <div class="btcd-bar-track"><div class="btcd-bar-fill" style="width:58.5%;background:#3b82f6;"></div></div>
+          <span class="btcd-bar-val">$1.26T</span>
+        </div>
+        <div class="btcd-bar-row">
+          <span class="btcd-bar-label">ETH</span>
+          <div class="btcd-bar-track"><div class="btcd-bar-fill" style="width:18%;background:#71717a;"></div></div>
+          <span class="btcd-bar-val">$398.6B</span>
+        </div>
+        <div class="btcd-bar-row">
+          <span class="btcd-bar-label">ALT</span>
+          <div class="btcd-bar-track"><div class="btcd-bar-fill" style="width:23.0%;background:#d4d4d8;"></div></div>
+          <span class="btcd-bar-val">$496.8B</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="card-tag">资金流向</span>
+        <span class="card-change up">+0.8% 7d</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- GOVERNANCE (full width) -->
+  <div class="card card-gov">
+    <div class="card-label"><span class="card-dot" style="background:#8b5cf6;"></span>股东回报治理</div>
+    <div class="gov-status-row">
+      <div class="gov-status gov-active">进行中</div>
+      
+    </div>
+    <div class="gov-title">dYdX Treasury SubDAO Director Change</div>
+    <div class="gov-desc">dYdX协议治理提案：关于替换dYdX财政部SubDAO基金会A类董事的提案。论坛帖子。</div>
+    <div class="gov-meta">
+      <span class="gov-protocol">dYdX</span>
+      <span class="gov-sep">·</span>
+      <span class="gov-detail">进行中</span>
+    </div>
+  </div>
+
+  <!-- Watermark -->
+  <div class="watermark"><img src="../logo-3d.jpg" alt=""></div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">
+      <img src="../logo-3d.jpg" class="footer-logo" alt="3D">
+      <span class="footer-url">crypto3d.pro</span>
+    </div>
+    <div class="footer-social">
+      <span>𝕏 @22333D</span>
+      <span>YouTube 3D 加密频道</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  // Skip in Playwright (exact 1080 viewport)
+  if (window.innerWidth === 1080) return;
+  function fit() {
+    var vw = window.innerWidth;
+    var vh = window.innerHeight;
+    // Body already has zoom:1.289 to scale content to 1080x1920
+    // We need total zoom = 1.289 * fitRatio to show full poster
+    var fitRatio = Math.min((vw - 40) / 1080, (vh - 40) / 1920);
+    if (fitRatio > 1) fitRatio = 1;
+    document.body.style.zoom = 1.289 * fitRatio;
+    document.body.style.margin = '20px auto';
+    document.body.style.overflow = 'visible';
+    document.documentElement.style.background = '#e5e5e5';
+    document.documentElement.style.display = 'flex';
+    document.documentElement.style.justifyContent = 'center';
+    document.documentElement.style.minHeight = '100vh';
+  }
+  fit();
+  window.addEventListener('resize', fit);
+})();
+</script>
+</body>
+</html>
