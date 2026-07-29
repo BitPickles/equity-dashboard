@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-28T13:08:36.657060+00:00",
+  "updated_at": "2026-07-29T01:09:52.417862+00:00",
   "total": 239,
-  "active_count": 31,
-  "passed_count": 208,
-  "tev_related": 62,
+  "active_count": 32,
+  "passed_count": 207,
+  "tev_related": 63,
   "monitored_protocols": 19,
   "protocols_meta": {
     "Aave": {
@@ -2702,6 +2702,21 @@
     {
       "source": "dYdX Cosmos",
       "protocol": "dYdX",
+      "title": "dYdX Treasury SubDAO Director Change",
+      "status": "active",
+      "link": "https://www.mintscan.io/dydx/proposals/391",
+      "created": "2026-07-28T13:22:43.931583705Z",
+      "end": "2026-07-31T13:22:43.931583705Z",
+      "tev_related": true,
+      "tev_keywords": [
+        "treasury"
+      ],
+      "summary_en": "Proposal to replace one dYdX Treasury SubDAO Foundation Class A Director. Forum Post",
+      "summary_zh": "dYdX协议治理提案：关于替换dYdX财政部SubDAO基金会A类董事的提案。论坛帖子。"
+    },
+    {
+      "source": "dYdX Cosmos",
+      "protocol": "dYdX",
       "title": "dYdX Surge Program - Season 15 Distribution",
       "status": "passed",
       "link": "https://www.mintscan.io/dydx/proposals/390",
@@ -2816,20 +2831,6 @@
       "tev_keywords": [],
       "summary_en": "Wind down AKT-USD, GNO-USD, MNRY-USD and MOG-USD markets",
       "summary_zh": "dYdX治理提案：于2023年11月30日关闭AKT-USD、GNO-USD、MNRY-USD和MOG-USD市场。",
-      "analysis_zh": ""
-    },
-    {
-      "source": "dYdX Cosmos",
-      "protocol": "dYdX",
-      "title": "Add order router rev share for NautilusTrader",
-      "status": "passed",
-      "link": "https://www.mintscan.io/dydx/proposals/381",
-      "created": "2026-04-27T08:21:37.636728636Z",
-      "end": "2026-04-30T08:21:37.636728636Z",
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "Add order router rev share for NautilusTrader. Forum Post",
-      "summary_zh": "dYdX治理提案：添加NautilusTrader订单路由收益分成。论坛帖子",
       "analysis_zh": ""
     },
     {
