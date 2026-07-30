@@ -87,9 +87,9 @@
   "data_source_note": "链上追踪 (FLUID 流入储备钱包)",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 5.63,
+    "tev_yield_percent": 5.14,
     "annual_tev_usd": 4745308,
-    "market_cap_usd": 84312621.69,
+    "market_cap_usd": 92264988.11,
     "calculation_date": "2026-07-30",
     "sources": [
       {
@@ -147,11 +147,11 @@
     "tvl_updated": "2026-03-27T01:00:50.616Z"
   },
   "tevRatio": 0.35,
-  "earning_yield_percent": 5.63,
-  "market_cap_usd": 84312621.69,
-  "tev_yield_percent": 5.63,
+  "earning_yield_percent": 5.14,
+  "market_cap_usd": 92264988.11,
+  "tev_yield_percent": 5.14,
   "metrics": {
-    "current_market_cap_usd": 84312621.69,
+    "current_market_cap_usd": 92264988.11,
     "trailing_365d_revenue_usd": 4745308,
     "trailing_30d_revenue_usd": 0,
     "trailing_365d_tev_usd": 4745308,
@@ -226,6 +226,6 @@
     }
   ],
   "dividend_yield_percent": 0,
-  "buyback_yield_percent": 5.63,
+  "buyback_yield_percent": 5.14,
   "style": "cash_cow"
 }
