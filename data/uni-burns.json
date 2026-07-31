@@ -6,8 +6,8 @@
   "circulating_supply": 624900423.7271129,
   "total_burned": 107851579.9670521,
   "burn_percentage": 10.7852,
-  "current_price": 4.48,
-  "burned_value_usd": 483175078.25,
+  "current_price": 4.38,
+  "burned_value_usd": 472389920.26,
   "target_supply": null,
   "monthly_burns": [
     {
@@ -44,7 +44,7 @@
       "month": "2026-07",
       "date": "2026-07-31",
       "amount": 107851579.9670521,
-      "value_usd": 483175078.25
+      "value_usd": 472389920.26
     }
   ],
   "note": "UNI 通过 buyback 机制销毁"

@@ -136,8 +136,8 @@
         "可能解释: (a) buyback 实际未执行; (b) 在 Arbitrum/Base L2 执行; (c) 路径混入 sETHFI 入金中无法识别. 我们倾向 (a) 或 (c)",
         "如果未来发现真实 buyback executor 地址 (协议团队公开 / 链上模式变化), 可立即恢复 TEV 计算"
       ],
-      "sethfi_inflow_365d_ethfi_upper": 118452074,
-      "sethfi_inflow_365d_usd_upper": 47980908,
+      "sethfi_inflow_365d_ethfi_upper": 118457763,
+      "sethfi_inflow_365d_usd_upper": 47983212,
       "foundation_multisig_365d_inflow": 0,
       "tev_unverified_reason": "DAO Proposal #11 宣称的 Withdrawal Revenue Buyback 链上不可识别：Foundation Multisig 0x7A6A41F353B3002751d94118aA7f4935dA39bB53 365d 入金=0；sETHFI 合约 365d 入金 128M ETHFI 含用户 stake 无法分离；Uni V3 主池无大单 buyback 模式；Foundation 出账只见 Gnosis Safe 间内部腾挪（非市场买入）"
     }
