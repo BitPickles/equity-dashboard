@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-31T01:08:15.477733+00:00",
+  "updated_at": "2026-07-31T13:08:00.522831+00:00",
   "total": 239,
-  "active_count": 31,
-  "passed_count": 208,
+  "active_count": 32,
+  "passed_count": 207,
   "tev_related": 63,
   "monitored_protocols": 19,
   "protocols_meta": {
@@ -2836,6 +2836,20 @@
     {
       "source": "GitHub BEP",
       "protocol": "BNB Chain",
+      "title": "docs: refine bep703",
+      "status": "active",
+      "link": "https://github.com/bnb-chain/BEPs/pull/704",
+      "created": "2026-07-31T03:53:19",
+      "end": "",
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "docs: refine bep703",
+      "summary_zh": "协议：BNB Chain\n标题：文档：优化BEP703\n摘要：文档：精炼BEP703",
+      "analysis_zh": ""
+    },
+    {
+      "source": "GitHub BEP",
+      "protocol": "BNB Chain",
       "title": "doc: add payment lane bep",
       "status": "active",
       "link": "https://github.com/bnb-chain/BEPs/pull/703",
@@ -2957,20 +2971,6 @@
       "tev_keywords": [],
       "summary_en": "Consolidate three bsc-genesis-contract hardening changes into one BEP:",
       "summary_zh": "协议：BNB Chain\n标题：BEP-695：抵押和治理安全强化\n摘要：将三个 bsc-genesis-contract 强化变更合并为一个 BEP。",
-      "analysis_zh": ""
-    },
-    {
-      "source": "GitHub BEP",
-      "protocol": "BNB Chain",
-      "title": "fix : improve  gas and time description",
-      "status": "passed",
-      "link": "https://github.com/bnb-chain/BEPs/pull/694",
-      "created": "2026-06-04T04:26:09",
-      "end": "",
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "improve gas and time description of bep675",
-      "summary_zh": "改进BEP675的gas和时间描述",
       "analysis_zh": ""
     },
     {
