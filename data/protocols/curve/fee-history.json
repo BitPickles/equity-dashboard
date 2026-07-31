@@ -1,11 +1,11 @@
 {
   "protocol": "curve",
   "method": "Community Fund Treasury crvUSD inflow × 9 (FeeAllocator 90/10 比例反推)",
-  "updated_at": "2026-07-30T13:13:17.901910Z",
-  "crv_price_usd": 0.20963,
-  "crv_market_cap_usd": 323376243.5408306,
-  "crv_locked_in_vecrv": 850790628.3005,
-  "vecrv_tvl_usd": 178351239.41063383,
+  "updated_at": "2026-07-31T01:12:16.227977Z",
+  "crv_price_usd": 0.213737,
+  "crv_market_cap_usd": 329562995.1668459,
+  "crv_locked_in_vecrv": 850787324.1364402,
+  "vecrv_tvl_usd": 181844730.2989503,
   "lock_ratio_pct": 55.2,
   "addresses": {
     "CRV": "0xD533a949740bb3306d119CC777fa900bA034cd52",
@@ -14,12 +14,6 @@
     "Old_3CRV_FeeDistributor": "0xA464e6DCda8AC41e03616F95f4BC98a13b8922Dc"
   },
   "daily": [
-    {
-      "date": "2025-07-30",
-      "crvusd_to_treasury": 869.17,
-      "vecrv_inferred_tev": 7822.56,
-      "tx_count": 1
-    },
     {
       "date": "2025-08-06",
       "crvusd_to_treasury": 27190.79,
@@ -344,29 +338,29 @@
       "treasury_crvusd": 22332,
       "vecrv_tev_usd": 200990,
       "annualized_usd": 10480187,
-      "yield_pct_nominal": 3.24,
-      "yield_pct_vecrv_only": 5.88
+      "yield_pct_nominal": 3.18,
+      "yield_pct_vecrv_only": 5.76
     },
     "30d": {
-      "treasury_crvusd": 531926,
-      "vecrv_tev_usd": 4787338,
-      "annualized_usd": 58245941,
-      "yield_pct_nominal": 18.01,
-      "yield_pct_vecrv_only": 32.66
+      "treasury_crvusd": 524015,
+      "vecrv_tev_usd": 4716138,
+      "annualized_usd": 57379681,
+      "yield_pct_nominal": 17.41,
+      "yield_pct_vecrv_only": 31.55
     },
     "90d": {
       "treasury_crvusd": 914136,
       "vecrv_tev_usd": 8227226,
       "annualized_usd": 33365974,
-      "yield_pct_nominal": 10.32,
-      "yield_pct_vecrv_only": 18.71
+      "yield_pct_nominal": 10.12,
+      "yield_pct_vecrv_only": 18.35
     },
     "365d": {
       "treasury_crvusd": 1703979,
       "vecrv_tev_usd": 15335813,
       "annualized_usd": 15335813,
-      "yield_pct_nominal": 4.74,
-      "yield_pct_vecrv_only": 8.6
+      "yield_pct_nominal": 4.65,
+      "yield_pct_vecrv_only": 8.43
     }
   },
   "caveats": [
