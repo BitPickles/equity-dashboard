@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-31T13:08:00.522831+00:00",
+  "updated_at": "2026-08-01T01:08:03.639296+00:00",
   "total": 239,
-  "active_count": 32,
-  "passed_count": 207,
+  "active_count": 31,
+  "passed_count": 208,
   "tev_related": 63,
   "monitored_protocols": 19,
   "protocols_meta": {
@@ -2703,7 +2703,7 @@
       "source": "dYdX Cosmos",
       "protocol": "dYdX",
       "title": "dYdX Treasury SubDAO Director Change",
-      "status": "active",
+      "status": "passed",
       "link": "https://www.mintscan.io/dydx/proposals/391",
       "created": "2026-07-28T13:22:43.931583705Z",
       "end": "2026-07-31T13:22:43.931583705Z",
