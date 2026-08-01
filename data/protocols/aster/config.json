@@ -78,9 +78,9 @@
   "last_updated": "2026-04-24",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 0.14,
-    "market_cap_usd": 1614449049.792025,
-    "calculation_date": "2026-07-31",
+    "tev_yield_percent": 1.4,
+    "market_cap_usd": 1613961833.2122242,
+    "calculation_date": "2026-08-01",
     "sources": [
       {
         "name": "DefiLlama holdersRevenue",
@@ -95,11 +95,11 @@
       "buy_7d_aster": 0,
       "buy_30d_aster": 0,
       "buy_90d_aster": 0,
-      "buy_365d_aster": 3461904,
-      "aster_price_usd": 0.6563,
-      "data_days": 9,
+      "buy_365d_aster": 34392363,
+      "aster_price_usd": 0.6561,
+      "data_days": 93,
       "data_range": {
-        "start": "2026-01-30",
+        "start": "2025-12-23",
         "end": "2026-03-27"
       },
       "caveats": [
@@ -120,9 +120,9 @@
     "tvl_updated": "2026-03-27T01:00:22.764Z"
   },
   "tevRatio": 0.7,
-  "earning_yield_percent": 0.14,
-  "market_cap_usd": 1614449049.792025,
-  "tev_yield_percent": 0.14,
+  "earning_yield_percent": 1.4,
+  "market_cap_usd": 1613961833.2122242,
+  "tev_yield_percent": 1.4,
   "metrics": {
     "tev_yield_7d_ann": 0,
     "tev_yield_30d_ann": 0,
@@ -133,7 +133,7 @@
     "trailing_7d_revenue_usd": 0,
     "trailing_30d_revenue_usd": 0,
     "trailing_90d_revenue_usd": 0,
-    "trailing_365d_revenue_usd": 2271978,
+    "trailing_365d_revenue_usd": 22564212,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 0,
@@ -209,6 +209,6 @@
   ],
   "analyst_notes": "【2026-04-24 更新 - A 口径 treasury buyback】\n\n## TEV 机制（类似 Hyperliquid AF）\n\nAster 协议 ~80% 平台 fee → 市场买 ASTER → 转入 **Stage5 / Stage6 buyback wallet**。\n这些 ASTER 部分 burn、部分留作 community rewards / treasury。\n\n**口径选择（Boss 2026-04-24 定，类似 HYPE/Aave 的 treasury buyback 视为 TEV）**：\n- 计算：所有进入 Stage5/6 wallet 的 ASTER 都视为 supply 收缩（treasury buyback 视同 TEV）\n- 不严格区分 \"burn\" vs \"rewards\"（需要进一步追踪各 wallet 的 outgoing flow 才能区分）\n\n## 数据源\n\n- 链上采集：Moralis API（BSC 链），每日调用 fetch-aster-moralis.py\n- 存储：`data/aster-onchain.json`（95 天，2025-12-23 → 2026-03-27）\n- 计算：`sync-tev-data.js` 的 Aster 专属分支按窗口求和\n\n## 合约地址\n\n- ASTER (BEP-20): `0x000Ae314E2A2172a039B26378814C252734f556A`\n- Stage5 buyback（已清算）: `0x4786927333c0bA8aB27CA41361ADF33148C5301E`\n- Stage6 buyback（当前）: `0x664827c71193018D7843f0D0F41A5D0D6dcEBE0F`\n- Stage6 当前持 ~15M ASTER (~$10.2M)\n\n## 已知局限（caveats）\n\n1. **Stage5/6 是 treasury buyback 非真 burn**：部分 burn 部分给 community rewards，治理可动用（类似 Hyperliquid AF 风险）\n2. **2026-03-30 tokenomics 改革**：emissions 砍 97%，新增 staking rewards（暂未计入 TEV）\n3. **Moralis 免费 tier 可能滞后**：当前数据截止 2026-03-27，最近 27 天窗口显示为 0，不是真的没有 buyback\n4. **Stage6 之后可能有 Stage7**：改革后 buyback 路径可能变，需人工 review 合约地址\n\n## 历史\n\n- 2026-04-24：A 口径上线；update-aster-tev.py 每日维护\n- 2026-03-30：Aster tokenomics 大改，emissions 砍 97%\n- 2025-12：Stage6 启用（之前是 Stage5）\n",
   "dividend_yield_percent": 0,
-  "buyback_yield_percent": 0.14,
-  "style": "growth"
+  "buyback_yield_percent": 1.4,
+  "style": "cash_cow"
 }

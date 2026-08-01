@@ -1,6 +1,6 @@
 {
   "protocol": "gmx",
-  "updated_at": "2026-07-31T13:13:21.167Z",
+  "updated_at": "2026-08-01T01:13:59.946Z",
   "data_source": "DefiLlama API (dailyHoldersRevenue)",
   "data_source_url": "https://api.llama.fi/summary/fees/gmx?dataType=dailyHoldersRevenue",
   "records": [
@@ -1010,7 +1010,7 @@
   ],
   "summary": {
     "total_tev_usd": 134153673,
-    "total_30d_usd": 459376,
+    "total_30d_usd": 443787,
     "by_mechanism": {
       "staking_reward": 134153673
     },
