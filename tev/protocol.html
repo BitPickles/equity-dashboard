@@ -425,8 +425,7 @@
           <button class="history-tab" data-metric="shareholder_yield" data-i18n="hd.shareholderYield">股东回报率</button>
           <button class="history-tab" data-metric="net_margin" data-i18n="hd.netMargin">净利率</button>
         </div>
-        <div class="history-table-wrap" id="history-table-wrap"></div>
-        <div class="history-chart-container" style="position:relative;height:300px;margin-top:16px;"><div class="chart-canvas-wrap" style="height:300px;"><canvas id="history-chart"></canvas></div></div>
+        <div class="history-chart-container" style="position:relative;height:320px;"><div class="chart-canvas-wrap" style="height:320px;"><canvas id="history-chart"></canvas></div></div>
       </div>
 
       <!-- 6. 代币流通量曲线（CMC 数据源；key 未到位时显示占位提示）-->
@@ -1266,66 +1265,46 @@
         };
         const ALL_KEYS = ['net_income', 'pe', 'ps', 'shareholder_yield', 'net_margin'];
 
-        // ── 主视图：多指标历史数据表（倒序：最新在上）──
-        // 默认显示最近 60 天 + "显示全部"展开按钮（避免 500+ 行渲染卡顿）
-        const HISTORY_PAGE_SIZE = 60;
-        function renderHistoryTable() {
-          const wrap = document.getElementById('history-table-wrap');
-          const sorted = records.slice().sort((a, b) => b.as_of.localeCompare(a.as_of));
-          const expanded = wrap.dataset.expanded === '1';
-          const display = expanded ? sorted : sorted.slice(0, HISTORY_PAGE_SIZE);
-          const hasMore = sorted.length > HISTORY_PAGE_SIZE;
-          const thead = `<tr style="color:var(--text-tertiary);text-align:right;font-size:11px;background:var(--bg-tertiary);">
-            <th style="text-align:left;padding:10px 12px;font-weight:600;">${currentLang === 'zh' ? '日期' : 'Date'}</th>
-            ${ALL_KEYS.map(k => `<th style="padding:10px 12px;font-weight:600;color:${k === currentHistoryMetric ? 'var(--accent)' : 'var(--text-tertiary)'};">${metricDefs[k].label}</th>`).join('')}
-          </tr>`;
-          const tbody = display.map(r => `<tr style="border-top:1px solid var(--border);${r._period === 'snapshot' ? 'background:rgba(34,197,94,0.04);' : ''}">
-            <td style="padding:8px 12px;text-align:left;color:var(--text-secondary);font-family:'JetBrains Mono',monospace;font-size:11px;">${r.as_of}</td>
-            ${ALL_KEYS.map(k => {
-              const v = r[k];
-              const isHighlight = k === currentHistoryMetric;
-              return `<td style="padding:8px 12px;font-family:'JetBrains Mono',monospace;font-size:12px;${isHighlight ? 'background:rgba(34,197,94,0.08);font-weight:700;' : ''}${v != null && v < 0 ? 'color:#e5484d;' : ''}">${metricDefs[k].fmt(v)}</td>`;
-            }).join('')}
-          </tr>`).join('');
-          const moreBtn = hasMore ? `<div style="text-align:center;margin-top:14px;">
-            <button onclick="document.getElementById('history-table-wrap').dataset.expanded = this.textContent.includes('${currentLang === 'zh' ? '展开' : 'show'}') ? '1' : '0'; window.__rerenderTable()" style="background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border);padding:8px 20px;border-radius:6px;font-size:12px;cursor:pointer;">
-              ${expanded ? (currentLang === 'zh' ? `收起（显示最近 ${HISTORY_PAGE_SIZE} 天）` : `Collapse (show recent ${HISTORY_PAGE_SIZE}d)`) : (currentLang === 'zh' ? `显示全部 ${sorted.length} 天历史 ↓` : `Show all ${sorted.length} days ↓`)}
-            </button></div>` : '';
-          wrap.innerHTML = `
-            <div style="overflow-x:auto;border:1px solid var(--border);border-radius:8px;">
-              <table style="width:100%;border-collapse:collapse;font-size:12px;">
-                <thead>${thead}</thead><tbody>${tbody}</tbody>
-              </table>
-            </div>
-            ${moreBtn}
-            <div style="font-size:11px;color:var(--text-tertiary);margin-top:8px;text-align:right;">
-              ${currentLang === 'zh' ? `共 ${sorted.length} 条历史记录 · 数据源：协议适配器每日累积` : `${sorted.length} records · Source: protocol adapter daily accumulation`}
-            </div>`;
-          if (window.__rerenderTable) window.__rerenderTable = () => renderHistoryTable();
-        }
-
-        // ── 副视图：当前指标折线图（失败不影响表格）──
+        // ── 主视图：当前指标折线图（Boss 2026-08-03：历史数据只用折线图，不需要表格）──
         function renderHistoryChart() {
           try {
             const def = metricDefs[currentHistoryMetric];
             const ctx = document.getElementById('history-chart');
             if (!ctx) return;
             if (historyChart) historyChart.destroy();
+            // 507+ 个点画线会太密：最多展示最近 365 天，稀疏采样到 ≤180 点保证流畅
+            const sorted = records.slice().sort((a, b) => a.as_of.localeCompare(b.as_of));
+            const recent = sorted.slice(-365);
+            const step = Math.max(1, Math.ceil(recent.length / 180));
+            const sampled = recent.filter((_, i) => i % step === 0);
+            // 补上最后一天（确保最新值一定在图上）
+            const last = recent[recent.length - 1];
+            if (sampled[sampled.length - 1] !== last) sampled.push(last);
+            const labels = sampled.map(r => r.as_of);
+            const values = sampled.map(r => r[currentHistoryMetric]);
             historyChart = new Chart(ctx, {
               type: 'line',
-              data: { labels: records.map(r => r.as_of), datasets: [{ label: def.label, data: records.map(r => r[currentHistoryMetric]), borderColor: def.color, backgroundColor: def.color + '22', fill: true, tension: 0.3, pointRadius: 3 }] },
+              data: { labels, datasets: [{ label: def.label, data: values, borderColor: def.color, backgroundColor: def.color + '22', fill: true, tension: 0.3, pointRadius: 0, pointHoverRadius: 4, borderWidth: 2 }] },
               options: {
                 responsive: true, maintainAspectRatio: false,
-                plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => def.label + ': ' + def.fmt(c.parsed.y) } } },
-                scales: { x: { ticks: { maxTicksLimit: 10, color: '#71717a', font: { size: 10 } }, grid: { color: 'rgba(128,128,128,0.08)' } },
-                          y: { ticks: { color: '#71717a', font: { size: 10 } }, grid: { color: 'rgba(128,128,128,0.08)' } } },
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                  legend: { display: false },
+                  tooltip: { callbacks: {
+                    title: items => items[0]?.label || '',
+                    label: c => def.label + ': ' + def.fmt(c.parsed.y),
+                  } },
+                },
+                scales: {
+                  x: { ticks: { maxTicksLimit: 10, color: '#71717a', font: { size: 10 } }, grid: { display: false } },
+                  y: { ticks: { color: '#71717a', font: { size: 10 } }, grid: { color: 'rgba(128,128,128,0.08)' } },
+                },
               },
             });
           } catch (e) { console.warn('History chart failed:', e); }
         }
 
-        // 表格先渲染（主视图），图表后渲染（副视图，失败不影响表格）
-        renderHistoryTable();
+        // 渲染折线图 + 绑定指标 tab
         renderHistoryChart();
         document.getElementById('history-dashboard-section').classList.add('has-data');
         document.querySelectorAll('#history-metric-tabs .history-tab').forEach(btn => {
@@ -1333,7 +1312,6 @@
             document.querySelectorAll('#history-metric-tabs .history-tab').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             currentHistoryMetric = btn.dataset.metric;
-            renderHistoryTable();
             renderHistoryChart();
           };
         });
