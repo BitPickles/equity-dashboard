@@ -83,10 +83,15 @@ def fetch_bnb_history():
             quarter_bnb = 0  # 数据起始前无执行日
         else:
             cur_date, cur_amount = recent_exec[-1]
-            # 区间天数：cur_date → 下一个执行日（或到今天）
+            # 区间天数：cur_date → 下一个执行日；若没有下一个执行日（最新一季），
+            # 按季度惯例摊满 90 天（Boss 2026-08-03：Auto-Burn 按季度销毁，应摊满季度
+            # 而不是只摊到数据末尾——之前只摊 18 天导致 72M 平台）
             next_dates = [e[0] for e in exec_days if e[0] > cur_date]
-            end = next_dates[0] if next_dates else daily[-1]["date"]
-            from datetime import datetime
+            if next_dates:
+                end = next_dates[0]
+            else:
+                from datetime import timedelta
+                end = (datetime.strptime(cur_date, "%Y-%m-%d") + timedelta(days=90)).strftime("%Y-%m-%d")
             span = (datetime.strptime(end, "%Y-%m-%d") - datetime.strptime(cur_date, "%Y-%m-%d")).days
             span = max(span, 1)
             quarter_bnb = cur_amount / span if date_str >= cur_date else 0
