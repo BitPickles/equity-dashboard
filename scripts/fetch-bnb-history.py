@@ -56,7 +56,8 @@ def fetch_bnb_history():
         staking_usd = mcap * staking_apy / 365 / 100
         daily_revenue.append((date_str, burn_usd + staking_usd))
 
-    # 按 365d 滚动窗口计算（统一口径，末端不叠加 snapshot）
+    # 累计总量（TradingView 风格：折线显示累计，柱状显示单期值）
+    cumulative = 0.0
     records = []
     window = 365
     for i, (date_str, day_rev) in enumerate(daily_revenue):
@@ -69,9 +70,12 @@ def fetch_bnb_history():
         ps = pe
         shr_yield = annualized_rev / mcap * 100 if mcap > 0 else None
         net_margin = 100.0
+        cumulative += day_rev
         records.append({
             "as_of": date_str,
             "net_income": round(net_income_usd, 2),
+            "daily_value": round(day_rev, 2),      # 单期统计值（柱状图）
+            "cumulative": round(cumulative, 2),    # 累计总量（折线图）
             "pe": round(pe, 3) if pe else None,
             "ps": round(ps, 3) if ps else None,
             "shareholder_yield": round(shr_yield, 4) if shr_yield else None,
@@ -88,6 +92,8 @@ def fetch_bnb_history():
             k = snap_net / last_daily
             for r in records:
                 r["net_income"] = round(r["net_income"] * k, 2)
+                r["daily_value"] = round(r["daily_value"] * k, 2)
+                r["cumulative"] = round(r["cumulative"] * k, 2)
                 r["pe"] = round(mcap / r["net_income"], 3) if r["net_income"] > 0 else None
                 r["ps"] = r["pe"]
                 r["shareholder_yield"] = round(r["net_income"] / mcap * 100, 4) if mcap > 0 else None
@@ -97,9 +103,14 @@ def fetch_bnb_history():
     # 用 snapshot 的 as_of 作为日期；如果与 daily 最后一天同一天则跳过（避免重复）
     snap_as_of = snap.get("as_of")
     if snap_as_of and snap_as_of > records[-1]["as_of"]:
+        # snapshot 行的 daily_value/cumulative 沿用上一条（避免突跳）
+        last_dv = records[-1].get("daily_value")
+        last_cum = records[-1].get("cumulative")
         records.append({
             "as_of": snap_as_of,
             "net_income": snap_net,
+            "daily_value": last_dv,
+            "cumulative": last_cum,
             "pe": snap["valuation"]["pe"],
             "ps": snap["valuation"]["ps"],
             "shareholder_yield": snap["holder_returns"]["summary"]["shareholder_yield_percent"],

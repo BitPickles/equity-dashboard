@@ -429,11 +429,15 @@
         </div>
       </div>
 
-      <!-- 3. 历史数据看板（净收益/PE/PS/股东回报率/净利率 折线图 + 下方切换按钮）-->
+      <!-- 3. 历史数据看板（TradingView 风格：上折线=累计总量，下柱状=单期值，共用日期轴可拖动）-->
       <div class="section chart-section" id="history-dashboard-section">
         <div class="section-title"><span class="icon">📈</span><span data-i18n="section.historyDashboard">历史数据</span></div>
-        <div class="history-chart-container" style="position:relative;height:340px;"><div class="chart-canvas-wrap" style="height:340px;"><canvas id="history-chart"></canvas></div></div>
-        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;flex-wrap:wrap;">
+        <div class="history-main-chart" style="position:relative;height:280px;"><div class="chart-canvas-wrap" style="height:280px;"><canvas id="history-chart"></canvas></div></div>
+        <div class="history-sub-chart" style="position:relative;height:140px;margin-top:4px;"><div class="chart-canvas-wrap" style="height:140px;"><canvas id="history-bar-chart"></canvas></div></div>
+        <div style="text-align:center;font-size:11px;color:var(--text-tertiary);margin-top:10px;">
+          <span data-i18n="chart.zoomHint">🖱️ 滚轮缩放 · 拖动平移 · 双击重置 · 上下图联动</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;flex-wrap:wrap;">
           <div class="history-metric-tabs" id="history-metric-tabs" style="display:flex;gap:6px;">
             <button class="history-tab active" data-metric="net_income" data-i18n="hd.netIncome">净收益</button>
             <button class="history-tab" data-metric="pe" data-i18n="hd.pe">P/E</button>
@@ -441,9 +445,6 @@
             <button class="history-tab" data-metric="shareholder_yield" data-i18n="hd.shareholderYield">股东回报率</button>
             <button class="history-tab" data-metric="net_margin" data-i18n="hd.netMargin">净利率</button>
           </div>
-        </div>
-        <div style="text-align:center;font-size:11px;color:var(--text-tertiary);margin-top:10px;">
-          <span data-i18n="chart.zoomHint">🖱️ 滚轮缩放 · 拖动平移 · 双击重置</span>
         </div>
       </div>
 
@@ -1310,35 +1311,54 @@
         };
         const ALL_KEYS = ['net_income', 'pe', 'ps', 'shareholder_yield', 'net_margin'];
 
-        // ── 主视图：当前指标折线图（Boss 2026-08-03：历史数据只用折线图，不需要表格）──
+        // ── TradingView 风格双图：上折线=累计总量，下柱状=单期统计值（共用日期轴、联动拖动）──
+        let historyBarChart = null, historySyncing = false;
+        const yFmtShort = v => v == null ? '—' : (Math.abs(v) >= 1e9 ? (v/1e9).toFixed(1)+'B' : Math.abs(v) >= 1e6 ? (v/1e6).toFixed(1)+'M' : Math.abs(v) >= 1e3 ? (v/1e3).toFixed(1)+'K' : v.toFixed(0));
+        // 横坐标显示完整日期（2025-06-01），按 tick 密度自动跳过
+        const xDateFmt = function(v) {
+          // Chart.js v3+ 把 v 当成 label 字符串传进来（labels 数组里的 ISO 日期）；
+          // 但 zoom/pan 时可能传数字索引，故兼容两种情况
+          let label = (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v)) ? v : (this.getLabelForValue ? this.getLabelForValue(v) : String(v));
+          const d = new Date(label + 'T00:00:00');
+          if (isNaN(d)) return label;
+          const m = String(d.getMonth() + 1).padStart(2, '0'), dd = String(d.getDate()).padStart(2, '0');
+          return `${d.getFullYear()}-${m}-${dd}`;
+        };
+        // 主图数据：净收益用累计总量(cumulative)，其他指标用该指标本身（按需稀疏采样 ≤200 点）
+        function prepareData(metric) {
+          const sorted = records.slice().sort((a, b) => a.as_of.localeCompare(b.as_of));
+          const recent = sorted.slice(-365);
+          const step = Math.max(1, Math.ceil(recent.length / 200));
+          const sampled = recent.filter((_, i) => i % step === 0);
+          const last = recent[recent.length - 1];
+          if (sampled[sampled.length - 1] !== last) sampled.push(last);
+          const mainVals = metric === 'net_income'
+            ? sampled.map(r => r.cumulative != null ? r.cumulative : r.net_income)  // 折线=累计总量
+            : sampled.map(r => r[metric]);
+          const barVals = sampled.map(r => r.daily_value != null ? r.daily_value : r[metric]);  // 柱状=单期值
+          return { labels: sampled.map(r => r.as_of), mainVals, barVals };
+        }
         function renderHistoryChart() {
           try {
             const def = metricDefs[currentHistoryMetric];
             const ctx = document.getElementById('history-chart');
-            if (!ctx) return;
+            const ctx2 = document.getElementById('history-bar-chart');
+            if (!ctx || !ctx2) return;
             if (historyChart) historyChart.destroy();
-            // 507+ 个点画线会太密：最多展示最近 365 天，稀疏采样到 ≤180 点保证流畅
-            const sorted = records.slice().sort((a, b) => a.as_of.localeCompare(b.as_of));
-            const recent = sorted.slice(-365);
-            const step = Math.max(1, Math.ceil(recent.length / 180));
-            const sampled = recent.filter((_, i) => i % step === 0);
-            // 补上最后一天（确保最新值一定在图上）
-            const last = recent[recent.length - 1];
-            if (sampled[sampled.length - 1] !== last) sampled.push(last);
-            const labels = sampled.map(r => r.as_of);
-            const values = sampled.map(r => r[currentHistoryMetric]);
-            // 纵坐标简写：B=十亿 M=百万 K=千
-            const yFmt = v => v == null ? '—' : (Math.abs(v) >= 1e9 ? (v/1e9).toFixed(1)+'B' : Math.abs(v) >= 1e6 ? (v/1e6).toFixed(1)+'M' : Math.abs(v) >= 1e3 ? (v/1e3).toFixed(1)+'K' : v.toFixed(0));
-            // 横坐标时间取整：显示月份（'6月'/'2025年6月' 样式），跨年时带年份
-            const xFmt = (v) => {
-              const d = new Date(v + 'T00:00:00');
-              if (isNaN(d)) return v;
-              const y = d.getFullYear(), m = d.getMonth() + 1;
-              return (currentLang === 'zh') ? (y + '年' + m + '月') : (y + '-' + String(m).padStart(2, '0'));
+            if (historyBarChart) historyBarChart.destroy();
+            const { labels, mainVals, barVals } = prepareData(currentHistoryMetric);
+            const zoomCfg = {
+              wheel: { enabled: true, speed: 0.08 },
+              pinch: { enabled: true },
+              pan: { enabled: true, mode: 'x', threshold: 5 },
+              mode: 'x',
+              onZoomComplete: ({ chart }) => syncHistoryCharts(chart),
+              onPanComplete: ({ chart }) => syncHistoryCharts(chart),
             };
+            // 上：主图折线（累计总量）
             historyChart = new Chart(ctx, {
               type: 'line',
-              data: { labels, datasets: [{ label: def.label, data: values, borderColor: def.color, backgroundColor: def.color + '22', fill: true, tension: 0.3, pointRadius: 0, pointHoverRadius: 4, borderWidth: 2 }] },
+              data: { labels, datasets: [{ label: def.label, data: mainVals, borderColor: def.color, backgroundColor: def.color + '22', fill: true, tension: 0.3, pointRadius: 0, pointHoverRadius: 4, borderWidth: 2 }] },
               options: {
                 responsive: true, maintainAspectRatio: false,
                 interaction: { mode: 'index', intersect: false },
@@ -1346,27 +1366,54 @@
                   legend: { display: false },
                   tooltip: { callbacks: {
                     title: items => items[0]?.label || '',
-                    label: c => def.label + ': ' + def.fmt(c.parsed.y),
+                    label: c => (currentHistoryMetric === 'net_income' ? (currentLang === 'zh' ? '累计总量: ' : 'Cumulative: ') : def.label + ': ') + def.fmt(c.parsed.y),
                   } },
-                  // chartjs-plugin-zoom v2：滚轮缩放 + 拖动平移 + 双击重置
-                  zoom: {
-                    wheel: { enabled: true, speed: 0.08, modifierKey: 'ctrl' },
-                    pinch: { enabled: true },
-                    pan: { enabled: true, mode: 'x', threshold: 5 },
-                    mode: 'x',
-                    onZoomComplete: ({ chart }) => chart.update('none'),
-                  },
+                  zoom: zoomCfg,
                 },
                 scales: {
-                  x: { ticks: { maxTicksLimit: 10, color: '#71717a', font: { size: 10 }, callback: xFmt, maxRotation: 0, autoSkip: true }, grid: { display: false } },
-                  y: { ticks: { color: '#71717a', font: { size: 10 }, callback: yFmt }, grid: { color: 'rgba(128,128,128,0.08)' } },
+                  x: { ticks: { maxTicksLimit: 10, color: '#71717a', font: { size: 10 }, callback: xDateFmt, maxRotation: 0, autoSkip: true }, grid: { display: false } },
+                  y: { position: 'left', ticks: { color: '#71717a', font: { size: 10 }, callback: yFmtShort }, grid: { color: 'rgba(128,128,128,0.08)' } },
+                },
+              },
+            });
+            // 下：柱状图（单期统计值），独立 y 轴但共享 x 轴范围
+            historyBarChart = new Chart(ctx2, {
+              type: 'bar',
+              data: { labels, datasets: [{ label: currentLang === 'zh' ? '单期值' : 'Period', data: barVals, backgroundColor: def.color + '55', borderColor: def.color, borderWidth: 1, barPercentage: 0.9, categoryPercentage: 0.9 }] },
+              options: {
+                responsive: true, maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                  legend: { display: false },
+                  tooltip: { callbacks: {
+                    title: items => items[0]?.label || '',
+                    label: c => (currentLang === 'zh' ? '单期值: ' : 'Period: ') + def.fmt(c.parsed.y),
+                  } },
+                  zoom: zoomCfg,
+                },
+                scales: {
+                  x: { ticks: { maxTicksLimit: 10, color: '#71717a', font: { size: 10 }, callback: xDateFmt, maxRotation: 0, autoSkip: true }, grid: { display: false } },
+                  y: { position: 'left', ticks: { color: '#71717a', font: { size: 10 }, callback: yFmtShort }, grid: { color: 'rgba(128,128,128,0.08)' } },
                 },
               },
             });
           } catch (e) { console.warn('History chart failed:', e); }
         }
+        // 双图联动：一个缩放/拖动时同步另一个的 x 轴范围
+        function syncHistoryCharts(fromChart) {
+          if (historySyncing) return;
+          historySyncing = true;
+          try {
+            const other = fromChart === historyChart ? historyBarChart : historyChart;
+            if (!other || !fromChart.scales || !fromChart.scales.x) return;
+            const xs = fromChart.scales.x;
+            other.options.scales.x.min = xs.min;
+            other.options.scales.x.max = xs.max;
+            other.update('none');
+          } finally { historySyncing = false; }
+        }
 
-        // 渲染折线图 + 绑定指标 tab
+        // 渲染双图 + 绑定指标 tab
         renderHistoryChart();
         document.getElementById('history-dashboard-section').classList.add('has-data');
         document.querySelectorAll('#history-metric-tabs .history-tab').forEach(btn => {
