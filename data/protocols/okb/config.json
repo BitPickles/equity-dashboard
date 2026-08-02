@@ -109,12 +109,12 @@
     "OKB 30% 回购销毁比例是否为最新政策？",
     "是否需要整理历史季度销毁数据？"
   ],
-  "last_updated": "2026-04-27",
+  "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": false,
     "tev_yield_percent": 0,
     "market_cap_usd": 1503276222,
-    "calculation_date": "2026-08-02",
+    "calculation_date": "2026-08-01",
     "sources": [
       {
         "name": "OKX 2025-08 治理决议",
@@ -191,5 +191,35 @@
     "buyback_yield_30d_ann": 0,
     "dividend_yield_90d_ann": 0,
     "buyback_yield_90d_ann": 0
+  },
+  "revenue_recognition": {
+    "entity_type": "platform_token",
+    "principle": "空气币：2025-08 永久停止回购/销毁（一次性销毁 65.26M OKB，合约移除机制）",
+    "revenue_included": {},
+    "revenue_excluded": {
+      "jumpstart": {
+        "note": "Jumpstart 打新忽略"
+      }
+    },
+    "calculation": {
+      "revenue_usd_365d": 0,
+      "note": "TEV=0，标注「回购销毁已于 2025-08 终止，无赋能机制」"
+    },
+    "source_type": "estimate",
+    "source_url": null
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "estimate",
+        "method": "静态（TEV=0，季度复核）",
+        "frequency": "quarterly",
+        "script": null
+      }
+    ],
+    "ai_self_check": [
+      "mechanism-change",
+      "freshness"
+    ]
   }
 }

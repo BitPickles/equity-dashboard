@@ -84,14 +84,14 @@
     }
   ],
   "notes": "ether.fi TEV 来自两条线：(1) Withdrawal Revenue Buyback（提现收入按月回购 ETHFI 分配给 sETHFI 质押者，DAO Proposal #11，2025-04-25 启动）；(2) $50M Treasury Buyback（价格<$3 启用，资金来自 Foundation 国库，pocket-to-pocket 嫌疑，需链上验证）。Foundation Multisig: 0x7A6A41F353B3002751d94118aA7f4935dA39bB53。注意区分：eETH 持有人的 staking 收益 ≠ ETHFI 持有人的 TEV。",
-  "last_updated": "2026-04-26",
+  "last_updated": "2026-08-02",
   "analyst_notes": "【2026-04-26 链上路径调研后 — TEV 降级到 unverified】\n\n## 链上调查链路图\n\n```\nFoundation Multisig (0x7A6A41F353B3002751d94118aA7f4935dA39bB53)\n  ├─ 当前持仓: 173M ETHFI\n  ├─ 365d 入金: 0 ← 关键事实\n  └─ 365d 出账 1 笔 = 15M ETHFI → 0x5ec5e6b4... (Gnosis Safe)\n\n0x5ec5e6b4eb6827914ca8bc3ae02c39417242adde (Gnosis Safe)\n  ├─ 365d 入金 9 笔 ~21M\n  └─ 365d 出账 15 笔 ~17M, 主要 → 0xa000244b... (7.7M)\n\n0xa000244b4a36d57ea1ecb39b5f02f255e4c8cd52 (Safe Proxy)\n  └─ → 0x8f08b70456eb22f6109f57b8fafe862ed28e6040 (7.66M)\n\n==> 全部都是 Gnosis Safe 间转账 (内部 treasury 腾挪), 没有 USDC/ETH → ETHFI 的市场买入证据\n\nsETHFI 合约 0x86B5780b606940Eb59A062aA85a07959518c0161\n  ├─ 365d 入金 128M ETHFI from 420 unique senders\n  └─ 顶级 senders 包括: LayerZero bridge (0xe008...), GnosisSafeProxy (0x2c2f...), 多个 EOA\n  ==> 用户 stake + 跨链 bridge + 可能 distribution 混杂, 无法分离\n\nETHFI/WETH Uni V3 池 (0x06f00544c0bc62e6db10f46d370dfccdc23d8189)\n  └─ 30d top 买家 0xbdb3ba9ffe...\n       - 持仓 2k ETHFI (买入立即卖出)\n       - 30d 745 笔小单\n       - 也买 WETH/USDC/HIGH/LDO 等多种 token\n       ==> 是 routing/MEV bot, 不是 buyback executor\n```\n\n## 处理决定\n\n类比 JustLend 案例（孙宇晨生态金库做账销毁）：\n- 那个案例: 链上看到 burn 但溯源是 pocket-to-pocket\n- 本案例: 链上**完全看不到** DAO Proposal #11 宣称的 buyback 执行\n\n两者都不构成\"协议从市场买入归属持有人\"的真 TEV，所以 TEV = 0 + status='none'。\n\n## 保留监控\n\n- update-etherfi-tev.py 继续每日跑（监控 Foundation Multisig 入金、sETHFI 上界）\n- 数据存到 buyback-history.json\n- 如果未来 (a) 协议团队公开真实 executor (b) Foundation Multisig 开始有 ETHFI 入金 (c) 链上出现明显大单 buyback 模式\n  - 立即重新评估 TEV 口径\n\n## 数据保留事实\n\n- ETHFI 流通市值: ~$369M\n- sETHFI 合约持仓 ETHFI: ~97M (用户 + 协议 historical 投入)\n- Foundation Multisig 持仓 ETHFI: ~173M (历史 treasury, 365d 不再增长也不再减少明显)\n\n## 历史\n\n- 2026-04-25: 初版 TEV 用 DefiLlama dailyRevenue × 0.25 = 1.91% (后被推翻)\n- 2026-04-26 上午: 切链上 sETHFI 上界口径 = 15.44% (含用户 stake, 后被推翻)\n- 2026-04-26 下午: 链上深挖发现 Foundation Multisig 365d 0 inflow + 多 Gnosis Safe 内部腾挪 + Uni V3 无 buyback 大单\n  → TEV 归零 (unverified), 类比 JustLend 处理\n",
   "tev_data": {
     "has_tev": false,
     "tev_yield_percent": 0,
     "annual_tev_usd": 0,
-    "market_cap_usd": 395537785.2120539,
-    "calculation_date": "2026-08-02",
+    "market_cap_usd": 389855565.4959151,
+    "calculation_date": "2026-08-01",
     "sources": [
       {
         "name": "链上调研结论 (2026-04-26)",
@@ -127,7 +127,7 @@
       "sethfi_inflow_365d_ethfi": 128446410,
       "foundation_multisig_365d": 0,
       "foundation_multisig_status": "no_buyback_executed_365d",
-      "ethfi_price_usd": 0.406407,
+      "ethfi_price_usd": 0.400401,
       "caveats": [
         "Foundation Multisig 0x7A6A41F353B3002751d94118aA7f4935dA39bB53 过去 365 天 ETHFI 入金 = 0（链上确证）",
         "sETHFI 合约 0x86B5780b606940Eb59A062aA85a07959518c0161 365d 入金 128M ETHFI from 420 unique senders，包含 (a) 用户自主 stake (b) 协议侧 distribution (c) LayerZero 跨链 bridge - 无法分离三者",
@@ -136,8 +136,8 @@
         "可能解释: (a) buyback 实际未执行; (b) 在 Arbitrum/Base L2 执行; (c) 路径混入 sETHFI 入金中无法识别. 我们倾向 (a) 或 (c)",
         "如果未来发现真实 buyback executor 地址 (协议团队公开 / 链上模式变化), 可立即恢复 TEV 计算"
       ],
-      "sethfi_inflow_365d_ethfi_upper": 118223444,
-      "sethfi_inflow_365d_usd_upper": 48046835,
+      "sethfi_inflow_365d_ethfi_upper": 118411194,
+      "sethfi_inflow_365d_usd_upper": 47411961,
       "foundation_multisig_365d_inflow": 0,
       "tev_unverified_reason": "DAO Proposal #11 宣称的 Withdrawal Revenue Buyback 链上不可识别：Foundation Multisig 0x7A6A41F353B3002751d94118aA7f4935dA39bB53 365d 入金=0；sETHFI 合约 365d 入金 128M ETHFI 含用户 stake 无法分离；Uni V3 主池无大单 buyback 模式；Foundation 出账只见 Gnosis Safe 间内部腾挪（非市场买入）"
     }
@@ -153,10 +153,10 @@
   },
   "tevRatio": null,
   "earning_yield_percent": 0,
-  "market_cap_usd": 395537785.2120539,
+  "market_cap_usd": 389855565.4959151,
   "tev_yield_percent": 0,
   "metrics": {
-    "current_market_cap_usd": 395537785.2120539,
+    "current_market_cap_usd": 389855565.4959151,
     "trailing_365d_revenue_usd": 0,
     "trailing_30d_revenue_usd": 0,
     "trailing_365d_tev_usd": 0,
@@ -224,5 +224,46 @@
   ],
   "dividend_yield_percent": 0,
   "buyback_yield_percent": 0,
-  "style": "growth"
+  "style": "growth",
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "双回购引擎：提现费 100% 周度回购 + 协议收入 25% 月度回购，均回购 ETHFI 分给 sETHFI 质押者",
+    "revenue_included": {
+      "protocol_fees": {
+        "note": "协议收入（Stake/Liquid/Cash，Cash 占 ~55%）；提现费 100% + 收入 25% 回购"
+      }
+    },
+    "revenue_excluded": {
+      "dao_buyback": {
+        "note": "DAO $50M 公开市场回购执行进度透明度一般，标 unverified 合理"
+      }
+    },
+    "calculation": {
+      "tev_ratio": 0.05,
+      "note": "回购 $16-24M/年 ÷ 市值 ~$400M ≈ 4-6%（sETHFI 质押者口径 ~10%）"
+    },
+    "source_type": "official",
+    "source_url": "https://www.ether.fi"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "official",
+        "method": "Token Terminal / Dune + 官方公告",
+        "frequency": "weekly",
+        "script": "ai-watch-official.py"
+      },
+      {
+        "type": "chain",
+        "method": "周度提现费回购 + 月度收入回购链上",
+        "frequency": "weekly",
+        "script": "update-etherfi-buybacks.py"
+      }
+    ],
+    "ai_self_check": [
+      "mechanism-change",
+      "data-plausibility",
+      "freshness"
+    ]
+  }
 }

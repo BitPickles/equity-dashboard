@@ -1,0 +1,78 @@
+{
+  "protocol": "aster",
+  "as_of": "2026-08-02",
+  "income_statement": {
+    "revenue": {
+      "entity_type": "app",
+      "revenue_included": {
+        "protocol_fees_usd_365d": 23699571,
+        "total_usd_365d": 23699571
+      },
+      "revenue_excluded": {
+        "reserve_burn": {
+          "note": "1:1 储备销毁烧的是未流通储备币，只减少未来潜在稀释，不作股东回报（198% 为营销话术）"
+        }
+      },
+      "growth_yoy_percent": null,
+      "source": {
+        "type": "chain",
+        "url": "https://www.asterdex.com"
+      }
+    },
+    "gross_profit": {
+      "lp_share_cost_usd_365d": null,
+      "gross_profit_usd_365d": null,
+      "calculation_note": "毛利数据缺失（null），见专属 adapter"
+    },
+    "token_emission_cost": {
+      "treatment": "none"
+    },
+    "net_income": {
+      "net_income_usd_365d": null,
+      "operating_cost_usd_365d": null,
+      "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
+    },
+    "margins": {
+      "gross_margin_percent": null,
+      "net_margin_percent": null,
+      "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
+    }
+  },
+  "holder_returns": {
+    "by_mechanism": [
+      {
+        "mechanism": "汇总（协议回购 + 销毁机制）",
+        "type": "yield",
+        "usd_365d": 23689428.32,
+        "yield_percent": 1.47,
+        "_note": "通用适配器汇总口径（all-protocols 已验证 yield）；含金量/机制拆解待专属 adapter.py"
+      }
+    ],
+    "summary": {
+      "destroy_usd_365d": null,
+      "yield_usd_365d": 23689428.32,
+      "destroy_yield_percent": null,
+      "yield_yield_percent": 1.47,
+      "shareholder_returns_usd_365d": 23689428.32,
+      "shareholder_yield_percent": 1.47
+    }
+  },
+  "balance_sheet": {
+    "market_cap_usd": 1611525735.7600327,
+    "tvl_usd": 820487118.1176946,
+    "treasury_usd": null,
+    "debt_usd": null
+  },
+  "valuation": {
+    "pe": 68.0272,
+    "ps": 67.9981,
+    "pb": null,
+    "ev_revenue": null,
+    "payout_ratio": null
+  },
+  "verification": {
+    "method": "A 口径：Stage5/6 buyback wallet 累积 ASTER × 当前价（treasury buyback，非真 burn）",
+    "status": "verified",
+    "last_checked": "2026-08-02"
+  }
+}

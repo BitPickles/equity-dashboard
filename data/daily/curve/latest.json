@@ -1,28 +1,26 @@
 {
   "protocol": "curve",
-  "name": "Curve",
-  "ticker": "CRV",
-  "updated_at": "2026-02-06T05:16:00Z",
-  "data_range": {
-    "start": "2026-01-06",
-    "end": "2026-02-05",
-    "total_days": 30
+  "updated_at": "2026-08-02T14:13:30.000Z",
+  "data_sources": {
+    "defillama": "curve-dex",
+    "coingecko": "curve-dao-token",
+    "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-02-05",
+    "date": "2026-08-02",
     "price_usd": 0.24,
     "market_cap_usd": 355558659,
-    "daily_fees_usd": 64725,
-    "daily_tev_usd": 32362
+    "daily_fees_usd": 41856,
+    "total30d_fees_usd": 1786880,
+    "total1y_fees_usd": 61618456
   },
   "metrics": {
     "trailing_30d_tev_usd": 970876,
+    "trailing_365d_tev_usd": null,
     "annualized_tev_usd": 11650512,
     "current_market_cap_usd": 355558659,
     "tev_yield": "3.28%",
     "tev_yield_decimal": 0.0328,
-    "calculated_at": "2026-02-06T05:16:00Z",
-    "manual_override": true,
-    "override_note": "50% 手续费分配给 veCRV 持有者"
+    "calculated_at": "2026-08-02T14:13:30.000Z"
   }
 }

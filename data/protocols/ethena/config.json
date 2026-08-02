@@ -144,13 +144,13 @@
     }
   ],
   "analyst_notes": "【2026-04-27 governance-only 验证】\n\n## 现状\nEthena 协议收入 = USDe staking yield (~7.83% APY) 全部给 sUSDe 持有人. ENA 仅治理代币. 2025 历次大额回购来自 StablecoinX PIPE 融资 (资本运作非利润分红)\n\n## TEV: 0% (governance-only, low confidence)\n\n## 何时变化\n若未来治理提案启用 fee switch / buyback 给 token 持有人, 重新评估.\n\n## 类比\nLDO / COMP 等老牌纯治理代币模式.\n",
-  "last_updated": "2026-04-27",
+  "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": false,
     "tev_yield_percent": 0,
     "annual_tev_usd": 0,
-    "market_cap_usd": 847393262.58,
-    "calculation_date": "2026-08-02",
+    "market_cap_usd": 777603331.08,
+    "calculation_date": "2026-08-01",
     "sources": [
       {
         "name": "协议机制",
@@ -172,23 +172,23 @@
     "en": "机制复杂但 ENA 当前不分润. sUSDe 收益给 sUSDe 持有人, 不给 ENA/sENA"
   },
   "tevRatio": 0,
-  "earning_yield_percent": 1.06,
-  "market_cap_usd": 847393262.58,
+  "earning_yield_percent": 1.17,
+  "market_cap_usd": 777603331.08,
   "tev_yield_percent": 0,
   "metrics": {
-    "current_market_cap_usd": 847393262.58,
-    "trailing_365d_revenue_usd": 8996865.819999998,
-    "trailing_30d_revenue_usd": 28534.82,
+    "current_market_cap_usd": 777603331.08,
+    "trailing_365d_revenue_usd": 9121602.139999999,
+    "trailing_30d_revenue_usd": 30425.14,
     "trailing_365d_tev_usd": 0,
     "trailing_30d_tev_usd": 0,
-    "trailing_7d_revenue_usd": 7994.2,
-    "trailing_90d_revenue_usd": 777185.8199999998,
+    "trailing_7d_revenue_usd": 8102.5199999999995,
+    "trailing_90d_revenue_usd": 777268.1399999999,
     "tev_yield_7d_ann": 0,
     "tev_yield_30d_ann": 0,
     "tev_yield_90d_ann": 0,
     "earning_yield_7d_ann": 0.05,
-    "earning_yield_30d_ann": 0.04,
-    "earning_yield_90d_ann": 0.37,
+    "earning_yield_30d_ann": 0.05,
+    "earning_yield_90d_ann": 0.41,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 0,
@@ -222,5 +222,49 @@
   ],
   "dividend_yield_percent": 0,
   "buyback_yield_percent": 0,
-  "style": "growth"
+  "style": "growth",
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "费用开关生效前 ENA 股东回报 = 0；DAT 回购是金库/储备出资的资本运作，非经营利润分配",
+    "revenue_included": {
+      "susde_yield": {
+        "note": "sUSDe yield ~3.5-4% APY 全归 sUSDe 持有人（不计入 ENA 股东回报）"
+      }
+    },
+    "revenue_excluded": {
+      "dat_buyback": {
+        "note": "DAT 回购（~$890M）确认为资本运作，不计入持续股东回报"
+      },
+      "fee_switch": {
+        "note": "费用开关 2026Q3 待激活，激活后 sENA 预期 >5%（届时更新）"
+      }
+    },
+    "calculation": {
+      "tev_ratio": 0.0,
+      "note": "近 12 月收入 ~$310M 但净利仅 ~$0.6M；费用开关是 AI 哨兵观察点"
+    },
+    "source_type": "official",
+    "source_url": "https://www.ethena.fi/governance"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "official",
+        "method": "Ethena 官方治理/dashboard（费用开关激活状态监控）",
+        "frequency": "event",
+        "script": "ai-watch-governance.py"
+      },
+      {
+        "type": "defillama",
+        "method": "dailyRevenue 日频",
+        "frequency": "daily",
+        "script": "fetch-defillama.js"
+      }
+    ],
+    "ai_self_check": [
+      "mechanism-change",
+      "data-plausibility",
+      "freshness"
+    ]
+  }
 }

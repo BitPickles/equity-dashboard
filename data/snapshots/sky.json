@@ -1,0 +1,78 @@
+{
+  "protocol": "sky",
+  "as_of": "2026-08-02",
+  "income_statement": {
+    "revenue": {
+      "entity_type": "app",
+      "revenue_included": {
+        "protocol_fees_usd_365d": 234857097,
+        "total_usd_365d": 234857097
+      },
+      "revenue_excluded": {
+        "surplus_buffer": {
+          "note": "Surplus Buffer 留存国库（≤5000 万 DAI）；SBE 买 MKR 做市部分 LP 锁定不计"
+        }
+      },
+      "growth_yoy_percent": null,
+      "source": {
+        "type": "defillama",
+        "url": "https://defillama.com/protocol/makerdao"
+      }
+    },
+    "gross_profit": {
+      "lp_share_cost_usd_365d": 99177585,
+      "gross_profit_usd_365d": 135679512,
+      "calculation_note": "近似：协议归属（dailyHoldersRevenue 口径）作为毛利；精确 LP 分润见专属 adapter"
+    },
+    "token_emission_cost": {
+      "treatment": "none"
+    },
+    "net_income": {
+      "net_income_usd_365d": 135679512,
+      "operating_cost_usd_365d": null,
+      "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
+    },
+    "margins": {
+      "gross_margin_percent": 57.7711,
+      "net_margin_percent": 57.7711,
+      "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
+    }
+  },
+  "holder_returns": {
+    "by_mechanism": [
+      {
+        "mechanism": "汇总（Smart Burn + 质押收益 + Smart Burn Engine (SBE)）",
+        "type": "yield",
+        "usd_365d": 78396130.43,
+        "yield_percent": 4.32,
+        "_note": "通用适配器汇总口径（all-protocols 已验证 yield）；含金量/机制拆解待专属 adapter.py"
+      }
+    ],
+    "summary": {
+      "destroy_usd_365d": null,
+      "yield_usd_365d": 78396130.43,
+      "destroy_yield_percent": null,
+      "yield_yield_percent": 4.32,
+      "shareholder_returns_usd_365d": 78396130.43,
+      "shareholder_yield_percent": 4.32
+    }
+  },
+  "balance_sheet": {
+    "market_cap_usd": 1814725241.45,
+    "tvl_usd": 6773732996.1381645,
+    "treasury_usd": null,
+    "debt_usd": null
+  },
+  "valuation": {
+    "pe": 23.1481,
+    "ps": 7.7269,
+    "pb": null,
+    "ev_revenue": null,
+    "payout_ratio": 0.5778
+  },
+  "verification": {
+    "method": "DefiLlama dailyHoldersRevenue = Splitter burn (SBE 真实支出) / dailyRevenue = 协议总归属",
+    "status": "verified",
+    "last_checked": "2026-08-02"
+  }
+}

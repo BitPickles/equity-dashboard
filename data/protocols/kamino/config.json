@@ -56,13 +56,13 @@
     }
   ],
   "notes": "⚠️ 从 PARTIAL 降级为 NONE。经深入调研确认：KMNO staking 不是协议收入分配，而是 farming 奖励加成（boost）机制。具体：(1) 新质押者起始 3% boost，每天 +0.1%；(2) 每 1 KMNO 质押对 $1 仓位施加 boost；(3) Season 奖励每 3 月最多 100M KMNO，来自代币国库（inflation），非协议费用；(4) 有 6 个月 vesting 期。Kamino 是优秀的 Solana 借贷协议（$3.34B AUM，零坏账），但 KMNO 代币目前无真正的 fee distribution 机制。2026 路线图专注机构产品（固定利率、链下抵押品），未来可能引入真正的 TEV。",
-  "last_updated": "2026-04-27",
+  "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": false,
     "tev_yield_percent": 0,
     "annual_tev_usd": 0,
-    "market_cap_usd": 93639828.25,
-    "calculation_date": "2026-08-02",
+    "market_cap_usd": 94949313.71,
+    "calculation_date": "2026-08-01",
     "sources": [
       {
         "name": "协议机制",
@@ -87,23 +87,23 @@
     "en": "KMNO staking 是 farming reward boost, 不是协议 fee 分润"
   },
   "tevRatio": 0,
-  "earning_yield_percent": 12.9,
-  "market_cap_usd": 93639828.25,
+  "earning_yield_percent": 12.8,
+  "market_cap_usd": 94949313.71,
   "tev_yield_percent": 0,
   "metrics": {
-    "trailing_365d_revenue_usd": 12082624,
-    "trailing_30d_revenue_usd": 632635,
-    "current_market_cap_usd": 93639828.25,
+    "trailing_365d_revenue_usd": 12152905,
+    "trailing_30d_revenue_usd": 636585,
+    "current_market_cap_usd": 94949313.71,
     "trailing_365d_tev_usd": 0,
     "trailing_30d_tev_usd": 0,
-    "trailing_7d_revenue_usd": 124389,
-    "trailing_90d_revenue_usd": 2079175,
+    "trailing_7d_revenue_usd": 124255,
+    "trailing_90d_revenue_usd": 2085458,
     "tev_yield_7d_ann": 0,
     "tev_yield_30d_ann": 0,
     "tev_yield_90d_ann": 0,
-    "earning_yield_7d_ann": 6.93,
-    "earning_yield_30d_ann": 8.22,
-    "earning_yield_90d_ann": 9,
+    "earning_yield_7d_ann": 6.82,
+    "earning_yield_30d_ann": 8.16,
+    "earning_yield_90d_ann": 8.91,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 0,
@@ -138,5 +138,35 @@
   ],
   "dividend_yield_percent": 0,
   "buyback_yield_percent": 0,
-  "style": "growth"
+  "style": "growth",
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "只统计利润；股东回报 = 0（KMNO 不回购）",
+    "revenue_included": {
+      "protocol_fees": {
+        "note": "DefiLlama dailyRevenue（协议归属部分）"
+      }
+    },
+    "revenue_excluded": {},
+    "calculation": {
+      "tev_ratio": 0.0,
+      "note": "不回购的钱进国库/支出 → 留存行"
+    },
+    "source_type": "defillama",
+    "source_url": "https://defillama.com/protocol/kamino"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "defillama",
+        "method": "dailyFees/dailyRevenue 日频",
+        "frequency": "daily",
+        "script": "fetch-defillama.js"
+      }
+    ],
+    "ai_self_check": [
+      "data-plausibility",
+      "freshness"
+    ]
+  }
 }

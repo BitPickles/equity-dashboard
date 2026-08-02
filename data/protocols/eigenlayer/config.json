@@ -35,13 +35,13 @@
     }
   ],
   "notes": "EigenLayer 作为再质押基础设施，当前 EIGEN 代币仅有治理功能。协议收入（AVS 费用）目前未分配给代币持有者。未来可能通过治理开启费用开关。",
-  "last_updated": "2026-04-27",
+  "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": false,
     "tev_yield_percent": 0,
     "annual_tev_usd": 0,
-    "market_cap_usd": 163215765.58,
-    "calculation_date": "2026-08-02",
+    "market_cap_usd": 158764030.18,
+    "calculation_date": "2026-08-01",
     "sources": [
       {
         "name": "协议机制",
@@ -67,10 +67,10 @@
   },
   "tevRatio": 0,
   "earning_yield_percent": 0,
-  "market_cap_usd": 163215765.58,
+  "market_cap_usd": 158764030.18,
   "tev_yield_percent": 0,
   "metrics": {
-    "current_market_cap_usd": 163215765.58,
+    "current_market_cap_usd": 158764030.18,
     "trailing_365d_revenue_usd": 0,
     "trailing_30d_revenue_usd": 0,
     "trailing_365d_tev_usd": 0,
@@ -117,5 +117,35 @@
   ],
   "dividend_yield_percent": 0,
   "buyback_yield_percent": 0,
-  "style": "growth"
+  "style": "growth",
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "只统计利润；股东回报 = 0（不回购）",
+    "revenue_included": {
+      "protocol_fees": {
+        "note": "DefiLlama dailyRevenue（协议归属部分）"
+      }
+    },
+    "revenue_excluded": {},
+    "calculation": {
+      "tev_ratio": 0.0,
+      "note": "EIGEN 无收益权；不回购的钱进国库/支出 → 留存行"
+    },
+    "source_type": "defillama",
+    "source_url": "https://defillama.com/protocol/eigenlayer"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "defillama",
+        "method": "dailyFees/dailyRevenue 日频",
+        "frequency": "daily",
+        "script": "fetch-defillama.js"
+      }
+    ],
+    "ai_self_check": [
+      "data-plausibility",
+      "freshness"
+    ]
+  }
 }

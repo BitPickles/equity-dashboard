@@ -1,0 +1,78 @@
+{
+  "protocol": "layerzero",
+  "as_of": "2026-08-02",
+  "income_statement": {
+    "revenue": {
+      "entity_type": "app",
+      "revenue_included": {
+        "protocol_fees_usd_365d": 2494660,
+        "total_usd_365d": 2494660
+      },
+      "revenue_excluded": {
+        "protocol_fees": {
+          "note": "协议本体消息费 0% take rate（$3.59M 流向 DVN/Executor 外部节点）；fee switch 公投多次未过"
+        }
+      },
+      "growth_yoy_percent": null,
+      "source": {
+        "type": "chain",
+        "url": "https://etherscan.io"
+      }
+    },
+    "gross_profit": {
+      "lp_share_cost_usd_365d": null,
+      "gross_profit_usd_365d": null,
+      "calculation_note": "毛利数据缺失（null），见专属 adapter"
+    },
+    "token_emission_cost": {
+      "treatment": "none"
+    },
+    "net_income": {
+      "net_income_usd_365d": null,
+      "operating_cost_usd_365d": null,
+      "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
+    },
+    "margins": {
+      "gross_margin_percent": null,
+      "net_margin_percent": null,
+      "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
+    }
+  },
+  "holder_returns": {
+    "by_mechanism": [
+      {
+        "mechanism": "汇总（Stargate 收入回购 ZRO + 每月解锁（稀释注记））",
+        "type": "yield",
+        "usd_365d": 758091.48,
+        "yield_percent": 0.3,
+        "_note": "通用适配器汇总口径（all-protocols 已验证 yield）；含金量/机制拆解待专属 adapter.py"
+      }
+    ],
+    "summary": {
+      "destroy_usd_365d": null,
+      "yield_usd_365d": 758091.48,
+      "destroy_yield_percent": null,
+      "yield_yield_percent": 0.3,
+      "shareholder_returns_usd_365d": 758091.48,
+      "shareholder_yield_percent": 0.3
+    }
+  },
+  "balance_sheet": {
+    "market_cap_usd": 252697161,
+    "tvl_usd": 7500000000,
+    "treasury_usd": null,
+    "debt_usd": null
+  },
+  "valuation": {
+    "pe": 333.3333,
+    "ps": 101.2952,
+    "pb": null,
+    "ev_revenue": null,
+    "payout_ratio": null
+  },
+  "verification": {
+    "method": "Stargate 100% 收入回购（累计 149.5 万 ZRO / .14M）",
+    "status": "partial",
+    "last_checked": "2026-08-02"
+  }
+}

@@ -1,41 +1,26 @@
 {
   "protocol": "pancakeswap",
-  "updated_at": "2026-02-04T18:40:58.663124+00:00",
+  "updated_at": "2026-08-02T14:14:18.000Z",
   "data_sources": {
-    "tvl": "DefiLlama",
-    "fees": "DefiLlama",
-    "market": "CoinGecko"
+    "defillama": "pancakeswap",
+    "coingecko": "pancakeswap-token",
+    "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-02-04",
+    "date": "2026-08-02",
     "price_usd": 1.52,
     "market_cap_usd": 507012632,
-    "fdv_usd": 527341723,
-    "circulating_supply": 332900506.147586,
-    "total_supply": 346248427.5251981,
-    "tvl_usd": 2185582442,
-    "daily_fees_usd": 441305,
-    "daily_tev_usd": 88261.0,
-    "tev_ratio_used": 0.2
+    "daily_fees_usd": 512744,
+    "total30d_fees_usd": 6634763,
+    "total1y_fees_usd": 270526871
   },
   "metrics": {
-    "trailing_30d_fees_usd": 13372251,
     "trailing_30d_tev_usd": 2674450.2,
-    "annualized_fees_usd": 160467012,
+    "trailing_365d_tev_usd": null,
     "annualized_tev_usd": 32093402.4,
     "current_market_cap_usd": 507012632,
     "tev_yield": "6.33%",
     "tev_yield_decimal": 0.063299,
-    "tvl_usd": 2185582442,
-    "mcap_tvl_ratio": 0.232,
-    "calculated_at": "2026-02-04T18:40:58.663124+00:00"
-  },
-  "fees_breakdown": {
-    "pancakeswap-amm": 2322216,
-    "pancakeswap-amm-v3": 9838662,
-    "pancakeswap-stableswap": 4001,
-    "pancakeswap-infinity": 698204,
-    "pancakeswap-prediction": 489775,
-    "pancakeswap-lottery": 19393
+    "calculated_at": "2026-08-02T14:14:18.000Z"
   }
 }

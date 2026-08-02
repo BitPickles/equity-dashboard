@@ -1,0 +1,54 @@
+{
+  "date": "2026-08-02",
+  "generated_at": "2026-08-02T14:29:28.383289+00:00",
+  "protocols": [
+    "aave",
+    "aster",
+    "bgb",
+    "bnb",
+    "compound",
+    "curve",
+    "dydx",
+    "eigenlayer",
+    "ethena",
+    "etherfi",
+    "fluid",
+    "gmx",
+    "hype",
+    "jito",
+    "justlend",
+    "kamino",
+    "layerzero",
+    "lido",
+    "maple",
+    "mnt",
+    "morpho",
+    "okb",
+    "pancakeswap",
+    "pendle",
+    "sky",
+    "spark",
+    "uniswap"
+  ],
+  "tasks": [
+    "freshness",
+    "regression"
+  ],
+  "results": {
+    "regression": {
+      "regressed": [],
+      "verdict": "ok",
+      "summary_zh": "无 before 基线（首次运行），跳过回归检查"
+    },
+    "freshness": {
+      "alerts": [],
+      "verdict": "ok",
+      "summary_zh": "全部快照新鲜"
+    }
+  },
+  "alerts": {
+    "alert": [],
+    "review": [],
+    "ok": []
+  }
+}

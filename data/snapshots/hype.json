@@ -1,0 +1,78 @@
+{
+  "protocol": "hype",
+  "as_of": "2026-08-02",
+  "income_statement": {
+    "revenue": {
+      "entity_type": "app",
+      "revenue_included": {
+        "protocol_fees_usd_365d": 777525548,
+        "total_usd_365d": 777525548
+      },
+      "revenue_excluded": {
+        "assistance_fund": {
+          "note": "AF 用交易费回购 HYPE 留在 AF 地址（可被动用），仅作注记"
+        }
+      },
+      "growth_yoy_percent": null,
+      "source": {
+        "type": "chain",
+        "url": "https://app.hyperliquid.xyz"
+      }
+    },
+    "gross_profit": {
+      "lp_share_cost_usd_365d": null,
+      "gross_profit_usd_365d": null,
+      "calculation_note": "毛利数据缺失（null），见专属 adapter"
+    },
+    "token_emission_cost": {
+      "treatment": "none"
+    },
+    "net_income": {
+      "net_income_usd_365d": null,
+      "operating_cost_usd_365d": null,
+      "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
+    },
+    "margins": {
+      "gross_margin_percent": null,
+      "net_margin_percent": null,
+      "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
+    }
+  },
+  "holder_returns": {
+    "by_mechanism": [
+      {
+        "mechanism": "汇总（Assistance Fund Buyback & Burn）",
+        "type": "yield",
+        "usd_365d": 777330878.71,
+        "yield_percent": 10.55,
+        "_note": "通用适配器汇总口径（all-protocols 已验证 yield）；含金量/机制拆解待专属 adapter.py"
+      }
+    ],
+    "summary": {
+      "destroy_usd_365d": null,
+      "yield_usd_365d": 777330878.71,
+      "destroy_yield_percent": null,
+      "yield_yield_percent": 10.55,
+      "shareholder_returns_usd_365d": 777330878.71,
+      "shareholder_yield_percent": 10.55
+    }
+  },
+  "balance_sheet": {
+    "market_cap_usd": 7368065201,
+    "tvl_usd": 5326286571.667961,
+    "treasury_usd": null,
+    "debt_usd": null
+  },
+  "valuation": {
+    "pe": 9.4787,
+    "ps": 9.4763,
+    "pb": null,
+    "ev_revenue": null,
+    "payout_ratio": null
+  },
+  "verification": {
+    "method": "generic adapter（基于 all-protocols 已验证字段）",
+    "status": "verified",
+    "last_checked": "2026-08-02"
+  }
+}

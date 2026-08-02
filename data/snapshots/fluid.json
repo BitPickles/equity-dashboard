@@ -1,0 +1,74 @@
+{
+  "protocol": "fluid",
+  "as_of": "2026-08-02",
+  "income_statement": {
+    "revenue": {
+      "entity_type": "app",
+      "revenue_included": {
+        "protocol_fees_usd_365d": 4745308,
+        "total_usd_365d": 4745308
+      },
+      "revenue_excluded": {},
+      "growth_yoy_percent": null,
+      "source": {
+        "type": "defillama",
+        "url": "https://defillama.com/protocol/fluid"
+      }
+    },
+    "gross_profit": {
+      "lp_share_cost_usd_365d": 0,
+      "gross_profit_usd_365d": 4745308,
+      "calculation_note": "近似：协议归属（dailyHoldersRevenue 口径）作为毛利；精确 LP 分润见专属 adapter"
+    },
+    "token_emission_cost": {
+      "treatment": "none"
+    },
+    "net_income": {
+      "net_income_usd_365d": 4745308,
+      "operating_cost_usd_365d": null,
+      "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
+    },
+    "margins": {
+      "gross_margin_percent": 100.0,
+      "net_margin_percent": 100.0,
+      "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
+    }
+  },
+  "holder_returns": {
+    "by_mechanism": [
+      {
+        "mechanism": "汇总（Fluid Reserve Buyback）",
+        "type": "yield",
+        "usd_365d": 4748460.87,
+        "yield_percent": 5.04,
+        "_note": "通用适配器汇总口径（all-protocols 已验证 yield）；含金量/机制拆解待专属 adapter.py"
+      }
+    ],
+    "summary": {
+      "destroy_usd_365d": null,
+      "yield_usd_365d": 4748460.87,
+      "destroy_yield_percent": null,
+      "yield_yield_percent": 5.04,
+      "shareholder_returns_usd_365d": 4748460.87,
+      "shareholder_yield_percent": 5.04
+    }
+  },
+  "balance_sheet": {
+    "market_cap_usd": 94215493.45,
+    "tvl_usd": 858549305.8980845,
+    "treasury_usd": null,
+    "debt_usd": null
+  },
+  "valuation": {
+    "pe": 19.8413,
+    "ps": 19.8545,
+    "pb": null,
+    "ev_revenue": null,
+    "payout_ratio": 1.0007
+  },
+  "verification": {
+    "method": "generic adapter（基于 all-protocols 已验证字段）",
+    "status": "partial",
+    "last_checked": "2026-08-02"
+  }
+}

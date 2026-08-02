@@ -98,12 +98,12 @@
     "BGB 销毁比例是多少？",
     "是否有其他 TEV 机制（如 Launchpad 参与权）？"
   ],
-  "last_updated": "2026-04-27",
+  "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": false,
     "tev_yield_percent": 0,
     "market_cap_usd": 1888393751,
-    "calculation_date": "2026-08-02",
+    "calculation_date": "2026-08-01",
     "sources": [
       {
         "name": "Bitget 官方公告",
@@ -180,5 +180,44 @@
     "buyback_yield_30d_ann": 0,
     "dividend_yield_90d_ann": 0,
     "buyback_yield_90d_ann": 0
+  },
+  "revenue_recognition": {
+    "entity_type": "platform_token",
+    "principle": "平台币赋能即收入；已与 Bitget 平台切割",
+    "revenue_included": {
+      "buyback_burn": {
+        "note": "季度回购销毁：交易所+钱包业务利润的 20%（现货/合约/杠杆手续费 + Wallet 收入）"
+      }
+    },
+    "revenue_excluded": {
+      "launchpad": {
+        "note": "Bitget 基本没有打新，不计入"
+      }
+    },
+    "calculation": {
+      "revenue_usd_365d": "季度利润 20% 回购销毁（官方公告 + 链上验证）"
+    },
+    "source_type": "official",
+    "source_url": "https://www.bitget.com"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "official",
+        "method": "AI 抓季度销毁公告（数量 + 日期）",
+        "frequency": "quarterly",
+        "script": "ai-watch-official.py"
+      },
+      {
+        "type": "chain",
+        "method": "链上销毁地址复核",
+        "frequency": "daily",
+        "script": "update-bgb-tev.py"
+      }
+    ],
+    "ai_self_check": [
+      "mechanism-change",
+      "freshness"
+    ]
   }
 }

@@ -52,13 +52,13 @@
     }
   ],
   "notes": "Jito 是 Solana MEV 基础设施的领导者。JTO 代币目前主要用于治理，协议的 MEV 收益直接流向 JitoSOL 持有者（更高的 APY），而非 JTO 持有者。未来可能引入 JTO staking 收入分成。",
-  "last_updated": "2026-04-27",
+  "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": false,
     "tev_yield_percent": 0,
     "annual_tev_usd": 0,
-    "market_cap_usd": 245856733.45,
-    "calculation_date": "2026-08-02",
+    "market_cap_usd": 255338088.64,
+    "calculation_date": "2026-08-01",
     "sources": [
       {
         "name": "协议机制",
@@ -82,23 +82,23 @@
     "en": "Solana MEV 收益归 JitoSOL (LST), JTO 仅治理"
   },
   "tevRatio": 0,
-  "earning_yield_percent": 5.6,
-  "market_cap_usd": 245856733.45,
+  "earning_yield_percent": 5.42,
+  "market_cap_usd": 255338088.64,
   "tev_yield_percent": 0,
   "metrics": {
-    "trailing_365d_revenue_usd": 13763592,
-    "trailing_30d_revenue_usd": 336606,
-    "current_market_cap_usd": 245856733.45,
+    "trailing_365d_revenue_usd": 13845367,
+    "trailing_30d_revenue_usd": 339493,
+    "current_market_cap_usd": 255338088.64,
     "trailing_365d_tev_usd": 0,
     "trailing_30d_tev_usd": 0,
-    "trailing_7d_revenue_usd": 81269,
-    "trailing_90d_revenue_usd": 1169503,
+    "trailing_7d_revenue_usd": 82725,
+    "trailing_90d_revenue_usd": 1190420,
     "tev_yield_7d_ann": 0,
     "tev_yield_30d_ann": 0,
     "tev_yield_90d_ann": 0,
-    "earning_yield_7d_ann": 1.72,
-    "earning_yield_30d_ann": 1.67,
-    "earning_yield_90d_ann": 1.93,
+    "earning_yield_7d_ann": 1.69,
+    "earning_yield_30d_ann": 1.62,
+    "earning_yield_90d_ann": 1.89,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 0,
@@ -133,5 +133,35 @@
   ],
   "dividend_yield_percent": 0,
   "buyback_yield_percent": 0,
-  "style": "growth"
+  "style": "growth",
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "只统计利润；股东回报 = 0（JTO 纯治理，MEV 归 JitoSOL）",
+    "revenue_included": {
+      "protocol_fees": {
+        "note": "DefiLlama dailyRevenue（协议归属部分）"
+      }
+    },
+    "revenue_excluded": {},
+    "calculation": {
+      "tev_ratio": 0.0,
+      "note": "不回购的钱进国库/支出 → 留存行"
+    },
+    "source_type": "defillama",
+    "source_url": "https://defillama.com/protocol/jito"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "defillama",
+        "method": "dailyFees/dailyRevenue 日频",
+        "frequency": "daily",
+        "script": "fetch-defillama.js"
+      }
+    ],
+    "ai_self_check": [
+      "data-plausibility",
+      "freshness"
+    ]
+  }
 }

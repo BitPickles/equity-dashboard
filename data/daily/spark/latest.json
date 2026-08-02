@@ -1,37 +1,26 @@
 {
   "protocol": "spark",
-  "updated_at": "2026-02-04T18:41:20.684380+00:00",
+  "updated_at": "2026-08-02T14:14:28.000Z",
   "data_sources": {
-    "tvl": "DefiLlama",
-    "fees": "DefiLlama",
-    "market": "CoinGecko"
+    "defillama": "spark",
+    "coingecko": "spark",
+    "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-02-04",
+    "date": "2026-08-02",
     "price_usd": 0.02196879,
     "market_cap_usd": 51372920,
-    "fdv_usd": 217996318,
-    "circulating_supply": 2356595748.026746,
-    "total_supply": 10000000000.0,
-    "tvl_usd": 4899085111.09927,
-    "daily_fees_usd": 430494,
-    "daily_tev_usd": 0,
-    "tev_ratio_used": 0
+    "daily_fees_usd": 333831,
+    "total30d_fees_usd": 9990982,
+    "total1y_fees_usd": 201817490
   },
   "metrics": {
-    "trailing_30d_fees_usd": 14196125,
     "trailing_30d_tev_usd": 0,
-    "annualized_fees_usd": 170353500,
+    "trailing_365d_tev_usd": null,
     "annualized_tev_usd": 0,
     "current_market_cap_usd": 51372920,
     "tev_yield": "N/A",
     "tev_yield_decimal": 0,
-    "tvl_usd": 4899085111.09927,
-    "mcap_tvl_ratio": 0.0105,
-    "calculated_at": "2026-02-04T18:41:20.684380+00:00"
-  },
-  "fees_breakdown": {
-    "sparklend": 4685558,
-    "spark-liquidity-layer": 9510567
+    "calculated_at": "2026-08-02T14:14:28.000Z"
   }
 }

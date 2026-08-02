@@ -1,0 +1,66 @@
+{
+  "protocol": "lido",
+  "as_of": "2026-08-02",
+  "income_statement": {
+    "revenue": {
+      "entity_type": "app",
+      "revenue_included": {
+        "protocol_fees_usd_365d": 38973917,
+        "total_usd_365d": 38973917
+      },
+      "revenue_excluded": {},
+      "growth_yoy_percent": null,
+      "source": {
+        "type": "defillama",
+        "url": "https://defillama.com/protocol/lido"
+      }
+    },
+    "gross_profit": {
+      "lp_share_cost_usd_365d": null,
+      "gross_profit_usd_365d": null,
+      "calculation_note": "毛利数据缺失（null），见专属 adapter"
+    },
+    "token_emission_cost": {
+      "treatment": "none"
+    },
+    "net_income": {
+      "net_income_usd_365d": null,
+      "operating_cost_usd_365d": null,
+      "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
+    },
+    "margins": {
+      "gross_margin_percent": null,
+      "net_margin_percent": null,
+      "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
+    }
+  },
+  "holder_returns": {
+    "by_mechanism": [],
+    "summary": {
+      "destroy_usd_365d": null,
+      "yield_usd_365d": null,
+      "destroy_yield_percent": null,
+      "yield_yield_percent": null,
+      "shareholder_returns_usd_365d": null,
+      "shareholder_yield_percent": null
+    }
+  },
+  "balance_sheet": {
+    "market_cap_usd": 279222479.51,
+    "tvl_usd": 18986133323.106007,
+    "treasury_usd": null,
+    "debt_usd": null
+  },
+  "valuation": {
+    "pe": null,
+    "ps": 7.1643,
+    "pb": null,
+    "ev_revenue": null,
+    "payout_ratio": null
+  },
+  "verification": {
+    "method": "generic adapter（基于 all-protocols 已验证字段）",
+    "status": "estimated",
+    "last_checked": "2026-08-02"
+  }
+}

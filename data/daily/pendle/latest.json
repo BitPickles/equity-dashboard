@@ -1,32 +1,26 @@
 {
   "protocol": "pendle",
-  "updated_at": "2026-02-14T06:57:21.722Z",
+  "updated_at": "2026-08-02T14:14:21.000Z",
+  "data_sources": {
+    "defillama": "pendle",
+    "coingecko": "pendle",
+    "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
+  },
   "latest_record": {
-    "date": "2026-02-12",
-    "price_usd": null,
-    "market_cap_usd": null,
-    "daily_fees_usd": 19018,
-    "daily_revenue_usd": 18468,
-    "daily_holders_revenue_usd": 14774,
-    "daily_tev_usd": 14774,
-    "tev_source": "defillama_holdersRevenue"
+    "date": "2026-08-02",
+    "price_usd": 1.37,
+    "market_cap_usd": 235475547,
+    "daily_fees_usd": 14140,
+    "total30d_fees_usd": 560669,
+    "total1y_fees_usd": 23129177
   },
   "metrics": {
     "trailing_30d_tev_usd": 908300,
-    "trailing_30d_fees_usd": 1146039,
-    "trailing_30d_revenue_usd": 1135369,
     "trailing_365d_tev_usd": 28613969,
-    "trailing_365d_fees_usd": 36512806,
-    "trailing_365d_revenue_usd": 35767433,
     "annualized_tev_usd": 10899600,
-    "current_market_cap_usd": 0,
+    "current_market_cap_usd": 235475547,
     "tev_yield": "0.00%",
     "tev_yield_decimal": 0,
-    "calculated_at": "2026-02-14T06:57:21.722Z"
-  },
-  "data_range": {
-    "start": "2023-07-07",
-    "end": "2026-02-12",
-    "total_days": 950
+    "calculated_at": "2026-08-02T14:14:21.000Z"
   }
 }

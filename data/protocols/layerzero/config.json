@@ -1,0 +1,100 @@
+{
+  "id": "layerzero",
+  "name": "LayerZero",
+  "ticker": "ZRO",
+  "icon": "https://coin-images.coingecko.com/coins/images/33793/large/LayerZero.png",
+  "category": "crosschain_infra",
+  "description": "全链互操作协议（Omnichain Messaging），DefiLlama 的 LayerZero V2 即整个协议",
+  "website": "https://layerzero.network",
+  "docs": "https://docs.layerzero.network",
+  "token": {
+    "address": "0x6985884c4392d348587b19cb9eaaf157f13271cd",
+    "chain": "ethereum",
+    "coingecko_id": "layerzero",
+    "defillama_id": "layerzero-v2"
+  },
+  "tev_mechanisms": [
+    {
+      "type": "buyback",
+      "name": "Stargate 收入回购 ZRO",
+      "description": "2025-08 $110M 收购 Stargate；2026-03 起 100% Stargate 收入回购 ZRO（累计 149.5 万 ZRO / $3.14M）",
+      "status": "active",
+      "tev_eligible": true,
+      "source": {
+        "type": "official",
+        "title": "LayerZero 官方",
+        "url": "https://layerzero.network"
+      }
+    },
+    {
+      "type": "dilution",
+      "name": "每月解锁（稀释注记）",
+      "description": "每月解锁 ~$48M（2027 年中前持续）——无对价解锁，不算成本但必须标注（回购月 ~$150K 远不足以对冲）",
+      "status": "active",
+      "tev_eligible": false,
+      "note": "稀释注记：财报页强制展示"
+    }
+  ],
+  "fee_distribution": {
+    "fees_30d_usd": null,
+    "revenue_30d_usd": null,
+    "note": "协议本体消息费 0% take rate（$3.59M 费用流向 DVN/Executor 外部节点，外包成本）；fee switch 未开启（半年公投多次未过）"
+  },
+  "tev_summary": {
+    "fee_switch": "OFF",
+    "fee_switch_details": "费用开关半年公投多次未过；开启后收入端打开（$150B 跨链量 × bps），AI 哨兵盯",
+    "buybacks": "ACTIVE（小额）",
+    "buybacks_details": "Stargate 100% 收入回购，累计 149.5 万 ZRO / $3.14M",
+    "dividends": "NONE",
+    "dividends_details": "无直接分红",
+    "burns": "NONE",
+    "primary_value_accrual": "期权价值：费用开关一旦开启，$150B+ 年化跨链量的潜在收入",
+    "tevRatio": null
+  },
+  "confidence": "medium",
+  "data_sources": [
+    {
+      "type": "chain",
+      "title": "Stargate 回购链上",
+      "url": "https://etherscan.io"
+    },
+    {
+      "type": "official",
+      "title": "tokenomics.com LayerZero",
+      "url": "https://tokenomics.com"
+    }
+  ],
+  "analyst_notes": "【2026-08-02 定稿】\n\n## LayerZero 口径判定\n\n- **实体类型**：应用型（跨链基础设施）\n- **协议本体**：TVL $7.5B，月跨链量 ~$140 亿（年化 $150B+），但消息费 0% take rate——$3.59M 费用流向 DVN/Executor 外部节点（外包成本），**协议收入 = 0**（fee switch 未开启）\n- **股东回报**：Stargate 回购 ZRO 🟢（真实但量小）\n- **毛利/净利**：极薄（2026 gross $1.2M，$1.1M 给 supply-side，归协议 ≈ $0.1-0.5M）\n- **稀释注记** ⚠️：每月解锁 ~$48M（2027 年中前持续）——无对价解锁，不算成本但必须标注\n- **观察点** 🔍：费用开关半年公投——开启后收入端打开，AI 哨兵盯\n- **判定**：收入 = Stargate 收入（协议本体 0，标注 fee switch 未开启）；股东回报率 ≈ 0.3-2%（极低）；本质是期权价值标的",
+  "last_updated": "2026-08-02",
+  "tevStatus": "active",
+  "confidence_reason": {
+    "zh": "Stargate 回购链上可验证（medium），协议本体收入依赖 fee switch（事件驱动）",
+    "en": "Stargate buybacks on-chain verifiable (medium); protocol-native revenue depends on fee switch (event-driven)"
+  },
+  "tevRatio": null,
+  "tevRatioNote": "协议本体收入 = 0（fee switch 关闭）；股东回报仅 Stargate 回购（小额）",
+  "style": "option_value",
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "协议本体消息费 0% take rate → 收入 = Stargate 收入（协议本体 0，标注 fee switch 未开启）",
+    "revenue_included": {
+      "stargate_fees": {"note": "2026-03 起 100% Stargate 收入回购 ZRO（Stargate 收入计入，量小）"}
+    },
+    "revenue_excluded": {
+      "protocol_fees": {"note": "协议本体消息费 0% take rate（$3.59M 流向 DVN/Executor 外部节点）；fee switch 公投多次未过"}
+    },
+    "calculation": {
+      "revenue_usd_365d": "Stargate 收入（协议本体 0）；回购月 ~$150K",
+      "dilution_note": "每月解锁 ~$48M（2027 年中前持续）——无对价，不算成本但必须标注"
+    },
+    "source_type": "chain",
+    "source_url": "https://etherscan.io"
+  },
+  "data_pipeline": {
+    "sources": [
+      {"type": "chain", "method": "Stargate 回购 ZRO 链上追踪", "frequency": "daily", "script": "update-layerzero-tev.py"},
+      {"type": "official", "method": "AI 监控费用开关公投（开启后收入端打开）", "frequency": "event", "script": "ai-watch-governance.py"}
+    ],
+    "ai_self_check": ["mechanism-change", "data-plausibility", "freshness"]
+  }
+}

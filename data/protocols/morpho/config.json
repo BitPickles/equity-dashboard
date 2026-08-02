@@ -40,13 +40,13 @@
     }
   ],
   "notes": "【收入确认】Morpho 当前无协议收入（fee switch OFF）。年化总借贷费用约 $180M，但 100% 归 LP，协议不抽成。DAO 可通过治理投票激活收费机制，但目前未启用。若启用收费（如10%），潜在年化协议收入约 $18M。",
-  "last_updated": "2026-04-27",
+  "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": false,
     "tev_yield_percent": 0,
     "annual_tev_usd": 0,
-    "market_cap_usd": 1000356170.31,
-    "calculation_date": "2026-08-02",
+    "market_cap_usd": 1015000444.33,
+    "calculation_date": "2026-08-01",
     "sources": [
       {
         "name": "协议机制",
@@ -72,10 +72,10 @@
   },
   "tevRatio": 0,
   "earning_yield_percent": 0,
-  "market_cap_usd": 1000356170.31,
+  "market_cap_usd": 1015000444.33,
   "tev_yield_percent": 0,
   "metrics": {
-    "current_market_cap_usd": 1000356170.31,
+    "current_market_cap_usd": 1015000444.33,
     "trailing_365d_revenue_usd": 0,
     "trailing_30d_revenue_usd": 0,
     "trailing_365d_tev_usd": 0,
@@ -122,5 +122,35 @@
   ],
   "dividend_yield_percent": 0,
   "buyback_yield_percent": 0,
-  "style": "growth"
+  "style": "growth",
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "只统计利润；股东回报 = 0（MORPHO 纯治理）",
+    "revenue_included": {
+      "protocol_fees": {
+        "note": "DefiLlama dailyRevenue（协议归属部分）"
+      }
+    },
+    "revenue_excluded": {},
+    "calculation": {
+      "tev_ratio": 0.0,
+      "note": "不回购的钱进国库/支出 → 留存行"
+    },
+    "source_type": "defillama",
+    "source_url": "https://defillama.com/protocol/morpho"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "defillama",
+        "method": "dailyFees/dailyRevenue 日频",
+        "frequency": "daily",
+        "script": "fetch-defillama.js"
+      }
+    ],
+    "ai_self_check": [
+      "data-plausibility",
+      "freshness"
+    ]
+  }
 }

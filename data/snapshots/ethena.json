@@ -1,0 +1,73 @@
+{
+  "protocol": "ethena",
+  "as_of": "2026-08-02",
+  "income_statement": {
+    "revenue": {
+      "entity_type": "app",
+      "revenue_included": {
+        "protocol_fees_usd_365d": 9121602.139999999,
+        "total_usd_365d": 9121602.139999999
+      },
+      "revenue_excluded": {
+        "dat_buyback": {
+          "note": "DAT 回购（~$890M）确认为资本运作，不计入持续股东回报"
+        },
+        "fee_switch": {
+          "note": "费用开关 2026Q3 待激活，激活后 sENA 预期 >5%（届时更新）"
+        }
+      },
+      "growth_yoy_percent": null,
+      "source": {
+        "type": "official",
+        "url": "https://www.ethena.fi/governance"
+      }
+    },
+    "gross_profit": {
+      "lp_share_cost_usd_365d": null,
+      "gross_profit_usd_365d": null,
+      "calculation_note": "毛利数据缺失（null），见专属 adapter"
+    },
+    "token_emission_cost": {
+      "treatment": "none"
+    },
+    "net_income": {
+      "net_income_usd_365d": null,
+      "operating_cost_usd_365d": null,
+      "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
+    },
+    "margins": {
+      "gross_margin_percent": null,
+      "net_margin_percent": null,
+      "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
+    }
+  },
+  "holder_returns": {
+    "by_mechanism": [],
+    "summary": {
+      "destroy_usd_365d": null,
+      "yield_usd_365d": null,
+      "destroy_yield_percent": null,
+      "yield_yield_percent": null,
+      "shareholder_returns_usd_365d": null,
+      "shareholder_yield_percent": null
+    }
+  },
+  "balance_sheet": {
+    "market_cap_usd": 777603331.08,
+    "tvl_usd": 6677560266.30153,
+    "treasury_usd": null,
+    "debt_usd": null
+  },
+  "valuation": {
+    "pe": null,
+    "ps": 85.2485,
+    "pb": null,
+    "ev_revenue": null,
+    "payout_ratio": null
+  },
+  "verification": {
+    "method": "generic adapter（基于 all-protocols 已验证字段）",
+    "status": "estimated",
+    "last_checked": "2026-08-02"
+  }
+}
