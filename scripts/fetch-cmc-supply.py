@@ -28,17 +28,17 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent.parent
 SUPPLY_DIR = BASE / "data" / "supply"
 
-# 协议 → CMC slug（CoinMarketCap 币种标识）
+# 协议 → CMC slug（CoinMarketCap 币种标识，2026-08-02 实测校正）
 # 优先用 config.json 里已有的 cmcSlug；此处为兜底映射
 CMC_SLUGS = {
-    "aave": "aave", "aster": "aster", "bgb": "bitget-token", "bnb": "bnb",
+    "aave": "aave", "aster": "aster", "bgb": "bitget-token-new", "bnb": "bnb",
     "compound": "compound", "curve": "curve-dao-token", "dydx": "dydx-chain",
-    "eigenlayer": "eigenlayer", "ethena": "ethena", "etherfi": "ether-fi",
+    "eigenlayer": "eigenlayer", "ethena": "ethena", "etherfi": "etherfi",
     "fluid": "instadapp", "gmx": "gmx", "hype": "hyperliquid",
-    "jito": "jito-governance-token", "justlend": "just", "kamino": "kamino",
-    "layerzero": "layerzero", "lido": "lido-dao", "maple": "syrup",
+    "jito": "jito", "justlend": "just", "kamino": "kamino-finance",
+    "layerzero": "layerzero", "lido": "lido-dao", "maple": "maple-finance",
     "mnt": "mantle", "morpho": "morpho", "okb": "okb",
-    "pancakeswap": "pancakeswap", "pendle": "pendle", "sky": "maker",
+    "pancakeswap": "pancakeswap", "pendle": "pendle", "sky": "sky",
     "spark": "spark", "uniswap": "uniswap",
 }
 
