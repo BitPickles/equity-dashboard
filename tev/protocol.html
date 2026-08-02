@@ -1320,19 +1320,16 @@
           const m = String(d.getMonth() + 1).padStart(2, '0'), dd = String(d.getDate()).padStart(2, '0');
           return `${d.getFullYear()}-${m}-${dd}`;
         };
-        // 数据准备：折线（累计总量/该指标）与柱状（单期值）稀疏采样 ≤200 点
+        // 数据准备：一天一个点（Boss 2026-08-03：不要稀疏采样）
         function prepareData(metric) {
           const sorted = records.slice().sort((a, b) => a.as_of.localeCompare(b.as_of));
-          const recent = sorted.slice(-365);
-          const step = Math.max(1, Math.ceil(recent.length / 200));
-          const sampled = recent.filter((_, i) => i % step === 0);
-          const last = recent[recent.length - 1];
-          if (sampled[sampled.length - 1] !== last) sampled.push(last);
+          // 数据仅 500+ 条，Chart.js 完全能渲染，不做采样（保持一天一个数字）
+          const all = sorted;
           const lineVals = metric === 'net_income'
-            ? sampled.map(r => r.cumulative != null ? r.cumulative : r.net_income)  // 折线=累计总量
-            : sampled.map(r => r[metric]);
-          const barVals = sampled.map(r => r.daily_value != null ? r.daily_value : r[metric]);  // 柱状=单期值
-          return { labels: sampled.map(r => r.as_of), lineVals, barVals };
+            ? all.map(r => r.cumulative != null ? r.cumulative : r.net_income)  // 折线=累计总量
+            : all.map(r => r[metric]);
+          const barVals = all.map(r => r.daily_value != null ? r.daily_value : r[metric]);  // 柱状=单期值
+          return { labels: all.map(r => r.as_of), lineVals, barVals };
         }
         function renderHistoryChart() {
           try {
