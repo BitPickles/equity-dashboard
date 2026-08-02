@@ -1,52 +1,79 @@
 {
   "protocol": "etherfi",
-  "as_of": "2026-08-02",
+  "as_of": "2026-08-03",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
         "protocol_fees_usd_365d": null,
-        "total_usd_365d": null
+        "total_usd_365d": null,
+        "note": "DefiLlama dailyFees 365d ≈ $225252841 含 staking 收益（多数归 eETH 用户），非协议收入；协议收入（Token Terminal/Dune 口径）未缓存 → null"
       },
       "revenue_excluded": {
-        "dao_buyback": {
-          "note": "DAO $50M 公开市场回购执行进度透明度一般，标 unverified 合理"
+        "dao_50m_buyback": {
+          "note": "DAO $50M 公开市场回购执行进度透明度一般（unverified），不计入"
         }
       },
       "growth_yoy_percent": null,
       "source": {
         "type": "official",
-        "url": "https://www.ether.fi"
+        "url": "Token Terminal / Dune + 官方 + tokenomics.com（本地未缓存协议收入）"
       }
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
       "gross_profit_usd_365d": null,
-      "calculation_note": "毛利数据缺失（null），见专属 adapter"
+      "calculation_note": "协议收入/毛利不可得（Token Terminal/Dune 未缓存）→ null"
     },
     "token_emission_cost": {
-      "treatment": "none"
+      "usd_365d": null,
+      "annual_emission_tokens": null,
+      "inflation_rate_percent": null,
+      "treatment": "none",
+      "calculation_note": "未获取 ETHFI 增发/解锁数据；若有解锁按无对价稀释注记（待 M1 补）"
     },
     "net_income": {
       "net_income_usd_365d": null,
       "operating_cost_usd_365d": null,
-      "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
+      "calculation_note": "协议收入不可得 → 净利 null（禁止编造）"
     },
     "margins": {
       "gross_margin_percent": null,
       "net_margin_percent": null,
-      "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
+      "note": "收入/毛利不可得 → 利润率 null"
     }
   },
   "holder_returns": {
-    "by_mechanism": [],
+    "by_mechanism": [
+      {
+        "mechanism": "提现费 100% 周度回购 → sETHFI 质押者",
+        "type": "buyback",
+        "usd_365d": 16709085,
+        "yield_percent": 4.286,
+        "note": "DefiLlama dailyHoldersRevenue 365d 合计口径（含协议收入 25% 月度回购），无单引擎拆分"
+      },
+      {
+        "mechanism": "协议收入 25% 月度回购 → sETHFI 质押者",
+        "type": "buyback",
+        "usd_365d": null,
+        "yield_percent": null,
+        "note": "已含于上一条合计口径"
+      },
+      {
+        "mechanism": "DAO $50M 公开市场回购",
+        "type": "buyback",
+        "usd_365d": null,
+        "yield_percent": null,
+        "note": "unverified（执行进度透明度一般），不计入股东回报"
+      }
+    ],
     "summary": {
-      "destroy_usd_365d": null,
+      "destroy_usd_365d": 16709085,
       "yield_usd_365d": null,
-      "destroy_yield_percent": null,
+      "destroy_yield_percent": 4.286,
       "yield_yield_percent": null,
-      "shareholder_returns_usd_365d": null,
-      "shareholder_yield_percent": null
+      "shareholder_returns_usd_365d": 16709085,
+      "shareholder_yield_percent": 4.286
     }
   },
   "balance_sheet": {
@@ -56,15 +83,15 @@
     "debt_usd": null
   },
   "valuation": {
-    "pe": null,
+    "pe": 23.332,
     "ps": null,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null
   },
   "verification": {
-    "method": "TEV unverified (链上 buyback 路径不可识别)",
+    "method": "DefiLlama dailyHoldersRevenue 365d ≈ $16709085（tev-records 缓存，判定书 4-6% 区间：$16-24M ÷ 市值 ~$400M）；sETHFI 入金上界 47411961 USD（128446410 ETHFI，含用户 stake 不可分离，仅监控）",
     "status": "estimated",
-    "last_checked": "2026-08-02"
+    "last_checked": "2026-08-03"
   }
 }

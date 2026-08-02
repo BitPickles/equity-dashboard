@@ -1,14 +1,22 @@
 {
   "protocol": "uniswap",
-  "as_of": "2026-08-02",
+  "as_of": "2026-08-03",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 18377870,
-        "total_usd_365d": 18377870
+        "protocol_fees_usd_365d": 18365812.03,
+        "burn_usd_365d": 18365812.03,
+        "total_usd_365d": 18365812.03
       },
-      "revenue_excluded": {},
+      "revenue_excluded": {
+        "retroactive_burn": {
+          "note": "一次性 1 亿 UNI 国库销毁（2025-12-27 Timelock 执行）为存量模拟操作，不计入 365d 股东回报"
+        },
+        "unichain_burns": {
+          "note": "Unichain 上 Firepit 销毁当前未计入（脚本只覆盖 Ethereum mainnet，M1 扩展）"
+        }
+      },
       "growth_yoy_percent": null,
       "source": {
         "type": "chain",
@@ -17,40 +25,44 @@
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": null,
-      "calculation_note": "毛利数据缺失（null），见专属 adapter"
+      "gross_profit_usd_365d": 18365812.03,
+      "calculation_note": "抽成手续费为协议净得（LP 分润已由各池自行结算），毛利 = 收入"
     },
     "token_emission_cost": {
-      "treatment": "none"
+      "usd_365d": null,
+      "annual_emission_tokens": null,
+      "inflation_rate_percent": null,
+      "treatment": "none",
+      "calculation_note": "UNI 总供应封顶 10 亿，无持续增发；一次性 1 亿 UNI 国库销毁为存量操作，不涉及增发成本"
     },
     "net_income": {
-      "net_income_usd_365d": null,
+      "net_income_usd_365d": 18365812.03,
       "operating_cost_usd_365d": null,
-      "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
+      "calculation_note": "收入基本全部用于回购（fee switch 2025-12-28 开启后协议费经 TokenJar → Firepit → 0xdead 销毁 UNI），净利 = 股东回报"
     },
     "margins": {
-      "gross_margin_percent": null,
-      "net_margin_percent": null,
-      "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
+      "gross_margin_percent": 100.0,
+      "net_margin_percent": 100.0,
+      "note": "抽成手续费为协议净得，收入 100% 用于 Firepit 回购销毁；毛利率/净利率 = 100%（口径标注）"
     }
   },
   "holder_returns": {
     "by_mechanism": [
       {
-        "mechanism": "汇总（UNI Burn via Firepit + Unichain Sequencer Fees）",
-        "type": "yield",
-        "usd_365d": 18304199.14,
-        "yield_percent": 0.72,
-        "_note": "通用适配器汇总口径（all-protocols 已验证 yield）；含金量/机制拆解待专属 adapter.py"
+        "mechanism": "Firepit 销毁 UNI（fee switch → TokenJar → 0xdead）",
+        "type": "destroy",
+        "usd_365d": 18365812.03,
+        "yield_percent": 0.7224,
+        "note": "销毁 = 回购性质 🟢：365d 0xdead 累计 4580003 UNI × 4.01 USD，排除一次性 100M UNI retroactive burn（2025-12-27）"
       }
     ],
     "summary": {
-      "destroy_usd_365d": null,
-      "yield_usd_365d": 18304199.14,
-      "destroy_yield_percent": null,
-      "yield_yield_percent": 0.72,
-      "shareholder_returns_usd_365d": 18304199.14,
-      "shareholder_yield_percent": 0.72
+      "destroy_usd_365d": 18365812.03,
+      "yield_usd_365d": null,
+      "destroy_yield_percent": 0.7224,
+      "yield_yield_percent": null,
+      "shareholder_returns_usd_365d": 18365812.03,
+      "shareholder_yield_percent": 0.7224
     }
   },
   "balance_sheet": {
@@ -60,15 +72,15 @@
     "debt_usd": null
   },
   "valuation": {
-    "pe": 138.8889,
-    "ps": 138.3321,
+    "pe": 138.423,
+    "ps": 138.423,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": null
+    "payout_ratio": 1.0
   },
   "verification": {
-    "method": "A 口径：365d UNI 转入 0xdead（链上）减去 >=10M UNI 一次性事件",
+    "method": "链上 365d UNI 转入 0xdead 累计 4580003 UNI（Etherscan logs，排除 >=10M 一次性事件）× 当前价 4.01 USD",
     "status": "verified",
-    "last_checked": "2026-08-02"
+    "last_checked": "2026-08-03"
   }
 }

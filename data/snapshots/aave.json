@@ -1,6 +1,6 @@
 {
   "protocol": "aave",
-  "as_of": "2026-08-02",
+  "as_of": "2026-08-03",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -8,49 +8,66 @@
         "protocol_fees_usd_365d": 115460247,
         "total_usd_365d": 115460247
       },
-      "revenue_excluded": {},
+      "revenue_excluded": {
+        "lp_interest": {
+          "note": "给 LP（存款人）的利息占协议费大头，不计入协议收入；dailyRevenue 已是扣 LP 后的协议净额"
+        }
+      },
       "growth_yoy_percent": null,
       "source": {
-        "type": "official",
-        "url": "https://app.aave.com/governance"
+        "type": "defillama",
+        "url": "https://api.llama.fi/summary/fees/aave?dataType=dailyRevenue"
       }
     },
     "gross_profit": {
-      "lp_share_cost_usd_365d": 73247980,
-      "gross_profit_usd_365d": 42212267,
-      "calculation_note": "近似：协议归属（dailyHoldersRevenue 口径）作为毛利；精确 LP 分润见专属 adapter"
+      "lp_share_cost_usd_365d": null,
+      "gross_profit_usd_365d": 115460247,
+      "calculation_note": "DefiLlama dailyRevenue 为协议净收入（已扣除给 LP 的部分），毛利 = 净收入"
     },
     "token_emission_cost": {
-      "treatment": "none"
+      "usd_365d": null,
+      "annual_emission_tokens": null,
+      "inflation_rate_percent": null,
+      "treatment": "none",
+      "calculation_note": "AAVE 总供应固定 16M（无持续增发），不涉及增发成本"
     },
     "net_income": {
-      "net_income_usd_365d": 42212267,
+      "net_income_usd_365d": 115460247,
       "operating_cost_usd_365d": null,
-      "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
+      "calculation_note": "净利润 = 协议净收入（dailyRevenue，已扣 LP）；回购 $30M/年由 DAO 财库支出，不影响协议损益"
     },
     "margins": {
-      "gross_margin_percent": 36.56,
-      "net_margin_percent": 36.56,
-      "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
+      "gross_margin_percent": 100.0,
+      "net_margin_percent": 100.0,
+      "note": "派生计算：gross = GP/Rev, net = NI/Rev；协议收入为净额口径（已扣 LP），故为 100%"
     }
   },
   "holder_returns": {
     "by_mechanism": [
       {
-        "mechanism": "汇总（AAVE Buyback Program + Safety Module (Umbrella)）",
+        "mechanism": "AAVE 年度回购（$30M/年，2026-03 治理）",
+        "type": "buyback",
+        "usd_365d": 30000000,
+        "yield_percent": 1.6675,
+        "verified": "verified",
+        "note": "AIP-73 年度回购预算，2026-03 治理从 $50M 下调至 $30M；DAO 财库市场买入 AAVE → Ecosystem Reserve（treasury 积累，非真 burn，治理可 redistribute；链上 0xdead 365d ≈ 0）"
+      },
+      {
+        "mechanism": "Safety Module (Umbrella) 质押奖励",
         "type": "yield",
-        "usd_365d": 57389987.65,
-        "yield_percent": 3.19,
-        "_note": "通用适配器汇总口径（all-protocols 已验证 yield）；含金量/机制拆解待专属 adapter.py"
+        "usd_365d": null,
+        "yield_percent": null,
+        "verified": "partial",
+        "note": "归属待定（保留）：DefiLlama dailyHoldersRevenue 365d ≈ $27,438,501，是否计入收益型 🟡 待定，暂不计入股东回报主数字"
       }
     ],
     "summary": {
-      "destroy_usd_365d": null,
-      "yield_usd_365d": 57389987.65,
-      "destroy_yield_percent": null,
-      "yield_yield_percent": 3.19,
-      "shareholder_returns_usd_365d": 57389987.65,
-      "shareholder_yield_percent": 3.19
+      "destroy_usd_365d": 30000000,
+      "yield_usd_365d": null,
+      "destroy_yield_percent": 1.6675,
+      "yield_yield_percent": null,
+      "shareholder_returns_usd_365d": 30000000,
+      "shareholder_yield_percent": 1.6675
     }
   },
   "balance_sheet": {
@@ -60,15 +77,15 @@
     "debt_usd": null
   },
   "valuation": {
-    "pe": 31.348,
+    "pe": 59.9686,
     "ps": 15.5816,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": 1.3596
+    "payout_ratio": 0.2598
   },
   "verification": {
-    "method": "TEV = 固定 Buyback $30M/年（2026-03 治理）+ Safety Module (Umbrella) DefiLlama dailyHoldersRevenue 按窗口年化",
+    "method": "净利 = DefiLlama dailyRevenue 365d $115,460,247；股东回报 = 官方披露回购 $30,000,000/年（2026-03 治理）；SM 质押奖励 $27,438,501/365d 待定保留（tev-records 365d 合计 $27,722,900 交叉核对）",
     "status": "verified",
-    "last_checked": "2026-08-02"
+    "last_checked": "2026-08-03"
   }
 }

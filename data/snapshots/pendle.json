@@ -1,6 +1,6 @@
 {
   "protocol": "pendle",
-  "as_of": "2026-08-02",
+  "as_of": "2026-08-03",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -8,49 +8,58 @@
         "protocol_fees_usd_365d": 18665264,
         "total_usd_365d": 18665264
       },
-      "revenue_excluded": {},
+      "revenue_excluded": {
+        "lp_market_making": {
+          "note": "LP（PT/YT 做市商）收益来自市场价差与手续费分成，不计入协议收入；dailyRevenue 为协议净额"
+        }
+      },
       "growth_yoy_percent": null,
       "source": {
-        "type": "chain",
-        "url": "https://www.pendle.finance"
+        "type": "defillama",
+        "url": "https://api.llama.fi/summary/fees/pendle?dataType=dailyRevenue"
       }
     },
     "gross_profit": {
-      "lp_share_cost_usd_365d": 0,
+      "lp_share_cost_usd_365d": null,
       "gross_profit_usd_365d": 18665264,
-      "calculation_note": "近似：协议归属（dailyHoldersRevenue 口径）作为毛利；精确 LP 分润见专属 adapter"
+      "calculation_note": "DefiLlama dailyRevenue 为协议净收入（YT 费 + Swap 费归协议），毛利 = 收入"
     },
     "token_emission_cost": {
-      "treatment": "none"
+      "usd_365d": null,
+      "annual_emission_tokens": null,
+      "inflation_rate_percent": null,
+      "treatment": "none",
+      "calculation_note": "PENDLE 无持续大额增发（价值回馈以协议收入回购分发为主），不涉及增发成本"
     },
     "net_income": {
       "net_income_usd_365d": 18665264,
       "operating_cost_usd_365d": null,
-      "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
+      "calculation_note": "净利润 = 协议净收入；80% 回购分发 sPENDLE 计入股东回报，20% 留存 treasury"
     },
     "margins": {
       "gross_margin_percent": 100.0,
       "net_margin_percent": 100.0,
-      "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
+      "note": "派生计算：gross = GP/Rev, net = NI/Rev；协议收入为净额口径，故为 100%"
     }
   },
   "holder_returns": {
     "by_mechanism": [
       {
-        "mechanism": "汇总（vePENDLE 分红 + vePENDLE Revenue Share）",
+        "mechanism": "sPENDLE 回购+分发（80% 协议收入）",
         "type": "yield",
-        "usd_365d": 18669111.51,
-        "yield_percent": 7.92,
-        "_note": "通用适配器汇总口径（all-protocols 已验证 yield）；含金量/机制拆解待专属 adapter.py"
+        "usd_365d": 18665264,
+        "yield_percent": 7.9184,
+        "verified": "partial",
+        "note": "80% 协议收入回购 PENDLE → 分给 sPENDLE 质押者 🟢（2026-01-29 起 sPENDLE 时代，14 天解锁冷却或 5% 即时赎回费）；多链无单一 buyback executor，依赖 DefiLlama 聚合，80% 比例无法链上独立验证"
       }
     ],
     "summary": {
       "destroy_usd_365d": null,
-      "yield_usd_365d": 18669111.51,
+      "yield_usd_365d": 18665264,
       "destroy_yield_percent": null,
-      "yield_yield_percent": 7.92,
-      "shareholder_returns_usd_365d": 18669111.51,
-      "shareholder_yield_percent": 7.92
+      "yield_yield_percent": 7.9184,
+      "shareholder_returns_usd_365d": 18665264,
+      "shareholder_yield_percent": 7.9184
     }
   },
   "balance_sheet": {
@@ -60,15 +69,15 @@
     "debt_usd": null
   },
   "valuation": {
-    "pe": 12.6263,
+    "pe": 12.6289,
     "ps": 12.6289,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": 1.0002
+    "payout_ratio": 1.0
   },
   "verification": {
-    "method": "generic adapter（基于 all-protocols 已验证字段）",
+    "method": "净利 = DefiLlama dailyRevenue 365d $18,665,264；股东回报 = dailyHoldersRevenue 365d $18,665,264（80% 口径 🟢，sPENDLE 时代 2026-01-29 起，tevRatio=0.8）；tev-records 365d 合计 $18,819,548 交叉核对",
     "status": "partial",
-    "last_checked": "2026-08-02"
+    "last_checked": "2026-08-03"
   }
 }

@@ -1,60 +1,65 @@
 {
   "protocol": "aster",
-  "as_of": "2026-08-02",
+  "as_of": "2026-08-03",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
         "protocol_fees_usd_365d": 23699571,
-        "total_usd_365d": 23699571
+        "total_usd_365d": 23699571,
+        "note": "平台手续费（DefiLlama dailyRevenue 365d）；Spot 上币费 5 万 USDT/次并入回购（次数不可得）"
       },
       "revenue_excluded": {
-        "reserve_burn": {
-          "note": "1:1 储备销毁烧的是未流通储备币，只减少未来潜在稀释，不作股东回报（198% 为营销话术）"
+        "reserve_burn_1to1": {
+          "note": "1:1 储备销毁烧未流通储备币（总供应 80亿→30亿），只减少潜在稀释，不计入股东回报（198% 为营销话术）"
         }
       },
       "growth_yoy_percent": null,
       "source": {
-        "type": "chain",
-        "url": "https://www.asterdex.com"
+        "type": "defillama",
+        "url": "DefiLlama dailyRevenue（all-protocols.json metrics.trailing_365d_revenue_usd 缓存）"
       }
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": null,
-      "calculation_note": "毛利数据缺失（null），见专属 adapter"
+      "gross_profit_usd_365d": 23699571,
+      "calculation_note": "DefiLlama dailyRevenue 已扣 LP 分润 → 毛利 = 协议净收入（平台手续费）"
     },
     "token_emission_cost": {
-      "treatment": "none"
+      "usd_365d": null,
+      "annual_emission_tokens": null,
+      "inflation_rate_percent": null,
+      "treatment": "none",
+      "calculation_note": "无持续增发成本；总供应 80亿→30亿 为 1:1 储备销毁（烧未流通储备币，减少潜在稀释），按判定书作注记不计入主数字"
     },
     "net_income": {
-      "net_income_usd_365d": null,
+      "net_income_usd_365d": 23699571,
       "operating_cost_usd_365d": null,
-      "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
+      "calculation_note": "应用型：净利 = 平台手续费（DefiLlama dailyRevenue 365d，已扣 LP）"
     },
     "margins": {
-      "gross_margin_percent": null,
-      "net_margin_percent": null,
-      "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
+      "gross_margin_percent": 100.0,
+      "net_margin_percent": 100.0,
+      "note": "dailyRevenue 口径下毛利 = 净利 = 收入，100% 为口径标注（非经营性利润）"
     }
   },
   "holder_returns": {
     "by_mechanism": [
       {
-        "mechanism": "汇总（协议回购 + 销毁机制）",
-        "type": "yield",
-        "usd_365d": 23689428.32,
-        "yield_percent": 1.47,
-        "_note": "通用适配器汇总口径（all-protocols 已验证 yield）；含金量/机制拆解待专属 adapter.py"
+        "mechanism": "TWAP 回购 ASTER → veASTER 质押者（99% 手续费）",
+        "type": "buyback",
+        "usd_365d": 23462575.29,
+        "yield_percent": 1.4559,
+        "note": "Spot 上币费（5 万 USDT/次）并入回购；1:1 储备销毁不计入（未流通币）"
       }
     ],
     "summary": {
-      "destroy_usd_365d": null,
-      "yield_usd_365d": 23689428.32,
-      "destroy_yield_percent": null,
-      "yield_yield_percent": 1.47,
-      "shareholder_returns_usd_365d": 23689428.32,
-      "shareholder_yield_percent": 1.47
+      "destroy_usd_365d": 23462575.29,
+      "yield_usd_365d": null,
+      "destroy_yield_percent": 1.4559,
+      "yield_yield_percent": null,
+      "shareholder_returns_usd_365d": 23462575.29,
+      "shareholder_yield_percent": 1.4559
     }
   },
   "balance_sheet": {
@@ -64,15 +69,15 @@
     "debt_usd": null
   },
   "valuation": {
-    "pe": 68.0272,
+    "pe": 68.6849,
     "ps": 67.9981,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": null
+    "payout_ratio": 0.99
   },
   "verification": {
-    "method": "A 口径：Stage5/6 buyback wallet 累积 ASTER × 当前价（treasury buyback，非真 burn）",
+    "method": "DefiLlama dailyRevenue 365d $23699571 × tevRatio 0.99 = 回购/分配 $23462575.29；链上回购 wallet 365d 36177482 ASTER（缓存 95 天，2025-12-23→2026-03-27）",
     "status": "verified",
-    "last_checked": "2026-08-02"
+    "last_checked": "2026-08-03"
   }
 }

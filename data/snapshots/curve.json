@@ -1,24 +1,32 @@
 {
   "protocol": "curve",
-  "as_of": "2026-08-02",
+  "as_of": "2026-08-03",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 15335813,
+        "admin_fee_usd_365d": 15335813,
+        "vecrv_distribution_usd_365d": 15335813,
         "total_usd_365d": 15335813
       },
-      "revenue_excluded": {},
+      "revenue_excluded": {
+        "lp_share": {
+          "note": "交易费 50% LP 分润不计入（收入按 admin fee 口径）"
+        },
+        "community_fund": {
+          "note": "FeeAllocator 10% → Community Fund Treasury（约 $1703979/365d）不计入 DefiLlama dailyRevenue 口径"
+        }
+      },
       "growth_yoy_percent": null,
       "source": {
-        "type": "official",
-        "url": "https://news.curve.finance"
+        "type": "chain",
+        "url": "Community Fund Treasury crvUSD inflow × 9（FeeAllocator 90/10）+ DefiLlama dailyRevenue（本地 fee-history 缓存）"
       }
     },
     "gross_profit": {
-      "lp_share_cost_usd_365d": 2031388,
-      "gross_profit_usd_365d": 13304425,
-      "calculation_note": "近似：协议归属（dailyHoldersRevenue 口径）作为毛利；精确 LP 分润见专属 adapter"
+      "lp_share_cost_usd_365d": null,
+      "gross_profit_usd_365d": 15335813,
+      "calculation_note": "收入按 admin fee 口径（交易费 50% LP / 50% admin，LP 分润已排除）→ 毛利 = 收入"
     },
     "token_emission_cost": {
       "usd_365d": 26000000,
@@ -28,33 +36,33 @@
       "calculation_note": "CRV 年增发 ~1.155 亿（约 $26M/年）全流给 LP 挖矿（有对价换收入 → 作为成本从净利扣除，美股 SBC 类比）"
     },
     "net_income": {
-      "net_income_usd_365d": -12695575,
+      "net_income_usd_365d": -10664187,
       "operating_cost_usd_365d": null,
-      "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
+      "calculation_note": "净利 = 毛利 − 增发成本（美股 SBC 类比：CRV 增发全流 LP 挖矿，作为成本扣除）→ 净利为负（净稀释）"
     },
     "margins": {
-      "gross_margin_percent": 86.754,
-      "net_margin_percent": -82.7838,
-      "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
+      "gross_margin_percent": 100.0,
+      "net_margin_percent": -69.5378,
+      "note": "净利为负：增发按成本扣除（CRV 增发 $26M/年 > admin fee 收入 $15.34M）→ 净稀释；毛利率口径性 100%（收入已排除 LP 分润）"
     }
   },
   "holder_returns": {
     "by_mechanism": [
       {
-        "mechanism": "汇总（veCRV 分红 + veCRV Fee Distribution）",
+        "mechanism": "veCRV 分红（FeeAllocator 90% admin fee）",
         "type": "yield",
-        "usd_365d": 15335176.68,
-        "yield_percent": 4.84,
-        "_note": "通用适配器汇总口径（all-protocols 已验证 yield）；含金量/机制拆解待专属 adapter.py"
+        "usd_365d": 15335813,
+        "yield_percent": 4.8402,
+        "note": "90% admin fee 兑换 crvUSD 分给 veCRV 锁仓持有人（裸 CRV 不参与）；名义 yield = 股东回报 / CRV 全市值，实际锁仓持有人更高（veCRV-only 口径）"
       }
     ],
     "summary": {
       "destroy_usd_365d": null,
-      "yield_usd_365d": 15335176.68,
+      "yield_usd_365d": 15335813,
       "destroy_yield_percent": null,
-      "yield_yield_percent": 4.84,
-      "shareholder_returns_usd_365d": 15335176.68,
-      "shareholder_yield_percent": 4.84
+      "yield_yield_percent": 4.8402,
+      "shareholder_returns_usd_365d": 15335813,
+      "shareholder_yield_percent": 4.8402
     }
   },
   "balance_sheet": {
@@ -64,15 +72,15 @@
     "debt_usd": null
   },
   "valuation": {
-    "pe": 20.6612,
+    "pe": 20.6603,
     "ps": 20.6603,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null
   },
   "verification": {
-    "method": "Community Fund Treasury crvUSD inflow × 9 (FeeAllocator 90/10)",
+    "method": "FeeAllocator 90/10：Community Fund Treasury crvUSD inflow × 9 反推 veCRV TEV 365d=15335813 · 增发成本 26000000（config.token_emission_cost）",
     "status": "verified",
-    "last_checked": "2026-08-02"
+    "last_checked": "2026-08-03"
   }
 }

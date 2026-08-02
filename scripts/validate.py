@@ -95,10 +95,14 @@ def recompute_holder_summary(by_mechanism, mcap):
 
 
 def pct_diff(a, b):
-    """相对差异百分比（用较大的作分母）"""
+    """相对差异百分比（用较大的作分母）。None 与 0 视为等价：
+    GMX 等机制确凿为 0 的协议，文件写 0、by_mechanism 无值重算 None，语义相同。"""
     if a is None and b is None:
         return 0.0
     if a is None or b is None:
+        other = a if b is None else b
+        if other == 0:
+            return 0.0  # 0 ≡ None（机制确凿零 vs 数据不可得，但绝对值 0 等价）
         return 100.0
     denom = max(abs(a), abs(b), 1e-9)
     return abs(a - b) / denom * 100

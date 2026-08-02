@@ -1,0 +1,92 @@
+{
+  "id": "hyperliquid",
+  "name": "Hyperliquid",
+  "ticker": "HYPE",
+  "icon": "https://coin-images.coingecko.com/coins/images/50882/large/hyperliquid.jpg",
+  "category": "perpetuals",
+  "description": "去中心化永续合约交易所（Perp DEX），手续费直接销毁 HYPE",
+  "website": "https://hyperliquid.xyz",
+  "docs": "https://hyperfoundation.org",
+  "token": {
+    "chain": "Hyperliquid L1",
+    "coingecko_id": "hyperliquid",
+    "defillama_id": "hyperliquid"
+  },
+  "tev_mechanisms": [
+    {
+      "type": "buyback_burn",
+      "name": "Assistance Fund Buyback & Burn（手续费直接销毁）",
+      "description": "交易费流入 Assistance Fund，自动回购 HYPE 并从 circulating + total supply 永久移除 ≈ 回购（销毁流通币 = 流向所有持币人）",
+      "status": "active",
+      "ratio": 0.99,
+      "source": {
+        "type": "docs",
+        "title": "Hyperliquid Fees Documentation",
+        "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/fees"
+      }
+    }
+  ],
+  "tev_summary": {
+    "fee_switch": "ON",
+    "fee_switch_details": "交易费用流入 AF，自动回购并销毁 HYPE（从 circulating + total supply 永久移除）",
+    "buybacks": "ACTIVE",
+    "dividends": "NONE",
+    "burns": "ACTIVE",
+    "primary_value_accrual": "手续费直接销毁 ≈ 回购，基本 99%",
+    "tevRatio": 0.99
+  },
+  "market_data": {
+    "price_usd": 30.92,
+    "circulating_market_cap": 7368065201,
+    "snapshot_date": "2026-03-01",
+    "data_source": "CoinGecko"
+  },
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "手续费直接销毁 ≈ 回购，基本 99% 计入股东回报 🟢（销毁流通币 = 流向所有持币人）",
+    "revenue_included": {
+      "trading_fees": {
+        "note": "平台手续费（DefiLlama dailyRevenue / 链上 AF entryNtl）"
+      }
+    },
+    "revenue_excluded": {
+      "assistance_fund_balance": {
+        "note": "AF 用交易费回购 HYPE 留在 AF 地址（可被动用），按「只计流向流通持币人的价值流」铁律不计入，仅作注记"
+      },
+      "spot_fees_burn": {
+        "note": "spot 手续费真销毁计入（已含于 99% 口径）"
+      },
+      "funding_liquidation_gas": {
+        "note": "funding 为多空点对点支付、无清算手续费、HyperEVM gas burned 属供给收缩，均不计入"
+      }
+    },
+    "calculation": {
+      "revenue_usd_365d": "DefiLlama dailyRevenue 365d",
+      "tev_ratio": 0.99,
+      "note": "~99% 计入（以链上实际销毁为准）；AF 留存余额 ~1% 不计入"
+    },
+    "source_type": "chain",
+    "source_url": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/fees"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "chain",
+        "method": "AF 地址 + spot 销毁地址日频（entryNtl delta）",
+        "frequency": "daily",
+        "script": "update-hype-tev.py"
+      },
+      {
+        "type": "defillama",
+        "method": "dailyRevenue / dailyHoldersRevenue 交叉验证",
+        "frequency": "daily",
+        "script": "fetch-defillama.js"
+      }
+    ],
+    "ai_self_check": [
+      "mechanism-change",
+      "data-plausibility",
+      "freshness"
+    ]
+  }
+}
