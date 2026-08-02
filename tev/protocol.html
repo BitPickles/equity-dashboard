@@ -1267,22 +1267,41 @@
         const ALL_KEYS = ['net_income', 'pe', 'ps', 'shareholder_yield', 'net_margin'];
 
         // ── 主视图：多指标历史数据表（倒序：最新在上）──
+        // 默认显示最近 60 天 + "显示全部"展开按钮（避免 500+ 行渲染卡顿）
+        const HISTORY_PAGE_SIZE = 60;
         function renderHistoryTable() {
           const wrap = document.getElementById('history-table-wrap');
-          const recent = records.slice().reverse();  // 最新在前
-          const thead = `<tr style="color:var(--text-tertiary);text-align:right;font-size:11px;">
-            <th style="text-align:left;padding:8px 10px;">${currentLang === 'zh' ? '日期' : 'Date'}</th>
-            ${ALL_KEYS.map(k => `<th style="padding:8px 10px;${k === currentHistoryMetric ? 'color:var(--accent);' : ''}">${metricDefs[k].label}</th>`).join('')}
+          const sorted = records.slice().sort((a, b) => b.as_of.localeCompare(a.as_of));
+          const expanded = wrap.dataset.expanded === '1';
+          const display = expanded ? sorted : sorted.slice(0, HISTORY_PAGE_SIZE);
+          const hasMore = sorted.length > HISTORY_PAGE_SIZE;
+          const thead = `<tr style="color:var(--text-tertiary);text-align:right;font-size:11px;background:var(--bg-tertiary);">
+            <th style="text-align:left;padding:10px 12px;font-weight:600;">${currentLang === 'zh' ? '日期' : 'Date'}</th>
+            ${ALL_KEYS.map(k => `<th style="padding:10px 12px;font-weight:600;color:${k === currentHistoryMetric ? 'var(--accent)' : 'var(--text-tertiary)'};">${metricDefs[k].label}</th>`).join('')}
           </tr>`;
-          const tbody = recent.map(r => `<tr style="border-top:1px solid var(--border);">
-            <td style="padding:8px 10px;text-align:left;color:var(--text-secondary);font-family:'JetBrains Mono',monospace;font-size:11px;">${r.as_of}${r._period ? `<span style="margin-left:6px;font-size:10px;color:var(--text-tertiary);background:var(--bg-tertiary);padding:1px 5px;border-radius:4px;">${r._period}</span>` : ''}</td>
+          const tbody = display.map(r => `<tr style="border-top:1px solid var(--border);${r._period === 'snapshot' ? 'background:rgba(34,197,94,0.04);' : ''}">
+            <td style="padding:8px 12px;text-align:left;color:var(--text-secondary);font-family:'JetBrains Mono',monospace;font-size:11px;">${r.as_of}</td>
             ${ALL_KEYS.map(k => {
               const v = r[k];
-              return `<td style="padding:8px 10px;font-family:'JetBrains Mono',monospace;font-size:12px;${k === currentHistoryMetric ? 'background:rgba(34,197,94,0.06);font-weight:700;' : ''}${v != null && v < 0 ? 'color:#e5484d;' : ''}">${metricDefs[k].fmt(v)}</td>`;
+              const isHighlight = k === currentHistoryMetric;
+              return `<td style="padding:8px 12px;font-family:'JetBrains Mono',monospace;font-size:12px;${isHighlight ? 'background:rgba(34,197,94,0.08);font-weight:700;' : ''}${v != null && v < 0 ? 'color:#e5484d;' : ''}">${metricDefs[k].fmt(v)}</td>`;
             }).join('')}
           </tr>`).join('');
-          wrap.innerHTML = `<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12px;">
-            <thead>${thead}</thead><tbody>${tbody}</tbody></table></div>`;
+          const moreBtn = hasMore ? `<div style="text-align:center;margin-top:14px;">
+            <button onclick="document.getElementById('history-table-wrap').dataset.expanded = this.textContent.includes('${currentLang === 'zh' ? '展开' : 'show'}') ? '1' : '0'; window.__rerenderTable()" style="background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border);padding:8px 20px;border-radius:6px;font-size:12px;cursor:pointer;">
+              ${expanded ? (currentLang === 'zh' ? `收起（显示最近 ${HISTORY_PAGE_SIZE} 天）` : `Collapse (show recent ${HISTORY_PAGE_SIZE}d)`) : (currentLang === 'zh' ? `显示全部 ${sorted.length} 天历史 ↓` : `Show all ${sorted.length} days ↓`)}
+            </button></div>` : '';
+          wrap.innerHTML = `
+            <div style="overflow-x:auto;border:1px solid var(--border);border-radius:8px;">
+              <table style="width:100%;border-collapse:collapse;font-size:12px;">
+                <thead>${thead}</thead><tbody>${tbody}</tbody>
+              </table>
+            </div>
+            ${moreBtn}
+            <div style="font-size:11px;color:var(--text-tertiary);margin-top:8px;text-align:right;">
+              ${currentLang === 'zh' ? `共 ${sorted.length} 条历史记录 · 数据源：协议适配器每日累积` : `${sorted.length} records · Source: protocol adapter daily accumulation`}
+            </div>`;
+          if (window.__rerenderTable) window.__rerenderTable = () => renderHistoryTable();
         }
 
         // ── 副视图：当前指标折线图（失败不影响表格）──
@@ -1338,9 +1357,31 @@
         const sup = await resp.json();
         const pts = sup.points || [];
         if (!pts.length) { document.getElementById('supply-section').style.display = 'none'; return; }
+        const note = document.getElementById('supply-note');
+        const latest = pts[pts.length - 1];
+        const fmtSupply = v => v == null ? '—' : (v >= 1e9 ? (v/1e9).toFixed(2)+'B' : v >= 1e6 ? (v/1e6).toFixed(2)+'M' : v >= 1e3 ? (v/1e3).toFixed(1)+'K' : v.toFixed(0));
+        // 1 个点：显示大数字 info card（避免空图）；≥2 个点画折线图
+        if (pts.length < 2) {
+          const wrap = document.getElementById('supply-section').querySelector('.supply-chart-container');
+          wrap.innerHTML = `
+            <div style="display:flex;align-items:center;gap:24px;padding:20px 4px;">
+              <div style="flex:0 0 auto;">
+                <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">${currentLang === 'zh' ? '当前流通量' : 'Current Supply'}</div>
+                <div style="font-size:36px;font-weight:700;font-family:'JetBrains Mono',monospace;color:#f0b90b;">${fmtSupply(latest.circulating_supply)}</div>
+                <div style="font-size:11px;color:var(--text-tertiary);margin-top:4px;">${latest.date} · ${sup.symbol || ''}</div>
+              </div>
+              <div style="flex:1;color:var(--text-tertiary);font-size:12px;line-height:1.6;padding-left:24px;border-left:1px solid var(--border);">
+                ${currentLang === 'zh' ? '📊 流通量曲线需要 ≥2 个数据点才有意义。<br>每日更新脚本跑起来后会自动累积历史走势（参考下方 CMC 历史 daily 快照）。' : '📊 Supply curve needs ≥2 data points. Daily CMC snapshots will accumulate automatically.'}
+              </div>
+            </div>
+            <div style="font-size:11px;color:var(--text-tertiary);margin-top:8px;text-align:right;">
+              ${currentLang === 'zh' ? '数据来源：CoinMarketCap' : 'Source: CoinMarketCap'} · ${sup.symbol || ''}
+            </div>`;
+          document.getElementById('supply-section').classList.add('has-data');
+          return;
+        }
         const labels = pts.map(p => p.date);
         const values = pts.map(p => p.circulating_supply);
-        const note = document.getElementById('supply-note');
         if (note) note.textContent = (currentLang === 'zh' ? '数据来源：CoinMarketCap' : 'Source: CoinMarketCap') + ' · ' + sup.symbol || '';
         const ctx = document.getElementById('supply-chart');
         if (!ctx) return;
