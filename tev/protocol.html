@@ -1345,9 +1345,10 @@
             // 颜色区分：单期值柱状=绿色，累计折线=橙色
             const barColor = '#22c55e';   // 单期值（柱）
             const lineColor = '#f59e0b';  // 累计总量（线）
-            // 累计折线最高点限制在图 1/2 高度以下：y1.max = 累计最高值 × 2.2
-            const lineMax = Math.max(...lineVals.filter(v => v != null && isFinite(v)), 0);
-            const lineYMax = lineMax > 0 ? lineMax * 2.2 : undefined;
+            // Boss 2026-08-03 修正：单期值（柱）最高点 ≤ 图 1/2 高度（y.max = 单期最高值 × 2.2）；
+            // 累计总量（折线）自适应可以高
+            const barMax = Math.max(...barVals.filter(v => v != null && isFinite(v)), 0);
+            const barYMax = barMax > 0 ? barMax * 2.2 : undefined;
             historyChart = new Chart(ctx, {
               type: 'bar',
               data: {
@@ -1385,8 +1386,8 @@
                 },
                 scales: {
                   x: { ticks: { maxTicksLimit: 10, color: '#71717a', font: { size: 10 }, callback: xDateFmt, maxRotation: 0, autoSkip: true }, grid: { display: false } },
-                  y: { position: 'left', ticks: { color: '#71717a', font: { size: 10 }, callback: yFmtShort }, grid: { color: 'rgba(128,128,128,0.08)' }, title: { display: true, text: currentLang === 'zh' ? '单期值' : 'Period', color: '#71717a', font: { size: 10 } } },
-                  y1: { position: 'right', max: lineYMax, ticks: { color: lineColor, font: { size: 10 }, callback: yFmtShort }, grid: { display: false }, title: { display: true, text: isNet ? (currentLang === 'zh' ? '累计总量' : 'Cumulative') : def.label, color: lineColor, font: { size: 10 } } },
+                  y: { position: 'left', max: barYMax, ticks: { color: '#71717a', font: { size: 10 }, callback: yFmtShort }, grid: { color: 'rgba(128,128,128,0.08)' }, title: { display: true, text: currentLang === 'zh' ? '单期值' : 'Period', color: '#71717a', font: { size: 10 } } },
+                  y1: { position: 'right', ticks: { color: lineColor, font: { size: 10 }, callback: yFmtShort }, grid: { display: false }, title: { display: true, text: isNet ? (currentLang === 'zh' ? '累计总量' : 'Cumulative') : def.label, color: lineColor, font: { size: 10 } } },
                 },
               },
             });
