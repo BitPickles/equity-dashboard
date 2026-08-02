@@ -1308,6 +1308,7 @@
         // 表格先渲染（主视图），图表后渲染（副视图，失败不影响表格）
         renderHistoryTable();
         renderHistoryChart();
+        document.getElementById('history-dashboard-section').classList.add('has-data');
         document.querySelectorAll('#history-metric-tabs .history-tab').forEach(btn => {
           btn.onclick = () => {
             document.querySelectorAll('#history-metric-tabs .history-tab').forEach(b => b.classList.remove('active'));
@@ -1354,6 +1355,7 @@
                       y: { ticks: { color: '#71717a', font: { size: 10 }, callback: v => v >= 1e9 ? (v/1e9).toFixed(1)+'B' : v >= 1e6 ? (v/1e6).toFixed(1)+'M' : v }, grid: { color: 'rgba(128,128,128,0.08)' } } },
           },
         });
+        document.getElementById('supply-section').classList.add('has-data');
       } catch (e) {
         console.warn('Supply chart failed:', e);
       }
