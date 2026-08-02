@@ -338,7 +338,7 @@
         <div class="protocol-title">
           <div class="protocol-icon-lg" id="protocol-icon">🔮</div>
           <div class="protocol-info">
-            <h1><span id="protocol-name">Protocol</span><span class="badge badge-active" id="tev-badge">TEV Active</span></h1>
+            <h1><span id="protocol-name">Protocol</span><span class="badge badge-active" id="tev-badge">Cash Cow</span></h1>
             <div class="protocol-ticker" id="protocol-ticker">TICKER · Category</div>
             <div class="protocol-links">
               <a href="#" class="protocol-link" id="link-website" target="_blank">🌐 Website</a>
@@ -346,11 +346,6 @@
               <a href="#" class="protocol-link" id="link-coingecko" target="_blank">🦎 CoinGecko</a>
             </div>
           </div>
-        </div>
-        <div class="tev-highlight">
-          <div class="tev-status active" id="tev-status-text">TEV ACTIVE</div>
-          <div class="tev-value" id="primary-value">—</div>
-          <div class="tev-label" id="primary-label">Primary Value Accrual</div>
         </div>
       </div>
 
@@ -420,48 +415,24 @@
         </div>
       </div>
 
-      <!-- 3. TEV 历史记录（上位）-->
-      <div class="section chart-section" id="tev-chart-section">
-        <div class="section-title"><span class="icon">📈</span><span data-i18n="section.tevHistory">股东回报历史</span></div>
-        <div class="chart-container"><div class="chart-canvas-wrap"><canvas id="tev-history-chart"></canvas></div><div class="chart-stats" id="chart-stats"></div></div>
+      <!-- 3. 历史数据看板（净收益/PE/PS/股东回报率/净利率 可切换）-->
+      <div class="section chart-section" id="history-dashboard-section">
+        <div class="section-title"><span class="icon">📈</span><span data-i18n="section.historyDashboard">历史数据</span></div>
+        <div class="history-metric-tabs" id="history-metric-tabs">
+          <button class="history-tab active" data-metric="net_income" data-i18n="hd.netIncome">净收益</button>
+          <button class="history-tab" data-metric="pe" data-i18n="hd.pe">P/E</button>
+          <button class="history-tab" data-metric="ps" data-i18n="hd.ps">P/S</button>
+          <button class="history-tab" data-metric="shareholder_yield" data-i18n="hd.shareholderYield">股东回报率</button>
+          <button class="history-tab" data-metric="net_margin" data-i18n="hd.netMargin">净利率</button>
+        </div>
+        <div class="history-chart-container"><div class="chart-canvas-wrap"><canvas id="history-chart"></canvas></div></div>
+        <div class="history-table-wrap" id="history-table-wrap"></div>
       </div>
 
-      <!-- 3. 代币销毁 -->
-      <div class="section" id="token-burns-section" style="display: none;">
-        <div class="section-title"><span class="icon">🔥</span><span id="burns-section-title">销毁记录</span></div>
-        <div class="burn-progress-container">
-          <div class="burn-progress-header"><span data-i18n="burn.progress">销毁进度</span><span id="burn-progress-text">—</span></div>
-          <div class="burn-progress-bar" id="burn-progress-bar"><div class="burn-progress-fill" id="burn-progress-fill"></div></div>
-          <div id="burn-progress-note" class="burn-progress-note" style="font-size:12px;color:#a1a1aa;margin-top:4px;display:none;"></div>
-          <div class="burn-progress-stats">
-            <div class="burn-stat"><span class="burn-stat-value" id="burn-total">—</span><span class="burn-stat-label" data-i18n="burn.totalBurned">已销毁</span></div>
-            <div class="burn-stat"><span class="burn-stat-value" id="burn-remaining">—</span><span class="burn-stat-label" data-i18n="burn.remaining">剩余供应</span></div>
-            <div class="burn-stat"><span class="burn-stat-value" id="burn-target">100M</span><span class="burn-stat-label" data-i18n="burn.target">目标供应</span></div>
-          </div>
-        </div>
-        <div class="burn-charts-grid">
-          <div class="burn-chart-card"><h4 id="burn-amount-title">销毁数量</h4><div class="chart-canvas-wrap"><canvas id="burn-amount-chart"></canvas></div></div>
-          <div class="burn-chart-card"><h4 id="burn-value-title">销毁价值 (USD)</h4><div class="chart-canvas-wrap"><canvas id="burn-value-chart"></canvas></div></div>
-        </div>
-      </div>
-
-      <!-- 4. 回购数据 -->
-      <div class="section" id="buyback-chart-section" style="display: none;">
-        <div class="section-title"><span class="icon">💰</span><span data-i18n="section.buybackData">回购数据</span></div>
-        <div class="chart-container" style="height:400px;"><div class="chart-canvas-wrap"><canvas id="buyback-activity-chart"></canvas></div></div>
-        <div class="chart-legend" id="buyback-legend" style="display:flex;justify-content:center;gap:24px;margin-top:12px;font-size:12px;"></div>
-        <div class="chart-hint" style="text-align:center;color:var(--text-tertiary);font-size:11px;margin-top:8px;" data-i18n="chart.zoomHint">🖱️ 滚轮缩放 · 拖动平移 · 双击重置</div>
-        <div class="buyback-progress-container" id="buyback-progress-section" style="margin-top:24px;">
-          <div class="burn-progress-header"><span data-i18n="buyback.progress">回购进度</span><span id="buyback-progress-text">—</span></div>
-          <div class="burn-progress-bar"><div class="burn-progress-fill" id="buyback-progress-fill" style="background:linear-gradient(90deg,#22c55e,#16a34a);"></div></div>
-          <div class="burn-progress-stats" style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;">
-            <div class="burn-stat"><span class="burn-stat-value" id="buyback-total">—</span><span class="burn-stat-label" data-i18n="buyback.totalBought">已回购</span></div>
-            <div class="burn-stat"><span class="burn-stat-value" id="buyback-usd">—</span><span class="burn-stat-label" data-i18n="buyback.totalUsd">回购价值</span></div>
-            <div class="burn-stat"><span class="burn-stat-value" id="buyback-avg-price">—</span><span class="burn-stat-label">均价</span></div>
-            <div class="burn-stat"><span class="burn-stat-value" id="buyback-days">—</span><span class="burn-stat-label">天数</span></div>
-            <div class="burn-stat"><span class="burn-stat-value" id="buyback-supply">1B</span><span class="burn-stat-label" data-i18n="buyback.totalSupply">代币总量</span></div>
-          </div>
-        </div>
+      <!-- 6. 代币流通量曲线（CMC 数据源；key 未到位时显示占位提示）-->
+      <div class="section chart-section" id="supply-section">
+        <div class="section-title"><span class="icon">🪙</span><span data-i18n="section.supply">代币流通量</span></div>
+        <div class="supply-chart-container"><div class="chart-canvas-wrap"><canvas id="supply-chart"></canvas></div><div class="supply-note" id="supply-note" style="text-align:center;color:var(--text-tertiary);font-size:11px;margin-top:8px;"></div></div>
       </div>
 
       <!-- 5. 深度分析（机制 / 计算 / 备注 合并 tab）-->
@@ -493,24 +464,6 @@
         </div>
       </details>
 
-      <details class="extra-section" id="extra-tokenomics" style="display:none;">
-        <summary><span class="icon">🧩</span><span data-zh="代币经济学" data-en="Tokenomics">代币经济学</span></summary>
-        <div class="extra-body">
-          <div style="display:grid;grid-template-columns:2fr 1fr;gap:24px;align-items:start;" id="tokenomics-grid">
-            <div>
-              <h4 style="font-size:14px;color:var(--text-secondary);margin:0 0 12px;" id="unlock-chart-title" data-zh="代币释放曲线" data-en="Token Unlock Schedule">代币释放曲线</h4>
-              <div class="chart-canvas-wrap" style="height:320px;"><canvas id="unlock-curve-chart"></canvas></div>
-            </div>
-            <div>
-              <h4 style="font-size:14px;color:var(--text-secondary);margin:0 0 12px;" id="allocation-chart-title" data-zh="筹码分布" data-en="Token Allocation">筹码分布</h4>
-              <div class="chart-canvas-wrap" style="height:320px;display:flex;align-items:center;justify-content:center;"><canvas id="allocation-pie-chart"></canvas></div>
-            </div>
-          </div>
-          <div id="tokenomics-no-data" style="display:none;text-align:center;padding:40px 20px;color:var(--text-tertiary);font-size:14px;" data-zh="暂无 Tokenomics 数据" data-en="No Tokenomics data available">暂无 Tokenomics 数据</div>
-          <div style="text-align:right;font-size:11px;color:var(--text-tertiary);margin-top:8px;" id="tokenomics-source"></div>
-        </div>
-      </details>
-
       <details class="extra-section" id="extra-sources">
         <summary><span class="icon">🔗</span><span data-i18n="section.dataSources" data-zh="数据来源" data-en="Data Source">数据来源</span></summary>
         <div class="extra-body"><div class="sources-list" id="sources-container"></div></div>
@@ -526,7 +479,6 @@
       <span id="notes-section" style="display:none;"></span>
       <span id="references-section" style="display:none;"></span>
       <span id="governance-section" style="display:none;"></span>
-      <span id="tokenomics-section" style="display:none;"></span>
 
       <!-- 6. 计算口径（详情页最后区块，PRD 4.3）-->
       <div class="section" id="calculation-basis-section" style="display:none;">
@@ -540,8 +492,8 @@
 
   <script>
     const i18n = {
-      zh: { 'nav.dashboard': '仪表盘', 'nav.home': '首页', 'nav.tev': '协议估值', 'loading': '加载中...', 'section.tevSummary': '估值概览', 'section.tevHistory': '股东回报历史', 'section.buybackAddresses': '回购地址', 'section.tevMechanisms': '价值返还机制', 'section.dataSources': '数据来源', 'section.notes': '分析师备注', 'section.references': '参考资料', 'section.incomeStatement': '损益表', 'section.calcBasis': '计算口径', 'is.revenue': '收入 Revenue', 'is.lpCost': '− 直接成本（LP 分润）', 'is.grossProfit': '= 毛利 Gross Profit', 'is.emission': '− 增发成本（SBC 类比）', 'is.operating': '− 运营成本', 'is.netIncome': '= 净利 Net Income', 'is.margin': '利润率', 'is.grossMargin': '毛利率', 'is.netMargin': '净利率', 'is.holderAlloc': '净利分配', 'is.holderReturns': '→ 股东回报（流向持币人）', 'is.retained': '→ 留存（国库）', 'is.details': '计算过程与数据源', 'is.platformNote': '平台币口径：无 LP 成本模型，毛利 = 净利 = 收入（赋能总额）', 'cb.entityType': '实体类型判定', 'cb.revenue': '收入口径判定书', 'cb.emission': '增发成本处理', 'cb.netIncome': '净利润口径', 'cb.goldGrade': '含金量标注', 'cb.pipeline': '数据源与验证', 'cb.caveats': '已知假设 / Caveats', 'cb.included': '计入收入', 'cb.excluded': '不计入', 'cb.treatment.cost': '增发作为成本从净利扣除（有对价换当期收入）', 'cb.treatment.dilution': '无对价增发，作稀释注记展示', 'cb.treatment.none': '无代币增发', 'cb.verification.verified': '✅ 已验证（链上可复算）', 'cb.verification.partial': '🟡 部分验证', 'cb.verification.estimated': '🟠 估算口径（数据不可得时用）', 'cb.grade.destroy': '销毁型 🟢 真金白银回收（链上可验证）', 'cb.grade.yield': '收益型 🟡 增发/生态资源支付（含稀释成本）', 'cb.grade.dividend': '分红型 直接分配给持币人/质押者', 'cb.grade.buyback': '回购型 回购销毁或回购后分发', 'cb.noData': '数据不可得（— 而非 0）', 'buyback.current': '当前阶段', 'buyback.historical': '历史阶段', 'buyback.legacy': '历史钱包', 'buyback.disposal': '处置地址', 'buyback.autoDailyBuyback': '自动每日回购', 'buyback.strategicReserve': '战略回购储备', 'buyback.burnAddress': '销毁地址', 'buyback.airdropLock': '空投锁仓', 'buyback.progress': '回购进度', 'buyback.totalBought': '已回购', 'buyback.totalUsd': '回购价值', 'buyback.totalSupply': '代币总量', 'section.buybackData': '回购数据', 'chart.totalTev': '累计股东回报', 'chart.records': '记录数', 'chart.avgMonthly': '月均回报', 'chart.period': '数据周期', 'chart.cumulative': '累计回报', 'chart.zoomHint': '🖱️ 滚轮缩放 · 拖动平移 · 双击重置', 'tev.feeSwitch': '费用开关', 'tev.buybacks': '回购', 'tev.dividends': '分红', 'tev.burns': '销毁', 'tev.confidence': '可信度', 'footer.lastUpdated': '最后更新', 'status.active': '活跃', 'status.planned': '计划中', 'status.inactive': '未激活', 'status.ON': '已开启', 'status.OFF': '未开启', 'status.PARTIAL': '部分', 'status.NONE': '无', 'status.ACTIVE': '活跃', 'noTev.title': '该协议暂无股东回报', 'noTev.desc': '代币仅用于治理，协议收入未以分红或回购返还给代币持有者', 'mechanism.type.buyback': '回购', 'mechanism.type.buyback_burn': '回购销毁', 'mechanism.type.staking_reward': '质押奖励', 'mechanism.type.fee_sharing': '费用分成', 'mechanism.type.ve_distribution': 've 分配', 'mechanism.type.airdrop': '空投', 'mechanism.type.aggregate': '综合回报', 'mechanism.type.burn': '销毁', 'mechanism.type.direct_distribution': '直接分配', 'mechanism.type.ve_reward': 've 奖励', 'mechanism.type.holders_revenue': '持有者收入', 'source.governance': '治理', 'source.documentation': '文档', 'source.report': '报告', 'source.api': 'API', 'source.onchain': '链上', 'confidence.high': '高', 'confidence.medium': '中', 'confidence.low': '低', 'burn.progress': '销毁进度', 'burn.totalBurned': '已销毁', 'burn.remaining': '剩余供应', 'burn.target': '目标供应' },
-      en: { 'nav.dashboard': 'Dashboard', 'nav.home': 'Home', 'nav.tev': 'Valuation', 'loading': 'Loading...', 'section.tevSummary': 'Valuation Summary', 'section.tevHistory': 'Shareholder Return History', 'section.buybackAddresses': 'Buyback Addresses', 'section.tevMechanisms': 'Value Return Mechanisms', 'section.dataSources': 'Data Sources', 'section.notes': 'Analyst Notes', 'section.references': 'References', 'section.incomeStatement': 'Income Statement', 'section.calcBasis': 'Calculation Basis', 'is.revenue': 'Revenue', 'is.lpCost': '− Direct Costs (LP share)', 'is.grossProfit': '= Gross Profit', 'is.emission': '− Token Emission Cost (SBC-style)', 'is.operating': '− Operating Costs', 'is.netIncome': '= Net Income', 'is.margin': 'Margins', 'is.grossMargin': 'Gross Margin', 'is.netMargin': 'Net Margin', 'is.holderAlloc': 'Net Income Allocation', 'is.holderReturns': '→ Shareholder Returns (to holders)', 'is.retained': '→ Retained (treasury)', 'is.details': 'Calculation & Data Source', 'is.platformNote': 'Platform token: no LP cost model, GP = NI = Revenue (empowerment total)', 'cb.entityType': 'Entity Type', 'cb.revenue': 'Revenue Recognition', 'cb.emission': 'Emission Cost Treatment', 'cb.netIncome': 'Net Income Basis', 'cb.goldGrade': 'Gold-Grade Labels', 'cb.pipeline': 'Data Pipeline & Verification', 'cb.caveats': 'Assumptions / Caveats', 'cb.included': 'Included', 'cb.excluded': 'Excluded', 'cb.treatment.cost': 'Emission counted as cost (exchanged for current revenue)', 'cb.treatment.dilution': 'No-quid-pro-quo emission, shown as dilution note', 'cb.treatment.none': 'No token emission', 'cb.verification.verified': '✅ Verified (on-chain reproducible)', 'cb.verification.partial': '🟡 Partially verified', 'cb.verification.estimated': '🟠 Estimated (when data unavailable)', 'cb.grade.destroy': 'Destroy 🟢 Real cash recovery (on-chain verifiable)', 'cb.grade.yield': 'Yield 🟡 Emission/ecosystem-funded (includes dilution cost)', 'cb.grade.dividend': 'Dividend Directly distributed to holders/stakers', 'cb.grade.buyback': 'Buyback Bought back & burned or redistributed', 'cb.noData': 'Unavailable (— rather than 0)', 'buyback.current': 'Current Stage', 'buyback.historical': 'Historical Stage', 'buyback.legacy': 'Legacy Wallets', 'buyback.disposal': 'Disposal Addresses', 'buyback.autoDailyBuyback': 'Auto Daily Buyback', 'buyback.strategicReserve': 'Strategic Reserve', 'buyback.burnAddress': 'Burn Address', 'buyback.airdropLock': 'Airdrop Lock', 'buyback.progress': 'Buyback Progress', 'buyback.totalBought': 'Total Bought', 'buyback.totalUsd': 'Total Value', 'buyback.totalSupply': 'Total Supply', 'section.buybackData': 'Buyback Data', 'chart.totalTev': 'Total Returns', 'chart.records': 'Records', 'chart.avgMonthly': 'Avg Monthly', 'chart.period': 'Period', 'chart.cumulative': 'Cumulative Returns', 'chart.zoomHint': '🖱️ Scroll to zoom · Drag to pan · Double-click to reset', 'tev.feeSwitch': 'Fee Switch', 'tev.buybacks': 'Buybacks', 'tev.dividends': 'Dividends', 'tev.burns': 'Burns', 'tev.confidence': 'Confidence', 'footer.lastUpdated': 'Last Updated', 'status.active': 'Active', 'status.planned': 'Planned', 'status.inactive': 'Inactive', 'status.ON': 'ON', 'status.OFF': 'OFF', 'status.PARTIAL': 'Partial', 'status.NONE': 'None', 'status.ACTIVE': 'Active', 'noTev.title': 'No Shareholder Returns Yet', 'noTev.desc': 'Token is governance-only; protocol revenue is not returned to holders via dividends or buybacks', 'mechanism.type.buyback': 'Buyback', 'mechanism.type.buyback_burn': 'Buyback & Burn', 'mechanism.type.staking_reward': 'Staking Reward', 'mechanism.type.fee_sharing': 'Fee Sharing', 'mechanism.type.ve_distribution': 've Distribution', 'mechanism.type.airdrop': 'Airdrop', 'mechanism.type.aggregate': 'Total Return', 'mechanism.type.burn': 'Burn', 'mechanism.type.direct_distribution': 'Direct Distribution', 'mechanism.type.ve_reward': 've Reward', 'mechanism.type.holders_revenue': 'Holders Revenue', 'source.governance': 'Governance', 'source.documentation': 'Docs', 'source.report': 'Report', 'source.api': 'API', 'source.onchain': 'On-chain', 'confidence.high': 'High', 'confidence.medium': 'Medium', 'confidence.low': 'Low', 'burn.progress': 'Burn Progress', 'burn.totalBurned': 'Total Burned', 'burn.remaining': 'Remaining Supply', 'burn.target': 'Target Supply' }
+      zh: { 'nav.dashboard': '仪表盘', 'nav.home': '首页', 'nav.tev': '协议估值', 'loading': '加载中...', 'section.tevSummary': '估值概览', 'section.tevHistory': '股东回报历史', 'section.buybackAddresses': '回购地址', 'section.tevMechanisms': '价值返还机制', 'section.dataSources': '数据来源', 'section.notes': '分析师备注', 'section.references': '参考资料', 'section.incomeStatement': '损益表', 'section.calcBasis': '计算口径', 'is.revenue': '收入 Revenue', 'is.lpCost': '− 直接成本（LP 分润）', 'is.grossProfit': '= 毛利 Gross Profit', 'is.emission': '− 增发成本（SBC 类比）', 'is.operating': '− 运营成本', 'is.netIncome': '= 净利 Net Income', 'is.margin': '利润率', 'is.grossMargin': '毛利率', 'is.netMargin': '净利率', 'is.holderAlloc': '净利分配', 'is.holderReturns': '→ 股东回报（流向持币人）', 'is.retained': '→ 留存（国库）', 'is.details': '计算过程与数据源', 'is.platformNote': '平台币口径：无 LP 成本模型，毛利 = 净利 = 收入（赋能总额）', 'cb.entityType': '实体类型判定', 'cb.revenue': '收入口径判定书', 'cb.emission': '增发成本处理', 'cb.netIncome': '净利润口径', 'cb.goldGrade': '含金量标注', 'cb.pipeline': '数据源与验证', 'cb.caveats': '已知假设 / Caveats', 'cb.included': '计入收入', 'cb.excluded': '不计入', 'cb.treatment.cost': '增发作为成本从净利扣除（有对价换当期收入）', 'cb.treatment.dilution': '无对价增发，作稀释注记展示', 'cb.treatment.none': '无代币增发', 'cb.verification.verified': '✅ 已验证（链上可复算）', 'cb.verification.partial': '🟡 部分验证', 'cb.verification.estimated': '🟠 估算口径（数据不可得时用）', 'cb.grade.destroy': '销毁型 🟢 真金白银回收（链上可验证）', 'cb.grade.yield': '收益型 🟡 增发/生态资源支付（含稀释成本）', 'cb.grade.dividend': '分红型 直接分配给持币人/质押者', 'cb.grade.buyback': '回购型 回购销毁或回购后分发', 'cb.noData': '数据不可得（— 而非 0）', 'section.historyDashboard': '历史数据', 'section.supply': '代币流通量', 'hd.netIncome': '净收益', 'hd.pe': 'P/E', 'hd.ps': 'P/S', 'hd.shareholderYield': '股东回报率', 'hd.netMargin': '净利率', 'buyback.current': '当前阶段', 'buyback.historical': '历史阶段', 'buyback.legacy': '历史钱包', 'buyback.disposal': '处置地址', 'buyback.autoDailyBuyback': '自动每日回购', 'buyback.strategicReserve': '战略回购储备', 'buyback.burnAddress': '销毁地址', 'buyback.airdropLock': '空投锁仓', 'buyback.progress': '回购进度', 'buyback.totalBought': '已回购', 'buyback.totalUsd': '回购价值', 'buyback.totalSupply': '代币总量', 'section.buybackData': '回购数据', 'chart.totalTev': '累计股东回报', 'chart.records': '记录数', 'chart.avgMonthly': '月均回报', 'chart.period': '数据周期', 'chart.cumulative': '累计回报', 'chart.zoomHint': '🖱️ 滚轮缩放 · 拖动平移 · 双击重置', 'tev.feeSwitch': '费用开关', 'tev.buybacks': '回购', 'tev.dividends': '分红', 'tev.burns': '销毁', 'tev.confidence': '可信度', 'footer.lastUpdated': '最后更新', 'status.active': '活跃', 'status.planned': '计划中', 'status.inactive': '未激活', 'status.ON': '已开启', 'status.OFF': '未开启', 'status.PARTIAL': '部分', 'status.NONE': '无', 'status.ACTIVE': '活跃', 'noTev.title': '该协议暂无股东回报', 'noTev.desc': '代币仅用于治理，协议收入未以分红或回购返还给代币持有者', 'mechanism.type.buyback': '回购', 'mechanism.type.buyback_burn': '回购销毁', 'mechanism.type.staking_reward': '质押奖励', 'mechanism.type.fee_sharing': '费用分成', 'mechanism.type.ve_distribution': 've 分配', 'mechanism.type.airdrop': '空投', 'mechanism.type.aggregate': '综合回报', 'mechanism.type.burn': '销毁', 'mechanism.type.direct_distribution': '直接分配', 'mechanism.type.ve_reward': 've 奖励', 'mechanism.type.holders_revenue': '持有者收入', 'source.governance': '治理', 'source.documentation': '文档', 'source.report': '报告', 'source.api': 'API', 'source.onchain': '链上', 'confidence.high': '高', 'confidence.medium': '中', 'confidence.low': '低', 'burn.progress': '销毁进度', 'burn.totalBurned': '已销毁', 'burn.remaining': '剩余供应', 'burn.target': '目标供应' },
+      en: { 'nav.dashboard': 'Dashboard', 'nav.home': 'Home', 'nav.tev': 'Valuation', 'loading': 'Loading...', 'section.tevSummary': 'Valuation Summary', 'section.tevHistory': 'Shareholder Return History', 'section.buybackAddresses': 'Buyback Addresses', 'section.tevMechanisms': 'Value Return Mechanisms', 'section.dataSources': 'Data Sources', 'section.notes': 'Analyst Notes', 'section.references': 'References', 'section.incomeStatement': 'Income Statement', 'section.calcBasis': 'Calculation Basis', 'is.revenue': 'Revenue', 'is.lpCost': '− Direct Costs (LP share)', 'is.grossProfit': '= Gross Profit', 'is.emission': '− Token Emission Cost (SBC-style)', 'is.operating': '− Operating Costs', 'is.netIncome': '= Net Income', 'is.margin': 'Margins', 'is.grossMargin': 'Gross Margin', 'is.netMargin': 'Net Margin', 'is.holderAlloc': 'Net Income Allocation', 'is.holderReturns': '→ Shareholder Returns (to holders)', 'is.retained': '→ Retained (treasury)', 'is.details': 'Calculation & Data Source', 'is.platformNote': 'Platform token: no LP cost model, GP = NI = Revenue (empowerment total)', 'cb.entityType': 'Entity Type', 'cb.revenue': 'Revenue Recognition', 'cb.emission': 'Emission Cost Treatment', 'cb.netIncome': 'Net Income Basis', 'cb.goldGrade': 'Gold-Grade Labels', 'cb.pipeline': 'Data Pipeline & Verification', 'cb.caveats': 'Assumptions / Caveats', 'cb.included': 'Included', 'cb.excluded': 'Excluded', 'cb.treatment.cost': 'Emission counted as cost (exchanged for current revenue)', 'cb.treatment.dilution': 'No-quid-pro-quo emission, shown as dilution note', 'cb.treatment.none': 'No token emission', 'cb.verification.verified': '✅ Verified (on-chain reproducible)', 'cb.verification.partial': '🟡 Partially verified', 'cb.verification.estimated': '🟠 Estimated (when data unavailable)', 'cb.grade.destroy': 'Destroy 🟢 Real cash recovery (on-chain verifiable)', 'cb.grade.yield': 'Yield 🟡 Emission/ecosystem-funded (includes dilution cost)', 'cb.grade.dividend': 'Dividend Directly distributed to holders/stakers', 'cb.grade.buyback': 'Buyback Bought back & burned or redistributed', 'cb.noData': 'Unavailable (— rather than 0)', 'section.historyDashboard': 'History', 'section.supply': 'Circulating Supply', 'hd.netIncome': 'Net Income', 'hd.pe': 'P/E', 'hd.ps': 'P/S', 'hd.shareholderYield': 'Shareholder Yield', 'hd.netMargin': 'Net Margin', 'buyback.current': 'Current Stage', 'buyback.historical': 'Historical Stage', 'buyback.legacy': 'Legacy Wallets', 'buyback.disposal': 'Disposal Addresses', 'buyback.autoDailyBuyback': 'Auto Daily Buyback', 'buyback.strategicReserve': 'Strategic Reserve', 'buyback.burnAddress': 'Burn Address', 'buyback.airdropLock': 'Airdrop Lock', 'buyback.progress': 'Buyback Progress', 'buyback.totalBought': 'Total Bought', 'buyback.totalUsd': 'Total Value', 'buyback.totalSupply': 'Total Supply', 'section.buybackData': 'Buyback Data', 'chart.totalTev': 'Total Returns', 'chart.records': 'Records', 'chart.avgMonthly': 'Avg Monthly', 'chart.period': 'Period', 'chart.cumulative': 'Cumulative Returns', 'chart.zoomHint': '🖱️ Scroll to zoom · Drag to pan · Double-click to reset', 'tev.feeSwitch': 'Fee Switch', 'tev.buybacks': 'Buybacks', 'tev.dividends': 'Dividends', 'tev.burns': 'Burns', 'tev.confidence': 'Confidence', 'footer.lastUpdated': 'Last Updated', 'status.active': 'Active', 'status.planned': 'Planned', 'status.inactive': 'Inactive', 'status.ON': 'ON', 'status.OFF': 'OFF', 'status.PARTIAL': 'Partial', 'status.NONE': 'None', 'status.ACTIVE': 'Active', 'noTev.title': 'No Shareholder Returns Yet', 'noTev.desc': 'Token is governance-only; protocol revenue is not returned to holders via dividends or buybacks', 'mechanism.type.buyback': 'Buyback', 'mechanism.type.buyback_burn': 'Buyback & Burn', 'mechanism.type.staking_reward': 'Staking Reward', 'mechanism.type.fee_sharing': 'Fee Sharing', 'mechanism.type.ve_distribution': 've Distribution', 'mechanism.type.airdrop': 'Airdrop', 'mechanism.type.aggregate': 'Total Return', 'mechanism.type.burn': 'Burn', 'mechanism.type.direct_distribution': 'Direct Distribution', 'mechanism.type.ve_reward': 've Reward', 'mechanism.type.holders_revenue': 'Holders Revenue', 'source.governance': 'Governance', 'source.documentation': 'Docs', 'source.report': 'Report', 'source.api': 'API', 'source.onchain': 'On-chain', 'confidence.high': 'High', 'confidence.medium': 'Medium', 'confidence.low': 'Low', 'burn.progress': 'Burn Progress', 'burn.totalBurned': 'Total Burned', 'burn.remaining': 'Remaining Supply', 'burn.target': 'Target Supply' }
     };
     let currentLang = localStorage.getItem('lang') || 'zh';
     const t = k => i18n[currentLang][k] || k;
@@ -720,273 +672,6 @@
       }
     }
 
-    async function loadBurnsChart(pid) {
-      // Read burn_progress from config.json (already loaded as protocolConfig)
-      const bp = protocolConfig?.burn_progress;
-      if (!bp) { document.querySelector('.burn-progress-container').style.display = 'none'; document.querySelector('.burn-charts-grid').style.display = 'none'; return; }
-      const totalBurned = bp.total_burned;
-      const target = bp.target;
-      const ticker = bp.ticker || protocolConfig.ticker || '';
-      const targetLabel = bp.target_label;
-      // BNB special: target is burn target (initial - target_supply)
-      let burnTarget, progress, progressText;
-      if (bp.target_supply) {
-        burnTarget = bp.initial_supply - bp.target_supply;
-        progress = (totalBurned / burnTarget) * 100;
-        progressText = `${(totalBurned / 1e6).toFixed(2)}M / ${(burnTarget / 1e6).toFixed(0)}M ${ticker}`;
-      } else {
-        progress = (totalBurned / target) * 100;
-        progressText = `${(totalBurned / 1e6).toFixed(2)}M / ${(target / 1e6).toFixed(0)}M ${ticker} (${progress.toFixed(2)}%)`;
-      }
-      document.querySelector('.burn-progress-container').style.display = '';
-      const barEl = document.getElementById('burn-progress-bar');
-      // Clear existing fills
-      barEl.innerHTML = '';
-      if (bp.segments && bp.segments.length > 1) {
-        // Multi-segment mode
-        const baseTarget = bp.target_supply ? (bp.initial_supply - bp.target_supply) : bp.target;
-        bp.segments.forEach(seg => {
-          const segPct = (seg.amount / baseTarget) * 100;
-          const segEl = document.createElement('div');
-          segEl.className = 'burn-progress-fill';
-          segEl.style.width = `${Math.min(segPct, 100)}%`;
-          segEl.style.position = 'relative';
-          segEl.style.display = 'inline-block';
-          segEl.style.height = '100%';
-          segEl.style.background = seg.color;
-          segEl.style.borderRadius = '0';
-          segEl.title = `${currentLang === 'zh' ? seg.label : seg.label_en}: ${(seg.amount / 1e6).toFixed(2)}M ${ticker}`;
-          barEl.appendChild(segEl);
-        });
-        // Round corners on first and last
-        if (barEl.firstChild) barEl.firstChild.style.borderRadius = '6px 0 0 6px';
-        if (barEl.lastChild) barEl.lastChild.style.borderRadius = '0 6px 6px 0';
-      } else {
-        // Single segment mode
-        const fillEl = document.createElement('div');
-        fillEl.className = 'burn-progress-fill';
-        fillEl.id = 'burn-progress-fill';
-        fillEl.style.width = `${Math.min(progress, 100)}%`;
-        fillEl.style.background = 'linear-gradient(90deg, #ef4444, #f97316)';
-        fillEl.textContent = `${progress.toFixed(1)}%`;
-        barEl.appendChild(fillEl);
-      }
-      document.getElementById('burn-progress-text').textContent = progressText;
-      document.getElementById('burn-total').textContent = `${(totalBurned / 1e6).toFixed(2)}M ${ticker}`;
-      const remaining = bp.target_supply ? (bp.initial_supply - totalBurned) : (target - totalBurned);
-      document.getElementById('burn-remaining').textContent = `${(remaining / 1e6).toFixed(2)}M ${ticker}`;
-      document.getElementById('burn-target').textContent = `${((bp.target_supply || target) / 1e6).toFixed(0)}M ${ticker}`;
-      // Show note for protocols with specific burn targets
-      const noteEl = document.getElementById('burn-progress-note');
-      if (bp.note) { noteEl.textContent = bp.note; noteEl.style.display = ''; } else { noteEl.style.display = 'none'; }
-      // Segment legend
-      let legendEl = document.getElementById('burn-segment-legend');
-      if (!legendEl) { legendEl = document.createElement('div'); legendEl.id = 'burn-segment-legend'; legendEl.style.cssText = 'display:flex;gap:16px;margin-top:6px;font-size:12px;color:#a1a1aa;flex-wrap:wrap;'; noteEl.parentElement.insertBefore(legendEl, noteEl.nextSibling); }
-      legendEl.innerHTML = '';
-      if (bp.segments && bp.segments.length > 1) {
-        bp.segments.forEach(seg => {
-          const item = document.createElement('span');
-          item.style.cssText = 'display:inline-flex;align-items:center;gap:4px;';
-          item.innerHTML = `<span style="width:10px;height:10px;border-radius:2px;background:${seg.color};display:inline-block;"></span>${currentLang === 'zh' ? seg.label : seg.label_en}: ${(seg.amount / 1e6).toFixed(2)}M`;
-          legendEl.appendChild(item);
-        });
-        legendEl.style.display = '';
-      } else { legendEl.style.display = 'none'; }
-      // Hide the old burn charts grid (TEV history chart handles this now)
-      document.querySelector('.burn-charts-grid').style.display = 'none';
-      // Show the section
-      document.getElementById('token-burns-section').style.display = 'block';
-      const sTitle = currentLang === 'zh' ? '销毁记录' : 'Burn Records';
-      document.getElementById('burns-section-title').textContent = sTitle;
-    }
-
-    async function loadBuybackData(pid) {
-      try {
-        const resp = await fetch(`../data/${pid}-buybacks.json`);
-        if (!resp.ok) return;
-        const data = await resp.json();
-        
-        // 支持季度数据（如 Fluid）或每日数据
-        const quarterlyData = data.quarterly_buybacks || [];
-        const dailyData = data.daily_buybacks || [];
-        const isQuarterly = data.data_type === 'quarterly' || (!dailyData.length && quarterlyData.length);
-        const chartData = isQuarterly ? quarterlyData : dailyData;
-        const stages = data.stages || [];
-        
-        if (!chartData.length) return;
-        
-        document.getElementById('buyback-chart-section').style.display = 'block';
-        
-        // Calculate totals for progress bar - support aster, hype, fluid fields
-        // 优先使用代币数量字段 (aster/hype/fluid)，只有纯 USD 数据才用 usd
-        const amountField = chartData[0]?.aster !== undefined ? 'aster' : 
-                           (chartData[0]?.hype !== undefined ? 'hype' : 
-                           (chartData[0]?.fluid !== undefined ? 'fluid' : 'usd'));
-        const isUsdOnly = amountField === 'usd';  // 只有 USD 数据的协议
-        const totalAmount = chartData.reduce((s, d) => s + (d[amountField] || 0), 0);
-        const totalSupply = data.total_supply || 1e9;
-        const ticker = data.ticker || 'TOKEN';
-        
-        // Use summary totals if available (more accurate)
-        const displayTotal = data.summary?.total_buyback_hype || data.summary?.total_buyback_aster || data.summary?.total_buyback_fluid || (isUsdOnly ? 0 : totalAmount);
-        const displayUsd = data.summary?.total_buyback_usd || (isUsdOnly ? totalAmount : 0);
-        const progress = isUsdOnly ? 0 : (displayTotal / totalSupply) * 100;
-        
-        // Update progress bar - hide for USD-only mode (no token amounts)
-        const progressContainer = document.querySelector('.buyback-progress-container');
-        if (isUsdOnly && progressContainer) {
-          progressContainer.style.display = 'none';
-          document.getElementById('buyback-total').textContent = '—';
-        } else {
-          if (progressContainer) progressContainer.style.display = '';
-          document.getElementById('buyback-progress-fill').style.width = `${Math.min(progress, 100)}%`;
-          document.getElementById('buyback-progress-fill').textContent = `${progress.toFixed(2)}%`;
-          document.getElementById('buyback-progress-text').textContent = `${(displayTotal / 1e6).toFixed(2)}M / ${(totalSupply / 1e9).toFixed(0)}B (${progress.toFixed(2)}%)`;
-          document.getElementById('buyback-total').textContent = `${(displayTotal / 1e6).toFixed(2)}M`;
-        }
-        
-        // USD display
-        document.getElementById('buyback-usd').textContent = displayUsd > 0 ? fmtCurrency(displayUsd) : '—';
-        document.getElementById('buyback-supply').textContent = `${(totalSupply / 1e6).toFixed(0)}M`;
-        
-        // Additional stats
-        const avgPrice = data.summary?.avg_price || data.summary?.avg_daily || (displayUsd / displayTotal);
-        const totalDays = data.summary?.total_days || dailyData.length;
-        document.getElementById('buyback-avg-price').textContent = avgPrice > 0 ? `$${avgPrice.toFixed(2)}` : '—';
-        document.getElementById('buyback-days').textContent = totalDays > 0 ? `${totalDays}` : '—';
-        
-        const ctx = document.getElementById('buyback-activity-chart').getContext('2d');
-        if (buybackChart) buybackChart.destroy();
-        
-        // 每日数据图表 - 用颜色区分阶段和数据类型
-        // estimated / 1-4 / defillama / official: 灰色半透明（Aster 用紫色标注公告均摊估算）
-        // onchain / 5 / 6: 绿色
-        const getBarColor = (d) => {
-          const isEstimated = d.dataType === 'estimated' || d.data_type === 'estimated' || 
-              d.stage === '1-4' || d.stage === 'defillama' || d.stage === 'official';
-          if (isEstimated) {
-            return pid === 'aster' ? 'rgba(168,85,247,0.55)' : 'rgba(120,120,120,0.5)';
-          }
-          return 'rgba(34,197,94,0.8)';  // 绿色 - 链上
-        };
-        const getBorderColor = (d) => {
-          const isEstimated = d.dataType === 'estimated' || d.data_type === 'estimated' || 
-              d.stage === '1-4' || d.stage === 'defillama' || d.stage === 'official';
-          if (isEstimated) {
-            return pid === 'aster' ? 'rgba(168,85,247,1)' : 'rgba(120,120,120,0.8)';
-          }
-          return 'rgba(34,197,94,1)';
-        };
-        
-        // 对 hype 使用 USD 柱状 + 累计折线（每日 HYPE 是估算值，USD 来自 DefiLlama 更准确）
-        const useUsdChart = pid === 'hype' || isUsdOnly;
-        const yField = useUsdChart ? 'usd' : amountField;
-        
-        const chartPoints = isQuarterly 
-          ? chartData.map(d => ({ x: d.quarter, y: d.usd || 0, ...d, dataType: d.dataType || d.data_type }))
-          : chartData.map(d => ({ x: new Date(d.date), y: d[yField] || 0, stage: d.stage, dataType: d.dataType || d.data_type, source: d.source, usd: d.usd, hype: d.hype, avgPrice: d.avg_price }));
-        
-        const datasets = [{
-          label: useUsdChart ? 'USD / day' : ticker,
-          data: chartPoints,
-          backgroundColor: chartData.map(d => getBarColor(d)),
-          borderColor: chartData.map(d => getBorderColor(d)),
-          borderWidth: 1, borderRadius: 4,
-          barPercentage: isQuarterly ? 0.6 : 1,
-          categoryPercentage: isQuarterly ? 0.8 : 1,
-          yAxisID: 'y', order: 2
-        }];
-        const extraScales = {};
-        if (pid === 'hype' && !isQuarterly) {
-          let cumSum = 0;
-          const cumData = chartData.map(d => { cumSum += (d.usd || 0); return { x: new Date(d.date), y: cumSum }; });
-          datasets.push({
-            label: currentLang === 'zh' ? '累计回购 (USD)' : 'Cumulative (USD)',
-            data: cumData, borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,0.1)',
-            borderWidth: 2, pointRadius: 0, fill: true, type: 'line', yAxisID: 'y2', tension: 0.3, order: 1
-          });
-          extraScales.y2 = {
-            position: 'right', grid: { display: false },
-            ticks: { color: '#f59e0b', callback: v => '$' + (v/1e9).toFixed(2) + 'B' },
-            title: { display: true, text: currentLang === 'zh' ? '累计 USD' : 'Cumulative USD', color: '#f59e0b' }
-          };
-        }
-        
-        buybackChart = new Chart(ctx, {
-          type: 'bar',
-          data: { labels: isQuarterly ? chartData.map(d => d.quarter) : undefined, datasets },
-          options: {
-            responsive: true, maintainAspectRatio: false,
-            interaction: { mode: 'index', intersect: false },
-            plugins: {
-              legend: { display: pid === 'hype', position: 'top', labels: { color: '#a1a1aa', font: { size: 11 }, boxWidth: 12, padding: 16 } },
-              tooltip: {
-                backgroundColor: '#18181b', titleColor: '#fafafa', bodyColor: '#a1a1aa',
-                callbacks: {
-                  title: (items) => isQuarterly ? items[0].raw.quarter : items[0].raw.x.toLocaleDateString(currentLang === 'zh' ? 'zh-CN' : 'en-US'),
-                  label: (ctx) => {
-                    if (ctx.dataset.yAxisID === 'y2') return ` ${ctx.dataset.label}: ${fmtCurrency(ctx.raw.y)}`;
-                    return useUsdChart || isQuarterly ? ` $${(ctx.raw.y/1e6).toFixed(2)}M` : ` ${(ctx.raw.y/1e3).toFixed(1)}K ${ticker}`;
-                  },
-                  afterLabel: (ctx) => {
-                    if (ctx.dataset.yAxisID === 'y2') return [];
-                    const d = ctx.raw; const lines = [];
-                    if (d.source) lines.push(`来源: ${d.source}`);
-                    if (!isQuarterly && d.stage) lines.push(`Stage: ${d.stage}`);
-                    if (!isQuarterly && d.hype) lines.push(`HYPE: ${(d.hype/1e3).toFixed(1)}K`);
-                    if (d.avgPrice) lines.push(`Avg: $${d.avgPrice.toFixed(2)}`);
-                    lines.push(d.dataType === 'estimated' ? '⚠️ DefiLlama 数据' : '✅ 链上数据');
-                    return lines;
-                  }
-                }
-              },
-              zoom: { pan: { enabled: true, mode: 'x' }, zoom: { wheel: { enabled: true }, pinch: { enabled: true }, mode: 'x' } }
-            },
-            scales: {
-              x: isQuarterly ? {
-                type: 'category', grid: { display: false }, ticks: { color: '#71717a', font: { size: 12 } }
-              } : {
-                type: 'time', time: { unit: 'month', displayFormats: { month: 'yyyy-MM', week: 'MM-dd' } },
-                grid: { display: false }, ticks: { color: '#71717a', maxRotation: 0, font: { size: 10 }, maxTicksLimit: 15 }
-              },
-              y: {
-                grid: { color: 'rgba(39,39,42,0.5)' },
-                ticks: { color: '#a1a1aa', callback: v => useUsdChart || isQuarterly ? '$' + (v/1e6).toFixed(1) + 'M' : (v/1e6).toFixed(1) + 'M' },
-                title: { display: true, text: isQuarterly ? 'USD / quarter' : (useUsdChart ? 'USD / day' : `${ticker} / day`), color: '#a1a1aa' }
-              },
-              ...extraScales
-            }
-          }
-        });
-        
-        // Double-click to reset zoom
-        ctx.canvas.ondblclick = () => buybackChart.resetZoom();
-
-        // 设置图例（根据协议）
-        const legendEl = document.getElementById('buyback-legend');
-        if (legendEl) {
-          if (pid === 'aster') {
-            legendEl.innerHTML = '<span style="color:#a855f7;">■ Stage 1-4 (公告均摊估算)</span><span style="color:#22c55e;">■ Stage 5-6 (链上数据)</span>';
-          } else if (pid === 'hype') {
-            legendEl.innerHTML = '<span style="color:#787878;">■ DefiLlama 数据</span><span style="color:#22c55e;">■ 链上数据</span><span style="color:#f59e0b;">━ 累计回购</span>';
-          } else if (pid === 'fluid') {
-            legendEl.innerHTML = '<span style="color:#22c55e;">■ 链上回购数据 (Etherscan)</span>';
-          } else {
-            legendEl.innerHTML = '';
-          }
-        }
-      } catch (e) { console.log(`No buyback data for ${pid}:`, e.message); }
-    }
-
-    // TEV-to-governance name mapping
-    const TEV_TO_GOV = {
-      'aave': 'Aave', 'bnb': 'BNB Chain', 'compound': 'Compound', 'curve': 'Curve',
-      'dydx': 'dYdX', 'eigenlayer': 'EigenLayer', 'ethena': 'Ethena', 'etherfi': 'ether.fi',
-      'fluid': 'Fluid', 'gmx': 'GMX', 'lido': 'Lido', 'maple': 'Maple Finance',
-      'morpho': 'Morpho', 'pancakeswap': 'PancakeSwap', 'pendle': 'Pendle',
-      'mnt': 'Mantle', 'sky': 'Sky (MakerDAO)', 'spark': 'Spark', 'uniswap': 'Uniswap'
-    };
-
     async function loadGovernance(pid) {
       const govName = TEV_TO_GOV[pid];
       if (!govName) return;
@@ -1057,183 +742,6 @@
       }
     }
 
-    async function loadTokenomics(pid) {
-      try {
-        const resp = await fetch(`../data/tokenomics/${pid}.json`);
-        if (!resp.ok) return;
-        const data = await resp.json();
-
-        const hasAllocation = data.allocation && data.allocation.length > 0;
-        const hasSchedule = data.unlock_schedule && data.unlock_schedule.length > 0;
-
-        if (!hasAllocation && !hasSchedule) {
-          // Show "no data" message
-          document.getElementById('extra-tokenomics').style.display = '';
-          document.getElementById('tokenomics-grid').style.display = 'none';
-          document.getElementById('tokenomics-no-data').style.display = '';
-          return;
-        }
-
-        document.getElementById('extra-tokenomics').style.display = '';
-        document.getElementById('tokenomics-grid').style.display = '';
-        document.getElementById('tokenomics-no-data').style.display = 'none';
-
-        // Source line
-        if (data.source && data.source !== 'N/A - data not yet collected') {
-          document.getElementById('tokenomics-source').textContent =
-            (currentLang === 'zh' ? '数据来源: ' : 'Source: ') + data.source +
-            (data.updated_at ? ` (${data.updated_at})` : '');
-        }
-
-        // --- Unlock Curve (Area Chart) ---
-        if (hasSchedule) {
-          const ctx = document.getElementById('unlock-curve-chart').getContext('2d');
-          if (unlockCurveChart) unlockCurveChart.destroy();
-
-          const schedulePoints = data.unlock_schedule.map(s => ({
-            x: new Date(s.date),
-            y: s.cumulative_percent
-          }));
-
-          // Add origin point if first entry doesn't start at 0
-          if (schedulePoints.length > 0 && schedulePoints[0].y > 0) {
-            const firstDate = new Date(schedulePoints[0].x);
-            firstDate.setMonth(firstDate.getMonth() - 3);
-            schedulePoints.unshift({ x: firstDate, y: 0 });
-          }
-
-          const now = new Date();
-          // Split into past (solid) and future (dashed)
-          const pastPoints = schedulePoints.filter(p => p.x <= now);
-          const futurePoints = schedulePoints.filter(p => p.x > now);
-
-          // Bridge: last past point or interpolated current value
-          let bridgePoint = null;
-          if (pastPoints.length > 0 && futurePoints.length > 0) {
-            bridgePoint = pastPoints[pastPoints.length - 1];
-          } else if (pastPoints.length === 0 && futurePoints.length > 0) {
-            bridgePoint = { x: now, y: 0 };
-          }
-
-          const datasets = [];
-
-          // Past: solid area
-          if (pastPoints.length > 0) {
-            datasets.push({
-              label: currentLang === 'zh' ? '已释放' : 'Unlocked',
-              data: pastPoints,
-              borderColor: '#22c55e',
-              backgroundColor: 'rgba(34,197,94,0.15)',
-              borderWidth: 2, pointRadius: 3, fill: true, tension: 0.3,
-              order: 2
-            });
-          }
-
-          // Future: dashed line
-          if (futurePoints.length > 0) {
-            const futureFull = bridgePoint ? [bridgePoint, ...futurePoints] : futurePoints;
-            datasets.push({
-              label: currentLang === 'zh' ? '待释放' : 'Upcoming',
-              data: futureFull,
-              borderColor: 'rgba(34,197,94,0.5)',
-              backgroundColor: 'rgba(34,197,94,0.05)',
-              borderWidth: 2, borderDash: [6, 4], pointRadius: 3, fill: true, tension: 0.3,
-              order: 1
-            });
-          }
-
-          unlockCurveChart = new Chart(ctx, {
-            type: 'line',
-            data: { datasets },
-            options: {
-              responsive: true, maintainAspectRatio: false,
-              interaction: { mode: 'index', intersect: false },
-              plugins: {
-                legend: { display: true, position: 'top', labels: { color: '#a1a1aa', font: { size: 11 }, boxWidth: 12, padding: 12 } },
-                tooltip: {
-                  backgroundColor: '#18181b', titleColor: '#fafafa', bodyColor: '#a1a1aa',
-                  callbacks: {
-                    title: (items) => items[0].raw.x.toLocaleDateString(currentLang === 'zh' ? 'zh-CN' : 'en-US', { year: 'numeric', month: 'short' }),
-                    label: (ctx) => ` ${ctx.dataset.label}: ${ctx.raw.y.toFixed(1)}%`
-                  }
-                },
-                annotation: {
-                  annotations: {
-                    nowLine: {
-                      type: 'line', xMin: now, xMax: now,
-                      borderColor: '#ef4444', borderWidth: 1.5, borderDash: [4, 3],
-                      label: { display: true, content: currentLang === 'zh' ? '今日' : 'Today', position: 'start', backgroundColor: 'rgba(239,68,68,0.8)', font: { size: 10 } }
-                    }
-                  }
-                }
-              },
-              scales: {
-                x: {
-                  type: 'time', time: { unit: 'year', displayFormats: { year: 'yyyy', month: 'yyyy-MM' } },
-                  grid: { display: false }, ticks: { color: '#71717a', font: { size: 10 } }
-                },
-                y: {
-                  min: 0, max: 105,
-                  grid: { color: 'rgba(39,39,42,0.5)' },
-                  ticks: { color: '#a1a1aa', callback: v => v + '%', stepSize: 25 },
-                  title: { display: true, text: currentLang === 'zh' ? '累计释放 (%)' : 'Cumulative Unlock (%)', color: '#a1a1aa' }
-                }
-              }
-            }
-          });
-        }
-
-        // --- Allocation Pie (Doughnut Chart) ---
-        if (hasAllocation) {
-          const ctx2 = document.getElementById('allocation-pie-chart').getContext('2d');
-          if (allocationPieChart) allocationPieChart.destroy();
-
-          allocationPieChart = new Chart(ctx2, {
-            type: 'doughnut',
-            data: {
-              labels: data.allocation.map(a => a.category),
-              datasets: [{
-                data: data.allocation.map(a => a.percent),
-                backgroundColor: data.allocation.map(a => a.color),
-                borderColor: 'rgba(0,0,0,0.3)',
-                borderWidth: 1
-              }]
-            },
-            options: {
-              responsive: true, maintainAspectRatio: false,
-              cutout: '55%',
-              plugins: {
-                legend: {
-                  position: 'bottom',
-                  labels: { color: '#a1a1aa', font: { size: 11 }, padding: 10, boxWidth: 12, generateLabels: (chart) => {
-                    const ds = chart.data.datasets[0];
-                    return chart.data.labels.map((label, i) => ({
-                      text: `${label}: ${ds.data[i]}%`,
-                      fillStyle: ds.backgroundColor[i],
-                      strokeStyle: ds.borderColor,
-                      lineWidth: 1, index: i
-                    }));
-                  }}
-                },
-                tooltip: {
-                  backgroundColor: '#18181b', titleColor: '#fafafa', bodyColor: '#a1a1aa',
-                  callbacks: {
-                    label: (ctx) => {
-                      const alloc = data.allocation[ctx.dataIndex];
-                      const amtStr = alloc.amount >= 1e6 ? (alloc.amount / 1e6).toFixed(1) + 'M' : alloc.amount.toLocaleString();
-                      return ` ${alloc.category}: ${alloc.percent}% (${amtStr} ${data.token})`;
-                    }
-                  }
-                }
-              }
-            }
-          });
-        }
-      } catch(e) {
-        console.log(`No tokenomics data for ${pid}:`, e.message);
-      }
-    }
-
     async function init() {
       const pid = getProtocolId();
       try {
@@ -1259,15 +767,8 @@
         document.getElementById('link-website').href = cfg.website || '#';
         document.getElementById('link-docs').href = cfg.docs || '#';
         document.getElementById('link-coingecko').href = cfg.token?.coingecko_id ? `https://www.coingecko.com/en/coins/${cfg.token.coingecko_id}` : '#';
-        const statusText = document.getElementById('tev-status-text');
-        const statusZh = { active: '股东回报 · 活跃', partial: '股东回报 · 部分', none: '股东回报 · 无' };
-        const statusEn = { active: 'SHAREHOLDER RETURN · ACTIVE', partial: 'SHAREHOLDER RETURN · PARTIAL', none: 'SHAREHOLDER RETURN · NONE' };
-        statusText.textContent = (currentLang === 'zh' ? statusZh : statusEn)[tevStatus] || statusZh.none;
-        statusText.className = `tev-status ${tevStatus}`;
         const feeSwitch = cfg.tev_summary?.fee_switch;
-        document.getElementById('primary-value').textContent = tevStatus === 'active' ? '✓ ON' : tevStatus === 'partial' ? '~ PARTIAL' : feeSwitch === 'N/A' ? 'N/A' : '✗ OFF';
         const primaryAccrual = cfg.tev_summary?.primary_value_accrual || '—';
-        document.getElementById('primary-label').textContent = primaryAccrual;
         document.getElementById('hero-primary-accrual').textContent = primaryAccrual;
 
         // ===== 新概览：KPI + 周期切换 =====
@@ -1377,15 +878,13 @@
         document.getElementById('last-updated').textContent = cfg.last_updated || '—';
         document.getElementById('loading').style.display = 'none';
         document.getElementById('content').style.display = 'block';
-        loadTevChart(pid);
-        if (['bnb', 'hype', 'uniswap', 'sky'].includes(pid)) loadBurnsChart(pid);
+        loadHistoryDashboard(pid);
         loadGovernance(pid);
-        loadTokenomics(pid);
         renderTevCalc(pid);
         renderIncomeStatement(pid);
         renderCalcBasis(pid);
-        // Aster 已有 tev-records，优先展示 TEV 历史图
-        // if (['aster'].includes(pid)) loadBuybackData(pid);
+        loadSupplyChart(pid);
+        // v2.2: 销毁/回购/Tokenomics 区块已移除，历史数据统一走 loadHistoryDashboard
       } catch (e) {
         console.error('Failed:', e);
         document.getElementById('loading').innerHTML = `<div style="color:var(--danger);">Failed to load protocol</div><div style="margin-top:8px;font-size:12px;">${e.message}</div><div style="margin-top:16px;"><a href="index.html" style="color:var(--blue);">← Back</a></div>`;
@@ -1599,32 +1098,45 @@
         // 净利分配（股东回报 vs 留存）
         const hr = snap.holder_returns?.summary || {};
         const alloc = [
-          { label: t('is.holderReturns'), value: moneyFmt(hr.shareholder_returns_usd_365d), pct: pctFmt(hr.shareholder_yield_percent) },
+          { label: t('is.holderReturns'), value: moneyFmt(hr.shareholder_returns_usd_365d) },
         ];
         if (ni.net_income_usd_365d != null && hr.shareholder_returns_usd_365d != null) {
           const retained = ni.net_income_usd_365d - hr.shareholder_returns_usd_365d;
-          alloc.push({ label: t('is.retained'), value: moneyFmt(retained), pct: retained > 0 ? '' : '' });
+          alloc.push({ label: t('is.retained'), value: moneyFmt(retained) });
+        }
+
+        // 横排 3 核心数（收入 / 毛利 / 净利），每项保留 ⓘ 展开计算过程
+        const cards = [
+          { label: t('is.revenue'), value: rev.total_usd_365d, note: buildRevenueNote(inc.revenue, rev, isPlatform), highlight: rev.total_usd_365d != null },
+          { label: t('is.grossProfit'), value: gp.gross_profit_usd_365d, note: gp.calculation_note || '', highlight: gp.gross_profit_usd_365d != null },
+          { label: t('is.netIncome'), value: ni.net_income_usd_365d, note: ni.calculation_note || '', highlight: true, negative: (ni.net_income_usd_365d || 0) < 0 },
+        ];
+        // 增发成本作为净利 note 的补充（cost 时才展示）
+        if (em.treatment === 'cost' && em.usd_365d) {
+          cards[2].note = `${t('is.emission')}: −${moneyFmt(em.usd_365d)}（${em.calculation_note || '增发作为成本扣除'}）${ni.calculation_note ? '；' + ni.calculation_note : ''}`;
+        } else if (em.treatment === 'dilution_note' && em.usd_365d) {
+          cards[2].note = `${t('is.emission')}（稀释注记）: ${moneyFmt(em.usd_365d)}（${em.calculation_note || '无对价增发，作稀释注记'}）`;
         }
 
         const container = document.getElementById('income-statement-pipeline');
-        container.innerHTML = steps.map(s => `
-          <div class="calc-step${s.derived ? ' calc-step-derived' : ''}" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-            <span style="font-size:12px;color:var(--text-secondary);min-width:120px;">${s.label}</span>
-            <span style="font-weight:600;font-size:15px;font-family:'JetBrains Mono',monospace;${s.value && s.value.startsWith('−') ? 'color:#e5484d;' : ''}">${s.value}</span>
-            ${s.note ? `<details class="calc-detail" style="margin-left:auto;"><summary style="font-size:11px;color:var(--text-tertiary);cursor:pointer;">${t('is.details')} ⓘ</summary><div class="extra-body" style="font-size:12px;color:var(--text-secondary);line-height:1.7;margin-top:4px;padding:8px 10px;background:var(--bg-tertiary);border-radius:6px;max-width:420px;">${s.note}</div></details>` : ''}
-          </div>`).join('');
+        container.innerHTML = `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
+          ${cards.map(c => `
+            <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:10px;padding:14px 16px;${c.highlight ? 'border-top:3px solid #22c55e;' : ''}">
+              <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">${c.label}</div>
+              <div style="font-weight:700;font-size:20px;font-family:'JetBrains Mono',monospace;${c.negative ? 'color:#e5484d;' : ''}">${moneyFmt(c.value)}</div>
+              ${c.note ? `<details class="calc-detail" style="margin-top:8px;"><summary style="font-size:11px;color:var(--text-tertiary);cursor:pointer;">${t('is.details')} ⓘ</summary><div class="extra-body" style="font-size:12px;color:var(--text-secondary);line-height:1.7;margin-top:4px;padding:8px 10px;background:var(--bg-tertiary);border-radius:6px;">${c.note}</div></details>` : ''}
+            </div>`).join('')}
+        </div>`;
 
-        // 利润率行
+        // 利润率行 + 净利分配
         const marginRow = document.getElementById('income-margin-row');
         marginRow.innerHTML = `
-          <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:12px;padding:0 4px;">
+          <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:14px;padding:0 4px;">
             <span style="font-size:12px;color:var(--text-secondary);">${t('is.grossMargin')} <strong style="font-family:'JetBrains Mono',monospace;">${pctFmt(mg.gross_margin_percent)}</strong></span>
             <span style="font-size:12px;color:var(--text-secondary);">${t('is.netMargin')} <strong style="font-family:'JetBrains Mono',monospace;${(mg.net_margin_percent||0) < 0 ? 'color:#e5484d;' : ''}">${pctFmt(mg.net_margin_percent)}</strong></span>
             ${isPlatform ? `<span style="font-size:11px;color:var(--text-tertiary);">${t('is.platformNote')}</span>` : ''}
-          </div>
-          ${alloc.length ? `<div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:10px;padding:0 4px;border-top:1px dashed var(--border);padding-top:10px;">
-            ${alloc.map(a => `<span style="font-size:12px;color:var(--text-secondary);">${a.label} <strong style="font-family:'JetBrains Mono',monospace;">${a.value}</strong></span>`).join('')}
-          </div>` : ''}`;
+            ${alloc.length ? alloc.map(a => `<span style="font-size:12px;color:var(--text-secondary);">${a.label} <strong style="font-family:'JetBrains Mono',monospace;">${a.value}</strong></span>`).join('') : ''}
+          </div>`;
 
         document.getElementById('income-statement-section').style.display = 'block';
       } catch (e) {
@@ -1662,37 +1174,53 @@
         };
 
         const cards = [];
-        // ① 实体类型判定
-        const etNames = { platform_token: '平台币', app: '应用型', public_chain: '公链' };
+        // ① 实体类型判定 —— 为什么这么分
+        const etNames = { platform_token: '平台币', app: '应用型协议', public_chain: '公链' };
+        const etWhy = {
+          platform_token: '平台币像一家交易所/公链的"股票"：它的价值来自平台的全部赋能（打新、质押、销毁都算收入），所以收入口径 = 股东回报口径。',
+          app: '应用型协议（借贷/DEX/衍生品等）像一家软件公司：收入 = 协议费（扣除分给流动性提供者的部分），赚的钱再通过回购/分红/销毁返还给持币人。',
+          public_chain: '公链代币的收入口径视具体机制而定。',
+        };
         const et = inc.revenue?.entity_type || rr.entity_type || '—';
-        cards.push({ title: t('cb.entityType'), body: `<strong>${etNames[et] || et}</strong> — ${rr.principle || '—'}` });
-        // ② 收入口径判定书
+        cards.push({ title: t('cb.entityType'), body: `<div style="font-size:13px;margin-bottom:6px;"><strong>${etNames[et] || et}</strong></div><div style="font-size:13px;line-height:1.8;color:var(--text-secondary);">${etWhy[et] || rr.principle || '—'}</div>` });
+        // ② 收入口径判定书 —— 计入什么、不计入什么、为什么
         const incl = rr.revenue_included || {};
         const excl = rr.revenue_excluded || {};
-        let revBody = `<div style="margin-bottom:6px;"><em style="font-size:12px;color:var(--text-secondary);">${t('cb.included')}:</em> `;
-        const inclParts = Object.entries(incl).map(([k, v]) => `<span style="font-size:12px;">${k}${v?.note ? `<span style="color:var(--text-tertiary);">（${v.note}）</span>` : ''}</span>`);
-        revBody += (inclParts.length ? inclParts.join('；') : '—') + '</div>';
+        const inclLabel = { protocol_fees: '协议费（协议真正留下的部分）', buyback_burn: '回购销毁', staking: '质押收益', burn: '销毁', launchpad_launchpool: '打新（Launchpad/Launchpool）', staking_rewards: '质押奖励' };
+        let revBody = '<div style="font-size:13px;margin-bottom:8px;"><strong style="color:var(--accent);">' + t('cb.included') + '</strong></div>';
+        const inclParts = Object.entries(incl).map(([k, v]) => `<div style="font-size:13px;line-height:1.8;padding-left:12px;border-left:2px solid var(--border);margin-bottom:6px;">${inclLabel[k] || k}${v?.note ? `<div style="color:var(--text-secondary);font-size:12px;">${v.note}</div>` : ''}</div>`);
+        revBody += (inclParts.length ? inclParts.join('') : '<div style="font-size:13px;color:var(--text-secondary);padding-left:12px;">—</div>');
         if (Object.keys(excl).length) {
-          revBody += `<div style="margin-bottom:6px;"><em style="font-size:12px;color:var(--text-tertiary);">${t('cb.excluded')}:</em> <span style="font-size:12px;color:var(--text-tertiary);">${Object.entries(excl).map(([k,v]) => `${k}${v?.note ? `（${v.note}）` : ''}`).join('；')}</span></div>`;
+          revBody += '<div style="font-size:13px;margin:10px 0 8px;"><strong style="color:var(--text-tertiary);">' + t('cb.excluded') + '</strong></div>';
+          revBody += Object.entries(excl).map(([k, v]) => `<div style="font-size:13px;line-height:1.8;padding-left:12px;border-left:2px solid var(--border);margin-bottom:6px;">${inclLabel[k] || k}${v?.note ? `<div style="color:var(--text-secondary);font-size:12px;">${v.note}</div>` : ''}</div>`).join('');
         }
-        if (rr.calculation) revBody += `<div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">${typeof rr.calculation === 'string' ? rr.calculation : JSON.stringify(rr.calculation, null, 1)}</div>`;
+        if (rr.calculation) {
+          const calcStr = typeof rr.calculation === 'string' ? rr.calculation : (rr.calculation.revenue_usd_365d || rr.calculation.note || '');
+          revBody += `<div style="font-size:12px;color:var(--text-tertiary);margin-top:8px;">${calcStr}</div>`;
+        }
         cards.push({ title: t('cb.revenue'), body: revBody });
-        // ③ 增发成本处理
-        const emTreat = { cost: t('cb.treatment.cost'), dilution_note: t('cb.treatment.dilution'), none: t('cb.treatment.none') };
-        cards.push({ title: t('cb.emission'), body: `<span style="font-size:12px;">${emTreat[em.treatment] || emTreat.none}</span>${em.calculation_note ? `<div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">${em.calculation_note}</div>` : ''}${em.usd_365d ? `<div style="font-size:12px;color:var(--text-secondary);margin-top:2px;">年增发成本 ${moneyFmt(em.usd_365d)}${em.annual_emission_tokens ? ` · ${em.annual_emission_tokens.toLocaleString()} 枚` : ''}${em.inflation_rate_percent ? ` · 通胀 ${pctFmt(em.inflation_rate_percent)}` : ''}</div>` : ''}` });
-        // ④ 净利润口径
-        cards.push({ title: t('cb.netIncome'), body: `<span style="font-size:12px;">${inc.net_income?.calculation_note || '毛利 − 增发成本 − 运营成本'}</span>` });
-        // ⑤ 含金量标注（holder_returns 机制）
+        // ③ 增发成本处理 —— 为什么这样处理
+        const emTreat = {
+          cost: '增发的代币是"花钱买增长"（给 LP 挖矿激励等），像美股的股权激励（SBC）——从净利润里扣除。',
+          dilution_note: '增发是无对价的"印钞稀释"，不算成本，但在页面上明确标注，提醒你流通量在膨胀。',
+          none: '这个协议不增发代币（或供应量只减不增），没有稀释成本。',
+        };
+        cards.push({ title: t('cb.emission'), body: `<div style="font-size:13px;line-height:1.8;">${emTreat[em.treatment] || emTreat.none}</div>${em.calculation_note ? `<div style="font-size:12px;color:var(--text-secondary);margin-top:6px;">${em.calculation_note}</div>` : ''}${em.usd_365d ? `<div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">每年增发折合 ${moneyFmt(em.usd_365d)}${em.annual_emission_tokens ? `（${em.annual_emission_tokens.toLocaleString()} 枚）` : ''}${em.inflation_rate_percent ? `，通胀率 ${pctFmt(em.inflation_rate_percent)}` : ''}</div>` : ''}` });
+        // ④ 净利润口径 —— 净利怎么算出来的
+        const niNote = inc.net_income?.calculation_note || (inc.revenue?.entity_type === 'platform_token' ? '平台币没有成本模型：收入就是净利（全部赋能都是给持币人的价值）。' : '毛利 − 增发成本 − 运营成本。');
+        cards.push({ title: t('cb.netIncome'), body: `<div style="font-size:13px;line-height:1.8;">${niNote}</div>` });
+        // ⑤ 含金量标注 —— 每笔回报的"含金量"
         const mechs = snap?.holder_returns?.by_mechanism || [];
         const gradeBody = mechs.length
-          ? mechs.map(m => `<div style="font-size:12px;margin-bottom:4px;">${m.mechanism}: ${gradeMap[m.type] || m.type}</div>`).join('')
-          : '<span style="font-size:12px;color:var(--text-tertiary);">' + (snap ? '' : t('cb.noData')) + '</span>';
+          ? mechs.map(m => `<div style="font-size:13px;line-height:1.8;padding:6px 0;border-bottom:1px dashed var(--border);">${m.mechanism} — <strong>${gradeMap[m.type] || m.type}</strong></div>`).join('')
+          : '<span style="font-size:13px;color:var(--text-secondary);">' + (snap ? '' : t('cb.noData')) + '</span>';
         cards.push({ title: t('cb.goldGrade'), body: gradeBody });
-        // ⑥ 数据源与验证
-        const srcList = (dp.sources || []).map(s => `<div style="font-size:12px;margin-bottom:3px;">${s.type} · ${s.method || ''} · ${s.frequency || ''}${s.script ? ` <code style="font-size:11px;color:var(--text-secondary);">${s.script}</code>` : ''}</div>`).join('');
+        // ⑥ 数据源与验证 —— 数字从哪来、可信吗
+        const srcLabel = { chain: '链上数据', official: '官方公告/治理', defillama: 'DefiLlama', estimate: '估算' };
+        const srcList = (dp.sources || []).map(s => `<div style="font-size:13px;line-height:1.8;margin-bottom:4px;">${srcLabel[s.type] || s.type} · ${s.method || ''}${s.frequency ? `（${s.frequency}）` : ''}</div>`).join('');
         const verMap = { verified: t('cb.verification.verified'), partial: t('cb.verification.partial'), estimated: t('cb.verification.estimated') };
         const verStatus = snap?.verification?.status || 'partial';
-        cards.push({ title: t('cb.pipeline'), body: `${srcList || '—'}<div style="font-size:12px;margin-top:6px;">${verMap[verStatus] || verStatus}${snap?.verification?.method ? `<div style="color:var(--text-secondary);margin-top:2px;">${snap.verification.method}</div>` : ''}</div>` });
+        cards.push({ title: t('cb.pipeline'), body: `${srcList || '—'}<div style="font-size:13px;margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);">${verMap[verStatus] || verStatus}${snap?.verification?.method ? `<div style="color:var(--text-secondary);font-size:12px;margin-top:2px;">${snap.verification.method}</div>` : ''}</div>` });
         // ⑦ Caveats（analyst_notes 摘要）
         if (cfg.analyst_notes) {
           const firstLine = cfg.analyst_notes.split('\n').find(l => l.trim()) || '';
@@ -1708,6 +1236,117 @@
         document.getElementById('calculation-basis-section').style.display = 'block';
       } catch (e) {
         console.warn('Calc basis render failed:', e);
+      }
+    }
+
+    // ===== v2.2 历史数据看板（净收益/PE/PS/股东回报率/净利率 可切换）=====
+    let historyChart = null;
+    let currentHistoryMetric = 'net_income';
+
+    async function loadHistoryDashboard(pid) {
+      try {
+        const resp = await fetch(`../data/history/${pid}.json`);
+        if (!resp.ok) {
+          document.getElementById('history-dashboard-section').innerHTML =
+            '<div class="section-title"><span class="icon">📈</span><span data-i18n="section.historyDashboard">历史数据</span></div>' +
+            '<div style="padding:24px;text-align:center;color:var(--text-tertiary);font-size:13px;">' +
+            (currentLang === 'zh' ? '历史数据累积中（每日快照生成后显示）…' : 'History accumulating (visible after daily snapshots)…') + '</div>';
+          return;
+        }
+        const hist = await resp.json();
+        const records = hist.records || [];
+        if (!records.length) { document.getElementById('history-dashboard-section').style.display = 'none'; return; }
+
+        const metricDefs = {
+          net_income:        { label: currentLang === 'zh' ? '净收益' : 'Net Income',       fmt: moneyFmt, color: '#22c55e' },
+          pe:                { label: 'P/E',                                               fmt: v => v == null ? '—' : v.toFixed(1) + 'x', color: '#3b82f6' },
+          ps:                { label: 'P/S',                                               fmt: v => v == null ? '—' : v.toFixed(1) + 'x', color: '#8b5cf6' },
+          shareholder_yield: { label: currentLang === 'zh' ? '股东回报率' : 'Shareholder Yield', fmt: v => v == null ? '—' : v.toFixed(2) + '%', color: '#f59e0b' },
+          net_margin:        { label: currentLang === 'zh' ? '净利率' : 'Net Margin',      fmt: v => v == null ? '—' : v.toFixed(1) + '%', color: '#ec4899' },
+        };
+        const labels = records.map(r => r.as_of);
+        const values = records.map(r => r[currentHistoryMetric]);
+
+        function renderHistoryChart() {
+          const def = metricDefs[currentHistoryMetric];
+          const ctx = document.getElementById('history-chart');
+          if (!ctx) return;
+          if (historyChart) historyChart.destroy();
+          historyChart = new Chart(ctx, {
+            type: 'line',
+            data: { labels, datasets: [{ label: def.label, data: values, borderColor: def.color, backgroundColor: def.color + '22', fill: true, tension: 0.3, pointRadius: 2, pointHoverRadius: 5 }] },
+            options: {
+              responsive: true, maintainAspectRatio: false,
+              plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => def.label + ': ' + def.fmt(c.parsed.y) } } },
+              scales: { x: { ticks: { maxTicksLimit: 10, color: '#71717a', font: { size: 10 } }, grid: { color: 'rgba(128,128,128,0.08)' } },
+                        y: { ticks: { color: '#71717a', font: { size: 10 } }, grid: { color: 'rgba(128,128,128,0.08)' } } },
+            },
+          });
+        }
+        function renderHistoryTable() {
+          const wrap = document.getElementById('history-table-wrap');
+          const recent = records.slice(-12).reverse();
+          const def = metricDefs[currentHistoryMetric];
+          wrap.innerHTML = `<table style="width:100%;border-collapse:collapse;margin-top:14px;font-size:12px;">
+            <thead><tr style="color:var(--text-tertiary);text-align:right;">
+              <th style="text-align:left;padding:6px 8px;">${currentLang === 'zh' ? '日期' : 'Date'}</th>
+              <th style="padding:6px 8px;">${def.label}</th></tr></thead>
+            <tbody>${recent.map(r => `<tr style="border-top:1px solid var(--border);">
+              <td style="padding:6px 8px;text-align:left;color:var(--text-secondary);font-family:'JetBrains Mono',monospace;">${r.as_of}</td>
+              <td style="padding:6px 8px;font-family:'JetBrains Mono',monospace;${r[currentHistoryMetric] != null && r[currentHistoryMetric] < 0 ? 'color:#e5484d;' : ''}">${def.fmt(r[currentHistoryMetric])}</td></tr>`).join('')}</tbody>
+          </table>`;
+        }
+        renderHistoryChart();
+        renderHistoryTable();
+        document.querySelectorAll('#history-metric-tabs .history-tab').forEach(btn => {
+          btn.onclick = () => {
+            document.querySelectorAll('#history-metric-tabs .history-tab').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentHistoryMetric = btn.dataset.metric;
+            renderHistoryChart();
+            renderHistoryTable();
+          };
+        });
+      } catch (e) {
+        console.warn('History dashboard failed:', e);
+        document.getElementById('history-dashboard-section').style.display = 'none';
+      }
+    }
+
+    // ===== v2.2 代币流通量曲线（CMC 数据源；key 未到位显示占位）=====
+    let supplyChart = null;
+    async function loadSupplyChart(pid) {
+      try {
+        const resp = await fetch(`../data/supply/${pid}.json`);
+        if (!resp.ok) {
+          const note = document.getElementById('supply-note');
+          if (note) note.textContent = currentLang === 'zh'
+            ? '🪙 代币流通量曲线 — 数据源 CoinMarketCap（接入中）'
+            : '🪙 Circulating supply — source CoinMarketCap (pending)';
+          return;
+        }
+        const sup = await resp.json();
+        const pts = sup.points || [];
+        if (!pts.length) { document.getElementById('supply-section').style.display = 'none'; return; }
+        const labels = pts.map(p => p.date);
+        const values = pts.map(p => p.circulating_supply);
+        const note = document.getElementById('supply-note');
+        if (note) note.textContent = (currentLang === 'zh' ? '数据来源：CoinMarketCap' : 'Source: CoinMarketCap') + ' · ' + sup.symbol || '';
+        const ctx = document.getElementById('supply-chart');
+        if (!ctx) return;
+        if (supplyChart) supplyChart.destroy();
+        supplyChart = new Chart(ctx, {
+          type: 'line',
+          data: { labels, datasets: [{ label: (currentLang === 'zh' ? '流通量' : 'Circulating Supply'), data: values, borderColor: '#f0b90b', backgroundColor: '#f0b90b22', fill: true, tension: 0.3, pointRadius: 2 }] },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => (currentLang === 'zh' ? '流通量: ' : 'Supply: ') + c.parsed.y.toLocaleString() } } },
+            scales: { x: { ticks: { maxTicksLimit: 10, color: '#71717a', font: { size: 10 } }, grid: { color: 'rgba(128,128,128,0.08)' } },
+                      y: { ticks: { color: '#71717a', font: { size: 10 }, callback: v => v >= 1e9 ? (v/1e9).toFixed(1)+'B' : v >= 1e6 ? (v/1e6).toFixed(1)+'M' : v }, grid: { color: 'rgba(128,128,128,0.08)' } } },
+          },
+        });
+      } catch (e) {
+        console.warn('Supply chart failed:', e);
       }
     }
 

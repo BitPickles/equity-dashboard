@@ -262,6 +262,47 @@ def run_adapter(proto_dir, all_protocols, daily, pid):
     return run_generic_adapter(proto_dir, all_protocols, daily)
 
 
+# ── v2.2 历史序列累积（历史数据看板数据源） ──────────────────────────
+
+HISTORY_DIR = DATA_DIR / "history"
+
+
+def append_history(pid, snap):
+    """按 as_of 累积历史记录到 data/history/<pid>.json（去重，同日覆盖）。
+
+    每条记录字段：as_of / net_income / pe / ps / shareholder_yield / net_margin
+    """
+    try:
+        HISTORY_DIR.mkdir(exist_ok=True)
+        hist_file = HISTORY_DIR / f"{pid}.json"
+        hist = _load_json(hist_file) or {"protocol": pid, "records": []}
+        as_of = snap.get("as_of")
+        if not as_of:
+            return
+        inc = snap.get("income_statement", {})
+        val = snap.get("valuation", {})
+        hr = snap.get("holder_returns", {}).get("summary", {})
+        mg = inc.get("margins", {})
+        record = {
+            "as_of": as_of,
+            "net_income": inc.get("net_income", {}).get("net_income_usd_365d"),
+            "pe": val.get("pe"),
+            "ps": val.get("ps"),
+            "shareholder_yield": hr.get("shareholder_yield_percent"),
+            "net_margin": mg.get("net_margin_percent"),
+        }
+        records = hist.get("records", [])
+        # 同日去重：替换 as_of 相同的记录
+        records = [r for r in records if r.get("as_of") != as_of]
+        records.append(record)
+        records.sort(key=lambda r: r.get("as_of", ""))
+        # 只保留最近 365 条
+        hist["records"] = records[-365:]
+        hist_file.write_text(json.dumps(hist, indent=2, ensure_ascii=False), encoding="utf-8")
+    except Exception as e:
+        print(f"    ⚠ {pid} 历史序列累积失败: {e}")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Financial Snapshot 生成器")
     parser.add_argument("protocols", nargs="*", help="指定协议 id；默认全部")
@@ -295,6 +336,8 @@ def main():
                 continue
             out = SNAPSHOTS_DIR / f"{pid}.json"
             out.write_text(json.dumps(snap, indent=2, ensure_ascii=False), encoding="utf-8")
+            # v2.2：历史序列累积（历史数据看板数据源 data/history/<pid>.json）
+            append_history(pid, snap)
             results["ok"].append(pid)
             print(f"  ✓ {pid}: as_of={snap['as_of']} "
                   f"yield={snap['holder_returns']['summary'].get('shareholder_yield_percent')}% "
