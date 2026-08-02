@@ -103,7 +103,7 @@ def run_generic_adapter(proto_dir, all_protocols, daily):
     entity_type = rr.get("entity_type") or config.get("category") or "app"
     if entity_type in ("cex_token", "platform", "l2_token"):
         entity_type = "platform_token"
-    elif entity_type != "public_chain":
+    elif entity_type not in ("platform_token", "public_chain"):
         # 应用型协议（lending/dex/perpetuals/liquid_staking/... 统一归一为 app）
         entity_type = "app"
 
