@@ -2,7 +2,34 @@
   "protocol": "aave",
   "records": [
     {
-      "as_of": "2026-08-02",
+      "as_of": "2026-05-05",
+      "net_income": 32922782.88,
+      "pe": 54.64,
+      "ps": null,
+      "shareholder_yield": 1.83,
+      "net_margin": null,
+      "_period": "90d"
+    },
+    {
+      "as_of": "2026-07-04",
+      "net_income": 30044288.2,
+      "pe": 59.88,
+      "ps": null,
+      "shareholder_yield": 1.67,
+      "net_margin": null,
+      "_period": "30d"
+    },
+    {
+      "as_of": "2026-07-27",
+      "net_income": 30044288.2,
+      "pe": 59.88,
+      "ps": null,
+      "shareholder_yield": 1.67,
+      "net_margin": null,
+      "_period": "7d"
+    },
+    {
+      "as_of": "2026-08-03",
       "net_income": 42212267,
       "pe": 31.348,
       "ps": 15.5816,

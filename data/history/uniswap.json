@@ -2,7 +2,34 @@
   "protocol": "uniswap",
   "records": [
     {
-      "as_of": "2026-08-02",
+      "as_of": "2026-05-05",
+      "net_income": 19066874.1,
+      "pe": 133.33,
+      "ps": null,
+      "shareholder_yield": 0.75,
+      "net_margin": null,
+      "_period": "90d"
+    },
+    {
+      "as_of": "2026-07-04",
+      "net_income": 17541524.17,
+      "pe": 144.93,
+      "ps": null,
+      "shareholder_yield": 0.69,
+      "net_margin": null,
+      "_period": "30d"
+    },
+    {
+      "as_of": "2026-07-27",
+      "net_income": 22117573.96,
+      "pe": 114.94,
+      "ps": null,
+      "shareholder_yield": 0.87,
+      "net_margin": null,
+      "_period": "7d"
+    },
+    {
+      "as_of": "2026-08-03",
       "net_income": null,
       "pe": 138.8889,
       "ps": 138.3321,

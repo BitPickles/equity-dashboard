@@ -2,7 +2,34 @@
   "protocol": "morpho",
   "records": [
     {
-      "as_of": "2026-08-02",
+      "as_of": "2026-05-05",
+      "net_income": 0.0,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": 0,
+      "net_margin": null,
+      "_period": "90d"
+    },
+    {
+      "as_of": "2026-07-04",
+      "net_income": 0.0,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": 0,
+      "net_margin": null,
+      "_period": "30d"
+    },
+    {
+      "as_of": "2026-07-27",
+      "net_income": 0.0,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": 0,
+      "net_margin": null,
+      "_period": "7d"
+    },
+    {
+      "as_of": "2026-08-03",
       "net_income": null,
       "pe": null,
       "ps": null,

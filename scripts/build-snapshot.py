@@ -267,7 +267,7 @@ def run_adapter(proto_dir, all_protocols, daily, pid):
 HISTORY_DIR = DATA_DIR / "history"
 
 
-def append_history(pid, snap):
+def append_history(pid, snap, all_protocols=None):
     """按 as_of 累积历史记录到 data/history/<pid>.json（去重，同日覆盖）。
 
     每条记录字段：as_of / net_income / pe / ps / shareholder_yield / net_margin
@@ -292,13 +292,44 @@ def append_history(pid, snap):
             "net_margin": mg.get("net_margin_percent"),
         }
         records = hist.get("records", [])
-        # 同日去重：替换 as_of 相同的记录
+        # 已有记录且包含 as_of → 只是更新今日
+        existed = any(r.get("as_of") == as_of for r in records)
+
+        # 首日回填：把主表多周期 yield 作为历史行（真实数据，非编造）
+        # 周期 7d/30d/90d 的年化 yield 是对应窗口的实测值，用 as_of 前 N 天日期标注
+        if not records and all_protocols is not None:
+            ap = (all_protocols.get("protocols") or {}).get(pid, {})
+            m = ap.get("metrics", {}) or {}
+            from datetime import datetime, timedelta
+            base = datetime.strptime(as_of, "%Y-%m-%d")
+            mcap = ap.get("market_cap_usd") or 0
+            cycles = [
+                ("7d", m.get("tev_yield_7d_ann")),
+                ("30d", m.get("tev_yield_30d_ann")),
+                ("90d", m.get("tev_yield_90d_ann")),
+            ]
+            for label, y in cycles:
+                if y is None:
+                    continue
+                d = (base - timedelta(days=int(label[:-1]))).strftime("%Y-%m-%d")
+                rec = {
+                    "as_of": d,
+                    "net_income": round(y / 100 * mcap, 2) if mcap else None,
+                    "pe": round(100 / y, 2) if y and y > 0 else None,
+                    "ps": None,
+                    "shareholder_yield": y,
+                    "net_margin": None,
+                    "_period": label,  # 回填标注
+                }
+                records.append(rec)
         records = [r for r in records if r.get("as_of") != as_of]
         records.append(record)
         records.sort(key=lambda r: r.get("as_of", ""))
         # 只保留最近 365 条
         hist["records"] = records[-365:]
         hist_file.write_text(json.dumps(hist, indent=2, ensure_ascii=False), encoding="utf-8")
+        if not existed and any(r.get("_period") for r in records):
+            print(f"    ↳ 历史表回填 {sum(1 for r in records if r.get('_period'))} 个周期点（7d/30d/90d）")
     except Exception as e:
         print(f"    ⚠ {pid} 历史序列累积失败: {e}")
 
@@ -337,7 +368,7 @@ def main():
             out = SNAPSHOTS_DIR / f"{pid}.json"
             out.write_text(json.dumps(snap, indent=2, ensure_ascii=False), encoding="utf-8")
             # v2.2：历史序列累积（历史数据看板数据源 data/history/<pid>.json）
-            append_history(pid, snap)
+            append_history(pid, snap, all_protocols)
             results["ok"].append(pid)
             print(f"  ✓ {pid}: as_of={snap['as_of']} "
                   f"yield={snap['holder_returns']['summary'].get('shareholder_yield_percent')}% "

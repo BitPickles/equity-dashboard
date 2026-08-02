@@ -2,7 +2,34 @@
   "protocol": "dydx",
   "records": [
     {
-      "as_of": "2026-08-02",
+      "as_of": "2026-05-05",
+      "net_income": 2671209.28,
+      "pe": 35.71,
+      "ps": null,
+      "shareholder_yield": 2.8,
+      "net_margin": null,
+      "_period": "90d"
+    },
+    {
+      "as_of": "2026-07-04",
+      "net_income": 3424871.9,
+      "pe": 27.86,
+      "ps": null,
+      "shareholder_yield": 3.59,
+      "net_margin": null,
+      "_period": "30d"
+    },
+    {
+      "as_of": "2026-07-27",
+      "net_income": 1831686.37,
+      "pe": 52.08,
+      "ps": null,
+      "shareholder_yield": 1.92,
+      "net_margin": null,
+      "_period": "7d"
+    },
+    {
+      "as_of": "2026-08-03",
       "net_income": 8518106,
       "pe": 11.1982,
       "ps": 11.1997,

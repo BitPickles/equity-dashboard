@@ -2,7 +2,34 @@
   "protocol": "hype",
   "records": [
     {
-      "as_of": "2026-08-02",
+      "as_of": "2026-05-05",
+      "net_income": 578393118.28,
+      "pe": 12.74,
+      "ps": null,
+      "shareholder_yield": 7.85,
+      "net_margin": null,
+      "_period": "90d"
+    },
+    {
+      "as_of": "2026-07-04",
+      "net_income": 425874168.62,
+      "pe": 17.3,
+      "ps": null,
+      "shareholder_yield": 5.78,
+      "net_margin": null,
+      "_period": "30d"
+    },
+    {
+      "as_of": "2026-07-27",
+      "net_income": 428821394.7,
+      "pe": 17.18,
+      "ps": null,
+      "shareholder_yield": 5.82,
+      "net_margin": null,
+      "_period": "7d"
+    },
+    {
+      "as_of": "2026-08-03",
       "net_income": null,
       "pe": 9.5329,
       "ps": 9.5319,

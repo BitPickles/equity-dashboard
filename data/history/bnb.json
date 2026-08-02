@@ -2,7 +2,34 @@
   "protocol": "bnb",
   "records": [
     {
-      "as_of": "2026-08-02",
+      "as_of": "2026-05-05",
+      "net_income": 13482767695.59,
+      "pe": 5.7,
+      "ps": null,
+      "shareholder_yield": 17.53,
+      "net_margin": null,
+      "_period": "90d"
+    },
+    {
+      "as_of": "2026-07-04",
+      "net_income": 20881753732.76,
+      "pe": 3.68,
+      "ps": null,
+      "shareholder_yield": 27.15,
+      "net_margin": null,
+      "_period": "30d"
+    },
+    {
+      "as_of": "2026-07-27",
+      "net_income": 9790965930.68,
+      "pe": 7.86,
+      "ps": null,
+      "shareholder_yield": 12.73,
+      "net_margin": null,
+      "_period": "7d"
+    },
+    {
+      "as_of": "2026-08-03",
       "net_income": 9581691955.17,
       "pe": 8.027,
       "ps": 8.027,

@@ -415,7 +415,7 @@
         </div>
       </div>
 
-      <!-- 3. 历史数据看板（净收益/PE/PS/股东回报率/净利率 可切换）-->
+      <!-- 3. 历史数据看板（净收益/PE/PS/股东回报率/净利率 多指标表格 + 图表）-->
       <div class="section chart-section" id="history-dashboard-section">
         <div class="section-title"><span class="icon">📈</span><span data-i18n="section.historyDashboard">历史数据</span></div>
         <div class="history-metric-tabs" id="history-metric-tabs">
@@ -425,8 +425,8 @@
           <button class="history-tab" data-metric="shareholder_yield" data-i18n="hd.shareholderYield">股东回报率</button>
           <button class="history-tab" data-metric="net_margin" data-i18n="hd.netMargin">净利率</button>
         </div>
-        <div class="history-chart-container"><div class="chart-canvas-wrap"><canvas id="history-chart"></canvas></div></div>
         <div class="history-table-wrap" id="history-table-wrap"></div>
+        <div class="history-chart-container" style="position:relative;height:300px;margin-top:16px;"><div class="chart-canvas-wrap" style="height:300px;"><canvas id="history-chart"></canvas></div></div>
       </div>
 
       <!-- 6. 代币流通量曲线（CMC 数据源；key 未到位时显示占位提示）-->
@@ -1264,52 +1264,61 @@
           shareholder_yield: { label: currentLang === 'zh' ? '股东回报率' : 'Shareholder Yield', fmt: v => v == null ? '—' : v.toFixed(2) + '%', color: '#f59e0b' },
           net_margin:        { label: currentLang === 'zh' ? '净利率' : 'Net Margin',      fmt: v => v == null ? '—' : v.toFixed(1) + '%', color: '#ec4899' },
         };
-        const labels = records.map(r => r.as_of);
-        const values = records.map(r => r[currentHistoryMetric]);
+        const ALL_KEYS = ['net_income', 'pe', 'ps', 'shareholder_yield', 'net_margin'];
 
-        function renderHistoryChart() {
-          const def = metricDefs[currentHistoryMetric];
-          const ctx = document.getElementById('history-chart');
-          if (!ctx) return;
-          if (historyChart) historyChart.destroy();
-          historyChart = new Chart(ctx, {
-            type: 'line',
-            data: { labels, datasets: [{ label: def.label, data: values, borderColor: def.color, backgroundColor: def.color + '22', fill: true, tension: 0.3, pointRadius: 2, pointHoverRadius: 5 }] },
-            options: {
-              responsive: true, maintainAspectRatio: false,
-              plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => def.label + ': ' + def.fmt(c.parsed.y) } } },
-              scales: { x: { ticks: { maxTicksLimit: 10, color: '#71717a', font: { size: 10 } }, grid: { color: 'rgba(128,128,128,0.08)' } },
-                        y: { ticks: { color: '#71717a', font: { size: 10 } }, grid: { color: 'rgba(128,128,128,0.08)' } } },
-            },
-          });
-        }
+        // ── 主视图：多指标历史数据表（倒序：最新在上）──
         function renderHistoryTable() {
           const wrap = document.getElementById('history-table-wrap');
-          const recent = records.slice(-12).reverse();
-          const def = metricDefs[currentHistoryMetric];
-          wrap.innerHTML = `<table style="width:100%;border-collapse:collapse;margin-top:14px;font-size:12px;">
-            <thead><tr style="color:var(--text-tertiary);text-align:right;">
-              <th style="text-align:left;padding:6px 8px;">${currentLang === 'zh' ? '日期' : 'Date'}</th>
-              <th style="padding:6px 8px;">${def.label}</th></tr></thead>
-            <tbody>${recent.map(r => `<tr style="border-top:1px solid var(--border);">
-              <td style="padding:6px 8px;text-align:left;color:var(--text-secondary);font-family:'JetBrains Mono',monospace;">${r.as_of}</td>
-              <td style="padding:6px 8px;font-family:'JetBrains Mono',monospace;${r[currentHistoryMetric] != null && r[currentHistoryMetric] < 0 ? 'color:#e5484d;' : ''}">${def.fmt(r[currentHistoryMetric])}</td></tr>`).join('')}</tbody>
-          </table>`;
+          const recent = records.slice().reverse();  // 最新在前
+          const thead = `<tr style="color:var(--text-tertiary);text-align:right;font-size:11px;">
+            <th style="text-align:left;padding:8px 10px;">${currentLang === 'zh' ? '日期' : 'Date'}</th>
+            ${ALL_KEYS.map(k => `<th style="padding:8px 10px;${k === currentHistoryMetric ? 'color:var(--accent);' : ''}">${metricDefs[k].label}</th>`).join('')}
+          </tr>`;
+          const tbody = recent.map(r => `<tr style="border-top:1px solid var(--border);">
+            <td style="padding:8px 10px;text-align:left;color:var(--text-secondary);font-family:'JetBrains Mono',monospace;font-size:11px;">${r.as_of}${r._period ? `<span style="margin-left:6px;font-size:10px;color:var(--text-tertiary);background:var(--bg-tertiary);padding:1px 5px;border-radius:4px;">${r._period}</span>` : ''}</td>
+            ${ALL_KEYS.map(k => {
+              const v = r[k];
+              return `<td style="padding:8px 10px;font-family:'JetBrains Mono',monospace;font-size:12px;${k === currentHistoryMetric ? 'background:rgba(34,197,94,0.06);font-weight:700;' : ''}${v != null && v < 0 ? 'color:#e5484d;' : ''}">${metricDefs[k].fmt(v)}</td>`;
+            }).join('')}
+          </tr>`).join('');
+          wrap.innerHTML = `<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12px;">
+            <thead>${thead}</thead><tbody>${tbody}</tbody></table></div>`;
         }
-        renderHistoryChart();
+
+        // ── 副视图：当前指标折线图（失败不影响表格）──
+        function renderHistoryChart() {
+          try {
+            const def = metricDefs[currentHistoryMetric];
+            const ctx = document.getElementById('history-chart');
+            if (!ctx) return;
+            if (historyChart) historyChart.destroy();
+            historyChart = new Chart(ctx, {
+              type: 'line',
+              data: { labels: records.map(r => r.as_of), datasets: [{ label: def.label, data: records.map(r => r[currentHistoryMetric]), borderColor: def.color, backgroundColor: def.color + '22', fill: true, tension: 0.3, pointRadius: 3 }] },
+              options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => def.label + ': ' + def.fmt(c.parsed.y) } } },
+                scales: { x: { ticks: { maxTicksLimit: 10, color: '#71717a', font: { size: 10 } }, grid: { color: 'rgba(128,128,128,0.08)' } },
+                          y: { ticks: { color: '#71717a', font: { size: 10 } }, grid: { color: 'rgba(128,128,128,0.08)' } } },
+              },
+            });
+          } catch (e) { console.warn('History chart failed:', e); }
+        }
+
+        // 表格先渲染（主视图），图表后渲染（副视图，失败不影响表格）
         renderHistoryTable();
+        renderHistoryChart();
         document.querySelectorAll('#history-metric-tabs .history-tab').forEach(btn => {
           btn.onclick = () => {
             document.querySelectorAll('#history-metric-tabs .history-tab').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             currentHistoryMetric = btn.dataset.metric;
-            renderHistoryChart();
             renderHistoryTable();
+            renderHistoryChart();
           };
         });
       } catch (e) {
         console.warn('History dashboard failed:', e);
-        document.getElementById('history-dashboard-section').style.display = 'none';
       }
     }
 

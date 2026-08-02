@@ -2,7 +2,34 @@
   "protocol": "pendle",
   "records": [
     {
-      "as_of": "2026-08-02",
+      "as_of": "2026-05-05",
+      "net_income": 8462387.67,
+      "pe": 27.86,
+      "ps": null,
+      "shareholder_yield": 3.59,
+      "net_margin": null,
+      "_period": "90d"
+    },
+    {
+      "as_of": "2026-07-04",
+      "net_income": 5398013.3,
+      "pe": 43.67,
+      "ps": null,
+      "shareholder_yield": 2.29,
+      "net_margin": null,
+      "_period": "30d"
+    },
+    {
+      "as_of": "2026-07-27",
+      "net_income": 10843170.82,
+      "pe": 21.74,
+      "ps": null,
+      "shareholder_yield": 4.6,
+      "net_margin": null,
+      "_period": "7d"
+    },
+    {
+      "as_of": "2026-08-03",
       "net_income": 18665264,
       "pe": 12.6263,
       "ps": 12.6289,

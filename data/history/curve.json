@@ -2,7 +2,34 @@
   "protocol": "curve",
   "records": [
     {
-      "as_of": "2026-08-02",
+      "as_of": "2026-05-05",
+      "net_income": 33363514.56,
+      "pe": 9.5,
+      "ps": null,
+      "shareholder_yield": 10.53,
+      "net_margin": null,
+      "_period": "90d"
+    },
+    {
+      "as_of": "2026-07-04",
+      "net_income": 57380175.57,
+      "pe": 5.52,
+      "ps": null,
+      "shareholder_yield": 18.11,
+      "net_margin": null,
+      "_period": "30d"
+    },
+    {
+      "as_of": "2026-07-27",
+      "net_income": 10487486.53,
+      "pe": 30.21,
+      "ps": null,
+      "shareholder_yield": 3.31,
+      "net_margin": null,
+      "_period": "7d"
+    },
+    {
+      "as_of": "2026-08-03",
       "net_income": -12695575,
       "pe": 20.6612,
       "ps": 20.6603,

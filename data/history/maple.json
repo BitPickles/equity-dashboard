@@ -2,7 +2,34 @@
   "protocol": "maple",
   "records": [
     {
-      "as_of": "2026-08-02",
+      "as_of": "2026-05-05",
+      "net_income": 2828762.64,
+      "pe": 64.52,
+      "ps": null,
+      "shareholder_yield": 1.55,
+      "net_margin": null,
+      "_period": "90d"
+    },
+    {
+      "as_of": "2026-07-04",
+      "net_income": 3066013.7,
+      "pe": 59.52,
+      "ps": null,
+      "shareholder_yield": 1.68,
+      "net_margin": null,
+      "_period": "30d"
+    },
+    {
+      "as_of": "2026-07-27",
+      "net_income": 2044009.13,
+      "pe": 89.29,
+      "ps": null,
+      "shareholder_yield": 1.12,
+      "net_margin": null,
+      "_period": "7d"
+    },
+    {
+      "as_of": "2026-08-03",
       "net_income": 2602180,
       "pe": 69.9301,
       "ps": 70.1338,
