@@ -43,15 +43,56 @@ def fetch_bnb_history():
     for q in burn.get("quarterly_burns", []):
         burn_by_q[q["date"][:7]] = q["bnb_burned"]
 
-    # 每天: bep95_bnb(usd) + 季度 burn 日均(usd) + aBNB APY
-    # 用滚动 365d 窗口计算 net_income/PE，避免日波动
+    # ── Auto-Burn 平滑：识别链上单日大额销毁（>1000 BNB，= Auto-Burn 执行日）──
+    # BEP-95 链上抓取会把 Auto-Burn 转账也计入（都转 0xdead），平时 BEP-95 每天只有几百 BNB，
+    # 单日 >1000 BNB 即为季度 Auto-Burn 执行日。把该日金额均摊到「上次执行日 → 本次执行日」
+    # 之间的每一天，消除单日巨峰（2026-07-16 的 161.6 万 BNB 就属于这种情况）。
     daily = bep95.get("daily", [])
-    daily_revenue = []  # [(date_str, revenue_usd)]
+    AUTO_BURN_THRESHOLD = 1000  # BNB
+    # 找出所有 Auto-Burn 执行日（含 burn-history 公告的 + 链上抓到的）
+    exec_days = []  # [(date_str, bnb)]
     for d in daily:
+        bnb = d.get("bnb", 0)
+        if bnb > AUTO_BURN_THRESHOLD:
+            exec_days.append((d["date"], bnb))
+    # 合并 burn-history 公告日（如果链上没抓到）
+    for q in burn.get("quarterly_burns", []):
+        qd = q["date"]
+        if qd not in [e[0] for e in exec_days]:
+            exec_days.append((qd, q["bnb_burned"]))
+    exec_days.sort(key=lambda x: x[0])
+    # 若没有执行日（异常），fallback 到 burn-history 的月份均摊
+    if not exec_days:
+        exec_days = [(q["date"], q["bnb_burned"]) for q in burn.get("quarterly_burns", [])]
+
+    # 每天: bep95_bnb(usd，排除 Auto-Burn 执行日) + Auto-Burn 区间均摊 + aBNB APY
+    # 用滚动 365d 窗口计算 net_income/PE，避免日波动
+    daily_revenue = []  # [(date_str, revenue_usd)]
+    exec_set = {e[0] for e in exec_days}
+    # 每个执行日负责「上一个执行日(不含) → 本执行日(含)」区间的均摊
+    # 均摊区间天数 = 距上一个执行日的天数
+    for i, d in enumerate(daily):
         date_str = d["date"]
         bep95_bnb = d.get("bnb", 0)
-        ym = date_str[:7]
-        quarter_bnb = burn_by_q.get(ym, 0) / 90
+        # 若当天是 Auto-Burn 执行日：从 bep95 里剔除（该金额另行均摊）
+        if date_str in exec_set:
+            bep95_bnb = 0
+        # 找当天所属的 Auto-Burn 区间：最近的执行日 <= 当天
+        recent_exec = [e for e in exec_days if e[0] <= date_str]
+        if not recent_exec:
+            quarter_bnb = 0  # 数据起始前无执行日
+        else:
+            cur_date, cur_amount = recent_exec[-1]
+            # 区间天数：cur_date → 下一个执行日（或到今天）
+            next_dates = [e[0] for e in exec_days if e[0] > cur_date]
+            end = next_dates[0] if next_dates else daily[-1]["date"]
+            from datetime import datetime
+            span = (datetime.strptime(end, "%Y-%m-%d") - datetime.strptime(cur_date, "%Y-%m-%d")).days
+            span = max(span, 1)
+            quarter_bnb = cur_amount / span if date_str >= cur_date else 0
+            # 只在执行日当天起才均摊（执行日之前不摊）
+            if date_str < cur_date:
+                quarter_bnb = 0
         burn_usd = (bep95_bnb + quarter_bnb) * price
         staking_usd = mcap * staking_apy / 365 / 100
         daily_revenue.append((date_str, burn_usd + staking_usd))
