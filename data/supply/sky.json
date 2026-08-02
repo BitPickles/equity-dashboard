@@ -2,11 +2,367 @@
   "protocol": "sky",
   "symbol": "SKY",
   "source": "CoinMarketCap",
-  "updated_at": "2026-08-02T15:51:23.320227+00:00",
+  "updated_at": "2026-08-02T18:37:31.042486+00:00",
   "points": [
     {
+      "date": "2026-05-05",
+      "circulating_supply": 23214180775.36
+    },
+    {
+      "date": "2026-05-06",
+      "circulating_supply": 23213738388.35
+    },
+    {
+      "date": "2026-05-07",
+      "circulating_supply": 23213290522.54
+    },
+    {
+      "date": "2026-05-08",
+      "circulating_supply": 23212842035.49
+    },
+    {
+      "date": "2026-05-09",
+      "circulating_supply": 23212326958.84
+    },
+    {
+      "date": "2026-05-10",
+      "circulating_supply": 23211885353.78
+    },
+    {
+      "date": "2026-05-11",
+      "circulating_supply": 23211432535.38
+    },
+    {
+      "date": "2026-05-12",
+      "circulating_supply": 23215190566.34
+    },
+    {
+      "date": "2026-05-13",
+      "circulating_supply": 23214633477.73
+    },
+    {
+      "date": "2026-05-14",
+      "circulating_supply": 23214157428.96
+    },
+    {
+      "date": "2026-05-15",
+      "circulating_supply": 23213664226.15
+    },
+    {
+      "date": "2026-05-16",
+      "circulating_supply": 23213167392.25
+    },
+    {
+      "date": "2026-05-17",
+      "circulating_supply": 23212569468.78
+    },
+    {
+      "date": "2026-05-18",
+      "circulating_supply": 23212058091.43
+    },
+    {
+      "date": "2026-05-19",
+      "circulating_supply": 23230098690.09
+    },
+    {
+      "date": "2026-05-20",
+      "circulating_supply": 23229579333.75
+    },
+    {
+      "date": "2026-05-21",
+      "circulating_supply": 23228975753.67
+    },
+    {
+      "date": "2026-05-22",
+      "circulating_supply": 23228469653.96
+    },
+    {
+      "date": "2026-05-23",
+      "circulating_supply": 23227962005.44
+    },
+    {
+      "date": "2026-05-24",
+      "circulating_supply": 23227449452.83
+    },
+    {
+      "date": "2026-05-25",
+      "circulating_supply": 23226852090.49
+    },
+    {
+      "date": "2026-05-26",
+      "circulating_supply": 23244896631.45
+    },
+    {
+      "date": "2026-05-27",
+      "circulating_supply": 23244384117.67
+    },
+    {
+      "date": "2026-05-28",
+      "circulating_supply": 23243860981.49
+    },
+    {
+      "date": "2026-05-29",
+      "circulating_supply": 23243223853.93
+    },
+    {
+      "date": "2026-05-30",
+      "circulating_supply": 23242675432.1
+    },
+    {
+      "date": "2026-05-31",
+      "circulating_supply": 23242124240.8
+    },
+    {
+      "date": "2026-06-01",
+      "circulating_supply": 23241487201.62
+    },
+    {
+      "date": "2026-06-02",
+      "circulating_supply": 23259518705.41
+    },
+    {
+      "date": "2026-06-03",
+      "circulating_supply": 23258987025.14
+    },
+    {
+      "date": "2026-06-04",
+      "circulating_supply": 23258457828.36
+    },
+    {
+      "date": "2026-06-05",
+      "circulating_supply": 23257823908.19
+    },
+    {
+      "date": "2026-06-06",
+      "circulating_supply": 23257227264.69
+    },
+    {
+      "date": "2026-06-07",
+      "circulating_supply": 23256598489.06
+    },
+    {
+      "date": "2026-06-08",
+      "circulating_supply": 23255963888.96
+    },
+    {
+      "date": "2026-06-09",
+      "circulating_supply": 23273801274.45
+    },
+    {
+      "date": "2026-06-10",
+      "circulating_supply": 23273164803.99
+    },
+    {
+      "date": "2026-06-11",
+      "circulating_supply": 23272515241.5
+    },
+    {
+      "date": "2026-06-12",
+      "circulating_supply": 23271885173.3
+    },
+    {
+      "date": "2026-06-13",
+      "circulating_supply": 23271151090.9
+    },
+    {
+      "date": "2026-06-14",
+      "circulating_supply": 23270513339.74
+    },
+    {
+      "date": "2026-06-15",
+      "circulating_supply": 23269880194.76
+    },
+    {
+      "date": "2026-06-16",
+      "circulating_supply": 23287809110.64
+    },
+    {
+      "date": "2026-06-17",
+      "circulating_supply": 23287080579.58
+    },
+    {
+      "date": "2026-06-18",
+      "circulating_supply": 23286460395.1
+    },
+    {
+      "date": "2026-06-19",
+      "circulating_supply": 23285831157.13
+    },
+    {
+      "date": "2026-06-20",
+      "circulating_supply": 23285214812.68
+    },
+    {
+      "date": "2026-06-21",
+      "circulating_supply": 23284495736.4
+    },
+    {
+      "date": "2026-06-22",
+      "circulating_supply": 23283887513.59
+    },
+    {
+      "date": "2026-06-23",
+      "circulating_supply": 23302504544.01
+    },
+    {
+      "date": "2026-06-24",
+      "circulating_supply": 23301878093.85
+    },
+    {
+      "date": "2026-06-25",
+      "circulating_supply": 23301108262.94
+    },
+    {
+      "date": "2026-06-26",
+      "circulating_supply": 23300430595.69
+    },
+    {
+      "date": "2026-06-27",
+      "circulating_supply": 23299723035.92
+    },
+    {
+      "date": "2026-06-28",
+      "circulating_supply": 23298993102.24
+    },
+    {
+      "date": "2026-06-29",
+      "circulating_supply": 23298151510.53
+    },
+    {
+      "date": "2026-06-30",
+      "circulating_supply": 23316075514.68
+    },
+    {
+      "date": "2026-07-01",
+      "circulating_supply": 23315403470.51
+    },
+    {
+      "date": "2026-07-02",
+      "circulating_supply": 23314721933.93
+    },
+    {
+      "date": "2026-07-03",
+      "circulating_supply": 23313958996.28
+    },
+    {
+      "date": "2026-07-04",
+      "circulating_supply": 23313351989.33
+    },
+    {
+      "date": "2026-07-05",
+      "circulating_supply": 23312733713.29
+    },
+    {
+      "date": "2026-07-06",
+      "circulating_supply": 23312091225.57
+    },
+    {
+      "date": "2026-07-07",
+      "circulating_supply": 23329974656.87
+    },
+    {
+      "date": "2026-07-08",
+      "circulating_supply": 23329326698.61
+    },
+    {
+      "date": "2026-07-09",
+      "circulating_supply": 23328662136.41
+    },
+    {
+      "date": "2026-07-10",
+      "circulating_supply": 23328029524.24
+    },
+    {
+      "date": "2026-07-11",
+      "circulating_supply": 23327308825.86
+    },
+    {
+      "date": "2026-07-12",
+      "circulating_supply": 23326712620.88
+    },
+    {
+      "date": "2026-07-13",
+      "circulating_supply": 23326126946.63
+    },
+    {
+      "date": "2026-07-14",
+      "circulating_supply": 23344145080.79
+    },
+    {
+      "date": "2026-07-15",
+      "circulating_supply": 23343452180.46
+    },
+    {
+      "date": "2026-07-16",
+      "circulating_supply": 23342871017.72
+    },
+    {
+      "date": "2026-07-17",
+      "circulating_supply": 23342293338.54
+    },
+    {
+      "date": "2026-07-18",
+      "circulating_supply": 23341697287.24
+    },
+    {
+      "date": "2026-07-19",
+      "circulating_supply": 23341008522
+    },
+    {
+      "date": "2026-07-20",
+      "circulating_supply": 23340421237.15
+    },
+    {
+      "date": "2026-07-21",
+      "circulating_supply": 23358932152.17
+    },
+    {
+      "date": "2026-07-22",
+      "circulating_supply": 23358363395.83
+    },
+    {
+      "date": "2026-07-23",
+      "circulating_supply": 23357703223.29
+    },
+    {
+      "date": "2026-07-24",
+      "circulating_supply": 23357122168.89
+    },
+    {
+      "date": "2026-07-25",
+      "circulating_supply": 23356496574.02
+    },
+    {
+      "date": "2026-07-26",
+      "circulating_supply": 23355881615.88
+    },
+    {
+      "date": "2026-07-27",
+      "circulating_supply": 23355163611.69
+    },
+    {
+      "date": "2026-07-28",
+      "circulating_supply": 23376709586.15
+    },
+    {
+      "date": "2026-07-29",
+      "circulating_supply": 23376068214.65
+    },
+    {
+      "date": "2026-07-30",
+      "circulating_supply": 23375443735.03
+    },
+    {
+      "date": "2026-07-31",
+      "circulating_supply": 23374712964.11
+    },
+    {
+      "date": "2026-08-01",
+      "circulating_supply": 23374087797.08
+    },
+    {
       "date": "2026-08-02",
-      "circulating_supply": 23373023929.81206
+      "circulating_supply": 23373449102.06
     }
   ]
 }

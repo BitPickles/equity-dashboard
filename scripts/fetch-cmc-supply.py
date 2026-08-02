@@ -87,6 +87,54 @@ def fetch_quotes(slug, api_key):
         return None
 
 
+def fetch_historical(pid, slug, symbol, api_key, days=90):
+    """拉 CMC historical quotes（v2）→ 近 days 天每日流通量序列。
+    返回 [(date_str, supply), ...] 或 None。"""
+    from datetime import datetime, timedelta
+    end = datetime.now(timezone.utc)
+    start = end - timedelta(days=days)
+    url = ("https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/historical"
+           f"?symbol={symbol}&time_start={start.strftime('%Y-%m-%d')}"
+           f"&time_end={end.strftime('%Y-%m-%d')}&interval=daily")
+    req = urllib.request.Request(url, headers={
+        "X-CMC_PRO_API_KEY": api_key,
+        "Accept": "application/json",
+    })
+    try:
+        with urllib.request.urlopen(req, timeout=40) as r:
+            d = json.loads(r.read().decode("utf-8"))
+        data = d.get("data", {})
+        # data 可能是 { 'SYM': [ {...}, ... ] } 或 { 'SYM': {...} }
+        entries = data.get(symbol, [])
+        if isinstance(entries, dict):
+            entries = [entries]
+        if not isinstance(entries, list) or not entries:
+            return None
+        # 选 id 对应的条目：优先取 circulating_supply 非空的
+        best = None
+        for e in entries:
+            quotes = e.get("quotes", [])
+            if quotes and quotes[-1].get("quote", {}).get("USD", {}).get("circulating_supply"):
+                best = e
+                break
+        if best is None:
+            best = entries[0]
+        quotes = best.get("quotes", [])
+        points = []
+        for q in quotes:
+            ts = q.get("timestamp", "")[:10]
+            supply = q.get("quote", {}).get("USD", {}).get("circulating_supply")
+            if ts and supply is not None:
+                points.append({"date": ts, "circulating_supply": supply})
+        return points if points else None
+    except urllib.error.HTTPError as e:
+        print(f"    ⚠ CMC {pid} historical: HTTP {e.code}")
+        return None
+    except Exception as e:
+        print(f"    ⚠ CMC {pid} historical: {e}")
+        return None
+
+
 def append_point(pid, supply_info, today):
     """累积流通量时间序列 data/supply/<pid>.json。"""
     SUPPLY_DIR.mkdir(exist_ok=True)
@@ -114,6 +162,7 @@ def main():
     parser = argparse.ArgumentParser(description="CMC 代币流通量采集")
     parser.add_argument("--protocol", nargs="*", help="指定协议；默认全部")
     parser.add_argument("--dry-run", action="store_true", help="只打印计划，不调用 API")
+    parser.add_argument("--days", type=int, default=90, help="历史流通量回溯天数（默认 90）")
     args = parser.parse_args()
 
     api_key = get_api_key()
@@ -139,8 +188,19 @@ def main():
             continue
         info = fetch_quotes(slug, api_key)
         if info and info.get("circulating_supply") is not None:
-            append_point(pid, info, today)
-            print(f"  ✓ {pid}: {info['circulating_supply']:,.0f} ({info.get('symbol')})")
+            sym = info.get("symbol")
+            # 优先拉历史序列（90 天）→ 流通量曲线有完整走势；失败则落单点
+            hist = fetch_historical(pid, slug, sym, api_key, days=args.days)
+            if hist and len(hist) > 1:
+                data = {"protocol": pid, "symbol": sym, "source": "CoinMarketCap",
+                        "updated_at": datetime.now(timezone.utc).isoformat(), "points": hist}
+                SUPPLY_DIR.mkdir(exist_ok=True)
+                (SUPPLY_DIR / f"{pid}.json").write_text(
+                    json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+                print(f"  ✓ {pid}: {len(hist)} 天历史流通量 {hist[0]['circulating_supply']:,.0f} → {hist[-1]['circulating_supply']:,.0f} ({sym})")
+            else:
+                append_point(pid, info, today)
+                print(f"  ✓ {pid}: {info['circulating_supply']:,.0f} ({sym}) [单点]")
             ok += 1
         else:
             fail += 1

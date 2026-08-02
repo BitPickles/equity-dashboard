@@ -217,15 +217,29 @@
     }
     .tev-status-chip strong { color: var(--text-primary); font-weight: 600; }
 
-    /* Caveats 警示卡 */
+    /* Caveats 警示卡（可折叠）*/
     .caveats-card {
-      margin-top: 14px; padding: 12px 14px;
-      background: rgba(251,146,60,0.08); border: 1px solid rgba(251,146,60,0.25);
+      margin-top: 14px; padding: 10px 14px;
+      background: rgba(251,146,60,0.06); border: 1px solid rgba(251,146,60,0.2);
       border-left: 3px solid rgb(251,146,60); border-radius: 8px;
     }
-    .caveats-title { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: rgb(234,88,12); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.4px; }
-    .caveats-list { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0; padding-left: 20px; }
+    .caveats-card > summary { cursor: pointer; list-style: none; user-select: none; }
+    .caveats-card > summary::-webkit-details-marker { display: none; }
+    .caveats-card > summary:hover { opacity: 0.8; }
+    .caveats-chevron { margin-left: auto; font-size: 10px; transition: transform .2s; }
+    .caveats-card[open] .caveats-chevron { transform: rotate(90deg); }
+    .caveats-title { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: rgb(234,88,12); text-transform: uppercase; letter-spacing: 0.4px; }
+    .caveats-list { font-size: 12px; color: var(--text-secondary); line-height: 1.6; margin: 8px 0 0; padding-left: 20px; }
     .caveats-list li { margin: 4px 0; }
+
+    /* 历史指标切换按钮（图表下方，pill 风格） */
+    .history-tab {
+      background: var(--bg-tertiary); border: 1px solid var(--border); color: var(--text-secondary);
+      padding: 6px 14px; border-radius: 20px; font-size: 12px; cursor: pointer;
+      transition: all .15s; font-weight: 500;
+    }
+    .history-tab:hover { border-color: var(--accent); color: var(--text-primary); }
+    .history-tab.active { background: rgba(34,197,94,0.12); border-color: var(--accent); color: var(--accent); font-weight: 600; }
 
     /* 深度分析 tabs */
     .deep-tabs {
@@ -400,10 +414,10 @@
           <div class="tev-status-chip"><span data-zh="分红" data-en="Dividend">分红</span>: <strong id="chip-dividends">—</strong></div>
           <div class="tev-status-chip"><span data-zh="置信度" data-en="Confidence">置信度</span>: <strong id="chip-confidence">—</strong></div>
         </div>
-        <div class="caveats-card" id="caveats-card" style="display:none;">
-          <div class="caveats-title">⚠️ <span data-zh="关键注意事项" data-en="Key Caveats">关键注意事项</span></div>
+        <details class="caveats-card" id="caveats-card" style="display:none;">
+          <summary class="caveats-title">⚠️ <span data-zh="关键注意事项" data-en="Key Caveats">关键注意事项</span> <span class="caveats-chevron">▸</span></summary>
           <ul class="caveats-list" id="caveats-list"></ul>
-        </div>
+        </details>
       </div>
 
       <!-- 2. 损益表（美股化财报核心）-->
@@ -415,23 +429,39 @@
         </div>
       </div>
 
-      <!-- 3. 历史数据看板（净收益/PE/PS/股东回报率/净利率 多指标表格 + 图表）-->
+      <!-- 3. 历史数据看板（净收益/PE/PS/股东回报率/净利率 折线图 + 下方切换按钮）-->
       <div class="section chart-section" id="history-dashboard-section">
         <div class="section-title"><span class="icon">📈</span><span data-i18n="section.historyDashboard">历史数据</span></div>
-        <div class="history-metric-tabs" id="history-metric-tabs">
-          <button class="history-tab active" data-metric="net_income" data-i18n="hd.netIncome">净收益</button>
-          <button class="history-tab" data-metric="pe" data-i18n="hd.pe">P/E</button>
-          <button class="history-tab" data-metric="ps" data-i18n="hd.ps">P/S</button>
-          <button class="history-tab" data-metric="shareholder_yield" data-i18n="hd.shareholderYield">股东回报率</button>
-          <button class="history-tab" data-metric="net_margin" data-i18n="hd.netMargin">净利率</button>
+        <div class="history-chart-container" style="position:relative;height:340px;"><div class="chart-canvas-wrap" style="height:340px;"><canvas id="history-chart"></canvas></div></div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;flex-wrap:wrap;">
+          <div class="history-metric-tabs" id="history-metric-tabs" style="display:flex;gap:6px;">
+            <button class="history-tab active" data-metric="net_income" data-i18n="hd.netIncome">净收益</button>
+            <button class="history-tab" data-metric="pe" data-i18n="hd.pe">P/E</button>
+            <button class="history-tab" data-metric="ps" data-i18n="hd.ps">P/S</button>
+            <button class="history-tab" data-metric="shareholder_yield" data-i18n="hd.shareholderYield">股东回报率</button>
+            <button class="history-tab" data-metric="net_margin" data-i18n="hd.netMargin">净利率</button>
+          </div>
         </div>
-        <div class="history-chart-container" style="position:relative;height:320px;"><div class="chart-canvas-wrap" style="height:320px;"><canvas id="history-chart"></canvas></div></div>
+        <div style="text-align:center;font-size:11px;color:var(--text-tertiary);margin-top:10px;">
+          <span data-i18n="chart.zoomHint">🖱️ 滚轮缩放 · 拖动平移 · 双击重置</span>
+        </div>
       </div>
 
-      <!-- 6. 代币流通量曲线（CMC 数据源；key 未到位时显示占位提示）-->
+      <!-- 6. 代币流通量（当前值 + 历史曲线，CMC 数据源）-->
       <div class="section chart-section" id="supply-section">
         <div class="section-title"><span class="icon">🪙</span><span data-i18n="section.supply">代币流通量</span></div>
-        <div class="supply-chart-container"><div class="chart-canvas-wrap"><canvas id="supply-chart"></canvas></div><div class="supply-note" id="supply-note" style="text-align:center;color:var(--text-tertiary);font-size:11px;margin-top:8px;"></div></div>
+        <div class="supply-hero" style="display:flex;align-items:center;gap:32px;margin-bottom:16px;flex-wrap:wrap;">
+          <div>
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">${'<span data-i18n="supply.current"></span>' || (currentLang === 'zh' ? '当前流通量' : 'Current Supply')}</div>
+            <div style="font-size:38px;font-weight:700;font-family:'JetBrains Mono',monospace;color:#f0b90b;line-height:1;" id="supply-current-value">—</div>
+            <div style="font-size:11px;color:var(--text-tertiary);margin-top:6px;" id="supply-current-meta"></div>
+          </div>
+          <div style="flex:1;min-width:200px;color:var(--text-tertiary);font-size:12px;line-height:1.6;padding-left:32px;border-left:1px solid var(--border);">
+            <span data-i18n="supply.desc"></span>
+          </div>
+        </div>
+        <div class="supply-chart-container" style="position:relative;height:300px;"><div class="chart-canvas-wrap" style="height:300px;"><canvas id="supply-chart"></canvas></div></div>
+        <div class="supply-note" id="supply-note" style="text-align:center;color:var(--text-tertiary);font-size:11px;margin-top:8px;"></div>
       </div>
 
       <!-- 5. 深度分析（机制 / 计算 / 备注 合并 tab）-->
@@ -491,8 +521,8 @@
 
   <script>
     const i18n = {
-      zh: { 'nav.dashboard': '仪表盘', 'nav.home': '首页', 'nav.tev': '协议估值', 'loading': '加载中...', 'section.tevSummary': '估值概览', 'section.tevHistory': '股东回报历史', 'section.buybackAddresses': '回购地址', 'section.tevMechanisms': '价值返还机制', 'section.dataSources': '数据来源', 'section.notes': '分析师备注', 'section.references': '参考资料', 'section.incomeStatement': '损益表', 'section.calcBasis': '计算口径', 'is.revenue': '收入 Revenue', 'is.lpCost': '− 直接成本（LP 分润）', 'is.grossProfit': '= 毛利 Gross Profit', 'is.emission': '− 增发成本（SBC 类比）', 'is.operating': '− 运营成本', 'is.netIncome': '= 净利 Net Income', 'is.margin': '利润率', 'is.grossMargin': '毛利率', 'is.netMargin': '净利率', 'is.holderAlloc': '净利分配', 'is.holderReturns': '→ 股东回报（流向持币人）', 'is.retained': '→ 留存（国库）', 'is.details': '计算过程与数据源', 'is.platformNote': '平台币口径：无 LP 成本模型，毛利 = 净利 = 收入（赋能总额）', 'cb.entityType': '实体类型判定', 'cb.revenue': '收入口径判定书', 'cb.emission': '增发成本处理', 'cb.netIncome': '净利润口径', 'cb.goldGrade': '含金量标注', 'cb.pipeline': '数据源与验证', 'cb.caveats': '已知假设 / Caveats', 'cb.included': '计入收入', 'cb.excluded': '不计入', 'cb.treatment.cost': '增发作为成本从净利扣除（有对价换当期收入）', 'cb.treatment.dilution': '无对价增发，作稀释注记展示', 'cb.treatment.none': '无代币增发', 'cb.verification.verified': '✅ 已验证（链上可复算）', 'cb.verification.partial': '🟡 部分验证', 'cb.verification.estimated': '🟠 估算口径（数据不可得时用）', 'cb.grade.destroy': '销毁型 🟢 真金白银回收（链上可验证）', 'cb.grade.yield': '收益型 🟡 增发/生态资源支付（含稀释成本）', 'cb.grade.dividend': '分红型 直接分配给持币人/质押者', 'cb.grade.buyback': '回购型 回购销毁或回购后分发', 'cb.noData': '数据不可得（— 而非 0）', 'section.historyDashboard': '历史数据', 'section.supply': '代币流通量', 'hd.netIncome': '净收益', 'hd.pe': 'P/E', 'hd.ps': 'P/S', 'hd.shareholderYield': '股东回报率', 'hd.netMargin': '净利率', 'buyback.current': '当前阶段', 'buyback.historical': '历史阶段', 'buyback.legacy': '历史钱包', 'buyback.disposal': '处置地址', 'buyback.autoDailyBuyback': '自动每日回购', 'buyback.strategicReserve': '战略回购储备', 'buyback.burnAddress': '销毁地址', 'buyback.airdropLock': '空投锁仓', 'buyback.progress': '回购进度', 'buyback.totalBought': '已回购', 'buyback.totalUsd': '回购价值', 'buyback.totalSupply': '代币总量', 'section.buybackData': '回购数据', 'chart.totalTev': '累计股东回报', 'chart.records': '记录数', 'chart.avgMonthly': '月均回报', 'chart.period': '数据周期', 'chart.cumulative': '累计回报', 'chart.zoomHint': '🖱️ 滚轮缩放 · 拖动平移 · 双击重置', 'tev.feeSwitch': '费用开关', 'tev.buybacks': '回购', 'tev.dividends': '分红', 'tev.burns': '销毁', 'tev.confidence': '可信度', 'footer.lastUpdated': '最后更新', 'status.active': '活跃', 'status.planned': '计划中', 'status.inactive': '未激活', 'status.ON': '已开启', 'status.OFF': '未开启', 'status.PARTIAL': '部分', 'status.NONE': '无', 'status.ACTIVE': '活跃', 'noTev.title': '该协议暂无股东回报', 'noTev.desc': '代币仅用于治理，协议收入未以分红或回购返还给代币持有者', 'mechanism.type.buyback': '回购', 'mechanism.type.buyback_burn': '回购销毁', 'mechanism.type.staking_reward': '质押奖励', 'mechanism.type.fee_sharing': '费用分成', 'mechanism.type.ve_distribution': 've 分配', 'mechanism.type.airdrop': '空投', 'mechanism.type.aggregate': '综合回报', 'mechanism.type.burn': '销毁', 'mechanism.type.direct_distribution': '直接分配', 'mechanism.type.ve_reward': 've 奖励', 'mechanism.type.holders_revenue': '持有者收入', 'source.governance': '治理', 'source.documentation': '文档', 'source.report': '报告', 'source.api': 'API', 'source.onchain': '链上', 'confidence.high': '高', 'confidence.medium': '中', 'confidence.low': '低', 'burn.progress': '销毁进度', 'burn.totalBurned': '已销毁', 'burn.remaining': '剩余供应', 'burn.target': '目标供应' },
-      en: { 'nav.dashboard': 'Dashboard', 'nav.home': 'Home', 'nav.tev': 'Valuation', 'loading': 'Loading...', 'section.tevSummary': 'Valuation Summary', 'section.tevHistory': 'Shareholder Return History', 'section.buybackAddresses': 'Buyback Addresses', 'section.tevMechanisms': 'Value Return Mechanisms', 'section.dataSources': 'Data Sources', 'section.notes': 'Analyst Notes', 'section.references': 'References', 'section.incomeStatement': 'Income Statement', 'section.calcBasis': 'Calculation Basis', 'is.revenue': 'Revenue', 'is.lpCost': '− Direct Costs (LP share)', 'is.grossProfit': '= Gross Profit', 'is.emission': '− Token Emission Cost (SBC-style)', 'is.operating': '− Operating Costs', 'is.netIncome': '= Net Income', 'is.margin': 'Margins', 'is.grossMargin': 'Gross Margin', 'is.netMargin': 'Net Margin', 'is.holderAlloc': 'Net Income Allocation', 'is.holderReturns': '→ Shareholder Returns (to holders)', 'is.retained': '→ Retained (treasury)', 'is.details': 'Calculation & Data Source', 'is.platformNote': 'Platform token: no LP cost model, GP = NI = Revenue (empowerment total)', 'cb.entityType': 'Entity Type', 'cb.revenue': 'Revenue Recognition', 'cb.emission': 'Emission Cost Treatment', 'cb.netIncome': 'Net Income Basis', 'cb.goldGrade': 'Gold-Grade Labels', 'cb.pipeline': 'Data Pipeline & Verification', 'cb.caveats': 'Assumptions / Caveats', 'cb.included': 'Included', 'cb.excluded': 'Excluded', 'cb.treatment.cost': 'Emission counted as cost (exchanged for current revenue)', 'cb.treatment.dilution': 'No-quid-pro-quo emission, shown as dilution note', 'cb.treatment.none': 'No token emission', 'cb.verification.verified': '✅ Verified (on-chain reproducible)', 'cb.verification.partial': '🟡 Partially verified', 'cb.verification.estimated': '🟠 Estimated (when data unavailable)', 'cb.grade.destroy': 'Destroy 🟢 Real cash recovery (on-chain verifiable)', 'cb.grade.yield': 'Yield 🟡 Emission/ecosystem-funded (includes dilution cost)', 'cb.grade.dividend': 'Dividend Directly distributed to holders/stakers', 'cb.grade.buyback': 'Buyback Bought back & burned or redistributed', 'cb.noData': 'Unavailable (— rather than 0)', 'section.historyDashboard': 'History', 'section.supply': 'Circulating Supply', 'hd.netIncome': 'Net Income', 'hd.pe': 'P/E', 'hd.ps': 'P/S', 'hd.shareholderYield': 'Shareholder Yield', 'hd.netMargin': 'Net Margin', 'buyback.current': 'Current Stage', 'buyback.historical': 'Historical Stage', 'buyback.legacy': 'Legacy Wallets', 'buyback.disposal': 'Disposal Addresses', 'buyback.autoDailyBuyback': 'Auto Daily Buyback', 'buyback.strategicReserve': 'Strategic Reserve', 'buyback.burnAddress': 'Burn Address', 'buyback.airdropLock': 'Airdrop Lock', 'buyback.progress': 'Buyback Progress', 'buyback.totalBought': 'Total Bought', 'buyback.totalUsd': 'Total Value', 'buyback.totalSupply': 'Total Supply', 'section.buybackData': 'Buyback Data', 'chart.totalTev': 'Total Returns', 'chart.records': 'Records', 'chart.avgMonthly': 'Avg Monthly', 'chart.period': 'Period', 'chart.cumulative': 'Cumulative Returns', 'chart.zoomHint': '🖱️ Scroll to zoom · Drag to pan · Double-click to reset', 'tev.feeSwitch': 'Fee Switch', 'tev.buybacks': 'Buybacks', 'tev.dividends': 'Dividends', 'tev.burns': 'Burns', 'tev.confidence': 'Confidence', 'footer.lastUpdated': 'Last Updated', 'status.active': 'Active', 'status.planned': 'Planned', 'status.inactive': 'Inactive', 'status.ON': 'ON', 'status.OFF': 'OFF', 'status.PARTIAL': 'Partial', 'status.NONE': 'None', 'status.ACTIVE': 'Active', 'noTev.title': 'No Shareholder Returns Yet', 'noTev.desc': 'Token is governance-only; protocol revenue is not returned to holders via dividends or buybacks', 'mechanism.type.buyback': 'Buyback', 'mechanism.type.buyback_burn': 'Buyback & Burn', 'mechanism.type.staking_reward': 'Staking Reward', 'mechanism.type.fee_sharing': 'Fee Sharing', 'mechanism.type.ve_distribution': 've Distribution', 'mechanism.type.airdrop': 'Airdrop', 'mechanism.type.aggregate': 'Total Return', 'mechanism.type.burn': 'Burn', 'mechanism.type.direct_distribution': 'Direct Distribution', 'mechanism.type.ve_reward': 've Reward', 'mechanism.type.holders_revenue': 'Holders Revenue', 'source.governance': 'Governance', 'source.documentation': 'Docs', 'source.report': 'Report', 'source.api': 'API', 'source.onchain': 'On-chain', 'confidence.high': 'High', 'confidence.medium': 'Medium', 'confidence.low': 'Low', 'burn.progress': 'Burn Progress', 'burn.totalBurned': 'Total Burned', 'burn.remaining': 'Remaining Supply', 'burn.target': 'Target Supply' }
+      zh: { 'nav.dashboard': '仪表盘', 'nav.home': '首页', 'nav.tev': '协议估值', 'loading': '加载中...', 'section.tevSummary': '估值概览', 'section.tevHistory': '股东回报历史', 'section.buybackAddresses': '回购地址', 'section.tevMechanisms': '价值返还机制', 'section.dataSources': '数据来源', 'section.notes': '分析师备注', 'section.references': '参考资料', 'section.incomeStatement': '损益表', 'section.calcBasis': '计算口径', 'is.revenue': '收入 Revenue', 'is.lpCost': '− 直接成本（LP 分润）', 'is.grossProfit': '= 毛利 Gross Profit', 'is.emission': '− 增发成本（SBC 类比）', 'is.operating': '− 运营成本', 'is.netIncome': '= 净利 Net Income', 'is.margin': '利润率', 'is.grossMargin': '毛利率', 'is.netMargin': '净利率', 'is.holderAlloc': '净利分配', 'is.holderReturns': '→ 股东回报（流向持币人）', 'is.retained': '→ 留存（国库）', 'is.details': '计算过程与数据源', 'is.platformNote': '平台币口径：无 LP 成本模型，毛利 = 净利 = 收入（赋能总额）', 'cb.entityType': '实体类型判定', 'cb.revenue': '收入口径判定书', 'cb.emission': '增发成本处理', 'cb.netIncome': '净利润口径', 'cb.goldGrade': '含金量标注', 'cb.pipeline': '数据源与验证', 'cb.caveats': '已知假设 / Caveats', 'cb.included': '计入收入', 'cb.excluded': '不计入', 'cb.treatment.cost': '增发作为成本从净利扣除（有对价换当期收入）', 'cb.treatment.dilution': '无对价增发，作稀释注记展示', 'cb.treatment.none': '无代币增发', 'cb.verification.verified': '✅ 已验证（链上可复算）', 'cb.verification.partial': '🟡 部分验证', 'cb.verification.estimated': '🟠 估算口径（数据不可得时用）', 'cb.grade.destroy': '销毁型 🟢 真金白银回收（链上可验证）', 'cb.grade.yield': '收益型 🟡 增发/生态资源支付（含稀释成本）', 'cb.grade.dividend': '分红型 直接分配给持币人/质押者', 'cb.grade.buyback': '回购型 回购销毁或回购后分发', 'cb.noData': '数据不可得（— 而非 0）', 'section.historyDashboard': '历史数据', 'section.supply': '代币流通量', 'hd.netIncome': '净收益', 'hd.pe': 'P/E', 'hd.ps': 'P/S', 'hd.shareholderYield': '股东回报率', 'hd.netMargin': '净利率', 'supply.current': '当前流通量', 'supply.desc': '🪙 流通量随时间的变化反映增发与销毁的净效果（如 BNB 的 BEP-95 销毁使流通量持续下降）。数据来源 CoinMarketCap，每日更新。', 'buyback.current': '当前阶段', 'buyback.historical': '历史阶段', 'buyback.legacy': '历史钱包', 'buyback.disposal': '处置地址', 'buyback.autoDailyBuyback': '自动每日回购', 'buyback.strategicReserve': '战略回购储备', 'buyback.burnAddress': '销毁地址', 'buyback.airdropLock': '空投锁仓', 'buyback.progress': '回购进度', 'buyback.totalBought': '已回购', 'buyback.totalUsd': '回购价值', 'buyback.totalSupply': '代币总量', 'section.buybackData': '回购数据', 'chart.totalTev': '累计股东回报', 'chart.records': '记录数', 'chart.avgMonthly': '月均回报', 'chart.period': '数据周期', 'chart.cumulative': '累计回报', 'chart.zoomHint': '🖱️ 滚轮缩放 · 拖动平移 · 双击重置', 'tev.feeSwitch': '费用开关', 'tev.buybacks': '回购', 'tev.dividends': '分红', 'tev.burns': '销毁', 'tev.confidence': '可信度', 'footer.lastUpdated': '最后更新', 'status.active': '活跃', 'status.planned': '计划中', 'status.inactive': '未激活', 'status.ON': '已开启', 'status.OFF': '未开启', 'status.PARTIAL': '部分', 'status.NONE': '无', 'status.ACTIVE': '活跃', 'noTev.title': '该协议暂无股东回报', 'noTev.desc': '代币仅用于治理，协议收入未以分红或回购返还给代币持有者', 'mechanism.type.buyback': '回购', 'mechanism.type.buyback_burn': '回购销毁', 'mechanism.type.staking_reward': '质押奖励', 'mechanism.type.fee_sharing': '费用分成', 'mechanism.type.ve_distribution': 've 分配', 'mechanism.type.airdrop': '空投', 'mechanism.type.aggregate': '综合回报', 'mechanism.type.burn': '销毁', 'mechanism.type.direct_distribution': '直接分配', 'mechanism.type.ve_reward': 've 奖励', 'mechanism.type.holders_revenue': '持有者收入', 'source.governance': '治理', 'source.documentation': '文档', 'source.report': '报告', 'source.api': 'API', 'source.onchain': '链上', 'confidence.high': '高', 'confidence.medium': '中', 'confidence.low': '低', 'burn.progress': '销毁进度', 'burn.totalBurned': '已销毁', 'burn.remaining': '剩余供应', 'burn.target': '目标供应' },
+      en: { 'nav.dashboard': 'Dashboard', 'nav.home': 'Home', 'nav.tev': 'Valuation', 'loading': 'Loading...', 'section.tevSummary': 'Valuation Summary', 'section.tevHistory': 'Shareholder Return History', 'section.buybackAddresses': 'Buyback Addresses', 'section.tevMechanisms': 'Value Return Mechanisms', 'section.dataSources': 'Data Sources', 'section.notes': 'Analyst Notes', 'section.references': 'References', 'section.incomeStatement': 'Income Statement', 'section.calcBasis': 'Calculation Basis', 'is.revenue': 'Revenue', 'is.lpCost': '− Direct Costs (LP share)', 'is.grossProfit': '= Gross Profit', 'is.emission': '− Token Emission Cost (SBC-style)', 'is.operating': '− Operating Costs', 'is.netIncome': '= Net Income', 'is.margin': 'Margins', 'is.grossMargin': 'Gross Margin', 'is.netMargin': 'Net Margin', 'is.holderAlloc': 'Net Income Allocation', 'is.holderReturns': '→ Shareholder Returns (to holders)', 'is.retained': '→ Retained (treasury)', 'is.details': 'Calculation & Data Source', 'is.platformNote': 'Platform token: no LP cost model, GP = NI = Revenue (empowerment total)', 'cb.entityType': 'Entity Type', 'cb.revenue': 'Revenue Recognition', 'cb.emission': 'Emission Cost Treatment', 'cb.netIncome': 'Net Income Basis', 'cb.goldGrade': 'Gold-Grade Labels', 'cb.pipeline': 'Data Pipeline & Verification', 'cb.caveats': 'Assumptions / Caveats', 'cb.included': 'Included', 'cb.excluded': 'Excluded', 'cb.treatment.cost': 'Emission counted as cost (exchanged for current revenue)', 'cb.treatment.dilution': 'No-quid-pro-quo emission, shown as dilution note', 'cb.treatment.none': 'No token emission', 'cb.verification.verified': '✅ Verified (on-chain reproducible)', 'cb.verification.partial': '🟡 Partially verified', 'cb.verification.estimated': '🟠 Estimated (when data unavailable)', 'cb.grade.destroy': 'Destroy 🟢 Real cash recovery (on-chain verifiable)', 'cb.grade.yield': 'Yield 🟡 Emission/ecosystem-funded (includes dilution cost)', 'cb.grade.dividend': 'Dividend Directly distributed to holders/stakers', 'cb.grade.buyback': 'Buyback Bought back & burned or redistributed', 'cb.noData': 'Unavailable (— rather than 0)', 'section.historyDashboard': 'History', 'section.supply': 'Circulating Supply', 'hd.netIncome': 'Net Income', 'hd.pe': 'P/E', 'hd.ps': 'P/S', 'hd.shareholderYield': 'Shareholder Yield', 'hd.netMargin': 'Net Margin', 'supply.current': 'Current Supply', 'supply.desc': '🪙 Supply trend shows net effect of issuance vs burns (e.g. BNB BEP-95 burn). Source: CoinMarketCap, updated daily.', 'buyback.current': 'Current Stage', 'buyback.historical': 'Historical Stage', 'buyback.legacy': 'Legacy Wallets', 'buyback.disposal': 'Disposal Addresses', 'buyback.autoDailyBuyback': 'Auto Daily Buyback', 'buyback.strategicReserve': 'Strategic Reserve', 'buyback.burnAddress': 'Burn Address', 'buyback.airdropLock': 'Airdrop Lock', 'buyback.progress': 'Buyback Progress', 'buyback.totalBought': 'Total Bought', 'buyback.totalUsd': 'Total Value', 'buyback.totalSupply': 'Total Supply', 'section.buybackData': 'Buyback Data', 'chart.totalTev': 'Total Returns', 'chart.records': 'Records', 'chart.avgMonthly': 'Avg Monthly', 'chart.period': 'Period', 'chart.cumulative': 'Cumulative Returns', 'chart.zoomHint': '🖱️ Scroll to zoom · Drag to pan · Double-click to reset', 'tev.feeSwitch': 'Fee Switch', 'tev.buybacks': 'Buybacks', 'tev.dividends': 'Dividends', 'tev.burns': 'Burns', 'tev.confidence': 'Confidence', 'footer.lastUpdated': 'Last Updated', 'status.active': 'Active', 'status.planned': 'Planned', 'status.inactive': 'Inactive', 'status.ON': 'ON', 'status.OFF': 'OFF', 'status.PARTIAL': 'Partial', 'status.NONE': 'None', 'status.ACTIVE': 'Active', 'noTev.title': 'No Shareholder Returns Yet', 'noTev.desc': 'Token is governance-only; protocol revenue is not returned to holders via dividends or buybacks', 'mechanism.type.buyback': 'Buyback', 'mechanism.type.buyback_burn': 'Buyback & Burn', 'mechanism.type.staking_reward': 'Staking Reward', 'mechanism.type.fee_sharing': 'Fee Sharing', 'mechanism.type.ve_distribution': 've Distribution', 'mechanism.type.airdrop': 'Airdrop', 'mechanism.type.aggregate': 'Total Return', 'mechanism.type.burn': 'Burn', 'mechanism.type.direct_distribution': 'Direct Distribution', 'mechanism.type.ve_reward': 've Reward', 'mechanism.type.holders_revenue': 'Holders Revenue', 'source.governance': 'Governance', 'source.documentation': 'Docs', 'source.report': 'Report', 'source.api': 'API', 'source.onchain': 'On-chain', 'confidence.high': 'High', 'confidence.medium': 'Medium', 'confidence.low': 'Low', 'burn.progress': 'Burn Progress', 'burn.totalBurned': 'Total Burned', 'burn.remaining': 'Remaining Supply', 'burn.target': 'Target Supply' }
     };
     let currentLang = localStorage.getItem('lang') || 'zh';
     const t = k => i18n[currentLang][k] || k;
@@ -846,10 +876,12 @@
         });
         document.getElementById('chip-confidence').textContent = t('confidence.' + (cfg.confidence || 'medium'));
 
-        // Caveats 警示卡
+        // Caveats 警示卡（可折叠，默认收起）
         const caveats = (cfg.tev_data && cfg.tev_data.caveats) || (allTable && allTable.validation && allTable.validation.caveats) || null;
         if (Array.isArray(caveats) && caveats.length) {
-          document.getElementById('caveats-card').style.display = 'block';
+          const card = document.getElementById('caveats-card');
+          card.style.display = 'block';
+          card.removeAttribute('open');
           document.getElementById('caveats-list').innerHTML = caveats.map(c => `<li>${c}</li>`).join('');
         }
 
@@ -1104,11 +1136,11 @@
           alloc.push({ label: t('is.retained'), value: moneyFmt(retained) });
         }
 
-        // 横排 3 核心数（收入 / 毛利 / 净利），每项保留 ⓘ 展开计算过程
+        // 瀑布式损益表：收入 → 毛利 → 净利（阶梯流向 + 可展开计算过程）
         const cards = [
-          { label: t('is.revenue'), value: rev.total_usd_365d, note: buildRevenueNote(inc.revenue, rev, isPlatform), highlight: rev.total_usd_365d != null },
-          { label: t('is.grossProfit'), value: gp.gross_profit_usd_365d, note: gp.calculation_note || '', highlight: gp.gross_profit_usd_365d != null },
-          { label: t('is.netIncome'), value: ni.net_income_usd_365d, note: ni.calculation_note || '', highlight: true, negative: (ni.net_income_usd_365d || 0) < 0 },
+          { label: t('is.revenue'), value: rev.total_usd_365d, note: buildRevenueNote(inc.revenue, rev, isPlatform), highlight: rev.total_usd_365d != null, key: 'revenue' },
+          { label: t('is.grossProfit'), value: gp.gross_profit_usd_365d, note: gp.calculation_note || '', highlight: gp.gross_profit_usd_365d != null, key: 'gross' },
+          { label: t('is.netIncome'), value: ni.net_income_usd_365d, note: ni.calculation_note || '', highlight: true, negative: (ni.net_income_usd_365d || 0) < 0, key: 'net' },
         ];
         // 增发成本作为净利 note 的补充（cost 时才展示）
         if (em.treatment === 'cost' && em.usd_365d) {
@@ -1117,13 +1149,26 @@
           cards[2].note = `${t('is.emission')}（稀释注记）: ${moneyFmt(em.usd_365d)}（${em.calculation_note || '无对价增发，作稀释注记'}）`;
         }
 
+        // 瀑布流向：每个节点之间画一条渐变连接线（收入 → 毛利 → 净利）
+        const connector = (c) => c.value == null ? '' :
+          `<div style="display:flex;align-items:center;justify-content:center;padding:0 2px;flex:0 0 26px;">
+            <svg width="26" height="40" viewBox="0 0 26 40" style="display:block;">
+              <path d="M1 20 H25 M25 20 L18 13 M25 20 L18 27" stroke="${c.value < 0 ? '#e5484d' : 'var(--accent)'}" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>`;
         const container = document.getElementById('income-statement-pipeline');
-        container.innerHTML = `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
-          ${cards.map(c => `
-            <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:10px;padding:14px 16px;${c.highlight ? 'border-top:3px solid #22c55e;' : ''}">
-              <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">${c.label}</div>
-              <div style="font-weight:700;font-size:20px;font-family:'JetBrains Mono',monospace;${c.negative ? 'color:#e5484d;' : ''}">${moneyFmt(c.value)}</div>
-              ${c.note ? `<details class="calc-detail" style="margin-top:8px;"><summary style="font-size:11px;color:var(--text-tertiary);cursor:pointer;">${t('is.details')} ⓘ</summary><div class="extra-body" style="font-size:12px;color:var(--text-secondary);line-height:1.7;margin-top:4px;padding:8px 10px;background:var(--bg-tertiary);border-radius:6px;">${c.note}</div></details>` : ''}
+        container.innerHTML = `<div style="display:flex;align-items:stretch;gap:0;flex-wrap:wrap;">
+          ${cards.map((c, i) => `
+            ${i > 0 ? connector(cards[i - 1]) : ''}
+            <div style="flex:1 1 160px;min-width:150px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:16px 18px;${c.highlight ? 'border-top:3px solid #22c55e;' : ''}box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+              <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;letter-spacing:0.3px;">${c.label}</div>
+              <div style="font-weight:700;font-size:22px;font-family:'JetBrains Mono',monospace;${c.negative ? 'color:#e5484d;' : 'color:var(--text-primary);'}">${moneyFmt(c.value)}</div>
+              <div style="font-size:11px;color:var(--text-tertiary);margin-top:6px;font-family:'JetBrains Mono',monospace;">
+                ${c.key === 'gross' ? `毛利率 ${pctFmt(mg.gross_margin_percent)}` : ''}
+                ${c.key === 'net' ? `净利率 ${pctFmt(mg.net_margin_percent)}${(mg.net_margin_percent||0)<0?'':''}` : ''}
+                ${c.key === 'revenue' ? `年化收入` : ''}
+              </div>
+              ${c.note ? `<details class="calc-detail" style="margin-top:10px;"><summary style="font-size:11px;color:var(--text-tertiary);cursor:pointer;">${t('is.details')} ⓘ</summary><div class="extra-body" style="font-size:12px;color:var(--text-secondary);line-height:1.7;margin-top:4px;padding:8px 10px;background:var(--bg-tertiary);border-radius:6px;">${c.note}</div></details>` : ''}
             </div>`).join('')}
         </div>`;
 
@@ -1282,6 +1327,15 @@
             if (sampled[sampled.length - 1] !== last) sampled.push(last);
             const labels = sampled.map(r => r.as_of);
             const values = sampled.map(r => r[currentHistoryMetric]);
+            // 纵坐标简写：B=十亿 M=百万 K=千
+            const yFmt = v => v == null ? '—' : (Math.abs(v) >= 1e9 ? (v/1e9).toFixed(1)+'B' : Math.abs(v) >= 1e6 ? (v/1e6).toFixed(1)+'M' : Math.abs(v) >= 1e3 ? (v/1e3).toFixed(1)+'K' : v.toFixed(0));
+            // 横坐标时间取整：显示月份（'6月'/'2025年6月' 样式），跨年时带年份
+            const xFmt = (v) => {
+              const d = new Date(v + 'T00:00:00');
+              if (isNaN(d)) return v;
+              const y = d.getFullYear(), m = d.getMonth() + 1;
+              return (currentLang === 'zh') ? (y + '年' + m + '月') : (y + '-' + String(m).padStart(2, '0'));
+            };
             historyChart = new Chart(ctx, {
               type: 'line',
               data: { labels, datasets: [{ label: def.label, data: values, borderColor: def.color, backgroundColor: def.color + '22', fill: true, tension: 0.3, pointRadius: 0, pointHoverRadius: 4, borderWidth: 2 }] },
@@ -1294,10 +1348,18 @@
                     title: items => items[0]?.label || '',
                     label: c => def.label + ': ' + def.fmt(c.parsed.y),
                   } },
+                  // chartjs-plugin-zoom v2：滚轮缩放 + 拖动平移 + 双击重置
+                  zoom: {
+                    wheel: { enabled: true, speed: 0.08, modifierKey: 'ctrl' },
+                    pinch: { enabled: true },
+                    pan: { enabled: true, mode: 'x', threshold: 5 },
+                    mode: 'x',
+                    onZoomComplete: ({ chart }) => chart.update('none'),
+                  },
                 },
                 scales: {
-                  x: { ticks: { maxTicksLimit: 10, color: '#71717a', font: { size: 10 } }, grid: { display: false } },
-                  y: { ticks: { color: '#71717a', font: { size: 10 } }, grid: { color: 'rgba(128,128,128,0.08)' } },
+                  x: { ticks: { maxTicksLimit: 10, color: '#71717a', font: { size: 10 }, callback: xFmt, maxRotation: 0, autoSkip: true }, grid: { display: false } },
+                  y: { ticks: { color: '#71717a', font: { size: 10 }, callback: yFmt }, grid: { color: 'rgba(128,128,128,0.08)' } },
                 },
               },
             });
@@ -1320,15 +1382,18 @@
       }
     }
 
-    // ===== v2.2 代币流通量曲线（CMC 数据源；key 未到位显示占位）=====
+    // ===== v2.2 代币流通量（当前值 hero + 历史曲线，CMC 数据源）=====
     let supplyChart = null;
+    const fmtSupplyShort = v => v == null ? '—' : (v >= 1e9 ? (v/1e9).toFixed(2)+'B' : v >= 1e6 ? (v/1e6).toFixed(2)+'M' : v >= 1e3 ? (v/1e3).toFixed(1)+'K' : v.toFixed(0));
+    const fmtSupplyLong = v => v == null ? '—' : v.toLocaleString();
+
     async function loadSupplyChart(pid) {
       try {
         const resp = await fetch(`../data/supply/${pid}.json`);
         if (!resp.ok) {
           const note = document.getElementById('supply-note');
           if (note) note.textContent = currentLang === 'zh'
-            ? '🪙 代币流通量曲线 — 数据源 CoinMarketCap（接入中）'
+            ? '🪙 代币流通量 — 数据源 CoinMarketCap（接入中）'
             : '🪙 Circulating supply — source CoinMarketCap (pending)';
           return;
         }
@@ -1337,41 +1402,57 @@
         if (!pts.length) { document.getElementById('supply-section').style.display = 'none'; return; }
         const note = document.getElementById('supply-note');
         const latest = pts[pts.length - 1];
-        const fmtSupply = v => v == null ? '—' : (v >= 1e9 ? (v/1e9).toFixed(2)+'B' : v >= 1e6 ? (v/1e6).toFixed(2)+'M' : v >= 1e3 ? (v/1e3).toFixed(1)+'K' : v.toFixed(0));
-        // 1 个点：显示大数字 info card（避免空图）；≥2 个点画折线图
+
+        // ① Hero：当前流通量大数字（始终显示）
+        const curVal = document.getElementById('supply-current-value');
+        if (curVal) curVal.textContent = fmtSupplyShort(latest.circulating_supply);
+        const curMeta = document.getElementById('supply-current-meta');
+        if (curMeta) curMeta.textContent = `${latest.date} · ${sup.symbol || ''} · ${fmtSupplyLong(latest.circulating_supply)} 枚`;
+
+        // ② 历史曲线（≥2 点画线；1 点隐藏图表区提示）
+        const ctx = document.getElementById('supply-chart');
+        const chartWrap = document.querySelector('.supply-chart-container .chart-canvas-wrap');
         if (pts.length < 2) {
-          const wrap = document.getElementById('supply-section').querySelector('.supply-chart-container');
-          wrap.innerHTML = `
-            <div style="display:flex;align-items:center;gap:24px;padding:20px 4px;">
-              <div style="flex:0 0 auto;">
-                <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">${currentLang === 'zh' ? '当前流通量' : 'Current Supply'}</div>
-                <div style="font-size:36px;font-weight:700;font-family:'JetBrains Mono',monospace;color:#f0b90b;">${fmtSupply(latest.circulating_supply)}</div>
-                <div style="font-size:11px;color:var(--text-tertiary);margin-top:4px;">${latest.date} · ${sup.symbol || ''}</div>
-              </div>
-              <div style="flex:1;color:var(--text-tertiary);font-size:12px;line-height:1.6;padding-left:24px;border-left:1px solid var(--border);">
-                ${currentLang === 'zh' ? '📊 流通量曲线需要 ≥2 个数据点才有意义。<br>每日更新脚本跑起来后会自动累积历史走势（参考下方 CMC 历史 daily 快照）。' : '📊 Supply curve needs ≥2 data points. Daily CMC snapshots will accumulate automatically.'}
-              </div>
-            </div>
-            <div style="font-size:11px;color:var(--text-tertiary);margin-top:8px;text-align:right;">
-              ${currentLang === 'zh' ? '数据来源：CoinMarketCap' : 'Source: CoinMarketCap'} · ${sup.symbol || ''}
-            </div>`;
+          if (chartWrap) chartWrap.style.display = 'none';
+          if (note) note.textContent = currentLang === 'zh'
+            ? '📊 历史曲线需 ≥2 个数据点，每日更新自动累积（CMC daily snapshot）'
+            : '📊 History needs ≥2 data points, accumulating daily (CMC)';
           document.getElementById('supply-section').classList.add('has-data');
           return;
         }
+        if (chartWrap) chartWrap.style.display = '';
+        // 时间取整（横坐标按月份）
+        const xFmt2 = (v) => {
+          const d = new Date(v + 'T00:00:00');
+          if (isNaN(d)) return v;
+          const y = d.getFullYear(), m = d.getMonth() + 1;
+          return (currentLang === 'zh') ? (y + '年' + m + '月') : (y + '-' + String(m).padStart(2, '0'));
+        };
         const labels = pts.map(p => p.date);
         const values = pts.map(p => p.circulating_supply);
-        if (note) note.textContent = (currentLang === 'zh' ? '数据来源：CoinMarketCap' : 'Source: CoinMarketCap') + ' · ' + sup.symbol || '';
-        const ctx = document.getElementById('supply-chart');
+        if (note) note.textContent = (currentLang === 'zh' ? '数据来源：CoinMarketCap' : 'Source: CoinMarketCap') + ' · ' + (sup.symbol || '');
         if (!ctx) return;
         if (supplyChart) supplyChart.destroy();
         supplyChart = new Chart(ctx, {
           type: 'line',
-          data: { labels, datasets: [{ label: (currentLang === 'zh' ? '流通量' : 'Circulating Supply'), data: values, borderColor: '#f0b90b', backgroundColor: '#f0b90b22', fill: true, tension: 0.3, pointRadius: 2 }] },
+          data: { labels, datasets: [{ label: (currentLang === 'zh' ? '流通量' : 'Circulating Supply'), data: values, borderColor: '#f0b90b', backgroundColor: '#f0b90b22', fill: true, tension: 0.3, pointRadius: 0, pointHoverRadius: 4, borderWidth: 2 }] },
           options: {
             responsive: true, maintainAspectRatio: false,
-            plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => (currentLang === 'zh' ? '流通量: ' : 'Supply: ') + c.parsed.y.toLocaleString() } } },
-            scales: { x: { ticks: { maxTicksLimit: 10, color: '#71717a', font: { size: 10 } }, grid: { color: 'rgba(128,128,128,0.08)' } },
-                      y: { ticks: { color: '#71717a', font: { size: 10 }, callback: v => v >= 1e9 ? (v/1e9).toFixed(1)+'B' : v >= 1e6 ? (v/1e6).toFixed(1)+'M' : v }, grid: { color: 'rgba(128,128,128,0.08)' } } },
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+              legend: { display: false },
+              tooltip: { callbacks: { label: c => (currentLang === 'zh' ? '流通量: ' : 'Supply: ') + fmtSupplyLong(c.parsed.y) } },
+              zoom: {
+                wheel: { enabled: true, speed: 0.08 },
+                pinch: { enabled: true },
+                pan: { enabled: true, mode: 'x', threshold: 5 },
+                mode: 'x',
+              },
+            },
+            scales: {
+              x: { ticks: { maxTicksLimit: 10, color: '#71717a', font: { size: 10 }, callback: xFmt2, maxRotation: 0 }, grid: { display: false } },
+              y: { ticks: { color: '#71717a', font: { size: 10 }, callback: fmtSupplyShort }, grid: { color: 'rgba(128,128,128,0.08)' } },
+            },
           },
         });
         document.getElementById('supply-section').classList.add('has-data');
