@@ -422,7 +422,7 @@
   "tev_data": {
     "has_tev": true,
     "tev_yield_percent": 12.46,
-    "calculation_date": "2026-08-01",
+    "calculation_date": "2026-08-02",
     "methodology": "Auto-Burn（短周期=近4季USD累加；365d=近4季BNB×当前价）+ BEP-95（按窗口从日时间序列求和）+ asBNB APY。BEP-95 现已真正波动——数据源：Dune Analytics bnb.traces + 每日 BSC RPC 累积。",
     "validation": {
       "method": "Auto-Burn（短周期=近4季USD累加；365d=近4季BNB×当前价）+ BEP-95（按窗口从日时间序列计算）+ asBNB APY (Aster)",

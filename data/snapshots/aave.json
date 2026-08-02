@@ -5,8 +5,8 @@
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 115733963,
-        "total_usd_365d": 115733963
+        "protocol_fees_usd_365d": 115460247,
+        "total_usd_365d": 115460247
       },
       "revenue_excluded": {},
       "growth_yoy_percent": null,
@@ -16,7 +16,7 @@
       }
     },
     "gross_profit": {
-      "lp_share_cost_usd_365d": 73521696,
+      "lp_share_cost_usd_365d": 73247980,
       "gross_profit_usd_365d": 42212267,
       "calculation_note": "近似：协议归属（dailyHoldersRevenue 口径）作为毛利；精确 LP 分润见专属 adapter"
     },
@@ -29,8 +29,8 @@
       "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
     },
     "margins": {
-      "gross_margin_percent": 36.4735,
-      "net_margin_percent": 36.4735,
+      "gross_margin_percent": 36.56,
+      "net_margin_percent": 36.56,
       "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
     }
   },
@@ -39,18 +39,18 @@
       {
         "mechanism": "汇总（AAVE Buyback Program + Safety Module (Umbrella)）",
         "type": "yield",
-        "usd_365d": 57569893.56,
-        "yield_percent": 3.2,
+        "usd_365d": 57389987.65,
+        "yield_percent": 3.19,
         "_note": "通用适配器汇总口径（all-protocols 已验证 yield）；含金量/机制拆解待专属 adapter.py"
       }
     ],
     "summary": {
       "destroy_usd_365d": null,
-      "yield_usd_365d": 57569893.56,
+      "yield_usd_365d": 57389987.65,
       "destroy_yield_percent": null,
-      "yield_yield_percent": 3.2,
-      "shareholder_returns_usd_365d": 57569893.56,
-      "shareholder_yield_percent": 3.2
+      "yield_yield_percent": 3.19,
+      "shareholder_returns_usd_365d": 57389987.65,
+      "shareholder_yield_percent": 3.19
     }
   },
   "balance_sheet": {
@@ -60,11 +60,11 @@
     "debt_usd": null
   },
   "valuation": {
-    "pe": 31.25,
-    "ps": 15.5448,
+    "pe": 31.348,
+    "ps": 15.5816,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": 1.3638
+    "payout_ratio": 1.3596
   },
   "verification": {
     "method": "TEV = 固定 Buyback $30M/年（2026-03 治理）+ Safety Module (Umbrella) DefiLlama dailyHoldersRevenue 按窗口年化",

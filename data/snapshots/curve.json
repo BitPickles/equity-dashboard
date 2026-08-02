@@ -21,16 +21,20 @@
       "calculation_note": "近似：协议归属（dailyHoldersRevenue 口径）作为毛利；精确 LP 分润见专属 adapter"
     },
     "token_emission_cost": {
-      "treatment": "none"
+      "usd_365d": 26000000,
+      "annual_emission_tokens": 115500000,
+      "inflation_rate_percent": 4.8,
+      "treatment": "cost",
+      "calculation_note": "CRV 年增发 ~1.155 亿（约 $26M/年）全流给 LP 挖矿（有对价换收入 → 作为成本从净利扣除，美股 SBC 类比）"
     },
     "net_income": {
-      "net_income_usd_365d": 13304425,
+      "net_income_usd_365d": -12695575,
       "operating_cost_usd_365d": null,
       "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
     },
     "margins": {
       "gross_margin_percent": 86.754,
-      "net_margin_percent": 86.754,
+      "net_margin_percent": -82.7838,
       "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
     }
   },
@@ -64,7 +68,7 @@
     "ps": 20.6603,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": 1.1526
+    "payout_ratio": null
   },
   "verification": {
     "method": "Community Fund Treasury crvUSD inflow × 9 (FeeAllocator 90/10)",

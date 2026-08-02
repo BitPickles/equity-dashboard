@@ -21,16 +21,20 @@
       "calculation_note": "近似：协议归属（dailyHoldersRevenue 口径）作为毛利；精确 LP 分润见专属 adapter"
     },
     "token_emission_cost": {
-      "treatment": "none"
+      "usd_365d": 11700000,
+      "annual_emission_tokens": 8212500,
+      "inflation_rate_percent": 3.2,
+      "treatment": "cost",
+      "calculation_note": "日增发 4万→2.25 万 CAKE（farm 激励，有对价换收入 → 成本）；增发 $11.7M < 回购销毁 ~$18M → 净利为正（净通缩，连续 34 个月）"
     },
     "net_income": {
-      "net_income_usd_365d": 58668956,
+      "net_income_usd_365d": 46968956,
       "operating_cost_usd_365d": null,
       "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
     },
     "margins": {
       "gross_margin_percent": 100.0,
-      "net_margin_percent": 100.0,
+      "net_margin_percent": 80.0576,
       "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
     }
   },
@@ -64,7 +68,7 @@
     "ps": 7.7335,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": 0.9999
+    "payout_ratio": 1.249
   },
   "verification": {
     "method": "DefiLlama dailyHoldersRevenue (CAKE buyback&burn, gross)",

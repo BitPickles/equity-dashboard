@@ -39,32 +39,32 @@
       {
         "mechanism": "汇总（Fluid Reserve Buyback）",
         "type": "yield",
-        "usd_365d": 4748460.87,
-        "yield_percent": 5.04,
+        "usd_365d": 4748383.03,
+        "yield_percent": 5.15,
         "_note": "通用适配器汇总口径（all-protocols 已验证 yield）；含金量/机制拆解待专属 adapter.py"
       }
     ],
     "summary": {
       "destroy_usd_365d": null,
-      "yield_usd_365d": 4748460.87,
+      "yield_usd_365d": 4748383.03,
       "destroy_yield_percent": null,
-      "yield_yield_percent": 5.04,
-      "shareholder_returns_usd_365d": 4748460.87,
-      "shareholder_yield_percent": 5.04
+      "yield_yield_percent": 5.15,
+      "shareholder_returns_usd_365d": 4748383.03,
+      "shareholder_yield_percent": 5.15
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 94215493.45,
+    "market_cap_usd": 92201612.29,
     "tvl_usd": 858549305.8980845,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 19.8413,
-    "ps": 19.8545,
+    "pe": 19.4175,
+    "ps": 19.4301,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": 1.0007
+    "payout_ratio": 1.0006
   },
   "verification": {
     "method": "generic adapter（基于 all-protocols 已验证字段）",

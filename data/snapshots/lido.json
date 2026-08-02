@@ -5,8 +5,8 @@
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 38973917,
-        "total_usd_365d": 38973917
+        "protocol_fees_usd_365d": 38920031,
+        "total_usd_365d": 38920031
       },
       "revenue_excluded": {},
       "growth_yoy_percent": null,
@@ -46,14 +46,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 279222479.51,
+    "market_cap_usd": 269834735.75,
     "tvl_usd": 18986133323.106007,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": null,
-    "ps": 7.1643,
+    "ps": 6.9331,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null

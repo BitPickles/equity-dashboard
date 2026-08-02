@@ -5,8 +5,8 @@
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 777525548,
-        "total_usd_365d": 777525548
+        "protocol_fees_usd_365d": 772987701,
+        "total_usd_365d": 772987701
       },
       "revenue_excluded": {
         "assistance_fund": {
@@ -43,18 +43,18 @@
       {
         "mechanism": "汇总（Assistance Fund Buyback & Burn）",
         "type": "yield",
-        "usd_365d": 777330878.71,
-        "yield_percent": 10.55,
+        "usd_365d": 772910039.58,
+        "yield_percent": 10.49,
         "_note": "通用适配器汇总口径（all-protocols 已验证 yield）；含金量/机制拆解待专属 adapter.py"
       }
     ],
     "summary": {
       "destroy_usd_365d": null,
-      "yield_usd_365d": 777330878.71,
+      "yield_usd_365d": 772910039.58,
       "destroy_yield_percent": null,
-      "yield_yield_percent": 10.55,
-      "shareholder_returns_usd_365d": 777330878.71,
-      "shareholder_yield_percent": 10.55
+      "yield_yield_percent": 10.49,
+      "shareholder_returns_usd_365d": 772910039.58,
+      "shareholder_yield_percent": 10.49
     }
   },
   "balance_sheet": {
@@ -64,8 +64,8 @@
     "debt_usd": null
   },
   "valuation": {
-    "pe": 9.4787,
-    "ps": 9.4763,
+    "pe": 9.5329,
+    "ps": 9.5319,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null

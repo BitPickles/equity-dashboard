@@ -5,8 +5,8 @@
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 8551753,
-        "total_usd_365d": 8551753
+        "protocol_fees_usd_365d": 8518106,
+        "total_usd_365d": 8518106
       },
       "revenue_excluded": {},
       "growth_yoy_percent": null,
@@ -17,14 +17,14 @@
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": 0,
-      "gross_profit_usd_365d": 8551753,
+      "gross_profit_usd_365d": 8518106,
       "calculation_note": "近似：协议归属（dailyHoldersRevenue 口径）作为毛利；精确 LP 分润见专属 adapter"
     },
     "token_emission_cost": {
       "treatment": "none"
     },
     "net_income": {
-      "net_income_usd_365d": 8551753,
+      "net_income_usd_365d": 8518106,
       "operating_cost_usd_365d": null,
       "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
     },
@@ -39,32 +39,32 @@
       {
         "mechanism": "汇总（DYDX 质押分红 + Protocol Revenue Buyback）",
         "type": "yield",
-        "usd_365d": 8554843.08,
-        "yield_percent": 8.94,
+        "usd_365d": 8519249.61,
+        "yield_percent": 8.93,
         "_note": "通用适配器汇总口径（all-protocols 已验证 yield）；含金量/机制拆解待专属 adapter.py"
       }
     ],
     "summary": {
       "destroy_usd_365d": null,
-      "yield_usd_365d": 8554843.08,
+      "yield_usd_365d": 8519249.61,
       "destroy_yield_percent": null,
-      "yield_yield_percent": 8.94,
-      "shareholder_returns_usd_365d": 8554843.08,
-      "shareholder_yield_percent": 8.94
+      "yield_yield_percent": 8.93,
+      "shareholder_returns_usd_365d": 8519249.61,
+      "shareholder_yield_percent": 8.93
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 95691757.07,
+    "market_cap_usd": 95400331.54,
     "tvl_usd": 158666696.85028014,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 11.1857,
-    "ps": 11.1897,
+    "pe": 11.1982,
+    "ps": 11.1997,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": 1.0004
+    "payout_ratio": 1.0001
   },
   "verification": {
     "method": "generic adapter（基于 all-protocols 已验证字段）",

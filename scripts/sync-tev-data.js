@@ -216,6 +216,13 @@ const PROTOCOL_CONFIG = {
     tevRatio: 1.0,
     note: '100% 协议费 Firepit 烧毁 + Unichain (独立链上追踪)'
   },
+  layerzero: {
+    defillamaSlug: 'layerzero-v2',
+    coingeckoId: 'layerzero',
+    cmcSlug: 'layerzero',
+    tevRatio: null,
+    note: 'Stargate 回购小额；协议本体 fee switch 关闭收入=0（期权价值标的）'
+  },
 };
 
 // 不更新市值/年度TEV的协议（有独立数据源），但仍拉 DefiLlama 收入算多维度 yield
@@ -1252,6 +1259,62 @@ async function main() {
     // Curve/Aster/Maple 等虽然 yield 不高但有真实资本返还 → 现金牛（风格是性质不是量级）
     protocol.style = (protocol.tev_yield_percent >= 1 && protocol.tevStatus === 'active') ? 'cash_cow' : 'growth';
     delete protocol._divYld;
+  }
+
+  // === Snapshot 合并 post-pass（M1：PRD 5.4 消费 Financial Snapshot）===
+  // 从 data/snapshots/<pid>.json 读取损益表/估值字段，写入 all-protocols.json
+  // 前端主表/详情页据此渲染 收入/毛利/净利/净利率/增速 列
+  const SNAPSHOTS_DIR = path.join(__dirname, '../data/snapshots');
+  for (const [pid, protocol] of Object.entries(allData.protocols)) {
+    const snapPath = path.join(SNAPSHOTS_DIR, `${pid}.json`);
+    if (!fs.existsSync(snapPath)) continue;
+    try {
+      const snap = JSON.parse(fs.readFileSync(snapPath, 'utf8'));
+      const inc = snap.income_statement || {};
+      const rev = inc.revenue?.revenue_included || {};
+      const val = snap.valuation || {};
+      const hr = snap.holder_returns?.summary || {};
+      const bs = snap.balance_sheet || {};
+      // 损益表（365d 口径）
+      protocol.financial_snapshot = {
+        entity_type: inc.revenue?.entity_type || null,
+        revenue_usd_365d: rev.total_usd_365d ?? null,
+        revenue_included: rev,
+        gross_profit_usd_365d: inc.gross_profit?.gross_profit_usd_365d ?? null,
+        lp_share_cost_usd_365d: inc.gross_profit?.lp_share_cost_usd_365d ?? null,
+        emission_cost_usd_365d: inc.token_emission_cost?.usd_365d ?? null,
+        emission_treatment: inc.token_emission_cost?.treatment || 'none',
+        net_income_usd_365d: inc.net_income?.net_income_usd_365d ?? null,
+        gross_margin_percent: inc.margins?.gross_margin_percent ?? null,
+        net_margin_percent: inc.margins?.net_margin_percent ?? null,
+        growth_yoy_percent: inc.revenue?.growth_yoy_percent ?? null,
+        // 估值（派生）
+        pe: val.pe ?? null,
+        ps: val.ps ?? null,
+        pb: val.pb ?? null,
+        ev_revenue: val.ev_revenue ?? null,
+        payout_ratio: val.payout_ratio ?? null,
+        // 股东回报 summary
+        shareholder_returns_usd_365d: hr.shareholder_returns_usd_365d ?? null,
+        // 验证状态
+        verification_status: snap.verification?.status || 'partial',
+        as_of: snap.as_of || null,
+      };
+      // 顶层便捷字段（主表列直接用）
+      protocol.revenue_usd_365d = rev.total_usd_365d ?? null;
+      protocol.gross_profit_usd_365d = inc.gross_profit?.gross_profit_usd_365d ?? null;
+      protocol.net_income_usd_365d = inc.net_income?.net_income_usd_365d ?? null;
+      protocol.net_margin_percent = inc.margins?.net_margin_percent ?? null;
+      protocol.growth_yoy_percent = inc.revenue?.growth_yoy_percent ?? null;
+      protocol.entity_type = inc.revenue?.entity_type || null;
+      // 平台币口径（方案 A）：P/S == P/E，tooltip 标注收入=赋能口径
+      if (protocol.entity_type === 'platform_token' && val.ps != null && val.pe == null) {
+        protocol.financial_snapshot.pe = protocol.financial_snapshot.ps;
+        protocol.financial_snapshot.ps = protocol.financial_snapshot.pe;
+      }
+    } catch (e) {
+      console.warn(`  ⚠️ 合并 snapshot ${pid} 失败: ${e.message}`);
+    }
   }
 
   // 写入文件

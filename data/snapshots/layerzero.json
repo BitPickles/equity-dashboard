@@ -5,8 +5,8 @@
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 2494660,
-        "total_usd_365d": 2494660
+        "protocol_fees_usd_365d": 3068511,
+        "total_usd_365d": 3068511
       },
       "revenue_excluded": {
         "protocol_fees": {
@@ -20,21 +20,21 @@
       }
     },
     "gross_profit": {
-      "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": null,
-      "calculation_note": "毛利数据缺失（null），见专属 adapter"
+      "lp_share_cost_usd_365d": 2283971.79,
+      "gross_profit_usd_365d": 784539.21,
+      "calculation_note": "近似：协议归属（dailyHoldersRevenue 口径）作为毛利；精确 LP 分润见专属 adapter"
     },
     "token_emission_cost": {
       "treatment": "none"
     },
     "net_income": {
-      "net_income_usd_365d": null,
+      "net_income_usd_365d": 784539.21,
       "operating_cost_usd_365d": null,
       "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
     },
     "margins": {
-      "gross_margin_percent": null,
-      "net_margin_percent": null,
+      "gross_margin_percent": 25.5674,
+      "net_margin_percent": 25.5674,
       "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
     }
   },
@@ -43,32 +43,32 @@
       {
         "mechanism": "汇总（Stargate 收入回购 ZRO + 每月解锁（稀释注记））",
         "type": "yield",
-        "usd_365d": 758091.48,
+        "usd_365d": 784539.21,
         "yield_percent": 0.3,
         "_note": "通用适配器汇总口径（all-protocols 已验证 yield）；含金量/机制拆解待专属 adapter.py"
       }
     ],
     "summary": {
       "destroy_usd_365d": null,
-      "yield_usd_365d": 758091.48,
+      "yield_usd_365d": 784539.21,
       "destroy_yield_percent": null,
       "yield_yield_percent": 0.3,
-      "shareholder_returns_usd_365d": 758091.48,
+      "shareholder_returns_usd_365d": 784539.21,
       "shareholder_yield_percent": 0.3
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 252697161,
+    "market_cap_usd": 261513069,
     "tvl_usd": 7500000000,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": 333.3333,
-    "ps": 101.2952,
+    "ps": 85.2247,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": null
+    "payout_ratio": 1.0
   },
   "verification": {
     "method": "Stargate 100% 收入回购（累计 149.5 万 ZRO / .14M）",

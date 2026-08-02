@@ -168,6 +168,19 @@ def validate_snapshot(snap, all_protocols, report, proto):
     if ap_yield is not None and snap_yield is not None and pct_diff(ap_yield, snap_yield) > 1.0:
         report.warn(proto, f"与 all-protocols.json 不一致: snapshot={snap_yield}% all-protocols={ap_yield}%")
 
+    # 3.5 entity_type 一致性（M1 补：snapshot 必须与 config 判定书一致）
+    config = load_json(BASE_DIR / "data" / "protocols" / proto / "config.json")
+    if config:
+        cfg_et = config.get("revenue_recognition", {}).get("entity_type")
+        snap_et = snap.get("income_statement", {}).get("revenue", {}).get("entity_type")
+        if cfg_et and cfg_et != snap_et:
+            report.error(proto, f"entity_type 与 config 判定书不一致: snapshot={snap_et} config={cfg_et}")
+        # config 判定书缺失时告警（新增协议必须写判定书）
+        if not config.get("revenue_recognition"):
+            report.warn(proto, "config 缺少 revenue_recognition（判定书）")
+        if not config.get("data_pipeline"):
+            report.warn(proto, "config 缺少 data_pipeline（数据源声明）")
+
     # 4. 新鲜度
     try:
         as_of = datetime.strptime(snap["as_of"], "%Y-%m-%d").replace(tzinfo=timezone.utc)

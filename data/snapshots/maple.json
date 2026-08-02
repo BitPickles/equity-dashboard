@@ -39,32 +39,32 @@
       {
         "mechanism": "汇总（Syrup Strategic Fund (SSF) Buyback）",
         "type": "yield",
-        "usd_365d": 2608203.73,
-        "yield_percent": 1.39,
+        "usd_365d": 2609761.66,
+        "yield_percent": 1.43,
         "_note": "通用适配器汇总口径（all-protocols 已验证 yield）；含金量/机制拆解待专属 adapter.py"
       }
     ],
     "summary": {
       "destroy_usd_365d": null,
-      "yield_usd_365d": 2608203.73,
+      "yield_usd_365d": 2609761.66,
       "destroy_yield_percent": null,
-      "yield_yield_percent": 1.39,
-      "shareholder_returns_usd_365d": 2608203.73,
-      "shareholder_yield_percent": 1.39
+      "yield_yield_percent": 1.43,
+      "shareholder_returns_usd_365d": 2609761.66,
+      "shareholder_yield_percent": 1.43
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 187640555.87,
+    "market_cap_usd": 182500815.56,
     "tvl_usd": 2109989088.5761566,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 71.9424,
-    "ps": 72.109,
+    "pe": 69.9301,
+    "ps": 70.1338,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": 1.0023
+    "payout_ratio": 1.0029
   },
   "verification": {
     "method": "generic adapter（基于 all-protocols 已验证字段）",

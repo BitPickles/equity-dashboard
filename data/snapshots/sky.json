@@ -5,8 +5,8 @@
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 234857097,
-        "total_usd_365d": 234857097
+        "protocol_fees_usd_365d": 234377977,
+        "total_usd_365d": 234377977
       },
       "revenue_excluded": {
         "surplus_buffer": {
@@ -20,7 +20,7 @@
       }
     },
     "gross_profit": {
-      "lp_share_cost_usd_365d": 99177585,
+      "lp_share_cost_usd_365d": 98698465,
       "gross_profit_usd_365d": 135679512,
       "calculation_note": "近似：协议归属（dailyHoldersRevenue 口径）作为毛利；精确 LP 分润见专属 adapter"
     },
@@ -33,8 +33,8 @@
       "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
     },
     "margins": {
-      "gross_margin_percent": 57.7711,
-      "net_margin_percent": 57.7711,
+      "gross_margin_percent": 57.8892,
+      "net_margin_percent": 57.8892,
       "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
     }
   },
@@ -43,18 +43,18 @@
       {
         "mechanism": "汇总（Smart Burn + 质押收益 + Smart Burn Engine (SBE)）",
         "type": "yield",
-        "usd_365d": 78396130.43,
-        "yield_percent": 4.32,
+        "usd_365d": 78033185.38,
+        "yield_percent": 4.3,
         "_note": "通用适配器汇总口径（all-protocols 已验证 yield）；含金量/机制拆解待专属 adapter.py"
       }
     ],
     "summary": {
       "destroy_usd_365d": null,
-      "yield_usd_365d": 78396130.43,
+      "yield_usd_365d": 78033185.38,
       "destroy_yield_percent": null,
-      "yield_yield_percent": 4.32,
-      "shareholder_returns_usd_365d": 78396130.43,
-      "shareholder_yield_percent": 4.32
+      "yield_yield_percent": 4.3,
+      "shareholder_returns_usd_365d": 78033185.38,
+      "shareholder_yield_percent": 4.3
     }
   },
   "balance_sheet": {
@@ -64,11 +64,11 @@
     "debt_usd": null
   },
   "valuation": {
-    "pe": 23.1481,
-    "ps": 7.7269,
+    "pe": 23.2558,
+    "ps": 7.7427,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": 0.5778
+    "payout_ratio": 0.5751
   },
   "verification": {
     "method": "DefiLlama dailyHoldersRevenue = Splitter burn (SBE 真实支出) / dailyRevenue = 协议总归属",

@@ -68,7 +68,7 @@
     "has_tev": true,
     "tev_yield_percent": 0,
     "annual_tev_usd": 149440.19999999998,
-    "calculation_date": "2026-08-01",
+    "calculation_date": "2026-08-02",
     "note": "JST 质押奖励，透明度低",
     "sources": [],
     "market_cap_usd": 851624447.2403928,
@@ -195,7 +195,7 @@
       }
     },
     "calculation": {
-      "tev_ratio": 0.0,
+      "tev_ratio": 0,
       "note": "TEV=0"
     },
     "source_type": "estimate",

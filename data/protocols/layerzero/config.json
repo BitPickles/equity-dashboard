@@ -73,15 +73,19 @@
   },
   "tevRatio": null,
   "tevRatioNote": "协议本体收入 = 0（fee switch 关闭）；股东回报仅 Stargate 回购（小额）",
-  "style": "option_value",
+  "style": "growth",
   "revenue_recognition": {
     "entity_type": "app",
     "principle": "协议本体消息费 0% take rate → 收入 = Stargate 收入（协议本体 0，标注 fee switch 未开启）",
     "revenue_included": {
-      "stargate_fees": {"note": "2026-03 起 100% Stargate 收入回购 ZRO（Stargate 收入计入，量小）"}
+      "stargate_fees": {
+        "note": "2026-03 起 100% Stargate 收入回购 ZRO（Stargate 收入计入，量小）"
+      }
     },
     "revenue_excluded": {
-      "protocol_fees": {"note": "协议本体消息费 0% take rate（$3.59M 流向 DVN/Executor 外部节点）；fee switch 公投多次未过"}
+      "protocol_fees": {
+        "note": "协议本体消息费 0% take rate（$3.59M 流向 DVN/Executor 外部节点）；fee switch 公投多次未过"
+      }
     },
     "calculation": {
       "revenue_usd_365d": "Stargate 收入（协议本体 0）；回购月 ~$150K",
@@ -92,9 +96,59 @@
   },
   "data_pipeline": {
     "sources": [
-      {"type": "chain", "method": "Stargate 回购 ZRO 链上追踪", "frequency": "daily", "script": "update-layerzero-tev.py"},
-      {"type": "official", "method": "AI 监控费用开关公投（开启后收入端打开）", "frequency": "event", "script": "ai-watch-governance.py"}
+      {
+        "type": "chain",
+        "method": "Stargate 回购 ZRO 链上追踪",
+        "frequency": "daily",
+        "script": "update-layerzero-tev.py"
+      },
+      {
+        "type": "official",
+        "method": "AI 监控费用开关公投（开启后收入端打开）",
+        "frequency": "event",
+        "script": "ai-watch-governance.py"
+      }
     ],
-    "ai_self_check": ["mechanism-change", "data-plausibility", "freshness"]
+    "ai_self_check": [
+      "mechanism-change",
+      "data-plausibility",
+      "freshness"
+    ]
+  },
+  "market_cap_usd": 261513069,
+  "tev_yield_percent": 0.3,
+  "earning_yield_percent": 1.17,
+  "dividend_yield_percent": 0,
+  "buyback_yield_percent": 0.3,
+  "tev_data": {
+    "tev_yield_percent": 0.3,
+    "market_cap_usd": 261513069,
+    "annual_tev_usd": 784539.207,
+    "calculation_date": "2026-08-02",
+    "validation": {
+      "method": "Stargate 100% 收入回购（累计 149.5 万 ZRO / .14M）",
+      "note": "协议本体 fee switch 关闭收入=0；每月解锁 ~8M 稀释注记；股东回报率 ≈0.3-2%"
+    }
+  },
+  "metrics": {
+    "trailing_365d_revenue_usd": 3068511,
+    "trailing_30d_revenue_usd": 134502,
+    "current_market_cap_usd": 261513069,
+    "trailing_7d_revenue_usd": 0,
+    "trailing_90d_revenue_usd": 482287,
+    "trailing_365d_tev_usd": 784539.207,
+    "trailing_30d_tev_usd": 65378.267250000004,
+    "tev_yield_7d_ann": 0,
+    "tev_yield_30d_ann": 0,
+    "tev_yield_90d_ann": 0,
+    "earning_yield_7d_ann": 0,
+    "earning_yield_30d_ann": 0.63,
+    "earning_yield_90d_ann": 0.75,
+    "dividend_yield_7d_ann": 0,
+    "buyback_yield_7d_ann": 0,
+    "dividend_yield_30d_ann": 0,
+    "buyback_yield_30d_ann": 0,
+    "dividend_yield_90d_ann": 0,
+    "buyback_yield_90d_ann": 0
   }
 }

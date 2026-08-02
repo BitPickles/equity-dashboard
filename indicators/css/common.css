@@ -765,6 +765,7 @@ tr:last-child { border-bottom: none; }
 
 .value-highlight { color: var(--accent); font-weight: 700; }
 .value-zero { color: var(--text-tertiary); }
+.value-negative { color: #e5484d; font-weight: 600; }
 
 /* Badges */
 .badge {

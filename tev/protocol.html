@@ -411,7 +411,16 @@
         </div>
       </div>
 
-      <!-- 2. TEV 历史记录（上位）-->
+      <!-- 2. 损益表（美股化财报核心）-->
+      <div class="section" id="income-statement-section" style="display:none;">
+        <div class="section-title"><span class="icon">📋</span><span data-i18n="section.incomeStatement" data-zh="损益表" data-en="Income Statement">损益表</span></div>
+        <div class="income-statement-wrap" id="income-statement-wrap">
+          <div class="calc-pipeline" id="income-statement-pipeline"></div>
+          <div class="income-margin-row" id="income-margin-row"></div>
+        </div>
+      </div>
+
+      <!-- 3. TEV 历史记录（上位）-->
       <div class="section chart-section" id="tev-chart-section">
         <div class="section-title"><span class="icon">📈</span><span data-i18n="section.tevHistory">股东回报历史</span></div>
         <div class="chart-container"><div class="chart-canvas-wrap"><canvas id="tev-history-chart"></canvas></div><div class="chart-stats" id="chart-stats"></div></div>
@@ -518,6 +527,12 @@
       <span id="references-section" style="display:none;"></span>
       <span id="governance-section" style="display:none;"></span>
       <span id="tokenomics-section" style="display:none;"></span>
+
+      <!-- 6. 计算口径（详情页最后区块，PRD 4.3）-->
+      <div class="section" id="calculation-basis-section" style="display:none;">
+        <div class="section-title"><span class="icon">🧮</span><span data-i18n="section.calcBasis" data-zh="计算口径" data-en="Calculation Basis">计算口径</span></div>
+        <div class="calc-basis-wrap" id="calc-basis-wrap"></div>
+      </div>
     </div>
   </main>
 
@@ -525,8 +540,8 @@
 
   <script>
     const i18n = {
-      zh: { 'nav.dashboard': '仪表盘', 'nav.home': '首页', 'nav.tev': '协议估值', 'loading': '加载中...', 'section.tevSummary': '估值概览', 'section.tevHistory': '股东回报历史', 'section.buybackAddresses': '回购地址', 'section.tevMechanisms': '价值返还机制', 'section.dataSources': '数据来源', 'section.notes': '分析师备注', 'section.references': '参考资料', 'buyback.current': '当前阶段', 'buyback.historical': '历史阶段', 'buyback.legacy': '历史钱包', 'buyback.disposal': '处置地址', 'buyback.autoDailyBuyback': '自动每日回购', 'buyback.strategicReserve': '战略回购储备', 'buyback.burnAddress': '销毁地址', 'buyback.airdropLock': '空投锁仓', 'buyback.progress': '回购进度', 'buyback.totalBought': '已回购', 'buyback.totalUsd': '回购价值', 'buyback.totalSupply': '代币总量', 'section.buybackData': '回购数据', 'chart.totalTev': '累计股东回报', 'chart.records': '记录数', 'chart.avgMonthly': '月均回报', 'chart.period': '数据周期', 'chart.cumulative': '累计回报', 'chart.zoomHint': '🖱️ 滚轮缩放 · 拖动平移 · 双击重置', 'tev.feeSwitch': '费用开关', 'tev.buybacks': '回购', 'tev.dividends': '分红', 'tev.burns': '销毁', 'tev.confidence': '可信度', 'footer.lastUpdated': '最后更新', 'status.active': '活跃', 'status.planned': '计划中', 'status.inactive': '未激活', 'status.ON': '已开启', 'status.OFF': '未开启', 'status.PARTIAL': '部分', 'status.NONE': '无', 'status.ACTIVE': '活跃', 'noTev.title': '该协议暂无股东回报', 'noTev.desc': '代币仅用于治理，协议收入未以分红或回购返还给代币持有者', 'mechanism.type.buyback': '回购', 'mechanism.type.buyback_burn': '回购销毁', 'mechanism.type.staking_reward': '质押奖励', 'mechanism.type.fee_sharing': '费用分成', 'mechanism.type.ve_distribution': 've 分配', 'mechanism.type.airdrop': '空投', 'mechanism.type.aggregate': '综合回报', 'mechanism.type.burn': '销毁', 'mechanism.type.direct_distribution': '直接分配', 'mechanism.type.ve_reward': 've 奖励', 'mechanism.type.holders_revenue': '持有者收入', 'source.governance': '治理', 'source.documentation': '文档', 'source.report': '报告', 'source.api': 'API', 'source.onchain': '链上', 'confidence.high': '高', 'confidence.medium': '中', 'confidence.low': '低', 'burn.progress': '销毁进度', 'burn.totalBurned': '已销毁', 'burn.remaining': '剩余供应', 'burn.target': '目标供应' },
-      en: { 'nav.dashboard': 'Dashboard', 'nav.home': 'Home', 'nav.tev': 'Valuation', 'loading': 'Loading...', 'section.tevSummary': 'Valuation Summary', 'section.tevHistory': 'Shareholder Return History', 'section.buybackAddresses': 'Buyback Addresses', 'section.tevMechanisms': 'Value Return Mechanisms', 'section.dataSources': 'Data Sources', 'section.notes': 'Analyst Notes', 'section.references': 'References', 'buyback.current': 'Current Stage', 'buyback.historical': 'Historical Stage', 'buyback.legacy': 'Legacy Wallets', 'buyback.disposal': 'Disposal Addresses', 'buyback.autoDailyBuyback': 'Auto Daily Buyback', 'buyback.strategicReserve': 'Strategic Reserve', 'buyback.burnAddress': 'Burn Address', 'buyback.airdropLock': 'Airdrop Lock', 'buyback.progress': 'Buyback Progress', 'buyback.totalBought': 'Total Bought', 'buyback.totalUsd': 'Total Value', 'buyback.totalSupply': 'Total Supply', 'section.buybackData': 'Buyback Data', 'chart.totalTev': 'Total Returns', 'chart.records': 'Records', 'chart.avgMonthly': 'Avg Monthly', 'chart.period': 'Period', 'chart.cumulative': 'Cumulative Returns', 'chart.zoomHint': '🖱️ Scroll to zoom · Drag to pan · Double-click to reset', 'tev.feeSwitch': 'Fee Switch', 'tev.buybacks': 'Buybacks', 'tev.dividends': 'Dividends', 'tev.burns': 'Burns', 'tev.confidence': 'Confidence', 'footer.lastUpdated': 'Last Updated', 'status.active': 'Active', 'status.planned': 'Planned', 'status.inactive': 'Inactive', 'status.ON': 'ON', 'status.OFF': 'OFF', 'status.PARTIAL': 'Partial', 'status.NONE': 'None', 'status.ACTIVE': 'Active', 'noTev.title': 'No Shareholder Returns Yet', 'noTev.desc': 'Token is governance-only; protocol revenue is not returned to holders via dividends or buybacks', 'mechanism.type.buyback': 'Buyback', 'mechanism.type.buyback_burn': 'Buyback & Burn', 'mechanism.type.staking_reward': 'Staking Reward', 'mechanism.type.fee_sharing': 'Fee Sharing', 'mechanism.type.ve_distribution': 've Distribution', 'mechanism.type.airdrop': 'Airdrop', 'mechanism.type.aggregate': 'Total Return', 'mechanism.type.burn': 'Burn', 'mechanism.type.direct_distribution': 'Direct Distribution', 'mechanism.type.ve_reward': 've Reward', 'mechanism.type.holders_revenue': 'Holders Revenue', 'source.governance': 'Governance', 'source.documentation': 'Docs', 'source.report': 'Report', 'source.api': 'API', 'source.onchain': 'On-chain', 'confidence.high': 'High', 'confidence.medium': 'Medium', 'confidence.low': 'Low', 'burn.progress': 'Burn Progress', 'burn.totalBurned': 'Total Burned', 'burn.remaining': 'Remaining Supply', 'burn.target': 'Target Supply' }
+      zh: { 'nav.dashboard': '仪表盘', 'nav.home': '首页', 'nav.tev': '协议估值', 'loading': '加载中...', 'section.tevSummary': '估值概览', 'section.tevHistory': '股东回报历史', 'section.buybackAddresses': '回购地址', 'section.tevMechanisms': '价值返还机制', 'section.dataSources': '数据来源', 'section.notes': '分析师备注', 'section.references': '参考资料', 'section.incomeStatement': '损益表', 'section.calcBasis': '计算口径', 'is.revenue': '收入 Revenue', 'is.lpCost': '− 直接成本（LP 分润）', 'is.grossProfit': '= 毛利 Gross Profit', 'is.emission': '− 增发成本（SBC 类比）', 'is.operating': '− 运营成本', 'is.netIncome': '= 净利 Net Income', 'is.margin': '利润率', 'is.grossMargin': '毛利率', 'is.netMargin': '净利率', 'is.holderAlloc': '净利分配', 'is.holderReturns': '→ 股东回报（流向持币人）', 'is.retained': '→ 留存（国库）', 'is.details': '计算过程与数据源', 'is.platformNote': '平台币口径：无 LP 成本模型，毛利 = 净利 = 收入（赋能总额）', 'cb.entityType': '实体类型判定', 'cb.revenue': '收入口径判定书', 'cb.emission': '增发成本处理', 'cb.netIncome': '净利润口径', 'cb.goldGrade': '含金量标注', 'cb.pipeline': '数据源与验证', 'cb.caveats': '已知假设 / Caveats', 'cb.included': '计入收入', 'cb.excluded': '不计入', 'cb.treatment.cost': '增发作为成本从净利扣除（有对价换当期收入）', 'cb.treatment.dilution': '无对价增发，作稀释注记展示', 'cb.treatment.none': '无代币增发', 'cb.verification.verified': '✅ 已验证（链上可复算）', 'cb.verification.partial': '🟡 部分验证', 'cb.verification.estimated': '🟠 估算口径（数据不可得时用）', 'cb.grade.destroy': '销毁型 🟢 真金白银回收（链上可验证）', 'cb.grade.yield': '收益型 🟡 增发/生态资源支付（含稀释成本）', 'cb.grade.dividend': '分红型 直接分配给持币人/质押者', 'cb.grade.buyback': '回购型 回购销毁或回购后分发', 'cb.noData': '数据不可得（— 而非 0）', 'buyback.current': '当前阶段', 'buyback.historical': '历史阶段', 'buyback.legacy': '历史钱包', 'buyback.disposal': '处置地址', 'buyback.autoDailyBuyback': '自动每日回购', 'buyback.strategicReserve': '战略回购储备', 'buyback.burnAddress': '销毁地址', 'buyback.airdropLock': '空投锁仓', 'buyback.progress': '回购进度', 'buyback.totalBought': '已回购', 'buyback.totalUsd': '回购价值', 'buyback.totalSupply': '代币总量', 'section.buybackData': '回购数据', 'chart.totalTev': '累计股东回报', 'chart.records': '记录数', 'chart.avgMonthly': '月均回报', 'chart.period': '数据周期', 'chart.cumulative': '累计回报', 'chart.zoomHint': '🖱️ 滚轮缩放 · 拖动平移 · 双击重置', 'tev.feeSwitch': '费用开关', 'tev.buybacks': '回购', 'tev.dividends': '分红', 'tev.burns': '销毁', 'tev.confidence': '可信度', 'footer.lastUpdated': '最后更新', 'status.active': '活跃', 'status.planned': '计划中', 'status.inactive': '未激活', 'status.ON': '已开启', 'status.OFF': '未开启', 'status.PARTIAL': '部分', 'status.NONE': '无', 'status.ACTIVE': '活跃', 'noTev.title': '该协议暂无股东回报', 'noTev.desc': '代币仅用于治理，协议收入未以分红或回购返还给代币持有者', 'mechanism.type.buyback': '回购', 'mechanism.type.buyback_burn': '回购销毁', 'mechanism.type.staking_reward': '质押奖励', 'mechanism.type.fee_sharing': '费用分成', 'mechanism.type.ve_distribution': 've 分配', 'mechanism.type.airdrop': '空投', 'mechanism.type.aggregate': '综合回报', 'mechanism.type.burn': '销毁', 'mechanism.type.direct_distribution': '直接分配', 'mechanism.type.ve_reward': 've 奖励', 'mechanism.type.holders_revenue': '持有者收入', 'source.governance': '治理', 'source.documentation': '文档', 'source.report': '报告', 'source.api': 'API', 'source.onchain': '链上', 'confidence.high': '高', 'confidence.medium': '中', 'confidence.low': '低', 'burn.progress': '销毁进度', 'burn.totalBurned': '已销毁', 'burn.remaining': '剩余供应', 'burn.target': '目标供应' },
+      en: { 'nav.dashboard': 'Dashboard', 'nav.home': 'Home', 'nav.tev': 'Valuation', 'loading': 'Loading...', 'section.tevSummary': 'Valuation Summary', 'section.tevHistory': 'Shareholder Return History', 'section.buybackAddresses': 'Buyback Addresses', 'section.tevMechanisms': 'Value Return Mechanisms', 'section.dataSources': 'Data Sources', 'section.notes': 'Analyst Notes', 'section.references': 'References', 'section.incomeStatement': 'Income Statement', 'section.calcBasis': 'Calculation Basis', 'is.revenue': 'Revenue', 'is.lpCost': '− Direct Costs (LP share)', 'is.grossProfit': '= Gross Profit', 'is.emission': '− Token Emission Cost (SBC-style)', 'is.operating': '− Operating Costs', 'is.netIncome': '= Net Income', 'is.margin': 'Margins', 'is.grossMargin': 'Gross Margin', 'is.netMargin': 'Net Margin', 'is.holderAlloc': 'Net Income Allocation', 'is.holderReturns': '→ Shareholder Returns (to holders)', 'is.retained': '→ Retained (treasury)', 'is.details': 'Calculation & Data Source', 'is.platformNote': 'Platform token: no LP cost model, GP = NI = Revenue (empowerment total)', 'cb.entityType': 'Entity Type', 'cb.revenue': 'Revenue Recognition', 'cb.emission': 'Emission Cost Treatment', 'cb.netIncome': 'Net Income Basis', 'cb.goldGrade': 'Gold-Grade Labels', 'cb.pipeline': 'Data Pipeline & Verification', 'cb.caveats': 'Assumptions / Caveats', 'cb.included': 'Included', 'cb.excluded': 'Excluded', 'cb.treatment.cost': 'Emission counted as cost (exchanged for current revenue)', 'cb.treatment.dilution': 'No-quid-pro-quo emission, shown as dilution note', 'cb.treatment.none': 'No token emission', 'cb.verification.verified': '✅ Verified (on-chain reproducible)', 'cb.verification.partial': '🟡 Partially verified', 'cb.verification.estimated': '🟠 Estimated (when data unavailable)', 'cb.grade.destroy': 'Destroy 🟢 Real cash recovery (on-chain verifiable)', 'cb.grade.yield': 'Yield 🟡 Emission/ecosystem-funded (includes dilution cost)', 'cb.grade.dividend': 'Dividend Directly distributed to holders/stakers', 'cb.grade.buyback': 'Buyback Bought back & burned or redistributed', 'cb.noData': 'Unavailable (— rather than 0)', 'buyback.current': 'Current Stage', 'buyback.historical': 'Historical Stage', 'buyback.legacy': 'Legacy Wallets', 'buyback.disposal': 'Disposal Addresses', 'buyback.autoDailyBuyback': 'Auto Daily Buyback', 'buyback.strategicReserve': 'Strategic Reserve', 'buyback.burnAddress': 'Burn Address', 'buyback.airdropLock': 'Airdrop Lock', 'buyback.progress': 'Buyback Progress', 'buyback.totalBought': 'Total Bought', 'buyback.totalUsd': 'Total Value', 'buyback.totalSupply': 'Total Supply', 'section.buybackData': 'Buyback Data', 'chart.totalTev': 'Total Returns', 'chart.records': 'Records', 'chart.avgMonthly': 'Avg Monthly', 'chart.period': 'Period', 'chart.cumulative': 'Cumulative Returns', 'chart.zoomHint': '🖱️ Scroll to zoom · Drag to pan · Double-click to reset', 'tev.feeSwitch': 'Fee Switch', 'tev.buybacks': 'Buybacks', 'tev.dividends': 'Dividends', 'tev.burns': 'Burns', 'tev.confidence': 'Confidence', 'footer.lastUpdated': 'Last Updated', 'status.active': 'Active', 'status.planned': 'Planned', 'status.inactive': 'Inactive', 'status.ON': 'ON', 'status.OFF': 'OFF', 'status.PARTIAL': 'Partial', 'status.NONE': 'None', 'status.ACTIVE': 'Active', 'noTev.title': 'No Shareholder Returns Yet', 'noTev.desc': 'Token is governance-only; protocol revenue is not returned to holders via dividends or buybacks', 'mechanism.type.buyback': 'Buyback', 'mechanism.type.buyback_burn': 'Buyback & Burn', 'mechanism.type.staking_reward': 'Staking Reward', 'mechanism.type.fee_sharing': 'Fee Sharing', 'mechanism.type.ve_distribution': 've Distribution', 'mechanism.type.airdrop': 'Airdrop', 'mechanism.type.aggregate': 'Total Return', 'mechanism.type.burn': 'Burn', 'mechanism.type.direct_distribution': 'Direct Distribution', 'mechanism.type.ve_reward': 've Reward', 'mechanism.type.holders_revenue': 'Holders Revenue', 'source.governance': 'Governance', 'source.documentation': 'Docs', 'source.report': 'Report', 'source.api': 'API', 'source.onchain': 'On-chain', 'confidence.high': 'High', 'confidence.medium': 'Medium', 'confidence.low': 'Low', 'burn.progress': 'Burn Progress', 'burn.totalBurned': 'Total Burned', 'burn.remaining': 'Remaining Supply', 'burn.target': 'Target Supply' }
     };
     let currentLang = localStorage.getItem('lang') || 'zh';
     const t = k => i18n[currentLang][k] || k;
@@ -1367,6 +1382,8 @@
         loadGovernance(pid);
         loadTokenomics(pid);
         renderTevCalc(pid);
+        renderIncomeStatement(pid);
+        renderCalcBasis(pid);
         // Aster 已有 tev-records，优先展示 TEV 历史图
         // if (['aster'].includes(pid)) loadBuybackData(pid);
       } catch (e) {
@@ -1535,6 +1552,162 @@
         // 保持兼容：老 span#tev-calc-section 显示与否无视觉影响
       } catch (e) {
         console.warn('TEV calc render failed:', e);
+      }
+    }
+
+    // ===== M1 财报页：损益表（5 段式 + 可展开计算过程）=====
+    const moneyFmt = (v) => {
+      if (v == null) return '—';
+      const abs = Math.abs(v), sign = v < 0 ? '−' : '';
+      if (abs >= 1e9) return sign + '$' + (abs/1e9).toFixed(2) + 'B';
+      if (abs >= 1e6) return sign + '$' + (abs/1e6).toFixed(2) + 'M';
+      if (abs >= 1e3) return sign + '$' + (abs/1e3).toFixed(1) + 'K';
+      return sign + '$' + v.toFixed(0);
+    };
+    const pctFmt = (v, p = 2) => v == null ? '—' : (v > 0 ? '' : '') + v.toFixed(p) + '%';
+
+    async function renderIncomeStatement(pid) {
+      try {
+        const resp = await fetch(`../data/snapshots/${pid}.json`);
+        if (!resp.ok) return;
+        const snap = await resp.json();
+        const inc = snap.income_statement;
+        if (!inc || !inc.revenue) return;
+        const rev = inc.revenue.revenue_included || {};
+        const gp = inc.gross_profit || {};
+        const em = inc.token_emission_cost || {};
+        const ni = inc.net_income || {};
+        const mg = inc.margins || {};
+        const isPlatform = inc.revenue.entity_type === 'platform_token';
+
+        // 5 段式推导步骤
+        const steps = [];
+        steps.push({ label: t('is.revenue'), value: moneyFmt(rev.total_usd_365d), note: buildRevenueNote(inc.revenue, rev, isPlatform), derived: false });
+        // LP 成本（应用型）
+        if (!isPlatform) {
+          steps.push({ label: t('is.lpCost'), value: moneyFmt(gp.lp_share_cost_usd_365d), note: gp.calculation_note || '', derived: false });
+        }
+        steps.push({ label: t('is.grossProfit'), value: moneyFmt(gp.gross_profit_usd_365d), note: gp.calculation_note || '', derived: true });
+        // 增发成本（有对价才作为成本行）
+        if (em.treatment === 'cost') {
+          steps.push({ label: t('is.emission'), value: '−' + moneyFmt(em.usd_365d), note: em.calculation_note || `年增发 ${em.annual_emission_tokens || '—'} 枚，通胀 ${pctFmt(em.inflation_rate_percent)}`, derived: false });
+        } else if (em.treatment === 'dilution_note') {
+          steps.push({ label: t('is.emission') + '（稀释注记）', value: moneyFmt(em.usd_365d), note: em.calculation_note || '无对价增发，不计成本，作稀释注记', derived: false });
+        }
+        steps.push({ label: t('is.netIncome'), value: moneyFmt(ni.net_income_usd_365d), note: ni.calculation_note || '', derived: true });
+
+        // 净利分配（股东回报 vs 留存）
+        const hr = snap.holder_returns?.summary || {};
+        const alloc = [
+          { label: t('is.holderReturns'), value: moneyFmt(hr.shareholder_returns_usd_365d), pct: pctFmt(hr.shareholder_yield_percent) },
+        ];
+        if (ni.net_income_usd_365d != null && hr.shareholder_returns_usd_365d != null) {
+          const retained = ni.net_income_usd_365d - hr.shareholder_returns_usd_365d;
+          alloc.push({ label: t('is.retained'), value: moneyFmt(retained), pct: retained > 0 ? '' : '' });
+        }
+
+        const container = document.getElementById('income-statement-pipeline');
+        container.innerHTML = steps.map(s => `
+          <div class="calc-step${s.derived ? ' calc-step-derived' : ''}" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+            <span style="font-size:12px;color:var(--text-secondary);min-width:120px;">${s.label}</span>
+            <span style="font-weight:600;font-size:15px;font-family:'JetBrains Mono',monospace;${s.value && s.value.startsWith('−') ? 'color:#e5484d;' : ''}">${s.value}</span>
+            ${s.note ? `<details class="calc-detail" style="margin-left:auto;"><summary style="font-size:11px;color:var(--text-tertiary);cursor:pointer;">${t('is.details')} ⓘ</summary><div class="extra-body" style="font-size:12px;color:var(--text-secondary);line-height:1.7;margin-top:4px;padding:8px 10px;background:var(--bg-tertiary);border-radius:6px;max-width:420px;">${s.note}</div></details>` : ''}
+          </div>`).join('');
+
+        // 利润率行
+        const marginRow = document.getElementById('income-margin-row');
+        marginRow.innerHTML = `
+          <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:12px;padding:0 4px;">
+            <span style="font-size:12px;color:var(--text-secondary);">${t('is.grossMargin')} <strong style="font-family:'JetBrains Mono',monospace;">${pctFmt(mg.gross_margin_percent)}</strong></span>
+            <span style="font-size:12px;color:var(--text-secondary);">${t('is.netMargin')} <strong style="font-family:'JetBrains Mono',monospace;${(mg.net_margin_percent||0) < 0 ? 'color:#e5484d;' : ''}">${pctFmt(mg.net_margin_percent)}</strong></span>
+            ${isPlatform ? `<span style="font-size:11px;color:var(--text-tertiary);">${t('is.platformNote')}</span>` : ''}
+          </div>
+          ${alloc.length ? `<div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:10px;padding:0 4px;border-top:1px dashed var(--border);padding-top:10px;">
+            ${alloc.map(a => `<span style="font-size:12px;color:var(--text-secondary);">${a.label} <strong style="font-family:'JetBrains Mono',monospace;">${a.value}</strong></span>`).join('')}
+          </div>` : ''}`;
+
+        document.getElementById('income-statement-section').style.display = 'block';
+      } catch (e) {
+        console.warn('Income statement render failed:', e);
+      }
+    }
+
+    function buildRevenueNote(revObj, rev, isPlatform) {
+      if (isPlatform) {
+        const parts = [];
+        if (rev.burn_usd_365d) parts.push(`销毁 ${moneyFmt(rev.burn_usd_365d)} 🟢`);
+        if (rev.staking_rewards_usd_365d) parts.push(`打新+质押 ${moneyFmt(rev.staking_rewards_usd_365d)} 🟡`);
+        if (parts.length) return `收入 = 赋能总额（${parts.join(' + ')}）；gas 手续费不计入（BEP-95 销毁部分已含于 burn 科目）`;
+        return revObj.revenue_excluded?.fees?.note || '平台币：收入 = 股东回报（赋能口径）';
+      }
+      return revObj.revenue_excluded && Object.keys(revObj.revenue_excluded).length
+        ? `协议费收入（DefiLlama dailyRevenue）；不计入：${Object.entries(revObj.revenue_excluded).map(([k,v]) => `${k}（${v.note||''}）`).join('；')}`
+        : '协议费收入（DefiLlama dailyRevenue，协议归属部分）';
+    }
+
+    // ===== M1 财报页：计算口径（详情页最后区块）=====
+    async function renderCalcBasis(pid) {
+      try {
+        const cfg = protocolConfig;
+        const snapResp = await fetch(`../data/snapshots/${pid}.json`);
+        const snap = snapResp.ok ? await snapResp.json() : null;
+        const rr = cfg.revenue_recognition || {};
+        const dp = cfg.data_pipeline || {};
+        const inc = snap?.income_statement || {};
+        const em = inc.token_emission_cost || {};
+
+        const gradeMap = {
+          destroy: t('cb.grade.destroy'), yield: t('cb.grade.yield'),
+          dividend: t('cb.grade.dividend'), buyback: t('cb.grade.buyback'),
+        };
+
+        const cards = [];
+        // ① 实体类型判定
+        const etNames = { platform_token: '平台币', app: '应用型', public_chain: '公链' };
+        const et = inc.revenue?.entity_type || rr.entity_type || '—';
+        cards.push({ title: t('cb.entityType'), body: `<strong>${etNames[et] || et}</strong> — ${rr.principle || '—'}` });
+        // ② 收入口径判定书
+        const incl = rr.revenue_included || {};
+        const excl = rr.revenue_excluded || {};
+        let revBody = `<div style="margin-bottom:6px;"><em style="font-size:12px;color:var(--text-secondary);">${t('cb.included')}:</em> `;
+        const inclParts = Object.entries(incl).map(([k, v]) => `<span style="font-size:12px;">${k}${v?.note ? `<span style="color:var(--text-tertiary);">（${v.note}）</span>` : ''}</span>`);
+        revBody += (inclParts.length ? inclParts.join('；') : '—') + '</div>';
+        if (Object.keys(excl).length) {
+          revBody += `<div style="margin-bottom:6px;"><em style="font-size:12px;color:var(--text-tertiary);">${t('cb.excluded')}:</em> <span style="font-size:12px;color:var(--text-tertiary);">${Object.entries(excl).map(([k,v]) => `${k}${v?.note ? `（${v.note}）` : ''}`).join('；')}</span></div>`;
+        }
+        if (rr.calculation) revBody += `<div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">${typeof rr.calculation === 'string' ? rr.calculation : JSON.stringify(rr.calculation, null, 1)}</div>`;
+        cards.push({ title: t('cb.revenue'), body: revBody });
+        // ③ 增发成本处理
+        const emTreat = { cost: t('cb.treatment.cost'), dilution_note: t('cb.treatment.dilution'), none: t('cb.treatment.none') };
+        cards.push({ title: t('cb.emission'), body: `<span style="font-size:12px;">${emTreat[em.treatment] || emTreat.none}</span>${em.calculation_note ? `<div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">${em.calculation_note}</div>` : ''}${em.usd_365d ? `<div style="font-size:12px;color:var(--text-secondary);margin-top:2px;">年增发成本 ${moneyFmt(em.usd_365d)}${em.annual_emission_tokens ? ` · ${em.annual_emission_tokens.toLocaleString()} 枚` : ''}${em.inflation_rate_percent ? ` · 通胀 ${pctFmt(em.inflation_rate_percent)}` : ''}</div>` : ''}` });
+        // ④ 净利润口径
+        cards.push({ title: t('cb.netIncome'), body: `<span style="font-size:12px;">${inc.net_income?.calculation_note || '毛利 − 增发成本 − 运营成本'}</span>` });
+        // ⑤ 含金量标注（holder_returns 机制）
+        const mechs = snap?.holder_returns?.by_mechanism || [];
+        const gradeBody = mechs.length
+          ? mechs.map(m => `<div style="font-size:12px;margin-bottom:4px;">${m.mechanism}: ${gradeMap[m.type] || m.type}</div>`).join('')
+          : '<span style="font-size:12px;color:var(--text-tertiary);">' + (snap ? '' : t('cb.noData')) + '</span>';
+        cards.push({ title: t('cb.goldGrade'), body: gradeBody });
+        // ⑥ 数据源与验证
+        const srcList = (dp.sources || []).map(s => `<div style="font-size:12px;margin-bottom:3px;">${s.type} · ${s.method || ''} · ${s.frequency || ''}${s.script ? ` <code style="font-size:11px;color:var(--text-secondary);">${s.script}</code>` : ''}</div>`).join('');
+        const verMap = { verified: t('cb.verification.verified'), partial: t('cb.verification.partial'), estimated: t('cb.verification.estimated') };
+        const verStatus = snap?.verification?.status || 'partial';
+        cards.push({ title: t('cb.pipeline'), body: `${srcList || '—'}<div style="font-size:12px;margin-top:6px;">${verMap[verStatus] || verStatus}${snap?.verification?.method ? `<div style="color:var(--text-secondary);margin-top:2px;">${snap.verification.method}</div>` : ''}</div>` });
+        // ⑦ Caveats（analyst_notes 摘要）
+        if (cfg.analyst_notes) {
+          const firstLine = cfg.analyst_notes.split('\n').find(l => l.trim()) || '';
+          cards.push({ title: t('cb.caveats'), body: `<span style="font-size:12px;color:var(--text-secondary);">${firstLine.length > 200 ? firstLine.slice(0, 200) + '…' : firstLine}</span>` });
+        }
+
+        const wrap = document.getElementById('calc-basis-wrap');
+        wrap.innerHTML = cards.map(c => `
+          <details class="extra-section" open>
+            <summary><span class="icon">📌</span>${c.title}</summary>
+            <div class="extra-body" style="font-size:13px;line-height:1.8;">${c.body}</div>
+          </details>`).join('');
+        document.getElementById('calculation-basis-section').style.display = 'block';
+      } catch (e) {
+        console.warn('Calc basis render failed:', e);
       }
     }
 

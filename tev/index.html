@@ -102,6 +102,11 @@
                 <th data-i18n="th.protocol" data-zh="协议" data-en="Protocol">协议</th>
                 <th class="text-right sortable sorted desc" data-sort="style" data-i18n="th.style">类型</th>
                 <th class="text-right sortable" data-sort="mcap" data-i18n="th.mcap" data-zh="市值" data-en="Market Cap">市值</th>
+                <th class="text-right sortable" data-sort="revenue" data-i18n="th.revenue" data-zh="收入" data-en="Revenue">收入</th>
+                <th class="text-right sortable" data-sort="grossProfit" data-i18n="th.grossProfit" data-zh="毛利" data-en="Gross Profit">毛利</th>
+                <th class="text-right sortable" data-sort="netIncome" data-i18n="th.netIncome" data-zh="净利" data-en="Net Income">净利</th>
+                <th class="text-right sortable" data-sort="growth" data-i18n="th.growth" data-zh="收入增速" data-en="Revenue Growth">收入增速</th>
+                <th class="text-right sortable" data-sort="netMargin" data-i18n="th.netMargin" data-zh="净利率" data-en="Net Margin">净利率</th>
                 <th class="text-right sortable" data-sort="ps" data-i18n="th.ps">市销率</th>
                 <th class="text-right sortable" data-sort="pe" data-i18n="th.pe">市盈率</th>
                 <th class="text-right sortable" data-sort="divYield" data-i18n="th.divYield">股息率</th>
@@ -224,6 +229,7 @@
         'table.title': '协议排名', 'table.loading': '加载协议数据中...',
         'filter.all': '全部', 'filter.lending': '借贷', 'filter.dex': 'DEX', 'filter.cex': 'CEX', 'filter.perps': 'Perps', 'filter.yield': '收益',
         'th.protocol': '协议', 'th.style': '类型', 'th.mcap': '市值', 'th.ps': '市销率', 'th.pe': '市盈率', 'th.divYield': '股息率', 'th.buybackYield': '回购率', 'th.shareholderYield': '股东回报率', 'th.payout': '派息率', 'th.dataQuality': '数据质量',
+        'th.revenue': '收入', 'th.grossProfit': '毛利', 'th.netIncome': '净利', 'th.growth': '收入增速', 'th.netMargin': '净利率',
         'style.cash_cow': '现金牛', 'style.growth': '成长股',
         'style.tip.cash_cow': '现金牛 — 已进入成熟期、持续把收入以分红/回购返还给持币人的价值股，类比派息成熟的蓝筹（股东回报率 ≥ 1%）',
         'style.tip.growth': '成长股 — 暂未向持币人返还收入、靠营收增长与市销率定价的科技成长型项目（股东回报率 < 1%）',
@@ -249,6 +255,7 @@
         'table.title': 'Protocol Rankings', 'table.loading': 'Loading protocol data...',
         'filter.all': 'All', 'filter.lending': 'Lending', 'filter.dex': 'DEX', 'filter.cex': 'CEX', 'filter.perps': 'Perps', 'filter.yield': 'Yield',
         'th.protocol': 'Protocol', 'th.style': 'Style', 'th.mcap': 'Market Cap', 'th.ps': 'P/S', 'th.pe': 'P/E', 'th.divYield': 'Dividend Yield', 'th.buybackYield': 'Buyback Yield', 'th.shareholderYield': 'Shareholder Yield', 'th.payout': 'Payout Ratio', 'th.dataQuality': 'Data Quality',
+        'th.revenue': 'Revenue', 'th.grossProfit': 'Gross Profit', 'th.netIncome': 'Net Income', 'th.growth': 'Rev Growth', 'th.netMargin': 'Net Margin',
         'style.cash_cow': 'Cash Cow', 'style.growth': 'Growth',
         'style.tip.cash_cow': 'Cash Cow — a mature value stock that consistently returns revenue to holders via dividends/buybacks, like a dividend-paying blue chip (Shareholder Yield ≥ 1%)',
         'style.tip.growth': 'Growth — a tech-style project not yet returning revenue to holders, priced on revenue growth and P/S (Shareholder Yield < 1%)',
@@ -276,6 +283,11 @@
       zh: {
         style: '类型 — 现金牛：成熟、持续向持币人返还收入的价值股；成长股：暂不返还、靠营收增长定价的科技型项目。判定线为股东回报率 1%',
         mcap: '代币的流通市值 = 当前价格 × 流通量，是计算股东回报率与市销率的分母',
+        revenue: '年化协议收入（365d）— 平台币 = 赋能总额（打新+质押+销毁，收入=股东回报）；应用型 = 协议费收入（DefiLlama dailyRevenue）。数据不可得时显示 —',
+        grossProfit: '毛利 = 收入 − 直接成本（LP 分润等）。平台币无 LP 成本时毛利 = 收入；应用型用协议归属（dailyHoldersRevenue）近似',
+        netIncome: '净利 = 毛利 − 增发成本（有对价换收入的增发按 SBC 类比扣除）− 运营成本。可为负（如 Curve 增发 > 收入）',
+        growth: '收入同比增速（YoY，365d 口径）— 需要 12 个月以上历史序列，数据不可得时显示 —',
+        netMargin: '净利率 = 净利 ÷ 收入 × 100%。可为负（净利为负时如实展示）；无成本模型的平台币标 100%（口径标注）',
         ps: '市销率 P/S = 市值 ÷ 年化协议营收。类比美股市销率，数值越低代表相对营收越便宜；无营收时显示 —',
         pe: '市盈率 P/E = 市值 ÷ 年化归属持币人收入（= 100 ÷ 股东回报率）。把真正返还给持币人的收入当作「净利润」，类比美股市盈率；数值越低越便宜，持币人无收入时显示 —',
         divYield: '股息率 = 年化分红 ÷ 市值。协议以现金/稳定币等形式直接分配给持币人/质押者的部分，类比股票现金分红',
@@ -287,6 +299,11 @@
       en: {
         style: 'Style — Cash Cow: a mature value stock that returns revenue to holders; Growth: not yet returning, priced on revenue growth. Cutoff is 1% Shareholder Yield',
         mcap: 'Circulating market cap = current price × circulating supply, the denominator for Shareholder Yield and P/S',
+        revenue: 'Annualized protocol revenue (365d) — platform tokens = total empowerment (launchpad+staking+burn, revenue=returns); apps = protocol fees (DefiLlama dailyRevenue). Shows — when unavailable',
+        grossProfit: 'Gross Profit = revenue − direct costs (LP share etc.). Platform tokens have no LP cost so GP = revenue; apps approximate with protocol-attributed revenue',
+        netIncome: 'Net Income = gross profit − emission cost (emissions exchanged for revenue, SBC-style) − operating costs. Can be negative (e.g. Curve)',
+        growth: 'Revenue growth YoY (365d) — requires 12+ months of history; shows — when unavailable',
+        netMargin: 'Net Margin = Net Income ÷ Revenue × 100%. Can be negative; platform tokens without cost model show 100% (noted)',
         ps: 'Price/Sales = Market Cap ÷ annualized protocol revenue. Like the equity P/S; lower means cheaper relative to revenue. Shows — when there is no revenue',
         pe: 'Price/Earnings = Market Cap ÷ annualized holder-attributable income (= 100 ÷ Shareholder Yield). Treats revenue actually returned to holders as "net income", like the equity P/E; lower is cheaper. Shows — when holders earn nothing',
         divYield: 'Dividend Yield = annualized dividends ÷ market cap. Revenue paid directly to holders/stakers (cash/stablecoin), like a cash dividend',
@@ -344,6 +361,21 @@
     // formatPercent: v 已经是百分比（如 6.21 表示 6.21%），直接格式化即可
     // precision 参数：可选，默认 2；BNB 等 BEP-95 占比极小的协议可传 3 以显示细微波动
     const formatPercent = (v, precision = 2) => v == null ? '—' : v.toFixed(precision) + '%';
+    // 财务列格式化：带符号金额（净利可为负）
+    const formatMoney = (v) => {
+      if (v == null) return '—';
+      const abs = Math.abs(v);
+      const sign = v < 0 ? '−' : '';
+      if (abs >= 1e9) return sign + '$' + (abs / 1e9).toFixed(2) + 'B';
+      if (abs >= 1e6) return sign + '$' + (abs / 1e6).toFixed(2) + 'M';
+      if (abs >= 1e3) return sign + '$' + (abs / 1e3).toFixed(1) + 'K';
+      return sign + '$' + v.toFixed(0);
+    };
+    // 收入增速：正绿负红（A 股惯例：涨红跌绿 → 这里正增长用红/绿色系区分，标 +/-）
+    const formatGrowth = (v) => {
+      if (v == null) return '—';
+      return (v > 0 ? '+' : '') + v.toFixed(1) + '%';
+    };
 
     // === Data Loading ===
     async function loadProtocolData() {
@@ -385,6 +417,11 @@
         case 'divYield': return p.dividend_yield_percent || 0;
         case 'buybackYield': return p.buyback_yield_percent || 0;
         case 'shareholderYield': return p.tev_yield_percent || 0;
+        case 'revenue': return p.revenue_usd_365d || 0;
+        case 'grossProfit': return p.gross_profit_usd_365d || 0;
+        case 'netIncome': return p.net_income_usd_365d || 0;
+        case 'growth': return p.growth_yoy_percent || 0;
+        case 'netMargin': return p.net_margin_percent || 0;
         default: return 0;
       }
     }
@@ -409,6 +446,11 @@
           case 'divYield': aVal = a.dividend_yield_percent || 0; bVal = b.dividend_yield_percent || 0; break;
           case 'buybackYield': aVal = a.buyback_yield_percent || 0; bVal = b.buyback_yield_percent || 0; break;
           case 'shareholderYield': aVal = a.tev_yield_percent || 0; bVal = b.tev_yield_percent || 0; break;
+          case 'revenue': aVal = a.revenue_usd_365d || 0; bVal = b.revenue_usd_365d || 0; break;
+          case 'grossProfit': aVal = a.gross_profit_usd_365d || 0; bVal = b.gross_profit_usd_365d || 0; break;
+          case 'netIncome': aVal = a.net_income_usd_365d || 0; bVal = b.net_income_usd_365d || 0; break;
+          case 'growth': aVal = a.growth_yoy_percent || 0; bVal = b.growth_yoy_percent || 0; break;
+          case 'netMargin': aVal = a.net_margin_percent || 0; bVal = b.net_margin_percent || 0; break;
           default: aVal = a.market_cap_usd || 0; bVal = b.market_cap_usd || 0;
         }
         // 根据方向排序
@@ -507,6 +549,11 @@
           </div></td>
           <td class="text-right"><span class="badge badge-${style === 'cash_cow' ? 'active' : 'partial'}" data-tip="${t('style.tip.' + style)}">${t('style.' + style)}</span></td>
           <td class="text-right"><span class="value">${formatCurrency(mcap)}</span></td>
+          <td class="text-right"><span class="value ${p.revenue_usd_365d ? 'value-highlight' : 'value-zero'}">${formatMoney(p.revenue_usd_365d)}</span></td>
+          <td class="text-right"><span class="value ${p.gross_profit_usd_365d ? 'value-highlight' : 'value-zero'}">${formatMoney(p.gross_profit_usd_365d)}</span></td>
+          <td class="text-right"><span class="value ${p.net_income_usd_365d > 0 ? 'value-highlight' : p.net_income_usd_365d < 0 ? 'value-negative' : 'value-zero'}">${formatMoney(p.net_income_usd_365d)}</span></td>
+          <td class="text-right"><span class="value ${p.growth_yoy_percent != null && p.growth_yoy_percent > 0 ? 'value-highlight' : p.growth_yoy_percent != null && p.growth_yoy_percent < 0 ? 'value-negative' : 'value-zero'}">${formatGrowth(p.growth_yoy_percent)}</span></td>
+          <td class="text-right"><span class="value ${p.net_margin_percent != null && p.net_margin_percent > 0 ? 'value-highlight' : p.net_margin_percent != null && p.net_margin_percent < 0 ? 'value-negative' : 'value-zero'}">${formatPercent(p.net_margin_percent)}</span></td>
           <td class="text-right"><span class="value ${ps == null ? 'value-zero' : ''}">${psDisplay}</span></td>
           <td class="text-right"><span class="value ${pe == null ? 'value-zero' : ''}">${peDisplay}</span></td>
           <td class="text-right"><span class="value ${divYield > 0 ? 'value-highlight' : 'value-zero'}">${divYield > 0 ? formatPercent(divYield, precision) : '—'}</span></td>
