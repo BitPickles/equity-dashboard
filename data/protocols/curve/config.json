@@ -148,10 +148,10 @@
   "last_updated": "2026-04-26",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 4.95,
+    "tev_yield_percent": 4.86,
     "tev_yield_vecrv_only_percent": 4.25,
     "annual_tev_usd": 15335813,
-    "market_cap_usd": 310075962.6157678,
+    "market_cap_usd": 315741825.3188081,
     "vecrv_tvl_usd": 193755056.8125176,
     "crv_locked": 855952221.7179456,
     "calculation_date": "2026-08-02",
@@ -179,12 +179,12 @@
     "validation": {
       "method": "Community Fund Treasury crvUSD inflow × 9 (FeeAllocator 90/10)",
       "crv_locked_in_vecrv": 850840206.8721508,
-      "vecrv_tvl_usd": 170983146.2926137,
+      "vecrv_tvl_usd": 174051276.07859465,
       "lock_ratio_pct": 55.1,
-      "yield_vecrv_only_7d": 6.13,
-      "yield_vecrv_only_30d": 33.56,
-      "yield_vecrv_only_90d": 19.51,
-      "yield_vecrv_only_365d": 8.97,
+      "yield_vecrv_only_7d": 6.02,
+      "yield_vecrv_only_30d": 32.97,
+      "yield_vecrv_only_90d": 19.17,
+      "yield_vecrv_only_365d": 8.81,
       "caveats": [
         "veCRV TEV 是反推: 直接观察 Community Fund Treasury (10%) crvUSD 入金 × 9 = 90% veCRV 分配",
         "假设 FeeAllocator 90/10 比例不变（治理可改）",
@@ -200,8 +200,8 @@
     "en": "Treasury inflow + veCRV lock amount both fully on-chain, FeeAllocator 90/10 governance-documented"
   },
   "tevRatio": 0.9,
-  "earning_yield_percent": 4.95,
-  "market_cap_usd": 310075962.6157678,
+  "earning_yield_percent": 4.86,
+  "market_cap_usd": 315741825.3188081,
   "metrics": {
     "trailing_365d_fees_usd": 55189562,
     "trailing_365d_revenue_usd": 15335813,
@@ -209,25 +209,25 @@
     "trailing_30d_fees_usd": 4978284,
     "trailing_30d_revenue_usd": 4716138,
     "trailing_30d_holders_revenue_usd": 691740,
-    "current_market_cap_usd": 310075962.6157678,
+    "current_market_cap_usd": 315741825.3188081,
     "trailing_365d_tev_usd": 15335813,
     "trailing_30d_tev_usd": 721543.5833333334,
     "trailing_7d_revenue_usd": 200990,
     "trailing_90d_revenue_usd": 8227226,
-    "tev_yield_7d_ann": 3.38,
-    "tev_yield_30d_ann": 18.51,
-    "tev_yield_90d_ann": 10.76,
-    "earning_yield_7d_ann": 3.38,
-    "earning_yield_30d_ann": 18.51,
-    "earning_yield_90d_ann": 10.76,
-    "dividend_yield_7d_ann": 3.38,
+    "tev_yield_7d_ann": 3.32,
+    "tev_yield_30d_ann": 18.17,
+    "tev_yield_90d_ann": 10.57,
+    "earning_yield_7d_ann": 3.32,
+    "earning_yield_30d_ann": 18.17,
+    "earning_yield_90d_ann": 10.57,
+    "dividend_yield_7d_ann": 3.32,
     "buyback_yield_7d_ann": 0,
-    "dividend_yield_30d_ann": 18.51,
+    "dividend_yield_30d_ann": 18.17,
     "buyback_yield_30d_ann": 0,
-    "dividend_yield_90d_ann": 10.76,
+    "dividend_yield_90d_ann": 10.57,
     "buyback_yield_90d_ann": 0
   },
-  "tev_yield_percent": 4.95,
+  "tev_yield_percent": 4.86,
   "calc_pipeline": [
     {
       "step": 1,
@@ -286,7 +286,7 @@
       "unit": "%"
     }
   ],
-  "dividend_yield_percent": 4.95,
+  "dividend_yield_percent": 4.86,
   "buyback_yield_percent": 0,
   "style": "cash_cow"
 }
