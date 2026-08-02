@@ -43,7 +43,20 @@ CMC_SLUGS = {
 }
 
 
+def load_dotenv():
+    """从仓库根 .env 读取 CMC_API_KEY（Mac Mini 部署：放置 .env 即可，无需手设环境变量）。
+    注意：.env 已被 .gitignore 忽略，严禁提交到 GitHub。"""
+    env_path = BASE / ".env"
+    if env_path.exists():
+        for line in env_path.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, _, v = line.partition("=")
+                os.environ.setdefault(k.strip(), v.strip())
+
+
 def get_api_key():
+    load_dotenv()
     return os.environ.get("CMC_API_KEY", "").strip()
 
 

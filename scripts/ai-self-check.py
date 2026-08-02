@@ -53,9 +53,22 @@ def load_json(path):
 
 # ── GLM API 封装（OpenAI 兼容） ──────────────────────────────────────
 
+def _load_dotenv():
+    """从仓库根 .env 读取密钥（Mac Mini 部署：放置 .env 即可）。
+    .env 已被 .gitignore 忽略，严禁提交到 GitHub。"""
+    env_path = BASE_DIR / ".env"
+    if env_path.exists():
+        for line in env_path.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, _, v = line.partition("=")
+                os.environ.setdefault(k.strip(), v.strip())
+
+
 class GLMClient:
     def __init__(self, config):
         self.config = config
+        _load_dotenv()
         self.api_key = os.environ.get(config.get("api_key_env", "GLM_API_KEY"))
         self.available = bool(self.api_key)
 
