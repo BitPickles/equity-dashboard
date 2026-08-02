@@ -1325,12 +1325,13 @@
           const sorted = records.slice().sort((a, b) => a.as_of.localeCompare(b.as_of));
           // 数据仅 500+ 条，Chart.js 完全能渲染，不做采样（保持一天一个数字）
           const all = sorted;
-          // 折线=滚动 365 天净收益（net_income 字段，与损益表同口径，Boss 2026-08-03）
-          // 之前误用 cumulative（从数据开始累计 13.45B）导致与损益表 9.58B 对不上
+          // 折线 = TTM 累计总量（net_income = 滚动 365 天净收益，Boss 2026-08-03 定名：
+          // 每过一天加新增一期、减掉超过一年那期，与损益表同口径）
           const lineVals = metric === 'net_income'
             ? all.map(r => r.net_income)
             : all.map(r => r[metric]);
-          const barVals = all.map(r => r.daily_value != null ? r.daily_value : r[metric]);  // 柱状=单期值
+          // 柱状 = 单日净收益（daily_value = 当天统计值）
+          const barVals = all.map(r => r.daily_value != null ? r.daily_value : r[metric]);
           return { labels: all.map(r => r.as_of), lineVals, barVals };
         }
         function renderHistoryChart() {
@@ -1341,13 +1342,16 @@
             if (historyChart) historyChart.destroy();
             const { labels, lineVals, barVals } = prepareData(currentHistoryMetric);
             const isNet = currentHistoryMetric === 'net_income';
-            // 颜色区分：单期值柱状=绿色，净收益折线=橙色
-            const barColor = '#22c55e';   // 单期值（柱）
-            const lineColor = '#f59e0b';  // 净收益 365d（线）
+            // 颜色区分：单日净收益柱状=绿色，TTM 累计总量折线=橙色
+            const barColor = '#22c55e';   // 单日净收益（柱）
+            const lineColor = '#f59e0b';  // TTM 累计总量（线）
+            // Boss 2026-08-03 定名：折线 = TTM 累计总量（过去 365 天滚动和，
+            // 每天加新增一期、减掉超一年那期）；柱状 = 单日净收益（当天统计值）
+            const barLabel = currentLang === 'zh' ? '单日净收益' : 'Daily Net Income';
             const lineLabel = isNet
-              ? (currentLang === 'zh' ? '净收益 (365天)' : 'Net Income (365d)')
+              ? (currentLang === 'zh' ? 'TTM 累计总量' : 'TTM Cumulative')
               : def.label;
-            // Boss 2026-08-03 修正：单期值（柱）最高点 ≤ 图 1/2 高度
+            // Boss 2026-08-03 修正：单日净收益（柱）最高点 ≤ 图 1/2 高度
             // 用 p90 分位 × 2.2（避免单日异常值拉爆 Y 轴，如 Auto-Burn 执行日）
             const finiteBars = barVals.filter(v => v != null && isFinite(v)).sort((a, b) => a - b);
             const p90 = finiteBars.length ? finiteBars[Math.min(finiteBars.length - 1, Math.floor(finiteBars.length * 0.9))] : 0;
@@ -1357,9 +1361,9 @@
               data: {
                 labels,
                 datasets: [
-                  // 单期值：柱状（左轴，绿色）
-                  { type: 'bar', label: currentLang === 'zh' ? '单期值' : 'Period', data: barVals, backgroundColor: barColor + '44', borderColor: barColor + '88', borderWidth: 1, yAxisID: 'y', barPercentage: 0.85, categoryPercentage: 0.85, order: 2 },
-                  // 净收益 365d：折线（右轴，橙色，与损益表同口径）
+                  // 单日净收益：柱状（左轴，绿色）
+                  { type: 'bar', label: barLabel, data: barVals, backgroundColor: barColor + '44', borderColor: barColor + '88', borderWidth: 1, yAxisID: 'y', barPercentage: 0.85, categoryPercentage: 0.85, order: 2 },
+                  // TTM 累计总量：折线（右轴，橙色，与损益表同口径）
                   { type: 'line', label: lineLabel, data: lineVals, borderColor: lineColor, backgroundColor: lineColor + '18', fill: true, tension: 0.3, pointRadius: 0, pointHoverRadius: 4, borderWidth: 2, yAxisID: 'y1', order: 1 },
                 ],
               },
@@ -1372,7 +1376,7 @@
                     title: items => items[0]?.label || '',
                     label: c => {
                       const isLine = c.dataset.type === 'line';
-                      return (isLine ? (isNet ? lineLabel + ': ' : def.label + ': ') : (currentLang === 'zh' ? '单期值: ' : 'Period: ')) + def.fmt(c.parsed.y);
+                      return (isLine ? (isNet ? lineLabel + ': ' : def.label + ': ') : barLabel + ': ') + def.fmt(c.parsed.y);
                     },
                   } },
                   // chartjs-plugin-zoom v2 正确结构：zoom.zoom / zoom.pan 并列
@@ -1389,7 +1393,7 @@
                 },
                 scales: {
                   x: { ticks: { maxTicksLimit: 10, color: '#71717a', font: { size: 10 }, callback: xDateFmt, maxRotation: 0, autoSkip: true }, grid: { display: false } },
-                  y: { position: 'left', max: barYMax, ticks: { color: '#71717a', font: { size: 10 }, callback: yFmtShort }, grid: { color: 'rgba(128,128,128,0.08)' }, title: { display: true, text: currentLang === 'zh' ? '单期值' : 'Period', color: '#71717a', font: { size: 10 } } },
+                  y: { position: 'left', max: barYMax, ticks: { color: '#71717a', font: { size: 10 }, callback: yFmtShort }, grid: { color: 'rgba(128,128,128,0.08)' }, title: { display: true, text: barLabel, color: '#71717a', font: { size: 10 } } },
                   y1: { position: 'right', ticks: { color: lineColor, font: { size: 10 }, callback: yFmtShort }, grid: { display: false }, title: { display: true, text: lineLabel, color: lineColor, font: { size: 10 } } },
                 },
               },
