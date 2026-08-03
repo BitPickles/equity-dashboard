@@ -72,9 +72,9 @@
   "last_updated": "2026-04-26",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 7.9,
-    "annual_tev_usd": 18659302,
-    "market_cap_usd": 236118569.25,
+    "tev_yield_percent": 7.98,
+    "annual_tev_usd": 18621021,
+    "market_cap_usd": 233442379.73,
     "calculation_date": "2026-08-03",
     "sources": [
       {
@@ -107,26 +107,26 @@
     "en": "DefiLlama dailyHoldersRevenue ($22.25M, ~85% of revenue) aligns with official 80% claim, but no single on-chain executor traceable across 8+ chains"
   },
   "tevRatio": 0.8,
-  "earning_yield_percent": 7.9,
-  "market_cap_usd": 236118569.25,
-  "tev_yield_percent": 7.9,
+  "earning_yield_percent": 7.98,
+  "market_cap_usd": 233442379.73,
+  "tev_yield_percent": 7.98,
   "metrics": {
-    "current_market_cap_usd": 236118569.25,
-    "trailing_365d_revenue_usd": 18659302,
-    "trailing_30d_revenue_usd": 438154,
-    "trailing_365d_tev_usd": 18659302,
-    "trailing_30d_tev_usd": 1554941.8333333333,
-    "trailing_7d_revenue_usd": 202186,
-    "trailing_90d_revenue_usd": 2078255,
-    "tev_yield_7d_ann": 4.46,
-    "tev_yield_30d_ann": 2.26,
+    "current_market_cap_usd": 233442379.73,
+    "trailing_365d_revenue_usd": 18621021,
+    "trailing_30d_revenue_usd": 438941,
+    "trailing_365d_tev_usd": 18621021,
+    "trailing_30d_tev_usd": 1551751.75,
+    "trailing_7d_revenue_usd": 61322,
+    "trailing_90d_revenue_usd": 2054438,
+    "tev_yield_7d_ann": 1.37,
+    "tev_yield_30d_ann": 2.29,
     "tev_yield_90d_ann": 3.57,
-    "earning_yield_7d_ann": 4.46,
-    "earning_yield_30d_ann": 2.26,
+    "earning_yield_7d_ann": 1.37,
+    "earning_yield_30d_ann": 2.29,
     "earning_yield_90d_ann": 3.57,
-    "dividend_yield_7d_ann": 4.46,
+    "dividend_yield_7d_ann": 1.37,
     "buyback_yield_7d_ann": 0,
-    "dividend_yield_30d_ann": 2.26,
+    "dividend_yield_30d_ann": 2.29,
     "buyback_yield_30d_ann": 0,
     "dividend_yield_90d_ann": 3.57,
     "buyback_yield_90d_ann": 0
@@ -188,7 +188,7 @@
       "unit": "%"
     }
   ],
-  "dividend_yield_percent": 7.9,
+  "dividend_yield_percent": 7.98,
   "buyback_yield_percent": 0,
   "style": "cash_cow"
 }
