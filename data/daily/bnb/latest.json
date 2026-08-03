@@ -1,15 +1,15 @@
 {
   "protocol": "bnb",
-  "updated_at": "2026-08-02T14:13:26.000Z",
+  "updated_at": "2026-08-03T16:32:35.000Z",
   "data_sources": {
     "defillama": "无（平台币/静态，专属脚本维护）",
     "coingecko": "binancecoin",
     "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-08-02",
-    "price_usd": 636.56,
-    "market_cap_usd": 86634101974,
+    "date": "2026-08-04",
+    "price_usd": 593.12,
+    "market_cap_usd": 78992548782,
     "daily_fees_usd": null,
     "total30d_fees_usd": null,
     "total1y_fees_usd": null
@@ -18,9 +18,9 @@
     "trailing_30d_tev_usd": null,
     "trailing_365d_tev_usd": null,
     "annualized_tev_usd": null,
-    "current_market_cap_usd": 86634101974,
+    "current_market_cap_usd": 78992548782,
     "tev_yield": "N/A",
     "tev_yield_decimal": null,
-    "calculated_at": "2026-08-02T14:13:26.000Z"
+    "calculated_at": "2026-08-03T16:32:35.000Z"
   }
 }

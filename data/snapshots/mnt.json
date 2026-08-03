@@ -1,6 +1,6 @@
 {
   "protocol": "mnt",
-  "as_of": "2026-08-03",
+  "as_of": "2026-08-04",
   "income_statement": {
     "revenue": {
       "entity_type": "platform_token",
@@ -79,6 +79,6 @@
   "verification": {
     "method": "机制判定：L2 sequencer fees 进 BaseFeeVault 不 burn、mETH 收益独立、Treasury Burn 提案未执行、Staking planned（判定书 §2）",
     "status": "partial",
-    "last_checked": "2026-08-03"
+    "last_checked": "2026-08-04"
   }
 }

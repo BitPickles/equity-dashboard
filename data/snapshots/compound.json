@@ -1,6 +1,6 @@
 {
   "protocol": "compound",
-  "as_of": "2026-08-03",
+  "as_of": "2026-08-04",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -78,6 +78,6 @@
   "verification": {
     "method": "净利 = DefiLlama dailyRevenue 365d $216,668（协议净收入，reserve factor 口径）；COMP 治理代币不回购（fee switch OFF）；净利留存协议储备",
     "status": "estimated",
-    "last_checked": "2026-08-03"
+    "last_checked": "2026-08-04"
   }
 }

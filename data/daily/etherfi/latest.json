@@ -1,18 +1,18 @@
 {
   "protocol": "etherfi",
-  "updated_at": "2026-08-02T14:13:43.000Z",
+  "updated_at": "2026-08-03T16:32:56.000Z",
   "data_sources": {
     "defillama": "ether.fi",
     "coingecko": "ether-fi",
     "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-08-02",
+    "date": "2026-08-04",
     "price_usd": 0.498315,
     "market_cap_usd": 370787687,
-    "daily_fees_usd": 438530,
-    "total30d_fees_usd": 11343427,
-    "total1y_fees_usd": 225252841
+    "daily_fees_usd": 356496,
+    "total30d_fees_usd": 11283360,
+    "total1y_fees_usd": 224854288
   },
   "metrics": {
     "trailing_30d_tev_usd": 0,
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 370787687,
     "tev_yield": "0.00%",
     "tev_yield_decimal": 0.0,
-    "calculated_at": "2026-08-02T14:13:43.000Z"
+    "calculated_at": "2026-08-03T16:32:56.000Z"
   }
 }

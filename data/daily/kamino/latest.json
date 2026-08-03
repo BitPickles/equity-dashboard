@@ -1,18 +1,18 @@
 {
   "protocol": "kamino",
-  "updated_at": "2026-08-02T14:15:49.000Z",
+  "updated_at": "2026-08-03T16:33:26.000Z",
   "data_sources": {
     "defillama": "kamino",
     "coingecko": "kamino",
     "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-08-02",
+    "date": "2026-08-04",
     "price_usd": 0.01798556,
     "market_cap_usd": 93704839,
-    "daily_fees_usd": 126863,
-    "total30d_fees_usd": 4519261,
-    "total1y_fees_usd": 79732011
+    "daily_fees_usd": 127365,
+    "total30d_fees_usd": 4416295,
+    "total1y_fees_usd": 79539888
   },
   "metrics": {
     "trailing_30d_tev_usd": 0,
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 93704839,
     "tev_yield": "N/A",
     "tev_yield_decimal": 0,
-    "calculated_at": "2026-08-02T14:15:49.000Z"
+    "calculated_at": "2026-08-03T16:33:26.000Z"
   }
 }

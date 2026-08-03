@@ -399,7 +399,28 @@
           // 合并 metrics：优先用 daily 数据，回退到 all-protocols.json
           const mergedMetrics = { ...config.metrics, ...data.metrics };
           // tevRatio 直接使用 all-protocols.json 中的预计算值，不再动态计算
-          return { key, ...config, ...data, metrics: mergedMetrics, tevRatio: config.tevRatio };
+          let merged = { key, ...config, ...data, metrics: mergedMetrics, tevRatio: config.tevRatio };
+          // 财务字段 fallback：当 all-protocols.json 缺失 gross_profit/net_income/net_margin 时，
+          // 从 snapshots/{id}.json 的 income_statement 补全（详情页用同一数据源）。
+          // 规范：仅在 snapshots 给非零值时才 fallback（避免把"snapshots 写了 0"的协议显示成 $0，
+          // 同时保留负净利等真实场景）
+          const needFallback = merged.gross_profit_usd_365d == null || merged.net_income_usd_365d == null || merged.net_margin_percent == null;
+          if (needFallback) {
+            try {
+              const sr = await fetch(`../data/snapshots/${key}.json`);
+              if (sr.ok) {
+                const snap = await sr.json();
+                const inc = snap.income_statement || {};
+                const gp = inc.gross_profit || {};
+                const ni = inc.net_income || {};
+                const mg = inc.margins || {};
+                if (merged.gross_profit_usd_365d == null && gp.gross_profit_usd_365d != null && gp.gross_profit_usd_365d !== 0) merged.gross_profit_usd_365d = gp.gross_profit_usd_365d;
+                if (merged.net_income_usd_365d == null && ni.net_income_usd_365d != null && ni.net_income_usd_365d !== 0) merged.net_income_usd_365d = ni.net_income_usd_365d;
+                if (merged.net_margin_percent == null && mg.net_margin_percent != null && mg.net_margin_percent !== 0) merged.net_margin_percent = mg.net_margin_percent;
+              }
+            } catch {}
+          }
+          return merged;
         } catch { return { key, ...config, error: true }; }
       }));
     }

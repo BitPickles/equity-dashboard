@@ -1,6 +1,6 @@
 {
   "protocol": "curve",
-  "as_of": "2026-08-03",
+  "as_of": "2026-08-04",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -81,6 +81,6 @@
   "verification": {
     "method": "FeeAllocator 90/10：Community Fund Treasury crvUSD inflow × 9 反推 veCRV TEV 365d=15335813 · 增发成本 26000000（config.token_emission_cost）",
     "status": "verified",
-    "last_checked": "2026-08-03"
+    "last_checked": "2026-08-04"
   }
 }

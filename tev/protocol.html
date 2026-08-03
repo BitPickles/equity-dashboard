@@ -452,12 +452,12 @@
         <div class="section-title"><span class="icon">🪙</span><span data-i18n="section.supply">代币流通量</span></div>
         <div class="supply-hero" style="display:flex;align-items:center;gap:32px;margin-bottom:16px;flex-wrap:wrap;">
           <div>
-            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">${'<span data-i18n="supply.current"></span>' || (currentLang === 'zh' ? '当前流通量' : 'Current Supply')}</div>
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;"><span data-i18n="supply.current">当前流通量</span></div>
             <div style="font-size:38px;font-weight:700;font-family:'JetBrains Mono',monospace;color:#f0b90b;line-height:1;" id="supply-current-value">—</div>
             <div style="font-size:11px;color:var(--text-tertiary);margin-top:6px;" id="supply-current-meta"></div>
           </div>
           <div style="flex:1;min-width:200px;color:var(--text-tertiary);font-size:12px;line-height:1.6;padding-left:32px;border-left:1px solid var(--border);">
-            <span data-i18n="supply.desc"></span>
+            <span data-i18n="supply.desc">🪙 流通量随时间的变化反映增发与销毁的净效果（如 BNB 的 BEP-95 销毁使流通量持续下降）。数据来源 CoinMarketCap，每日更新。</span>
           </div>
         </div>
         <div class="supply-chart-container" style="position:relative;height:300px;"><div class="chart-canvas-wrap" style="height:300px;"><canvas id="supply-chart"></canvas></div></div>
@@ -774,6 +774,8 @@
     async function init() {
       const pid = getProtocolId();
       try {
+        // 首次进入翻译所有 data-i18n 元素（包括 supply.desc 等静态文本）
+        updateI18n();
         let logoUrls = {}; try { const lr = await fetch('../data/logo_urls.json'); if (lr.ok) logoUrls = await lr.json(); } catch {}
         const resp = await fetch(`../data/protocols/${pid}/config.json`);
         if (!resp.ok) throw new Error('Protocol not found');
@@ -868,11 +870,15 @@
           });
         });
 
-        // 状态 chips
+        // 状态 chips（s[k] 可能含括号后缀，如 "ACTIVE (但非真 buyback)"，取首词查表）
         const s = cfg.tev_summary || {};
         ['buybacks', 'burns', 'dividends'].forEach(k => {
           const el = document.getElementById('chip-' + k);
-          if (el) el.textContent = t('status.' + (s[k] || 'NONE'));
+          if (el) {
+            const raw = (s[k] || 'NONE').toString();
+            const key = (raw.split(/[\s(]/)[0] || 'NONE').toUpperCase();
+            el.textContent = t('status.' + key);
+          }
         });
         document.getElementById('chip-confidence').textContent = t('confidence.' + (cfg.confidence || 'medium'));
 

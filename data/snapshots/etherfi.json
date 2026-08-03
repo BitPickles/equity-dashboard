@@ -1,6 +1,6 @@
 {
   "protocol": "etherfi",
-  "as_of": "2026-08-03",
+  "as_of": "2026-08-04",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -92,6 +92,6 @@
   "verification": {
     "method": "DefiLlama dailyHoldersRevenue 365d ≈ $16709085（tev-records 缓存，判定书 4-6% 区间：$16-24M ÷ 市值 ~$400M）；sETHFI 入金上界 47411961 USD（128446410 ETHFI，含用户 stake 不可分离，仅监控）",
     "status": "estimated",
-    "last_checked": "2026-08-03"
+    "last_checked": "2026-08-04"
   }
 }

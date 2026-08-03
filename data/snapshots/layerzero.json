@@ -1,6 +1,6 @@
 {
   "protocol": "layerzero",
-  "as_of": "2026-08-03",
+  "as_of": "2026-08-04",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -79,6 +79,6 @@
   "verification": {
     "method": "收入 = Stargate 收入 365d $3,068,511（协议本体 0，fee switch OFF）；股东回报 = Stargate 回购 $784,539（100% Stargate 收入，累计 149.5 万 ZRO/$3.14M）；稀释注记：每月解锁 ~$48M（2027 年中前）；观察点：费用开关半年公投",
     "status": "partial",
-    "last_checked": "2026-08-03"
+    "last_checked": "2026-08-04"
   }
 }

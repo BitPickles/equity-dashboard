@@ -1,6 +1,6 @@
 {
   "protocol": "pendle",
-  "as_of": "2026-08-03",
+  "as_of": "2026-08-04",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -78,6 +78,6 @@
   "verification": {
     "method": "净利 = DefiLlama dailyRevenue 365d $18,665,264；股东回报 = dailyHoldersRevenue 365d $18,665,264（80% 口径 🟢，sPENDLE 时代 2026-01-29 起，tevRatio=0.8）；tev-records 365d 合计 $18,819,548 交叉核对",
     "status": "partial",
-    "last_checked": "2026-08-03"
+    "last_checked": "2026-08-04"
   }
 }

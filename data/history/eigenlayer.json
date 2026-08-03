@@ -2,46 +2,6 @@
   "protocol": "eigenlayer",
   "records": [
     {
-      "as_of": "2024-09-25",
-      "net_income": 0.0,
-      "daily_value": 0.0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": null,
-      "_period": "daily"
-    },
-    {
-      "as_of": "2024-09-26",
-      "net_income": 0.0,
-      "daily_value": 0.0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": null,
-      "_period": "daily"
-    },
-    {
-      "as_of": "2024-09-27",
-      "net_income": 0.0,
-      "daily_value": 0.0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": null,
-      "_period": "daily"
-    },
-    {
-      "as_of": "2024-09-28",
-      "net_income": 0.0,
-      "daily_value": 0.0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": null,
-      "_period": "daily"
-    },
-    {
       "as_of": "2024-09-29",
       "net_income": 0.0,
       "daily_value": 0.0,
@@ -3680,6 +3640,15 @@
       "shareholder_yield": null,
       "net_margin": null,
       "_period": "daily"
+    },
+    {
+      "as_of": "2026-08-04",
+      "net_income": 0,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": 0,
+      "net_margin": null,
+      "daily_value": 0.0
     }
   ]
 }
