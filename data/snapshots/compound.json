@@ -1,6 +1,6 @@
 {
   "protocol": "compound",
-  "as_of": "2026-08-02",
+  "as_of": "2026-08-03",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -8,7 +8,11 @@
         "protocol_fees_usd_365d": 216668,
         "total_usd_365d": 216668
       },
-      "revenue_excluded": {},
+      "revenue_excluded": {
+        "lending_fees_to_lp": {
+          "note": "借贷 fees (~$180M+/年) 100% 给 LP；协议端 reserve factor 收入很小（fee switch OFF，多次治理讨论未通过）"
+        }
+      },
       "growth_yoy_percent": null,
       "source": {
         "type": "defillama",
@@ -17,32 +21,45 @@
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": null,
-      "calculation_note": "毛利数据缺失（null），见专属 adapter"
+      "gross_profit_usd_365d": 216668,
+      "calculation_note": "DefiLlama dailyRevenue 为协议净收入口径（LP 分润已在数据源扣减），毛利 = 收入"
     },
     "token_emission_cost": {
-      "treatment": "none"
+      "usd_365d": null,
+      "annual_emission_tokens": null,
+      "inflation_rate_percent": null,
+      "treatment": "none",
+      "calculation_note": "COMP 供应上限 1000 万（接近全流通），无持续增发成本"
     },
     "net_income": {
-      "net_income_usd_365d": null,
+      "net_income_usd_365d": 216668,
       "operating_cost_usd_365d": null,
-      "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
+      "calculation_note": "净利 = 收入 − 增发(0) − 运营成本(数据不可得)；净利留存协议储备，股东回报 = 0（治理代币）"
     },
     "margins": {
-      "gross_margin_percent": null,
-      "net_margin_percent": null,
-      "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
+      "gross_margin_percent": 100.0,
+      "net_margin_percent": 100.0,
+      "note": "派生计算：gross = GP/Rev, net = NI/Rev；协议收入为净额口径，故为 100%"
     }
   },
   "holder_returns": {
-    "by_mechanism": [],
+    "by_mechanism": [
+      {
+        "mechanism": "治理代币（无股东回报）",
+        "type": "yield",
+        "usd_365d": 0,
+        "yield_percent": 0,
+        "verified": "estimated",
+        "note": "治理代币，无股东回报（不回购/不分红/不销毁）；fee switch 从未开启，借贷 fees 100% 给 LP"
+      }
+    ],
     "summary": {
       "destroy_usd_365d": null,
       "yield_usd_365d": null,
       "destroy_yield_percent": null,
       "yield_yield_percent": null,
-      "shareholder_returns_usd_365d": null,
-      "shareholder_yield_percent": null
+      "shareholder_returns_usd_365d": 0,
+      "shareholder_yield_percent": 0
     }
   },
   "balance_sheet": {
@@ -59,8 +76,8 @@
     "payout_ratio": null
   },
   "verification": {
-    "method": "generic adapter（基于 all-protocols 已验证字段）",
+    "method": "净利 = DefiLlama dailyRevenue 365d $216,668（协议净收入，reserve factor 口径）；COMP 治理代币不回购（fee switch OFF）；净利留存协议储备",
     "status": "estimated",
-    "last_checked": "2026-08-02"
+    "last_checked": "2026-08-03"
   }
 }

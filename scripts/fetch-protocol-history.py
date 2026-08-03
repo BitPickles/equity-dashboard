@@ -39,7 +39,22 @@ DEFILLAMA_IDS = {
     "dydx": "dydx",
     "gmx": "gmx",
     "etherfi": "ether.fi",      # DefiLlama 用 ether.fi
+    # M3 批量（2026-08-03）
+    "mnt": "mantle",
+    "pancakeswap": "pancakeswap",
+    "maple": "maple",
+    "ethena": "ethena",
+    "justlend": "justlend",
+    "lido": "lido",
+    "eigenlayer": "eigenlayer",
+    "morpho": "morpho",
+    "spark": "spark",
+    "kamino": "kamino",
+    "jito": "jito",
+    "fluid": "fluid",
+    "layerzero": "layerzero",
     # aster 在 DefiLlama 无 fee 面板 → 保留 4 条周期回填
+    # bgb/okb/compound 无 DefiLlama fee 面板（平台币/无收入模型）→ 用 snapshot 单点
 }
 
 

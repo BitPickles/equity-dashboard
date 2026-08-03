@@ -1,6 +1,6 @@
 {
   "protocol": "hype",
-  "as_of": "2026-08-02",
+  "as_of": "2026-08-03",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -73,6 +73,6 @@
   "verification": {
     "method": "generic adapter（基于 all-protocols 已验证字段）",
     "status": "verified",
-    "last_checked": "2026-08-02"
+    "last_checked": "2026-08-03"
   }
 }

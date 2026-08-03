@@ -1,13 +1,14 @@
 {
   "protocol": "bgb",
-  "as_of": "2026-08-02",
+  "as_of": "2026-08-03",
   "income_statement": {
     "revenue": {
       "entity_type": "platform_token",
       "revenue_included": {
-        "burn_usd_365d": null,
+        "burn_usd_365d": 520000000.0,
         "staking_rewards_usd_365d": null,
-        "total_usd_365d": null
+        "launchpad_launchpool_usd_365d": null,
+        "total_usd_365d": 520000000.0
       },
       "revenue_excluded": {
         "launchpad": {
@@ -17,55 +18,67 @@
       "growth_yoy_percent": null,
       "source": {
         "type": "official",
-        "url": "https://www.bitget.com"
+        "url": "https://www.bitget.com/bgb"
       }
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": null,
-      "calculation_note": "平台币无 LP 成本，毛利 = 收入（赋能总额）"
+      "gross_profit_usd_365d": 520000000.0,
+      "calculation_note": "平台币无 LP 分润成本，毛利 = 收入（季度回购销毁年化）"
     },
     "token_emission_cost": {
-      "treatment": "none"
+      "usd_365d": null,
+      "annual_emission_tokens": null,
+      "inflation_rate_percent": null,
+      "treatment": "none",
+      "calculation_note": "BGB 无持续增发（2024-12 一次性销毁 8 亿后总供应 12 亿，100% 全流通），不涉及增发成本"
     },
     "net_income": {
-      "net_income_usd_365d": null,
+      "net_income_usd_365d": 520000000.0,
       "operating_cost_usd_365d": null,
-      "calculation_note": "毛利 − 增发成本 − 运营成本（口径见 config.revenue_recognition）"
+      "calculation_note": "平台币：净利 = 收入 = 股东回报（季度回购销毁口径，无成本模型）"
     },
     "margins": {
-      "gross_margin_percent": null,
-      "net_margin_percent": null,
-      "note": "派生计算：gross = GP/Rev, net = NI/Rev；净利可为负（Curve 案例）"
+      "gross_margin_percent": 100.0,
+      "net_margin_percent": 100.0,
+      "note": "平台币无成本模型，毛利率/净利率 = 100%（口径标注，非经营性利润）"
     }
   },
   "holder_returns": {
-    "by_mechanism": [],
+    "by_mechanism": [
+      {
+        "mechanism": "季度回购销毁（利润 20%）",
+        "type": "buyback",
+        "usd_365d": 520000000.0,
+        "yield_percent": 27.5366,
+        "note": "交易所+钱包业务利润 20% 回购销毁，次季初完成，官方公告 + 链上记录；2025 Q1/Q2 各销毁 ~3000 万枚（$1.2-1.4 亿/季度），年化取中值"
+      }
+    ],
     "summary": {
-      "destroy_usd_365d": null,
+      "destroy_usd_365d": 520000000.0,
       "yield_usd_365d": null,
-      "destroy_yield_percent": null,
+      "destroy_yield_percent": 27.5366,
       "yield_yield_percent": null,
-      "shareholder_returns_usd_365d": null,
-      "shareholder_yield_percent": null
+      "shareholder_returns_usd_365d": 520000000.0,
+      "shareholder_yield_percent": 27.5366
     }
   },
   "balance_sheet": {
     "market_cap_usd": 1888393751,
-    "tvl_usd": null,
+    "tvl_usd": 0,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": null,
-    "ps": null,
+    "pe": 3.6315,
+    "ps": 3.6315,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": null
+    "payout_ratio": 1.0
   },
   "verification": {
-    "method": "generic adapter（基于 all-protocols 已验证字段）",
-    "status": "estimated",
-    "last_checked": "2026-08-02"
+    "method": "官方季度公告（2025 Q1/Q2 各销毁 ~3000 万枚 / $1.2-1.4 亿季度）年化 + 链上销毁地址 0x000...000 复核",
+    "status": "partial",
+    "last_checked": "2026-08-03"
   }
 }
