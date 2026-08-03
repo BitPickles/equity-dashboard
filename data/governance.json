@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-03T01:08:06.119050+00:00",
+  "updated_at": "2026-08-03T13:08:03.637022+00:00",
   "total": 239,
   "active_count": 31,
   "passed_count": 208,
@@ -2702,6 +2702,20 @@
     {
       "source": "dYdX Cosmos",
       "protocol": "dYdX",
+      "title": "Increase Governance Quorum on dYdX Chain",
+      "status": "active",
+      "link": "https://www.mintscan.io/dydx/proposals/392",
+      "created": "2026-08-03T03:47:35.671056447Z",
+      "end": "2026-08-06T03:47:35.671056447Z",
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "Increase Governance Quorum on the x/gov module. Forum Post",
+      "summary_zh": "dYdX治理提案：于2023年4月1日提高x/gov模块的治理投票门槛。",
+      "analysis_zh": ""
+    },
+    {
+      "source": "dYdX Cosmos",
+      "protocol": "dYdX",
       "title": "dYdX Treasury SubDAO Director Change",
       "status": "passed",
       "link": "https://www.mintscan.io/dydx/proposals/391",
@@ -2820,24 +2834,10 @@
       "summary_zh": "dYdX 协议 dYdX 突破计划 - 第13季分配\n我们寻求社区批准，授权从社区资金池转移 50,000 美元（333,333.27 DYDX）至第13季突破计划参与者，用于清算奖励计划（基于 7 日 TWAP 的 333,333.27 DYDX）。"
     },
     {
-      "source": "dYdX Cosmos",
-      "protocol": "dYdX",
-      "title": "Wind down AKT-USD, GNO-USD, MNRY-USD and MOG-USD markets",
-      "status": "passed",
-      "link": "https://www.mintscan.io/dydx/proposals/382",
-      "created": "2026-04-29T07:19:11.129231769Z",
-      "end": "2026-05-02T07:19:11.129231769Z",
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "Wind down AKT-USD, GNO-USD, MNRY-USD and MOG-USD markets",
-      "summary_zh": "dYdX治理提案：于2023年11月30日关闭AKT-USD、GNO-USD、MNRY-USD和MOG-USD市场。",
-      "analysis_zh": ""
-    },
-    {
       "source": "GitHub BEP",
       "protocol": "BNB Chain",
       "title": "docs: refine bep703",
-      "status": "active",
+      "status": "passed",
       "link": "https://github.com/bnb-chain/BEPs/pull/704",
       "created": "2026-07-31T03:53:19",
       "end": "",
