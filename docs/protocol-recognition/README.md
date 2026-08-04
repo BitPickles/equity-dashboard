@@ -24,7 +24,6 @@
 | GMX | [gmx.md](gmx.md) | 应用型 | 0% | 锁定至 $90 |
 | PancakeSwap | [pancakeswap.md](pancakeswap.md) | 应用型 | 12.93% | 净通缩回购销毁 |
 | Maple | [maple.md](maple.md) | 应用型 | 0.85% | MIP-021 阶梯 |
-| ether.fi | [etherfi.md](etherfi.md) | 应用型 | 4.29% | 双引擎→sETHFI |
 | Ethena | [ethena.md](ethena.md) | 应用型 | 0% | 费用开关前 |
 | JustLend | [justlend.md](justlend.md) | 应用型 | 0% | 做账式销毁 |
 | Lido | [lido.md](lido.md) | 治理代币 | 0% | 利润照算 |

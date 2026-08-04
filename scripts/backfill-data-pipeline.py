@@ -287,25 +287,6 @@ PLAN = {
             "ai_self_check": ["mechanism-change", "data-plausibility", "freshness"],
         },
     },
-    "etherfi": {
-        "entity_type": "app",
-        "rr": {
-            "entity_type": "app",
-            "principle": "双回购引擎：提现费 100% 周度回购 + 协议收入 25% 月度回购，均回购 ETHFI 分给 sETHFI 质押者",
-            "revenue_included": {"protocol_fees": {"note": "协议收入（Stake/Liquid/Cash，Cash 占 ~55%）；提现费 100% + 收入 25% 回购"}},
-            "revenue_excluded": {"dao_buyback": {"note": "DAO $50M 公开市场回购执行进度透明度一般，标 unverified 合理"}},
-            "calculation": {"tev_ratio": 0.05, "note": "回购 $16-24M/年 ÷ 市值 ~$400M ≈ 4-6%（sETHFI 质押者口径 ~10%）"},
-            "source_type": "official",
-            "source_url": "https://www.ether.fi",
-        },
-        "dp": {
-            "sources": [
-                {"type": "official", "method": "Token Terminal / Dune + 官方公告", "frequency": "weekly", "script": "ai-watch-official.py"},
-                {"type": "chain", "method": "周度提现费回购 + 月度收入回购链上", "frequency": "weekly", "script": "update-etherfi-buybacks.py"},
-            ],
-            "ai_self_check": ["mechanism-change", "data-plausibility", "freshness"],
-        },
-    },
     "ethena": {
         "entity_type": "app",
         "rr": {

@@ -41,11 +41,7 @@ PROTOCOLS = {
         "tvl_slugs": ["ethena-usde"],
         "fee_slugs": ["ethena-usde"],
     },
-    "etherfi": {
-        "coingecko_id": "ether-fi",
-        "tvl_slugs": ["ether.fi"],
-        "fee_slugs": ["ether.fi-liquid", "etherfi-borrowing-market", "etherfi-cash-liquid"],
-    },
+
     "gmx": {
         "coingecko_id": "gmx",
         "tvl_slugs": ["gmx"],
@@ -105,8 +101,7 @@ TEV_RATIOS = {
     "dydx": 1.0,         # 100% 给 stakers
     "eigenlayer": 0,     # 无 TEV
     "ethena": 0,         # 待定 (sENA)
-    "etherfi": 0,        # Partial
-    "gmx": 0.30,         # 30% 给 GMX stakers
+        "gmx": 0.30,         # 30% 给 GMX stakers
     "jito": 0,           # Fee Switch OFF
     "justlend": 0,       # Partial
     "kamino": 0,         # Partial

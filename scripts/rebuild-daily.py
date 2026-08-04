@@ -35,7 +35,6 @@ SLUGS = {
     "dydx": ("dydx", "dydx-chain"),
     "eigenlayer": ("eigenlayer", "eigenlayer"),
     "ethena": ("ethena", "ethena"),
-    "etherfi": ("ether.fi", "ether-fi"),
     "gmx": ("gmx", "gmx"),
     "hype": ("hyperliquid", "hyperliquid"),
     "jito": ("jito", "jito-governance-token"),

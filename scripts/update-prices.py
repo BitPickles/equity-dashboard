@@ -34,7 +34,7 @@ UA = {"User-Agent": "Mozilla/5.0 (Crypto3D-TEV-Dashboard/2.0)"}
 CG_IDS = {
     "aave": "aave", "aster": "aster-2", "bgb": "bitget-token", "bnb": "binancecoin",
     "compound": "compound-governance-token", "curve": "curve-dao-token", "dydx": "dydx-chain",
-    "eigenlayer": "eigenlayer", "ethena": "ethena", "etherfi": "ether-fi",
+    "eigenlayer": "eigenlayer", "ethena": "ethena",
     "fluid": "instadapp", "gmx": "gmx", "hype": "hyperliquid", "jito": "jito-governance-token",
     "justlend": "just", "kamino": "kamino", "layerzero": "layerzero", "lido": "lido-dao",
     "maple": "syrup", "mnt": "mantle", "morpho": "morpho", "okb": "okb",

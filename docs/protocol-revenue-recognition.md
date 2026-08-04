@@ -185,13 +185,11 @@
 
 ## 第 5 批：质押收益 / 特殊
 
-### 16. ether.fi ✅ 已定稿（Boss 2026-08-02 + Agent 调研）
+### 16. ether.fi ❌ **已删除（Boss 2026-08-04）**
 
-- **实体类型**：应用型（liquid_staking）
-- **机制升级（双回购引擎）**：提现费 **100%** 周度回购 + 协议收入 **25%** 月度回购，均回购 ETHFI 分给 sETHFI 质押者；叠加 DAO $50M 公开市场回购；收入支柱 Stake/Liquid/Cash（Cash 已占 ~55%）
-- **股东回报**：回购 $16-24M/年 ÷ 市值 ~$400M ≈ **4-6%**（高于此前 2.5% 估算；sETHFI 质押者口径 ~10%）；本质"质押者股息"
-- **判定**：股东回报 = 双通道回购 🟢（4-6%）；非质押持有人无直接现金流（详情页标注）
-- **数据源**：Token Terminal/Dune + 官方 + tokenomics.com（DAO $50M 执行进度透明度一般，标 unverified 合理）
+- **删除原因**：协议收入数据不可得（DefiLlama 无 fees 面板 404、Token Terminal/Dune 未缓存），主表 Rev/Net/P/S 长期缺失，Boss 决定移除该协议
+- **保留历史**：曾判定为应用型（liquid_staking），双回购引擎（提现费 100% + 协议收入 25% 回购 → sETHFI 质押者），股东回报 4.54%（$16.7M ÷ $367M 市值）
+- **若未来恢复**：需先拿到协议真实收入（Token Terminal/Dune 口径），补 adapter 后重新接入
 
 ### 17. Ethena ✅ 已定稿（Boss 2026-08-02 + Agent 调研）
 
@@ -246,7 +244,7 @@
 | 4 | Pendle | ✅ 定稿（80%） |
 | 4 | Curve / PancakeSwap | ✅ 定稿（增发按成本：Curve 净利负 / Pancake 60-65% 净利正） |
 | 4 | dYdX / GMX / Maple | ✅ 定稿（dYdX 改名 Arcus 回购质押非销毁 / GMX 锁定至 $90 / Maple MIP-021 阶梯） |
-| 5 | ether.fi / Ethena | ✅ 定稿（ether.fi 双引擎 4-6% / Ethena 费用开关待激活=0） |
+| 5 | ~~ether.fi~~ / Ethena | ether.fi 已删除（数据不可得，2026-08-04）/ Ethena 费用开关待激活=0 |
 | 5 | JustLend | ✅ 定稿（0，做账式） |
 | 6 | Lido 等 7 个 | ✅ 定稿（只统计利润，股东回报 0） |
 | 7 | LayerZero | 🔄 调研完成，待 Boss 拍板 |

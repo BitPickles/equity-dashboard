@@ -38,7 +38,6 @@ DEFILLAMA_IDS = {
     "curve": "curve-dex",       # DefiLlama 用 curve-dex
     "dydx": "dydx",
     "gmx": "gmx",
-    "etherfi": "ether.fi",      # DefiLlama 用 ether.fi
     # M3 批量（2026-08-03）
     "mnt": "mantle",
     "pancakeswap": "pancakeswap",

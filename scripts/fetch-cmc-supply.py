@@ -33,7 +33,7 @@ SUPPLY_DIR = BASE / "data" / "supply"
 CMC_SLUGS = {
     "aave": "aave", "aster": "aster", "bgb": "bitget-token-new", "bnb": "bnb",
     "compound": "compound", "curve": "curve-dao-token", "dydx": "dydx-chain",
-    "eigenlayer": "eigenlayer", "ethena": "ethena", "etherfi": "etherfi",
+    "eigenlayer": "eigenlayer", "ethena": "ethena",
     "fluid": "instadapp", "gmx": "gmx", "hype": "hyperliquid",
     "jito": "jito", "justlend": "just", "kamino": "kamino-finance",
     "layerzero": "layerzero", "lido": "lido-dao", "maple": "maple-finance",
