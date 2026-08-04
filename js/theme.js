@@ -17,11 +17,18 @@
 
   // 同步 logo：白天模式用深色版 logo-dark.svg（白底可见），黑夜模式用白色版 logo.svg
   function syncLogo(theme) {
-    var src = theme === 'light' ? 'logo-dark.svg' : 'logo.svg';
+    // 同步 logo：白天模式用深色版 logo-dark.svg（白底可见），黑夜模式用白色版 logo.svg
+    // ⚠️ 必须保留原 src 的路径前缀（如 '../'），否则相对路径解析失败（2026-08-04 bug）
+    var newFile = theme === 'light' ? 'logo-dark.svg' : 'logo.svg';
     document.querySelectorAll('img.logo-icon').forEach(function(img) {
-      var cur = (img.getAttribute('src') || '').split('/').pop();
-      if (cur !== 'logo.svg' && cur !== 'logo-dark.svg') return; // 非站点 logo（协议头像等）不动
-      if (cur !== src) img.setAttribute('src', src);
+      var raw = img.getAttribute('src') || '';
+      if (!raw) return;
+      var curFile = raw.split('/').pop();
+      if (curFile !== 'logo.svg' && curFile !== 'logo-dark.svg') return; // 非站点 logo（协议头像等）不动
+      if (curFile === newFile) return;
+      // 保留前缀（'../' 或 'https://cdn/...'），只替换文件名
+      var prefix = raw.substring(0, raw.length - curFile.length);
+      img.setAttribute('src', prefix + newFile);
     });
   }
 
