@@ -139,7 +139,7 @@ async function fetchProtocol(proto) {
     data_source_url: url,
     records: records,
     summary: {
-      total_tev_usd: Math.round(nonZero.reduce((s, [_, v]) => s + v, 0)),
+      total_returns_usd: Math.round(nonZero.reduce((s, [_, v]) => s + v, 0)),
       total_30d_usd: data.total30d || 0,
       by_mechanism: byMechanism,
       by_period: Object.fromEntries(
@@ -149,7 +149,7 @@ async function fetchProtocol(proto) {
   };
 
   console.log(`  Generated ${records.length} monthly records`);
-  console.log(`  Total TEV: $${result.summary.total_tev_usd.toLocaleString()}`);
+  console.log(`  Total TEV: $${result.summary.total_returns_usd.toLocaleString()}`);
 
   return result;
 }
@@ -195,8 +195,8 @@ async function main() {
 
   // Print total TEV by protocol
   console.log('\nTEV by Protocol:');
-  for (const [id, data] of Object.entries(results).sort((a, b) => b[1].summary.total_tev_usd - a[1].summary.total_tev_usd)) {
-    console.log(`  ${id}: $${data.summary.total_tev_usd.toLocaleString()} (${data.records.length} months)`);
+  for (const [id, data] of Object.entries(results).sort((a, b) => b[1].summary.total_returns_usd - a[1].summary.total_returns_usd)) {
+    console.log(`  ${id}: $${data.summary.total_returns_usd.toLocaleString()} (${data.records.length} months)`);
   }
 }
 

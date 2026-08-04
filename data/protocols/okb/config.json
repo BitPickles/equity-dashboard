@@ -49,7 +49,7 @@
     "data_source": "CoinGecko / Etherscan",
     "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
-  "calculated_tev": {
+  "calculated_returns": {
     "shareholder_yield_percent": null,
     "calculation_status": "UNABLE_TO_CALCULATE",
     "reason": "OKX 作为私营公司不公开财务数据，无法获取准确的销毁金额",
@@ -111,8 +111,8 @@
     "是否需要整理历史季度销毁数据？"
   ],
   "last_updated": "2026-08-02",
-  "tev_data": {
-    "has_tev": false,
+  "return_data": {
+    "has_returns": false,
     "shareholder_yield_percent": 0,
     "market_cap_usd": 1503276222,
     "calculation_date": "2026-08-02",

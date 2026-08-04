@@ -218,10 +218,10 @@ async function processProtocol(protocol) {
       trailing_365d_shareholder_returns_usd: trailing365dTev,
       trailing_365d_fees_usd: trailing365dFees,
       trailing_365d_revenue_usd: trailing365dRevenue,
-      annualized_tev_usd: annualizedTev,
+      annualized_returns_usd: annualizedTev,
       current_market_cap_usd: marketCap,
       tev_yield: (tevYield * 100).toFixed(2) + '%',
-      tev_yield_decimal: tevYield,
+      return_yield_decimal: tevYield,
       calculated_at: new Date().toISOString(),
     },
     data_range: {

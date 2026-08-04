@@ -54,7 +54,7 @@
     "data_source": "CoinGecko / Etherscan",
     "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
-  "calculated_tev": {
+  "calculated_returns": {
     "shareholder_yield_percent": null,
     "calculation_status": "UNABLE_TO_CALCULATE",
     "reason": "MNT 的 TEV 机制不明确，与传统 CEX 平台币不同",
@@ -115,8 +115,8 @@
     "MNT 是否有明确的回购/销毁/分红机制？"
   ],
   "last_updated": "2026-08-02",
-  "tev_data": {
-    "has_tev": false,
+  "return_data": {
+    "has_returns": false,
     "shareholder_yield_percent": 0,
     "market_cap_usd": 1981231322,
     "calculation_date": "2026-08-02",

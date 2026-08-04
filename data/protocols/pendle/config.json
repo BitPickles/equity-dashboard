@@ -70,10 +70,10 @@
   ],
   "notes": "【机制说明】Pendle 于 2026-01-29 从 vePENDLE 切换至 sPENDLE 模式，80% 协议收入回购 PENDLE 并分配给 sPENDLE 持有者。sPENDLE 有 14天解锁冷却期，或支付 5% 费用即时赎回。",
   "last_updated": "2026-08-02",
-  "tev_data": {
-    "has_tev": true,
+  "return_data": {
+    "has_returns": true,
     "shareholder_yield_percent": 7.92,
-    "annual_tev_usd": 18665264,
+    "annual_returns_usd": 18665264,
     "market_cap_usd": 235721104.89,
     "calculation_date": "2026-08-02",
     "sources": [

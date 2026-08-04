@@ -57,10 +57,10 @@
   ],
   "notes": "【数据说明】MIP-019 提案于 2024 年通过（25% 协议收入回购 SYRUP），但实际 TEV 数据从 2025-11 才开始记录（DefiLlama dailyHoldersRevenue）。Maple 于 2024 年将代币从 MPL 迁移到 SYRUP，新代币经济模型强化了收入分配机制。作为机构借贷协议，收入主要来自贷款利差。",
   "last_updated": "2026-08-02",
-  "tev_data": {
-    "has_tev": true,
+  "return_data": {
+    "has_returns": true,
     "shareholder_yield_percent": 1.43,
-    "annual_tev_usd": 2602180,
+    "annual_returns_usd": 2602180,
     "market_cap_usd": 182500815.56,
     "calculation_date": "2026-08-02",
     "sources": [

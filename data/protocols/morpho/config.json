@@ -41,10 +41,10 @@
   ],
   "notes": "【收入确认】Morpho 当前无协议收入（fee switch OFF）。年化总借贷费用约 $180M，但 100% 归 LP，协议不抽成。DAO 可通过治理投票激活收费机制，但目前未启用。若启用收费（如10%），潜在年化协议收入约 $18M。",
   "last_updated": "2026-08-02",
-  "tev_data": {
-    "has_tev": false,
+  "return_data": {
+    "has_returns": false,
     "shareholder_yield_percent": 0,
-    "annual_tev_usd": 0,
+    "annual_returns_usd": 0,
     "market_cap_usd": 1000734806.07,
     "calculation_date": "2026-08-02",
     "sources": [

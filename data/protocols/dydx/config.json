@@ -56,7 +56,7 @@
     "circulating_supply": 848599091.0780612,
     "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
-  "calculated_tev": {
+  "calculated_returns": {
     "holders_revenue_30d_usd": 381311,
     "holders_revenue_annual_usd": 4575732,
     "market_cap_usd": 90016535,
@@ -87,10 +87,10 @@
   ],
   "analyst_notes": "【2026-04-26 切链上口径】\n\n## V4 dYdX Chain 时代\n\ndYdX V4 已迁到独立 Cosmos 链 (dYdX Chain), 原 ERC-20 ethDYDX bridge **已永久关闭 (2025-06-13)**.\n\n### 双重 TEV 路径\n\n1. **100% Fees → Cosmos staker** (USDC 实时分发)\n   - 通过 Cosmos SDK x/distribution 模块按区块即时分配\n   - 365d 累计 ~$53M USDC 分给 staker (官方数据)\n   - 验证者 commission 平均 6%, 实际 staker 拿 ~94%\n\n2. **75% Buyback → Treasury SubDAO** (Proposal #313, 2025-11-13 通过)\n   - 75% 网络费用用于 DYDX 回购\n   - 5% Treasury / 5% MegaVault / 15% 待分配\n   - 执行账户: dydx1zc0jd76vfluauk6pc6rsq5dkwyjz9h8uqgppj6\n   - TWAP 策略经 Binance/Osmosis 执行\n   - **链上 tracker 缺失**: 该账户 USDC 流入/流出无公开 dashboard\n\n### 数据口径选择\n\n- DefiLlama dailyHoldersRevenue 365d = $11.74M\n- 已是 holders 部分 (USDC 给 staker), payout_ratio = 1.0\n- 分母用 DYDX Chain 原生流通市值 ~$134M (排除 ethDYDX 孤儿)\n- yield = $11.74M / $134.4M = **8.74%**\n\n### 警示\n\n1. **ethDYDX 完全无 TEV**: bridge 关闭, 41.7M ethDYDX (~$26.2M 当时) 永久滞留, 持有人 0 捕获\n2. **75% buyback 链上无 tracker**: 治理通过但 Treasury SubDAO 账户活动无公开 dashboard\n3. **DefiLlama 可能混 V3/V4 数据**: V3 已 sunset, 历史数据可能仍计入聚合\n\n### 关键地址\n\n- ethDYDX (ERC-20, **已死**): 0x92D6C1e31e14520e676a687F0a93788B716BEff5\n- DYDX Chain Treasury SubDAO: dydx1zc0jd76vfluauk6pc6rsq5dkwyjz9h8uqgppj6\n- DYDX Chain 区块浏览器: https://www.mintscan.io/dydx\n\n### 历史变更\n\n- 2026-04-26: 切链上口径 (DefiLlama holdersRevenue × 1.0); confidence 从 high 降到 medium\n- 2025-11-13: Proposal #313 通过 (25% → 75% buyback)\n- 2025-06-13: ethDYDX bridge 永久关闭\n- 2023-10-26: dYdX Chain 主网启动 (V4)\n",
   "last_updated": "2026-08-02",
-  "tev_data": {
-    "has_tev": true,
+  "return_data": {
+    "has_returns": true,
     "shareholder_yield_percent": 8.93,
-    "annual_tev_usd": 8518106,
+    "annual_returns_usd": 8518106,
     "market_cap_usd": 95400331.54,
     "calculation_date": "2026-08-02",
     "sources": [

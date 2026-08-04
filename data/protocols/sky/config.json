@@ -65,10 +65,10 @@
   ],
   "notes": "MakerDAO (现 Sky) 是最早实现代币回购销毁的 DeFi 协议之一。Smart Burn Engine 机制确保协议盈余持续回馈给 MKR 持有者。",
   "last_updated": "2026-08-02",
-  "tev_data": {
-    "has_tev": true,
+  "return_data": {
+    "has_returns": true,
     "shareholder_yield_percent": 4.3,
-    "annual_tev_usd": 13724000,
+    "annual_returns_usd": 13724000,
     "market_cap_usd": 1814725241.45,
     "calculation_date": "2026-08-02",
     "sources": [
@@ -82,7 +82,7 @@
     "calculation": "详见 calc_pipeline 数组（6 steps 端到端推导）",
     "validation": {
       "method": "DefiLlama dailyHoldersRevenue = Splitter burn (SBE 真实支出) / dailyRevenue = 协议总归属",
-      "tev_source": "DefiLlama dailyHoldersRevenue (slug=sky)",
+      "return_source": "DefiLlama dailyHoldersRevenue (slug=sky)",
       "earning_source": "DefiLlama dailyRevenue (slug=sky)",
       "burn_7d_usd": 262339,
       "burn_30d_usd": 1118745,

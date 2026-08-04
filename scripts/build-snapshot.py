@@ -114,7 +114,7 @@ def run_generic_adapter(proto_dir, all_protocols, daily):
     tev_yield = ap.get("shareholder_yield_percent") or ap.get("shareholder_yield_percent")
     tev_usd_365d = ap.get("validation", {}).get("recent_4q_burn_usd_current")
     if tev_usd_365d is None:
-        tev_usd_365d = ap.get("tev_data", {}).get("annual_tev_usd")
+        tev_usd_365d = ap.get("return_data", {}).get("annual_returns_usd")
 
     by_mechanism = []
     mechanisms = config.get("return_mechanisms", [])

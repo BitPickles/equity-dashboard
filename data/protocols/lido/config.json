@@ -35,10 +35,10 @@
   ],
   "notes": "【收入规模】年化协议费用约 $677M，DAO 分成（10%费率的50%）约 $34M/年。尽管 Lido 是最大的 DeFi 协议之一（TVL $22B+），但 LDO 代币不分享任何协议收入（fee switch OFF）。协议收入完全归 DAO 国库控制。若未来开启 fee switch，潜在 TEV 基数较大。",
   "last_updated": "2026-08-02",
-  "tev_data": {
-    "has_tev": false,
+  "return_data": {
+    "has_returns": false,
     "shareholder_yield_percent": 0,
-    "annual_tev_usd": 0,
+    "annual_returns_usd": 0,
     "market_cap_usd": 269834735.75,
     "calculation_date": "2026-08-02",
     "sources": [

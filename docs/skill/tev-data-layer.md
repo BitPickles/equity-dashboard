@@ -140,7 +140,7 @@ Step 4: TEV 协议汇总
 
 ```
 data/protocols/<id>/
-  ├── config.json            # 元数据、机制、analyst_notes、tev_data 计算说明
+  ├── config.json            # 元数据、机制、analyst_notes、return_data 计算说明
   ├── tev-records.json       # TEV 历史记录（可选，部分协议有）
   ├── README.md              # 协议专属文档（机制/数据源/自动化/调试）
   └── [协议特有的时间序列文件]
@@ -165,7 +165,7 @@ data/protocols/<id>/
       "source": { "type": "governance|official|contract|api", "url": "..." }
     }
   ],
-  "tev_data": {
+  "return_data": {
     "shareholder_yield_percent": 12.78,   // 365d，由脚本刷新
     "methodology": "...",          // 计算方法说明
     "calculation": "...",          // 具体公式

@@ -49,10 +49,10 @@
   ],
   "notes": "Spark 是 Sky 生态的 SubDAO，SPK 代币于 2024 年 Q3 启动。作为新代币，TEV 机制仍在发展中。协议收入主要流向 Sky 主 DAO，通过 Smart Burn Engine 回购 MKR。",
   "last_updated": "2026-08-02",
-  "tev_data": {
-    "has_tev": false,
+  "return_data": {
+    "has_returns": false,
     "shareholder_yield_percent": 0,
-    "annual_tev_usd": 0,
+    "annual_returns_usd": 0,
     "market_cap_usd": 47796024.33,
     "calculation_date": "2026-08-02",
     "sources": [

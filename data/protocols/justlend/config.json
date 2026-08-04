@@ -64,10 +64,10 @@
   ],
   "notes": "⚠️ 维持 PARTIAL，原因：(1) JST staking 机制缺乏透明文档，无法确认具体分配比例；(2) TRON 生态整体透明度较低，缺少 Dune 等独立数据分析工具；(3) DefiLlama 无 tokenRights 数据；(4) JST 代币跨多个 JUST 产品使用，实际 TEV 归属不清；(5) 与 Justin Sun 团队关联，中心化程度较高。如需进一步确认，建议通过浏览器直接操作 JustLend DApp 验证 staking 功能。",
   "last_updated": "2026-08-02",
-  "tev_data": {
-    "has_tev": true,
+  "return_data": {
+    "has_returns": true,
     "shareholder_yield_percent": 0,
-    "annual_tev_usd": 149440.19999999998,
+    "annual_returns_usd": 149440.19999999998,
     "calculation_date": "2026-08-02",
     "note": "JST 质押奖励，透明度低",
     "sources": [],
@@ -88,7 +88,7 @@
         "DefiLlama justlend slug 只报 ~$500k/年 revenue（interest spread），侧面佐证协议真实对外分发收入很少",
         "如果未来发现 executor 真正从市场买 JST（看到 USDT/USDD 流出换取 JST 的链上证据），可重新评估"
       ],
-      "tev_zero_reason": "burn JST 源头是孙宇晨生态金库（TFTWNgDB... 持 HTX/WIN/TUSD 等），非协议收入买入，不构成真 TEV"
+      "return_zero_reason": "burn JST 源头是孙宇晨生态金库（TFTWNgDB... 持 HTX/WIN/TUSD 等），非协议收入买入，不构成真 TEV"
     },
     "methodology": "TEV 归零：链上发现 burn 是从孙宇晨金库 pocket-to-pocket 转到 Black Hole，非市场 buyback",
     "calculation": "详见 calc_pipeline（第 6 步为归零结论，前 5 步为证据链）"

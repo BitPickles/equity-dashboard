@@ -234,10 +234,10 @@ function calculateMetrics(records) {
   
   return {
     trailing_30d_shareholder_returns_usd: Math.round(trailing30dTev),
-    annualized_tev_usd: Math.round(annualizedTev),
+    annualized_returns_usd: Math.round(annualizedTev),
     current_market_cap_usd: Math.round(currentMcap),
     tev_yield: (annualizedTev / currentMcap * 100).toFixed(2) + '%',
-    tev_yield_decimal: annualizedTev / currentMcap,
+    return_yield_decimal: annualizedTev / currentMcap,
     calculated_at: new Date().toISOString(),
   };
 }

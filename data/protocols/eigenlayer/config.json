@@ -36,10 +36,10 @@
   ],
   "notes": "EigenLayer 作为再质押基础设施，当前 EIGEN 代币仅有治理功能。协议收入（AVS 费用）目前未分配给代币持有者。未来可能通过治理开启费用开关。",
   "last_updated": "2026-08-02",
-  "tev_data": {
-    "has_tev": false,
+  "return_data": {
+    "has_returns": false,
     "shareholder_yield_percent": 0,
-    "annual_tev_usd": 0,
+    "annual_returns_usd": 0,
     "market_cap_usd": 162824450.72,
     "calculation_date": "2026-08-02",
     "sources": [

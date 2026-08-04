@@ -9258,14 +9258,14 @@
       "volume_24h": 54198280,
       "price_change_24h": -0.1
     },
-    "calculated_tev": {
+    "calculated_returns": {
       "shareholder_yield_percent": null,
       "calculation_status": "NEED_REVENUE_DATA",
       "estimation": {
         "daily_volume_estimate": 200000000,
         "avg_fee_rate": 0.0003,
         "annual_fee_estimate": 21900000,
-        "estimated_tev_yield": "1.6%",
+        "estimated_return_yield": "1.6%",
         "note": "粗略估算：假设日均交易量 $200M，加权平均费率 0.03%"
       },
       "reason": "DefiLlama 暂无费用数据，需要官方披露协议收入"
@@ -9411,7 +9411,7 @@
       "volume_24h": 7202459,
       "price_change_24h": 0.1
     },
-    "calculated_tev": {
+    "calculated_returns": {
       "shareholder_yield_percent": null,
       "calculation_status": "UNABLE_TO_CALCULATE",
       "reason": "Bitget 不公开财务数据，无法获取准确的销毁金额",
@@ -9535,7 +9535,7 @@
       "total_supply": 133165220.59,
       "total_burned": 66834779.41
     },
-    "calculated_tev": {
+    "calculated_returns": {
       "shareholder_yield_percent": null,
       "calculation_status": "UNABLE_TO_CALCULATE",
       "reason": "CEX 收入不公开透明，无法计算年化 holders revenue",
@@ -19177,7 +19177,7 @@
       ],
       "data_source": "CoinGecko + DefiLlama"
     },
-    "calculated_tev": {
+    "calculated_returns": {
       "holders_revenue_30d_usd": 970876,
       "holders_revenue_annual_usd": 11650512,
       "market_cap_usd": 355558659,
@@ -19206,7 +19206,7 @@
         "reliability": "high"
       }
     ],
-    "analyst_notes": "【2026-02-05 调研更新】\n\n## Curve 双重激励模式说明\n\nCurve 采用特殊的双重激励模式，需区分 TEV 和 LP 激励：\n\n### 1. TEV 部分（计入 TEV yield）\n- **50% 交易手续费** 分配给 **veCRV 持有者**\n- 以 3CRV（稳定币 LP token）形式每周分发\n- 分发合约: 0xA464e6DCda8AC41e03616F95f4BC98a13b8922Dc\n- 过去30天分红: ~$97万，年化约 $1165万\n\n### 2. LP 激励部分（不计入 TEV）\n- **CRV 代币奖励** 分配给 **LP 提供者**\n- 通过 Gauge 系统分发\n- 这是代币通胀/增发激励，不是协议收入分配\n- veCRV 持有者投票决定各池子的 CRV 奖励权重\n\n### TEV Yield 计算\n- 年化 holders revenue: ~$11.65M\n- CRV 流通市值: ~$355M\n- **TEV Yield ≈ 3.28%**\n\n### 为什么显示 0% 需排查\n前端显示 TEV yield 为 0% 是错误的，实际数据显示约 3.28%。\n可能原因：\n1. 前端未正确读取 calculated_tev 字段\n2. 数据管道问题\n3. 计算逻辑缺失\n\n建议检查前端 TEV yield 计算逻辑。",
+    "analyst_notes": "【2026-02-05 调研更新】\n\n## Curve 双重激励模式说明\n\nCurve 采用特殊的双重激励模式，需区分 TEV 和 LP 激励：\n\n### 1. TEV 部分（计入 TEV yield）\n- **50% 交易手续费** 分配给 **veCRV 持有者**\n- 以 3CRV（稳定币 LP token）形式每周分发\n- 分发合约: 0xA464e6DCda8AC41e03616F95f4BC98a13b8922Dc\n- 过去30天分红: ~$97万，年化约 $1165万\n\n### 2. LP 激励部分（不计入 TEV）\n- **CRV 代币奖励** 分配给 **LP 提供者**\n- 通过 Gauge 系统分发\n- 这是代币通胀/增发激励，不是协议收入分配\n- veCRV 持有者投票决定各池子的 CRV 奖励权重\n\n### TEV Yield 计算\n- 年化 holders revenue: ~$11.65M\n- CRV 流通市值: ~$355M\n- **TEV Yield ≈ 3.28%**\n\n### 为什么显示 0% 需排查\n前端显示 TEV yield 为 0% 是错误的，实际数据显示约 3.28%。\n可能原因：\n1. 前端未正确读取 calculated_returns 字段\n2. 数据管道问题\n3. 计算逻辑缺失\n\n建议检查前端 TEV yield 计算逻辑。",
     "last_updated": "2026-02-05",
     "return_status": "active",
     "confidence_reason": {
@@ -27638,7 +27638,7 @@
         }
       ]
     },
-    "calculated_tev": {
+    "calculated_returns": {
       "holders_revenue_30d_usd": 381311,
       "holders_revenue_annual_usd": 4575732,
       "market_cap_usd": 90016535,
@@ -48607,7 +48607,7 @@
       ],
       "data_source": "CoinGecko + DefiLlama"
     },
-    "calculated_tev": {
+    "calculated_returns": {
       "holders_revenue_30d_usd": 1208117,
       "holders_revenue_annual_usd": 14497404,
       "market_cap_usd": 61633069,
@@ -48699,7 +48699,7 @@
       "volume_24h": 327911102,
       "price_change_24h": -5.0
     },
-    "calculated_tev": {
+    "calculated_returns": {
       "shareholder_yield_percent": 12.29,
       "calculation_status": "CALCULATED",
       "calculation_date": "2026-02-09",
@@ -83021,7 +83021,7 @@
       "volume_24h": 17498375,
       "price_change_24h": -0.5
     },
-    "calculated_tev": {
+    "calculated_returns": {
       "shareholder_yield_percent": null,
       "calculation_status": "UNABLE_TO_CALCULATE",
       "reason": "MNT 的 TEV 机制不明确，与传统 CEX 平台币不同",
@@ -88979,7 +88979,7 @@
       "volume_24h": 12095195,
       "price_change_24h": 0.9
     },
-    "calculated_tev": {
+    "calculated_returns": {
       "shareholder_yield_percent": null,
       "calculation_status": "UNABLE_TO_CALCULATE",
       "reason": "OKX 作为私营公司不公开财务数据，无法获取准确的销毁金额",

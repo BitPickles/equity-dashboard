@@ -49,7 +49,7 @@
     "circulating_supply": 699992029.6481038,
     "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
-  "calculated_tev": {
+  "calculated_returns": {
     "shareholder_yield_percent": null,
     "calculation_status": "UNABLE_TO_CALCULATE",
     "reason": "Bitget 不公开财务数据，无法获取准确的销毁金额",
@@ -101,8 +101,8 @@
     "是否有其他 TEV 机制（如 Launchpad 参与权）？"
   ],
   "last_updated": "2026-08-02",
-  "tev_data": {
-    "has_tev": false,
+  "return_data": {
+    "has_returns": false,
     "shareholder_yield_percent": 0,
     "market_cap_usd": 1888393751,
     "calculation_date": "2026-08-02",

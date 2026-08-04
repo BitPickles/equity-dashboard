@@ -810,7 +810,7 @@
           if (_r.ok) { const _d = await _r.json(); allTable = (_d.protocols || {})[pid] || null; }
         } catch {}
         const proto = allTable || cfg;
-        const marketCap = proto.market_cap_usd || cfg.market_cap_usd || cfg.tev_data?.market_cap_usd || 0;
+        const marketCap = proto.market_cap_usd || cfg.market_cap_usd || cfg.return_data?.market_cap_usd || 0;
         const metrics = (allTable && allTable.metrics) || {};
         const displayPrecision = (allTable && allTable.display_precision) || cfg.display_precision || 2;
 
@@ -883,7 +883,7 @@
         document.getElementById('chip-confidence').textContent = t('confidence.' + (cfg.confidence || 'medium'));
 
         // Caveats 警示卡（可折叠，默认收起）
-        const caveats = (cfg.tev_data && cfg.tev_data.caveats) || (allTable && allTable.validation && allTable.validation.caveats) || null;
+        const caveats = (cfg.return_data && cfg.return_data.caveats) || (allTable && allTable.validation && allTable.validation.caveats) || null;
         if (Array.isArray(caveats) && caveats.length) {
           const card = document.getElementById('caveats-card');
           card.style.display = 'block';

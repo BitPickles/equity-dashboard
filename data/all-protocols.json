@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T18:00:13.042973+00:00",
+  "generated_at": "2026-08-04T18:11:08.131622+00:00",
   "protocols": {
     "aave": {
       "name": "Aave",
@@ -378,17 +378,17 @@
         "circulating_supply": 136357344.28,
         "burn_apy_short_percent": 5.2,
         "burn_apy_annual_percent": 4.42,
-        "tev_yield_short_percent": 12.07,
-        "tev_yield_annual_percent": 11.29,
+        "return_yield_short_percent": 12.07,
+        "return_yield_annual_percent": 11.29,
         "last_burn_bnb": 1569307.34,
         "last_burn_date": "2026-04-15",
         "recent_4q_burn_bnb": 5977992,
         "recent_4q_burn_usd_historical": 4494755575,
         "recent_4q_burn_usd_current": 3371894312,
-        "tev_yield_7d_percent": 12.73,
-        "tev_yield_30d_percent": 27.15,
-        "tev_yield_90d_percent": 17.53,
-        "tev_yield_365d_percent": 12.46,
+        "return_yield_7d_percent": 12.73,
+        "return_yield_30d_percent": 27.15,
+        "return_yield_90d_percent": 17.53,
+        "return_yield_365d_percent": 12.46,
         "bep95_7d_bnb": 437.6,
         "bep95_30d_bnb": 1617418.68,
         "bep95_90d_bnb": 1620744.43,
@@ -964,7 +964,7 @@
           "name": "sUSDe Yield (非 ENA 收益)",
           "description": "协议收益主要分配给 sUSDe 持有者，ENA/sENA 持有人不直接受益",
           "status": "active",
-          "tev_eligible": false,
+          "returns_eligible": false,
           "note": "sUSDe APY ~7.83%，但这不是 ENA 的 TEV",
           "source": {
             "type": "documentation",
@@ -977,7 +977,7 @@
           "name": "ENA Buyback Program（资本运作）",
           "description": "总计 $570M 回购（$260M + $310M）。⚠️ 这是资本运作/融资驱动的回购，不是经营利润分红，不算持续 TEV。资金来源是 StablecoinX PIPE 融资，非协议日常收入",
           "status": "active",
-          "tev_eligible": false,
+          "returns_eligible": false,
           "amount_usd": 570000000,
           "note": "StablecoinX 子公司执行，6-8周周期，第三方做市商操作。可持续性取决于后续融资安排",
           "source": {
@@ -1304,7 +1304,7 @@
         "burns": "ACTIVE",
         "primary_value_accrual": "回购销毁 - Assistance Fund 自动将费用换成 HYPE 并永久移除",
         "payout_ratio": "100%",
-        "tevRatio_note": "净利润（Token Holder Net Income）= 进入 AF 回购金额；逐期相等，因此净利润 100% 用于回购销毁"
+        "payout_ratio_note": "净利润（Token Holder Net Income）= 进入 AF 回购金额；逐期相等，因此净利润 100% 用于回购销毁"
       },
       "analyst_notes": "## Hyperliquid TEV 机制（更新：2026-04-19）\n\n### 1. 核心结论（重要修正）\n\n过去版本说 'AF 买入即销毁'——**不准确**。真相是：\n- **AF 买入的 HYPE 留在 AF 地址（0xfefe...fefe），不是销毁**\n- AF 是 **treasury buyback**，理论上可被 validator consensus 动用于救灾/清算补偿/用户补偿\n- 历史上尚未发生 AF 大规模动用（JELLY 事件 2025-03 是 HLP 补的），但可能性存在\n- 真正的永久销毁只有 **spot 交易 HYPE 手续费销毁**（~745k HYPE，约占供应 0.075%）\n\n因此 TEV 的保守口径应该是 **AF 净累积 + spot burn**，而不是 '全部视为销毁'。\n\n### 2. 机制路径\n\n用户手续费 → 扣除 (referral + builder + deployer)\n  → 余下部分：\n    - **HLP share**（做市/清算收益，约 40-46% perp net fee）→ 归 HLP LP，不归 HYPE 持有人\n    - **AF share**（剩下大头）→ 用 USDC 市价买 HYPE 存 AF\n    - **Spot 手续费（HYPE 计价部分）** → 直接销毁\n\n### 3. DefiLlama 口径验证\n\n已验证：DefiLlama `dailyRevenue` 和 `dailyHoldersRevenue` 对 Hyperliquid 完全相等，都 = AF 买入金额（已剥离 HLP/builder/referral）。数值与链上 AF `entryNtl` 吻合（误差 <5%）。\n\n### 4. 当前数字（2026-04-19 快照）\n\n- 链上 AF 持仓：~43.4M HYPE, entry_ntl ~$1.065B（累计买入成本）\n- Spot burn 累计：~745k HYPE（真正永久销毁）\n- 365d AF 买入：~$942M（DefiLlama）≈ AF net accumulation\n- TEV Yield 365d ≈ $942M / $7.37B = **12.78%**\n\n### 5. Caveats（向用户展示）\n\n- **AF 可被动用风险**：若 validator consensus 决议动用，这部分 TEV 会瞬间归零\n- **HLP 不归 HYPE 持有人**：DefiLlama `dailyFees` 减去 `dailyRevenue` 就是 HLP 部分\n- **Funding 不计入 TEV**：多空点对点支付，平台不收取\n\n### 6. 自动化\n\n- 日度：`sync-tev-data.js` 拉 DefiLlama `dailyRevenue`，算 7/30/90/365d yield\n- 日度校验：`update-hype-tev.py` 拉链上 AF `entryNtl`，与 DefiLlama delta 对比，偏差 >15% 告警\n\n### 7. 历史口径变更\n\n- 2026-04-19: 修正 'AF 买入即销毁' 错误描述；365d 字段改为 sync-tev-data.js 每日刷新；加入链上校验\n- 2026-03-01: 初版 AF 口径\n",
       "last_updated": "2026-08-04",
@@ -1496,7 +1496,7 @@
           "DefiLlama justlend slug 只报 ~$500k/年 revenue（interest spread），侧面佐证协议真实对外分发收入很少",
           "如果未来发现 executor 真正从市场买 JST（看到 USDT/USDD 流出换取 JST 的链上证据），可重新评估"
         ],
-        "tev_zero_reason": "burn JST 源头是孙宇晨生态金库（TFTWNgDB... 持 HTX/WIN/TUSD 等），非协议收入买入，不构成真 TEV"
+        "return_zero_reason": "burn JST 源头是孙宇晨生态金库（TFTWNgDB... 持 HTX/WIN/TUSD 等），非协议收入买入，不构成真 TEV"
       },
       "return_mechanisms": [
         {
@@ -2372,7 +2372,7 @@
       },
       "validation": {
         "method": "DefiLlama dailyHoldersRevenue = Splitter burn (SBE 真实支出) / dailyRevenue = 协议总归属",
-        "tev_source": "DefiLlama dailyHoldersRevenue (slug=sky)",
+        "return_source": "DefiLlama dailyHoldersRevenue (slug=sky)",
         "earning_source": "DefiLlama dailyRevenue (slug=sky)",
         "burn_7d_usd": 262339,
         "burn_30d_usd": 1118745,
@@ -2749,7 +2749,7 @@
           "name": "Stargate 收入回购 ZRO",
           "description": "2025-08 $110M 收购 Stargate；2026-03 起 100% Stargate 收入回购 ZRO（累计 149.5 万 ZRO / $3.14M）",
           "status": "active",
-          "tev_eligible": true,
+          "returns_eligible": true,
           "source": {
             "type": "official",
             "title": "LayerZero 官方",
@@ -2761,7 +2761,7 @@
           "name": "每月解锁（稀释注记）",
           "description": "每月解锁 ~$48M（2027 年中前持续）——无对价解锁，不算成本但必须标注（回购月 ~$150K 远不足以对冲）",
           "status": "active",
-          "tev_eligible": false,
+          "returns_eligible": false,
           "note": "稀释注记：财报页强制展示"
         }
       ],

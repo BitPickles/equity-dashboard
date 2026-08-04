@@ -512,10 +512,10 @@ async function main() {
       if (!protocol.validation) protocol.validation = {};
       protocol.validation.method = 'Auto-Burn（短周期=近4季USD累加；365d=近4季BNB×当前价）+ BEP-95（按窗口从日时间序列计算）+ asBNB APY (Aster)';
       protocol.validation.asbnb_apy_percent = asbnbApy;
-      protocol.validation.tev_yield_7d_percent   = tevYield_7d;
-      protocol.validation.tev_yield_30d_percent  = tevYield_30d;
-      protocol.validation.tev_yield_90d_percent  = tevYield_90d;
-      protocol.validation.tev_yield_365d_percent = tevYield_365d;
+      protocol.validation.return_yield_7d_percent   = tevYield_7d;
+      protocol.validation.return_yield_30d_percent  = tevYield_30d;
+      protocol.validation.return_yield_90d_percent  = tevYield_90d;
+      protocol.validation.return_yield_365d_percent = tevYield_365d;
       protocol.validation.bep95_7d_bnb   = Math.round(bep95_7d_bnb   * 100) / 100;
       protocol.validation.bep95_30d_bnb  = Math.round(bep95_30d_bnb  * 100) / 100;
       protocol.validation.bep95_90d_bnb  = Math.round(bep95_90d_bnb  * 100) / 100;
@@ -1337,14 +1337,14 @@ async function main() {
         cfg.dividend_yield_percent = protocol.dividend_yield_percent;
         cfg.buyback_yield_percent = protocol.buyback_yield_percent;
         cfg.style = protocol.style;
-        if (!cfg.tev_data) cfg.tev_data = {};
-        cfg.tev_data.shareholder_yield_percent = protocol.shareholder_yield_percent;
-        cfg.tev_data.market_cap_usd = protocol.market_cap_usd;
-        cfg.tev_data.annual_tev_usd = (protocol.metrics || {}).trailing_365d_shareholder_returns_usd;
-        cfg.tev_data.calculation_date = new Date().toISOString().split('T')[0];
-        // 同步 validation 到 tev_data.validation，避免详情页显示旧值
+        if (!cfg.return_data) cfg.return_data = {};
+        cfg.return_data.shareholder_yield_percent = protocol.shareholder_yield_percent;
+        cfg.return_data.market_cap_usd = protocol.market_cap_usd;
+        cfg.return_data.annual_returns_usd = (protocol.metrics || {}).trailing_365d_shareholder_returns_usd;
+        cfg.return_data.calculation_date = new Date().toISOString().split('T')[0];
+        // 同步 validation 到 return_data.validation，避免详情页显示旧值
         if (protocol.validation) {
-          cfg.tev_data.validation = { ...(cfg.tev_data.validation || {}), ...protocol.validation };
+          cfg.return_data.validation = { ...(cfg.return_data.validation || {}), ...protocol.validation };
         }
         if (protocol.metrics) {
           cfg.metrics = { ...cfg.metrics, ...protocol.metrics };

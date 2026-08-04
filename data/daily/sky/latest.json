@@ -17,10 +17,10 @@
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 8257731,
     "trailing_365d_shareholder_returns_usd": 147072404,
-    "annualized_tev_usd": 99092772,
+    "annualized_returns_usd": 99092772,
     "current_market_cap_usd": 1298303055.1257043,
-    "tev_yield": "0.00%",
-    "tev_yield_decimal": 0,
+    "return_yield": "0.00%",
+    "return_yield_decimal": 0,
     "calculated_at": "2026-08-04T13:10:25.621087+00:00"
   }
 }

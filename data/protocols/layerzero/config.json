@@ -19,7 +19,7 @@
       "name": "Stargate 收入回购 ZRO",
       "description": "2025-08 $110M 收购 Stargate；2026-03 起 100% Stargate 收入回购 ZRO（累计 149.5 万 ZRO / $3.14M）",
       "status": "active",
-      "tev_eligible": true,
+      "returns_eligible": true,
       "source": {
         "type": "official",
         "title": "LayerZero 官方",
@@ -31,7 +31,7 @@
       "name": "每月解锁（稀释注记）",
       "description": "每月解锁 ~$48M（2027 年中前持续）——无对价解锁，不算成本但必须标注（回购月 ~$150K 远不足以对冲）",
       "status": "active",
-      "tev_eligible": false,
+      "returns_eligible": false,
       "note": "稀释注记：财报页强制展示"
     }
   ],
@@ -120,10 +120,10 @@
   "total_yield_percent": 1.17,
   "dividend_yield_percent": 0,
   "buyback_yield_percent": 0.3,
-  "tev_data": {
+  "return_data": {
     "shareholder_yield_percent": 0.3,
     "market_cap_usd": 261513069,
-    "annual_tev_usd": 784539.207,
+    "annual_returns_usd": 784539.207,
     "calculation_date": "2026-08-02",
     "validation": {
       "method": "Stargate 100% 收入回购（累计 149.5 万 ZRO / .14M）",

@@ -133,10 +133,10 @@ def rebuild(pid):
     metrics = {
         "trailing_30d_shareholder_returns_usd": old_metrics.get("trailing_30d_shareholder_returns_usd"),
         "trailing_365d_shareholder_returns_usd": old_metrics.get("trailing_365d_shareholder_returns_usd"),
-        "annualized_tev_usd": old_metrics.get("annualized_tev_usd"),
+        "annualized_returns_usd": old_metrics.get("annualized_returns_usd"),
         "current_market_cap_usd": mcap,
         "tev_yield": old_metrics.get("tev_yield"),
-        "tev_yield_decimal": old_metrics.get("tev_yield_decimal"),
+        "return_yield_decimal": old_metrics.get("return_yield_decimal"),
         "calculated_at": now_iso,
     }
 

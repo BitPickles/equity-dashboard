@@ -54,10 +54,10 @@
 | `return_mechanisms` | `return_mechanisms` | 股东回报机制 |
 | `return_summary` | `return_summary` | 回报摘要（fee_switch/buybacks/dividends/burns） |
 | `return_status` | `return_status` | 回报状态（active/partial/none） |
-| `tev_data` | `snapshot_data` | 财务快照数据 |
+| `return_data` | `snapshot_data` | 财务快照数据 |
 | `tev-records.json` | `shareholder-records.json` | 股东回报历史记录文件 |
 | `TEV_COLORS`（前端 JS） | `RETURN_COLORS` | 机制颜色表 |
-| `tev_yield_vecrv_only_percent` | `shareholder_yield_vecrv_only_percent` | 特殊口径（Curve） |
+| `return_yield_vecrv_only_percent` | `shareholder_yield_vecrv_only_percent` | 特殊口径（Curve） |
 | `total_yield_percent` | `earnings_yield_percent` | 盈利收益率（市值 ÷ 收入 的倒数） |
 
 > **EPS（每股收益）** = 股东回报 ÷ 流通代币量（新增，P2）。三者关系：**派息率 × 盈利收益率 = 股东回报率**（payout × earnings yield = shareholder yield）。

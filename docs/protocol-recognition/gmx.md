@@ -63,7 +63,7 @@
 - **"Staking Power" 累积权利 ≠ 真 TEV**：持有人只在累积权利，没有现金流入；Loyalty 机制可能因持仓回撤归零
 - **DefiLlama 365d $12.3M 是历史数据**：含暂停前实时分红时期；30d 滚动 ~$0.6M 才是近期实况——前端 yield 必须标 0，勿用 365d 口径
 - **esGMX（vesting token）不是真 TEV**：vesting 期满回流，非对流通持币人的价值流
-- config 中 payout_ratio 0.27 = 协议费率（机制声明），不等于股东回报比例；`tev_data.has_tev=false`
+- config 中 payout_ratio 0.27 = 协议费率（机制声明），不等于股东回报比例；`return_data.has_returns=false`
 
 ## 七、判定书出处
 

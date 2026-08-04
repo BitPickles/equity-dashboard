@@ -56,7 +56,7 @@
     "tvl_updated": "2026-03-27T01:00:52.307Z",
     "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
-  "calculated_tev": {
+  "calculated_returns": {
     "holders_revenue_30d_usd": 1208117,
     "holders_revenue_annual_usd": 14497404,
     "market_cap_usd": 61633069,
@@ -87,10 +87,10 @@
   ],
   "analyst_notes": "【2026-04-26 链上调研后 — TEV 标 paused (低 confidence)】\n\n## 当前实际状态: 分红暂停\n\nGMX 协议分红机制经历重大变化:\n\n**2026-03-04 之前**:\n- 27% 平台费用通过 RewardRouter V2 实时分给 sGMX 持有人\n- 形式: ETH (Arbitrum) / AVAX (Avalanche), 持有人能即时领取\n- 这是真 TEV (外部资产现金分红)\n\n**2026-03-04 起 (新机制, \"Staking Power\" 系统)**:\n- ETH/AVAX 实时分红停止\n- 改为 Treasury 用 USDC 收入回购 GMX, 累积在 Treasury\n- **触发条件: GMX 价格 ≥ $90 才解锁分配**\n- 持有人累积 \"Staking Power\" = Σ(持仓天数 × 持仓量)\n- Loyalty: 若持仓跌至历史高位 80% 以下, 累积归零 (防套利)\n- 2026-03-25 引入 Loyalty Tracking\n\n**当前价格 ~$7 (2026-04-26)**, 距触发条件 $90 还差 12 倍, 实际**当前现金收益 = 0**.\n\n## DefiLlama 数据失真\n\n- DefiLlama dailyHoldersRevenue 365d 仍显示 $12.30M (历史含暂停前数据)\n- 30d 滚动 ~$0.6M (近期, 与暂停状态一致)\n- **持有人实际拿到的 = 0** (DefiLlama 跟踪 fees 不跟踪触发解锁)\n\n## 推荐口径\n\n- **yield = 0% (paused)**, status='partial'\n- 详情页明确标注 \"等待 GMX > $90 触发分配, 当前实际现金收益 = 0\"\n- 监控 Treasury GMX 累积量 + Staking Power 增长\n\n## 关键地址\n\n- GMX (Arbitrum): 0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a\n- GMX (Avalanche): 0x62edc0692BD897D2295872a9FFCac5425011c661\n- RewardRouter V2: 0xB95DB5B167D75e6d04227CfFFA61069348d271F5\n- sGMX Tracker: 0x908C4D94D34924765f1eDc22A1DD098397c59dD4\n\n## 何时恢复\n\n如未来:\n- GMX 价格 ≥ $90 (当前 1200% 涨幅) → Treasury 解锁分配\n- 治理改回实时分红 → 切回 27% × revenue / mcap 口径\n- esGMX vesting / 其他机制变化 → 重新评估\n",
   "last_updated": "2026-08-02",
-  "tev_data": {
-    "has_tev": false,
+  "return_data": {
+    "has_returns": false,
     "shareholder_yield_percent": 0,
-    "annual_tev_usd": 0,
+    "annual_returns_usd": 0,
     "market_cap_usd": 64130927.2,
     "calculation_date": "2026-08-02",
     "sources": [

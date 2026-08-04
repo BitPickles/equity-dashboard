@@ -74,7 +74,7 @@
     "tvl_updated": "2026-03-27T01:00:28.442Z",
     "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
-  "calculated_tev": {
+  "calculated_returns": {
     "holders_revenue_30d_usd": 970876,
     "holders_revenue_annual_usd": 11650512,
     "market_cap_usd": 355558659,
@@ -147,11 +147,11 @@
   ],
   "analyst_notes": "【2026-04-26 重写 — 链上口径替代 DefiLlama】\n\n## 调研发现\n\n老 3CRV FeeDistributor 0xA464...8922Dc 当前 inflow ≈ 0, 已迁移。\n新 90% veCRV 部分流向尚未在单一合约上识别。\n\n## 解决方案 (FeeAllocator × 9 推算)\n\nFeeAllocator 把 admin fees 90/10 拆分:\n- 10% → Community Fund Treasury (0x6508ef65...)\n- 90% → veCRV 分发\n\n我们直接观察 Treasury inflow (10% 部分), × 9 反推 veCRV TEV (90% 部分)。\n这比直接找新 distributor 合约稳健 - 即使路径再变, 比例不变就能继续算。\n\n## 链上数据\n\n- Treasury 365d 入金: $0.91M crvUSD\n- 推算 veCRV TEV: $0.91M × 9 = $8.23M\n- CRV 锁仓: 855M (56.8% 流通)\n- veCRV TVL: $193.8M\n\n## 双口径\n\n- **nominal yield**: $8.23M / $341M (CRV 全市值) = 2.41%\n  - 主表显示, 但裸 CRV 持有人不参与, 这是\"如果所有 CRV 都锁仓\"的理论值\n- **veCRV-only yield**: $8.23M / $193.8M (锁仓 TVL) = 4.25%\n  - 实际锁仓持有人接近此 yield\n\n## 数据源\n\n- Etherscan V2 chainid=1 · crvUSD Transfer events to Community Fund\n- ETH public RPC eth_call · CRV.balanceOf(veCRV_lock)\n- CoinGecko CRV 价格 + 流通市值\n\n## 关键地址\n\n- CRV: 0xD533a949740bb3306d119CC777fa900bA034cd52\n- veCRV Lock: 0x5f3b5DfEb7B28CDbD7FAba78963EE202a494e2A2\n- Community Fund Treasury (10%): 0x6508ef65b0bd57eabd0f1d52685a70433b2d290b\n- Old 3CRV FeeDistributor: 0xA464e6DCda8AC41e03616F95f4BC98a13b8922Dc (已停转)\n\n## 历史变更\n\n- 2026-04-26: 切链上 Treasury × 9 推算口径, DefiLlama 弃用, 加 veCRV-only yield 双口径\n- 2025-06-27: FeeAllocator 上线\n",
   "last_updated": "2026-08-02",
-  "tev_data": {
-    "has_tev": true,
+  "return_data": {
+    "has_returns": true,
     "shareholder_yield_percent": 4.84,
-    "tev_yield_vecrv_only_percent": 4.25,
-    "annual_tev_usd": 15335813,
+    "return_yield_vecrv_only_percent": 4.25,
+    "annual_returns_usd": 15335813,
     "market_cap_usd": 316842493.4643041,
     "vecrv_tvl_usd": 193755056.8125176,
     "crv_locked": 855952221.7179456,

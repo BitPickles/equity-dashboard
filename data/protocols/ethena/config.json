@@ -21,7 +21,7 @@
       "name": "sUSDe Yield (非 ENA 收益)",
       "description": "协议收益主要分配给 sUSDe 持有者，ENA/sENA 持有人不直接受益",
       "status": "active",
-      "tev_eligible": false,
+      "returns_eligible": false,
       "note": "sUSDe APY ~7.83%，但这不是 ENA 的 TEV",
       "source": {
         "type": "documentation",
@@ -34,7 +34,7 @@
       "name": "ENA Buyback Program（资本运作）",
       "description": "总计 $570M 回购（$260M + $310M）。⚠️ 这是资本运作/融资驱动的回购，不是经营利润分红，不算持续 TEV。资金来源是 StablecoinX PIPE 融资，非协议日常收入",
       "status": "active",
-      "tev_eligible": false,
+      "returns_eligible": false,
       "amount_usd": 570000000,
       "note": "StablecoinX 子公司执行，6-8周周期，第三方做市商操作。可持续性取决于后续融资安排",
       "source": {
@@ -149,10 +149,10 @@
   ],
   "analyst_notes": "【2026-04-27 governance-only 验证】\n\n## 现状\nEthena 协议收入 = USDe staking yield (~7.83% APY) 全部给 sUSDe 持有人. ENA 仅治理代币. 2025 历次大额回购来自 StablecoinX PIPE 融资 (资本运作非利润分红)\n\n## TEV: 0% (governance-only, low confidence)\n\n## 何时变化\n若未来治理提案启用 fee switch / buyback 给 token 持有人, 重新评估.\n\n## 类比\nLDO / COMP 等老牌纯治理代币模式.\n",
   "last_updated": "2026-08-02",
-  "tev_data": {
-    "has_tev": false,
+  "return_data": {
+    "has_returns": false,
     "shareholder_yield_percent": 0,
-    "annual_tev_usd": 0,
+    "annual_returns_usd": 0,
     "market_cap_usd": 848569389.93,
     "calculation_date": "2026-08-02",
     "sources": [
