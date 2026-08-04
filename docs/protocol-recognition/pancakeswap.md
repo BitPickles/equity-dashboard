@@ -24,7 +24,7 @@
 收入（协议收入口径）= 总费用 $270.5M − LP 分润 $176.7M ≈ $93.87M
 毛利 = 协议收入 $93.87M
 净利 = 毛利 − 增发成本 $11.7M = $82.17M（正）
-股东回报 = 回购销毁 $58.67M ≈ 协议收入 60-65%（tev_ratio 0.625）🟢
+股东回报 = 回购销毁 $58.67M ≈ 协议收入 60-65%（payout_ratio 0.625）🟢
 ```
 
 | 计入项 | 说明 | 数据源 |
@@ -48,7 +48,7 @@
 
 1. 读 `burn-history.json` 的 `net_burns.365.burn_usd`（= DefiLlama dailyHoldersRevenue 365d，CAKE buyback&burn 的 USD 金额，gross 口径 ≈ $58.67M）
 2. 读 `daily/<id>/latest.json` 的 `total1y_fees_usd`（总费用 365d ≈ $270.5M）
-3. 用 config `revenue_recognition.calculation.tev_ratio`（0.625，判定书 60-65%）反推协议收入：`protocol_revenue = buyback_burn / 0.625 ≈ $93.87M`
+3. 用 config `revenue_recognition.calculation.payout_ratio`（0.625，判定书 60-65%）反推协议收入：`protocol_revenue = buyback_burn / 0.625 ≈ $93.87M`
 4. `lp_share = total_fees − protocol_revenue ≈ $176.7M`（详情页展示「收入 − LP」）
 5. 毛利 = 协议收入；增发成本 = config `token_emission_cost.usd_365d`（$11.7M，treatment=cost，日增发 2.25 万 CAKE farm 激励，美股 SBC 类比）；净利 = 毛利 − 增发成本 = $82.17M
 6. 股东回报 = 回购销毁 365d；`yield = buyback_burn / mcap ≈ 12.93%`；销毁型 🟢，CAKE → 0x000...dEaD 链上可验证
@@ -67,7 +67,7 @@
 - **gross vs net 口径差异**：DefiLlama gross 口径不扣 LP 增发对冲，较原链上净通缩定义略高，但 365d 量级一致（~$65M）；短周期年化偏低（7d ~4.6%）是近月 buyback 放缓的真实反映
 - **Burn 完全链上可验证**：CAKE → 0x000...dEaD，资金来自真实 trading fee，无 pocket-to-pocket 风险
 - **veCAKE 已 sunset（2025-04-23）**：旧 5% revenue share 于 2025-05-07 结束，Tokenomics 3.0 后 100% 回购直接 burn 到 0xdead
-- **tevRatio 已更新**：0.15（旧低估）→ 0.625（判定书 60-65% 计入）；已累计销毁 4.04 亿 CAKE（初始供应 7.5 亿目标）
+- **payout_ratio 已更新**：0.15（旧低估）→ 0.625（判定书 60-65% 计入）；已累计销毁 4.04 亿 CAKE（初始供应 7.5 亿目标）
 
 ## 七、判定书出处
 

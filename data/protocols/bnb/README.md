@@ -2,7 +2,7 @@
 
 本文档说明 BNB 协议的 TEV（Token Economic Value）数据如何计算、从哪里来、怎么自动更新。
 
-> **前提**：其他协议的 TEV 计算由 `scripts/sync-tev-data.js` 通用分支处理（基于 `tevRatio × DefiLlama revenue`）。**BNB 不适用通用公式**（CEX token，没有 fee 分润机制），所以独立维护。
+> **前提**：其他协议的 TEV 计算由 `scripts/sync-tev-data.js` 通用分支处理（基于 `payout_ratio × DefiLlama revenue`）。**BNB 不适用通用公式**（CEX token，没有 fee 分润机制），所以独立维护。
 
 ---
 
@@ -168,7 +168,7 @@ node scripts/sync-tev-data.js bnb
 python3 -c "
 import json
 d = json.load(open('data/all-protocols.json'))['protocols']['bnb']
-print('tev_yield_percent:', d.get('tev_yield_percent'))
+print('shareholder_yield_percent:', d.get('shareholder_yield_percent'))
 print('market_cap_usd:', d.get('market_cap_usd'))
 print('metrics:', d.get('metrics'))
 "

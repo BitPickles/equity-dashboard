@@ -539,8 +539,8 @@
 
     // 获取机制名称：config name > i18n > raw type
     function getMechLabel(type) {
-      if (protocolConfig?.tev_mechanisms) {
-        const m = protocolConfig.tev_mechanisms.find(m => m.type === type);
+      if (protocolConfig?.return_mechanisms) {
+        const m = protocolConfig.return_mechanisms.find(m => m.type === type);
         if (m?.name) return m.name;
       }
       return t('mechanism.type.' + type) || type;
@@ -815,15 +815,15 @@
         const displayPrecision = (allTable && allTable.display_precision) || cfg.display_precision || 2;
 
         function periodKPI(period) {
-          const tevMap = { '7d': metrics.tev_yield_7d_ann, '30d': metrics.tev_yield_30d_ann, '90d': metrics.tev_yield_90d_ann, '365d': proto.tev_yield_percent };
-          const earnMap = { '7d': metrics.earning_yield_7d_ann, '30d': metrics.earning_yield_30d_ann, '90d': metrics.earning_yield_90d_ann, '365d': proto.earning_yield_percent };
-          const ratioMap = { '7d': proto.tevRatio_7d, '30d': proto.tevRatio_30d, '90d': proto.tevRatio_90d, '365d': proto.tevRatio_365d != null ? proto.tevRatio_365d : proto.tevRatio };
+          const tevMap = { '7d': metrics.tev_yield_7d_ann, '30d': metrics.tev_yield_30d_ann, '90d': metrics.tev_yield_90d_ann, '365d': proto.shareholder_yield_percent };
+          const earnMap = { '7d': metrics.earning_yield_7d_ann, '30d': metrics.earning_yield_30d_ann, '90d': metrics.earning_yield_90d_ann, '365d': proto.total_yield_percent };
+          const ratioMap = { '7d': proto.tevRatio_7d, '30d': proto.tevRatio_30d, '90d': proto.tevRatio_90d, '365d': proto.tevRatio_365d != null ? proto.tevRatio_365d : proto.payout_ratio };
           const divMap = { '7d': metrics.dividend_yield_7d_ann, '30d': metrics.dividend_yield_30d_ann, '90d': metrics.dividend_yield_90d_ann, '365d': proto.dividend_yield_percent };
           const buyMap = { '7d': metrics.buyback_yield_7d_ann, '30d': metrics.buyback_yield_30d_ann, '90d': metrics.buyback_yield_90d_ann, '365d': proto.buyback_yield_percent };
           return {
-            tev:   tevMap[period]   != null ? tevMap[period]   : proto.tev_yield_percent,
-            earn:  earnMap[period]  != null ? earnMap[period]  : proto.earning_yield_percent,
-            ratio: ratioMap[period] != null ? ratioMap[period] : proto.tevRatio,
+            tev:   tevMap[period]   != null ? tevMap[period]   : proto.shareholder_yield_percent,
+            earn:  earnMap[period]  != null ? earnMap[period]  : proto.total_yield_percent,
+            ratio: ratioMap[period] != null ? ratioMap[period] : proto.payout_ratio,
             div:   divMap[period]   != null ? divMap[period]   : (proto.dividend_yield_percent || 0),
             buy:   buyMap[period]   != null ? buyMap[period]   : (proto.buyback_yield_percent || 0),
           };
@@ -903,7 +903,7 @@
         });
 
         // 渲染 mechanisms / sources / references / notes
-        renderMechanisms(cfg.tev_mechanisms);
+        renderMechanisms(cfg.return_mechanisms);
         renderSources(cfg.data_sources);
         renderReferences(cfg.references);
         const notes = cfg.analyst_notes || cfg.notes;
@@ -1049,15 +1049,15 @@
         const yld = (n) => n != null ? n.toFixed(2) + '%' : '—';
 
         const revenue = m.trailing_365d_revenue_usd;
-        const tevRatio = p.tevRatio;
+        const payout_ratio = p.payout_ratio;
         const tev = m.trailing_365d_tev_usd;
         const mcap = m.current_market_cap_usd;
-        const tevYield = p.tev_yield_percent;
+        const tevYield = p.shareholder_yield_percent;
 
         // 精简：只保留核心 5 行推导。多周期 yield 在概览 KPI + 周期 tab 已展示，不重复。
         const rows = [
           { label: currentLang === 'zh' ? '365D 协议收入' : '365D Revenue', value: fmt(revenue) },
-          { label: currentLang === 'zh' ? '派息率' : 'Payout Ratio', value: (tevRatio != null && tevYield) ? pct(tevRatio) : '—' },
+          { label: currentLang === 'zh' ? '派息率' : 'Payout Ratio', value: (payout_ratio != null && tevYield) ? pct(payout_ratio) : '—' },
           { label: currentLang === 'zh' ? '365D 股东回报' : '365D Shareholder Returns', value: fmt(tev), derived: true },
           { label: currentLang === 'zh' ? '市值' : 'Market Cap', value: fmt(mcap) },
           { label: currentLang === 'zh' ? '股东回报率' : 'Shareholder Yield', value: yld(tevYield), derived: true },

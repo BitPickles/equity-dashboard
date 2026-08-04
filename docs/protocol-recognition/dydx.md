@@ -75,5 +75,5 @@
 ## 七、判定书出处
 
 - 判定书总表：`docs/protocol-revenue-recognition.md` §12（Boss 2026-08-02 定稿 + Agent 调研）
-- 配置文件：`data/protocols/dydx/config.json`（revenue_recognition 字段，tevRatio=0.75）
+- 配置文件：`data/protocols/dydx/config.json`（revenue_recognition 字段，payout_ratio=0.75）
 - 数据维护说明：`data/protocols/dydx/README.md`（如有）

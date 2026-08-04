@@ -14,7 +14,7 @@
       "coingecko_id": "aave",
       "defillama_id": "aave"
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "buyback",
         "name": "AAVE Buyback Program",
@@ -9167,7 +9167,7 @@
       "max_supply": 8000000000,
       "note": "原 APX 代币已迁移至 ASTER"
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "buyback",
         "name": "Protocol Revenue Buyback",
@@ -9259,7 +9259,7 @@
       "price_change_24h": -0.1
     },
     "calculated_tev": {
-      "tev_yield_percent": null,
+      "shareholder_yield_percent": null,
       "calculation_status": "NEED_REVENUE_DATA",
       "estimation": {
         "daily_volume_estimate": 200000000,
@@ -9377,7 +9377,7 @@
       "total_supply": 2000000000,
       "note": "合约支持 burn 功能"
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "buyback_burn",
         "name": "Quarterly Buy-Back & Burn",
@@ -9412,7 +9412,7 @@
       "price_change_24h": 0.1
     },
     "calculated_tev": {
-      "tev_yield_percent": null,
+      "shareholder_yield_percent": null,
       "calculation_status": "UNABLE_TO_CALCULATE",
       "reason": "Bitget 不公开财务数据，无法获取准确的销毁金额",
       "note": "需要整理历史季度销毁公告来估算"
@@ -9484,7 +9484,7 @@
       "coingecko_id": "binancecoin",
       "note": "BNB 是 BNB Chain 原生代币，WBNB 是包装版本"
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "burn",
         "name": "Quarterly Auto-Burn",
@@ -9536,7 +9536,7 @@
       "total_burned": 66834779.41
     },
     "calculated_tev": {
-      "tev_yield_percent": null,
+      "shareholder_yield_percent": null,
       "calculation_status": "UNABLE_TO_CALCULATE",
       "reason": "CEX 收入不公开透明，无法计算年化 holders revenue",
       "alternative_metric": "年化销毁价值 / 市值",
@@ -9623,7 +9623,7 @@
       "circulating_supply": 9668189.278360886,
       "total_supply": 10000000.0
     },
-    "tev_mechanisms": [],
+    "return_mechanisms": [],
     "tev_summary": {
       "fee_switch": "OFF",
       "fee_switch_details": "Compound 协议费用开关未开启，收入保留在协议储备",
@@ -9678,7 +9678,7 @@
       "coingecko_id": "curve-dao-token",
       "defillama_id": "curve-dex"
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "fee_sharing",
         "name": "veCRV Fee Distribution",
@@ -19181,7 +19181,7 @@
       "holders_revenue_30d_usd": 970876,
       "holders_revenue_annual_usd": 11650512,
       "market_cap_usd": 355558659,
-      "tev_yield_percent": 3.28,
+      "shareholder_yield_percent": 3.28,
       "calculation_date": "2026-02-05",
       "note": "TEV yield = 年化 holders revenue / 流通市值"
     },
@@ -19230,7 +19230,7 @@
       "defillama_id": "dydx",
       "note": "大部分代币已从以太坊迁移到 dYdX Chain"
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "buyback",
         "name": "Protocol Revenue Buyback",
@@ -27642,7 +27642,7 @@
       "holders_revenue_30d_usd": 381311,
       "holders_revenue_annual_usd": 4575732,
       "market_cap_usd": 90016535,
-      "tev_yield_percent": 5.1,
+      "shareholder_yield_percent": 5.1,
       "calculation_date": "2026-02-05",
       "note": "TEV yield = 年化 holders revenue / 流通市值"
     },
@@ -27692,7 +27692,7 @@
       "circulating_supply": 589512855.7955344,
       "total_supply": 1791332848.045445
     },
-    "tev_mechanisms": [],
+    "return_mechanisms": [],
     "tev_summary": {
       "fee_switch": "OFF",
       "fee_switch_details": "协议费用开关未开启",
@@ -32324,7 +32324,7 @@
       "circulating_supply": 7957812500.0,
       "total_supply": 15000000000.0
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "staking_reward",
         "name": "sENA Protocol Revenue Share",
@@ -36270,7 +36270,7 @@
       "circulating_supply": 699363510.0,
       "total_supply": 998535999.0
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "buyback_accumulate",
         "name": "Withdrawal Revenue Buyback",
@@ -41380,7 +41380,7 @@
       "coingecko_id": "gmx",
       "defillama_id": "gmx"
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "fee_sharing",
         "name": "GMX Staking Rewards",
@@ -48611,7 +48611,7 @@
       "holders_revenue_30d_usd": 1208117,
       "holders_revenue_annual_usd": 14497404,
       "market_cap_usd": 61633069,
-      "tev_yield_percent": 23.5,
+      "shareholder_yield_percent": 23.5,
       "calculation_date": "2026-02-05",
       "note": "TEV yield = 年化 holders revenue / 流通市值"
     },
@@ -48657,7 +48657,7 @@
       "chain": "Hyperliquid L1",
       "coingecko_id": "hyperliquid"
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "buyback",
         "name": "Assistance Fund Buyback",
@@ -48700,7 +48700,7 @@
       "price_change_24h": -5.0
     },
     "calculated_tev": {
-      "tev_yield_percent": 12.29,
+      "shareholder_yield_percent": 12.29,
       "calculation_status": "CALCULATED",
       "calculation_date": "2026-02-09",
       "note": "年化收入约$956M / 市值$7.78B = 12.29%"
@@ -48768,7 +48768,7 @@
       "circulating_supply": 432801054.5,
       "total_supply": 1000000000.0
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "staking_reward",
         "name": "JTO Staking",
@@ -54233,7 +54233,7 @@
       "circulating_supply": 8815108920.581306,
       "total_supply": 8815108920.581306
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "staking_reward",
         "name": "JST Staking (未确认)",
@@ -61260,7 +61260,7 @@
       "circulating_supply": 3859589230.0,
       "total_supply": 9999959341.50722
     },
-    "tev_mechanisms": [],
+    "return_mechanisms": [],
     "tev_summary": {
       "fee_switch": "NONE",
       "fee_switch_details": "无协议收入直接分配给 KMNO 持有者。所谓 'staking' 实为 farming 奖励加成机制",
@@ -67049,7 +67049,7 @@
       "circulating_supply": 848066802.5927889,
       "total_supply": 1000000000.0
     },
-    "tev_mechanisms": [],
+    "return_mechanisms": [],
     "tev_summary": {
       "fee_switch": "OFF",
       "fee_switch_details": "所有收入归 DAO 国库，无分配给 LDO 持有者",
@@ -75312,7 +75312,7 @@
       "circulating_supply": 1157145692.5385313,
       "total_supply": 1216127147.998563
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "staking_reward",
         "name": "SYRUP Staking",
@@ -82986,7 +82986,7 @@
       "bybit_relation": "BitDAO 由 Bybit 支持创立，转型为 Mantle 后关系延续",
       "treasury": "Mantle 拥有 DeFi 领域最大的 DAO 国库之一"
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "gas_token",
         "name": "Mantle Network Gas",
@@ -83022,7 +83022,7 @@
       "price_change_24h": -0.5
     },
     "calculated_tev": {
-      "tev_yield_percent": null,
+      "shareholder_yield_percent": null,
       "calculation_status": "UNABLE_TO_CALCULATE",
       "reason": "MNT 的 TEV 机制不明确，与传统 CEX 平台币不同",
       "note": "需要进一步调研 Mantle 的收入分配机制"
@@ -83105,7 +83105,7 @@
       "circulating_supply": 545775191.4464494,
       "total_supply": 1000000000.0
     },
-    "tev_mechanisms": [],
+    "return_mechanisms": [],
     "tev_summary": {
       "fee_switch": "OFF",
       "fee_switch_details": "Morpho 当前无协议费用，由 vault curators 自行设定",
@@ -88944,7 +88944,7 @@
       "coingecko_id": "okb",
       "note": "OKB 同时存在于 Ethereum 和 X Layer"
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "buyback_burn",
         "name": "Quarterly Buy-Back & Burn",
@@ -88980,7 +88980,7 @@
       "price_change_24h": 0.9
     },
     "calculated_tev": {
-      "tev_yield_percent": null,
+      "shareholder_yield_percent": null,
       "calculation_status": "UNABLE_TO_CALCULATE",
       "reason": "OKX 作为私营公司不公开财务数据，无法获取准确的销毁金额",
       "note": "需要整理历史季度销毁公告来估算"
@@ -89064,7 +89064,7 @@
       "circulating_supply": 332900506.147586,
       "total_supply": 346248427.5251981
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "buyback_burn",
         "name": "CAKE Burns",
@@ -96873,7 +96873,7 @@
       "coingecko_id": "pendle",
       "defillama_id": "pendle"
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "buyback_distribution",
         "name": "vePENDLE Revenue Share",
@@ -104342,7 +104342,7 @@
       "circulating_supply": 1292073967.0,
       "total_supply": 1500000000.0
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "fee_sharing",
         "name": "dLP Revenue Share",
@@ -110297,7 +110297,7 @@
       "coingecko_id": "sky",
       "defillama_id": "sky"
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "buyback_burn",
         "name": "Smart Burn Engine (SBE)",
@@ -121450,7 +121450,7 @@
       "circulating_supply": 2356595748.026746,
       "total_supply": 10000000000.0
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "airdrop",
         "name": "SPK Airdrop",
@@ -126290,7 +126290,7 @@
         "firepit": "0xe0A780E9105aC10Ee304448224Eb4A2b11A77eeB"
       }
     },
-    "tev_mechanisms": [
+    "return_mechanisms": [
       {
         "type": "buyback_burn",
         "name": "UNI Burn via Firepit",

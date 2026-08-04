@@ -15,7 +15,7 @@
     "circulating_supply": 7957812500,
     "total_supply": 15000000000
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "staking_reward",
       "name": "sUSDe Yield (非 ENA 收益)",
@@ -151,7 +151,7 @@
   "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": false,
-    "tev_yield_percent": 0,
+    "shareholder_yield_percent": 0,
     "annual_tev_usd": 0,
     "market_cap_usd": 848569389.93,
     "calculation_date": "2026-08-02",
@@ -175,10 +175,10 @@
     "zh": "机制复杂但 ENA 当前不分润. sUSDe 收益给 sUSDe 持有人, 不给 ENA/sENA",
     "en": "机制复杂但 ENA 当前不分润. sUSDe 收益给 sUSDe 持有人, 不给 ENA/sENA"
   },
-  "tevRatio": 0,
-  "earning_yield_percent": 1.06,
+  "payout_ratio": 0,
+  "total_yield_percent": 1.06,
   "market_cap_usd": 848569389.93,
-  "tev_yield_percent": 0,
+  "shareholder_yield_percent": 0,
   "metrics": {
     "current_market_cap_usd": 848569389.93,
     "trailing_365d_revenue_usd": 8996865.049999999,
@@ -219,7 +219,7 @@
         "7d": "metrics.tev_yield_7d_ann",
         "30d": "metrics.tev_yield_30d_ann",
         "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
@@ -244,7 +244,7 @@
       }
     },
     "calculation": {
-      "tev_ratio": 0,
+      "payout_ratio": 0,
       "note": "近 12 月收入 ~$310M 但净利仅 ~$0.6M；费用开关是 AI 哨兵观察点"
     },
     "source_type": "official",

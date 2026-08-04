@@ -72,5 +72,5 @@
 ## 七、判定书出处
 
 - 判定书总表：`docs/protocol-revenue-recognition.md` §8（Boss 2026-08-02 定稿）
-- 配置文件：`data/protocols/uniswap/config.json`（revenue_recognition 字段，tevRatio=1）
+- 配置文件：`data/protocols/uniswap/config.json`（revenue_recognition 字段，payout_ratio=1）
 - 数据维护说明：`data/protocols/uniswap/README.md`（如有）

@@ -26,7 +26,7 @@
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
       "gross_profit_usd_365d": 93870329.6,
-      "calculation_note": "收入 = 协议收入（总费用 N/A − LP 分润 N/A）；回购销毁 $58,668,956 ≈ 总费用 22% / 协议收入 60-65%（tev_ratio 0.625）→ 毛利 = 协议收入"
+      "calculation_note": "收入 = 协议收入（总费用 N/A − LP 分润 N/A）；回购销毁 $58,668,956 ≈ 总费用 22% / 协议收入 60-65%（payout_ratio 0.625）→ 毛利 = 协议收入"
     },
     "token_emission_cost": {
       "usd_365d": 11700000,
@@ -79,7 +79,7 @@
     "payout_ratio": 0.714
   },
   "verification": {
-    "method": "回购销毁 365d $58,668,956（DefiLlama dailyHoldersRevenue，burn-history.json）× tev_ratio 0.625 反推协议收入 $93,870,330（判定书 60-65%，现货 15-23%/永续 20%/CAKE.PAD 100%）；增发成本 $11,700,000（config.token_emission_cost，treatment=cost）；净利 $82,170,330（正，净通缩）",
+    "method": "回购销毁 365d $58,668,956（DefiLlama dailyHoldersRevenue，burn-history.json）× payout_ratio 0.625 反推协议收入 $93,870,330（判定书 60-65%，现货 15-23%/永续 20%/CAKE.PAD 100%）；增发成本 $11,700,000（config.token_emission_cost，treatment=cost）；净利 $82,170,330（正，净通缩）",
     "status": "verified",
     "last_checked": "2026-08-04"
   }

@@ -76,7 +76,7 @@
     "payout_ratio": 1.0
   },
   "verification": {
-    "method": "净利 = DefiLlama dailyRevenue 365d $18,665,264；股东回报 = dailyHoldersRevenue 365d $18,665,264（80% 口径 🟢，sPENDLE 时代 2026-01-29 起，tevRatio=0.8）；tev-records 365d 合计 $18,819,548 交叉核对",
+    "method": "净利 = DefiLlama dailyRevenue 365d $18,665,264；股东回报 = dailyHoldersRevenue 365d $18,665,264（80% 口径 🟢，sPENDLE 时代 2026-01-29 起，payout_ratio=0.8）；tev-records 365d 合计 $18,819,548 交叉核对",
     "status": "partial",
     "last_checked": "2026-08-04"
   }

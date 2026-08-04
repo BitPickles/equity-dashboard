@@ -13,7 +13,7 @@
     "coingecko_id": "aster-2",
     "total_supply": 1000000000
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "buyback",
       "name": "协议回购",
@@ -42,7 +42,7 @@
     "dividends": "NONE",
     "burns": "ACTIVE",
     "primary_value_accrual": "手续费回购 (60-80%)",
-    "tevRatio": 0.7
+    "payout_ratio": 0.7
   },
   "confidence": "high",
   "notes": "**当前 TEV 情况**\n\nAster 将较大比例的协议收入（约60-80%）用于回购 ASTER，包含每日自动回购与战略回购储备。\n\n**历史数据：**\n- Stage 1-4 (2025.10-12): 依据公开报道的回购总量，按天均摩摘形成日度数据\n- Stage 5-6 (2025.12至今): 链上回购记录，可按日追踪\n\n**透明度**：回购钱包地址公开，可通过 BscScan 实时验证。\n\n**注意**：官方文档未披露精确回购比例分配，60-80% 为公开材料中的估算范围。",
@@ -78,7 +78,7 @@
   "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 1.47,
+    "shareholder_yield_percent": 1.47,
     "market_cap_usd": 1611525735.7600327,
     "calculation_date": "2026-08-02",
     "sources": [
@@ -123,10 +123,10 @@
     "circulating_supply": 2687744734.3797536,
     "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
-  "tevRatio": 0.7,
-  "earning_yield_percent": 1.47,
+  "payout_ratio": 0.7,
+  "total_yield_percent": 1.47,
   "market_cap_usd": 1611525735.7600327,
-  "tev_yield_percent": 1.47,
+  "shareholder_yield_percent": 1.47,
   "metrics": {
     "tev_yield_7d_ann": 0,
     "tev_yield_30d_ann": 0,
@@ -206,7 +206,7 @@
         "7d": "metrics.tev_yield_7d_ann",
         "30d": "metrics.tev_yield_30d_ann",
         "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
@@ -229,7 +229,7 @@
       }
     },
     "calculation": {
-      "tev_ratio": 0.99,
+      "payout_ratio": 0.99,
       "note": "99% 手续费回购给质押者（TWAP 回购 ASTER → veASTER）"
     },
     "source_type": "chain",

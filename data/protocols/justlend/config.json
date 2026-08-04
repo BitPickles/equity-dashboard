@@ -15,7 +15,7 @@
     "circulating_supply": 8815108920.581306,
     "total_supply": 8815108920.581306
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "buyback_burn",
       "name": "JST Buyback & Burn（链上核实为 pocket-to-pocket 做账式）",
@@ -66,7 +66,7 @@
   "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 0,
+    "shareholder_yield_percent": 0,
     "annual_tev_usd": 149440.19999999998,
     "calculation_date": "2026-08-02",
     "note": "JST 质押奖励，透明度低",
@@ -106,10 +106,10 @@
     "zh": "链上 burn 是做账式（从项目方金库转出），非市场 buyback；DefiLlama 侧面验证协议真实对外收入极小（~$500k/年）",
     "en": "On-chain burn is pocket-to-pocket (from team treasury), not market buyback; DefiLlama confirms tiny real protocol revenue (~$500k/yr)"
   },
-  "tevRatio": null,
-  "earning_yield_percent": 0,
+  "payout_ratio": null,
+  "total_yield_percent": 0,
   "market_cap_usd": 851624447.2403928,
-  "tev_yield_percent": 0,
+  "shareholder_yield_percent": 0,
   "metrics": {
     "current_market_cap_usd": 558330511.4309741,
     "trailing_7d_revenue_usd": 0,
@@ -176,12 +176,12 @@
         "7d": "metrics.tev_yield_7d_ann",
         "30d": "metrics.tev_yield_30d_ann",
         "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
   ],
-  "analyst_notes": "【2026-04-25 更新 - TEV 归零（Boss 决策）】\n\n## 发现经过\n\n先按调研和 DAO 公告做了『A 口径链上直查』，算出 365d TEV Yield = 15.88%。\nBoss 质疑：『JustLend 不是主流项目，更多是孙宇晨包装出来服务他自己的项目，非常不透明』。\n复查链上后 **Boss 完全对**——归零。\n\n## 链上证据\n\n### 1. Burn 路径\n\n```\n孙宇晨金库 TFTWNgDB...（囤 HTX/WIN/TUSD 等孙宇晨代币）\n  → executor TZJVQuU3...\n  → TRON Black Hole\n```\n\n所有 3 次 burn（2025-10, 2026-01, 2026-04）都走这条链，burn 的 JST 从未经过市场。\n\n### 2. 上游地址持仓（= 定性证据）\n\nTFTWNgDBkQ5wQoP8RXpRznnHvAVV8x5jLu 持有：\n- **HTX: 262,355,002,622**（火币交易所代币，孙宇晨控制）\n- **WIN: 483,649,028**（WINkLink，孙宇晨）\n- **TUSD: 15,176**（TrueUSD，孙宇晨）\n- **BTC: 5.87 / USDT: 3.19M / TRX: 1.8M**\n\n这明显是孙宇晨生态的中央钱包，不是协议的 SBM buyback 合约。\n\n### 3. 没有市场买入证据\n\n真 buyback 的链上特征：executor 拿 USDT/USDD → 去 DEX 换 JST → burn。\n我们看到的是：项目方金库转 JST → executor → Black Hole。没有 USDT 对应流出换取 JST 的痕迹。\n\n### 4. DefiLlama 侧面佐证\n\nDefiLlama justlend slug 报 ~$500k/年 revenue（只算 lending interest spread）。\n即便加上 USDD/USDJ/stTRX 等其他收入，真实对外分发规模也远远撑不起官方声称的 $41.42M 储备 + 后续 3 次 ~$60M burn。\n差额要么来自项目方印钞（JST 本来就在他们手里），要么夸大。\n\n## TEV 归零的逻辑\n\n按 TEV = token 持有人真实能捕获的价值：\n\n| 真 buyback | 做账式销毁（当前 JustLend） |\n|---|---|\n| 协议收入买 JST → 市场买压支撑价格 | 项目方转仓，没有买压 |\n| 销毁的 JST 来自市场流通 → 减少流通量 | 销毁的 JST 本来在项目方金库 → 流通量不变 |\n| token 持有人间接受益 | 纯粹账面操作 |\n\n所以 TEV = 0，而不是 15.88%。\n\n## 当前配置\n\n- tevStatus: `none`\n- confidence: `low`\n- tevRatio: `null`\n- 所有周期 TEV Yield / Earning Yield = 0%\n- 链上 burn 数据**保留**在 validation（作为供给侧事实记录，非 TEV 来源）\n- 如果未来链上观察到 executor 真正从市场买 JST（USDT 流出 + JST 流入配对），可重新评估\n\n## 参考\n\n- [JustLend DAO 原提案](https://forum.justlend.org/t/proposal-on-jst-buyback-burn-program/774)\n- [TronScan: JST 合约](https://tronscan.org/#/token20/TCFLL5dx5ZJdKnWuesXxi1VPwjLVmWZZy9)\n- [TronScan: 孙宇晨金库地址](https://tronscan.org/#/address/TFTWNgDBkQ5wQoP8RXpRznnHvAVV8x5jLu)\n- [TronScan: TRON Black Hole](https://tronscan.org/#/address/T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb)\n",
+  "analyst_notes": "【2026-04-25 更新 - TEV 归零（Boss 决策）】\n\n## 发现经过\n\n先按调研和 DAO 公告做了『A 口径链上直查』，算出 365d TEV Yield = 15.88%。\nBoss 质疑：『JustLend 不是主流项目，更多是孙宇晨包装出来服务他自己的项目，非常不透明』。\n复查链上后 **Boss 完全对**——归零。\n\n## 链上证据\n\n### 1. Burn 路径\n\n```\n孙宇晨金库 TFTWNgDB...（囤 HTX/WIN/TUSD 等孙宇晨代币）\n  → executor TZJVQuU3...\n  → TRON Black Hole\n```\n\n所有 3 次 burn（2025-10, 2026-01, 2026-04）都走这条链，burn 的 JST 从未经过市场。\n\n### 2. 上游地址持仓（= 定性证据）\n\nTFTWNgDBkQ5wQoP8RXpRznnHvAVV8x5jLu 持有：\n- **HTX: 262,355,002,622**（火币交易所代币，孙宇晨控制）\n- **WIN: 483,649,028**（WINkLink，孙宇晨）\n- **TUSD: 15,176**（TrueUSD，孙宇晨）\n- **BTC: 5.87 / USDT: 3.19M / TRX: 1.8M**\n\n这明显是孙宇晨生态的中央钱包，不是协议的 SBM buyback 合约。\n\n### 3. 没有市场买入证据\n\n真 buyback 的链上特征：executor 拿 USDT/USDD → 去 DEX 换 JST → burn。\n我们看到的是：项目方金库转 JST → executor → Black Hole。没有 USDT 对应流出换取 JST 的痕迹。\n\n### 4. DefiLlama 侧面佐证\n\nDefiLlama justlend slug 报 ~$500k/年 revenue（只算 lending interest spread）。\n即便加上 USDD/USDJ/stTRX 等其他收入，真实对外分发规模也远远撑不起官方声称的 $41.42M 储备 + 后续 3 次 ~$60M burn。\n差额要么来自项目方印钞（JST 本来就在他们手里），要么夸大。\n\n## TEV 归零的逻辑\n\n按 TEV = token 持有人真实能捕获的价值：\n\n| 真 buyback | 做账式销毁（当前 JustLend） |\n|---|---|\n| 协议收入买 JST → 市场买压支撑价格 | 项目方转仓，没有买压 |\n| 销毁的 JST 来自市场流通 → 减少流通量 | 销毁的 JST 本来在项目方金库 → 流通量不变 |\n| token 持有人间接受益 | 纯粹账面操作 |\n\n所以 TEV = 0，而不是 15.88%。\n\n## 当前配置\n\n- tevStatus: `none`\n- confidence: `low`\n- payout_ratio: `null`\n- 所有周期 TEV Yield / Earning Yield = 0%\n- 链上 burn 数据**保留**在 validation（作为供给侧事实记录，非 TEV 来源）\n- 如果未来链上观察到 executor 真正从市场买 JST（USDT 流出 + JST 流入配对），可重新评估\n\n## 参考\n\n- [JustLend DAO 原提案](https://forum.justlend.org/t/proposal-on-jst-buyback-burn-program/774)\n- [TronScan: JST 合约](https://tronscan.org/#/token20/TCFLL5dx5ZJdKnWuesXxi1VPwjLVmWZZy9)\n- [TronScan: 孙宇晨金库地址](https://tronscan.org/#/address/TFTWNgDBkQ5wQoP8RXpRznnHvAVV8x5jLu)\n- [TronScan: TRON Black Hole](https://tronscan.org/#/address/T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb)\n",
   "dividend_yield_percent": 0,
   "buyback_yield_percent": 0,
   "style": "growth",
@@ -199,7 +199,7 @@
       }
     },
     "calculation": {
-      "tev_ratio": 0,
+      "payout_ratio": 0,
       "note": "TEV=0"
     },
     "source_type": "estimate",

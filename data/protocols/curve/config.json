@@ -13,7 +13,7 @@
     "coingecko_id": "curve-dao-token",
     "defillama_id": "curve-dex"
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "ve_distribution",
       "name": "veCRV 分红",
@@ -50,7 +50,7 @@
     "dividends": "ACTIVE",
     "burns": "NONE",
     "primary_value_accrual": "DAO 收入分配：约 90% -> veCRV, 10% -> Treasury（FeeAllocator），scrvUSD 流向比例动态 5%-50%（FeeSplitter）",
-    "tevRatio": 0.5
+    "payout_ratio": 0.5
   },
   "ve_token": {
     "name": "veCRV",
@@ -78,7 +78,7 @@
     "holders_revenue_30d_usd": 970876,
     "holders_revenue_annual_usd": 11650512,
     "market_cap_usd": 355558659,
-    "tev_yield_percent": 3.28,
+    "shareholder_yield_percent": 3.28,
     "calculation_date": "2026-02-05",
     "note": "TEV yield = 年化 holders revenue / 流通市值"
   },
@@ -149,7 +149,7 @@
   "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 4.84,
+    "shareholder_yield_percent": 4.84,
     "tev_yield_vecrv_only_percent": 4.25,
     "annual_tev_usd": 15335813,
     "market_cap_usd": 316842493.4643041,
@@ -200,8 +200,8 @@
     "zh": "Treasury inflow + veCRV 锁仓量都链上完全可验证, FeeAllocator 90/10 比例治理记录有据",
     "en": "Treasury inflow + veCRV lock amount both fully on-chain, FeeAllocator 90/10 governance-documented"
   },
-  "tevRatio": 0.9,
-  "earning_yield_percent": 4.84,
+  "payout_ratio": 0.9,
+  "total_yield_percent": 4.84,
   "market_cap_usd": 316842493.4643041,
   "metrics": {
     "trailing_365d_fees_usd": 55189562,
@@ -228,7 +228,7 @@
     "dividend_yield_90d_ann": 10.53,
     "buyback_yield_90d_ann": 0
   },
-  "tev_yield_percent": 4.84,
+  "shareholder_yield_percent": 4.84,
   "calc_pipeline": [
     {
       "step": 1,
@@ -282,7 +282,7 @@
         "7d": "metrics.tev_yield_7d_ann",
         "30d": "metrics.tev_yield_30d_ann",
         "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }

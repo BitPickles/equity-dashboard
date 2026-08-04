@@ -10,7 +10,7 @@ GMX 专属适配器 — data/protocols/gmx/adapter.py
 - 判定：收入 → 扣 LP → 净利 → 留存 27%；**股东回报 = 0**，标注「锁定至 $90」
 - 数据源：DefiLlama（V2 交易费 dailyRevenue 365d）+ 提案 #5042
 
-config.json 只读不重写（机制/口径声明 + tevRatio 0.27 = 协议费率）。
+config.json 只读不重写（机制/口径声明 + payout_ratio 0.27 = 协议费率）。
 """
 
 import json

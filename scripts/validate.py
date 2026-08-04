@@ -167,7 +167,7 @@ def validate_snapshot(snap, all_protocols, report, proto):
 
     # 3. 一致性：snapshot yield 与 all-protocols.json 一致
     ap = (all_protocols or {}).get("protocols", {}).get(proto, {})
-    ap_yield = ap.get("tev_yield_percent") or ap.get("shareholder_yield_percent")
+    ap_yield = ap.get("shareholder_yield_percent") or ap.get("shareholder_yield_percent")
     snap_yield = snap["holder_returns"]["summary"].get("shareholder_yield_percent")
     if ap_yield is not None and snap_yield is not None and pct_diff(ap_yield, snap_yield) > 1.0:
         report.warn(proto, f"与 all-protocols.json 不一致: snapshot={snap_yield}% all-protocols={ap_yield}%")

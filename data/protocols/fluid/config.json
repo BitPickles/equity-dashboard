@@ -13,14 +13,14 @@
     "coingecko_id": "instadapp",
     "defillama_id": "fluid"
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "buyback",
       "name": "Fluid Reserve Buyback",
       "description": "Treasury 用协议收入回购 FLUID 代币，建立链上储备",
       "status": "active",
       "start_date": "2025-10-01",
-      "tev_ratio": 0.35,
+      "payout_ratio": 0.35,
       "source": {
         "type": "blog",
         "title": "FLUID Reserve: Buybacks & Growth Strategy",
@@ -87,7 +87,7 @@
   "data_source_note": "链上追踪 (FLUID 流入储备钱包)",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 5.15,
+    "shareholder_yield_percent": 5.15,
     "annual_tev_usd": 4745308,
     "market_cap_usd": 92201612.29,
     "calculation_date": "2026-08-02",
@@ -150,10 +150,10 @@
     "circulating_supply": 78696996.82034639,
     "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
-  "tevRatio": 0.35,
-  "earning_yield_percent": 5.15,
+  "payout_ratio": 0.35,
+  "total_yield_percent": 5.15,
   "market_cap_usd": 92201612.29,
-  "tev_yield_percent": 5.15,
+  "shareholder_yield_percent": 5.15,
   "metrics": {
     "current_market_cap_usd": 92201612.29,
     "trailing_365d_revenue_usd": 4745308,
@@ -224,7 +224,7 @@
         "7d": "metrics.tev_yield_7d_ann",
         "30d": "metrics.tev_yield_30d_ann",
         "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
@@ -242,7 +242,7 @@
     },
     "revenue_excluded": {},
     "calculation": {
-      "tev_ratio": 0.35,
+      "payout_ratio": 0.35,
       "note": "35% 回购口径（DefiLlama dailyHoldersRevenue 365d $4.75M 与官方 35% 一致）"
     },
     "source_type": "defillama",

@@ -14,7 +14,7 @@ Hyperliquid 专属适配器 — data/protocols/hyperliquid/adapter.py
 （M0 遗留），适配器内部做 key 映射，不修改共享文件。
 
 数据源（本地缓存）：
-- config.json            → 机制/口径声明（tevRatio=0.99）
+- config.json            → 机制/口径声明（payout_ratio=0.99）
 - data/all-protocols.json → 市值 / metrics（trailing_365d_revenue_usd 已验证）
 - data/protocols/hype/af-history.json → AF 日序列（只读参考；截至 2026-04-17 陈旧，仅交叉核对注记）
 """
@@ -48,7 +48,7 @@ def build_snapshot(proto_dir):
     metrics = ap.get("metrics", {}) or {}
     mcap = ap.get("market_cap_usd")
     tvl = ap.get("tvl")
-    tev_ratio = config.get("tevRatio") if config.get("tevRatio") is not None else 0.99
+    payout_ratio = config.get("payout_ratio") if config.get("payout_ratio") is not None else 0.99
 
     # ── 收入（L2）──────────────────────────────────────────────
     # DefiLlama dailyRevenue 365d（已验证）；链上 AF entryNtl 交叉验证。
@@ -67,7 +67,7 @@ def build_snapshot(proto_dir):
         af_365d = None
 
     # ── 股东回报（L3）：99% 计入销毁 🟢 ────────────────────────
-    returns_usd = round(revenue * tev_ratio, 2) if revenue else None
+    returns_usd = round(revenue * payout_ratio, 2) if revenue else None
     yield_pct = round(returns_usd / mcap * 100, 4) if (returns_usd and mcap) else None
 
     by_mechanism = [
@@ -166,8 +166,8 @@ def build_snapshot(proto_dir):
         },
         "valuation": valuation,
         "verification": {
-            "method": f"净利 = DefiLlama dailyRevenue 365d {_fmt(revenue)}；股东回报 = 收入 × {tev_ratio} "
-                      f"= {_fmt(returns_usd)}（销毁型 🟢，tevRatio={tev_ratio}）"
+            "method": f"净利 = DefiLlama dailyRevenue 365d {_fmt(revenue)}；股东回报 = 收入 × {payout_ratio} "
+                      f"= {_fmt(returns_usd)}（销毁型 🟢，payout_ratio={payout_ratio}）"
                       f"{f'；af-history 旧缓存 365d {_fmt(af_365d)}（截至 2026-04-17，窗口不重叠，仅参考）' if af_365d else ''}",
             "status": "verified",
             "last_checked": date.today().isoformat(),

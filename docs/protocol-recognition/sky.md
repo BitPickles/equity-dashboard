@@ -73,5 +73,5 @@
 ## 七、判定书出处
 
 - 判定书总表：`docs/protocol-revenue-recognition.md` §7（Boss 2026-08-02 定稿）
-- 配置文件：`data/protocols/sky/config.json`（revenue_recognition 字段，tevRatio≈0.3336）
+- 配置文件：`data/protocols/sky/config.json`（revenue_recognition 字段，payout_ratio≈0.3336）
 - 数据维护说明：`data/protocols/sky/README.md`（如有）

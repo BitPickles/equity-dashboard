@@ -5,7 +5,7 @@
  * 功能：
  * 1. 从 DefiLlama 获取 Revenue 数据
  * 2. 从 CMC 获取市值数据（CoinGecko 备用）
- * 3. 根据 tevRatio 计算 TEV
+ * 3. 根据 payout_ratio 计算 TEV
  * 4. 更新 all-protocols.json
  * 
  * 用法：
@@ -22,13 +22,13 @@ const { execSync } = require('child_process');
 const CMC_UPDATE_SCRIPT = '/Users/aibot/.openclaw/workspace-researcher/scripts/update_cmc_daily.py';
 const BTCD_SYNC_SCRIPT = path.join(__dirname, 'sync-btcd.py');
 
-// 协议配置：DefiLlama slug, CoinGecko id, CMC slug, tevRatio
+// 协议配置：DefiLlama slug, CoinGecko id, CMC slug, payout_ratio
 const PROTOCOL_CONFIG = {
   aave: { 
     defillamaSlug: 'aave', 
     coingeckoId: 'aave',
     cmcSlug: 'aave',
-    tevRatio: null,  // 特殊：固定年度回购预算
+    payout_ratio: null,  // 特殊：固定年度回购预算
     fixedTevUsd: 30000000,
     note: '年度回购 $30M (2026-03 治理投票从 $50M 下调, 99.37% 通过)'
   },
@@ -37,7 +37,7 @@ const PROTOCOL_CONFIG = {
     coingeckoId: 'curve-dao-token',
     cmcSlug: 'curve-dao-token',
     defillamaDataType: 'dailyHoldersRevenue',
-    tevRatio: 1.0,
+    payout_ratio: 1.0,
     note: 'DefiLlama dailyHoldersRevenue 已映射 FeeAllocator 90%→veCRV (2025-06-27 起). 注意：仅 veCRV 持有人捕获，裸 CRV ≈ 0，前端 Caveat 必须标注'
   },
   dydx: {
@@ -45,14 +45,14 @@ const PROTOCOL_CONFIG = {
     coingeckoId: 'dydx-chain',
     cmcSlug: 'dydx-chain',
     defillamaDataType: 'dailyHoldersRevenue',
-    tevRatio: 1.0,
+    payout_ratio: 1.0,
     note: 'DefiLlama dailyHoldersRevenue 已是 holders 部分; 分母用 DYDX Chain native mcap (排除 ethDYDX bridge 关闭后的孤儿). 75% buyback 治理通过但 Cosmos 链 Treasury SubDAO 账户链上无公开 tracker, medium confidence'
   },
   etherfi: {
     defillamaSlug: 'ether.fi',
     coingeckoId: 'ether-fi',
     cmcSlug: 'ether-fi',
-    tevRatio: 0.25,
+    payout_ratio: 0.25,
     note: '25% 协议收入回购 ETHFI → sETHFI (DAO Proposal #11, 正式治理通过)'
   },
   fluid: {
@@ -60,14 +60,14 @@ const PROTOCOL_CONFIG = {
     coingeckoId: 'instadapp',
     cmcSlug: 'instadapp',
     defillamaDataType: 'dailyHoldersRevenue',
-    tevRatio: 1.0,
+    payout_ratio: 1.0,
     note: '35% revenue → Treasury 回购. DefiLlama dailyHoldersRevenue 365d $4.75M (实测与官方 35% 一致). 链上 2 个 reserve 钱包: 0x3e6F.../0x9Afb..., 但回购后 FLUID 终极用途未公开 (caveat)'
   },
   gmx: {
     defillamaSlug: 'gmx',
     coingeckoId: 'gmx',
     cmcSlug: 'gmx',
-    tevRatio: 0,
+    payout_ratio: 0,
     note: '⚠️ TEV PAUSED: 2026-03-04 起 ETH/AVAX 实时分红停, 改为 Treasury 累积 GMX 等待 GMX 价格 ≥ $90 触发分配. 当前 GMX ~$7, 触发条件远未达, staker 实际现金收益 = 0. yield 标 0% + caveat 说明暂停状态'
   },
   maple: {
@@ -75,7 +75,7 @@ const PROTOCOL_CONFIG = {
     coingeckoId: 'syrup',
     cmcSlug: 'maple-finance',
     defillamaDataType: 'dailyHoldersRevenue',
-    tevRatio: 1.0,
+    payout_ratio: 1.0,
     note: 'MIP-019/020 25% revenue → SSF 回购 SYRUP. DefiLlama dailyHoldersRevenue 365d $1.81M (6 个月外推). 风险: SSF 国库钱包未公开, burn vs reserve 比例未披露'
   },
   pancakeswap: {
@@ -83,7 +83,7 @@ const PROTOCOL_CONFIG = {
     coingeckoId: 'pancakeswap-token',
     cmcSlug: 'pancakeswap',
     defillamaDataType: 'dailyHoldersRevenue',
-    tevRatio: 1.0,
+    payout_ratio: 1.0,
     note: 'CAKE 销毁: veCAKE 已 2025-04-23 sunset, Tokenomics 3.0 转 100% burn → 0xdead. DefiLlama holdersRevenue 已是 burn 部分, 但仅覆盖 AMM/StableSwap, 漏 Perpetual/Prediction/Lottery (前端 Caveat 标注)'
   },
   pendle: {
@@ -91,14 +91,14 @@ const PROTOCOL_CONFIG = {
     coingeckoId: 'pendle',
     cmcSlug: 'pendle',
     defillamaDataType: 'dailyHoldersRevenue',
-    tevRatio: 1.0,
+    payout_ratio: 1.0,
     note: 'DefiLlama dailyHoldersRevenue 已是 sPENDLE 持有人份额(实测 365d $22M, 占 revenue $26M 的 85%, 与官方 80% 比例吻合). 但多链 buyback executor 未公开, sPENDLE 入金混杂用户 stake 无法链上分离, medium confidence'
   },
   sky: {
     defillamaSlug: 'sky',
     coingeckoId: 'maker',
     cmcSlug: 'sky',
-    tevRatio: null,
+    payout_ratio: null,
     fixedTevUsd: 13724000,  // $37,600/天 × 365 = $13.724M (2026-03 治理大幅下调, 原 $30万/天)
     note: 'Smart Burn Engine 日回购 $37,600 (2026-03 治理投票下调 87.5%)'
   },
@@ -107,84 +107,84 @@ const PROTOCOL_CONFIG = {
     defillamaSlug: 'compound-v3',
     coingeckoId: 'compound-governance-token',
     cmcSlug: 'compound',
-    tevRatio: 0,
+    payout_ratio: 0,
     note: '纯治理代币'
   },
   eigenlayer: {
     defillamaSlug: 'eigenlayer',
     coingeckoId: 'eigenlayer',
     cmcSlug: 'eigenlayer',
-    tevRatio: 0,
+    payout_ratio: 0,
     note: '纯治理代币'
   },
   ethena: {
     defillamaSlug: 'ethena',
     coingeckoId: 'ethena',
     cmcSlug: 'ethena',
-    tevRatio: 0,
+    payout_ratio: 0,
     note: '纯治理代币'
   },
   justlend: {
     defillamaSlug: 'justlend',
     coingeckoId: 'just',
     cmcSlug: 'justlend',
-    tevRatio: 0.30,
+    payout_ratio: 0.30,
     note: '30% 平台收入回购烧毁 JST (2025-10 治理通过, $41.42M 储备至 Q4 2026)'
   },
   jito: {
     defillamaSlug: 'jito',
     coingeckoId: 'jito-governance-token',
     cmcSlug: 'jito',
-    tevRatio: 0,
+    payout_ratio: 0,
     note: 'MEV 收益归 JitoSOL, JTO 纯治理'
   },
   kamino: {
     defillamaSlug: 'kamino',
     coingeckoId: 'kamino',
     cmcSlug: 'kamino-finance',
-    tevRatio: 0,
+    payout_ratio: 0,
     note: '纯治理代币'
   },
   lido: {
     defillamaSlug: 'lido',
     coingeckoId: 'lido-dao',
     cmcSlug: 'lido-dao',
-    tevRatio: 0,
+    payout_ratio: 0,
     note: '纯治理代币'
   },
   morpho: {
     defillamaSlug: 'morpho',
     coingeckoId: 'morpho',
     cmcSlug: 'morpho',
-    tevRatio: 0,
+    payout_ratio: 0,
     note: '纯治理代币'
   },
   spark: {
     defillamaSlug: 'spark',
     coingeckoId: 'spark',
     cmcSlug: 'spark',
-    tevRatio: 0,
+    payout_ratio: 0,
     note: '收入归 Sky DAO'
   },
   mnt: {
     defillamaSlug: null,  // 无 mantle-mnt 协议级 fees
     coingeckoId: 'mantle',
     cmcSlug: 'mantle',
-    tevRatio: 0,
+    payout_ratio: 0,
     note: 'governance-only (类 LDO). Mantle L2 sequencer fees 不流向 MNT 持有人, mETH 收益给 mETH 持有人, Treasury Burn 提案讨论中未执行'
   },
   bgb: {
     defillamaSlug: null,
     coingeckoId: 'bitget-token',
     cmcSlug: 'bitget-token',
-    tevRatio: 0,
+    payout_ratio: 0,
     note: '⚠️ BGB 销毁源头不可链上验证 (类 JustLend pocket-to-pocket 嫌疑). 官方称 20% 收入回购, 但销毁来源无市场对手方证据. yield 标 0% + low confidence'
   },
   okb: {
     defillamaSlug: null,
     coingeckoId: 'okb',
     cmcSlug: 'okb',
-    tevRatio: 0,
+    payout_ratio: 0,
     note: '2025-08 永久锁定 21M 供应, 移除 mint/burn. 官方治理决议永久停止所有 TEV 机制. yield 0% high confidence (明确停止, 非 paused)'
   },
   // SKIP_PROTOCOLS: 市值/年度TEV由独立脚本维护，但 DefiLlama 收入用于多维度 yield 计算
@@ -192,35 +192,35 @@ const PROTOCOL_CONFIG = {
     defillamaSlug: null,  // DefiLlama 无可用数据
     coingeckoId: 'aster-2',
     cmcSlug: 'aster',
-    tevRatio: 0.7,
+    payout_ratio: 0.7,
     note: '70% 交易费回购销毁 (独立链上追踪)'
   },
   bnb: {
     defillamaSlug: 'bsc',
     coingeckoId: 'binancecoin',
     cmcSlug: 'bnb',
-    tevRatio: 0,
+    payout_ratio: 0,
     note: 'Auto-Burn + BEP-95 + StakeHub (独立链上追踪)'
   },
   hype: {
     defillamaSlug: 'hyperliquid',
     coingeckoId: 'hyperliquid',
     cmcSlug: 'hyperliquid',
-    tevRatio: 1.0,
+    payout_ratio: 1.0,
     note: '100% Assistance Fund 回购烧毁 (独立追踪)'
   },
   uniswap: {
     defillamaSlug: 'uniswap',
     coingeckoId: 'uniswap',
     cmcSlug: 'uniswap',
-    tevRatio: 1.0,
+    payout_ratio: 1.0,
     note: '100% 协议费 Firepit 烧毁 + Unichain (独立链上追踪)'
   },
   layerzero: {
     defillamaSlug: 'layerzero-v2',
     coingeckoId: 'layerzero',
     cmcSlug: 'layerzero',
-    tevRatio: null,
+    payout_ratio: null,
     note: 'Stargate 回购小额；协议本体 fee switch 关闭收入=0（期权价值标的）'
   },
 };
@@ -253,7 +253,7 @@ async function fetchJson(url) {
 
 // 获取 DefiLlama Revenue
 // dataType: 'dailyRevenue' (默认, 协议总收入) | 'dailyHoldersRevenue' (已是持有人捕获的部分)
-// 选 'dailyHoldersRevenue' 时，PROTOCOL_CONFIG 的 tevRatio 应设为 1.0（数据本身就是 TEV）
+// 选 'dailyHoldersRevenue' 时，PROTOCOL_CONFIG 的 payout_ratio 应设为 1.0（数据本身就是 TEV）
 async function getDefillamaRevenue(slug, dataType = 'dailyRevenue') {
   try {
     const data = await fetchJson(`https://api.llama.fi/summary/fees/${slug}?dataType=${dataType}`);
@@ -399,10 +399,10 @@ async function main() {
   const allData = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
   const protocols = allData.protocols;
 
-  // 同步所有协议的静态字段（confidence/tevStatus/tev_mechanisms 等）从 config.json → all-protocols.json
+  // 同步所有协议的静态字段（confidence/tevStatus/return_mechanisms 等）从 config.json → all-protocols.json
   // 否则在 config.json 改了 confidence 但 sync 不会拉过来, 主表会显示旧值
   const STATIC_FIELDS_FROM_CONFIG = ['confidence', 'confidence_reason', 'tevStatus',
-                                     'tev_mechanisms', 'tev_summary', 'analyst_notes', 'notes',
+                                     'return_mechanisms', 'tev_summary', 'analyst_notes', 'notes',
                                      'last_updated'];
   for (const [pid, protocol] of Object.entries(protocols)) {
     const configPath = path.join(__dirname, `../data/protocols/${pid}/config.json`);
@@ -486,9 +486,9 @@ async function main() {
       protocol.metrics.tev_yield_7d_ann  = tevYield_7d;
       protocol.metrics.tev_yield_30d_ann = tevYield_30d;
       protocol.metrics.tev_yield_90d_ann = tevYield_90d;
-      protocol.tev_yield_percent         = tevYield_365d;
-      // BNB 无 fee 分润机制，tevRatio 不适用（前端渲染会显示 '—'）
-      protocol.tevRatio = null;
+      protocol.shareholder_yield_percent         = tevYield_365d;
+      // BNB 无 fee 分润机制，payout_ratio 不适用（前端渲染会显示 '—'）
+      protocol.payout_ratio = null;
 
       // 股东回报拆分（mixed）：分红 = asBNB 质押收益（各周期恒定）；回购 = Auto-Burn + BEP-95（post-pass 取 tev - dividend）
       protocol._divYld = { '7': asbnbApy, '30': asbnbApy, '90': asbnbApy, '365': asbnbApy };
@@ -500,7 +500,7 @@ async function main() {
       const ey_30d  = Math.round((bep95Yield(bep95_30d_usd)  + asbnbApy) * 100) / 100;
       const ey_90d  = Math.round((bep95Yield(bep95_90d_usd)  + asbnbApy) * 100) / 100;
       const ey_365d = Math.round((bep95Yield(bep95_365d_usd) + asbnbApy) * 100) / 100;
-      protocol.earning_yield_percent        = ey_365d;
+      protocol.total_yield_percent        = ey_365d;
       protocol.metrics.earning_yield_7d_ann  = ey_7d;
       protocol.metrics.earning_yield_30d_ann = ey_30d;
       protocol.metrics.earning_yield_90d_ann = ey_90d;
@@ -588,23 +588,23 @@ async function main() {
         protocol.metrics.tev_yield_7d_ann  = tev_7d;
         protocol.metrics.tev_yield_30d_ann = tev_30d;
         protocol.metrics.tev_yield_90d_ann = tev_90d;
-        protocol.tev_yield_percent         = tev_365d;
+        protocol.shareholder_yield_percent         = tev_365d;
         protocol.metrics.earning_yield_7d_ann  = ey_7d;
         protocol.metrics.earning_yield_30d_ann = ey_30d;
         protocol.metrics.earning_yield_90d_ann = ey_90d;
-        protocol.earning_yield_percent         = ey_365d;
+        protocol.total_yield_percent         = ey_365d;
         protocol.metrics.trailing_7d_revenue_usd   = revenueData.revenue7d;
         protocol.metrics.trailing_30d_revenue_usd  = revenueData.revenue30d;
         protocol.metrics.trailing_90d_revenue_usd  = revenueData.revenue90d;
         protocol.metrics.trailing_365d_revenue_usd = revenueData.revenue365d;
 
-        // tevRatio 按周期
+        // payout_ratio 按周期
         const calcRatio = (t, e) => (e > 0 ? Math.round(t / e * 10000) / 10000 : null);
         protocol.tevRatio_7d   = calcRatio(tev_7d,   ey_7d);
         protocol.tevRatio_30d  = calcRatio(tev_30d,  ey_30d);
         protocol.tevRatio_90d  = calcRatio(tev_90d,  ey_90d);
         protocol.tevRatio_365d = calcRatio(tev_365d, ey_365d);
-        protocol.tevRatio = protocol.tevRatio_365d;
+        protocol.payout_ratio = protocol.tevRatio_365d;
 
         // 股东回报拆分（mixed）：分红 = Safety Module holdersRevenue（年化）；回购 = 固定 Buyback（post-pass 取 tev - dividend）
         const divYld = (smSum, days) => {
@@ -638,7 +638,7 @@ async function main() {
         console.log(`  Revenue:           7d=$${(revenueData.revenue7d/1e6).toFixed(2)}M 30d=$${(revenueData.revenue30d/1e6).toFixed(2)}M 90d=$${(revenueData.revenue90d/1e6).toFixed(2)}M 365d=$${(revenueData.revenue365d/1e6).toFixed(2)}M`);
         console.log(`  TEV Yield:     7d=${tev_7d}% 30d=${tev_30d}% 90d=${tev_90d}% 365d=${tev_365d}%`);
         console.log(`  Earning:       7d=${ey_7d}% 30d=${ey_30d}% 90d=${ey_90d}% 365d=${ey_365d}%`);
-        console.log(`  tevRatio (各周期): 7d=${protocol.tevRatio_7d} 30d=${protocol.tevRatio_30d} 90d=${protocol.tevRatio_90d} 365d=${protocol.tevRatio_365d}`);
+        console.log(`  payout_ratio (各周期): 7d=${protocol.tevRatio_7d} 30d=${protocol.tevRatio_30d} 90d=${protocol.tevRatio_90d} 365d=${protocol.tevRatio_365d}`);
       }
       updated++;
       continue;
@@ -670,7 +670,7 @@ async function main() {
         protocol.metrics.tev_yield_7d_ann  = calcY(holdersData.sum7d,   7);
         protocol.metrics.tev_yield_30d_ann = calcY(holdersData.sum30d,  30);
         protocol.metrics.tev_yield_90d_ann = calcY(holdersData.sum90d,  90);
-        protocol.tev_yield_percent         = calcY(holdersData.sum365d, 365);
+        protocol.shareholder_yield_percent         = calcY(holdersData.sum365d, 365);
       }
       if (revenueData) {
         protocol.metrics.trailing_7d_revenue_usd   = revenueData.revenue7d;
@@ -680,17 +680,17 @@ async function main() {
         protocol.metrics.earning_yield_7d_ann  = calcY(revenueData.revenue7d,  7);
         protocol.metrics.earning_yield_30d_ann = calcY(revenueData.revenue30d, 30);
         protocol.metrics.earning_yield_90d_ann = calcY(revenueData.revenue90d, 90);
-        protocol.earning_yield_percent         = calcY(revenueData.revenue365d, 365);
+        protocol.total_yield_percent         = calcY(revenueData.revenue365d, 365);
       }
 
-      // tevRatio 动态反映 Splitter 的 burn 比例 —— 按各周期独立算
+      // payout_ratio 动态反映 Splitter 的 burn 比例 —— 按各周期独立算
       if (holdersData && revenueData) {
         const calcRatio = (h, r) => (r > 0 && h != null ? Math.round(h / r * 10000) / 10000 : null);
         protocol.tevRatio_7d   = calcRatio(holdersData.sum7d,   revenueData.revenue7d);
         protocol.tevRatio_30d  = calcRatio(holdersData.sum30d,  revenueData.revenue30d);
         protocol.tevRatio_90d  = calcRatio(holdersData.sum90d,  revenueData.revenue90d);
         protocol.tevRatio_365d = calcRatio(holdersData.sum365d, revenueData.revenue365d);
-        protocol.tevRatio = protocol.tevRatio_365d;  // 顶层保持 365d
+        protocol.payout_ratio = protocol.tevRatio_365d;  // 顶层保持 365d
       }
 
       protocol.validation = protocol.validation || {};
@@ -711,9 +711,9 @@ async function main() {
       console.log(`  marketCap: $${(marketCap/1e9).toFixed(2)}B`);
       if (holdersData) console.log(`  HoldersRevenue: 7d=$${(holdersData.sum7d/1e6).toFixed(2)}M 30d=$${(holdersData.sum30d/1e6).toFixed(2)}M 90d=$${(holdersData.sum90d/1e6).toFixed(2)}M 365d=$${(holdersData.sum365d/1e6).toFixed(2)}M`);
       if (revenueData) console.log(`  Revenue:        7d=$${(revenueData.revenue7d/1e6).toFixed(2)}M 30d=$${(revenueData.revenue30d/1e6).toFixed(2)}M 90d=$${(revenueData.revenue90d/1e6).toFixed(2)}M 365d=$${(revenueData.revenue365d/1e6).toFixed(2)}M`);
-      console.log(`  TEV Yield: 7d=${protocol.metrics.tev_yield_7d_ann}% 30d=${protocol.metrics.tev_yield_30d_ann}% 90d=${protocol.metrics.tev_yield_90d_ann}% 365d=${protocol.tev_yield_percent}%`);
-      console.log(`  Earning:   7d=${protocol.metrics.earning_yield_7d_ann}% 30d=${protocol.metrics.earning_yield_30d_ann}% 90d=${protocol.metrics.earning_yield_90d_ann}% 365d=${protocol.earning_yield_percent}%`);
-      console.log(`  tevRatio (dynamic): ${protocol.tevRatio}`);
+      console.log(`  TEV Yield: 7d=${protocol.metrics.tev_yield_7d_ann}% 30d=${protocol.metrics.tev_yield_30d_ann}% 90d=${protocol.metrics.tev_yield_90d_ann}% 365d=${protocol.shareholder_yield_percent}%`);
+      console.log(`  Earning:   7d=${protocol.metrics.earning_yield_7d_ann}% 30d=${protocol.metrics.earning_yield_30d_ann}% 90d=${protocol.metrics.earning_yield_90d_ann}% 365d=${protocol.total_yield_percent}%`);
+      console.log(`  payout_ratio (dynamic): ${protocol.payout_ratio}`);
       updated++;
       continue;
     }
@@ -739,11 +739,11 @@ async function main() {
       protocol.metrics.tev_yield_7d_ann  = 0;
       protocol.metrics.tev_yield_30d_ann = 0;
       protocol.metrics.tev_yield_90d_ann = 0;
-      protocol.tev_yield_percent         = 0;
+      protocol.shareholder_yield_percent         = 0;
       protocol.metrics.earning_yield_7d_ann  = 0;
       protocol.metrics.earning_yield_30d_ann = 0;
       protocol.metrics.earning_yield_90d_ann = 0;
-      protocol.earning_yield_percent         = 0;
+      protocol.total_yield_percent         = 0;
       protocol.metrics.trailing_7d_revenue_usd   = 0;
       protocol.metrics.trailing_30d_revenue_usd  = 0;
       protocol.metrics.trailing_90d_revenue_usd  = 0;
@@ -751,7 +751,7 @@ async function main() {
 
       protocol.tevStatus = 'none';
       protocol.confidence = 'low';
-      protocol.tevRatio = null;
+      protocol.payout_ratio = null;
 
       // 保留 burn 事件数据作为"供给侧事实"证据，不作为 TEV 来源
       const today = new Date();
@@ -825,12 +825,12 @@ async function main() {
       protocol.metrics.tev_yield_7d_ann  = tev_7d;
       protocol.metrics.tev_yield_30d_ann = tev_30d;
       protocol.metrics.tev_yield_90d_ann = tev_90d;
-      protocol.tev_yield_percent         = tev_365d;
+      protocol.shareholder_yield_percent         = tev_365d;
       // Aster 的 TEV = Earning（100% 买回 → stage 合约，用 treasury buyback 口径，等同 100% 分润）
       protocol.metrics.earning_yield_7d_ann  = tev_7d;
       protocol.metrics.earning_yield_30d_ann = tev_30d;
       protocol.metrics.earning_yield_90d_ann = tev_90d;
-      protocol.earning_yield_percent         = tev_365d;
+      protocol.total_yield_percent         = tev_365d;
       protocol.metrics.trailing_7d_revenue_usd   = Math.round(buy7d_aster * asterPrice);
       protocol.metrics.trailing_30d_revenue_usd  = Math.round(buy30d_aster * asterPrice);
       protocol.metrics.trailing_90d_revenue_usd  = Math.round(buy90d_aster * asterPrice);
@@ -901,12 +901,12 @@ async function main() {
       protocol.metrics.tev_yield_7d_ann  = tev_7d;
       protocol.metrics.tev_yield_30d_ann = tev_30d;
       protocol.metrics.tev_yield_90d_ann = tev_90d;
-      protocol.tev_yield_percent         = tev_365d;
-      // Earning = TEV for uniswap (tevRatio=1.0，所有 burn 归 token holder)
+      protocol.shareholder_yield_percent         = tev_365d;
+      // Earning = TEV for uniswap (payout_ratio=1.0，所有 burn 归 token holder)
       protocol.metrics.earning_yield_7d_ann  = tev_7d;
       protocol.metrics.earning_yield_30d_ann = tev_30d;
       protocol.metrics.earning_yield_90d_ann = tev_90d;
-      protocol.earning_yield_percent         = tev_365d;
+      protocol.total_yield_percent         = tev_365d;
       // revenue 字段用 burn USD 填（反映 token holder 实得）
       protocol.metrics.trailing_7d_revenue_usd   = Math.round(usd(burn7d_uni));
       protocol.metrics.trailing_30d_revenue_usd  = Math.round(usd(burn30d_uni));
@@ -956,8 +956,8 @@ async function main() {
       protocol.metrics.tev_yield_7d_ann   = sm['7']?.yield_pct ?? 0;
       protocol.metrics.tev_yield_30d_ann  = sm['30']?.yield_pct ?? 0;
       protocol.metrics.tev_yield_90d_ann  = sm['90']?.yield_pct ?? 0;
-      protocol.tev_yield_percent          = sm['365']?.yield_pct ?? 0;
-      protocol.earning_yield_percent      = protocol.tev_yield_percent;
+      protocol.shareholder_yield_percent          = sm['365']?.yield_pct ?? 0;
+      protocol.total_yield_percent      = protocol.shareholder_yield_percent;
       protocol.metrics.earning_yield_7d_ann  = protocol.metrics.tev_yield_7d_ann;
       protocol.metrics.earning_yield_30d_ann = protocol.metrics.tev_yield_30d_ann;
       protocol.metrics.earning_yield_90d_ann = protocol.metrics.tev_yield_90d_ann;
@@ -967,7 +967,7 @@ async function main() {
       protocol.metrics.trailing_365d_revenue_usd = sm['365']?.burn_usd ?? 0;
       protocol.metrics.trailing_365d_tev_usd     = sm['365']?.burn_usd ?? 0;
       protocol.tevStatus = 'active';
-      protocol.tevRatio = 1.0;
+      protocol.payout_ratio = 1.0;
       protocol.confidence = 'high';
       protocol.validation = protocol.validation || {};
       protocol.validation.method = 'DefiLlama dailyHoldersRevenue (CAKE buyback&burn, gross)';
@@ -1004,8 +1004,8 @@ async function main() {
       protocol.metrics.tev_yield_7d_ann   = 0;
       protocol.metrics.tev_yield_30d_ann  = 0;
       protocol.metrics.tev_yield_90d_ann  = 0;
-      protocol.tev_yield_percent          = 0;
-      protocol.earning_yield_percent      = 0;
+      protocol.shareholder_yield_percent          = 0;
+      protocol.total_yield_percent      = 0;
       protocol.metrics.earning_yield_7d_ann  = 0;
       protocol.metrics.earning_yield_30d_ann = 0;
       protocol.metrics.earning_yield_90d_ann = 0;
@@ -1015,7 +1015,7 @@ async function main() {
       protocol.metrics.trailing_365d_revenue_usd = 0;
       protocol.metrics.trailing_365d_tev_usd     = 0;
       protocol.tevStatus = 'none';
-      protocol.tevRatio = null;
+      protocol.payout_ratio = null;
       protocol.confidence = 'low';
       // 保留全部链上调研事实作为"供给侧记录"，未来如发现真实 executor 可恢复
       protocol.validation = protocol.validation || {};
@@ -1061,8 +1061,8 @@ async function main() {
       protocol.metrics.tev_yield_7d_ann   = sm['7d']?.yield_pct_nominal ?? 0;
       protocol.metrics.tev_yield_30d_ann  = sm['30d']?.yield_pct_nominal ?? 0;
       protocol.metrics.tev_yield_90d_ann  = sm['90d']?.yield_pct_nominal ?? 0;
-      protocol.tev_yield_percent          = sm['365d']?.yield_pct_nominal ?? 0;
-      protocol.earning_yield_percent      = protocol.tev_yield_percent;
+      protocol.shareholder_yield_percent          = sm['365d']?.yield_pct_nominal ?? 0;
+      protocol.total_yield_percent      = protocol.shareholder_yield_percent;
       protocol.metrics.earning_yield_7d_ann  = protocol.metrics.tev_yield_7d_ann;
       protocol.metrics.earning_yield_30d_ann = protocol.metrics.tev_yield_30d_ann;
       protocol.metrics.earning_yield_90d_ann = protocol.metrics.tev_yield_90d_ann;
@@ -1072,7 +1072,7 @@ async function main() {
       protocol.metrics.trailing_365d_revenue_usd = sm['365d']?.vecrv_tev_usd ?? 0;
       protocol.metrics.trailing_365d_tev_usd     = sm['365d']?.vecrv_tev_usd ?? 0;
       protocol.tevStatus = 'active';
-      protocol.tevRatio = 0.9;  // FeeAllocator 90% to veCRV
+      protocol.payout_ratio = 0.9;  // FeeAllocator 90% to veCRV
       protocol.confidence = 'high';
       protocol.validation = protocol.validation || {};
       protocol.validation.method = 'Community Fund Treasury crvUSD inflow × 9 (FeeAllocator 90/10)';
@@ -1106,13 +1106,13 @@ async function main() {
         protocol.metrics.trailing_30d_revenue_usd = revenueData.revenue30d;
         protocol.metrics.trailing_90d_revenue_usd = revenueData.revenue90d;
         protocol.metrics.trailing_365d_revenue_usd = revenueData.revenue365d;
-        // 多维度年化 TEV Yield（用现有 tevRatio 或从现有 yield 反推）
-        const tevRatio = config.tevRatio || (marketCap > 0 && revenueData.revenue365d > 0 ? (protocol.tev_yield_percent / 100 * marketCap) / (revenueData.revenue365d * 365 / 365) / 1 : 0);
+        // 多维度年化 TEV Yield（用现有 payout_ratio 或从现有 yield 反推）
+        const payout_ratio = config.payout_ratio || (marketCap > 0 && revenueData.revenue365d > 0 ? (protocol.shareholder_yield_percent / 100 * marketCap) / (revenueData.revenue365d * 365 / 365) / 1 : 0);
         const calcY = (rev, days) => {
-          if (rev == null || !marketCap || !tevRatio) return null;
+          if (rev == null || !marketCap || !payout_ratio) return null;
           // 365d 不需要年化（已是 365 天累计）
           const annFactor = days >= 365 ? 1 : (365 / days);
-          return Math.round(rev * annFactor * tevRatio / marketCap * 10000) / 100;
+          return Math.round(rev * annFactor * payout_ratio / marketCap * 10000) / 100;
         };
         const calcEY = (rev, days) => {
           if (rev == null || !marketCap) return null;
@@ -1128,11 +1128,11 @@ async function main() {
         // 新增：365d 顶层字段（之前 SKIP 分支漏算，导致 365d yield 停留在手写值）
         const tev365 = calcY(revenueData.revenue365d, 365);
         const earning365 = calcEY(revenueData.revenue365d, 365);
-        if (tev365 != null) protocol.tev_yield_percent = tev365;
-        if (earning365 != null) protocol.earning_yield_percent = earning365;
+        if (tev365 != null) protocol.shareholder_yield_percent = tev365;
+        if (earning365 != null) protocol.total_yield_percent = earning365;
         updated++;
         console.log(`  rev 7d=$${((revenueData.revenue7d||0)/1e6).toFixed(2)}M, 365d=$${((revenueData.revenue365d||0)/1e6).toFixed(2)}M`);
-        console.log(`  yield 7d=${protocol.metrics.tev_yield_7d_ann}% 30d=${protocol.metrics.tev_yield_30d_ann}% 90d=${protocol.metrics.tev_yield_90d_ann}% 365d=${protocol.tev_yield_percent}%`);
+        console.log(`  yield 7d=${protocol.metrics.tev_yield_7d_ann}% 30d=${protocol.metrics.tev_yield_30d_ann}% 90d=${protocol.metrics.tev_yield_90d_ann}% 365d=${protocol.shareholder_yield_percent}%`);
       }
       await new Promise(r => setTimeout(r, 2000));
       continue;
@@ -1147,7 +1147,7 @@ async function main() {
       continue;
     }
     
-    // 获取 Revenue（部分协议指定 dailyHoldersRevenue，搭配 tevRatio: 1.0）
+    // 获取 Revenue（部分协议指定 dailyHoldersRevenue，搭配 payout_ratio: 1.0）
     const revenueData = await getDefillamaRevenue(config.defillamaSlug, config.defillamaDataType || 'dailyRevenue');
     if (!revenueData) {
       errors++;
@@ -1166,12 +1166,12 @@ async function main() {
     if (config.fixedTevUsd) {
       // 固定 TEV（如 Aave）
       tev365d = config.fixedTevUsd;
-    } else if (config.tevRatio !== undefined && config.tevRatio !== null) {
-      // 按比例计算（含 tevRatio=0 的明确归零，不再反推）
-      tev365d = revenueData.revenue365d * config.tevRatio;
+    } else if (config.payout_ratio !== undefined && config.payout_ratio !== null) {
+      // 按比例计算（含 payout_ratio=0 的明确归零，不再反推）
+      tev365d = revenueData.revenue365d * config.payout_ratio;
     } else {
-      // 从现有 TEV Yield 反推（仅 tevRatio 完全未定义时）
-      const tevYield = protocol.tev_yield_percent || 0;
+      // 从现有 TEV Yield 反推（仅 payout_ratio 完全未定义时）
+      const tevYield = protocol.shareholder_yield_percent || 0;
       tev365d = tevYield * marketCap / 100;
     }
     
@@ -1179,7 +1179,7 @@ async function main() {
     const calcYield = (revenue, days) => {
       if (revenue == null || !marketCap) return null;
       const annualized = revenue * (365 / days);
-      const tev = config.fixedTevUsd ? config.fixedTevUsd : annualized * (config.tevRatio || 0);
+      const tev = config.fixedTevUsd ? config.fixedTevUsd : annualized * (config.payout_ratio || 0);
       return Math.round(tev / marketCap * 10000) / 100;
     };
 
@@ -1194,7 +1194,7 @@ async function main() {
 
     const oldMcap = protocol.market_cap_usd;
     const oldRevenue = protocol.metrics.trailing_365d_revenue_usd;
-    const oldTevYield = protocol.tev_yield_percent;
+    const oldTevYield = protocol.shareholder_yield_percent;
 
     protocol.market_cap_usd = marketCap;
     protocol.metrics.current_market_cap_usd = marketCap;
@@ -1207,7 +1207,7 @@ async function main() {
     protocol.metrics.tev_yield_7d_ann = tevYield7d;
     protocol.metrics.tev_yield_30d_ann = tevYield30d;
     protocol.metrics.tev_yield_90d_ann = tevYield90d;
-    protocol.tev_yield_percent = Math.round(tevYield * 100) / 100;
+    protocol.shareholder_yield_percent = Math.round(tevYield * 100) / 100;
 
     // 多维度年化 Earning Yield = annualized revenue / market_cap
     const calcEarningYield = (revenue, days) => {
@@ -1217,7 +1217,7 @@ async function main() {
     protocol.metrics.earning_yield_7d_ann = calcEarningYield(revenueData.revenue7d, 7);
     protocol.metrics.earning_yield_30d_ann = calcEarningYield(revenueData.revenue30d, 30);
     protocol.metrics.earning_yield_90d_ann = calcEarningYield(revenueData.revenue90d, 90);
-    protocol.earning_yield_percent = calcEarningYield(revenueData.revenue365d, 365) || protocol.earning_yield_percent;
+    protocol.total_yield_percent = calcEarningYield(revenueData.revenue365d, 365) || protocol.total_yield_percent;
     
     // 输出变化
     console.log(`  市值: $${(oldMcap/1e6).toFixed(1)}M → $${(marketCap/1e6).toFixed(1)}M`);
@@ -1246,7 +1246,7 @@ async function main() {
       d = Math.round(d * 100) / 100;
       return { d, b: Math.round((tev - d) * 100) / 100 };
     };
-    const s365 = splitOne(protocol.tev_yield_percent, '365');
+    const s365 = splitOne(protocol.shareholder_yield_percent, '365');
     protocol.dividend_yield_percent = s365.d;
     protocol.buyback_yield_percent  = s365.b;
     for (const [n, field] of [['7', 'tev_yield_7d_ann'], ['30', 'tev_yield_30d_ann'], ['90', 'tev_yield_90d_ann']]) {
@@ -1257,7 +1257,7 @@ async function main() {
     // 风格：现金牛（在实际向持有人还钱）vs 成长（基本不还钱，按 P/S + 增速估）
     // 阈值 1%：把 Uniswap(~0.66%, fee switch 基本关) / Lido(0) 等近零回报归成长；
     // Curve/Aster/Maple 等虽然 yield 不高但有真实资本返还 → 现金牛（风格是性质不是量级）
-    protocol.style = (protocol.tev_yield_percent >= 1 && protocol.tevStatus === 'active') ? 'cash_cow' : 'growth';
+    protocol.style = (protocol.shareholder_yield_percent >= 1 && protocol.tevStatus === 'active') ? 'cash_cow' : 'growth';
     delete protocol._divYld;
   }
 
@@ -1331,14 +1331,14 @@ async function main() {
         const cfg = JSON.parse(fs.readFileSync(configPath, 'utf8'));
         // 同步动态计算字段
         cfg.market_cap_usd = protocol.market_cap_usd;
-        cfg.tev_yield_percent = protocol.tev_yield_percent;
-        cfg.earning_yield_percent = protocol.earning_yield_percent;
-        cfg.tevRatio = protocol.tevRatio;
+        cfg.shareholder_yield_percent = protocol.shareholder_yield_percent;
+        cfg.total_yield_percent = protocol.total_yield_percent;
+        cfg.payout_ratio = protocol.payout_ratio;
         cfg.dividend_yield_percent = protocol.dividend_yield_percent;
         cfg.buyback_yield_percent = protocol.buyback_yield_percent;
         cfg.style = protocol.style;
         if (!cfg.tev_data) cfg.tev_data = {};
-        cfg.tev_data.tev_yield_percent = protocol.tev_yield_percent;
+        cfg.tev_data.shareholder_yield_percent = protocol.shareholder_yield_percent;
         cfg.tev_data.market_cap_usd = protocol.market_cap_usd;
         cfg.tev_data.annual_tev_usd = (protocol.metrics || {}).trailing_365d_tev_usd;
         cfg.tev_data.calculation_date = new Date().toISOString().split('T')[0];

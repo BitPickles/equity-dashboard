@@ -15,7 +15,7 @@
     "circulating_supply": 589512855.7955344,
     "total_supply": 1791332848.045445
   },
-  "tev_mechanisms": [],
+  "return_mechanisms": [],
   "tev_summary": {
     "fee_switch": "OFF",
     "fee_switch_details": "协议费用开关未开启",
@@ -38,7 +38,7 @@
   "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": false,
-    "tev_yield_percent": 0,
+    "shareholder_yield_percent": 0,
     "annual_tev_usd": 0,
     "market_cap_usd": 162824450.72,
     "calculation_date": "2026-08-02",
@@ -69,10 +69,10 @@
     "zh": "纯治理代币. AVS 费用不分给 EIGEN 持有人, restaking rewards 全流向 validator",
     "en": "纯治理代币. AVS 费用不分给 EIGEN 持有人, restaking rewards 全流向 validator"
   },
-  "tevRatio": 0,
-  "earning_yield_percent": 0,
+  "payout_ratio": 0,
+  "total_yield_percent": 0,
   "market_cap_usd": 162824450.72,
-  "tev_yield_percent": 0,
+  "shareholder_yield_percent": 0,
   "metrics": {
     "current_market_cap_usd": 162824450.72,
     "trailing_365d_revenue_usd": 0,
@@ -114,7 +114,7 @@
         "7d": "metrics.tev_yield_7d_ann",
         "30d": "metrics.tev_yield_30d_ann",
         "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
@@ -132,7 +132,7 @@
     },
     "revenue_excluded": {},
     "calculation": {
-      "tev_ratio": 0,
+      "payout_ratio": 0,
       "note": "EIGEN 无收益权；不回购的钱进国库/支出 → 留存行"
     },
     "source_type": "defillama",

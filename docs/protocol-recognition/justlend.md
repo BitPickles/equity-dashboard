@@ -62,7 +62,7 @@
 - **DefiLlama 侧面佐证**：justlend slug 只报 ~$500k/年 revenue（interest spread），远远撑不起官方声称的 $41.42M 储备 + 后续季度收入
 - **TRON 生态透明度低**：JST staking 机制缺透明文档，无 Dune 等独立分析工具；DefiLlama 无 tokenRights 数据；与 Justin Sun 团队关联，中心化程度高
 - **未来重新评估条件**：若链上观察到 executor 真正从市场买 JST（USDT 流出 + JST 流入配对），可重新评估
-- tevStatus = `none`，tevRatio = null，各周期 TEV/Earning Yield 均 0%
+- tevStatus = `none`，payout_ratio = null，各周期 TEV/Earning Yield 均 0%
 
 ## 七、判定书出处
 

@@ -12,7 +12,7 @@
     "coingecko_id": "hyperliquid",
     "defillama_id": "hyperliquid"
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "buyback_burn",
       "name": "Assistance Fund Buyback & Burn（手续费直接销毁）",
@@ -33,7 +33,7 @@
     "dividends": "NONE",
     "burns": "ACTIVE",
     "primary_value_accrual": "手续费直接销毁 ≈ 回购，基本 99%",
-    "tevRatio": 0.99
+    "payout_ratio": 0.99
   },
   "market_data": {
     "price_usd": 30.92,
@@ -62,7 +62,7 @@
     },
     "calculation": {
       "revenue_usd_365d": "DefiLlama dailyRevenue 365d",
-      "tev_ratio": 0.99,
+      "payout_ratio": 0.99,
       "note": "~99% 计入（以链上实际销毁为准）；AF 留存余额 ~1% 不计入"
     },
     "source_type": "chain",

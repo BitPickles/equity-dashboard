@@ -111,13 +111,13 @@ def run_generic_adapter(proto_dir, all_protocols, daily):
     tvl = ap.get("tvl") or daily_latest.get("tvl")
 
     # 股东回报（L3）：优先从 all-protocols 已验证字段组装
-    tev_yield = ap.get("tev_yield_percent") or ap.get("shareholder_yield_percent")
+    tev_yield = ap.get("shareholder_yield_percent") or ap.get("shareholder_yield_percent")
     tev_usd_365d = ap.get("validation", {}).get("recent_4q_burn_usd_current")
     if tev_usd_365d is None:
         tev_usd_365d = ap.get("tev_data", {}).get("annual_tev_usd")
 
     by_mechanism = []
-    mechanisms = config.get("tev_mechanisms", [])
+    mechanisms = config.get("return_mechanisms", [])
     if mechanisms and tev_yield:
         # 拆成机制级条目（数值按比例分摊；没有精确拆分时合并为一条）
         active = [m for m in mechanisms if m.get("status") == "active"]

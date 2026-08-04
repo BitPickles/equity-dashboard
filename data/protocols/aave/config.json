@@ -13,7 +13,7 @@
     "coingecko_id": "aave",
     "defillama_id": "aave"
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "buyback",
       "name": "AAVE Buyback Program",
@@ -81,7 +81,7 @@
   "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 3.19,
+    "shareholder_yield_percent": 3.19,
     "annual_tev_usd": 30000000,
     "market_cap_usd": 1799059173.84,
     "calculation_date": "2026-08-02",
@@ -116,16 +116,16 @@
     },
     "methodology": "Aave DAO annual buyback budget (fixed) + Umbrella/Safety Module holder rewards (dynamic from DefiLlama)"
   },
-  "analyst_notes": "【2026-04-22 更新 - 双源 TEV + 各周期独立】\n\n## TEV 机制（双源组合）\n\nAave 的 TEV 由两个独立机制组成，各周期独立累加：\n\n### 1. 年度 Buyback（$30M/年，2026-03 治理）\n\n- **来源**：AIP-73 \"Aavenomics Update Part 1\" 设立年度 AAVE 回购预算\n- **2026-03 治理**：从 $50M 下调至 $30M（99.37% 通过，需核实具体 AIP 号）\n- **执行**：TokenLogic / Aave Finance Committee 用 DAO 财库 USDC/GHO 市场买入 AAVE\n- **⚠️ 关键 caveats**：\n  - 买到的 AAVE 进入 **Ecosystem Reserve** (`0x25F2...6491`) 和 AFC multisig\n  - **不是真 burn，是 treasury accumulation**，类似 Hyperliquid AF\n  - 治理可 redistribute（一部分会用于 Umbrella stakers 激励 / contributor grants）\n  - 链上验证：过去 365d AAVE → 0xdead = 0.0001 AAVE（确认不 burn）\n\n### 2. Safety Module (Umbrella) holders revenue\n\n- **来源**：协议 reserve factor 收入 + liquidation fees 分成\n- **数据源**：DefiLlama `dailyHoldersRevenue`（近 365d 合计 $40.29M）\n- **特点**：**脉冲式分发**——每 1-2 周一次大包（$200k~$6M），其他天为 0\n- **Umbrella 迁移**：2025 年中 Umbrella 合约替代旧 stkAAVE (`0x4da2...70f5`)\n- **⚠️ 最近 50+ 天 SM = $0**：可能是 Umbrella 新合约 DefiLlama 追踪滞后，或真的暂停分发（需进一步核实）\n\n## TEV 公式（各周期独立）\n\n```\nTEV_Nd = $30M (固定 Buyback) + (DefiLlama holdersRevenue 近 N 天累加 × 365/N)\n      ÷ marketCap × 年化\n```\n\n- 7/30/90d：holdersRevenue 按窗口累加后年化\n- 365d：holdersRevenue 365d 直接累计（不需年化）\n\n## 方案 A 选择的代价\n\n短周期（7d/30d）窗口碰巧没抓到 SM 分发大包 → TEV 显示只剩 $30M buyback，yield 降至 1.67%。\n\n这**反映的是\"Safety Module 分发周期\"而非\"价值下降\"**。用户需理解：\n- Aave 的 SM 分发不是每天——是治理节奏\n- 最近 50 天没分发，可能正常（迁移期）也可能异常\n\n长周期（365d）能稳定反映全年实际分发总额，更接近\"稳态 TEV\"。\n\n## 当前数字（2026-04-22 快照）\n\n| 周期 | Buyback | SM | Total TEV | Yield | Earning Yield | 分配率 |\n|------|---------|-----|-----------|-------|---------------|--------|\n| 7d   | $30M    | $0  | $30M      | 1.67% | 8.65%         | 19%    |\n| 30d  | $30M    | $0  | $30M      | 1.67% | 5.18%         | 32%    |\n| 90d  | $30M    | $27.4M 年化 | $57M | 3.19% | 5.63%   | 57%    |\n| 365d | $30M    | $40.29M | $70M    | 3.91% | 6.91%         | 57%    |\n\n## 数据源\n\n- DefiLlama: `https://api.llama.fi/summary/fees/aave?dataType=dailyHoldersRevenue`（SM）\n- DefiLlama: `https://api.llama.fi/summary/fees/aave?dataType=dailyRevenue`（协议 reserve factor）\n- 官方 Buyback 仪表盘：https://aave.tokenlogic.xyz（手动核对用）\n- Buyback 执行合约：待核实（可能是 AFC Safe）\n\n## 历史口径变更\n\n- 2026-04-22: 从单一 fixedTevUsd $30M 改为双源组合（Buyback + SM holdersRevenue 按周期）；明确 buyback 是 treasury-accumulated 非 burn；加 caveats；tevRatio 按周期独立\n- 2026-03: 治理把 buyback 从 $50M → $30M\n- 2024-07-25: AIP-73 启动 Aavenomics buyback\n- 2020-09-01: Safety Module 上线（老 stkAAVE）",
+  "analyst_notes": "【2026-04-22 更新 - 双源 TEV + 各周期独立】\n\n## TEV 机制（双源组合）\n\nAave 的 TEV 由两个独立机制组成，各周期独立累加：\n\n### 1. 年度 Buyback（$30M/年，2026-03 治理）\n\n- **来源**：AIP-73 \"Aavenomics Update Part 1\" 设立年度 AAVE 回购预算\n- **2026-03 治理**：从 $50M 下调至 $30M（99.37% 通过，需核实具体 AIP 号）\n- **执行**：TokenLogic / Aave Finance Committee 用 DAO 财库 USDC/GHO 市场买入 AAVE\n- **⚠️ 关键 caveats**：\n  - 买到的 AAVE 进入 **Ecosystem Reserve** (`0x25F2...6491`) 和 AFC multisig\n  - **不是真 burn，是 treasury accumulation**，类似 Hyperliquid AF\n  - 治理可 redistribute（一部分会用于 Umbrella stakers 激励 / contributor grants）\n  - 链上验证：过去 365d AAVE → 0xdead = 0.0001 AAVE（确认不 burn）\n\n### 2. Safety Module (Umbrella) holders revenue\n\n- **来源**：协议 reserve factor 收入 + liquidation fees 分成\n- **数据源**：DefiLlama `dailyHoldersRevenue`（近 365d 合计 $40.29M）\n- **特点**：**脉冲式分发**——每 1-2 周一次大包（$200k~$6M），其他天为 0\n- **Umbrella 迁移**：2025 年中 Umbrella 合约替代旧 stkAAVE (`0x4da2...70f5`)\n- **⚠️ 最近 50+ 天 SM = $0**：可能是 Umbrella 新合约 DefiLlama 追踪滞后，或真的暂停分发（需进一步核实）\n\n## TEV 公式（各周期独立）\n\n```\nTEV_Nd = $30M (固定 Buyback) + (DefiLlama holdersRevenue 近 N 天累加 × 365/N)\n      ÷ marketCap × 年化\n```\n\n- 7/30/90d：holdersRevenue 按窗口累加后年化\n- 365d：holdersRevenue 365d 直接累计（不需年化）\n\n## 方案 A 选择的代价\n\n短周期（7d/30d）窗口碰巧没抓到 SM 分发大包 → TEV 显示只剩 $30M buyback，yield 降至 1.67%。\n\n这**反映的是\"Safety Module 分发周期\"而非\"价值下降\"**。用户需理解：\n- Aave 的 SM 分发不是每天——是治理节奏\n- 最近 50 天没分发，可能正常（迁移期）也可能异常\n\n长周期（365d）能稳定反映全年实际分发总额，更接近\"稳态 TEV\"。\n\n## 当前数字（2026-04-22 快照）\n\n| 周期 | Buyback | SM | Total TEV | Yield | Earning Yield | 分配率 |\n|------|---------|-----|-----------|-------|---------------|--------|\n| 7d   | $30M    | $0  | $30M      | 1.67% | 8.65%         | 19%    |\n| 30d  | $30M    | $0  | $30M      | 1.67% | 5.18%         | 32%    |\n| 90d  | $30M    | $27.4M 年化 | $57M | 3.19% | 5.63%   | 57%    |\n| 365d | $30M    | $40.29M | $70M    | 3.91% | 6.91%         | 57%    |\n\n## 数据源\n\n- DefiLlama: `https://api.llama.fi/summary/fees/aave?dataType=dailyHoldersRevenue`（SM）\n- DefiLlama: `https://api.llama.fi/summary/fees/aave?dataType=dailyRevenue`（协议 reserve factor）\n- 官方 Buyback 仪表盘：https://aave.tokenlogic.xyz（手动核对用）\n- Buyback 执行合约：待核实（可能是 AFC Safe）\n\n## 历史口径变更\n\n- 2026-04-22: 从单一 fixedTevUsd $30M 改为双源组合（Buyback + SM holdersRevenue 按周期）；明确 buyback 是 treasury-accumulated 非 burn；加 caveats；payout_ratio 按周期独立\n- 2026-03: 治理把 buyback 从 $50M → $30M\n- 2024-07-25: AIP-73 启动 Aavenomics buyback\n- 2020-09-01: Safety Module 上线（老 stkAAVE）",
   "tevStatus": "active",
   "confidence_reason": {
     "zh": "治理提案 AIP-1 明确年回购预算，链上可追踪",
     "en": "AIP-1 governance proposal with fixed annual buyback budget, on-chain trackable"
   },
-  "tevRatio": 0.4969,
-  "earning_yield_percent": 6.42,
+  "payout_ratio": 0.4969,
+  "total_yield_percent": 6.42,
   "market_cap_usd": 1799059173.84,
-  "tev_yield_percent": 3.19,
+  "shareholder_yield_percent": 3.19,
   "metrics": {
     "current_market_cap_usd": 1799059173.84,
     "trailing_365d_revenue_usd": 115460247,
@@ -203,7 +203,7 @@
         "7d": "metrics.tev_yield_7d_ann",
         "30d": "metrics.tev_yield_30d_ann",
         "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }

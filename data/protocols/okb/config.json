@@ -15,7 +15,7 @@
     "coingecko_id": "okb",
     "note": "OKB 同时存在于 Ethereum 和 X Layer"
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "buyback_burn",
       "name": "Buyback & Burn (terminated)",
@@ -39,7 +39,7 @@
     "burns": "NONE",
     "burn_details": "2025-08-13 一次性销毁 65,256,712.097 OKB，之后不再有回购/销毁",
     "primary_value_accrual": "无持续 TEV 回流（供应已锁定，不再回购或销毁）",
-    "tevRatio": 0
+    "payout_ratio": 0
   },
   "market_data": {
     "price_usd": 86.6,
@@ -50,7 +50,7 @@
     "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
   "calculated_tev": {
-    "tev_yield_percent": null,
+    "shareholder_yield_percent": null,
     "calculation_status": "UNABLE_TO_CALCULATE",
     "reason": "OKX 作为私营公司不公开财务数据，无法获取准确的销毁金额",
     "note": "需要整理历史季度销毁公告来估算"
@@ -113,7 +113,7 @@
   "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": false,
-    "tev_yield_percent": 0,
+    "shareholder_yield_percent": 0,
     "market_cap_usd": 1503276222,
     "calculation_date": "2026-08-02",
     "sources": [
@@ -136,10 +136,10 @@
     "zh": "2025-08 OKX 治理决议永久锁定 21M 供应, 移除合约 mint/burn 功能. 治理决议明确公开, 链上合约升级可验证.",
     "en": "2025-08 governance decision permanently caps supply at 21M, mint/burn removed from contract. Clear governance + on-chain verifiable."
   },
-  "earning_yield_percent": 0,
+  "total_yield_percent": 0,
   "market_cap_usd": 1503276222,
-  "tev_yield_percent": 0,
-  "tevRatio": 0,
+  "shareholder_yield_percent": 0,
+  "payout_ratio": 0,
   "calc_pipeline": [
     {
       "step": 1,
@@ -177,7 +177,7 @@
         "7d": "metrics.tev_yield_7d_ann",
         "30d": "metrics.tev_yield_30d_ann",
         "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }

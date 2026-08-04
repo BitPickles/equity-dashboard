@@ -26,7 +26,7 @@
       "firepit": "0xe0A780E9105aC10Ee304448224Eb4A2b11A77eeB"
     }
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "buyback_burn",
       "name": "UNI Burn via Firepit",
@@ -131,7 +131,7 @@
   "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 0.72,
+    "shareholder_yield_percent": 0.72,
     "market_cap_usd": 2542249880.4217114,
     "calculation_date": "2026-08-02",
     "sources": [
@@ -190,10 +190,10 @@
     "zh": "Firepit 销毁 UNI→0xdead 完全链上可追踪（Etherscan）",
     "en": "Firepit burn UNI→0xdead fully on-chain trackable (Etherscan)"
   },
-  "tevRatio": 1,
-  "earning_yield_percent": 0.72,
+  "payout_ratio": 1,
+  "total_yield_percent": 0.72,
   "market_cap_usd": 2542249880.4217114,
-  "tev_yield_percent": 0.72,
+  "shareholder_yield_percent": 0.72,
   "metrics": {
     "trailing_7d_revenue_usd": 425339,
     "trailing_30d_revenue_usd": 1436522,
@@ -267,7 +267,7 @@
         "7d": "metrics.tev_yield_7d_ann",
         "30d": "metrics.tev_yield_30d_ann",
         "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
@@ -285,7 +285,7 @@
     },
     "revenue_excluded": {},
     "calculation": {
-      "tev_ratio": 1,
+      "payout_ratio": 1,
       "note": "Firepit 销毁 = 回购性质；365d 0xdead 累计口径"
     },
     "source_type": "chain",

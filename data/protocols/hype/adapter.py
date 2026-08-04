@@ -14,7 +14,7 @@ Hyperliquid 专属适配器 — data/protocols/hype/adapter.py（正式 key 为 
 因此本目录才是正式消费路径；data/protocols/hyperliquid/ 为同口径镜像（旧别名目录）。
 
 数据源（本地缓存）：
-- config.json            → 机制/口径声明（tevRatio=0.99）
+- config.json            → 机制/口径声明（payout_ratio=0.99）
 - data/all-protocols.json → 市值 / metrics（trailing_365d_revenue_usd 已验证）
 - data/protocols/hype/af-history.json → AF 日序列（只读参考；截至 2026-04-17 陈旧，仅交叉核对注记）
 """
@@ -48,10 +48,10 @@ def build_snapshot(proto_dir):
     metrics = ap.get("metrics", {}) or {}
     mcap = ap.get("market_cap_usd")
     tvl = ap.get("tvl")
-    # 判定书 §9：tevRatio 维持 ~99%（以链上实际销毁为准，spot 真销毁计入、AF 余额不计入）
-    tev_ratio = config.get("tevRatio") if config.get("tevRatio") is not None else 0.99
-    if tev_ratio >= 1:
-        tev_ratio = 0.99  # config 遗留值 1.0（100%）与判定书 ~99% 不符时以判定书为准
+    # 判定书 §9：payout_ratio 维持 ~99%（以链上实际销毁为准，spot 真销毁计入、AF 余额不计入）
+    payout_ratio = config.get("payout_ratio") if config.get("payout_ratio") is not None else 0.99
+    if payout_ratio >= 1:
+        payout_ratio = 0.99  # config 遗留值 1.0（100%）与判定书 ~99% 不符时以判定书为准
 
     # ── 收入（L2）──────────────────────────────────────────────
     # DefiLlama dailyRevenue 365d（已验证）；链上 AF entryNtl 交叉验证。
@@ -70,7 +70,7 @@ def build_snapshot(proto_dir):
         af_365d = None
 
     # ── 股东回报（L3）：99% 计入销毁 🟢 ────────────────────────
-    returns_usd = round(revenue * tev_ratio, 2) if revenue else None
+    returns_usd = round(revenue * payout_ratio, 2) if revenue else None
     yield_pct = round(returns_usd / mcap * 100, 4) if (returns_usd and mcap) else None
 
     by_mechanism = [
@@ -169,8 +169,8 @@ def build_snapshot(proto_dir):
         },
         "valuation": valuation,
         "verification": {
-            "method": f"净利 = DefiLlama dailyRevenue 365d {_fmt(revenue)}；股东回报 = 收入 × {tev_ratio} "
-                      f"= {_fmt(returns_usd)}（销毁型 🟢，tevRatio={tev_ratio}）"
+            "method": f"净利 = DefiLlama dailyRevenue 365d {_fmt(revenue)}；股东回报 = 收入 × {payout_ratio} "
+                      f"= {_fmt(returns_usd)}（销毁型 🟢，payout_ratio={payout_ratio}）"
                       f"{f'；af-history 旧缓存 365d {_fmt(af_365d)}（截至 2026-04-17，窗口不重叠，仅参考）' if af_365d else ''}",
             "status": "verified",
             "last_checked": date.today().isoformat(),

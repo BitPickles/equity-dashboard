@@ -11,7 +11,7 @@
     "chain": "Hyperliquid L1",
     "coingecko_id": "hyperliquid"
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "buyback_burn",
       "name": "Assistance Fund Buyback & Burn",
@@ -56,7 +56,7 @@
     "dividends": "NONE",
     "burns": "ACTIVE",
     "primary_value_accrual": "回购销毁 - Assistance Fund 自动将费用换成 HYPE 并永久移除",
-    "tevRatio": "100%",
+    "payout_ratio": "100%",
     "tevRatio_note": "净利润（Token Holder Net Income）= 进入 AF 回购金额；逐期相等，因此净利润 100% 用于回购销毁"
   },
   "market_data": {
@@ -70,7 +70,7 @@
     "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
   "calculated_tev": {
-    "tev_yield_percent": 12.42,
+    "shareholder_yield_percent": 12.42,
     "calculation_status": "CALCULATED",
     "calculation_date": "2026-03-01",
     "inputs": {
@@ -158,7 +158,7 @@
   },
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 10.49,
+    "shareholder_yield_percent": 10.49,
     "market_cap_usd": 7368065201,
     "calculation_date": "2026-08-02",
     "sources": [
@@ -188,10 +188,10 @@
     "zh": "链上 AF 余额可验证 + DefiLlama holdersRevenue 交叉验证",
     "en": "On-chain AF balance verifiable + DefiLlama holdersRevenue cross-validated"
   },
-  "tevRatio": 1,
-  "earning_yield_percent": 10.49,
+  "payout_ratio": 1,
+  "total_yield_percent": 10.49,
   "market_cap_usd": 7368065201,
-  "tev_yield_percent": 10.49,
+  "shareholder_yield_percent": 10.49,
   "metrics": {
     "trailing_7d_revenue_usd": 8228544,
     "trailing_30d_revenue_usd": 34979838,
@@ -255,7 +255,7 @@
         "7d": "metrics.tev_yield_7d_ann",
         "30d": "metrics.tev_yield_30d_ann",
         "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
@@ -277,7 +277,7 @@
       }
     },
     "calculation": {
-      "tev_ratio": 0.99,
+      "payout_ratio": 0.99,
       "note": "以链上实际销毁为准（spot 销毁地址）"
     },
     "source_type": "chain",

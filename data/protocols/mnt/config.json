@@ -21,7 +21,7 @@
     "bybit_relation": "BitDAO 由 Bybit 支持创立，转型为 Mantle 后关系延续",
     "treasury": "Mantle 拥有 DeFi 领域最大的 DAO 国库之一"
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "gas_token",
       "name": "Mantle Network Gas",
@@ -55,7 +55,7 @@
     "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
   "calculated_tev": {
-    "tev_yield_percent": null,
+    "shareholder_yield_percent": null,
     "calculation_status": "UNABLE_TO_CALCULATE",
     "reason": "MNT 的 TEV 机制不明确，与传统 CEX 平台币不同",
     "note": "需要进一步调研 Mantle 的收入分配机制"
@@ -117,7 +117,7 @@
   "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": false,
-    "tev_yield_percent": 0,
+    "shareholder_yield_percent": 0,
     "market_cap_usd": 1981231322,
     "calculation_date": "2026-08-02",
     "sources": [
@@ -141,10 +141,10 @@
     "zh": "Mantle L2 sequencer fees 不流向 MNT 持有人; mETH 收益给 mETH 持有人; Treasury Burn 提案讨论中未执行. 纯治理代币 (类 LDO)",
     "en": "Mantle L2 sequencer fees do not flow to MNT holders; mETH rewards go to mETH holders; Treasury Burn proposal under discussion, not executed. Pure governance token (similar to LDO)"
   },
-  "tevRatio": 0,
-  "earning_yield_percent": 0,
+  "payout_ratio": 0,
+  "total_yield_percent": 0,
   "market_cap_usd": 1981231322,
-  "tev_yield_percent": 0,
+  "shareholder_yield_percent": 0,
   "calc_pipeline": [
     {
       "step": 1,
@@ -183,7 +183,7 @@
         "7d": "metrics.tev_yield_7d_ann",
         "30d": "metrics.tev_yield_30d_ann",
         "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }

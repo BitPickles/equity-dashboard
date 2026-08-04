@@ -20,7 +20,7 @@
     "stake_hub": "0x0000000000000000000000000000000000002002",
     "source": "https://github.com/bnb-chain/bsc-genesis-contract/blob/master/contracts/System.sol"
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "burn",
       "name": "Quarterly Auto-Burn",
@@ -422,7 +422,7 @@
   },
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 12.46,
+    "shareholder_yield_percent": 12.46,
     "calculation_date": "2026-08-02",
     "methodology": "Auto-Burn（短周期=近4季USD累加；365d=近4季BNB×当前价）+ BEP-95（按窗口从日时间序列求和）+ asBNB APY。BEP-95 现已真正波动——数据源：Dune Analytics bnb.traces + 每日 BSC RPC 累积。",
     "validation": {
@@ -589,11 +589,11 @@
     "zh": "Auto-Burn 链上完全可验证（0xdead + BEP-95），asBNB 来自链上 StakeHub 合约",
     "en": "Auto-Burn fully verifiable on-chain (0xdead + BEP-95), asBNB from on-chain StakeHub contract"
   },
-  "tevRatio": null,
+  "payout_ratio": null,
   "tevRatioNote": "BNB 无 fee 分润机制，TEV 来自供给收缩（Auto-Burn + BEP-95）+ 链上质押收益（asBNB），不适用『分配比例』概念",
-  "earning_yield_percent": 8.07,
+  "total_yield_percent": 8.07,
   "market_cap_usd": 76912536768.93126,
-  "tev_yield_percent": 12.46,
+  "shareholder_yield_percent": 12.46,
   "metrics": {
     "trailing_7d_revenue_usd": 265445,
     "trailing_30d_revenue_usd": 842118,
@@ -691,7 +691,7 @@
         "7d": "metrics.tev_yield_7d_ann",
         "30d": "metrics.tev_yield_30d_ann",
         "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }

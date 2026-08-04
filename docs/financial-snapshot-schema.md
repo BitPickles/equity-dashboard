@@ -14,7 +14,7 @@
 3. **只计流向流通持币人的价值流**：未流通储备的内部变动（销毁/划转）不计入股东回报，最多作 `note` 注记。
 4. **所有计算基于净利润**：收入 ≠ 总协议费，必须扣除 LP 分润后再进入净利口径。
 5. **增发成本配比原则**：有对价换当期收入（LP 挖矿/gauge/farm）→ `treatment: "cost"` 从净利扣除；无对价 → `treatment: "dilution_note"` 仅作稀释注记。
-6. **holder_returns 与 all-protocols.json 数值一致**：`summary.shareholder_yield_percent` 必须等于现有 `shareholder_yield_percent`（旧 `tev_yield_percent`）字段，post-pass 校验。
+6. **holder_returns 与 all-protocols.json 数值一致**：`summary.shareholder_yield_percent` 必须等于现有 `shareholder_yield_percent`（旧 `shareholder_yield_percent`）字段，post-pass 校验。
 
 ## 二、字段结构总览
 
@@ -118,7 +118,7 @@ yield_yield_percent    = yield_usd_365d    / market_cap_usd × 100
 
 1. **结构校验**：对 `data/snapshots/*.json` 跑 JSON Schema（`docs/schema/financial-snapshot.schema.json`）。
 2. **派生自洽**：重算 valuation/margins 与文件内数值比对，差异 > 0.5% → 报错。
-3. **一致性**：snapshot 与 `data/all-protocols.json` 的 `shareholder_yield_percent`（旧 `tev_yield_percent`）数值一致。
+3. **一致性**：snapshot 与 `data/all-protocols.json` 的 `shareholder_yield_percent`（旧 `shareholder_yield_percent`）数值一致。
 4. **新鲜度**：`as_of` 距今天数 > 26h → 告警（防僵尸数据）。
 5. **null 语义**：无数据必须为 `null`，出现编造的 `0`（且原数据源为空）→ 告警。
 

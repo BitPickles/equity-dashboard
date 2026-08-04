@@ -13,7 +13,7 @@
     "coingecko_id": "layerzero",
     "defillama_id": "layerzero-v2"
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "buyback",
       "name": "Stargate 收入回购 ZRO",
@@ -49,7 +49,7 @@
     "dividends_details": "无直接分红",
     "burns": "NONE",
     "primary_value_accrual": "期权价值：费用开关一旦开启，$150B+ 年化跨链量的潜在收入",
-    "tevRatio": null
+    "payout_ratio": null
   },
   "confidence": "medium",
   "data_sources": [
@@ -71,7 +71,7 @@
     "zh": "Stargate 回购链上可验证（medium），协议本体收入依赖 fee switch（事件驱动）",
     "en": "Stargate buybacks on-chain verifiable (medium); protocol-native revenue depends on fee switch (event-driven)"
   },
-  "tevRatio": null,
+  "payout_ratio": null,
   "tevRatioNote": "协议本体收入 = 0（fee switch 关闭）；股东回报仅 Stargate 回购（小额）",
   "style": "growth",
   "revenue_recognition": {
@@ -116,12 +116,12 @@
     ]
   },
   "market_cap_usd": 261513069,
-  "tev_yield_percent": 0.3,
-  "earning_yield_percent": 1.17,
+  "shareholder_yield_percent": 0.3,
+  "total_yield_percent": 1.17,
   "dividend_yield_percent": 0,
   "buyback_yield_percent": 0.3,
   "tev_data": {
-    "tev_yield_percent": 0.3,
+    "shareholder_yield_percent": 0.3,
     "market_cap_usd": 261513069,
     "annual_tev_usd": 784539.207,
     "calculation_date": "2026-08-02",

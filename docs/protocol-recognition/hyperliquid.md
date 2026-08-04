@@ -49,7 +49,7 @@
 
 `data/protocols/hype/adapter.py` → `build_snapshot(proto_dir)`：
 
-1. 读 `config.json` 取 `tevRatio`；若遗留值 ≥1（如 1.0/100%）则强制按判定书修正为 `0.99`
+1. 读 `config.json` 取 `payout_ratio`；若遗留值 ≥1（如 1.0/100%）则强制按判定书修正为 `0.99`
 2. 读 `all-protocols.json` → protocols 的 `hype` key → `metrics.trailing_365d_revenue_usd` ≈ $773.0M
 3. `returns_usd = revenue × 0.99 = $765,257,824`；`yield_pct = returns_usd ÷ mcap = 10.3861%`
 4. 毛利 = 净利 = 收入（Perp DEX 手续费直接销毁，无 LP 分润 / 无增发成本，HYPE 总供应 10 亿固定）

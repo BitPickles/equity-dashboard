@@ -22,7 +22,7 @@
 
 ```
 收入 = 平台手续费（DefiLlama dailyRevenue 365d）
-股东回报 = 收入 × tevRatio(0.99)
+股东回报 = 收入 × payout_ratio(0.99)
         = $23,699,571 × 0.99 = $23,462,575
 回报率 = 股东回报 ÷ 市值 = 1.46%
 ```
@@ -49,8 +49,8 @@
 `data/protocols/aster/adapter.py` → `build_snapshot(proto_dir)`：
 
 1. 读 all-protocols.json → `metrics.trailing_365d_revenue_usd`（DefiLlama dailyRevenue 365d = $23,699,571）；若缺失则用链上兜底 `validation.buy_365d_aster × aster_price_usd`
-2. 从 config.json `revenue_recognition.calculation.tev_ratio` 读判定书口径（0.99，只读）；缺失则默认 0.99
-3. `returns = revenue × tev_ratio`；`returns_yield = returns / mcap × 100%`
+2. 从 config.json `revenue_recognition.calculation.payout_ratio` 读判定书口径（0.99，只读）；缺失则默认 0.99
+3. `returns = revenue × payout_ratio`；`returns_yield = returns / mcap × 100%`
 4. 毛利 = 净利 = 收入（dailyRevenue 已扣 LP 分润；无持续增发成本——1:1 储备销毁作注记不计入）
 5. 股东回报 by_mechanism = [{mechanism: "TWAP 回购→veASTER", type: "yield", usd: $23,462,575, yield: 1.46%}]
 6. 派生估值：pe = mcap/returns = 68.68，payout_ratio = 0.99
@@ -73,5 +73,5 @@
 ## 七、判定书出处
 
 - 判定书总表：`docs/protocol-revenue-recognition.md` §3（Boss 2026-08-02 定稿 + 2026-08-04 修正）
-- 配置文件：`data/protocols/aster/config.json`（revenue_recognition 字段，tevRatio=0.99）
+- 配置文件：`data/protocols/aster/config.json`（revenue_recognition 字段，payout_ratio=0.99）
 - 数据维护说明：`data/protocols/aster/README.md`（如有）

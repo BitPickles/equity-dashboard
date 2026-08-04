@@ -15,7 +15,7 @@
     "circulating_supply": 10394463.42351323,
     "total_supply": 10394463.42351323
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "staking_reward",
       "name": "GMX 质押奖励",
@@ -43,7 +43,7 @@
     "dividends": "ACTIVE",
     "burns": "NONE",
     "primary_value_accrual": "回购分红 - 质押 GMX 获得回购分配的 GMX",
-    "tevRatio": 0.27
+    "payout_ratio": 0.27
   },
   "market_data": {
     "price_usd": 6.25,
@@ -60,7 +60,7 @@
     "holders_revenue_30d_usd": 1208117,
     "holders_revenue_annual_usd": 14497404,
     "market_cap_usd": 61633069,
-    "tev_yield_percent": 23.5,
+    "shareholder_yield_percent": 23.5,
     "calculation_date": "2026-02-05",
     "note": "TEV yield = 年化 holders revenue / 流通市值"
   },
@@ -89,7 +89,7 @@
   "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": false,
-    "tev_yield_percent": 0,
+    "shareholder_yield_percent": 0,
     "annual_tev_usd": 0,
     "market_cap_usd": 64130927.2,
     "calculation_date": "2026-08-02",
@@ -120,10 +120,10 @@
     "zh": "2026-03-04 起 ETH/AVAX 实时分红停止, 改为 Treasury 累积 GMX 等价格 ≥ $90 才解锁分配. 当前 GMX ~$7, 触发条件远未达, staker 实际现金收益 = 0",
     "en": "ETH/AVAX real-time distributions halted since 2026-03-04. Switched to Treasury GMX accumulation, awaiting GMX price ≥ $90 to trigger distribution. Currently ~$7, far from trigger."
   },
-  "tevRatio": 0.27,
-  "earning_yield_percent": 19.77,
+  "payout_ratio": 0.27,
+  "total_yield_percent": 19.77,
   "market_cap_usd": 64130927.2,
-  "tev_yield_percent": 0,
+  "shareholder_yield_percent": 0,
   "metrics": {
     "current_market_cap_usd": 64130927.2,
     "trailing_365d_revenue_usd": 12675745,
@@ -182,7 +182,7 @@
         "7d": "metrics.tev_yield_7d_ann",
         "30d": "metrics.tev_yield_30d_ann",
         "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
@@ -205,7 +205,7 @@
     },
     "calculation": {
       "revenue_usd_365d": "扣 LP → 净利 → 留存 27%",
-      "tev_ratio": 0,
+      "payout_ratio": 0,
       "note": "恢复条件：价格阈值 $90（对应市值 ~$9 亿），当前 $6-7 远未触发；股东回报 = 0，标注「锁定至 $90」"
     },
     "source_type": "official",

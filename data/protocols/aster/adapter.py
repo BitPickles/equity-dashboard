@@ -13,7 +13,7 @@ Aster（AsterDEX）专属适配器 — data/protocols/aster/adapter.py
 数据源（本地缓存，2026-08-01 已验证）：
 - all-protocols.json → metrics.trailing_365d_revenue_usd（DefiLlama dailyRevenue 365d）
   / validation.buy_365d_aster × aster_price_usd（链上回购兜底）/ market_cap_usd / tvl
-- config.json → revenue_recognition.calculation.tev_ratio = 0.99（判定书口径，只读）
+- config.json → revenue_recognition.calculation.payout_ratio = 0.99（判定书口径，只读）
 - tev-records.json → 链上回购历史（Stage5/6，95 天至 2026-03-27；6-17 新机制链上数据
   属 M0/M1 修复项，暂以 DefiLlama dailyRevenue 口径组装）
 
@@ -52,11 +52,11 @@ def build_snapshot(proto_dir):
     if revenue is None and buy_365d_aster and aster_price:
         # 兜底：链上 365d 回购 ASTER × 价（回购额 ≈ 99% 手续费 → dailyRevenue 近似）
         revenue = round(buy_365d_aster * aster_price, 2)
-    # 判定书 tev_ratio（config 只读）：99% 手续费 → TWAP 回购分发 veASTER 🟢
-    tev_ratio = (config.get("revenue_recognition", {}) or {}).get("calculation", {}).get("tev_ratio")
-    if tev_ratio is None:
-        tev_ratio = 0.99
-    returns = round(revenue * tev_ratio, 2) if revenue is not None else None
+    # 判定书 payout_ratio（config 只读）：99% 手续费 → TWAP 回购分发 veASTER 🟢
+    payout_ratio = (config.get("revenue_recognition", {}) or {}).get("calculation", {}).get("payout_ratio")
+    if payout_ratio is None:
+        payout_ratio = 0.99
+    returns = round(revenue * payout_ratio, 2) if revenue is not None else None
     returns_yield = round(returns / mcap * 100, 4) if (returns is not None and mcap) else None
 
     # ── 收入（L2）──────────────────────────────────────────────
@@ -154,8 +154,8 @@ def build_snapshot(proto_dir):
         "verification": {
             "method": "DefiLlama dailyRevenue 365d $"
             + str(revenue)
-            + " × tevRatio "
-            + str(tev_ratio)
+            + " × payout_ratio "
+            + str(payout_ratio)
             + " = 回购/分配 $"
             + str(returns)
             + "；链上回购 wallet 365d "

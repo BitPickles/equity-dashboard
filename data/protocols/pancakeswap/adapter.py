@@ -8,13 +8,13 @@ PancakeSwap 专属适配器 — data/protocols/pancakeswap/adapter.py
   日增发 4万 → 2.25 万 CAKE（farm 激励仍在，有对价换收入）
 - 定稿：**增发按成本计算**（treatment=cost，美股 SBC 类比）→ 增发 ~$1170 万 < 回购销毁 ~$1800 万
   → 净利为正（净通缩，连续 34 个月）
-- 股东回报 = 回购销毁 ≈ 总费用 22% / 协议收入 60-65%（年化）→ 按 60-65%（tev_ratio 0.625）计入 🟢
+- 股东回报 = 回购销毁 ≈ 总费用 22% / 协议收入 60-65%（年化）→ 按 60-65%（payout_ratio 0.625）计入 🟢
   详情页展示：收入 − LP − 增发成本 = 净利 +；回购销毁明细
 
 数据源（本地已验证缓存）：
 - burn-history.json   → DefiLlama dailyHoldersRevenue 365d（CAKE buyback&burn，gross 口径）
 - daily/latest.json   → total1y_fees_usd（总费用）
-- config.json         → token_emission_cost（增发成本，只读）+ revenue_recognition（tev_ratio 0.625）
+- config.json         → token_emission_cost（增发成本，只读）+ revenue_recognition（payout_ratio 0.625）
 - all-protocols.json  → 市值 / TVL
 """
 
@@ -53,9 +53,9 @@ def build_snapshot(proto_dir):
     # 回购销毁 365d（burn-history 365d = DefiLlama dailyHoldersRevenue，CAKE buyback&burn）
     bb_365 = (burn.get("net_burns") or {}).get("365", {})
     buyback_burn = bb_365.get("burn_usd")
-    # 判定书：回购销毁 ≈ 协议收入 60-65% → 用 tev_ratio 0.625 反推协议收入
-    tev_ratio = (config.get("revenue_recognition", {}).get("calculation", {}).get("tev_ratio")) or 0.625
-    protocol_revenue = round(buyback_burn / tev_ratio, 2) if buyback_burn else None
+    # 判定书：回购销毁 ≈ 协议收入 60-65% → 用 payout_ratio 0.625 反推协议收入
+    payout_ratio = (config.get("revenue_recognition", {}).get("calculation", {}).get("payout_ratio")) or 0.625
+    protocol_revenue = round(buyback_burn / payout_ratio, 2) if buyback_burn else None
     # LP 分润 = 总费用 − 协议收入（详情页展示「收入 − LP」）
     lp_share = round(total_fees - protocol_revenue, 2) if (total_fees and protocol_revenue) else None
 
@@ -70,7 +70,7 @@ def build_snapshot(proto_dir):
         "lp_share_cost_usd_365d": lp_share,
         "gross_profit_usd_365d": protocol_revenue,
         "calculation_note": f"收入 = 协议收入（总费用 {_fmt(total_fees)} − LP 分润 {_fmt(lp_share)}）；"
-                            f"回购销毁 {_fmt(buyback_burn)} ≈ 总费用 22% / 协议收入 60-65%（tev_ratio 0.625）→ 毛利 = 协议收入",
+                            f"回购销毁 {_fmt(buyback_burn)} ≈ 总费用 22% / 协议收入 60-65%（payout_ratio 0.625）→ 毛利 = 协议收入",
     }
     emission = config.get("token_emission_cost") or {
         "usd_365d": None, "annual_emission_tokens": None, "inflation_rate_percent": None,
@@ -154,7 +154,7 @@ def build_snapshot(proto_dir):
         "valuation": valuation,
         "verification": {
             "method": f"回购销毁 365d {_fmt(buyback_burn)}（DefiLlama dailyHoldersRevenue，burn-history.json）"
-                      f"× tev_ratio 0.625 反推协议收入 {_fmt(protocol_revenue)}（判定书 60-65%，现货 15-23%/永续 20%/CAKE.PAD 100%）；"
+                      f"× payout_ratio 0.625 反推协议收入 {_fmt(protocol_revenue)}（判定书 60-65%，现货 15-23%/永续 20%/CAKE.PAD 100%）；"
                       f"增发成本 {_fmt(emission_cost)}（config.token_emission_cost，treatment=cost）；净利 {_fmt(net)}（正，净通缩）",
             "status": "verified",
             "last_checked": date.today().isoformat(),

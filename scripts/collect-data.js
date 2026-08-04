@@ -20,31 +20,31 @@ const PROTOCOLS = {
     name: 'Aave',
     defillama_slug: 'aave',
     coingecko_id: 'aave',
-    tev_ratio: 0.318, // Default TEV distribution ratio (from manual data)
+    payout_ratio: 0.318, // Default TEV distribution ratio (from manual data)
   },
   pendle: {
     name: 'Pendle',
     defillama_slug: 'pendle',
     coingecko_id: 'pendle',
-    tev_ratio: 0.80, // 80% to vePENDLE holders
+    payout_ratio: 0.80, // 80% to vePENDLE holders
   },
   sky: {
     name: 'Sky (MakerDAO)',
     defillama_slug: 'makerdao',
     coingecko_id: 'maker', // Still MKR on CoinGecko
-    tev_ratio: 0.70, // ~70% to buybacks
+    payout_ratio: 0.70, // ~70% to buybacks
   },
   uniswap: {
     name: 'Uniswap',
     defillama_slug: 'uniswap',
     coingecko_id: 'uniswap',
-    tev_ratio: 0.0, // Currently 0% fee switch
+    payout_ratio: 0.0, // Currently 0% fee switch
   },
   hype: {
     name: 'Hyperliquid',
     defillama_slug: 'hyperliquid',
     coingecko_id: 'hyperliquid',
-    tev_ratio: 0.99, // 99% to Assistance Fund buyback
+    payout_ratio: 0.99, // 99% to Assistance Fund buyback
   },
 };
 
@@ -199,7 +199,7 @@ function processProtocolData(protocol, fees, prices) {
     
     // Calculate TEV (estimated based on protocol's distribution ratio)
     const config = PROTOCOLS[protocol];
-    const dailyTev = dailyFee * config.tev_ratio;
+    const dailyTev = dailyFee * config.payout_ratio;
     
     records.push({
       date,
@@ -207,7 +207,7 @@ function processProtocolData(protocol, fees, prices) {
       market_cap_usd: mcapByDate[date] || null,
       daily_fees_usd: Math.round(dailyFee),
       daily_tev_usd: Math.round(dailyTev),
-      tev_ratio_used: config.tev_ratio,
+      tev_ratio_used: config.payout_ratio,
     });
   }
   

@@ -165,7 +165,7 @@ node scripts/sync-tev-data.js uniswap
 python3 -c "
 import json
 d = json.load(open('data/all-protocols.json'))['protocols']['uniswap']
-print('tev_yield_percent:', d.get('tev_yield_percent'))
+print('shareholder_yield_percent:', d.get('shareholder_yield_percent'))
 print('validation:', json.dumps(d.get('validation', {}), indent=2))
 "
 

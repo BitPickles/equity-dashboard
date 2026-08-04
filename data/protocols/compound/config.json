@@ -15,7 +15,7 @@
     "circulating_supply": 9668189.278360886,
     "total_supply": 10000000
   },
-  "tev_mechanisms": [],
+  "return_mechanisms": [],
   "tev_summary": {
     "fee_switch": "OFF",
     "fee_switch_details": "Compound 协议费用开关未开启，收入保留在协议储备",
@@ -43,7 +43,7 @@
   "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": false,
-    "tev_yield_percent": 0,
+    "shareholder_yield_percent": 0,
     "annual_tev_usd": 0,
     "market_cap_usd": 165861204.25,
     "calculation_date": "2026-08-02",
@@ -74,10 +74,10 @@
     "zh": "纯治理代币. fee switch 从未开启, 协议 fees ($180M+/年) 100% 给 LP, COMP 持有人不分润",
     "en": "纯治理代币. fee switch 从未开启, 协议 fees ($180M+/年) 100% 给 LP, COMP 持有人不分润"
   },
-  "tevRatio": 0,
-  "earning_yield_percent": 0.13,
+  "payout_ratio": 0,
+  "total_yield_percent": 0.13,
   "market_cap_usd": 165861204.25,
-  "tev_yield_percent": 0,
+  "shareholder_yield_percent": 0,
   "metrics": {
     "current_market_cap_usd": 165861204.25,
     "trailing_365d_revenue_usd": 216668,
@@ -119,7 +119,7 @@
         "7d": "metrics.tev_yield_7d_ann",
         "30d": "metrics.tev_yield_30d_ann",
         "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
@@ -137,7 +137,7 @@
     },
     "revenue_excluded": {},
     "calculation": {
-      "tev_ratio": 0,
+      "payout_ratio": 0,
       "note": "不回购的钱进国库/支出 → 留存行"
     },
     "source_type": "defillama",

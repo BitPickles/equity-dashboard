@@ -10,7 +10,7 @@ Maple 专属适配器 — data/protocols/maple/adapter.py
 - 股东回报 = 净利 × 10%（当前档，首次执行 2026-08）
 
 数据源（本地已验证缓存 + 判定书）：
-- config.json         → revenue_recognition（MIP-021 阶梯，tev_ratio 0.1）+ tev_mechanisms
+- config.json         → revenue_recognition（MIP-021 阶梯，payout_ratio 0.1）+ return_mechanisms
 - tev-records.json    → DefiLlama dailyHoldersRevenue 月聚合（历史参考，MIP-019 口径）
 - 判定书              → 当前月收入 ~$1.29M（maple.finance/transparency 官方仪表盘）
 - all-protocols.json  → 市值 / TVL

@@ -145,8 +145,8 @@ done
 python3 -c "
 import json
 d=json.load(open('data/all-protocols.json'))['protocols']['aave']
-print('tev_yield:', d.get('tev_yield_percent'))
-print('tevRatio 各周期:', d.get('tevRatio_7d'), d.get('tevRatio_30d'), d.get('tevRatio_90d'), d.get('tevRatio_365d'))
+print('tev_yield:', d.get('shareholder_yield_percent'))
+print('payout_ratio 各周期:', d.get('tevRatio_7d'), d.get('tevRatio_30d'), d.get('tevRatio_90d'), d.get('tevRatio_365d'))
 print('validation:', json.dumps(d.get('validation', {}), indent=2, ensure_ascii=False))
 "
 ```
@@ -155,6 +155,6 @@ print('validation:', json.dumps(d.get('validation', {}), indent=2, ensure_ascii=
 
 ## 九、历史口径变更
 
-- 2026-04-22: 双源组合（Buyback + SM holdersRevenue），各周期独立；明确 buyback 是 treasury 非 burn；tevRatio 按周期
+- 2026-04-22: 双源组合（Buyback + SM holdersRevenue），各周期独立；明确 buyback 是 treasury 非 burn；payout_ratio 按周期
 - 2026-03: 治理 Buyback 从 $50M → $30M
 - 2024-07-25: AIP-73 启动 Aavenomics buyback

@@ -279,7 +279,7 @@ def process_protocol(protocol_id, cfg, fee_map, dry_run=False):
     print(f"{'='*60}")
 
     now = datetime.now(timezone.utc)
-    tev_ratio = TEV_RATIOS.get(protocol_id, 0)
+    payout_ratio = TEV_RATIOS.get(protocol_id, 0)
 
     # 1. DefiLlama TVL
     print("  📈 获取 TVL...")
@@ -306,8 +306,8 @@ def process_protocol(protocol_id, cfg, fee_map, dry_run=False):
     # 4. 计算 TEV 指标
     daily_fees = fees.get("total24h", 0) or 0
     fees_30d = fees.get("total30d", 0) or 0
-    daily_tev = daily_fees * tev_ratio
-    tev_30d = fees_30d * tev_ratio
+    daily_tev = daily_fees * payout_ratio
+    tev_30d = fees_30d * payout_ratio
     tev_annualized = tev_30d * 12
     mcap = cg.get("market_cap_usd") or 0
     tev_yield = (tev_annualized / mcap) if mcap > 0 else 0
@@ -331,7 +331,7 @@ def process_protocol(protocol_id, cfg, fee_map, dry_run=False):
             "tvl_usd": tvl,
             "daily_fees_usd": daily_fees,
             "daily_tev_usd": round(daily_tev, 2),
-            "tev_ratio_used": tev_ratio,
+            "tev_ratio_used": payout_ratio,
         },
         "metrics": {
             "trailing_30d_fees_usd": fees_30d,

@@ -8,7 +8,7 @@ Sky (MakerDAO) 专属适配器 — data/protocols/sky/adapter.py
   买入 MKR + 等量 DAI 组 LP 做市（LP 归协议，主动做市）；Elixir 在 MKR 低估时用 LP 真燃烧。
 - 计入股东回报：Elixir 真燃烧（销毁 = 股息 🟢，type=destroy）
 - 不计入：Surplus Buffer 留存（国库）；SBE 买 MKR 做市部分（LP 锁定，标注「回购做市」）
-- 损益表：净利留存国库要讲清楚 → net_income 注明「留存 vs 分配」比例（tevRatio ≈ 33.3%）
+- 损益表：净利留存国库要讲清楚 → net_income 注明「留存 vs 分配」比例（payout_ratio ≈ 33.3%）
 
 数据源（本地已验证缓存，2026-08-01 更新）：
 - all-protocols.json  → validation.burn_7d/30d/90d/365d_usd（DefiLlama dailyHoldersRevenue）

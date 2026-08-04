@@ -16,7 +16,7 @@
     "total_supply": 2000000000,
     "note": "合约支持 burn 功能"
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "buyback_burn",
       "name": "Quarterly Buy-Back & Burn",
@@ -50,7 +50,7 @@
     "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
   "calculated_tev": {
-    "tev_yield_percent": null,
+    "shareholder_yield_percent": null,
     "calculation_status": "UNABLE_TO_CALCULATE",
     "reason": "Bitget 不公开财务数据，无法获取准确的销毁金额",
     "note": "需要整理历史季度销毁公告来估算"
@@ -103,7 +103,7 @@
   "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": false,
-    "tev_yield_percent": 0,
+    "shareholder_yield_percent": 0,
     "market_cap_usd": 1888393751,
     "calculation_date": "2026-08-02",
     "sources": [
@@ -126,10 +126,10 @@
     "zh": "销毁源头无链上溯源, 类似 JustLend pocket-to-pocket 嫌疑. Bitget 自持 BGB 转账到黑洞 vs 真实市场买入无市场对手方证据",
     "en": "No on-chain source tracing for burns. Similar pocket-to-pocket suspicion as JustLend — no market counterparty evidence for \"20% revenue buyback\" claim"
   },
-  "tevRatio": 0,
-  "earning_yield_percent": 0,
+  "payout_ratio": 0,
+  "total_yield_percent": 0,
   "market_cap_usd": 1888393751,
-  "tev_yield_percent": 0,
+  "shareholder_yield_percent": 0,
   "calc_pipeline": [
     {
       "step": 1,
@@ -167,7 +167,7 @@
         "7d": "metrics.tev_yield_7d_ann",
         "30d": "metrics.tev_yield_30d_ann",
         "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }

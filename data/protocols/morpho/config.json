@@ -15,7 +15,7 @@
     "circulating_supply": 545775191.4464494,
     "total_supply": 1000000000
   },
-  "tev_mechanisms": [],
+  "return_mechanisms": [],
   "tev_summary": {
     "fee_switch": "OFF",
     "fee_switch_details": "Morpho 当前无协议费用，由 vault curators 自行设定",
@@ -43,7 +43,7 @@
   "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": false,
-    "tev_yield_percent": 0,
+    "shareholder_yield_percent": 0,
     "annual_tev_usd": 0,
     "market_cap_usd": 1000734806.07,
     "calculation_date": "2026-08-02",
@@ -74,10 +74,10 @@
     "zh": "纯治理代币. Morpho 协议层不抽成, vault curators 自行设置 fee",
     "en": "纯治理代币. Morpho 协议层不抽成, vault curators 自行设置 fee"
   },
-  "tevRatio": 0,
-  "earning_yield_percent": 0,
+  "payout_ratio": 0,
+  "total_yield_percent": 0,
   "market_cap_usd": 1000734806.07,
-  "tev_yield_percent": 0,
+  "shareholder_yield_percent": 0,
   "metrics": {
     "current_market_cap_usd": 1000734806.07,
     "trailing_365d_revenue_usd": 0,
@@ -119,7 +119,7 @@
         "7d": "metrics.tev_yield_7d_ann",
         "30d": "metrics.tev_yield_30d_ann",
         "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
@@ -137,7 +137,7 @@
     },
     "revenue_excluded": {},
     "calculation": {
-      "tev_ratio": 0,
+      "payout_ratio": 0,
       "note": "不回购的钱进国库/支出 → 留存行"
     },
     "source_type": "defillama",

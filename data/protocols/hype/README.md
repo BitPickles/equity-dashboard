@@ -126,7 +126,7 @@ Step 4: TEV 协议汇总
 
 ### 3. HYPE tokenomics 变更
 
-**处理**：重写 analyst_notes，更新 tev_mechanisms
+**处理**：重写 analyst_notes，更新 return_mechanisms
 
 ---
 
@@ -150,7 +150,7 @@ node scripts/sync-tev-data.js hype
 python3 -c "
 import json
 d = json.load(open('data/all-protocols.json'))['protocols']['hype']
-print('tev_yield_percent:', d.get('tev_yield_percent'))
+print('shareholder_yield_percent:', d.get('shareholder_yield_percent'))
 print('market_cap_usd:', d.get('market_cap_usd'))
 print('metrics:', json.dumps(d.get('metrics'), indent=2))
 "

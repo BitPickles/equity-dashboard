@@ -434,8 +434,8 @@
           const data = await res.json();
           // 合并 metrics：优先用 daily 数据，回退到 all-protocols.json
           const mergedMetrics = { ...config.metrics, ...data.metrics };
-          // tevRatio 直接使用 all-protocols.json 中的预计算值，不再动态计算
-          let merged = { key, ...config, ...data, metrics: mergedMetrics, tevRatio: config.tevRatio };
+          // payout_ratio 直接使用 all-protocols.json 中的预计算值，不再动态计算
+          let merged = { key, ...config, ...data, metrics: mergedMetrics, payout_ratio: config.payout_ratio };
           // 财务字段 fallback：当 all-protocols.json 缺失 gross_profit/net_income/net_margin 时，
           // 从 snapshots/{id}.json 的 income_statement 补全（详情页用同一数据源）。
           // 规范：仅在 snapshots 给非零值时才 fallback（避免把"snapshots 写了 0"的协议显示成 $0，
@@ -465,17 +465,17 @@
     }
 
     // === Sorting ===
-    const psVal = p => { const e = p.earning_yield_percent || 0; return e > 0 ? 100 / e : Infinity; };
-    const peVal = p => { const y = p.tev_yield_percent || 0; return y > 0 ? 100 / y : Infinity; };
+    const psVal = p => { const e = p.total_yield_percent || 0; return e > 0 ? 100 / e : Infinity; };
+    const peVal = p => { const y = p.shareholder_yield_percent || 0; return y > 0 ? 100 / y : Infinity; };
     function getSortValue(p, f) {
       switch (f) {
-        case 'payout': return p.tevRatio || 0;
+        case 'payout': return p.payout_ratio || 0;
         case 'mcap': return p.market_cap_usd || 0;
         case 'ps': return psVal(p);
         case 'pe': return peVal(p);
         case 'divYield': return p.dividend_yield_percent || 0;
         case 'buybackYield': return p.buyback_yield_percent || 0;
-        case 'shareholderYield': return p.tev_yield_percent || 0;
+        case 'shareholderYield': return p.shareholder_yield_percent || 0;
         case 'revenue': return p.revenue_usd_365d || 0;
         case 'netIncome': return p.net_income_usd_365d || 0;
         default: return 0;
@@ -487,18 +487,18 @@
         if (f === 'mcap' && d === 'desc') {
           const md = (b.market_cap_usd || 0) - (a.market_cap_usd || 0);
           if (md !== 0) return md;
-          return (b.tev_yield_percent || 0) - (a.tev_yield_percent || 0);
+          return (b.shareholder_yield_percent || 0) - (a.shareholder_yield_percent || 0);
         }
         // 其他字段：按点击的字段排序，使用预计算值
         let aVal, bVal;
         switch (f) {
-          case 'payout': aVal = a.tevRatio || 0; bVal = b.tevRatio || 0; break;
+          case 'payout': aVal = a.payout_ratio || 0; bVal = b.payout_ratio || 0; break;
           case 'mcap': aVal = a.market_cap_usd || 0; bVal = b.market_cap_usd || 0; break;
           case 'ps': aVal = psVal(a); bVal = psVal(b); break;
           case 'pe': aVal = peVal(a); bVal = peVal(b); break;
           case 'divYield': aVal = a.dividend_yield_percent || 0; bVal = b.dividend_yield_percent || 0; break;
           case 'buybackYield': aVal = a.buyback_yield_percent || 0; bVal = b.buyback_yield_percent || 0; break;
-          case 'shareholderYield': aVal = a.tev_yield_percent || 0; bVal = b.tev_yield_percent || 0; break;
+          case 'shareholderYield': aVal = a.shareholder_yield_percent || 0; bVal = b.shareholder_yield_percent || 0; break;
           case 'revenue': aVal = a.revenue_usd_365d || 0; bVal = b.revenue_usd_365d || 0; break;
           case 'netIncome': aVal = a.net_income_usd_365d || 0; bVal = b.net_income_usd_365d || 0; break;
           default: aVal = a.market_cap_usd || 0; bVal = b.market_cap_usd || 0;
@@ -553,16 +553,16 @@
           '7d': m.tev_yield_7d_ann,
           '30d': m.tev_yield_30d_ann,
           '90d': m.tev_yield_90d_ann,
-          '365d': p.tev_yield_percent || 0,
+          '365d': p.shareholder_yield_percent || 0,
         };
-        const tevYield = yieldMap[currentYieldPeriod] != null ? yieldMap[currentYieldPeriod] : (p.tev_yield_percent || 0);
+        const tevYield = yieldMap[currentYieldPeriod] != null ? yieldMap[currentYieldPeriod] : (p.shareholder_yield_percent || 0);
         const earningYieldMap = {
           '7d': m.earning_yield_7d_ann,
           '30d': m.earning_yield_30d_ann,
           '90d': m.earning_yield_90d_ann,
-          '365d': p.earning_yield_percent || 0,
+          '365d': p.total_yield_percent || 0,
         };
-        const earningYield = earningYieldMap[currentYieldPeriod] != null ? earningYieldMap[currentYieldPeriod] : (p.earning_yield_percent || 0);
+        const earningYield = earningYieldMap[currentYieldPeriod] != null ? earningYieldMap[currentYieldPeriod] : (p.total_yield_percent || 0);
         // 股息率 / 回购率 按周期（数据层 post-pass 已保证 股息率 + 回购率 ≡ 股东回报率）
         const divYieldMap = {
           '7d': m.dividend_yield_7d_ann,
@@ -583,9 +583,9 @@
           '7d':   p.tevRatio_7d,
           '30d':  p.tevRatio_30d,
           '90d':  p.tevRatio_90d,
-          '365d': p.tevRatio_365d != null ? p.tevRatio_365d : p.tevRatio,
+          '365d': p.tevRatio_365d != null ? p.tevRatio_365d : p.payout_ratio,
         };
-        const payout = payoutMap[currentYieldPeriod] != null ? payoutMap[currentYieldPeriod] : (p.tevRatio || 0);
+        const payout = payoutMap[currentYieldPeriod] != null ? payoutMap[currentYieldPeriod] : (p.payout_ratio || 0);
         const mcap = p.market_cap_usd || 0;
         const precision = p.display_precision || 2;
         // 市销率 P/S = 市值 ÷ 年化营收 = 100 ÷ Earning Yield(%)

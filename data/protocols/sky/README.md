@@ -48,7 +48,7 @@ Surplus DAI/USDS
 
 **Earning Yield = DefiLlama `dailyRevenue`**（协议归属总收入，已扣除 DSR/SSR 支出）
 
-**动态 tevRatio** = holdersRevenue / revenue ≈ 0.48（Splitter 当前 burn 比例）
+**动态 payout_ratio** = holdersRevenue / revenue ≈ 0.48（Splitter 当前 burn 比例）
 
 ---
 
@@ -100,7 +100,7 @@ Sky 不能这么做：
 
 ## 六、历史口径变更
 
-- 2026-04-22: 从 `fixedTevUsd: $13.724M`（写死）改为动态 `dailyHoldersRevenue`；tevRatio 从 0.7 静态改为动态计算（当前 ~0.483）
+- 2026-04-22: 从 `fixedTevUsd: $13.724M`（写死）改为动态 `dailyHoldersRevenue`；payout_ratio 从 0.7 静态改为动态计算（当前 ~0.483）
 - 2026-03: SBE 治理减速生效（$300k/天 → $37.6k/天，-87.5%）
 - 2024-08: Maker 重品牌为 Sky，MKR → SKY 1:24000 转换
 
@@ -128,9 +128,9 @@ done
 python3 -c "
 import json
 d=json.load(open('data/all-protocols.json'))['protocols']['sky']
-print('TEV 365d:', d['tev_yield_percent'])
-print('Earning 365d:', d['earning_yield_percent'])
-print('tevRatio:', d['tevRatio'])
+print('TEV 365d:', d['shareholder_yield_percent'])
+print('Earning 365d:', d['total_yield_percent'])
+print('payout_ratio:', d['payout_ratio'])
 print('validation:', json.dumps(d.get('validation', {}), indent=2, ensure_ascii=False))
 "
 ```

@@ -41,24 +41,24 @@
 >
 > 无论算不算成本，**增发率必须在协议详情页展示**。计算逻辑（收入 − LP 分润 = 毛利；毛利 − 增发成本 = 净利）与详细数据（增发量、通胀率、分润比例）必须写清楚，不能只给结果数字。
 
-> 现有系统字段（`tev_yield_percent`、`tevRatio`、`TEV_COLORS` 等）为技术遗留命名，实现时统一迁移为股东回报体系，**前端展示用新术语**。
+> 现有系统字段（`shareholder_yield_percent`、`payout_ratio`、`TEV_COLORS` 等）为技术遗留命名，实现时统一迁移为股东回报体系，**前端展示用新术语**。
 
 **字段名迁移表（数据模型层，Boss 2026-08-02 确认全面替换，不留旧名）**：
 
 | 旧字段（TEV 体系） | 新字段（损益表体系） | 含义 |
 |---|---|---|
-| `tevRatio` / `tevRatio_7d/30d/90d/365d` | `payout_ratio` / `payout_ratio_7d/30d/90d/365d` | **派息率** = 股东回报 ÷ 收入 |
-| `tev_yield_percent` | `shareholder_yield_percent` | **股东回报率** = 股东回报 ÷ 市值 |
+| `payout_ratio` / `tevRatio_7d/30d/90d/365d` | `payout_ratio` / `payout_ratio_7d/30d/90d/365d` | **派息率** = 股东回报 ÷ 收入 |
+| `shareholder_yield_percent` | `shareholder_yield_percent` | **股东回报率** = 股东回报 ÷ 市值 |
 | `tev_yield_7d_ann/30d/90d` | `shareholder_yield_7d_ann/30d/90d` | 周期股东回报率 |
 | `tev_usd_365d` | `shareholder_returns_usd_365d` | 股东回报金额（股息+回购+销毁） |
-| `tev_mechanisms` | `return_mechanisms` | 股东回报机制 |
+| `return_mechanisms` | `return_mechanisms` | 股东回报机制 |
 | `tev_summary` | `return_summary` | 回报摘要（fee_switch/buybacks/dividends/burns） |
 | `tevStatus` | `return_status` | 回报状态（active/partial/none） |
 | `tev_data` | `snapshot_data` | 财务快照数据 |
 | `tev-records.json` | `shareholder-records.json` | 股东回报历史记录文件 |
 | `TEV_COLORS`（前端 JS） | `RETURN_COLORS` | 机制颜色表 |
 | `tev_yield_vecrv_only_percent` | `shareholder_yield_vecrv_only_percent` | 特殊口径（Curve） |
-| `earning_yield_percent` | `earnings_yield_percent` | 盈利收益率（市值 ÷ 收入 的倒数） |
+| `total_yield_percent` | `earnings_yield_percent` | 盈利收益率（市值 ÷ 收入 的倒数） |
 
 > **EPS（每股收益）** = 股东回报 ÷ 流通代币量（新增，P2）。三者关系：**派息率 × 盈利收益率 = 股东回报率**（payout × earnings yield = shareholder yield）。
 
@@ -149,7 +149,7 @@ TEV 目前的框架虽已具备美股化雏形，但离"像分析一家上市公
 | **Buyback Yield 回购率** | 回购 ÷ 市值 | 回购并销毁 ÷ 市值 | 各协议 | 🟢 现有 |
 | **Burn Yield 销毁率** | —（类比注销库存股） | 纯销毁（无回购路径）÷ 市值 | 链上 | 🟡 部分 |
 | **Shareholder Yield 股东总回报** | 股息率 + 回购率 | 股息 + 回购 + 销毁 ÷ 市值（原 TEV Yield） | 计算 | 🟢 现有 |
-| **Payout Ratio 派息率** | 股息 ÷ 净利润 | 股东回报 ÷ 净利 | 计算 | 🟢 现有（tevRatio） |
+| **Payout Ratio 派息率** | 股息 ÷ 净利润 | 股东回报 ÷ 净利 | 计算 | 🟢 现有（payout_ratio） |
 | **P/E 市盈率** | 市值 ÷ 净利润 | 市值 ÷ 股东回报（当前）；市值 ÷ Net Income（二期） | 计算 | 🟡 现有 |
 | **P/S 市销率** | 市值 ÷ 营收 | 市值 ÷ Revenue | 计算 | 🟢 现有 |
 | **P/B 市净率** | 市值 ÷ 净资产 | 市值 ÷ 协议 Treasury（金库资产）；**Treasury 数据不可得 → `—`**（P2 实现） | 新增 | 🔴 新增 |
@@ -486,7 +486,7 @@ L5 财报组织   损益表 / 股东回报 / 估值 / 计算口径（呈现层�
       "destroy_yield_percent": 6.63,
       "yield_yield_percent": 1.33,
       "shareholder_returns_usd_365d": 1800000000,  // 股东回报总额（股息+回购+销毁）
-      "shareholder_yield_percent": 7.96            // 股东回报率（原 tev_yield_percent）
+      "shareholder_yield_percent": 7.96            // 股东回报率（原 shareholder_yield_percent）
     }
   },
   "balance_sheet": {              // L1 + 简化资产负债（P2 完善）
@@ -500,7 +500,7 @@ L5 财报组织   损益表 / 股东回报 / 估值 / 计算口径（呈现层�
     "ps": null,                   // 无收入时为 null → 前端显示 —
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": null          // 派息率（原 tevRatio 语义）
+    "payout_ratio": null          // 派息率（原 payout_ratio 语义）
   },
   "verification": {               // 链上/交叉验证状态
     "method": "Auto-Burn 近4季 5,977,992 BNB + BEP-95 日序列 + asBNB APY",
@@ -513,7 +513,7 @@ L5 财报组织   损益表 / 股东回报 / 估值 / 计算口径（呈现层�
 **铁律**：
 - `valuation` 与 `margins` 必须由上层脚本从 L1–L3 派生计算，**禁止在协议 config 里手写**（对齐踩坑 #5、#6）
 - 无数据的字段一律 `null`，前端渲染 `—`，**禁止编造 0**（对齐踩坑 #8）
-- `holder_returns` 中的 yield 必须与现有 `shareholder_yield_percent / dividend_yield_percent / buyback_yield_percent` 数值一致（数据层 post-pass 校验；字段名按头部迁移表，旧 tev_yield_percent 作废）
+- `holder_returns` 中的 yield 必须与现有 `shareholder_yield_percent / dividend_yield_percent / buyback_yield_percent` 数值一致（数据层 post-pass 校验；字段名按头部迁移表，旧 shareholder_yield_percent 作废）
 
 ### 5.3 BNB 标杆适配器（先行设计）
 

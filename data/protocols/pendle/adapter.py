@@ -13,7 +13,7 @@ Pendle 专属适配器 — data/protocols/pendle/adapter.py
   80% 比例依赖官方宣称 + DefiLlama 聚合 → verification=partial
 
 数据源（本地已有缓存）：
-- config.json               → 机制/口径声明（只读，tevRatio=0.8）
+- config.json               → 机制/口径声明（只读，payout_ratio=0.8）
 - tev-records.json          → sPENDLE/vePENDLE 月度分发序列（365d 窗口交叉核对）
 - data/all-protocols.json   → 市值 / metrics（revenue、tev）
 """
@@ -47,7 +47,7 @@ def build_snapshot(proto_dir):
     metrics = ap.get("metrics", {}) or {}
     mcap = ap.get("market_cap_usd")
     tvl = ap.get("tvl")
-    tev_ratio = config.get("tevRatio") or 0.8  # 判定书：80% 确定
+    payout_ratio = config.get("payout_ratio") or 0.8  # 判定书：80% 确定
 
     # ── 收入（L2）──────────────────────────────────────────────
     # DefiLlama dailyRevenue 365d（协议净额）。当前数据表 revenue 字段与 tev 同源，
@@ -165,7 +165,7 @@ def build_snapshot(proto_dir):
         "valuation": valuation,
         "verification": {
             "method": f"净利 = DefiLlama dailyRevenue 365d {_fmt(revenue)}；股东回报 = dailyHoldersRevenue 365d "
-                      f"{_fmt(holders_365d)}（80% 口径 🟢，sPENDLE 时代 2026-01-29 起，tevRatio={tev_ratio}）"
+                      f"{_fmt(holders_365d)}（80% 口径 🟢，sPENDLE 时代 2026-01-29 起，payout_ratio={payout_ratio}）"
                       f"{f'；tev-records 365d 合计 {_fmt(tev_records_365d)} 交叉核对' if tev_records_365d else ''}",
             "status": "partial",
             "last_checked": date.today().isoformat(),

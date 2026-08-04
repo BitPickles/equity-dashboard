@@ -13,7 +13,7 @@
     "coingecko_id": "pendle",
     "defillama_id": "pendle"
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "ve_distribution",
       "name": "vePENDLE 分红",
@@ -41,7 +41,7 @@
     "dividends": "ACTIVE",
     "burns": "NONE",
     "primary_value_accrual": "回购+分红 - 80% 协议收入转化为 PENDLE 回购，分配给 sPENDLE 持有者",
-    "tevRatio": 0.8
+    "payout_ratio": 0.8
   },
   "ve_token": {
     "name": "vePENDLE",
@@ -72,7 +72,7 @@
   "last_updated": "2026-08-02",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 7.92,
+    "shareholder_yield_percent": 7.92,
     "annual_tev_usd": 18665264,
     "market_cap_usd": 235721104.89,
     "calculation_date": "2026-08-02",
@@ -110,10 +110,10 @@
     "zh": "DefiLlama dailyHoldersRevenue 实测 ($22.25M, 占 revenue 85%) 与官方 80% 比例吻合, 但多链架构无单一 buyback executor 可链上验证",
     "en": "DefiLlama dailyHoldersRevenue ($22.25M, ~85% of revenue) aligns with official 80% claim, but no single on-chain executor traceable across 8+ chains"
   },
-  "tevRatio": 0.8,
-  "earning_yield_percent": 7.92,
+  "payout_ratio": 0.8,
+  "total_yield_percent": 7.92,
   "market_cap_usd": 235721104.89,
-  "tev_yield_percent": 7.92,
+  "shareholder_yield_percent": 7.92,
   "metrics": {
     "current_market_cap_usd": 235721104.89,
     "trailing_365d_revenue_usd": 18665264,
@@ -187,7 +187,7 @@
         "7d": "metrics.tev_yield_7d_ann",
         "30d": "metrics.tev_yield_30d_ann",
         "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
@@ -205,7 +205,7 @@
     },
     "revenue_excluded": {},
     "calculation": {
-      "tev_ratio": 0.8,
+      "payout_ratio": 0.8,
       "note": "sPENDLE 时代 2026-01-29 起链上可验证"
     },
     "source_type": "chain",
