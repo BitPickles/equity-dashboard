@@ -73,7 +73,7 @@ def build_snapshot(proto_dir):
     }
 
     # ── 股东回报（L3）：Stargate 回购 ZRO（真实但量小） ───────
-    buyback_usd = metrics.get("trailing_365d_tev_usd")  # 784,539（annual Stargate 回购）
+    buyback_usd = metrics.get("trailing_365d_shareholder_returns_usd")  # 784,539（annual Stargate 回购）
     buyback_yield = round(buyback_usd / mcap * 100, 4) if (buyback_usd and mcap) else None
     by_mechanism = [
         {

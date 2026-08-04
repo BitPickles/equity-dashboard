@@ -50,7 +50,7 @@
 2. 优先复用 `financial_snapshot` 已验证毛利（2026-08-02 定稿）：`gross_profit ≈ $0.78M`；无值时按 `revenue × 0.2557` 估算；supply-side 外包成本（DVN/Executor）≈ $2.28M
 3. 增发成本 treatment = `dilution_note`（无对价解锁，不算成本不扣减净利，但财报页强制展示）：每月解锁 ~$48M（2027 年中前持续），回购月 ~$150K 远不足以对冲
 4. 净利 = 毛利 − 增发成本 0 − 运营成本（数据不可得）≈ $0.78M
-5. 股东回报 = Stargate 回购 `trailing_365d_tev_usd ≈ $784,539`；`yield = 回购 / 市值 ≈ 0.30%`；verified: partial
+5. 股东回报 = Stargate 回购 `trailing_365d_shareholder_returns_usd ≈ $784,539`；`yield = 回购 / 市值 ≈ 0.30%`；verified: partial
 6. 派生：毛利率 ~25.6%（supply-side 外包成本占比高）；P/E ≈ 333、P/S ≈ 85
 
 ## 五、数据管道（data_pipeline）

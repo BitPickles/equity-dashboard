@@ -1,6 +1,6 @@
 {
   "protocol": "maple",
-  "as_of": "2026-08-04",
+  "as_of": "2026-08-05",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -77,6 +77,6 @@
   "verification": {
     "method": "月收入 $1,290,000（判定书/官方仪表盘）×12 = 年化收入 $15,480,000；MIP-021 月收入 $1,290,000 < $1.5M → 10% 档 → 回购 $1,548,000（净利 × 10%）；留存 90%",
     "status": "partial",
-    "last_checked": "2026-08-04"
+    "last_checked": "2026-08-05"
   }
 }

@@ -233,7 +233,7 @@ function calculateMetrics(records) {
   if (!currentMcap) return null;
   
   return {
-    trailing_30d_tev_usd: Math.round(trailing30dTev),
+    trailing_30d_shareholder_returns_usd: Math.round(trailing30dTev),
     annualized_tev_usd: Math.round(annualizedTev),
     current_market_cap_usd: Math.round(currentMcap),
     tev_yield: (annualizedTev / currentMcap * 100).toFixed(2) + '%',

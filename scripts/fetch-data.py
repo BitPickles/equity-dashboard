@@ -335,7 +335,7 @@ def process_protocol(protocol_id, cfg, fee_map, dry_run=False):
         },
         "metrics": {
             "trailing_30d_fees_usd": fees_30d,
-            "trailing_30d_tev_usd": round(tev_30d, 2),
+            "trailing_30d_shareholder_returns_usd": round(tev_30d, 2),
             "annualized_fees_usd": round(fees_30d * 12, 2),
             "annualized_tev_usd": round(tev_annualized, 2),
             "current_market_cap_usd": mcap,

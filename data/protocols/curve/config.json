@@ -43,7 +43,7 @@
     "note": "这是代币通胀激励，不计入 TEV（非协议收入分配）",
     "governance": "veCRV 持有者投票决定各 Gauge 的 CRV 分配权重"
   },
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "ON",
     "fee_switch_details": "admin fees 统一兑换为 crvUSD 按周分发，交易手续费典型 50% 进 LP / 50% 进 DAO",
     "buybacks": "NONE",
@@ -195,7 +195,7 @@
       ]
     }
   },
-  "tevStatus": "active",
+  "return_status": "active",
   "confidence_reason": {
     "zh": "Treasury inflow + veCRV 锁仓量都链上完全可验证, FeeAllocator 90/10 比例治理记录有据",
     "en": "Treasury inflow + veCRV lock amount both fully on-chain, FeeAllocator 90/10 governance-documented"
@@ -211,16 +211,16 @@
     "trailing_30d_revenue_usd": 4716138,
     "trailing_30d_holders_revenue_usd": 691740,
     "current_market_cap_usd": 316842493.4643041,
-    "trailing_365d_tev_usd": 15335813,
-    "trailing_30d_tev_usd": 721543.5833333334,
+    "trailing_365d_shareholder_returns_usd": 15335813,
+    "trailing_30d_shareholder_returns_usd": 721543.5833333334,
     "trailing_7d_revenue_usd": 200990,
     "trailing_90d_revenue_usd": 8227226,
-    "tev_yield_7d_ann": 3.31,
-    "tev_yield_30d_ann": 18.11,
-    "tev_yield_90d_ann": 10.53,
-    "earning_yield_7d_ann": 3.31,
-    "earning_yield_30d_ann": 18.11,
-    "earning_yield_90d_ann": 10.53,
+    "shareholder_yield_7d_ann": 3.31,
+    "shareholder_yield_30d_ann": 18.11,
+    "shareholder_yield_90d_ann": 10.53,
+    "total_yield_7d_ann": 3.31,
+    "total_yield_30d_ann": 18.11,
+    "total_yield_90d_ann": 10.53,
     "dividend_yield_7d_ann": 3.31,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 18.11,
@@ -279,9 +279,9 @@
       "formula": "nominal: 股东回报 / CRV 全市值 · veCRV-only: 股东回报 / (locked_CRV × CRV_price)",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
         "365d": "shareholder_yield_percent"
       },
       "unit": "%"

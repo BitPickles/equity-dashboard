@@ -1,6 +1,6 @@
 {
   "protocol": "bgb",
-  "as_of": "2026-08-04",
+  "as_of": "2026-08-05",
   "income_statement": {
     "revenue": {
       "entity_type": "platform_token",
@@ -79,6 +79,6 @@
   "verification": {
     "method": "官方季度公告（2025 Q1/Q2 各销毁 ~3000 万枚 / $1.2-1.4 亿季度）年化 + 链上销毁地址 0x000...000 复核",
     "status": "partial",
-    "last_checked": "2026-08-04"
+    "last_checked": "2026-08-05"
   }
 }

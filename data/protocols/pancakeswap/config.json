@@ -44,7 +44,7 @@
       }
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "ON",
     "fee_switch_details": "veCAKE 已于 2025-04-23 结束，现全部回购销毁",
     "buybacks": "ACTIVE",
@@ -128,7 +128,7 @@
     "note": "CAKE 初始供应 7.5 亿，通过 Tokenomics 3.0 持续回购销毁。",
     "target_label": "initial_supply"
   },
-  "tevStatus": "active",
+  "return_status": "active",
   "confidence_reason": {
     "zh": "DefiLlama dailyHoldersRevenue 口径（CAKE buyback&burn USD），日度序列稳定可追溯",
     "en": "DefiLlama dailyHoldersRevenue (CAKE buyback&burn USD), stable traceable daily series"
@@ -141,16 +141,16 @@
     "current_market_cap_usd": 453714168.4843624,
     "trailing_365d_revenue_usd": 58668956,
     "trailing_30d_revenue_usd": 1380342,
-    "trailing_365d_tev_usd": 58668956,
-    "trailing_30d_tev_usd": 8326244.666666667,
+    "trailing_365d_shareholder_returns_usd": 58668956,
+    "trailing_30d_shareholder_returns_usd": 8326244.666666667,
     "trailing_7d_revenue_usd": 399271,
     "trailing_90d_revenue_usd": 5678619,
-    "tev_yield_7d_ann": 4.59,
-    "tev_yield_30d_ann": 3.7,
-    "tev_yield_90d_ann": 5.08,
-    "earning_yield_7d_ann": 4.59,
-    "earning_yield_30d_ann": 3.7,
-    "earning_yield_90d_ann": 5.08,
+    "shareholder_yield_7d_ann": 4.59,
+    "shareholder_yield_30d_ann": 3.7,
+    "shareholder_yield_90d_ann": 5.08,
+    "total_yield_7d_ann": 4.59,
+    "total_yield_30d_ann": 3.7,
+    "total_yield_90d_ann": 5.08,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 4.59,
     "dividend_yield_30d_ann": 0,
@@ -212,9 +212,9 @@
       "formula": "Shareholder_Yield = annual_USD ÷ circulating_market_cap × 100%",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
         "365d": "shareholder_yield_percent"
       },
       "unit": "%"

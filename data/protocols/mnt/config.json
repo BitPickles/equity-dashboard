@@ -37,7 +37,7 @@
       "note": "需要确认质押奖励机制"
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "N/A",
     "fee_switch_details": "L2 gas 费用机制，非传统 fee switch",
     "buybacks": "UNKNOWN",
@@ -136,7 +136,7 @@
       "若未来 Treasury Burn 提案通过执行, 重新评估"
     ]
   },
-  "tevStatus": "none",
+  "return_status": "none",
   "confidence_reason": {
     "zh": "Mantle L2 sequencer fees 不流向 MNT 持有人; mETH 收益给 mETH 持有人; Treasury Burn 提案讨论中未执行. 纯治理代币 (类 LDO)",
     "en": "Mantle L2 sequencer fees do not flow to MNT holders; mETH rewards go to mETH holders; Treasury Burn proposal under discussion, not executed. Pure governance token (similar to LDO)"
@@ -180,9 +180,9 @@
       "label": "股东回报率: 0% (governance-only, 类 LDO)",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
         "365d": "shareholder_yield_percent"
       },
       "unit": "%"

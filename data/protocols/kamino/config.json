@@ -16,7 +16,7 @@
     "total_supply": 9999959341.50722
   },
   "return_mechanisms": [],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "NONE",
     "fee_switch_details": "无协议收入直接分配给 KMNO 持有者。所谓 'staking' 实为 farming 奖励加成机制",
     "buybacks": "NONE",
@@ -85,7 +85,7 @@
     "circulating_supply": 5223287982.25,
     "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
-  "tevStatus": "none",
+  "return_status": "none",
   "confidence_reason": {
     "zh": "KMNO staking 是 farming reward boost, 不是协议 fee 分润",
     "en": "KMNO staking 是 farming reward boost, 不是协议 fee 分润"
@@ -98,16 +98,16 @@
     "trailing_365d_revenue_usd": 12082624,
     "trailing_30d_revenue_usd": 632635,
     "current_market_cap_usd": 93761764.95,
-    "trailing_365d_tev_usd": 0,
-    "trailing_30d_tev_usd": 0,
+    "trailing_365d_shareholder_returns_usd": 0,
+    "trailing_30d_shareholder_returns_usd": 0,
     "trailing_7d_revenue_usd": 124389,
     "trailing_90d_revenue_usd": 2079175,
-    "tev_yield_7d_ann": 0,
-    "tev_yield_30d_ann": 0,
-    "tev_yield_90d_ann": 0,
-    "earning_yield_7d_ann": 6.92,
-    "earning_yield_30d_ann": 8.21,
-    "earning_yield_90d_ann": 8.99,
+    "shareholder_yield_7d_ann": 0,
+    "shareholder_yield_30d_ann": 0,
+    "shareholder_yield_90d_ann": 0,
+    "total_yield_7d_ann": 6.92,
+    "total_yield_30d_ann": 8.21,
+    "total_yield_90d_ann": 8.99,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 0,
@@ -132,9 +132,9 @@
       "label": "股东回报率: 0% (governance-only)",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
         "365d": "shareholder_yield_percent"
       },
       "unit": "%"

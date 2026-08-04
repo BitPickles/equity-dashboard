@@ -13,7 +13,7 @@ JustLend DAO 2025-10 宣布 JST Buyback & Burn 机制，3 次执行累计销毁 
 
 **结论**：做账式销毁（pocket-to-pocket 转账），不是真 buyback。对流通量和价格无实际支撑。
 
-所以 Shareholder Yield 各周期归零（`tevStatus=none`, `confidence=low`）。
+所以 Shareholder Yield 各周期归零（`return_status=none`, `confidence=low`）。
 
 ---
 

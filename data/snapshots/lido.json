@@ -1,6 +1,6 @@
 {
   "protocol": "lido",
-  "as_of": "2026-08-04",
+  "as_of": "2026-08-05",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -78,6 +78,6 @@
   "verification": {
     "method": "净利 = DefiLlama dailyRevenue 365d $38,920,031（协议净收入）；LDO 治理代币不回购（fee switch OFF）；净利留存 DAO 国库",
     "status": "estimated",
-    "last_checked": "2026-08-04"
+    "last_checked": "2026-08-05"
   }
 }

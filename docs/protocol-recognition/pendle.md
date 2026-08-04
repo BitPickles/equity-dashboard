@@ -44,7 +44,7 @@
 
 `data/protocols/pendle/adapter.py` → `build_snapshot(proto_dir)`：
 
-1. 读 config.json → `payout_ratio = 0.8`（判定书：80% 确定）；all-protocols.json → `metrics.trailing_365d_revenue_usd`（dailyRevenue = $18,665,264）+ `trailing_365d_tev_usd`（dailyHoldersRevenue = $18,665,264）
+1. 读 config.json → `payout_ratio = 0.8`（判定书：80% 确定）；all-protocols.json → `metrics.trailing_365d_revenue_usd`（dailyRevenue = $18,665,264）+ `trailing_365d_shareholder_returns_usd`（dailyHoldersRevenue = $18,665,264）
 2. 股东回报数值 = dailyHoldersRevenue 365d（sPENDLE 分发实测）；`yield_pct = holders_365d / mcap × 100% = 7.92%`
 3. 用 tev-records.json 365d 窗口（完整 12 个日历月）交叉核对（$18,819,548）
 4. 毛利 = 净利 = 协议净收入（80% 回购分发 sPENDLE 计入股东回报，20% 留存 treasury）；无持续大额增发

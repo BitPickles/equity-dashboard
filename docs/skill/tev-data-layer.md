@@ -177,7 +177,7 @@ data/protocols/<id>/
   "confidence": "high | medium | low",
   "confidence_reason": {"zh": "...", "en": "..."},
   "payout_ratio": 1.0 | null | 0,     // null 表示不适用（无 fee 分润），0 表示有 fee 但 0% 给持有人
-  "tevRatioNote": "...",           // 当 payout_ratio=null 时用它解释
+  "payout_ratio_note": "...",           // 当 payout_ratio=null 时用它解释
   "display_precision": 3,          // 可选，默认 2。某些占比极小的协议（如 BNB）用 3
   "last_updated": "YYYY-MM-DD"
 }
@@ -197,18 +197,18 @@ data/protocols/<id>/
       "tvl": 5326286571,
       "payout_ratio": 1,
       "confidence": "high",
-      "tevStatus": "active",
+      "return_status": "active",
       "metrics": {
         "trailing_7d_revenue_usd": 13459322,
         "trailing_30d_revenue_usd": 55375124,
         "trailing_90d_revenue_usd": 189940000,
         "trailing_365d_revenue_usd": 941960000,
-        "tev_yield_7d_ann": 9.52,
-        "tev_yield_30d_ann": 9.14,
-        "tev_yield_90d_ann": 10.51,
-        "earning_yield_7d_ann": 9.52,
-        "earning_yield_30d_ann": 9.14,
-        "earning_yield_90d_ann": 10.51
+        "shareholder_yield_7d_ann": 9.52,
+        "shareholder_yield_30d_ann": 9.14,
+        "shareholder_yield_90d_ann": 10.51,
+        "total_yield_7d_ann": 9.52,
+        "total_yield_30d_ann": 9.14,
+        "total_yield_90d_ann": 10.51
       },
       "display_precision": 3     // 可选
     }
@@ -326,11 +326,11 @@ const isDaily = records.every(r => {
 
 ```json
 {
-  "tevRatio_7d":   0.0789,
-  "tevRatio_30d":  0.0790,
-  "tevRatio_90d":  0.3193,
-  "tevRatio_365d": 0.4830,
-  "payout_ratio": 0.4830  // 顶层保留，= tevRatio_365d，向后兼容
+  "payout_ratio_7d":   0.0789,
+  "payout_ratio_30d":  0.0790,
+  "payout_ratio_90d":  0.3193,
+  "payout_ratio_365d": 0.4830,
+  "payout_ratio": 0.4830  // 顶层保留，= payout_ratio_365d，向后兼容
 }
 ```
 
@@ -403,7 +403,7 @@ const isDaily = records.every(r => {
 | 2026-04-19 | — | 新增 TEV 总规范文档 | `4be0332` | ✅ 已上 main |
 | 2026-04-22 | Uniswap | 切换到链上直查 0xdead burn（A 口径）+ 链上数据核实 + 每日增量脚本 + 文档 | `c2bff2e1` | ✅ 已上 main |
 | 2026-04-22 | Sky (MakerDAO) | 切换到 DefiLlama `dailyHoldersRevenue` 口径（= Splitter burn 部分）；链上核实 MKR/SKY@0xdead 几乎为 0；动态 payout_ratio 替代写死 fixedTevUsd；文档 | `66129bc5` | ✅ 已上 main |
-| 2026-04-22 | 前端 | 分配率按周期独立显示（tevRatio_7d/30d/90d/365d），覆盖 Sky 类"TEV/Earning 独立 signal"协议；其他协议 fallback 顶层 payout_ratio | `66129bc5` | ✅ 已上 main |
+| 2026-04-22 | 前端 | 分配率按周期独立显示（payout_ratio_7d/30d/90d/365d），覆盖 Sky 类"TEV/Earning 独立 signal"协议；其他协议 fallback 顶层 payout_ratio | `66129bc5` | ✅ 已上 main |
 | 2026-04-22 | Aave | 双源 TEV（$30M 固定 Buyback + DefiLlama dailyHoldersRevenue Safety Module）；各周期独立；明确 buyback 是 treasury 非 burn（类似 Hyperliquid AF）；payout_ratio 按周期；文档 | `5e013f9f` | ✅ 已上 main |
 | 2026-04-22 | 详情页 | 大重构（方案 B）：section 顺序重排 + 深度分析 tab 合并 + 周期切换 + Caveats + 附加折叠 | — | 🚧 dev |
 | 2026-04-23 | 图表修复 | BNB/HYPE 等原本有 period 字段的季度/月度数据被误判为 Daily → 38 条季度数据塞入 8.5 年 time axis 柱子看不见；修 isDaily 判断（period≠date 时走 Monthly） | — | 🚧 dev |

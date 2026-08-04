@@ -31,7 +31,7 @@
       }
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "N/A",
     "fee_switch_details": "CEX 收入不直接链上分配",
     "buybacks": "ACTIVE",
@@ -121,7 +121,7 @@
       "<strong>Morph 迁移变量</strong>: 2025-09 BGB 部分迁移 Morph 基金会, 销毁机制未来可能变更"
     ]
   },
-  "tevStatus": "none",
+  "return_status": "none",
   "confidence_reason": {
     "zh": "销毁源头无链上溯源, 类似 JustLend pocket-to-pocket 嫌疑. Bitget 自持 BGB 转账到黑洞 vs 真实市场买入无市场对手方证据",
     "en": "No on-chain source tracing for burns. Similar pocket-to-pocket suspicion as JustLend — no market counterparty evidence for \"20% revenue buyback\" claim"
@@ -164,9 +164,9 @@
       "label": "当前 股东回报率: 0% (low confidence)",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
         "365d": "shareholder_yield_percent"
       },
       "unit": "%"

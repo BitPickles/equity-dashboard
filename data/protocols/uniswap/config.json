@@ -79,7 +79,7 @@
       "1.00%_pool": "protocol fee = 1/6 of LP fee"
     }
   },
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "ON",
     "fee_switch_details": "2025-12-28 通过 UNIfication 提案开启",
     "buybacks": "ACTIVE",
@@ -143,7 +143,7 @@
       }
     ],
     "calculation": "详见 calc_pipeline 数组（6 steps 端到端推导）",
-    "trailing_365d_tev_usd": 31503243,
+    "trailing_365d_shareholder_returns_usd": 31503243,
     "last_updated": "2026-03-27",
     "validation": {
       "method": "A 口径：365d UNI 转入 0xdead（链上）减去 >=10M UNI 一次性事件",
@@ -185,7 +185,7 @@
     ],
     "pct": 10.19
   },
-  "tevStatus": "active",
+  "return_status": "active",
   "confidence_reason": {
     "zh": "Firepit 销毁 UNI→0xdead 完全链上可追踪（Etherscan）",
     "en": "Firepit burn UNI→0xdead fully on-chain trackable (Etherscan)"
@@ -198,12 +198,12 @@
     "trailing_7d_revenue_usd": 425339,
     "trailing_30d_revenue_usd": 1436522,
     "trailing_90d_revenue_usd": 4710831,
-    "tev_yield_7d_ann": 0.87,
-    "tev_yield_30d_ann": 0.69,
-    "tev_yield_90d_ann": 0.75,
-    "earning_yield_7d_ann": 0.87,
-    "earning_yield_30d_ann": 0.69,
-    "earning_yield_90d_ann": 0.75,
+    "shareholder_yield_7d_ann": 0.87,
+    "shareholder_yield_30d_ann": 0.69,
+    "shareholder_yield_90d_ann": 0.75,
+    "total_yield_7d_ann": 0.87,
+    "total_yield_30d_ann": 0.69,
+    "total_yield_90d_ann": 0.75,
     "trailing_365d_revenue_usd": 18377870,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0.87,
@@ -264,9 +264,9 @@
       "label": "最终 股东回报率",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
         "365d": "shareholder_yield_percent"
       },
       "unit": "%"

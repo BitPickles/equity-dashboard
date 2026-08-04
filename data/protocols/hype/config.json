@@ -49,7 +49,7 @@
       "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/hyperevm"
     ]
   },
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "ON",
     "fee_switch_details": "交易费用扣除 deployer/builder/HLP/referral 后，进入 AF 回购销毁 HYPE",
     "buybacks": "ACTIVE",
@@ -170,7 +170,7 @@
       }
     ],
     "calculation": "详见 calc_pipeline 数组（5 steps 端到端推导）",
-    "trailing_365d_tev_usd": 926166161,
+    "trailing_365d_shareholder_returns_usd": 926166161,
     "last_updated": "2026-03-26"
   },
   "burn_progress": {
@@ -183,7 +183,7 @@
     "pct": 0.075,
     "af_pct": 4.34
   },
-  "tevStatus": "active",
+  "return_status": "active",
   "confidence_reason": {
     "zh": "链上 AF 余额可验证 + DefiLlama holdersRevenue 交叉验证",
     "en": "On-chain AF balance verifiable + DefiLlama holdersRevenue cross-validated"
@@ -196,12 +196,12 @@
     "trailing_7d_revenue_usd": 8228544,
     "trailing_30d_revenue_usd": 34979838,
     "trailing_90d_revenue_usd": 142582881,
-    "tev_yield_7d_ann": 5.82,
-    "tev_yield_30d_ann": 5.78,
-    "tev_yield_90d_ann": 7.85,
-    "earning_yield_7d_ann": 5.82,
-    "earning_yield_30d_ann": 5.78,
-    "earning_yield_90d_ann": 7.85,
+    "shareholder_yield_7d_ann": 5.82,
+    "shareholder_yield_30d_ann": 5.78,
+    "shareholder_yield_90d_ann": 7.85,
+    "total_yield_7d_ann": 5.82,
+    "total_yield_30d_ann": 5.78,
+    "total_yield_90d_ann": 7.85,
     "trailing_365d_revenue_usd": 772987701,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 5.82,
@@ -252,9 +252,9 @@
       "label": "最终 股东回报率",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
         "365d": "shareholder_yield_percent"
       },
       "unit": "%"

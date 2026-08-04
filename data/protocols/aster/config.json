@@ -36,7 +36,7 @@
       }
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "ON",
     "buybacks": "ACTIVE",
     "dividends": "NONE",
@@ -110,7 +110,7 @@
     },
     "methodology": "Stage5/6 buyback wallet ASTER 入金（按窗口）× 当前价 / 市值。类似 Hyperliquid AF 的 treasury buyback 口径（不区分 burn vs rewards）"
   },
-  "tevStatus": "active",
+  "return_status": "active",
   "confidence_reason": {
     "zh": "链上回购钱包可追踪（Moralis + BscScan）",
     "en": "On-chain buyback wallets trackable (Moralis + BscScan)"
@@ -128,12 +128,12 @@
   "market_cap_usd": 1611525735.7600327,
   "shareholder_yield_percent": 1.47,
   "metrics": {
-    "tev_yield_7d_ann": 0,
-    "tev_yield_30d_ann": 0,
-    "tev_yield_90d_ann": 0,
-    "earning_yield_7d_ann": 0,
-    "earning_yield_30d_ann": 0,
-    "earning_yield_90d_ann": 0,
+    "shareholder_yield_7d_ann": 0,
+    "shareholder_yield_30d_ann": 0,
+    "shareholder_yield_90d_ann": 0,
+    "total_yield_7d_ann": 0,
+    "total_yield_30d_ann": 0,
+    "total_yield_90d_ann": 0,
     "trailing_7d_revenue_usd": 0,
     "trailing_30d_revenue_usd": 0,
     "trailing_90d_revenue_usd": 0,
@@ -203,9 +203,9 @@
       "label": "最终 股东回报率",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
         "365d": "shareholder_yield_percent"
       },
       "unit": "%"

@@ -397,7 +397,7 @@
       "url": "https://bscscan.com/tx/0x23f423a3701e3df3f20db6a9289fe3ae721a2819f3a4eca917d23d666e5eb0f7"
     }
   },
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "N/A",
     "fee_switch_details": "CEX 收入不直接链上分配",
     "buybacks": "NONE",
@@ -584,13 +584,13 @@
       }
     ]
   },
-  "tevStatus": "active",
+  "return_status": "active",
   "confidence_reason": {
     "zh": "Auto-Burn 链上完全可验证（0xdead + BEP-95），asBNB 来自链上 StakeHub 合约",
     "en": "Auto-Burn fully verifiable on-chain (0xdead + BEP-95), asBNB from on-chain StakeHub contract"
   },
   "payout_ratio": null,
-  "tevRatioNote": "BNB 无 fee 分润机制，TEV 来自供给收缩（Auto-Burn + BEP-95）+ 链上质押收益（asBNB），不适用『分配比例』概念",
+  "payout_ratio_note": "BNB 无 fee 分润机制，TEV 来自供给收缩（Auto-Burn + BEP-95）+ 链上质押收益（asBNB），不适用『分配比例』概念",
   "total_yield_percent": 8.07,
   "market_cap_usd": 76912536768.93126,
   "shareholder_yield_percent": 12.46,
@@ -598,12 +598,12 @@
     "trailing_7d_revenue_usd": 265445,
     "trailing_30d_revenue_usd": 842118,
     "trailing_90d_revenue_usd": 3364197,
-    "tev_yield_7d_ann": 12.73,
-    "tev_yield_30d_ann": 27.15,
-    "tev_yield_90d_ann": 17.53,
-    "earning_yield_7d_ann": 6.89,
-    "earning_yield_30d_ann": 21.3,
-    "earning_yield_90d_ann": 11.69,
+    "shareholder_yield_7d_ann": 12.73,
+    "shareholder_yield_30d_ann": 27.15,
+    "shareholder_yield_90d_ann": 17.53,
+    "total_yield_7d_ann": 6.89,
+    "total_yield_30d_ann": 21.3,
+    "total_yield_90d_ann": 11.69,
     "dividend_yield_7d_ann": 6.87,
     "buyback_yield_7d_ann": 5.86,
     "dividend_yield_30d_ann": 6.87,
@@ -688,9 +688,9 @@
       "label": "最终 股东回报率",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
         "365d": "shareholder_yield_percent"
       },
       "unit": "%"

@@ -34,7 +34,7 @@
       }
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "ON",
     "fee_switch_details": "协议盈余通过 Smart Burn Engine 回购 MKR 并添加流动性",
     "buybacks": "ACTIVE",
@@ -100,7 +100,7 @@
     "circulating_supply": 23393914905.6247,
     "price_updated_at": "2026-08-04T13:10:25.621087+00:00"
   },
-  "tevStatus": "active",
+  "return_status": "active",
   "confidence_reason": {
     "zh": "Smart Burn Engine 合约链上可追踪 + DefiLlama 验证",
     "en": "Smart Burn Engine contract on-chain trackable + DefiLlama validated"
@@ -114,18 +114,18 @@
     "current_market_cap_usd": 1814725241.45,
     "trailing_365d_revenue_usd": 234377977,
     "trailing_30d_revenue_usd": 13821946,
-    "trailing_365d_tev_usd": 13724000,
-    "trailing_30d_tev_usd": 1143666.6666666667,
+    "trailing_365d_shareholder_returns_usd": 13724000,
+    "trailing_30d_shareholder_returns_usd": 1143666.6666666667,
     "trailing_365d_holders_revenue_usd": 135679512,
     "trailing_30d_holders_revenue_usd": 5565701,
     "trailing_7d_revenue_usd": 3293092,
     "trailing_90d_revenue_usd": 40972205,
-    "tev_yield_7d_ann": 0.75,
-    "tev_yield_30d_ann": 0.75,
-    "tev_yield_90d_ann": 0.75,
-    "earning_yield_7d_ann": 9.46,
-    "earning_yield_30d_ann": 9.27,
-    "earning_yield_90d_ann": 9.16,
+    "shareholder_yield_7d_ann": 0.75,
+    "shareholder_yield_30d_ann": 0.75,
+    "shareholder_yield_90d_ann": 0.75,
+    "total_yield_7d_ann": 9.46,
+    "total_yield_30d_ann": 9.27,
+    "total_yield_90d_ann": 9.16,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0.75,
     "dividend_yield_30d_ann": 0,
@@ -180,9 +180,9 @@
       "label": "最终 股东回报率",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
         "365d": "shareholder_yield_percent"
       },
       "unit": "%"

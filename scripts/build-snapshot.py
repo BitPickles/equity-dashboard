@@ -175,7 +175,7 @@ def run_generic_adapter(proto_dir, all_protocols, daily):
         }
     else:
         rev_365d = ap.get("metrics", {}).get("trailing_365d_revenue_usd") or ap.get("metrics", {}).get("trailing_365d_fees_usd")
-        holders_365d = ap.get("metrics", {}).get("trailing_365d_holders_revenue_usd") or ap.get("metrics", {}).get("trailing_365d_tev_usd")
+        holders_365d = ap.get("metrics", {}).get("trailing_365d_holders_revenue_usd") or ap.get("metrics", {}).get("trailing_365d_shareholder_returns_usd")
         revenue_included = {
             "protocol_fees_usd_365d": rev_365d,
             "total_usd_365d": rev_365d,
@@ -304,9 +304,9 @@ def append_history(pid, snap, all_protocols=None):
             base = datetime.strptime(as_of, "%Y-%m-%d")
             mcap = ap.get("market_cap_usd") or 0
             cycles = [
-                ("7d", m.get("tev_yield_7d_ann")),
-                ("30d", m.get("tev_yield_30d_ann")),
-                ("90d", m.get("tev_yield_90d_ann")),
+                ("7d", m.get("shareholder_yield_7d_ann")),
+                ("30d", m.get("shareholder_yield_30d_ann")),
+                ("90d", m.get("shareholder_yield_90d_ann")),
             ]
             for label, y in cycles:
                 if y is None:

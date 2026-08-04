@@ -2,16 +2,6 @@
   "protocol": "aave",
   "records": [
     {
-      "as_of": "2025-08-05",
-      "net_income": 93353586.35,
-      "daily_value": 404763.21,
-      "pe": 19.271,
-      "ps": 19.271,
-      "shareholder_yield": 5.189,
-      "net_margin": 100.0,
-      "_period": "daily"
-    },
-    {
       "as_of": "2025-08-06",
       "net_income": 93667277.64,
       "daily_value": 434476.86,
@@ -3643,6 +3633,14 @@
     },
     {
       "as_of": "2026-08-04",
+      "net_income": 115460247,
+      "pe": 47.0429,
+      "ps": 12.2231,
+      "shareholder_yield": 2.1257,
+      "net_margin": 100.0
+    },
+    {
+      "as_of": "2026-08-05",
       "net_income": 115460247,
       "pe": 47.0429,
       "ps": 12.2231,

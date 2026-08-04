@@ -17,7 +17,7 @@ sync-all-protocols-from-snapshots.py — 从 27 个 snapshot 同步 all-protocol
 - net_margin_percent       ← income_statement.margins.net_margin_percent
 - payout_ratio (payout_ratio)  ← valuation.payout_ratio（若有）
 - ⚠️ market_cap_usd / tvl **不覆盖**——由 update-prices.py（CoinGecko/CMC 实时）维护
-- metrics.tev_yield_365d_ann ← 同上（保持兼容）
+- metrics.shareholder_yield_365d_ann ← 同上（保持兼容）
 
 用法: python3 scripts/sync-all-protocols-from-snapshots.py [--dry-run]
 """
@@ -68,14 +68,24 @@ def main():
             # ⚠️ market_cap_usd / tvl 不从此同步——由 update-prices.py（CoinGecko/CMC
             #    实时）维护；snapshot 的市值是 build 时的旧快照，覆盖会回退价格（2026-08-04 bug）
         }
+        # total_yield_percent（Earning Yield / 收入收益率）= 年化收入 ÷ 最新市值
+        # —— P/S 列的分母（PS = 100 ÷ total_yield）。用 update-prices 维护的最新市值，
+        #    不用 snapshot 旧市值（2026-08-05 清洗旧残留值）
+        rev = updates.get("revenue_usd_365d")
+        mcap = p.get("market_cap_usd")  # all-protocols 最新市值（update-prices 维护）
+        if rev is not None and mcap:
+            updates["total_yield_percent"] = round(rev / mcap * 100, 4)
+        elif "total_yield_percent" in p:
+            # 收入不可得 → 删除旧残留，避免展示过期数字
+            updates["total_yield_percent"] = None
         # payout_ratio：snapshot 有就用（可能为 None 保留原值）
         if val.get("payout_ratio") is not None:
             updates["payout_ratio"] = val["payout_ratio"]
 
-        # metrics 兼容（前端 yieldMap 读 metrics.tev_yield_365d_ann）
+        # metrics 兼容（前端 yieldMap 读 metrics.shareholder_yield_365d_ann）
         metrics = p.setdefault("metrics", {})
         if hr.get("shareholder_yield_percent") is not None:
-            metrics["tev_yield_365d_ann"] = hr["shareholder_yield_percent"]
+            metrics["shareholder_yield_365d_ann"] = hr["shareholder_yield_percent"]
 
         for k, v in updates.items():
             if k in ("payout_ratio",):

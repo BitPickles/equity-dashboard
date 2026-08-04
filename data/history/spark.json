@@ -2,16 +2,6 @@
   "protocol": "spark",
   "records": [
     {
-      "as_of": "2025-08-05",
-      "net_income": 6071750.26,
-      "daily_value": 98278.78,
-      "pe": 7.872,
-      "ps": 7.872,
-      "shareholder_yield": 12.7035,
-      "net_margin": 100.0,
-      "_period": "daily"
-    },
-    {
       "as_of": "2025-08-06",
       "net_income": 6162700.38,
       "daily_value": 92997.8,
@@ -3643,6 +3633,14 @@
     },
     {
       "as_of": "2026-08-04",
+      "net_income": 22144959,
+      "pe": null,
+      "ps": 2.0965,
+      "shareholder_yield": 0,
+      "net_margin": 100.0
+    },
+    {
+      "as_of": "2026-08-05",
       "net_income": 22144959,
       "pe": null,
       "ps": 2.0965,

@@ -146,7 +146,7 @@ python3 -c "
 import json
 d=json.load(open('data/all-protocols.json'))['protocols']['aave']
 print('tev_yield:', d.get('shareholder_yield_percent'))
-print('payout_ratio 各周期:', d.get('tevRatio_7d'), d.get('tevRatio_30d'), d.get('tevRatio_90d'), d.get('tevRatio_365d'))
+print('payout_ratio 各周期:', d.get('payout_ratio_7d'), d.get('payout_ratio_30d'), d.get('payout_ratio_90d'), d.get('payout_ratio_365d'))
 print('validation:', json.dumps(d.get('validation', {}), indent=2, ensure_ascii=False))
 "
 ```

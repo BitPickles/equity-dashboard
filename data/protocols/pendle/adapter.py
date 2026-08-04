@@ -57,7 +57,7 @@ def build_snapshot(proto_dir):
     # ── 股东回报（L3）──────────────────────────────────────────
     # 80% 协议收入回购 PENDLE → sPENDLE 质押者（2026-01-29 起）。
     # 数值 = DefiLlama dailyHoldersRevenue 365d（sPENDLE 分发实测）。
-    holders_365d = metrics.get("trailing_365d_tev_usd")  # ~$18.67M
+    holders_365d = metrics.get("trailing_365d_shareholder_returns_usd")  # ~$18.67M
     # tev-records 交叉核对（完整 12 个日历月窗口）
     try:
         cutoff = (date.today() - timedelta(days=365)).strftime("%Y-%m") + "-01"

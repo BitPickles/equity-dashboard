@@ -2,16 +2,6 @@
   "protocol": "morpho",
   "records": [
     {
-      "as_of": "2025-08-05",
-      "net_income": 0.0,
-      "daily_value": 0.0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": null,
-      "_period": "daily"
-    },
-    {
       "as_of": "2025-08-06",
       "net_income": 0.0,
       "daily_value": 0.0,
@@ -3643,6 +3633,14 @@
     },
     {
       "as_of": "2026-08-04",
+      "net_income": 0,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": 0,
+      "net_margin": null
+    },
+    {
+      "as_of": "2026-08-05",
       "net_income": 0,
       "pe": null,
       "ps": null,

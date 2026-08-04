@@ -212,10 +212,10 @@ async function processProtocol(protocol) {
     updated_at: new Date().toISOString(),
     latest_record: latestRecord,
     metrics: {
-      trailing_30d_tev_usd: trailing30dTev,
+      trailing_30d_shareholder_returns_usd: trailing30dTev,
       trailing_30d_fees_usd: records.slice(-30).reduce((sum, r) => sum + (r.daily_fees_usd || 0), 0),
       trailing_30d_revenue_usd: trailing30dRevenue,
-      trailing_365d_tev_usd: trailing365dTev,
+      trailing_365d_shareholder_returns_usd: trailing365dTev,
       trailing_365d_fees_usd: trailing365dFees,
       trailing_365d_revenue_usd: trailing365dRevenue,
       annualized_tev_usd: annualizedTev,

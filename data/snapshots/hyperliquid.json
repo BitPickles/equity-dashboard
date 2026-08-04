@@ -1,6 +1,6 @@
 {
   "protocol": "hyperliquid",
-  "as_of": "2026-08-04",
+  "as_of": "2026-08-05",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -79,8 +79,8 @@
     "payout_ratio": 0.99
   },
   "verification": {
-    "method": "净利 = DefiLlama dailyRevenue 365d $772,987,701；股东回报 = 收入 × 0.99 = $765,257,824（销毁型 🟢，payout_ratio=0.99）；af-history 旧缓存 365d $694,997,482（截至 2026-04-17，窗口不重叠，仅参考）",
+    "method": "净利 = DefiLlama dailyRevenue 365d $772,987,701；股东回报 = 收入 × 0.99 = $765,257,824（销毁型 🟢，payout_ratio=0.99）；af-history 旧缓存 365d $692,171,677（截至 2026-04-17，窗口不重叠，仅参考）",
     "status": "verified",
-    "last_checked": "2026-08-04"
+    "last_checked": "2026-08-05"
   }
 }

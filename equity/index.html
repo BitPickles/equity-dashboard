@@ -545,16 +545,16 @@
         // 直接使用 all-protocols.json 中的预计算值
         const m = p.metrics || {};
         const yieldMap = {
-          '7d': m.tev_yield_7d_ann,
-          '30d': m.tev_yield_30d_ann,
-          '90d': m.tev_yield_90d_ann,
+          '7d': m.shareholder_yield_7d_ann,
+          '30d': m.shareholder_yield_30d_ann,
+          '90d': m.shareholder_yield_90d_ann,
           '365d': p.shareholder_yield_percent || 0,
         };
         const tevYield = yieldMap[currentYieldPeriod] != null ? yieldMap[currentYieldPeriod] : (p.shareholder_yield_percent || 0);
         const earningYieldMap = {
-          '7d': m.earning_yield_7d_ann,
-          '30d': m.earning_yield_30d_ann,
-          '90d': m.earning_yield_90d_ann,
+          '7d': m.total_yield_7d_ann,
+          '30d': m.total_yield_30d_ann,
+          '90d': m.total_yield_90d_ann,
           '365d': p.total_yield_percent || 0,
         };
         const earningYield = earningYieldMap[currentYieldPeriod] != null ? earningYieldMap[currentYieldPeriod] : (p.total_yield_percent || 0);
@@ -568,10 +568,10 @@
         const divYield = divYieldMap[currentYieldPeriod] != null ? divYieldMap[currentYieldPeriod] : (p.dividend_yield_percent || 0);
         // 派息率 (Payout Ratio) = 股东回报 ÷ 营收，按周期
         const payoutMap = {
-          '7d':   p.tevRatio_7d,
-          '30d':  p.tevRatio_30d,
-          '90d':  p.tevRatio_90d,
-          '365d': p.tevRatio_365d != null ? p.tevRatio_365d : p.payout_ratio,
+          '7d':   p.payout_ratio_7d,
+          '30d':  p.payout_ratio_30d,
+          '90d':  p.payout_ratio_90d,
+          '365d': p.payout_ratio_365d != null ? p.payout_ratio_365d : p.payout_ratio,
         };
         const payout = payoutMap[currentYieldPeriod] != null ? payoutMap[currentYieldPeriod] : (p.payout_ratio || 0);
         const mcap = p.market_cap_usd || 0;

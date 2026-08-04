@@ -1,6 +1,6 @@
 {
   "protocol": "aster",
-  "as_of": "2026-08-04",
+  "as_of": "2026-08-05",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -78,6 +78,6 @@
   "verification": {
     "method": "DefiLlama dailyRevenue 365d $23699571 × payout_ratio 0.99 = 回购/分配 $23462575.29；链上回购 wallet 365d 36177482 ASTER（缓存 95 天，2025-12-23→2026-03-27）",
     "status": "verified",
-    "last_checked": "2026-08-04"
+    "last_checked": "2026-08-05"
   }
 }

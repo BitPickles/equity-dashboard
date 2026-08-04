@@ -60,7 +60,7 @@
       "url": "https://defillama.com/protocol/ethena-usde"
     }
   },
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "OFF",
     "fee_switch_details": "Token Holder Net Income = $0，Fee switch 未落地",
     "buybacks": "NONE",
@@ -170,7 +170,7 @@
       "Fee Switch 治理提案存在, 但分配比例待定"
     ]
   },
-  "tevStatus": "none",
+  "return_status": "none",
   "confidence_reason": {
     "zh": "机制复杂但 ENA 当前不分润. sUSDe 收益给 sUSDe 持有人, 不给 ENA/sENA",
     "en": "机制复杂但 ENA 当前不分润. sUSDe 收益给 sUSDe 持有人, 不给 ENA/sENA"
@@ -183,16 +183,16 @@
     "current_market_cap_usd": 848569389.93,
     "trailing_365d_revenue_usd": 8996865.049999999,
     "trailing_30d_revenue_usd": 28534.05,
-    "trailing_365d_tev_usd": 0,
-    "trailing_30d_tev_usd": 0,
+    "trailing_365d_shareholder_returns_usd": 0,
+    "trailing_30d_shareholder_returns_usd": 0,
     "trailing_7d_revenue_usd": 7993.429999999999,
     "trailing_90d_revenue_usd": 777185.0499999998,
-    "tev_yield_7d_ann": 0,
-    "tev_yield_30d_ann": 0,
-    "tev_yield_90d_ann": 0,
-    "earning_yield_7d_ann": 0.05,
-    "earning_yield_30d_ann": 0.04,
-    "earning_yield_90d_ann": 0.37,
+    "shareholder_yield_7d_ann": 0,
+    "shareholder_yield_30d_ann": 0,
+    "shareholder_yield_90d_ann": 0,
+    "total_yield_7d_ann": 0.05,
+    "total_yield_30d_ann": 0.04,
+    "total_yield_90d_ann": 0.37,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 0,
@@ -216,9 +216,9 @@
       "label": "股东回报率: 0% (governance-only)",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
         "365d": "shareholder_yield_percent"
       },
       "unit": "%"

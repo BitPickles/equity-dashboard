@@ -1,6 +1,6 @@
 {
   "protocol": "mnt",
-  "as_of": "2026-08-04",
+  "as_of": "2026-08-05",
   "income_statement": {
     "revenue": {
       "entity_type": "platform_token",
@@ -80,6 +80,6 @@
   "verification": {
     "method": "质押收益口径（2026-08-04 Boss 拍板）：stacky.fi/stakingcrypto.info 实测 ~5.0% APY × 市值；sequencer fees/mETH 不计入（判定书 §2）",
     "status": "estimated",
-    "last_checked": "2026-08-04"
+    "last_checked": "2026-08-05"
   }
 }

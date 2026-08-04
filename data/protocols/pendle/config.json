@@ -34,7 +34,7 @@
       }
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "ON",
     "fee_switch_details": "80% 协议收入回购并分配给 sPENDLE 持有者（原 vePENDLE 升级）",
     "buybacks": "ACTIVE",
@@ -105,7 +105,7 @@
     "circulating_supply": 172067342.4203455,
     "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
-  "tevStatus": "active",
+  "return_status": "active",
   "confidence_reason": {
     "zh": "DefiLlama dailyHoldersRevenue 实测 ($22.25M, 占 revenue 85%) 与官方 80% 比例吻合, 但多链架构无单一 buyback executor 可链上验证",
     "en": "DefiLlama dailyHoldersRevenue ($22.25M, ~85% of revenue) aligns with official 80% claim, but no single on-chain executor traceable across 8+ chains"
@@ -118,16 +118,16 @@
     "current_market_cap_usd": 235721104.89,
     "trailing_365d_revenue_usd": 18665264,
     "trailing_30d_revenue_usd": 444116,
-    "trailing_365d_tev_usd": 18665264,
-    "trailing_30d_tev_usd": 1555438.6666666667,
+    "trailing_365d_shareholder_returns_usd": 18665264,
+    "trailing_30d_shareholder_returns_usd": 1555438.6666666667,
     "trailing_7d_revenue_usd": 208148,
     "trailing_90d_revenue_usd": 2084217,
-    "tev_yield_7d_ann": 4.6,
-    "tev_yield_30d_ann": 2.29,
-    "tev_yield_90d_ann": 3.59,
-    "earning_yield_7d_ann": 4.6,
-    "earning_yield_30d_ann": 2.29,
-    "earning_yield_90d_ann": 3.59,
+    "shareholder_yield_7d_ann": 4.6,
+    "shareholder_yield_30d_ann": 2.29,
+    "shareholder_yield_90d_ann": 3.59,
+    "total_yield_7d_ann": 4.6,
+    "total_yield_30d_ann": 2.29,
+    "total_yield_90d_ann": 3.59,
     "dividend_yield_7d_ann": 4.6,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 2.29,
@@ -184,9 +184,9 @@
       "label": "最终 股东回报率",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
         "365d": "shareholder_yield_percent"
       },
       "unit": "%"

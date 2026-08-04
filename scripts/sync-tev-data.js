@@ -102,7 +102,7 @@ const PROTOCOL_CONFIG = {
     fixedTevUsd: 13724000,  // $37,600/天 × 365 = $13.724M (2026-03 治理大幅下调, 原 $30万/天)
     note: 'Smart Burn Engine 日回购 $37,600 (2026-03 治理投票下调 87.5%)'
   },
-  // 以下协议无 TEV (tevStatus=none)，仅获取市值
+  // 以下协议无 TEV (return_status=none)，仅获取市值
   compound: {
     defillamaSlug: 'compound-v3',
     coingeckoId: 'compound-governance-token',
@@ -399,10 +399,10 @@ async function main() {
   const allData = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
   const protocols = allData.protocols;
 
-  // 同步所有协议的静态字段（confidence/tevStatus/return_mechanisms 等）从 config.json → all-protocols.json
+  // 同步所有协议的静态字段（confidence/return_status/return_mechanisms 等）从 config.json → all-protocols.json
   // 否则在 config.json 改了 confidence 但 sync 不会拉过来, 主表会显示旧值
-  const STATIC_FIELDS_FROM_CONFIG = ['confidence', 'confidence_reason', 'tevStatus',
-                                     'return_mechanisms', 'tev_summary', 'analyst_notes', 'notes',
+  const STATIC_FIELDS_FROM_CONFIG = ['confidence', 'confidence_reason', 'return_status',
+                                     'return_mechanisms', 'return_summary', 'analyst_notes', 'notes',
                                      'last_updated'];
   for (const [pid, protocol] of Object.entries(protocols)) {
     const configPath = path.join(__dirname, `../data/protocols/${pid}/config.json`);
@@ -483,9 +483,9 @@ async function main() {
       const tevYield_90d  = Math.round((burnYield_90d  + asbnbApy) * 100) / 100;
       const tevYield_365d = Math.round((burnYield_365d + asbnbApy) * 100) / 100;
 
-      protocol.metrics.tev_yield_7d_ann  = tevYield_7d;
-      protocol.metrics.tev_yield_30d_ann = tevYield_30d;
-      protocol.metrics.tev_yield_90d_ann = tevYield_90d;
+      protocol.metrics.shareholder_yield_7d_ann  = tevYield_7d;
+      protocol.metrics.shareholder_yield_30d_ann = tevYield_30d;
+      protocol.metrics.shareholder_yield_90d_ann = tevYield_90d;
       protocol.shareholder_yield_percent         = tevYield_365d;
       // BNB 无 fee 分润机制，payout_ratio 不适用（前端渲染会显示 '—'）
       protocol.payout_ratio = null;
@@ -501,9 +501,9 @@ async function main() {
       const ey_90d  = Math.round((bep95Yield(bep95_90d_usd)  + asbnbApy) * 100) / 100;
       const ey_365d = Math.round((bep95Yield(bep95_365d_usd) + asbnbApy) * 100) / 100;
       protocol.total_yield_percent        = ey_365d;
-      protocol.metrics.earning_yield_7d_ann  = ey_7d;
-      protocol.metrics.earning_yield_30d_ann = ey_30d;
-      protocol.metrics.earning_yield_90d_ann = ey_90d;
+      protocol.metrics.total_yield_7d_ann  = ey_7d;
+      protocol.metrics.total_yield_30d_ann = ey_30d;
+      protocol.metrics.total_yield_90d_ann = ey_90d;
 
       // BNB 的 BEP-95 占 yield 比例极小 (~0.02%)，需用 3 位小数才能看出周期差异
       protocol.display_precision = 3;
@@ -585,13 +585,13 @@ async function main() {
         const ey_90d  = calcEarn(revenueData.revenue90d,  90);
         const ey_365d = calcEarn(revenueData.revenue365d, 365);
 
-        protocol.metrics.tev_yield_7d_ann  = tev_7d;
-        protocol.metrics.tev_yield_30d_ann = tev_30d;
-        protocol.metrics.tev_yield_90d_ann = tev_90d;
+        protocol.metrics.shareholder_yield_7d_ann  = tev_7d;
+        protocol.metrics.shareholder_yield_30d_ann = tev_30d;
+        protocol.metrics.shareholder_yield_90d_ann = tev_90d;
         protocol.shareholder_yield_percent         = tev_365d;
-        protocol.metrics.earning_yield_7d_ann  = ey_7d;
-        protocol.metrics.earning_yield_30d_ann = ey_30d;
-        protocol.metrics.earning_yield_90d_ann = ey_90d;
+        protocol.metrics.total_yield_7d_ann  = ey_7d;
+        protocol.metrics.total_yield_30d_ann = ey_30d;
+        protocol.metrics.total_yield_90d_ann = ey_90d;
         protocol.total_yield_percent         = ey_365d;
         protocol.metrics.trailing_7d_revenue_usd   = revenueData.revenue7d;
         protocol.metrics.trailing_30d_revenue_usd  = revenueData.revenue30d;
@@ -600,11 +600,11 @@ async function main() {
 
         // payout_ratio 按周期
         const calcRatio = (t, e) => (e > 0 ? Math.round(t / e * 10000) / 10000 : null);
-        protocol.tevRatio_7d   = calcRatio(tev_7d,   ey_7d);
-        protocol.tevRatio_30d  = calcRatio(tev_30d,  ey_30d);
-        protocol.tevRatio_90d  = calcRatio(tev_90d,  ey_90d);
-        protocol.tevRatio_365d = calcRatio(tev_365d, ey_365d);
-        protocol.payout_ratio = protocol.tevRatio_365d;
+        protocol.payout_ratio_7d   = calcRatio(tev_7d,   ey_7d);
+        protocol.payout_ratio_30d  = calcRatio(tev_30d,  ey_30d);
+        protocol.payout_ratio_90d  = calcRatio(tev_90d,  ey_90d);
+        protocol.payout_ratio_365d = calcRatio(tev_365d, ey_365d);
+        protocol.payout_ratio = protocol.payout_ratio_365d;
 
         // 股东回报拆分（mixed）：分红 = Safety Module holdersRevenue（年化）；回购 = 固定 Buyback（post-pass 取 tev - dividend）
         const divYld = (smSum, days) => {
@@ -638,7 +638,7 @@ async function main() {
         console.log(`  Revenue:           7d=$${(revenueData.revenue7d/1e6).toFixed(2)}M 30d=$${(revenueData.revenue30d/1e6).toFixed(2)}M 90d=$${(revenueData.revenue90d/1e6).toFixed(2)}M 365d=$${(revenueData.revenue365d/1e6).toFixed(2)}M`);
         console.log(`  TEV Yield:     7d=${tev_7d}% 30d=${tev_30d}% 90d=${tev_90d}% 365d=${tev_365d}%`);
         console.log(`  Earning:       7d=${ey_7d}% 30d=${ey_30d}% 90d=${ey_90d}% 365d=${ey_365d}%`);
-        console.log(`  payout_ratio (各周期): 7d=${protocol.tevRatio_7d} 30d=${protocol.tevRatio_30d} 90d=${protocol.tevRatio_90d} 365d=${protocol.tevRatio_365d}`);
+        console.log(`  payout_ratio (各周期): 7d=${protocol.payout_ratio_7d} 30d=${protocol.payout_ratio_30d} 90d=${protocol.payout_ratio_90d} 365d=${protocol.payout_ratio_365d}`);
       }
       updated++;
       continue;
@@ -667,9 +667,9 @@ async function main() {
       };
 
       if (holdersData) {
-        protocol.metrics.tev_yield_7d_ann  = calcY(holdersData.sum7d,   7);
-        protocol.metrics.tev_yield_30d_ann = calcY(holdersData.sum30d,  30);
-        protocol.metrics.tev_yield_90d_ann = calcY(holdersData.sum90d,  90);
+        protocol.metrics.shareholder_yield_7d_ann  = calcY(holdersData.sum7d,   7);
+        protocol.metrics.shareholder_yield_30d_ann = calcY(holdersData.sum30d,  30);
+        protocol.metrics.shareholder_yield_90d_ann = calcY(holdersData.sum90d,  90);
         protocol.shareholder_yield_percent         = calcY(holdersData.sum365d, 365);
       }
       if (revenueData) {
@@ -677,20 +677,20 @@ async function main() {
         protocol.metrics.trailing_30d_revenue_usd  = revenueData.revenue30d;
         protocol.metrics.trailing_90d_revenue_usd  = revenueData.revenue90d;
         protocol.metrics.trailing_365d_revenue_usd = revenueData.revenue365d;
-        protocol.metrics.earning_yield_7d_ann  = calcY(revenueData.revenue7d,  7);
-        protocol.metrics.earning_yield_30d_ann = calcY(revenueData.revenue30d, 30);
-        protocol.metrics.earning_yield_90d_ann = calcY(revenueData.revenue90d, 90);
+        protocol.metrics.total_yield_7d_ann  = calcY(revenueData.revenue7d,  7);
+        protocol.metrics.total_yield_30d_ann = calcY(revenueData.revenue30d, 30);
+        protocol.metrics.total_yield_90d_ann = calcY(revenueData.revenue90d, 90);
         protocol.total_yield_percent         = calcY(revenueData.revenue365d, 365);
       }
 
       // payout_ratio 动态反映 Splitter 的 burn 比例 —— 按各周期独立算
       if (holdersData && revenueData) {
         const calcRatio = (h, r) => (r > 0 && h != null ? Math.round(h / r * 10000) / 10000 : null);
-        protocol.tevRatio_7d   = calcRatio(holdersData.sum7d,   revenueData.revenue7d);
-        protocol.tevRatio_30d  = calcRatio(holdersData.sum30d,  revenueData.revenue30d);
-        protocol.tevRatio_90d  = calcRatio(holdersData.sum90d,  revenueData.revenue90d);
-        protocol.tevRatio_365d = calcRatio(holdersData.sum365d, revenueData.revenue365d);
-        protocol.payout_ratio = protocol.tevRatio_365d;  // 顶层保持 365d
+        protocol.payout_ratio_7d   = calcRatio(holdersData.sum7d,   revenueData.revenue7d);
+        protocol.payout_ratio_30d  = calcRatio(holdersData.sum30d,  revenueData.revenue30d);
+        protocol.payout_ratio_90d  = calcRatio(holdersData.sum90d,  revenueData.revenue90d);
+        protocol.payout_ratio_365d = calcRatio(holdersData.sum365d, revenueData.revenue365d);
+        protocol.payout_ratio = protocol.payout_ratio_365d;  // 顶层保持 365d
       }
 
       protocol.validation = protocol.validation || {};
@@ -711,8 +711,8 @@ async function main() {
       console.log(`  marketCap: $${(marketCap/1e9).toFixed(2)}B`);
       if (holdersData) console.log(`  HoldersRevenue: 7d=$${(holdersData.sum7d/1e6).toFixed(2)}M 30d=$${(holdersData.sum30d/1e6).toFixed(2)}M 90d=$${(holdersData.sum90d/1e6).toFixed(2)}M 365d=$${(holdersData.sum365d/1e6).toFixed(2)}M`);
       if (revenueData) console.log(`  Revenue:        7d=$${(revenueData.revenue7d/1e6).toFixed(2)}M 30d=$${(revenueData.revenue30d/1e6).toFixed(2)}M 90d=$${(revenueData.revenue90d/1e6).toFixed(2)}M 365d=$${(revenueData.revenue365d/1e6).toFixed(2)}M`);
-      console.log(`  TEV Yield: 7d=${protocol.metrics.tev_yield_7d_ann}% 30d=${protocol.metrics.tev_yield_30d_ann}% 90d=${protocol.metrics.tev_yield_90d_ann}% 365d=${protocol.shareholder_yield_percent}%`);
-      console.log(`  Earning:   7d=${protocol.metrics.earning_yield_7d_ann}% 30d=${protocol.metrics.earning_yield_30d_ann}% 90d=${protocol.metrics.earning_yield_90d_ann}% 365d=${protocol.total_yield_percent}%`);
+      console.log(`  TEV Yield: 7d=${protocol.metrics.shareholder_yield_7d_ann}% 30d=${protocol.metrics.shareholder_yield_30d_ann}% 90d=${protocol.metrics.shareholder_yield_90d_ann}% 365d=${protocol.shareholder_yield_percent}%`);
+      console.log(`  Earning:   7d=${protocol.metrics.total_yield_7d_ann}% 30d=${protocol.metrics.total_yield_30d_ann}% 90d=${protocol.metrics.total_yield_90d_ann}% 365d=${protocol.total_yield_percent}%`);
       console.log(`  payout_ratio (dynamic): ${protocol.payout_ratio}`);
       updated++;
       continue;
@@ -736,20 +736,20 @@ async function main() {
 
       if (!protocol.metrics) protocol.metrics = {};
       // TEV 全部归零
-      protocol.metrics.tev_yield_7d_ann  = 0;
-      protocol.metrics.tev_yield_30d_ann = 0;
-      protocol.metrics.tev_yield_90d_ann = 0;
+      protocol.metrics.shareholder_yield_7d_ann  = 0;
+      protocol.metrics.shareholder_yield_30d_ann = 0;
+      protocol.metrics.shareholder_yield_90d_ann = 0;
       protocol.shareholder_yield_percent         = 0;
-      protocol.metrics.earning_yield_7d_ann  = 0;
-      protocol.metrics.earning_yield_30d_ann = 0;
-      protocol.metrics.earning_yield_90d_ann = 0;
+      protocol.metrics.total_yield_7d_ann  = 0;
+      protocol.metrics.total_yield_30d_ann = 0;
+      protocol.metrics.total_yield_90d_ann = 0;
       protocol.total_yield_percent         = 0;
       protocol.metrics.trailing_7d_revenue_usd   = 0;
       protocol.metrics.trailing_30d_revenue_usd  = 0;
       protocol.metrics.trailing_90d_revenue_usd  = 0;
       protocol.metrics.trailing_365d_revenue_usd = 0;
 
-      protocol.tevStatus = 'none';
+      protocol.return_status = 'none';
       protocol.confidence = 'low';
       protocol.payout_ratio = null;
 
@@ -822,14 +822,14 @@ async function main() {
       const tev_365d = calcYield(buy365d_aster, 365);
 
       if (!protocol.metrics) protocol.metrics = {};
-      protocol.metrics.tev_yield_7d_ann  = tev_7d;
-      protocol.metrics.tev_yield_30d_ann = tev_30d;
-      protocol.metrics.tev_yield_90d_ann = tev_90d;
+      protocol.metrics.shareholder_yield_7d_ann  = tev_7d;
+      protocol.metrics.shareholder_yield_30d_ann = tev_30d;
+      protocol.metrics.shareholder_yield_90d_ann = tev_90d;
       protocol.shareholder_yield_percent         = tev_365d;
       // Aster 的 TEV = Earning（100% 买回 → stage 合约，用 treasury buyback 口径，等同 100% 分润）
-      protocol.metrics.earning_yield_7d_ann  = tev_7d;
-      protocol.metrics.earning_yield_30d_ann = tev_30d;
-      protocol.metrics.earning_yield_90d_ann = tev_90d;
+      protocol.metrics.total_yield_7d_ann  = tev_7d;
+      protocol.metrics.total_yield_30d_ann = tev_30d;
+      protocol.metrics.total_yield_90d_ann = tev_90d;
       protocol.total_yield_percent         = tev_365d;
       protocol.metrics.trailing_7d_revenue_usd   = Math.round(buy7d_aster * asterPrice);
       protocol.metrics.trailing_30d_revenue_usd  = Math.round(buy30d_aster * asterPrice);
@@ -898,14 +898,14 @@ async function main() {
       const tev_365d = calcY(usd(burn365d_uni), 365);
 
       if (!protocol.metrics) protocol.metrics = {};
-      protocol.metrics.tev_yield_7d_ann  = tev_7d;
-      protocol.metrics.tev_yield_30d_ann = tev_30d;
-      protocol.metrics.tev_yield_90d_ann = tev_90d;
+      protocol.metrics.shareholder_yield_7d_ann  = tev_7d;
+      protocol.metrics.shareholder_yield_30d_ann = tev_30d;
+      protocol.metrics.shareholder_yield_90d_ann = tev_90d;
       protocol.shareholder_yield_percent         = tev_365d;
       // Earning = TEV for uniswap (payout_ratio=1.0，所有 burn 归 token holder)
-      protocol.metrics.earning_yield_7d_ann  = tev_7d;
-      protocol.metrics.earning_yield_30d_ann = tev_30d;
-      protocol.metrics.earning_yield_90d_ann = tev_90d;
+      protocol.metrics.total_yield_7d_ann  = tev_7d;
+      protocol.metrics.total_yield_30d_ann = tev_30d;
+      protocol.metrics.total_yield_90d_ann = tev_90d;
       protocol.total_yield_percent         = tev_365d;
       // revenue 字段用 burn USD 填（反映 token holder 实得）
       protocol.metrics.trailing_7d_revenue_usd   = Math.round(usd(burn7d_uni));
@@ -953,20 +953,20 @@ async function main() {
       if (!protocol.metrics) protocol.metrics = {};
       protocol.market_cap_usd = mcap;
       protocol.metrics.current_market_cap_usd = mcap;
-      protocol.metrics.tev_yield_7d_ann   = sm['7']?.yield_pct ?? 0;
-      protocol.metrics.tev_yield_30d_ann  = sm['30']?.yield_pct ?? 0;
-      protocol.metrics.tev_yield_90d_ann  = sm['90']?.yield_pct ?? 0;
+      protocol.metrics.shareholder_yield_7d_ann   = sm['7']?.yield_pct ?? 0;
+      protocol.metrics.shareholder_yield_30d_ann  = sm['30']?.yield_pct ?? 0;
+      protocol.metrics.shareholder_yield_90d_ann  = sm['90']?.yield_pct ?? 0;
       protocol.shareholder_yield_percent          = sm['365']?.yield_pct ?? 0;
       protocol.total_yield_percent      = protocol.shareholder_yield_percent;
-      protocol.metrics.earning_yield_7d_ann  = protocol.metrics.tev_yield_7d_ann;
-      protocol.metrics.earning_yield_30d_ann = protocol.metrics.tev_yield_30d_ann;
-      protocol.metrics.earning_yield_90d_ann = protocol.metrics.tev_yield_90d_ann;
+      protocol.metrics.total_yield_7d_ann  = protocol.metrics.shareholder_yield_7d_ann;
+      protocol.metrics.total_yield_30d_ann = protocol.metrics.shareholder_yield_30d_ann;
+      protocol.metrics.total_yield_90d_ann = protocol.metrics.shareholder_yield_90d_ann;
       protocol.metrics.trailing_7d_revenue_usd   = sm['7']?.burn_usd ?? 0;
       protocol.metrics.trailing_30d_revenue_usd  = sm['30']?.burn_usd ?? 0;
       protocol.metrics.trailing_90d_revenue_usd  = sm['90']?.burn_usd ?? 0;
       protocol.metrics.trailing_365d_revenue_usd = sm['365']?.burn_usd ?? 0;
-      protocol.metrics.trailing_365d_tev_usd     = sm['365']?.burn_usd ?? 0;
-      protocol.tevStatus = 'active';
+      protocol.metrics.trailing_365d_shareholder_returns_usd     = sm['365']?.burn_usd ?? 0;
+      protocol.return_status = 'active';
       protocol.payout_ratio = 1.0;
       protocol.confidence = 'high';
       protocol.validation = protocol.validation || {};
@@ -1001,20 +1001,20 @@ async function main() {
       protocol.market_cap_usd = mcap;
       protocol.metrics.current_market_cap_usd = mcap;
       // TEV 全部归零（unverified）
-      protocol.metrics.tev_yield_7d_ann   = 0;
-      protocol.metrics.tev_yield_30d_ann  = 0;
-      protocol.metrics.tev_yield_90d_ann  = 0;
+      protocol.metrics.shareholder_yield_7d_ann   = 0;
+      protocol.metrics.shareholder_yield_30d_ann  = 0;
+      protocol.metrics.shareholder_yield_90d_ann  = 0;
       protocol.shareholder_yield_percent          = 0;
       protocol.total_yield_percent      = 0;
-      protocol.metrics.earning_yield_7d_ann  = 0;
-      protocol.metrics.earning_yield_30d_ann = 0;
-      protocol.metrics.earning_yield_90d_ann = 0;
+      protocol.metrics.total_yield_7d_ann  = 0;
+      protocol.metrics.total_yield_30d_ann = 0;
+      protocol.metrics.total_yield_90d_ann = 0;
       protocol.metrics.trailing_7d_revenue_usd   = 0;
       protocol.metrics.trailing_30d_revenue_usd  = 0;
       protocol.metrics.trailing_90d_revenue_usd  = 0;
       protocol.metrics.trailing_365d_revenue_usd = 0;
-      protocol.metrics.trailing_365d_tev_usd     = 0;
-      protocol.tevStatus = 'none';
+      protocol.metrics.trailing_365d_shareholder_returns_usd     = 0;
+      protocol.return_status = 'none';
       protocol.payout_ratio = null;
       protocol.confidence = 'low';
       // 保留全部链上调研事实作为"供给侧记录"，未来如发现真实 executor 可恢复
@@ -1058,20 +1058,20 @@ async function main() {
       protocol.market_cap_usd = mcap;
       protocol.metrics.current_market_cap_usd = mcap;
       // 默认主表显示 nominal yield (CRV 全市值分母)
-      protocol.metrics.tev_yield_7d_ann   = sm['7d']?.yield_pct_nominal ?? 0;
-      protocol.metrics.tev_yield_30d_ann  = sm['30d']?.yield_pct_nominal ?? 0;
-      protocol.metrics.tev_yield_90d_ann  = sm['90d']?.yield_pct_nominal ?? 0;
+      protocol.metrics.shareholder_yield_7d_ann   = sm['7d']?.yield_pct_nominal ?? 0;
+      protocol.metrics.shareholder_yield_30d_ann  = sm['30d']?.yield_pct_nominal ?? 0;
+      protocol.metrics.shareholder_yield_90d_ann  = sm['90d']?.yield_pct_nominal ?? 0;
       protocol.shareholder_yield_percent          = sm['365d']?.yield_pct_nominal ?? 0;
       protocol.total_yield_percent      = protocol.shareholder_yield_percent;
-      protocol.metrics.earning_yield_7d_ann  = protocol.metrics.tev_yield_7d_ann;
-      protocol.metrics.earning_yield_30d_ann = protocol.metrics.tev_yield_30d_ann;
-      protocol.metrics.earning_yield_90d_ann = protocol.metrics.tev_yield_90d_ann;
+      protocol.metrics.total_yield_7d_ann  = protocol.metrics.shareholder_yield_7d_ann;
+      protocol.metrics.total_yield_30d_ann = protocol.metrics.shareholder_yield_30d_ann;
+      protocol.metrics.total_yield_90d_ann = protocol.metrics.shareholder_yield_90d_ann;
       protocol.metrics.trailing_7d_revenue_usd   = sm['7d']?.vecrv_tev_usd ?? 0;
       protocol.metrics.trailing_30d_revenue_usd  = sm['30d']?.vecrv_tev_usd ?? 0;
       protocol.metrics.trailing_90d_revenue_usd  = sm['90d']?.vecrv_tev_usd ?? 0;
       protocol.metrics.trailing_365d_revenue_usd = sm['365d']?.vecrv_tev_usd ?? 0;
-      protocol.metrics.trailing_365d_tev_usd     = sm['365d']?.vecrv_tev_usd ?? 0;
-      protocol.tevStatus = 'active';
+      protocol.metrics.trailing_365d_shareholder_returns_usd     = sm['365d']?.vecrv_tev_usd ?? 0;
+      protocol.return_status = 'active';
       protocol.payout_ratio = 0.9;  // FeeAllocator 90% to veCRV
       protocol.confidence = 'high';
       protocol.validation = protocol.validation || {};
@@ -1119,12 +1119,12 @@ async function main() {
           const annFactor = days >= 365 ? 1 : (365 / days);
           return Math.round(rev * annFactor / marketCap * 10000) / 100;
         };
-        protocol.metrics.tev_yield_7d_ann = calcY(revenueData.revenue7d, 7);
-        protocol.metrics.tev_yield_30d_ann = calcY(revenueData.revenue30d, 30);
-        protocol.metrics.tev_yield_90d_ann = calcY(revenueData.revenue90d, 90);
-        protocol.metrics.earning_yield_7d_ann = calcEY(revenueData.revenue7d, 7);
-        protocol.metrics.earning_yield_30d_ann = calcEY(revenueData.revenue30d, 30);
-        protocol.metrics.earning_yield_90d_ann = calcEY(revenueData.revenue90d, 90);
+        protocol.metrics.shareholder_yield_7d_ann = calcY(revenueData.revenue7d, 7);
+        protocol.metrics.shareholder_yield_30d_ann = calcY(revenueData.revenue30d, 30);
+        protocol.metrics.shareholder_yield_90d_ann = calcY(revenueData.revenue90d, 90);
+        protocol.metrics.total_yield_7d_ann = calcEY(revenueData.revenue7d, 7);
+        protocol.metrics.total_yield_30d_ann = calcEY(revenueData.revenue30d, 30);
+        protocol.metrics.total_yield_90d_ann = calcEY(revenueData.revenue90d, 90);
         // 新增：365d 顶层字段（之前 SKIP 分支漏算，导致 365d yield 停留在手写值）
         const tev365 = calcY(revenueData.revenue365d, 365);
         const earning365 = calcEY(revenueData.revenue365d, 365);
@@ -1132,7 +1132,7 @@ async function main() {
         if (earning365 != null) protocol.total_yield_percent = earning365;
         updated++;
         console.log(`  rev 7d=$${((revenueData.revenue7d||0)/1e6).toFixed(2)}M, 365d=$${((revenueData.revenue365d||0)/1e6).toFixed(2)}M`);
-        console.log(`  yield 7d=${protocol.metrics.tev_yield_7d_ann}% 30d=${protocol.metrics.tev_yield_30d_ann}% 90d=${protocol.metrics.tev_yield_90d_ann}% 365d=${protocol.shareholder_yield_percent}%`);
+        console.log(`  yield 7d=${protocol.metrics.shareholder_yield_7d_ann}% 30d=${protocol.metrics.shareholder_yield_30d_ann}% 90d=${protocol.metrics.shareholder_yield_90d_ann}% 365d=${protocol.shareholder_yield_percent}%`);
       }
       await new Promise(r => setTimeout(r, 2000));
       continue;
@@ -1202,11 +1202,11 @@ async function main() {
     protocol.metrics.trailing_30d_revenue_usd = revenueData.revenue30d;
     protocol.metrics.trailing_90d_revenue_usd = revenueData.revenue90d;
     protocol.metrics.trailing_365d_revenue_usd = revenueData.revenue365d;
-    protocol.metrics.trailing_365d_tev_usd = tev365d;
-    protocol.metrics.trailing_30d_tev_usd = tev365d / 12;
-    protocol.metrics.tev_yield_7d_ann = tevYield7d;
-    protocol.metrics.tev_yield_30d_ann = tevYield30d;
-    protocol.metrics.tev_yield_90d_ann = tevYield90d;
+    protocol.metrics.trailing_365d_shareholder_returns_usd = tev365d;
+    protocol.metrics.trailing_30d_shareholder_returns_usd = tev365d / 12;
+    protocol.metrics.shareholder_yield_7d_ann = tevYield7d;
+    protocol.metrics.shareholder_yield_30d_ann = tevYield30d;
+    protocol.metrics.shareholder_yield_90d_ann = tevYield90d;
     protocol.shareholder_yield_percent = Math.round(tevYield * 100) / 100;
 
     // 多维度年化 Earning Yield = annualized revenue / market_cap
@@ -1214,9 +1214,9 @@ async function main() {
       if (revenue == null || !marketCap) return null;
       return Math.round(revenue * (365 / days) / marketCap * 10000) / 100;
     };
-    protocol.metrics.earning_yield_7d_ann = calcEarningYield(revenueData.revenue7d, 7);
-    protocol.metrics.earning_yield_30d_ann = calcEarningYield(revenueData.revenue30d, 30);
-    protocol.metrics.earning_yield_90d_ann = calcEarningYield(revenueData.revenue90d, 90);
+    protocol.metrics.total_yield_7d_ann = calcEarningYield(revenueData.revenue7d, 7);
+    protocol.metrics.total_yield_30d_ann = calcEarningYield(revenueData.revenue30d, 30);
+    protocol.metrics.total_yield_90d_ann = calcEarningYield(revenueData.revenue90d, 90);
     protocol.total_yield_percent = calcEarningYield(revenueData.revenue365d, 365) || protocol.total_yield_percent;
     
     // 输出变化
@@ -1249,7 +1249,7 @@ async function main() {
     const s365 = splitOne(protocol.shareholder_yield_percent, '365');
     protocol.dividend_yield_percent = s365.d;
     protocol.buyback_yield_percent  = s365.b;
-    for (const [n, field] of [['7', 'tev_yield_7d_ann'], ['30', 'tev_yield_30d_ann'], ['90', 'tev_yield_90d_ann']]) {
+    for (const [n, field] of [['7', 'shareholder_yield_7d_ann'], ['30', 'shareholder_yield_30d_ann'], ['90', 'shareholder_yield_90d_ann']]) {
       const s = splitOne(m[field], n);
       m['dividend_yield_' + n + 'd_ann'] = s.d;
       m['buyback_yield_'  + n + 'd_ann'] = s.b;
@@ -1257,7 +1257,7 @@ async function main() {
     // 风格：现金牛（在实际向持有人还钱）vs 成长（基本不还钱，按 P/S + 增速估）
     // 阈值 1%：把 Uniswap(~0.66%, fee switch 基本关) / Lido(0) 等近零回报归成长；
     // Curve/Aster/Maple 等虽然 yield 不高但有真实资本返还 → 现金牛（风格是性质不是量级）
-    protocol.style = (protocol.shareholder_yield_percent >= 1 && protocol.tevStatus === 'active') ? 'cash_cow' : 'growth';
+    protocol.style = (protocol.shareholder_yield_percent >= 1 && protocol.return_status === 'active') ? 'cash_cow' : 'growth';
     delete protocol._divYld;
   }
 
@@ -1340,7 +1340,7 @@ async function main() {
         if (!cfg.tev_data) cfg.tev_data = {};
         cfg.tev_data.shareholder_yield_percent = protocol.shareholder_yield_percent;
         cfg.tev_data.market_cap_usd = protocol.market_cap_usd;
-        cfg.tev_data.annual_tev_usd = (protocol.metrics || {}).trailing_365d_tev_usd;
+        cfg.tev_data.annual_tev_usd = (protocol.metrics || {}).trailing_365d_shareholder_returns_usd;
         cfg.tev_data.calculation_date = new Date().toISOString().split('T')[0];
         // 同步 validation 到 tev_data.validation，避免详情页显示旧值
         if (protocol.validation) {

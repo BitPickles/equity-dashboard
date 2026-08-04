@@ -19,9 +19,9 @@
 |-----|------|------|
 | 协议利润 | DefiLlama | `trailing_365d_revenue_usd` |
 | 代币市值 | CMC / 交易所 API | `market_cap_usd` |
-| TEV | **每个项目单独计算** | `trailing_365d_tev_usd` |
+| TEV | **每个项目单独计算** | `trailing_365d_shareholder_returns_usd` |
 
-> **重要**：所有数据口径统一为「过去365天」，每个协议必须输出 `trailing_365d_tev_usd` 值。
+> **重要**：所有数据口径统一为「过去365天」，每个协议必须输出 `trailing_365d_shareholder_returns_usd` 值。
 
 ---
 

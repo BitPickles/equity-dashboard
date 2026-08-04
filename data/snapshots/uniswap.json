@@ -1,6 +1,6 @@
 {
   "protocol": "uniswap",
-  "as_of": "2026-08-04",
+  "as_of": "2026-08-05",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -81,6 +81,6 @@
   "verification": {
     "method": "链上 365d UNI 转入 0xdead 累计 4580003 UNI（Etherscan logs，排除 >=10M 一次性事件）× 当前价 4.01 USD",
     "status": "verified",
-    "last_checked": "2026-08-04"
+    "last_checked": "2026-08-05"
   }
 }

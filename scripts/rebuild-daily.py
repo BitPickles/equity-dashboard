@@ -131,8 +131,8 @@ def rebuild(pid):
     # 保留旧 metrics 的 TEV 相关字段（这些由专属脚本维护，这里不动数值只刷时间）
     old_metrics = old.get("metrics", {})
     metrics = {
-        "trailing_30d_tev_usd": old_metrics.get("trailing_30d_tev_usd"),
-        "trailing_365d_tev_usd": old_metrics.get("trailing_365d_tev_usd"),
+        "trailing_30d_shareholder_returns_usd": old_metrics.get("trailing_30d_shareholder_returns_usd"),
+        "trailing_365d_shareholder_returns_usd": old_metrics.get("trailing_365d_shareholder_returns_usd"),
         "annualized_tev_usd": old_metrics.get("annualized_tev_usd"),
         "current_market_cap_usd": mcap,
         "tev_yield": old_metrics.get("tev_yield"),

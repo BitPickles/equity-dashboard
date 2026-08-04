@@ -2,16 +2,6 @@
   "protocol": "mnt",
   "records": [
     {
-      "as_of": "2025-08-05",
-      "net_income": 0,
-      "daily_value": 0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": null,
-      "_period": "daily"
-    },
-    {
       "as_of": "2025-08-06",
       "net_income": 0,
       "daily_value": 0,
@@ -3643,6 +3633,14 @@
     },
     {
       "as_of": "2026-08-04",
+      "net_income": 66009406.35,
+      "pe": 20.0,
+      "ps": 20.0,
+      "shareholder_yield": 5.0,
+      "net_margin": 100.0
+    },
+    {
+      "as_of": "2026-08-05",
       "net_income": 66009406.35,
       "pe": 20.0,
       "ps": 20.0,

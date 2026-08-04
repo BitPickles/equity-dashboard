@@ -47,13 +47,13 @@
 
 | 旧字段（TEV 体系） | 新字段（损益表体系） | 含义 |
 |---|---|---|
-| `payout_ratio` / `tevRatio_7d/30d/90d/365d` | `payout_ratio` / `payout_ratio_7d/30d/90d/365d` | **派息率** = 股东回报 ÷ 收入 |
+| `payout_ratio` / `payout_ratio_7d/30d/90d/365d` | `payout_ratio` / `payout_ratio_7d/30d/90d/365d` | **派息率** = 股东回报 ÷ 收入 |
 | `shareholder_yield_percent` | `shareholder_yield_percent` | **股东回报率** = 股东回报 ÷ 市值 |
-| `tev_yield_7d_ann/30d/90d` | `shareholder_yield_7d_ann/30d/90d` | 周期股东回报率 |
+| `shareholder_yield_7d_ann/30d/90d` | `shareholder_yield_7d_ann/30d/90d` | 周期股东回报率 |
 | `tev_usd_365d` | `shareholder_returns_usd_365d` | 股东回报金额（股息+回购+销毁） |
 | `return_mechanisms` | `return_mechanisms` | 股东回报机制 |
-| `tev_summary` | `return_summary` | 回报摘要（fee_switch/buybacks/dividends/burns） |
-| `tevStatus` | `return_status` | 回报状态（active/partial/none） |
+| `return_summary` | `return_summary` | 回报摘要（fee_switch/buybacks/dividends/burns） |
+| `return_status` | `return_status` | 回报状态（active/partial/none） |
 | `tev_data` | `snapshot_data` | 财务快照数据 |
 | `tev-records.json` | `shareholder-records.json` | 股东回报历史记录文件 |
 | `TEV_COLORS`（前端 JS） | `RETURN_COLORS` | 机制颜色表 |

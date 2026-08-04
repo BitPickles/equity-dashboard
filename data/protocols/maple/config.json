@@ -31,7 +31,7 @@
       }
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "ON",
     "fee_switch_details": "25% 协议收入通过 SSF 回购 SYRUP，按月执行",
     "buybacks": "ACTIVE",
@@ -92,7 +92,7 @@
     "circulating_supply": 1167185889.5510674,
     "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
-  "tevStatus": "active",
+  "return_status": "active",
   "confidence_reason": {
     "zh": "MIP-018 治理提案明确 25% 利润回购 SYRUP，链上可追踪",
     "en": "MIP-018 governance proposal mandates 25% profit buyback of SYRUP, on-chain trackable"
@@ -106,16 +106,16 @@
     "current_market_cap_usd": 182500815.56,
     "trailing_365d_revenue_usd": 2602180,
     "trailing_30d_revenue_usd": 251460,
-    "trailing_365d_tev_usd": 2602180,
-    "trailing_30d_tev_usd": 216848.33333333334,
+    "trailing_365d_shareholder_returns_usd": 2602180,
+    "trailing_30d_shareholder_returns_usd": 216848.33333333334,
     "trailing_7d_revenue_usd": 39242,
     "trailing_90d_revenue_usd": 697704,
-    "tev_yield_7d_ann": 1.12,
-    "tev_yield_30d_ann": 1.68,
-    "tev_yield_90d_ann": 1.55,
-    "earning_yield_7d_ann": 1.12,
-    "earning_yield_30d_ann": 1.68,
-    "earning_yield_90d_ann": 1.55,
+    "shareholder_yield_7d_ann": 1.12,
+    "shareholder_yield_30d_ann": 1.68,
+    "shareholder_yield_90d_ann": 1.55,
+    "total_yield_7d_ann": 1.12,
+    "total_yield_30d_ann": 1.68,
+    "total_yield_90d_ann": 1.55,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 1.12,
     "dividend_yield_30d_ann": 0,
@@ -171,9 +171,9 @@
       "label": "最终 股东回报率",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
         "365d": "shareholder_yield_percent"
       },
       "unit": "%"

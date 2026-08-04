@@ -531,7 +531,7 @@
     window.addEventListener('langchange', function(e) { currentLang = e.detail.lang; updateI18n(); });
     const getProtocolId = () => new URLSearchParams(window.location.search).get('id') || 'aave';
     const fmtCurrency = v => v >= 1e9 ? '$' + (v/1e9).toFixed(2) + 'B' : v >= 1e6 ? '$' + (v/1e6).toFixed(2) + 'M' : v >= 1e3 ? '$' + (v/1e3).toFixed(1) + 'K' : '$' + v.toFixed(0);
-    const getTevStatus = (s, cfg) => cfg?.tevStatus || ((s.fee_switch === 'ON' || s.buybacks === 'ACTIVE' || s.dividends === 'ACTIVE' || s.burns === 'ACTIVE' || s.staking === 'ACTIVE') ? 'active' : (s.fee_switch === 'PARTIAL' || s.dividends === 'PARTIAL') ? 'partial' : 'none');
+    const getTevStatus = (s, cfg) => cfg?.return_status || ((s.fee_switch === 'ON' || s.buybacks === 'ACTIVE' || s.dividends === 'ACTIVE' || s.burns === 'ACTIVE' || s.staking === 'ACTIVE') ? 'active' : (s.fee_switch === 'PARTIAL' || s.dividends === 'PARTIAL') ? 'partial' : 'none');
     const getValueClass = v => { const u = (v || '').toUpperCase(); return u === 'ON' || u === 'ACTIVE' ? 'value-on' : u === 'PARTIAL' ? 'value-partial' : 'value-off'; };
 
     const RETURN_COLORS = { buyback_burn: { bg: 'rgba(34,197,94,0.7)', border: '#22c55e' }, buyback: { bg: 'rgba(34,197,94,0.6)', border: '#22c55e' }, staking_reward: { bg: 'rgba(59,130,246,0.7)', border: '#3b82f6' }, direct_distribution: { bg: 'rgba(168,85,247,0.7)', border: '#a855f7' }, ve_reward: { bg: 'rgba(245,158,11,0.7)', border: '#f59e0b' }, fee_sharing: { bg: 'rgba(236,72,153,0.7)', border: '#ec4899' }, aggregate: { bg: 'rgba(99,102,241,0.7)', border: '#6366f1' }, burn: { bg: 'rgba(239,68,68,0.7)', border: '#ef4444' }, airdrop: { bg: 'rgba(168,85,247,0.7)', border: '#a855f7' }, ve_reward: { bg: 'rgba(245,158,11,0.7)', border: '#f59e0b' }, direct_distribution: { bg: 'rgba(14,165,233,0.7)', border: '#0ea5e9' }, holders_revenue: { bg: 'rgba(16,185,129,0.7)', border: '#10b981' } };
@@ -790,16 +790,16 @@
         document.getElementById('protocol-name').textContent = cfg.name;
         const catMap = { lending: '借贷', dex: 'DEX', liquid_staking: '流动性质押', restaking: '再质押', perpetuals: '永续合约', yield: '收益' };
         document.getElementById('protocol-ticker').textContent = `${cfg.ticker} · ${currentLang === 'zh' ? (catMap[cfg.category] || cfg.category) : cfg.category}`;
-        const tevStatus = getTevStatus(cfg.tev_summary || {}, cfg);
-        const style = cfg.style || (tevStatus === 'active' ? 'cash_cow' : 'growth');
+        const return_status = getTevStatus(cfg.return_summary || {}, cfg);
+        const style = cfg.style || (return_status === 'active' ? 'cash_cow' : 'growth');
         const badge = document.getElementById('return-badge');
         badge.className = `badge badge-${style === 'cash_cow' ? 'active' : 'partial'}`;
         badge.textContent = style === 'cash_cow' ? (currentLang === 'zh' ? '现金牛' : 'Cash Cow') : (currentLang === 'zh' ? '成长股' : 'Growth');
         document.getElementById('link-website').href = cfg.website || '#';
         document.getElementById('link-docs').href = cfg.docs || '#';
         document.getElementById('link-coingecko').href = cfg.token?.coingecko_id ? `https://www.coingecko.com/en/coins/${cfg.token.coingecko_id}` : '#';
-        const feeSwitch = cfg.tev_summary?.fee_switch;
-        const primaryAccrual = cfg.tev_summary?.primary_value_accrual || '—';
+        const feeSwitch = cfg.return_summary?.fee_switch;
+        const primaryAccrual = cfg.return_summary?.primary_value_accrual || '—';
         document.getElementById('hero-primary-accrual').textContent = primaryAccrual;
 
         // ===== 新概览：KPI + 周期切换 =====
@@ -815,9 +815,9 @@
         const displayPrecision = (allTable && allTable.display_precision) || cfg.display_precision || 2;
 
         function periodKPI(period) {
-          const tevMap = { '7d': metrics.tev_yield_7d_ann, '30d': metrics.tev_yield_30d_ann, '90d': metrics.tev_yield_90d_ann, '365d': proto.shareholder_yield_percent };
-          const earnMap = { '7d': metrics.earning_yield_7d_ann, '30d': metrics.earning_yield_30d_ann, '90d': metrics.earning_yield_90d_ann, '365d': proto.total_yield_percent };
-          const ratioMap = { '7d': proto.tevRatio_7d, '30d': proto.tevRatio_30d, '90d': proto.tevRatio_90d, '365d': proto.tevRatio_365d != null ? proto.tevRatio_365d : proto.payout_ratio };
+          const tevMap = { '7d': metrics.shareholder_yield_7d_ann, '30d': metrics.shareholder_yield_30d_ann, '90d': metrics.shareholder_yield_90d_ann, '365d': proto.shareholder_yield_percent };
+          const earnMap = { '7d': metrics.total_yield_7d_ann, '30d': metrics.total_yield_30d_ann, '90d': metrics.total_yield_90d_ann, '365d': proto.total_yield_percent };
+          const ratioMap = { '7d': proto.payout_ratio_7d, '30d': proto.payout_ratio_30d, '90d': proto.payout_ratio_90d, '365d': proto.payout_ratio_365d != null ? proto.payout_ratio_365d : proto.payout_ratio };
           const divMap = { '7d': metrics.dividend_yield_7d_ann, '30d': metrics.dividend_yield_30d_ann, '90d': metrics.dividend_yield_90d_ann, '365d': proto.dividend_yield_percent };
           const buyMap = { '7d': metrics.buyback_yield_7d_ann, '30d': metrics.buyback_yield_30d_ann, '90d': metrics.buyback_yield_90d_ann, '365d': proto.buyback_yield_percent };
           return {
@@ -871,7 +871,7 @@
         });
 
         // 状态 chips（s[k] 可能含括号后缀，如 "ACTIVE (但非真 buyback)"，取首词查表）
-        const s = cfg.tev_summary || {};
+        const s = cfg.return_summary || {};
         ['buybacks', 'burns', 'dividends'].forEach(k => {
           const el = document.getElementById('chip-' + k);
           if (el) {
@@ -1050,7 +1050,7 @@
 
         const revenue = m.trailing_365d_revenue_usd;
         const payout_ratio = p.payout_ratio;
-        const tev = m.trailing_365d_tev_usd;
+        const tev = m.trailing_365d_shareholder_returns_usd;
         const mcap = m.current_market_cap_usd;
         const tevYield = p.shareholder_yield_percent;
 
@@ -1071,7 +1071,7 @@
 
         // Footer
         const footer = document.getElementById('tev-calc-footer');
-        const note = p.tevRatioNote || '';
+        const note = p.payout_ratio_note || '';
         const conf = p.confidence || 'medium';
         const confLabel = currentLang === 'zh'
           ? { high: '高', medium: '中', low: '低' }[conf] || conf

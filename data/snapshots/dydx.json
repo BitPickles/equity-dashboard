@@ -1,6 +1,6 @@
 {
   "protocol": "dydx",
-  "as_of": "2026-08-04",
+  "as_of": "2026-08-05",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -87,6 +87,6 @@
   "verification": {
     "method": "DefiLlama dailyRevenue 365d=8518106 · 回购额按判定书 P/F~88x 反推（mcap/88）· 提案 #313 比例（75% 回购/15% 质押）",
     "status": "partial",
-    "last_checked": "2026-08-04"
+    "last_checked": "2026-08-05"
   }
 }

@@ -26,7 +26,7 @@
       }
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "ON",
     "fee_switch_details": "交易费用流入 AF，自动回购并销毁 HYPE（从 circulating + total supply 永久移除）",
     "buybacks": "ACTIVE",

@@ -36,7 +36,7 @@
       }
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "ON",
     "fee_switch_details": "75% 净协议费用用于 DYDX 回购",
     "buybacks": "ACTIVE",
@@ -115,7 +115,7 @@
       "Cosmos REST API 查询能力受限, 无法精确二次核实 365d staker 分发总量"
     ]
   },
-  "tevStatus": "active",
+  "return_status": "active",
   "confidence_reason": {
     "zh": "DYDX Chain (Cosmos) 100% fees 给 staker 机制可信, 但 75% buyback (Proposal #313) 链上无公开 tracker, ethDYDX bridge 已关闭无法捕获",
     "en": "100% fees-to-staker on dYdX Chain (Cosmos) is verifiable, but 75% buyback (Proposal #313) has no public on-chain tracker. ethDYDX bridge closed."
@@ -128,16 +128,16 @@
     "current_market_cap_usd": 95400331.54,
     "trailing_365d_revenue_usd": 8518106,
     "trailing_30d_revenue_usd": 281440,
-    "trailing_365d_tev_usd": 8518106,
-    "trailing_30d_tev_usd": 709842.1666666666,
+    "trailing_365d_shareholder_returns_usd": 8518106,
+    "trailing_30d_shareholder_returns_usd": 709842.1666666666,
     "trailing_7d_revenue_usd": 35124,
     "trailing_90d_revenue_usd": 658158,
-    "tev_yield_7d_ann": 1.92,
-    "tev_yield_30d_ann": 3.59,
-    "tev_yield_90d_ann": 2.8,
-    "earning_yield_7d_ann": 1.92,
-    "earning_yield_30d_ann": 3.59,
-    "earning_yield_90d_ann": 2.8,
+    "shareholder_yield_7d_ann": 1.92,
+    "shareholder_yield_30d_ann": 3.59,
+    "shareholder_yield_90d_ann": 2.8,
+    "total_yield_7d_ann": 1.92,
+    "total_yield_30d_ann": 3.59,
+    "total_yield_90d_ann": 2.8,
     "dividend_yield_7d_ann": 1.92,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 3.59,
@@ -194,9 +194,9 @@
       "label": "最终 股东回报率",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
         "365d": "shareholder_yield_percent"
       },
       "unit": "%"

@@ -22,11 +22,32 @@ BASE = Path(__file__).resolve().parent.parent
 SKIP_DIRS = {".git", "node_modules", ".workbuddy", "__pycache__"}
 # 精确整词替换（不误伤英文单词如 "steve"）
 REPLACEMENTS = {
-    "shareholder_yield_percent": "shareholder_yield_percent",
-    "payout_ratio": "payout_ratio",
-    "payout_ratio": "payout_ratio",
-    "return_mechanisms": "return_mechanisms",
-    "total_yield_percent": "total_yield_percent",
+    "tev_yield_percent": "shareholder_yield_percent",
+    "tev_ratio": "payout_ratio",
+    "tevRatio": "payout_ratio",
+    "tev_mechanisms": "return_mechanisms",
+    "earning_yield_percent": "total_yield_percent",
+    # metrics 嵌套键（阶段 1 漏改，2026-08-05 补——口径如下）
+    #   tev_yield_*_ann = 股东回报率周期 → shareholder_yield_*_ann
+    #   earning_yield_*_ann = 收入收益率周期 → total_yield_*_ann
+    #   trailing_*_tev_usd = 股东回报金额 → trailing_*_shareholder_returns_usd
+    "tev_yield_7d_ann": "shareholder_yield_7d_ann",
+    "tev_yield_30d_ann": "shareholder_yield_30d_ann",
+    "tev_yield_90d_ann": "shareholder_yield_90d_ann",
+    "tev_yield_365d_ann": "shareholder_yield_365d_ann",
+    "earning_yield_7d_ann": "total_yield_7d_ann",
+    "earning_yield_30d_ann": "total_yield_30d_ann",
+    "earning_yield_90d_ann": "total_yield_90d_ann",
+    "trailing_30d_tev_usd": "trailing_30d_shareholder_returns_usd",
+    "trailing_365d_tev_usd": "trailing_365d_shareholder_returns_usd",
+    # 展示/周期字段（前端同步改，2026-08-05 补）
+    "tevRatio_7d": "payout_ratio_7d",
+    "tevRatio_30d": "payout_ratio_30d",
+    "tevRatio_90d": "payout_ratio_90d",
+    "tevRatio_365d": "payout_ratio_365d",
+    "tevRatioNote": "payout_ratio_note",
+    "tevStatus": "return_status",
+    "tev_summary": "return_summary",
 }
 
 

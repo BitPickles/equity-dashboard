@@ -28,7 +28,7 @@
       }
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "OFF",
     "fee_switch_details": "JTO 目前主要用于治理，MEV 收益流向 JitoSOL 持有者",
     "buybacks": "NONE",
@@ -80,7 +80,7 @@
     "circulating_supply": 506049907.5,
     "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
-  "tevStatus": "none",
+  "return_status": "none",
   "confidence_reason": {
     "zh": "Solana MEV 收益归 JitoSOL (LST), JTO 仅治理",
     "en": "Solana MEV 收益归 JitoSOL (LST), JTO 仅治理"
@@ -93,16 +93,16 @@
     "trailing_365d_revenue_usd": 13763565,
     "trailing_30d_revenue_usd": 336579,
     "current_market_cap_usd": 244971926.67,
-    "trailing_365d_tev_usd": 0,
-    "trailing_30d_tev_usd": 0,
+    "trailing_365d_shareholder_returns_usd": 0,
+    "trailing_30d_shareholder_returns_usd": 0,
     "trailing_7d_revenue_usd": 81242,
     "trailing_90d_revenue_usd": 1169476,
-    "tev_yield_7d_ann": 0,
-    "tev_yield_30d_ann": 0,
-    "tev_yield_90d_ann": 0,
-    "earning_yield_7d_ann": 1.73,
-    "earning_yield_30d_ann": 1.67,
-    "earning_yield_90d_ann": 1.94,
+    "shareholder_yield_7d_ann": 0,
+    "shareholder_yield_30d_ann": 0,
+    "shareholder_yield_90d_ann": 0,
+    "total_yield_7d_ann": 1.73,
+    "total_yield_30d_ann": 1.67,
+    "total_yield_90d_ann": 1.94,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 0,
@@ -127,9 +127,9 @@
       "label": "股东回报率: 0% (governance-only)",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
         "365d": "shareholder_yield_percent"
       },
       "unit": "%"
