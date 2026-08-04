@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-08-03T13:08:03.637022+00:00",
-  "total": 239,
-  "active_count": 31,
-  "passed_count": 208,
+  "updated_at": "2026-08-04T01:08:43.168630+00:00",
+  "total": 244,
+  "active_count": 37,
+  "passed_count": 207,
   "tev_related": 63,
   "monitored_protocols": 19,
   "protocols_meta": {
@@ -1279,6 +1279,20 @@
     {
       "source": "Snapshot",
       "protocol": "Lido",
+      "title": "Lido Alliance BORG Update: Appointment of Bryce Howarth as a New Director",
+      "status": "active",
+      "link": "https://snapshot.org/#/lido-snapshot.eth/proposal/0x4271b19b72c22db46f601fda70b8c228f752c318d7a3bf11ada93671201add2e",
+      "created": 1785492188,
+      "end": 1786377600,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "This vote seeks Lido DAO approval for the appointment of Bryce Howarth as a director of Lido Alliance BORG Foundation (“Lido Alliance BORG”).",
+      "summary_zh": "协议：Lido\n标题：Lido联盟BORG更新：任命Bryce Howarth为新董事\n摘要：本投票寻求Lido DAO批准任命Bryce Howarth为Lido联盟BORG基金会（“Lido Alliance BORG”）董事。",
+      "analysis_zh": ""
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Lido",
       "title": "0x02 CSM: New Permissionless Module Launch",
       "status": "passed",
       "link": "https://snapshot.org/#/lido-snapshot.eth/proposal/0xed2a3b1f796cefdd531abe14ba01363b2da7887434cefdd54ba71ffb6dff59a7",
@@ -2153,6 +2167,20 @@
     {
       "source": "Snapshot",
       "protocol": "Ethena",
+      "title": "Ethena Risk Committee Elections - Fifth Term",
+      "status": "active",
+      "link": "https://snapshot.org/#/ethenagovernance.eth/proposal/0xd696aa2d588f8140a55805e9bce6813a201d16df28b0b925992562951be1a536",
+      "created": 1785790831,
+      "end": 1786319940,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "Following the conclusion of the application period, we are pleased to present the final list of shortlisted candidates for the Risk Committee election. 3 successful candidates out of the 9 applicants below will earn a seat on the Ethena Risk Committe",
+      "summary_zh": "协议：Ethena\n标题：Ethena风险委员会选举——第五任期\n摘要：申请期结束后，我们很高兴公布风险委员会选举的最终候选人名单。以下9位申请人中，3位成功候选人将获得Ethena风险委员会的席位。",
+      "analysis_zh": ""
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Ethena",
       "title": "Ethena Risk Committee Elections - Fourth Term",
       "status": "passed",
       "link": "https://snapshot.org/#/ethenagovernance.eth/proposal/0x8ee7d1115c3579981a68debf6d2ec393e4a30832e0a97ed79edd8e49001d658c",
@@ -2232,6 +2260,48 @@
       "tev_keywords": [],
       "summary_en": "This proposal introduces Ethereal: an integrated spot & perpetual futures DEX built on the upcoming Ethena Network using USDe. Ethereal are requesting that the exchange be directly integrated into Ethena-related reserve management from launch to prov",
       "summary_zh": "Ethereal 提案：在即将上线的 Ethena Network 上构建现货和永续合约 DEX，使用 USDe 作为核心资产，申请从发布起直接集成到 Ethena 储备管理体系中。",
+      "analysis_zh": ""
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Spark",
+      "title": "[Ethereum] Spark Liquidity Layer – Onboard Curve rlUSD/USDC for Swaps",
+      "status": "active",
+      "link": "https://snapshot.org/#/sparkfi.eth/proposal/0x3240fc78276a2f4898188809464b3357124b2c42065f55a46a7a7254eabd0f82",
+      "created": 1785772447,
+      "end": 1786031647,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": ">\n> - Swap\n>   - `maxAmount`: 5 million\n>   - `slope`: 25 million\n>   - `maxSlippage`: 0.1%.",
+      "summary_zh": "协议：Spark\n标题：[以太坊] Spark流动性层 - Curve rlUSD/USDC 交换上线\n摘要：\n- 交换\n  - `maxAmount`：500万\n  - `slope`：2500万\n  - `maxSlippage`：0.1%",
+      "analysis_zh": ""
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Spark",
+      "title": "[Ethereum] Spark Liquidity Layer - Onboard Uniswap v4 rlUSD/USDS Pool",
+      "status": "active",
+      "link": "https://snapshot.org/#/sparkfi.eth/proposal/0xf99d50e34900ea8f54c90053584f758d2a6d1ddbbe77a8c8d751e2c5a8fd0493",
+      "created": 1785772385,
+      "end": 1786031585,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": ">\n> - Uniswap Pool\n>   - Min tick range: -10 (0.999)\n>   - Max tick range: 10 (1.001)\n>   - Pool ID: 0x9035721b23481db3888fd201b9c2b26dbc3af60258bca65e669f2ed98dc8eb4f\n>   - Fee: 0.0005%\n> - Deposit\n>   - `maxAmount`: 10 million\n>   - `slope`: 50 mil",
+      "summary_zh": "Spark协议：[Ethereum] Spark流动性层 - 上线Uniswap v4 rlUSD/USDS池\n摘要：\n- Uniswap池\n  - 最小tick范围：-10（0.999）\n  - 最大tick范围：10（1.001）\n  - 池ID：0x9035721b23481db3888fd201b9c2b26dbc3af60258bca65e669f2ed98dc8eb4f\n  - 费率：0.0005%\n- 存款\n  - `maxAmount`：1000万\n  - `slope`：500万",
+      "analysis_zh": ""
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Spark",
+      "title": "[Ethereum] Spark Liquidity Layer - Onboard Uniswap v4 USDG/USDS Pool",
+      "status": "active",
+      "link": "https://snapshot.org/#/sparkfi.eth/proposal/0x101ed4ff7ef77f8e4a6db6af4bbf053b703001c0245a1e166babb8ba6ad633fb",
+      "created": 1785772291,
+      "end": 1786031491,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": ">\n> - Uniswap Pool\n>   - Min tick range: -276,334 (0.999)\n>   - Max tick range: -276,314 (1.001)\n>   - Pool ID: 0x28adc7179a8a83c3379955d59563c0fec33eadfa83946b447af289190ff5fcff\n>   - Fee: 0.0005%\n> - Deposit\n>   - `maxAmount`: 10 million\n>   - `slo",
+      "summary_zh": "Spark协议治理提案：[以太坊] Spark流动性层 - 上线Uniswap v4 USDG/USDS池\n摘要：\n- Uniswap池\n  - 最小tick范围：-276,334 (0.999)\n  - 最大tick范围：-276,314 (1.001)\n  - 池ID：0x28adc7179a8a83c3379955d59563c0fec33eadfa83946b447af289190ff5fcff\n  - 交易费：0.0005%\n- 存款\n  - `maxAmount`：1000万\n  - `slo",
       "analysis_zh": ""
     },
     {
@@ -3246,6 +3316,21 @@
     {
       "source": "Sky Polling",
       "protocol": "Sky (MakerDAO)",
+      "title": "Atlas Edit Weekly Cycle Proposal - August 3, 2026",
+      "status": "active",
+      "link": "https://vote.makerdao.com/polling/QmcVdr3p",
+      "created": "2026-08-03T16:00:00",
+      "end": "2026-08-06T16:00:00",
+      "tev_related": true,
+      "tev_keywords": [
+        "burn"
+      ],
+      "summary_en": "This Atlas edit proposal 1) adds Rate Conventions and a Settlement Methodology for the Monthly Settlement Cycle, 2) adds a Smart Burn Engine Bounded External Access Module, 3) relocates ended Keel Demand Side Instances to Completed Instances, 4) remo",
+      "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas编辑每周周期提案 - 2026年8月3日\n摘要：本提案1）为每月结算周期添加利率惯例和结算方法，2）添加智能燃烧引擎边界外部访问模块，3）将结束的Keel需求侧实例迁移至完成实例，4）移除"
+    },
+    {
+      "source": "Sky Polling",
+      "protocol": "Sky (MakerDAO)",
       "title": "Atlas Edit Weekly Cycle Proposal - July 27, 2026",
       "status": "passed",
       "link": "https://vote.makerdao.com/polling/QmQPSFVU",
@@ -3299,22 +3384,6 @@
       ],
       "summary_en": "This Atlas edit proposal 1) adds the Shared Diamond PAU Framework, 2) prepares the Osero Artifact for the July 16 Spell, 3) prepares the Grove Artifact for the July 16 Spell, 4) clarifies the Peg Defense Obligation calculation basis, 5) terminates th",
       "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas编辑每周周期提案 - 2026年7月6日\n摘要：本提案1）增加共享钻石PAU框架，2）为7月16日的Spell准备Osero神器，3）为7月16日的Spell准备Grove神器，4）明确Peg防御义务的计算依据，5）终止..."
-    },
-    {
-      "source": "Sky Polling",
-      "protocol": "Sky (MakerDAO)",
-      "title": "Atlas Edit Weekly Cycle Proposal - June 29, 2026",
-      "status": "passed",
-      "link": "https://vote.makerdao.com/polling/Qmd3gCcD",
-      "created": "2026-06-29T16:00:00",
-      "end": "2026-07-02T16:00:00",
-      "tev_related": true,
-      "tev_keywords": [
-        "distribution",
-        "revenue"
-      ],
-      "summary_en": "This Atlas edit proposal 1) adds a 100% Capital Ratio Requirement for unauthorized exposures, 2) transitions the Galaxy Warehouse out of Interim Deployment, 3) credits Grove for owed Prime revenue, 4) adds a GROVE token reward distribution schedule, ",
-      "summary_zh": "协议：Sky（MakerDAO）\n标题：Atlas编辑每周周期提案 - 2026年6月29日\n摘要：本提案1）为未经授权的敞口增加100%资本比率要求，2）将Galaxy仓库从临时部署过渡，3）为Grove偿还欠款Prime收入，4）增加GROVE代币奖励分配计划。"
     },
     {
       "source": "Mantle Forum",
