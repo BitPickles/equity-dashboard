@@ -162,7 +162,7 @@ def main():
     parser = argparse.ArgumentParser(description="CMC 代币流通量采集")
     parser.add_argument("--protocol", nargs="*", help="指定协议；默认全部")
     parser.add_argument("--dry-run", action="store_true", help="只打印计划，不调用 API")
-    parser.add_argument("--days", type=int, default=90, help="历史流通量回溯天数（默认 90）")
+    parser.add_argument("--days", type=int, default=365, help="历史流通量回溯天数（默认 365=12 个月，CMC 免费层上限）")
     args = parser.parse_args()
 
     api_key = get_api_key()
