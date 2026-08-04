@@ -25,10 +25,18 @@
     .header-right { display: flex; align-items: center; gap: 24px; }
     @media (max-width: 768px) { nav { display: none; } }
   
-    /* Global tooltip */
-    #g-tip { display: none; position: fixed; background: #1c1c1e; color: #e4e4e7; font-size: 12px; font-weight: 400; line-height: 1.6; padding: 10px 14px; border-radius: 10px; border: 1px solid #2a2a2e; max-width: 320px; text-align: left; z-index: 9999; box-shadow: 0 8px 24px rgba(0,0,0,0.5); pointer-events: none; }
+    /* Global tooltip v2（Boss 2026-08-04 UI 优化） */
+    #g-tip { display: block; position: fixed; background: rgba(20,20,24,0.96); color: #e4e4e7; font-size: 12px; font-weight: 400; line-height: 1.65; padding: 10px 12px 10px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); max-width: 320px; text-align: left; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 2px 6px rgba(0,0,0,0.25); pointer-events: none; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); opacity: 0; transform: translateY(-4px); transition: opacity .15s ease, transform .15s ease; visibility: hidden; }
+    #g-tip.show { opacity: 1; transform: translateY(0); visibility: visible; }
+    /* tooltip 顶部箭头（指向表头 ⓘ） */
+    #g-tip::after { content: ''; position: absolute; top: -5px; left: var(--arrow-x, 18px); width: 8px; height: 8px; background: rgba(20,20,24,0.96); border-left: 1px solid rgba(255,255,255,0.08); border-top: 1px solid rgba(255,255,255,0.08); transform: rotate(45deg); }
     [data-tip] { cursor: help; }
-    .tip-trigger { font-size: 11px; color: #52525b; margin-left: 2px; vertical-align: middle; cursor: help; }
+    .tip-trigger { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; margin-left: 6px; vertical-align: middle; cursor: help; color: var(--text-tertiary, #71717a); border-radius: 50%; transition: color .15s ease, background .15s ease; }
+    .tip-trigger:hover { color: var(--accent); background: var(--accent-dim, rgba(52,211,153,0.1)); }
+    .tip-trigger svg { display: block; width: 12px; height: 12px; }
+    /* 表头 hover 整列变 accent，提示 ⓘ 可点 */
+    #protocol-table thead th.sortable:hover { color: var(--accent); background: var(--bg-hover, rgba(128,128,128,0.06)); }
+    #protocol-table thead th.sortable:hover .tip-trigger { color: var(--accent); }
 
     .yield-period-btns { display: inline-flex; gap: 2px; margin-left: 6px; vertical-align: middle; }
     .yield-btn { background: transparent; border: 1px solid var(--border, #333); color: var(--text-secondary, #888); font-size: 10px; padding: 1px 5px; border-radius: 4px; cursor: pointer; font-family: 'JetBrains Mono', monospace; }
@@ -341,36 +349,50 @@
         const tip = (headerTips[currentLang] || headerTips.zh)[key];
         if (!tip) return;
         let trigger = th.querySelector('.tip-trigger');
-        if (!trigger) { trigger = document.createElement('span'); trigger.className = 'tip-trigger'; trigger.textContent = 'ⓘ'; th.appendChild(trigger); }
+        if (!trigger) {
+          trigger = document.createElement('span');
+          trigger.className = 'tip-trigger';
+          trigger.innerHTML = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6.5"></circle><line x1="8" y1="6.8" x2="8" y2="6.8"></line><line x1="8" y1="9" x2="8" y2="11.5"></line></svg>';
+          th.appendChild(trigger);
+        }
         trigger.setAttribute('data-tip', tip);
       });
     }
-    // Global tooltip controller
+    // Global tooltip controller v2（Boss 2026-08-04 UI 优化：箭头 + 淡入动画）
     (function() {
       const tip = document.createElement('div'); tip.id = 'g-tip'; document.body.appendChild(tip);
-      document.addEventListener('mouseover', e => {
-        const el = e.target.closest('[data-tip]');
-        if (!el || !el.dataset.tip) { tip.style.display = 'none'; return; }
+      const showTip = (el) => {
         tip.textContent = el.dataset.tip;
-        tip.style.display = 'block';
+        tip.classList.add('show');
         const r = el.getBoundingClientRect();
-        const top = r.bottom + 8;
+        const tipWidth = tip.offsetWidth || 280;
+        let top = r.bottom + 8;
         let left = r.left;
         // 防止右侧溢出
-        if (left + 330 > window.innerWidth) left = window.innerWidth - 340;
+        if (left + tipWidth + 14 > window.innerWidth) left = window.innerWidth - tipWidth - 14;
         if (left < 8) left = 8;
         // 防止底部溢出，改为上方显示
         if (top + tip.offsetHeight > window.innerHeight) {
-          tip.style.top = (r.top - tip.offsetHeight - 8) + 'px';
-        } else {
-          tip.style.top = top + 'px';
+          top = r.top - tip.offsetHeight - 8;
         }
+        tip.style.top = top + 'px';
         tip.style.left = left + 'px';
+        // 箭头始终指向 ⓘ 中心
+        const arrowLeft = Math.min(Math.max(r.left + 6 - left, 8), tipWidth - 8);
+        tip.style.setProperty('--arrow-x', arrowLeft + 'px');
+      };
+      const hideTip = () => tip.classList.remove('show');
+      document.addEventListener('mouseover', e => {
+        const el = e.target.closest('[data-tip]');
+        if (el && el.dataset.tip) { showTip(el); return; }
+        // 不在 tip 元素上时隐藏
+        if (!e.target.closest('[data-tip]')) hideTip();
       });
       document.addEventListener('mouseout', e => {
-        const el = e.target.closest('[data-tip]');
-        if (el) tip.style.display = 'none';
+        if (e.target.closest('[data-tip]')) hideTip();
       });
+      // 滚动/切窗口时隐藏
+      window.addEventListener('scroll', hideTip, true);
     })();
 
     let currentSort = { field: 'shareholderYield', dir: 'desc' };
