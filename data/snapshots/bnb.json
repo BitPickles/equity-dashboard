@@ -6,9 +6,9 @@
       "entity_type": "platform_token",
       "revenue_included": {
         "burn_usd_365d": 4297800679.14,
-        "staking_rewards_usd_365d": 5283891276.03,
+        "staking_rewards_usd_365d": 5407850430.04,
         "launchpad_launchpool_usd_365d": null,
-        "total_usd_365d": 9581691955.17
+        "total_usd_365d": 9705651109.18
       },
       "revenue_excluded": {
         "fees": {
@@ -23,7 +23,7 @@
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": 9581691955.17,
+      "gross_profit_usd_365d": 9705651109.18,
       "calculation_note": "平台币无 LP 分润成本，毛利 = 收入（赋能总额）"
     },
     "token_emission_cost": {
@@ -34,7 +34,7 @@
       "calculation_note": "BNB 无代币增发（总供应递减：Auto-Burn 目标 100M），不涉及增发成本"
     },
     "net_income": {
-      "net_income_usd_365d": 9581691955.17,
+      "net_income_usd_365d": 9705651109.18,
       "operating_cost_usd_365d": null,
       "calculation_note": "平台币：净利 = 收入 = 股东回报（赋能口径，无成本模型）"
     },
@@ -50,39 +50,39 @@
         "mechanism": "Auto-Burn（季度）",
         "type": "destroy",
         "usd_365d": 3371894312,
-        "yield_percent": 4.3841
+        "yield_percent": 4.2836
       },
       {
         "mechanism": "BEP-95 实时销毁",
         "type": "destroy",
         "usd_365d": 925906367.14,
-        "yield_percent": 1.2038
+        "yield_percent": 1.1762
       },
       {
         "mechanism": "aBNB 打新+质押",
         "type": "yield",
-        "usd_365d": 5283891276.03,
+        "usd_365d": 5407850430.04,
         "yield_percent": 6.87
       }
     ],
     "summary": {
       "destroy_usd_365d": 4297800679.14,
-      "yield_usd_365d": 5283891276.03,
-      "destroy_yield_percent": 5.5879,
+      "yield_usd_365d": 5407850430.04,
+      "destroy_yield_percent": 5.4598,
       "yield_yield_percent": 6.87,
-      "shareholder_returns_usd_365d": 9581691955.17,
-      "shareholder_yield_percent": 12.4579
+      "shareholder_returns_usd_365d": 9705651109.18,
+      "shareholder_yield_percent": 12.3298
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 76912536768.93126,
+    "market_cap_usd": 78716891267,
     "tvl_usd": 5387604237.313377,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 8.027,
-    "ps": 8.027,
+    "pe": 8.1104,
+    "ps": 8.1104,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 1.0

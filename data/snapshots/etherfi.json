@@ -49,7 +49,7 @@
         "mechanism": "提现费 100% 周度回购 → sETHFI 质押者",
         "type": "yield",
         "usd_365d": 16709085,
-        "yield_percent": 4.286,
+        "yield_percent": 4.5443,
         "note": "DefiLlama dailyHoldersRevenue 365d 合计口径（含协议收入 25% 月度回购），无单引擎拆分；回购即分发=股息口径"
       },
       {
@@ -71,19 +71,19 @@
       "destroy_usd_365d": null,
       "yield_usd_365d": 16709085,
       "destroy_yield_percent": null,
-      "yield_yield_percent": 4.286,
+      "yield_yield_percent": 4.5443,
       "shareholder_returns_usd_365d": 16709085,
-      "shareholder_yield_percent": 4.286
+      "shareholder_yield_percent": 4.5443
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 389855565.4959151,
+    "market_cap_usd": 367695955,
     "tvl_usd": 5427960736.152121,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 23.332,
+    "pe": 22.0058,
     "ps": null,
     "pb": null,
     "ev_revenue": null,

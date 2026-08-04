@@ -63,7 +63,11 @@
   },
   "market_data": {
     "tvl": 6856802869.885637,
-    "tvl_updated": "2026-03-27T01:01:08.441Z"
+    "tvl_updated": "2026-03-27T01:01:08.441Z",
+    "price_usd": 1.89,
+    "circulating_market_cap": 1241161887,
+    "circulating_supply": 655765902.7349743,
+    "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
   "tevStatus": "none",
   "confidence_reason": {

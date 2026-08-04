@@ -46,12 +46,13 @@
     "primary_value_accrual": "待确认 - Gas 消耗 + 潜在的质押奖励"
   },
   "market_data": {
-    "price_usd": 0.61,
-    "circulating_supply": 3252944056,
-    "circulating_market_cap": 1981231322,
+    "price_usd": 0.39985,
+    "circulating_supply": 3302294382.53684,
+    "circulating_market_cap": 1320188127,
     "total_supply": 6219316794,
     "snapshot_date": "2026-02-05",
-    "data_source": "CoinGecko / Etherscan"
+    "data_source": "CoinGecko / Etherscan",
+    "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
   "calculated_tev": {
     "tev_yield_percent": null,

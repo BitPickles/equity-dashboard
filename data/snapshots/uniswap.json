@@ -52,28 +52,28 @@
         "mechanism": "Firepit 销毁 UNI（fee switch → TokenJar → 0xdead）",
         "type": "destroy",
         "usd_365d": 18365812.03,
-        "yield_percent": 0.7224,
+        "yield_percent": 0.765,
         "note": "销毁 = 回购性质 🟢：365d 0xdead 累计 4580003 UNI × 4.01 USD，排除一次性 100M UNI retroactive burn（2025-12-27）"
       }
     ],
     "summary": {
       "destroy_usd_365d": 18365812.03,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 0.7224,
+      "destroy_yield_percent": 0.765,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 18365812.03,
-      "shareholder_yield_percent": 0.7224
+      "shareholder_yield_percent": 0.765
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 2542249880.4217114,
+    "market_cap_usd": 2400662748,
     "tvl_usd": 3091182140.0588913,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 138.423,
-    "ps": 138.423,
+    "pe": 130.7137,
+    "ps": 130.7137,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 1.0

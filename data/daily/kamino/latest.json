@@ -1,6 +1,6 @@
 {
   "protocol": "kamino",
-  "updated_at": "2026-08-03T16:33:26.000Z",
+  "updated_at": "2026-08-04T13:02:37.288918+00:00",
   "data_sources": {
     "defillama": "kamino",
     "coingecko": "kamino",
@@ -18,9 +18,9 @@
     "trailing_30d_tev_usd": 0,
     "trailing_365d_tev_usd": null,
     "annualized_tev_usd": 0,
-    "current_market_cap_usd": 93704839,
+    "current_market_cap_usd": 93989828,
     "tev_yield": "N/A",
     "tev_yield_decimal": 0,
-    "calculated_at": "2026-08-03T16:33:26.000Z"
+    "calculated_at": "2026-08-04T13:02:37.288918+00:00"
   }
 }

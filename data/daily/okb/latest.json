@@ -1,6 +1,6 @@
 {
   "protocol": "okb",
-  "updated_at": "2026-08-03T16:33:43.000Z",
+  "updated_at": "2026-08-04T13:02:37.288918+00:00",
   "data_sources": {
     "defillama": "无（平台币/静态，专属脚本维护）",
     "coingecko": "okb",
@@ -18,9 +18,9 @@
     "trailing_30d_tev_usd": null,
     "trailing_365d_tev_usd": null,
     "annualized_tev_usd": null,
-    "current_market_cap_usd": 1806033758,
+    "current_market_cap_usd": 1818651995,
     "tev_yield": "N/A",
     "tev_yield_decimal": null,
-    "calculated_at": "2026-08-03T16:33:43.000Z"
+    "calculated_at": "2026-08-04T13:02:37.288918+00:00"
   }
 }

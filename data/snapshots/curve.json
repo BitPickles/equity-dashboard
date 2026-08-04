@@ -52,7 +52,7 @@
         "mechanism": "veCRV 分红（FeeAllocator 90% admin fee）",
         "type": "yield",
         "usd_365d": 15335813,
-        "yield_percent": 4.8402,
+        "yield_percent": 4.8839,
         "note": "90% admin fee 兑换 crvUSD 分给 veCRV 锁仓持有人（裸 CRV 不参与）；名义 yield = 股东回报 / CRV 全市值，实际锁仓持有人更高（veCRV-only 口径）"
       }
     ],
@@ -60,20 +60,20 @@
       "destroy_usd_365d": null,
       "yield_usd_365d": 15335813,
       "destroy_yield_percent": null,
-      "yield_yield_percent": 4.8402,
+      "yield_yield_percent": 4.8839,
       "shareholder_returns_usd_365d": 15335813,
-      "shareholder_yield_percent": 4.8402
+      "shareholder_yield_percent": 4.8839
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 316842493.4643041,
+    "market_cap_usd": 314005327,
     "tvl_usd": 1808019756.5740514,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 20.6603,
-    "ps": 20.6603,
+    "pe": 20.4753,
+    "ps": 20.4753,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null

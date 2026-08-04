@@ -1,6 +1,6 @@
 {
   "protocol": "fluid",
-  "updated_at": "2026-08-03T16:32:59.000Z",
+  "updated_at": "2026-08-04T13:02:37.288918+00:00",
   "data_sources": {
     "defillama": "fluid",
     "coingecko": "instadapp",
@@ -18,9 +18,9 @@
     "trailing_30d_tev_usd": null,
     "trailing_365d_tev_usd": null,
     "annualized_tev_usd": null,
-    "current_market_cap_usd": 91752826,
+    "current_market_cap_usd": 99796653,
     "tev_yield": null,
     "tev_yield_decimal": null,
-    "calculated_at": "2026-08-03T16:32:59.000Z"
+    "calculated_at": "2026-08-04T13:02:37.288918+00:00"
   }
 }

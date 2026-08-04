@@ -1,6 +1,6 @@
 {
   "protocol": "spark",
-  "updated_at": "2026-08-03T16:33:53.000Z",
+  "updated_at": "2026-08-04T13:10:25.621087+00:00",
   "data_sources": {
     "defillama": "spark",
     "coingecko": "spark",
@@ -18,9 +18,9 @@
     "trailing_30d_tev_usd": 0,
     "trailing_365d_tev_usd": null,
     "annualized_tev_usd": 0,
-    "current_market_cap_usd": 51372920,
+    "current_market_cap_usd": 46427771.11222152,
     "tev_yield": "N/A",
     "tev_yield_decimal": 0,
-    "calculated_at": "2026-08-03T16:33:53.000Z"
+    "calculated_at": "2026-08-04T13:10:25.621087+00:00"
   }
 }

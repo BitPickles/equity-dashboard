@@ -48,7 +48,7 @@
         "mechanism": "AAVE 年度回购（$30M/年，2026-03 治理）",
         "type": "buyback",
         "usd_365d": 30000000,
-        "yield_percent": 1.6675,
+        "yield_percent": 2.1257,
         "verified": "verified",
         "note": "AIP-73 年度回购预算，2026-03 治理从 $50M 下调至 $30M；DAO 财库市场买入 AAVE → Ecosystem Reserve（treasury 积累，非真 burn，治理可 redistribute；链上 0xdead 365d ≈ 0）"
       },
@@ -64,21 +64,21 @@
     "summary": {
       "destroy_usd_365d": 30000000,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 1.6675,
+      "destroy_yield_percent": 2.1257,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 30000000,
-      "shareholder_yield_percent": 1.6675
+      "shareholder_yield_percent": 2.1257
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 1799059173.84,
+    "market_cap_usd": 1411287210,
     "tvl_usd": 24631521067.11426,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 59.9686,
-    "ps": 15.5816,
+    "pe": 47.0429,
+    "ps": 12.2231,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0.2598

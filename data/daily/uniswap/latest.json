@@ -1,6 +1,6 @@
 {
   "protocol": "uniswap",
-  "updated_at": "2026-08-03T16:33:55.000Z",
+  "updated_at": "2026-08-04T13:02:37.288918+00:00",
   "data_sources": {
     "defillama": "uniswap",
     "coingecko": "uniswap",
@@ -18,9 +18,9 @@
     "trailing_30d_tev_usd": 1996110,
     "trailing_365d_tev_usd": 2952151,
     "annualized_tev_usd": 23953320,
-    "current_market_cap_usd": 2616946758,
+    "current_market_cap_usd": 2400662748,
     "tev_yield": "0.00%",
     "tev_yield_decimal": 0,
-    "calculated_at": "2026-08-03T16:33:55.000Z"
+    "calculated_at": "2026-08-04T13:02:37.288918+00:00"
   }
 }

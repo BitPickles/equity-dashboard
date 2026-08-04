@@ -1,6 +1,6 @@
 {
   "protocol": "eigenlayer",
-  "updated_at": "2026-08-03T16:32:44.000Z",
+  "updated_at": "2026-08-04T13:02:37.288918+00:00",
   "data_sources": {
     "defillama": "eigenlayer",
     "coingecko": "eigenlayer",
@@ -18,9 +18,9 @@
     "trailing_30d_tev_usd": 0,
     "trailing_365d_tev_usd": null,
     "annualized_tev_usd": 0,
-    "current_market_cap_usd": 118679418,
+    "current_market_cap_usd": 137548166,
     "tev_yield": "0.00%",
     "tev_yield_decimal": 0.0,
-    "calculated_at": "2026-08-03T16:32:44.000Z"
+    "calculated_at": "2026-08-04T13:02:37.288918+00:00"
   }
 }

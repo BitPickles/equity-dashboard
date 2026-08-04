@@ -16,7 +16,7 @@ sync-all-protocols-from-snapshots.py — 从 27 个 snapshot 同步 all-protocol
 - net_income_usd_365d      ← income_statement.net_income.net_income_usd_365d
 - net_margin_percent       ← income_statement.margins.net_margin_percent
 - payout_ratio (tevRatio)  ← valuation.payout_ratio（若有）
-- market_cap_usd / tvl     ← balance_sheet
+- ⚠️ market_cap_usd / tvl **不覆盖**——由 update-prices.py（CoinGecko/CMC 实时）维护
 - metrics.tev_yield_365d_ann ← 同上（保持兼容）
 
 用法: python3 scripts/sync-all-protocols-from-snapshots.py [--dry-run]
@@ -51,7 +51,6 @@ def main():
         hr = snap.get("holder_returns", {}).get("summary", {})
         inc = snap.get("income_statement", {})
         val = snap.get("valuation", {})
-        bs = snap.get("balance_sheet", {})
 
         rev_incl = (inc.get("revenue", {}) or {}).get("revenue_included", {}) or {}
         gp = inc.get("gross_profit", {}) or {}
@@ -66,8 +65,8 @@ def main():
             "gross_profit_usd_365d": gp.get("gross_profit_usd_365d"),
             "net_income_usd_365d": ni.get("net_income_usd_365d"),
             "net_margin_percent": mg.get("net_margin_percent"),
-            "market_cap_usd": bs.get("market_cap_usd"),
-            "tvl": bs.get("tvl_usd"),
+            # ⚠️ market_cap_usd / tvl 不从此同步——由 update-prices.py（CoinGecko/CMC
+            #    实时）维护；snapshot 的市值是 build 时的旧快照，覆盖会回退价格（2026-08-04 bug）
         }
         # payout_ratio：snapshot 有就用（可能为 None 保留原值）
         if val.get("payout_ratio") is not None:

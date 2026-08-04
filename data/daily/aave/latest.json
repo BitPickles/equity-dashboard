@@ -1,6 +1,6 @@
 {
   "protocol": "aave",
-  "updated_at": "2026-08-03T16:32:30.000Z",
+  "updated_at": "2026-08-04T13:02:37.288918+00:00",
   "data_sources": {
     "defillama": "aave",
     "coingecko": "aave",
@@ -18,9 +18,9 @@
     "trailing_30d_tev_usd": 26513626,
     "trailing_365d_tev_usd": null,
     "annualized_tev_usd": 318163512,
-    "current_market_cap_usd": 1441594922,
+    "current_market_cap_usd": 1411287210,
     "tev_yield": "18.10%",
     "tev_yield_decimal": 0.18099976781698965,
-    "calculated_at": "2026-08-03T16:32:30.000Z"
+    "calculated_at": "2026-08-04T13:02:37.288918+00:00"
   }
 }

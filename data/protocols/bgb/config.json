@@ -42,10 +42,12 @@
   },
   "market_data": {
     "price_usd": 1.61,
-    "circulating_market_cap": 1123000000,
+    "circulating_market_cap": 1125451367,
     "total_supply": 2000000000,
     "snapshot_date": "2026-02-05",
-    "data_source": "CoinGecko"
+    "data_source": "CoinGecko",
+    "circulating_supply": 699992029.6481038,
+    "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
   "calculated_tev": {
     "tev_yield_percent": null,

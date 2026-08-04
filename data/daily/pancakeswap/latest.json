@@ -1,6 +1,6 @@
 {
   "protocol": "pancakeswap",
-  "updated_at": "2026-08-03T16:33:45.000Z",
+  "updated_at": "2026-08-04T13:02:37.288918+00:00",
   "data_sources": {
     "defillama": "pancakeswap",
     "coingecko": "pancakeswap-token",
@@ -18,9 +18,9 @@
     "trailing_30d_tev_usd": 2674450.2,
     "trailing_365d_tev_usd": null,
     "annualized_tev_usd": 32093402.4,
-    "current_market_cap_usd": 464573989,
+    "current_market_cap_usd": 458205923,
     "tev_yield": "6.33%",
     "tev_yield_decimal": 0.063299,
-    "calculated_at": "2026-08-03T16:33:45.000Z"
+    "calculated_at": "2026-08-04T13:02:37.288918+00:00"
   }
 }

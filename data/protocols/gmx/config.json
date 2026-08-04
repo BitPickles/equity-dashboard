@@ -46,14 +46,15 @@
     "tevRatio": 0.27
   },
   "market_data": {
-    "price_usd": 5.93,
-    "circulating_supply": 10386388,
-    "circulating_market_cap": 61633069,
+    "price_usd": 6.25,
+    "circulating_supply": 10451381.41753242,
+    "circulating_market_cap": 65344773,
     "total_supply": 10685596,
     "holders": 300830,
     "snapshot_date": "2026-02-05",
     "tvl": 256520219.69048157,
-    "tvl_updated": "2026-03-27T01:00:52.307Z"
+    "tvl_updated": "2026-03-27T01:00:52.307Z",
+    "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
   "calculated_tev": {
     "holders_revenue_30d_usd": 1208117,

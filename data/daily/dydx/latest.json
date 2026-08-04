@@ -1,6 +1,6 @@
 {
   "protocol": "dydx",
-  "updated_at": "2026-08-03T16:32:42.000Z",
+  "updated_at": "2026-08-04T13:02:37.288918+00:00",
   "data_sources": {
     "defillama": "dydx",
     "coingecko": "dydx-chain",
@@ -18,9 +18,9 @@
     "trailing_30d_tev_usd": 392345.0,
     "trailing_365d_tev_usd": null,
     "annualized_tev_usd": 4708140.0,
-    "current_market_cap_usd": 2717736,
+    "current_market_cap_usd": 94987144,
     "tev_yield": "173.24%",
     "tev_yield_decimal": 1.732376,
-    "calculated_at": "2026-08-03T16:32:42.000Z"
+    "calculated_at": "2026-08-04T13:02:37.288918+00:00"
   }
 }

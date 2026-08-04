@@ -48,7 +48,7 @@
         "mechanism": "Fluid Reserve Buyback（35% 收入回购）",
         "type": "buyback",
         "usd_365d": 4745308,
-        "yield_percent": 5.1467,
+        "yield_percent": 4.755,
         "verified": "partial",
         "note": "2025-10 起 35% 收入 → Treasury 回购 FLUID（reserve 钱包 0x3e6F.../0x9Afb...，链上可追踪）；回购后终极用途未公开（储备/burn/分配待定）；35% 比例无链上治理投票"
       }
@@ -56,21 +56,21 @@
     "summary": {
       "destroy_usd_365d": 4745308,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 5.1467,
+      "destroy_yield_percent": 4.755,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 4745308,
-      "shareholder_yield_percent": 5.1467
+      "shareholder_yield_percent": 4.755
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 92201612.29,
+    "market_cap_usd": 99796653,
     "tvl_usd": 858549305.8980845,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 19.4301,
-    "ps": 19.4301,
+    "pe": 21.0306,
+    "ps": 21.0306,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 1.0

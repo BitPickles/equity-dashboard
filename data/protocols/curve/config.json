@@ -64,14 +64,15 @@
     ]
   },
   "market_data": {
-    "price_usd": 0.24,
-    "circulating_supply": 1461799676,
-    "circulating_market_cap": 355558659,
+    "price_usd": 0.203347,
+    "circulating_supply": 1544181466.0,
+    "circulating_market_cap": 314005327,
     "total_supply": 2349219713,
     "holders": 97359,
     "snapshot_date": "2026-02-05",
     "tvl": 1808019756.5740514,
-    "tvl_updated": "2026-03-27T01:00:28.442Z"
+    "tvl_updated": "2026-03-27T01:00:28.442Z",
+    "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
   "calculated_tev": {
     "holders_revenue_30d_usd": 970876,

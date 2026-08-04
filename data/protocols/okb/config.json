@@ -42,11 +42,12 @@
     "tevRatio": 0
   },
   "market_data": {
-    "price_usd": 71.07,
-    "circulating_supply": 21000000,
-    "circulating_market_cap": 1503276222,
+    "price_usd": 86.6,
+    "circulating_supply": 21000000.0,
+    "circulating_market_cap": 1818651995,
     "snapshot_date": "2026-02-05",
-    "data_source": "CoinGecko / Etherscan"
+    "data_source": "CoinGecko / Etherscan",
+    "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
   "calculated_tev": {
     "tev_yield_percent": null,

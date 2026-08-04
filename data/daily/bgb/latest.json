@@ -1,6 +1,6 @@
 {
   "protocol": "bgb",
-  "updated_at": "2026-08-03T16:32:33.000Z",
+  "updated_at": "2026-08-04T13:02:37.288918+00:00",
   "data_sources": {
     "defillama": "无（平台币/静态，专属脚本维护）",
     "coingecko": "bitget-token",
@@ -18,9 +18,9 @@
     "trailing_30d_tev_usd": null,
     "trailing_365d_tev_usd": null,
     "annualized_tev_usd": null,
-    "current_market_cap_usd": 1116908589,
+    "current_market_cap_usd": 1125451367,
     "tev_yield": "N/A",
     "tev_yield_decimal": null,
-    "calculated_at": "2026-08-03T16:32:33.000Z"
+    "calculated_at": "2026-08-04T13:02:37.288918+00:00"
   }
 }

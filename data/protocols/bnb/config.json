@@ -410,14 +410,15 @@
     "primary_value_accrual": "供给收缩 + 链上质押收益（非 CEX 利润分润模式）"
   },
   "market_data": {
-    "price_usd": 626.94,
-    "circulating_supply": 136359744,
-    "circulating_market_cap": 85528916981,
+    "price_usd": 591.12,
+    "circulating_supply": 133164874.75,
+    "circulating_market_cap": 78716891267,
     "target_supply": 100000000,
     "snapshot_date": "2026-03-01",
     "data_source": "CoinGecko",
     "tvl": 5387604237.313377,
-    "tvl_updated": "2026-03-27T01:00:24.034Z"
+    "tvl_updated": "2026-03-27T01:00:24.034Z",
+    "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
   "tev_data": {
     "has_tev": true,

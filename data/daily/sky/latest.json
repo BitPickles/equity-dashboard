@@ -1,6 +1,6 @@
 {
   "protocol": "sky",
-  "updated_at": "2026-08-03T16:33:50.000Z",
+  "updated_at": "2026-08-04T13:10:25.621087+00:00",
   "data_sources": {
     "defillama": "sky",
     "coingecko": "maker",
@@ -18,9 +18,9 @@
     "trailing_30d_tev_usd": 8257731,
     "trailing_365d_tev_usd": 147072404,
     "annualized_tev_usd": 99092772,
-    "current_market_cap_usd": 1814725241.45,
+    "current_market_cap_usd": 1298303055.1257043,
     "tev_yield": "0.00%",
     "tev_yield_decimal": 0,
-    "calculated_at": "2026-08-03T16:33:50.000Z"
+    "calculated_at": "2026-08-04T13:10:25.621087+00:00"
   }
 }

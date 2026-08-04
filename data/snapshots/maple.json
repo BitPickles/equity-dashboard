@@ -48,28 +48,28 @@
         "mechanism": "MIP-021 阶梯回购（SSF）",
         "type": "buyback",
         "usd_365d": 1548000.0,
-        "yield_percent": 0.8482,
+        "yield_percent": 0.7954,
         "note": "月收入 $1,290,000 < $1.5M → 10% 档；MIP-021（2026-07-17 通过 99.97%）回购规则化，首次执行 2026-08；MIP-019/020 固定 25% 已于 2026-Q2 结束；SSF 国库地址未公开、burn vs reserve 比例未披露 → partial"
       }
     ],
     "summary": {
       "destroy_usd_365d": 1548000.0,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 0.8482,
+      "destroy_yield_percent": 0.7954,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 1548000.0,
-      "shareholder_yield_percent": 0.8482
+      "shareholder_yield_percent": 0.7954
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 182500815.56,
+    "market_cap_usd": 194617593,
     "tvl_usd": 2109989088.5761566,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 117.8946,
-    "ps": 11.7895,
+    "pe": 125.722,
+    "ps": 12.5722,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0.1

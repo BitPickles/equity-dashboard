@@ -117,7 +117,11 @@
   },
   "market_data": {
     "tvl": 820487118.1176946,
-    "tvl_updated": "2026-03-27T01:00:22.764Z"
+    "tvl_updated": "2026-03-27T01:00:22.764Z",
+    "price_usd": 0.60461,
+    "circulating_market_cap": 1625037612,
+    "circulating_supply": 2687744734.3797536,
+    "price_updated_at": "2026-08-04T13:02:37.288918+00:00"
   },
   "tevRatio": 0.7,
   "earning_yield_percent": 1.47,
