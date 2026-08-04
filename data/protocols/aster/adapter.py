@@ -87,20 +87,22 @@ def build_snapshot(proto_dir):
     }
 
     # ── 股东回报（L3）─────────────────────────────────────────
+    # 口径修正（Boss 2026-08-04）：TWAP 回购后分发给 veASTER 质押者 = 股息（真金白银进持币人口袋）
+    # 非回购销毁 → type=yield（股息率）；美股口径：回购后分发 = 分红/股息
     by_mechanism = [{
         "mechanism": "TWAP 回购 ASTER → veASTER 质押者（99% 手续费）",
-        "type": "buyback",
+        "type": "yield",
         "usd_365d": returns,
         "yield_percent": returns_yield,
-        "note": "Spot 上币费（5 万 USDT/次）并入回购；1:1 储备销毁不计入（未流通币）",
+        "note": "Spot 上币费（5 万 USDT/次）并入回购；1:1 储备销毁不计入（未流通币）；回购即分发=股息口径",
     }]
     holder_returns = {
         "by_mechanism": by_mechanism,
         "summary": {
-            "destroy_usd_365d": returns,
-            "yield_usd_365d": None,
-            "destroy_yield_percent": returns_yield,
-            "yield_yield_percent": None,
+            "destroy_usd_365d": None,
+            "yield_usd_365d": returns,
+            "destroy_yield_percent": None,
+            "yield_yield_percent": returns_yield,
             "shareholder_returns_usd_365d": returns,
             "shareholder_yield_percent": returns_yield,
         },

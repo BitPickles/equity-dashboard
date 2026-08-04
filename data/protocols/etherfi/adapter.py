@@ -87,17 +87,19 @@ def build_snapshot(proto_dir):
     returns = round(returns, 2) if returns is not None else None
     returns_yield = round(returns / mcap * 100, 4) if (returns is not None and mcap) else None
 
+    # 口径修正（Boss 2026-08-04）：双引擎回购后分发给 sETHFI 质押者 = 股息（真金白银进持币人口袋）
+    # 非回购销毁 → type=yield（股息率）；DAO $50M 公开市场回购保留 buyback 但 usd=None 不计入
     by_mechanism = [
         {
             "mechanism": "提现费 100% 周度回购 → sETHFI 质押者",
-            "type": "buyback",
+            "type": "yield",
             "usd_365d": returns,
             "yield_percent": returns_yield,
-            "note": "DefiLlama dailyHoldersRevenue 365d 合计口径（含协议收入 25% 月度回购），无单引擎拆分",
+            "note": "DefiLlama dailyHoldersRevenue 365d 合计口径（含协议收入 25% 月度回购），无单引擎拆分；回购即分发=股息口径",
         },
         {
             "mechanism": "协议收入 25% 月度回购 → sETHFI 质押者",
-            "type": "buyback",
+            "type": "yield",
             "usd_365d": None,
             "yield_percent": None,
             "note": "已含于上一条合计口径",
@@ -113,10 +115,10 @@ def build_snapshot(proto_dir):
     holder_returns = {
         "by_mechanism": by_mechanism,
         "summary": {
-            "destroy_usd_365d": returns,
-            "yield_usd_365d": None,
-            "destroy_yield_percent": returns_yield,
-            "yield_yield_percent": None,
+            "destroy_usd_365d": None,
+            "yield_usd_365d": returns,
+            "destroy_yield_percent": None,
+            "yield_yield_percent": returns_yield,
             "shareholder_returns_usd_365d": returns,
             "shareholder_yield_percent": returns_yield,
         },

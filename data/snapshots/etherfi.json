@@ -7,7 +7,7 @@
       "revenue_included": {
         "protocol_fees_usd_365d": null,
         "total_usd_365d": null,
-        "note": "DefiLlama dailyFees 365d ≈ $225252841 含 staking 收益（多数归 eETH 用户），非协议收入；协议收入（Token Terminal/Dune 口径）未缓存 → null"
+        "note": "DefiLlama dailyFees 365d ≈ $224854288 含 staking 收益（多数归 eETH 用户），非协议收入；协议收入（Token Terminal/Dune 口径）未缓存 → null"
       },
       "revenue_excluded": {
         "dao_50m_buyback": {
@@ -47,14 +47,14 @@
     "by_mechanism": [
       {
         "mechanism": "提现费 100% 周度回购 → sETHFI 质押者",
-        "type": "buyback",
+        "type": "yield",
         "usd_365d": 16709085,
         "yield_percent": 4.286,
-        "note": "DefiLlama dailyHoldersRevenue 365d 合计口径（含协议收入 25% 月度回购），无单引擎拆分"
+        "note": "DefiLlama dailyHoldersRevenue 365d 合计口径（含协议收入 25% 月度回购），无单引擎拆分；回购即分发=股息口径"
       },
       {
         "mechanism": "协议收入 25% 月度回购 → sETHFI 质押者",
-        "type": "buyback",
+        "type": "yield",
         "usd_365d": null,
         "yield_percent": null,
         "note": "已含于上一条合计口径"
@@ -68,10 +68,10 @@
       }
     ],
     "summary": {
-      "destroy_usd_365d": 16709085,
-      "yield_usd_365d": null,
-      "destroy_yield_percent": 4.286,
-      "yield_yield_percent": null,
+      "destroy_usd_365d": null,
+      "yield_usd_365d": 16709085,
+      "destroy_yield_percent": null,
+      "yield_yield_percent": 4.286,
       "shareholder_returns_usd_365d": 16709085,
       "shareholder_yield_percent": 4.286
     }

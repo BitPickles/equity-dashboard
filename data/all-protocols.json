@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T10:10:19.787972+00:00",
+  "generated_at": "2026-08-04T10:39:29.354132+00:00",
   "protocols": {
     "aave": {
       "name": "Aave",
@@ -217,8 +217,8 @@
       "analyst_notes": "【2026-04-24 更新 - A 口径 treasury buyback】\n\n## TEV 机制（类似 Hyperliquid AF）\n\nAster 协议 ~80% 平台 fee → 市场买 ASTER → 转入 **Stage5 / Stage6 buyback wallet**。\n这些 ASTER 部分 burn、部分留作 community rewards / treasury。\n\n**口径选择（Boss 2026-04-24 定，类似 HYPE/Aave 的 treasury buyback 视为 TEV）**：\n- 计算：所有进入 Stage5/6 wallet 的 ASTER 都视为 supply 收缩（treasury buyback 视同 TEV）\n- 不严格区分 \"burn\" vs \"rewards\"（需要进一步追踪各 wallet 的 outgoing flow 才能区分）\n\n## 数据源\n\n- 链上采集：Moralis API（BSC 链），每日调用 fetch-aster-moralis.py\n- 存储：`data/aster-onchain.json`（95 天，2025-12-23 → 2026-03-27）\n- 计算：`sync-tev-data.js` 的 Aster 专属分支按窗口求和\n\n## 合约地址\n\n- ASTER (BEP-20): `0x000Ae314E2A2172a039B26378814C252734f556A`\n- Stage5 buyback（已清算）: `0x4786927333c0bA8aB27CA41361ADF33148C5301E`\n- Stage6 buyback（当前）: `0x664827c71193018D7843f0D0F41A5D0D6dcEBE0F`\n- Stage6 当前持 ~15M ASTER (~$10.2M)\n\n## 已知局限（caveats）\n\n1. **Stage5/6 是 treasury buyback 非真 burn**：部分 burn 部分给 community rewards，治理可动用（类似 Hyperliquid AF 风险）\n2. **2026-03-30 tokenomics 改革**：emissions 砍 97%，新增 staking rewards（暂未计入 TEV）\n3. **Moralis 免费 tier 可能滞后**：当前数据截止 2026-03-27，最近 27 天窗口显示为 0，不是真的没有 buyback\n4. **Stage6 之后可能有 Stage7**：改革后 buyback 路径可能变，需人工 review 合约地址\n\n## 历史\n\n- 2026-04-24：A 口径上线；update-aster-tev.py 每日维护\n- 2026-03-30：Aster tokenomics 大改，emissions 砍 97%\n- 2025-12：Stage6 启用（之前是 Stage5）\n",
       "notes": "**当前 TEV 情况**\n\nAster 将较大比例的协议收入（约60-80%）用于回购 ASTER，包含每日自动回购与战略回购储备。\n\n**历史数据：**\n- Stage 1-4 (2025.10-12): 依据公开报道的回购总量，按天均摩摘形成日度数据\n- Stage 5-6 (2025.12至今): 链上回购记录，可按日追踪\n\n**透明度**：回购钱包地址公开，可通过 BscScan 实时验证。\n\n**注意**：官方文档未披露精确回购比例分配，60-80% 为公开材料中的估算范围。",
       "last_updated": "2026-08-02",
-      "dividend_yield_percent": null,
-      "buyback_yield_percent": 1.4559,
+      "dividend_yield_percent": 1.4559,
+      "buyback_yield_percent": null,
       "style": "cash_cow",
       "financial_snapshot": {
         "entity_type": "app",
@@ -1115,8 +1115,8 @@
       "analyst_notes": "【2026-04-26 链上路径调研后 — TEV 降级到 unverified】\n\n## 链上调查链路图\n\n```\nFoundation Multisig (0x7A6A41F353B3002751d94118aA7f4935dA39bB53)\n  ├─ 当前持仓: 173M ETHFI\n  ├─ 365d 入金: 0 ← 关键事实\n  └─ 365d 出账 1 笔 = 15M ETHFI → 0x5ec5e6b4... (Gnosis Safe)\n\n0x5ec5e6b4eb6827914ca8bc3ae02c39417242adde (Gnosis Safe)\n  ├─ 365d 入金 9 笔 ~21M\n  └─ 365d 出账 15 笔 ~17M, 主要 → 0xa000244b... (7.7M)\n\n0xa000244b4a36d57ea1ecb39b5f02f255e4c8cd52 (Safe Proxy)\n  └─ → 0x8f08b70456eb22f6109f57b8fafe862ed28e6040 (7.66M)\n\n==> 全部都是 Gnosis Safe 间转账 (内部 treasury 腾挪), 没有 USDC/ETH → ETHFI 的市场买入证据\n\nsETHFI 合约 0x86B5780b606940Eb59A062aA85a07959518c0161\n  ├─ 365d 入金 128M ETHFI from 420 unique senders\n  └─ 顶级 senders 包括: LayerZero bridge (0xe008...), GnosisSafeProxy (0x2c2f...), 多个 EOA\n  ==> 用户 stake + 跨链 bridge + 可能 distribution 混杂, 无法分离\n\nETHFI/WETH Uni V3 池 (0x06f00544c0bc62e6db10f46d370dfccdc23d8189)\n  └─ 30d top 买家 0xbdb3ba9ffe...\n       - 持仓 2k ETHFI (买入立即卖出)\n       - 30d 745 笔小单\n       - 也买 WETH/USDC/HIGH/LDO 等多种 token\n       ==> 是 routing/MEV bot, 不是 buyback executor\n```\n\n## 处理决定\n\n类比 JustLend 案例（孙宇晨生态金库做账销毁）：\n- 那个案例: 链上看到 burn 但溯源是 pocket-to-pocket\n- 本案例: 链上**完全看不到** DAO Proposal #11 宣称的 buyback 执行\n\n两者都不构成\"协议从市场买入归属持有人\"的真 TEV，所以 TEV = 0 + status='none'。\n\n## 保留监控\n\n- update-etherfi-tev.py 继续每日跑（监控 Foundation Multisig 入金、sETHFI 上界）\n- 数据存到 buyback-history.json\n- 如果未来 (a) 协议团队公开真实 executor (b) Foundation Multisig 开始有 ETHFI 入金 (c) 链上出现明显大单 buyback 模式\n  - 立即重新评估 TEV 口径\n\n## 数据保留事实\n\n- ETHFI 流通市值: ~$369M\n- sETHFI 合约持仓 ETHFI: ~97M (用户 + 协议 historical 投入)\n- Foundation Multisig 持仓 ETHFI: ~173M (历史 treasury, 365d 不再增长也不再减少明显)\n\n## 历史\n\n- 2026-04-25: 初版 TEV 用 DefiLlama dailyRevenue × 0.25 = 1.91% (后被推翻)\n- 2026-04-26 上午: 切链上 sETHFI 上界口径 = 15.44% (含用户 stake, 后被推翻)\n- 2026-04-26 下午: 链上深挖发现 Foundation Multisig 365d 0 inflow + 多 Gnosis Safe 内部腾挪 + Uni V3 无 buyback 大单\n  → TEV 归零 (unverified), 类比 JustLend 处理\n",
       "notes": "ether.fi TEV 来自两条线：(1) Withdrawal Revenue Buyback（提现收入按月回购 ETHFI 分配给 sETHFI 质押者，DAO Proposal #11，2025-04-25 启动）；(2) $50M Treasury Buyback（价格<$3 启用，资金来自 Foundation 国库，pocket-to-pocket 嫌疑，需链上验证）。Foundation Multisig: 0x7A6A41F353B3002751d94118aA7f4935dA39bB53。注意区分：eETH 持有人的 staking 收益 ≠ ETHFI 持有人的 TEV。",
       "last_updated": "2026-08-02",
-      "dividend_yield_percent": null,
-      "buyback_yield_percent": 4.286,
+      "dividend_yield_percent": 4.286,
+      "buyback_yield_percent": null,
       "style": "growth",
       "financial_snapshot": {
         "entity_type": "app",
