@@ -24,10 +24,12 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent  # tev-dashboard/
 
-# 官方公告已验证数据（判定书 §4 BGB）：2025 Q1/Q2 各销毁 ≈3000 万枚，$1.2-1.4 亿/季度
-QUARTERLY_BURN_USD_LOW = 120_000_000
-QUARTERLY_BURN_USD_HIGH = 140_000_000
-QUARTERS_PER_YEAR = 4
+# 2026-08-04 Boss 质疑后重新调研（Agent 链上核实）：
+# 2025 Q1/Q2 各销毁 ~3000 万枚（$1.38-1.68 亿）——但 2025-11 机制已变更：
+#   「利润 20%」→ 挂钩 Morph 链 Gas 费（boost ~1100-1400×），季度销毁额骤降 90%
+# 2026 Q1 销毁 3,000,330 枚（~$807 万）/ Q2 销毁 3,010,400 枚（~$578 万）
+# 半年合计 ~$1,385 万 → 年化 ≈ $2,770 万（非旧口径 $5.2 亿）
+ANNUAL_BURN_USD = 27_700_000  # 2026 实测年化（Q1+Q2）× 2，Agent 调研 2026-08-04
 
 
 def _load(p):
@@ -46,9 +48,8 @@ def build_snapshot(proto_dir):
     rr = config.get("revenue_recognition", {})
     mcap = ap.get("market_cap_usd") or (config.get("market_data") or {}).get("circulating_market_cap")
 
-    # ── 收入（L2）：季度回购销毁年化（官方公告中值 × 4） ────────────
-    quarterly_usd = round((QUARTERLY_BURN_USD_LOW + QUARTERLY_BURN_USD_HIGH) / 2, 2)
-    burn_usd = round(quarterly_usd * QUARTERS_PER_YEAR, 2)  # $520M/年
+    # ── 收入（L2）：2026 实测年化回购销毁（非 2025 一次性事件年化） ──────
+    burn_usd = ANNUAL_BURN_USD  # $2,770 万/年（2026 Q1+Q2 实测 × 2）
     total_rev = burn_usd
 
     revenue_included = {
@@ -81,11 +82,11 @@ def build_snapshot(proto_dir):
     yield_pct = round(burn_usd / mcap * 100, 4) if (burn_usd and mcap) else None
     by_mechanism = [
         {
-            "mechanism": "季度回购销毁（利润 20%）",
+            "mechanism": "季度回购销毁（Morph 链费挂钩，2025-11 起）",
             "type": "buyback",
             "usd_365d": burn_usd,
             "yield_percent": yield_pct,
-            "note": "交易所+钱包业务利润 20% 回购销毁，次季初完成，官方公告 + 链上记录；2025 Q1/Q2 各销毁 ~3000 万枚（$1.2-1.4 亿/季度），年化取中值",
+            "note": "⚠️ 2025-11 机制变更：从「利润 20%」改为挂钩 Morph 链 Gas 费（boost ~1100-1400×），销毁额骤降 90%。2026 Q1 ~$807 万 / Q2 ~$578 万，年化 ~$2,770 万（旧口径 $5.2 亿基于 2025 一次性事件，已弃用）",
         }
     ]
     holder_returns = {

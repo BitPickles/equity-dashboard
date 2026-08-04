@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T10:53:54.322790+00:00",
+  "generated_at": "2026-08-04T12:48:04.542327+00:00",
   "protocols": {
     "aave": {
       "name": "Aave",
@@ -262,8 +262,8 @@
         "en": "No on-chain source tracing for burns. Similar pocket-to-pocket suspicion as JustLend — no market counterparty evidence for \"20% revenue buyback\" claim"
       },
       "tevStatus": "none",
-      "tev_yield_percent": 27.5366,
-      "market_cap_usd": 1888393751,
+      "tev_yield_percent": 2.4666,
+      "market_cap_usd": 1123000000,
       "tvl": 0,
       "tevRatio": 1.0,
       "earning_yield_percent": 0,
@@ -301,10 +301,10 @@
         "buyback_yield_30d_ann": 0,
         "dividend_yield_90d_ann": 0,
         "buyback_yield_90d_ann": 0,
-        "tev_yield_365d_ann": 27.5366
+        "tev_yield_365d_ann": 2.4666
       },
       "dividend_yield_percent": null,
-      "buyback_yield_percent": 27.5366,
+      "buyback_yield_percent": 2.4666,
       "style": "growth",
       "financial_snapshot": {
         "entity_type": "platform_token",
@@ -331,9 +331,9 @@
         "verification_status": "estimated",
         "as_of": "2026-08-02"
       },
-      "revenue_usd_365d": 520000000.0,
-      "gross_profit_usd_365d": 520000000.0,
-      "net_income_usd_365d": 520000000.0,
+      "revenue_usd_365d": 27700000,
+      "gross_profit_usd_365d": 27700000,
+      "net_income_usd_365d": 27700000,
       "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
       "entity_type": "platform_token"

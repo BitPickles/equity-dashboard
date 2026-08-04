@@ -5,10 +5,10 @@
     "revenue": {
       "entity_type": "platform_token",
       "revenue_included": {
-        "burn_usd_365d": 520000000.0,
+        "burn_usd_365d": 27700000,
         "staking_rewards_usd_365d": null,
         "launchpad_launchpool_usd_365d": null,
-        "total_usd_365d": 520000000.0
+        "total_usd_365d": 27700000
       },
       "revenue_excluded": {
         "launchpad": {
@@ -23,7 +23,7 @@
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": 520000000.0,
+      "gross_profit_usd_365d": 27700000,
       "calculation_note": "平台币无 LP 分润成本，毛利 = 收入（季度回购销毁年化）"
     },
     "token_emission_cost": {
@@ -34,7 +34,7 @@
       "calculation_note": "BGB 无持续增发（2024-12 一次性销毁 8 亿后总供应 12 亿，100% 全流通），不涉及增发成本"
     },
     "net_income": {
-      "net_income_usd_365d": 520000000.0,
+      "net_income_usd_365d": 27700000,
       "operating_cost_usd_365d": null,
       "calculation_note": "平台币：净利 = 收入 = 股东回报（季度回购销毁口径，无成本模型）"
     },
@@ -47,31 +47,31 @@
   "holder_returns": {
     "by_mechanism": [
       {
-        "mechanism": "季度回购销毁（利润 20%）",
+        "mechanism": "季度回购销毁（Morph 链费挂钩，2025-11 起）",
         "type": "buyback",
-        "usd_365d": 520000000.0,
-        "yield_percent": 27.5366,
-        "note": "交易所+钱包业务利润 20% 回购销毁，次季初完成，官方公告 + 链上记录；2025 Q1/Q2 各销毁 ~3000 万枚（$1.2-1.4 亿/季度），年化取中值"
+        "usd_365d": 27700000,
+        "yield_percent": 2.4666,
+        "note": "⚠️ 2025-11 机制变更：从「利润 20%」改为挂钩 Morph 链 Gas 费（boost ~1100-1400×），销毁额骤降 90%。2026 Q1 ~$807 万 / Q2 ~$578 万，年化 ~$2,770 万（旧口径 $5.2 亿基于 2025 一次性事件，已弃用）"
       }
     ],
     "summary": {
-      "destroy_usd_365d": 520000000.0,
+      "destroy_usd_365d": 27700000,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 27.5366,
+      "destroy_yield_percent": 2.4666,
       "yield_yield_percent": null,
-      "shareholder_returns_usd_365d": 520000000.0,
-      "shareholder_yield_percent": 27.5366
+      "shareholder_returns_usd_365d": 27700000,
+      "shareholder_yield_percent": 2.4666
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 1888393751,
+    "market_cap_usd": 1123000000,
     "tvl_usd": 0,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 3.6315,
-    "ps": 3.6315,
+    "pe": 40.5415,
+    "ps": 40.5415,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 1.0

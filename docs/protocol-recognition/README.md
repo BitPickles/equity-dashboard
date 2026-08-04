@@ -12,7 +12,7 @@
 | BNB | [bnb.md](bnb.md) | 平台币 | 12.46% | 打新+质押+销毁 |
 | MNT | [mnt.md](mnt.md) | 平台币 | 5.0% | 质押收益 |
 | Aster | [aster.md](aster.md) | 应用型 | 1.46% | 99% 手续费→veASTER |
-| BGB | [bgb.md](bgb.md) | 平台币 | 27.54% | 季度 20% 回购销毁 |
+| BGB | [bgb.md](bgb.md) | 平台币 | 2.47% | 季度回购（Morph 链费挂钩）|
 | OKB | [okb.md](okb.md) | 平台币 | 5.2% | OKX Earn 质押 |
 | Aave | [aave.md](aave.md) | 应用型 | 1.67% | 年度回购 $30M |
 | Sky | [sky.md](sky.md) | 应用型 | 4.30% | Elixir 真燃烧 |
