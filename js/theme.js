@@ -12,6 +12,17 @@
     } else {
       root.removeAttribute('data-theme');
     }
+    syncLogo(theme);
+  }
+
+  // 同步 logo：白天模式用深色版 logo-dark.svg（白底可见），黑夜模式用白色版 logo.svg
+  function syncLogo(theme) {
+    var src = theme === 'light' ? 'logo-dark.svg' : 'logo.svg';
+    document.querySelectorAll('img.logo-icon').forEach(function(img) {
+      var cur = (img.getAttribute('src') || '').split('/').pop();
+      if (cur !== 'logo.svg' && cur !== 'logo-dark.svg') return; // 非站点 logo（协议头像等）不动
+      if (cur !== src) img.setAttribute('src', src);
+    });
   }
 
   function getTheme() {
