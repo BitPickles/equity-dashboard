@@ -13,13 +13,13 @@ JustLend DAO 2025-10 宣布 JST Buyback & Burn 机制，3 次执行累计销毁 
 
 **结论**：做账式销毁（pocket-to-pocket 转账），不是真 buyback。对流通量和价格无实际支撑。
 
-所以 TEV Yield 各周期归零（`tevStatus=none`, `confidence=low`）。
+所以 Shareholder Yield 各周期归零（`tevStatus=none`, `confidence=low`）。
 
 ---
 
 ## 二、数据保留策略
 
-- **sync-tev-data.js justlend 分支**：TEV Yield = 0，但 `validation` 字段保留 7d/30d/90d/365d 的 burn 数量作为"供给侧事实"记录
+- **sync-tev-data.js justlend 分支**：Shareholder Yield = 0，但 `validation` 字段保留 7d/30d/90d/365d 的 burn 数量作为"供给侧事实"记录
 - **update-justlend-tev.py**：仍然每日跑（监控新 burn 事件），数据写到 `burn-history.json`
 - **tev-records.json**：保留（详情页历史图可展示 burn 事件存在这一事实）
 - 如果未来链上观察到 executor 真正从市场买 JST（USDT 流出 + JST 流入配对），可重新评估
@@ -52,7 +52,7 @@ JustLend DAO 2025-10 宣布 JST Buyback & Burn 机制，3 次执行累计销毁 
 ## 五、历史变更
 
 - **2026-04-25**（Boss 决策）：链上复核发现 pocket-to-pocket 做账销毁 → TEV 归零
-- **2026-04-24**：初版按 A 口径算出 365d TEV Yield = 15.88%（后被推翻）
+- **2026-04-24**：初版按 A 口径算出 365d Shareholder Yield = 15.88%（后被推翻）
 - **2025-10-22**：JustLend DAO 治理通过 JST Buyback & Burn Program
 
 ---

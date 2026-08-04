@@ -54,7 +54,7 @@
 │   └── /btc-dominance/
 └── TEV 专题（独立项目）
     ├── /tev/ (列表页)
-    └── /tev/protocol.html (详情页)
+    └── /equity/protocol.html (详情页)
 ```
 
 ### 1. 指标页面 (Indicator Pages)
@@ -73,8 +73,8 @@
 - 独立设计，不在通用模板范围内
 - 有自己的数据和样式
 - **导航规则**:
-  - `/tev/index.html` (列表页): 只有「首页」
-  - `/tev/protocol.html` (详情页): 「首页」+「TEV」
+  - `/equity/index.html` (列表页): 只有「首页」
+  - `/equity/protocol.html` (详情页): 「首页」+「TEV」
 
 ## 响应式设计
 

@@ -2,11 +2,11 @@
 
 本文档说明 Sky（原 MakerDAO）协议的 TEV（Token Economic Value）数据如何计算、数据源、自动更新。
 
-> **品牌变化**：Maker 于 2024-08 重品牌为 Sky，MKR → SKY（1:24000 转换）。本 dashboard 继续用 MKR 作为 ticker 显示（历史连续性）；但 TEV 机制数据已对齐到 Sky 时代（Splitter/SBE）。
+> **品牌变化**：Maker 于 2024-08 重品牌为 Sky，MKR → SKY（1:24000 转换）。本 dashboard 继续用 MKR 作为 ticker 显示（历史连续性）；但 价值分配机制数据已对齐到 Sky 时代（Splitter/SBE）。
 
 ---
 
-## 一、TEV 机制
+## 一、价值分配机制
 
 ### Smart Burn Engine (SBE)
 
@@ -37,7 +37,7 @@ Surplus DAI/USDS
 
 ---
 
-## 二、TEV 口径（2026-04-22 切换）
+## 二、回报口径（2026-04-22 切换）
 
 **TEV = DefiLlama `dailyHoldersRevenue`（Sky slug）**
 
@@ -54,7 +54,7 @@ Surplus DAI/USDS
 
 ## 三、各周期数字（2026-04-22 快照）
 
-| 周期 | HoldersRevenue | Revenue | TEV Yield | Earning Yield |
+| 周期 | HoldersRevenue | Revenue | Shareholder Yield | Earning Yield |
 |---|---|---|---|---|
 | 7d | $0.26M | $3.34M | 0.76% | 9.60% |
 | 30d | $1.13M | $14.25M | 0.75% | 9.55% |

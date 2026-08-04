@@ -4,7 +4,7 @@
 
 ---
 
-## 一、TEV 口径（A 口径，Boss 2026-04-22 定）
+## 一、回报口径（A 口径，Boss 2026-04-22 定）
 
 **TEV = 过去 365 天 UNI 转入 0xdead 地址的累计（USD 当前价重估）**
 
@@ -22,7 +22,7 @@
 ## 二、公式
 
 ```
-TEV Yield(N天) = Σ(过去 N 天 UNI → 0xdead，扣除 >=10M 单笔) × 当前 UNI 价 ÷ 市值 × 年化因子
+Shareholder Yield(N天) = Σ(过去 N 天 UNI → 0xdead，扣除 >=10M 单笔) × 当前 UNI 价 ÷ 市值 × 年化因子
 ```
 
 其中：
@@ -37,7 +37,7 @@ TEV Yield(N天) = Σ(过去 N 天 UNI → 0xdead，扣除 >=10M 单笔) × 当�
 |---|---|---|---|---|
 | UNI → 0xdead 转账 | `data/protocols/uniswap/burn-history.json` | 每日 | seed 一次性 + update-uni-tev.py 每日增量 | Etherscan V2 logs API（chainid=1，ETH mainnet）|
 | UNI 市值/价格 | `data/all-protocols.json → uniswap.market_cap_usd` | 每日 | `update-uni-tev.py` | CoinGecko API |
-| TEV Yield | `data/all-protocols.json → uniswap.*` | 每日 | `sync-tev-data.js`（uniswap 专属分支）| 聚合 |
+| Shareholder Yield | `data/all-protocols.json → uniswap.*` | 每日 | `sync-tev-data.js`（uniswap 专属分支）| 聚合 |
 
 ### 主流程（每日 9:03 / 21:03 cron）
 

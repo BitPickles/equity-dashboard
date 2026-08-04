@@ -479,7 +479,7 @@
             fetch('./data/all-protocols.json').then(r=>r.json()).then(function(d){
               var protos=d.protocols,list=[];
               var mechMap={buyback:'回购',burn:'销毁',dividend:'分红',staking_reward:'质押',distribution:'分配',mixed:'混合'};
-              for(var k in protos){var p=protos[k];var y=p.tev_yield_percent||0;if(y>0)list.push({name:p.name,yield:y,cat:p.category||''})}
+              for(var k in protos){var p=protos[k];var y=p.shareholder_yield_percent||0;if(y>0)list.push({name:p.name,yield:y,cat:p.category||''})}
               list.sort(function(a,b){return b.yield-a.yield});
               var html='';
               for(var i=0;i<Math.min(list.length,5);i++){
@@ -502,7 +502,7 @@
         <h3 class="sec-title" style="font-size:24px" data-zh="治理动态" data-en="Governance Feed">治理动态</h3>
       </div>
       <div class="gov-grid rv">
-        <a href="./tev/governance/" class="gov-card">
+        <a href="./equity/governance/" class="gov-card">
           <div class="gov-card-status active"><div class="pulse-dot"></div><span data-zh="进行中" data-en="Active">进行中</span></div>
           <div class="gov-card-title">[ARFC] 激活 Aave Buyback 回购机制</div>
           <div class="gov-card-proto">Aave · 股东回报相关</div>
@@ -511,7 +511,7 @@
             <dl><dt data-zh="支持率" data-en="Approval">支持率</dt><dd class="mono" style="color:var(--green)">89.2%</dd></dl>
           </div>
         </a>
-        <a href="./tev/governance/" class="gov-card">
+        <a href="./equity/governance/" class="gov-card">
           <div class="gov-card-status tev" data-zh="股东回报相关" data-en="Capital Return">股东回报相关</div>
           <div class="gov-card-title">Uniswap 费用开关 V2 提案</div>
           <div class="gov-card-proto">Uniswap · 讨论中</div>
@@ -520,7 +520,7 @@
             <dl><dt data-zh="论坛回复" data-en="Forum Replies">论坛回复</dt><dd class="mono">142</dd></dl>
           </div>
         </a>
-        <a href="./tev/governance/" class="gov-card">
+        <a href="./equity/governance/" class="gov-card">
           <div class="gov-card-status passed" data-zh="已通过" data-en="Passed">已通过</div>
           <div class="gov-card-title">PancakeSwap veCAKE 收益分配调整</div>
           <div class="gov-card-proto">PancakeSwap · 已执行</div>

@@ -43,13 +43,13 @@ jobs:
             --exclude 'skills/' \
             --exclude '**/*.bak' \
             --exclude 'debug-report.md' \
-            --exclude 'tev/debug.html' \
-            --exclude 'tev/final-debug.html' \
-            --exclude 'tev/simple-debug.html' \
-            --exclude 'tev/simple-test.html' \
-            --exclude 'tev/test-proto.html' \
-            --exclude 'tev/test-tevratio.html' \
-            --exclude 'tev/test_fetch.html' \
+            --exclude 'equity/debug.html' \
+            --exclude 'equity/final-debug.html' \
+            --exclude 'equity/simple-debug.html' \
+            --exclude 'equity/simple-test.html' \
+            --exclude 'equity/test-proto.html' \
+            --exclude 'equity/test-tevratio.html' \
+            --exclude 'equity/test_fetch.html' \
             --exclude 'daily-poster/output/comments.html' \
             --exclude 'daily-poster/output/comments.json'
 

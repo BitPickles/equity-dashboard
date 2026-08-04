@@ -220,8 +220,8 @@ data/protocols/<id>/
 
 ## 七、前端渲染约定
 
-- 主表 `tev/index.html`：读 `data/all-protocols.json`
-- 详情页 `tev/protocol.html`：读 `data/protocols/<id>/config.json`（**两边可能不同步，改动要两边核对**）
+- 主表 `equity/index.html`：读 `data/all-protocols.json`
+- 详情页 `equity/protocol.html`：读 `data/protocols/<id>/config.json`（**两边可能不同步，改动要两边核对**）
 
 ### 精度
 
@@ -302,7 +302,7 @@ const isDaily = records.every(r => {
 - `holders_revenue` — 持有人收入（绿色）
 - `ve_reward` / `direct_distribution` / `fee_sharing` / `dividend` / `airdrop` 等
 
-新增 type 时在 `tev/protocol.html` 的 `TEV_COLORS` 表加一条颜色配置。
+新增 type 时在 `equity/protocol.html` 的 `TEV_COLORS` 表加一条颜色配置。
 
 #### 新协议接入 TEV 历史图的自检清单
 
@@ -310,7 +310,7 @@ const isDaily = records.every(r => {
 - [ ] 每条 record 有 `date`、`type`、`amount_usd`
 - [ ] 如果是聚合数据（月/季度），每条填 `period` 且 `period ≠ date`
 - [ ] 如果是日频事件，省略 `period` 或设 `period == date`
-- [ ] 打开详情页 `tev/protocol.html?id=<new_pid>` 肉眼验证：
+- [ ] 打开详情页 `equity/protocol.html?id=<new_pid>` 肉眼验证：
   - x 轴 ticks 是否符合预期（日期格式 vs 季度标签）
   - 柱子是否可见（不是细到看不见）
   - 多种 type 是否正确 stacked
@@ -334,7 +334,7 @@ const isDaily = records.every(r => {
 }
 ```
 
-前端 `tev/index.html` 按当前周期 fallback 到 `tevRatio_Xd`，未填的字段 fallback 到顶层 `payout_ratio`。
+前端 `equity/index.html` 按当前周期 fallback 到 `tevRatio_Xd`，未填的字段 fallback 到顶层 `payout_ratio`。
 
 ---
 

@@ -25,7 +25,7 @@
   - `null` = 协议无 fee 分润机制（如 BNB），前端渲染 `—`
   - `0` = 有 fee 但 0% 归持有人（如 Lido / Compound）
   - 数字 = 明确分润比例（如 Pendle 0.8、Curve 0.5）
-- **前端两个数据源必须同步**：主表 `/tev/index.html` 读 `data/all-protocols.json`，详情页 `/tev/protocol.html` 读 `data/protocols/<id>/config.json`，改动要两边核对
+- **前端两个数据源必须同步**：主表 `/equity/index.html` 读 `data/all-protocols.json`，详情页 `/equity/protocol.html` 读 `data/protocols/<id>/config.json`，改动要两边核对
 - **显示精度**：默认 2 位小数；协议 TEV 某部分贡献 <0.1%（如 BNB 的 BEP-95 ~0.02%）时，在 config 里标 `display_precision: 3`
 - **核心规范（schema / 新协议工作流 / 已踩坑清单）**见 `docs/skill/tev-data-layer.md`，公式不可擅自更改
 

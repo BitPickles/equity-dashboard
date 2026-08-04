@@ -12,21 +12,21 @@
 - `tmp/`
 - `*.bak`
 - `debug-report.md`
-- `tev/debug.html`
-- `tev/final-debug.html`
-- `tev/simple-debug.html`
-- `tev/simple-test.html`
-- `tev/test-proto.html`
-- `tev/test-tevratio.html`
-- `tev/test_fetch.html`
+- `equity/debug.html`
+- `equity/final-debug.html`
+- `equity/simple-debug.html`
+- `equity/simple-test.html`
+- `equity/test-proto.html`
+- `equity/test-tevratio.html`
+- `equity/test_fetch.html`
 - `daily-poster/output/comments.html`
 - `daily-poster/output/comments.json`
 
 ## 上线后验证
 1. 打开首页 `https://crypto3d.pro/`，确认可正常访问
 2. 验证以下路径已不再暴露原始内容，而是跳转或失效：
-   - `/tev/debug`
-   - `/tev/test_fetch`
+   - `/equity/debug`
+   - `/equity/test_fetch`
    - `/review/news-radar.html`
    - `/poster/output/2026-03-20.html`
    - `/web/protocol.html`
