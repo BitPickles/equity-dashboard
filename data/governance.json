@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-08-04T01:08:43.168630+00:00",
+  "updated_at": "2026-08-04T13:08:01.347675+00:00",
   "total": 244,
-  "active_count": 37,
-  "passed_count": 207,
-  "tev_related": 63,
+  "active_count": 38,
+  "passed_count": 206,
+  "tev_related": 62,
   "monitored_protocols": 19,
   "protocols_meta": {
     "Aave": {
@@ -2772,6 +2772,20 @@
     {
       "source": "dYdX Cosmos",
       "protocol": "dYdX",
+      "title": "Wind down ASTR-USD, AVNT-USD, AXS-USD, BEAM-USD, BERA-USD, CAKE-USD, DRIFT-USD, ENS-USD, FARTCOIN, FLOKI-USD, MET-USD, PEOPLE-USD, POPCAT-USD, SYRUP-USD and XDC-USD markets",
+      "status": "active",
+      "link": "https://www.mintscan.io/dydx/proposals/393",
+      "created": "2026-08-04T07:12:35.633910652Z",
+      "end": "2026-08-07T07:12:35.633910652Z",
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "Wind down ASTR-USD, AVNT-USD, AXS-USD, BEAM-USD, BERA-USD, CAKE-USD, DRIFT-USD, ENS-USD, FARTCOIN, FLOKI-USD, MET-USD, PEOPLE-USD, POPCAT-USD, SYRUP-USD and XDC-USD markets",
+      "summary_zh": "dYdX协议于2023年[具体日期]结束ASTR-USD、AVNT-USD、AXS-USD、BEAM-USD、BERA-USD、CAKE-USD、DRIFT-USD、ENS-USD、FARTCOIN、FLOKI-USD、MET-USD、PEOPLE-USD、POPCAT-USD、SYRUP-USD和XDC-USD市场。",
+      "analysis_zh": ""
+    },
+    {
+      "source": "dYdX Cosmos",
+      "protocol": "dYdX",
       "title": "Increase Governance Quorum on dYdX Chain",
       "status": "active",
       "link": "https://www.mintscan.io/dydx/proposals/392",
@@ -2886,22 +2900,6 @@
       ],
       "summary_en": "Fee Holiday for BTC & BONK markets - June 2026",
       "summary_zh": "dYdX治理提案：BTC与BONK市场免费期 - 2026年6月"
-    },
-    {
-      "source": "dYdX Cosmos",
-      "protocol": "dYdX",
-      "title": "dYdX Surge Program - Season 13 Distribution",
-      "status": "passed",
-      "link": "https://www.mintscan.io/dydx/proposals/383",
-      "created": "2026-05-04T09:13:32.025105605Z",
-      "end": "2026-05-07T09:13:32.025105605Z",
-      "tev_related": true,
-      "tev_keywords": [
-        "distribution",
-        "treasury"
-      ],
-      "summary_en": "We are seeking community approval to authorise the transfer of $50,000 (333,333.27 DYDX) from the Community Treasury to be distributed to Season 13 Surge Program participants for the Liquidation Rebate Program (333,333.27 DYDX based on 7-day TWAP of ",
-      "summary_zh": "dYdX 协议 dYdX 突破计划 - 第13季分配\n我们寻求社区批准，授权从社区资金池转移 50,000 美元（333,333.27 DYDX）至第13季突破计划参与者，用于清算奖励计划（基于 7 日 TWAP 的 333,333.27 DYDX）。"
     },
     {
       "source": "GitHub BEP",
