@@ -134,10 +134,10 @@
               <tr>
                 <th style="width: 44px;">#</th>
                 <th style="min-width:170px;" data-zh="Protocol" data-en="Protocol">Protocol</th>
-                <th class="text-right sortable" data-sort="mcap" data-zh="Mkt Cap" data-en="Mkt Cap">Mkt Cap</th>
+                <th class="text-right sortable sorted desc" data-sort="mcap" data-zh="Mkt Cap" data-en="Mkt Cap">Mkt Cap</th>
                 <th class="text-right sortable" data-sort="revenue" data-zh="Rev" data-en="Rev">Rev</th>
                 <th class="text-right sortable" data-sort="netIncome" data-zh="Net Inc" data-en="Net Inc">Net Inc</th>
-                <th class="text-right sortable sorted desc" data-sort="shareholderYield" data-zh="Sh. Yld" data-en="Sh. Yld">Sh. Yld</th>
+                <th class="text-right sortable" data-sort="shareholderYield" data-zh="Sh. Yld" data-en="Sh. Yld">Sh. Yld</th>
                 <th class="text-right sortable" data-sort="pe" data-zh="P/E" data-en="P/E">P/E</th>
                 <th class="text-right sortable" data-sort="ps" data-zh="P/S" data-en="P/S">P/S</th>
                 <th class="text-right sortable" data-sort="payout" data-zh="Payout" data-en="Payout">Payout</th>
@@ -387,7 +387,7 @@
       window.addEventListener('scroll', hideTip, true);
     })();
 
-    let currentSort = { field: 'shareholderYield', dir: 'desc' };
+    let currentSort = { field: 'mcap', dir: 'desc' };  // 默认按市值降序（Boss 2026-08-04）
     let currentYieldPeriod = '365d';
     let currentFilter = 'all';
     const TEV_STATUS_ORDER = { active: 3, partial: 2, none: 1 };
@@ -483,11 +483,11 @@
     }
     function sortProtocols(arr, f, d) {
       return [...arr].sort((a, b) => {
-        // 默认排序：股东回报率降序，同值按市值降序
-        if (f === 'shareholderYield' && d === 'desc') {
-          const yd = (b.tev_yield_percent || 0) - (a.tev_yield_percent || 0);
-          if (yd !== 0) return yd;
-          return (b.market_cap_usd || 0) - (a.market_cap_usd || 0);
+        // 默认排序：市值降序，同值按股东回报率降序（Boss 2026-08-04）
+        if (f === 'mcap' && d === 'desc') {
+          const md = (b.market_cap_usd || 0) - (a.market_cap_usd || 0);
+          if (md !== 0) return md;
+          return (b.tev_yield_percent || 0) - (a.tev_yield_percent || 0);
         }
         // 其他字段：按点击的字段排序，使用预计算值
         let aVal, bVal;
