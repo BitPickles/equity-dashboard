@@ -1,6 +1,6 @@
 {
   "protocol": "gmx",
-  "updated_at": "2026-08-04T01:13:53.262Z",
+  "updated_at": "2026-08-04T13:14:18.622Z",
   "data_source": "DefiLlama API (dailyHoldersRevenue)",
   "data_source_url": "https://api.llama.fi/summary/fees/gmx?dataType=dailyHoldersRevenue",
   "records": [
@@ -1012,9 +1012,9 @@
       "date": "2026-08-01",
       "type": "aggregate",
       "mechanism": "GMX Staking Rewards",
-      "amount_usd": 14534,
+      "amount_usd": 33666,
       "period": "2026-08",
-      "days_with_data": 2,
+      "days_with_data": 3,
       "source": {
         "type": "api",
         "provider": "DefiLlama",
@@ -1022,14 +1022,14 @@
         "data_type": "dailyHoldersRevenue",
         "methodology": "30% of all collected fees goes to GMX stakers"
       },
-      "notes": "Monthly aggregate from 2 days of data"
+      "notes": "Monthly aggregate from 3 days of data"
     }
   ],
   "summary": {
-    "total_tev_usd": 134182061,
-    "total_30d_usd": 375257,
+    "total_tev_usd": 134201193,
+    "total_30d_usd": 394389,
     "by_mechanism": {
-      "staking_reward": 134182061
+      "staking_reward": 134201193
     },
     "by_period": {
       "2021-Q3": 306079,
@@ -1052,7 +1052,7 @@
       "2025-Q4": 2018825,
       "2026-Q1": 2351964,
       "2026-Q2": 1704557,
-      "2026-Q3": 487764
+      "2026-Q3": 506896
     }
   }
 }

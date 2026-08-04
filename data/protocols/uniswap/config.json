@@ -130,8 +130,8 @@
   "last_updated": "2026-04-24",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 0.73,
-    "market_cap_usd": 2435520831.642555,
+    "tev_yield_percent": 0.72,
+    "market_cap_usd": 2403646269.094666,
     "calculation_date": "2026-08-04",
     "sources": [
       {
@@ -146,17 +146,17 @@
     "last_updated": "2026-03-27",
     "validation": {
       "method": "A 口径：365d UNI 转入 0xdead（链上）减去 >=10M UNI 一次性事件",
-      "burn_7d_uni": 96000,
-      "burn_30d_uni": 352000,
-      "burn_90d_uni": 1168000,
-      "burn_365d_uni": 4594003,
+      "burn_7d_uni": 92000,
+      "burn_30d_uni": 348000,
+      "burn_90d_uni": 1164000,
+      "burn_365d_uni": 4590003,
       "retro_events_count": 1,
       "retro_total_uni": 100000000,
-      "uni_price_usd": 3.84,
-      "data_days": 198,
+      "uni_price_usd": 3.79,
+      "data_days": 199,
       "data_range": {
         "start": "2025-06-07",
-        "end": "2026-08-03"
+        "end": "2026-08-04"
       }
     }
   },
@@ -190,24 +190,24 @@
     "en": "Firepit burn UNI→0xdead fully on-chain trackable (Etherscan)"
   },
   "tevRatio": 1,
-  "earning_yield_percent": 0.73,
-  "market_cap_usd": 2435520831.642555,
-  "tev_yield_percent": 0.73,
+  "earning_yield_percent": 0.72,
+  "market_cap_usd": 2403646269.094666,
+  "tev_yield_percent": 0.72,
   "metrics": {
-    "trailing_7d_revenue_usd": 369041,
-    "trailing_30d_revenue_usd": 1353149,
-    "trailing_90d_revenue_usd": 4489995,
-    "tev_yield_7d_ann": 0.79,
-    "tev_yield_30d_ann": 0.68,
+    "trailing_7d_revenue_usd": 349035,
+    "trailing_30d_revenue_usd": 1320265,
+    "trailing_90d_revenue_usd": 4416057,
+    "tev_yield_7d_ann": 0.76,
+    "tev_yield_30d_ann": 0.67,
     "tev_yield_90d_ann": 0.75,
-    "earning_yield_7d_ann": 0.79,
-    "earning_yield_30d_ann": 0.68,
+    "earning_yield_7d_ann": 0.76,
+    "earning_yield_30d_ann": 0.67,
     "earning_yield_90d_ann": 0.75,
-    "trailing_365d_revenue_usd": 17660147,
+    "trailing_365d_revenue_usd": 17413846,
     "dividend_yield_7d_ann": 0,
-    "buyback_yield_7d_ann": 0.79,
+    "buyback_yield_7d_ann": 0.76,
     "dividend_yield_30d_ann": 0,
-    "buyback_yield_30d_ann": 0.68,
+    "buyback_yield_30d_ann": 0.67,
     "dividend_yield_90d_ann": 0,
     "buyback_yield_90d_ann": 0.75
   },
@@ -272,6 +272,6 @@
     }
   ],
   "dividend_yield_percent": 0,
-  "buyback_yield_percent": 0.73,
+  "buyback_yield_percent": 0.72,
   "style": "growth"
 }
