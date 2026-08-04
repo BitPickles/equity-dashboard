@@ -28,15 +28,12 @@
     /* Global tooltip v2（Boss 2026-08-04 UI 优化） */
     #g-tip { display: block; position: fixed; background: rgba(20,20,24,0.96); color: #e4e4e7; font-size: 12px; font-weight: 400; line-height: 1.65; padding: 10px 12px 10px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); max-width: 320px; text-align: left; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 2px 6px rgba(0,0,0,0.25); pointer-events: none; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); opacity: 0; transform: translateY(-4px); transition: opacity .15s ease, transform .15s ease; visibility: hidden; }
     #g-tip.show { opacity: 1; transform: translateY(0); visibility: visible; }
-    /* tooltip 顶部箭头（指向表头 ⓘ） */
+    /* tooltip 顶部箭头（指向表头中心） */
     #g-tip::after { content: ''; position: absolute; top: -5px; left: var(--arrow-x, 18px); width: 8px; height: 8px; background: rgba(20,20,24,0.96); border-left: 1px solid rgba(255,255,255,0.08); border-top: 1px solid rgba(255,255,255,0.08); transform: rotate(45deg); }
     [data-tip] { cursor: help; }
-    .tip-trigger { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; margin-left: 6px; vertical-align: middle; cursor: help; color: var(--text-tertiary, #71717a); border-radius: 50%; transition: color .15s ease, background .15s ease; }
-    .tip-trigger:hover { color: var(--accent); background: var(--accent-dim, rgba(52,211,153,0.1)); }
-    .tip-trigger svg { display: block; width: 12px; height: 12px; }
-    /* 表头 hover 整列变 accent，提示 ⓘ 可点 */
+    /* 表头 hover：整列变 accent + 文字下划线提示可悬停查看解释 */
     #protocol-table thead th.sortable:hover { color: var(--accent); background: var(--bg-hover, rgba(128,128,128,0.06)); }
-    #protocol-table thead th.sortable:hover .tip-trigger { color: var(--accent); }
+    #protocol-table thead th.sortable:hover span, #protocol-table thead th.sortable:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); text-decoration-style: dotted; }
 
     .yield-period-btns { display: inline-flex; gap: 2px; margin-left: 6px; vertical-align: middle; }
     .yield-btn { background: transparent; border: 1px solid var(--border, #333); color: var(--text-secondary, #888); font-size: 10px; padding: 1px 5px; border-radius: 4px; cursor: pointer; font-family: 'JetBrains Mono', monospace; }
@@ -136,16 +133,16 @@
             <thead>
               <tr>
                 <th style="width: 44px;">#</th>
-                <th style="min-width:190px;" data-zh="Protocol" data-en="Protocol">Protocol</th>
-                <th class="text-right sortable" data-sort="mcap" data-zh="Market Cap" data-en="Market Cap">Market Cap</th>
-                <th class="text-right sortable" data-sort="revenue" data-zh="Revenue" data-en="Revenue">Revenue</th>
-                <th class="text-right sortable" data-sort="netIncome" data-zh="Net Income" data-en="Net Income">Net Income</th>
-                <th class="text-right sortable sorted desc" data-sort="shareholderYield" data-zh="Shareholder Yield" data-en="Shareholder Yield">Shareholder Yield</th>
-                <th class="text-right sortable" data-sort="divYield" data-zh="Div Yield" data-en="Div Yield">Div Yield</th>
-                <th class="text-right sortable" data-sort="buybackYield" data-zh="Buyback Yield" data-en="Buyback Yield">Buyback Yield</th>
+                <th style="min-width:170px;" data-zh="Protocol" data-en="Protocol">Protocol</th>
+                <th class="text-right sortable" data-sort="mcap" data-zh="Mkt Cap" data-en="Mkt Cap">Mkt Cap</th>
+                <th class="text-right sortable" data-sort="revenue" data-zh="Rev" data-en="Rev">Rev</th>
+                <th class="text-right sortable" data-sort="netIncome" data-zh="Net Inc" data-en="Net Inc">Net Inc</th>
+                <th class="text-right sortable sorted desc" data-sort="shareholderYield" data-zh="Sh. Yld" data-en="Sh. Yld">Sh. Yld</th>
+                <th class="text-right sortable" data-sort="divYield" data-zh="Div Yld" data-en="Div Yld">Div Yld</th>
+                <th class="text-right sortable" data-sort="buybackYield" data-zh="Buyback Yld" data-en="Buyback Yld">Buyback Yld</th>
                 <th class="text-right sortable" data-sort="pe" data-zh="P/E" data-en="P/E">P/E</th>
                 <th class="text-right sortable" data-sort="ps" data-zh="P/S" data-en="P/S">P/S</th>
-                <th class="text-right sortable" data-sort="payout" data-zh="Payout Ratio" data-en="Payout Ratio">Payout Ratio</th>
+                <th class="text-right sortable" data-sort="payout" data-zh="Payout" data-en="Payout">Payout</th>
               </tr>
             </thead>
             <tbody id="protocol-tbody"></tbody>
@@ -344,18 +341,12 @@
       }
     };
     function setupHeaderTips() {
+      // Boss 2026-08-04：去掉 ⓘ 图标，data-tip 直接挂 th 上，悬停表头文字即触发
       document.querySelectorAll('th[data-sort]').forEach(th => {
         const key = th.dataset.sort;
         const tip = (headerTips[currentLang] || headerTips.zh)[key];
         if (!tip) return;
-        let trigger = th.querySelector('.tip-trigger');
-        if (!trigger) {
-          trigger = document.createElement('span');
-          trigger.className = 'tip-trigger';
-          trigger.innerHTML = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6.5"></circle><line x1="8" y1="6.8" x2="8" y2="6.8"></line><line x1="8" y1="9" x2="8" y2="11.5"></line></svg>';
-          th.appendChild(trigger);
-        }
-        trigger.setAttribute('data-tip', tip);
+        th.setAttribute('data-tip', tip);
       });
     }
     // Global tooltip controller v2（Boss 2026-08-04 UI 优化：箭头 + 淡入动画）
@@ -377,8 +368,9 @@
         }
         tip.style.top = top + 'px';
         tip.style.left = left + 'px';
-        // 箭头始终指向 ⓘ 中心
-        const arrowLeft = Math.min(Math.max(r.left + 6 - left, 8), tipWidth - 8);
+        // 箭头指向表头中心
+        const centerX = r.left + r.width / 2;
+        const arrowLeft = Math.min(Math.max(centerX - left, 8), tipWidth - 8);
         tip.style.setProperty('--arrow-x', arrowLeft + 'px');
       };
       const hideTip = () => tip.classList.remove('show');
