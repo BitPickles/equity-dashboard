@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T18:11:08.131622+00:00",
+  "generated_at": "2026-08-04T18:13:06.257918+00:00",
   "protocols": {
     "aave": {
       "name": "Aave",
@@ -612,11 +612,11 @@
         "en": "Treasury inflow + veCRV lock amount both fully on-chain, FeeAllocator 90/10 governance-documented"
       },
       "return_status": "active",
-      "shareholder_yield_percent": 4.8839,
+      "shareholder_yield_percent": null,
       "market_cap_usd": 314005327,
       "tvl": 1808019756.5740514,
       "payout_ratio": 0.9,
-      "total_yield_percent": 4.8839,
+      "total_yield_percent": null,
       "payout_ratio_note": "DAO 收入分配：约 90% -> veCRV, 10% -> Treasury（FeeAllocator），scrvUSD 流向比例动态 5%-50%（FeeSplitter）",
       "metrics": {
         "trailing_365d_revenue_usd": 15335813,
@@ -693,7 +693,7 @@
       },
       "analyst_notes": "【2026-04-26 重写 — 链上口径替代 DefiLlama】\n\n## 调研发现\n\n老 3CRV FeeDistributor 0xA464...8922Dc 当前 inflow ≈ 0, 已迁移。\n新 90% veCRV 部分流向尚未在单一合约上识别。\n\n## 解决方案 (FeeAllocator × 9 推算)\n\nFeeAllocator 把 admin fees 90/10 拆分:\n- 10% → Community Fund Treasury (0x6508ef65...)\n- 90% → veCRV 分发\n\n我们直接观察 Treasury inflow (10% 部分), × 9 反推 veCRV TEV (90% 部分)。\n这比直接找新 distributor 合约稳健 - 即使路径再变, 比例不变就能继续算。\n\n## 链上数据\n\n- Treasury 365d 入金: $0.91M crvUSD\n- 推算 veCRV TEV: $0.91M × 9 = $8.23M\n- CRV 锁仓: 855M (56.8% 流通)\n- veCRV TVL: $193.8M\n\n## 双口径\n\n- **nominal yield**: $8.23M / $341M (CRV 全市值) = 2.41%\n  - 主表显示, 但裸 CRV 持有人不参与, 这是\"如果所有 CRV 都锁仓\"的理论值\n- **veCRV-only yield**: $8.23M / $193.8M (锁仓 TVL) = 4.25%\n  - 实际锁仓持有人接近此 yield\n\n## 数据源\n\n- Etherscan V2 chainid=1 · crvUSD Transfer events to Community Fund\n- ETH public RPC eth_call · CRV.balanceOf(veCRV_lock)\n- CoinGecko CRV 价格 + 流通市值\n\n## 关键地址\n\n- CRV: 0xD533a949740bb3306d119CC777fa900bA034cd52\n- veCRV Lock: 0x5f3b5DfEb7B28CDbD7FAba78963EE202a494e2A2\n- Community Fund Treasury (10%): 0x6508ef65b0bd57eabd0f1d52685a70433b2d290b\n- Old 3CRV FeeDistributor: 0xA464e6DCda8AC41e03616F95f4BC98a13b8922Dc (已停转)\n\n## 历史变更\n\n- 2026-04-26: 切链上 Treasury × 9 推算口径, DefiLlama 弃用, 加 veCRV-only yield 双口径\n- 2025-06-27: FeeAllocator 上线\n",
       "last_updated": "2026-08-04",
-      "dividend_yield_percent": 4.8839,
+      "dividend_yield_percent": null,
       "buyback_yield_percent": null,
       "style": "cash_cow",
       "financial_snapshot": {
@@ -720,10 +720,10 @@
         "verification_status": "verified",
         "as_of": "2026-08-02"
       },
-      "revenue_usd_365d": 15335813,
-      "gross_profit_usd_365d": 15335813,
-      "net_income_usd_365d": -10664187,
-      "net_margin_percent": -69.5378,
+      "revenue_usd_365d": null,
+      "gross_profit_usd_365d": null,
+      "net_income_usd_365d": null,
+      "net_margin_percent": null,
       "growth_yoy_percent": null,
       "entity_type": "app"
     },
