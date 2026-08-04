@@ -352,7 +352,7 @@
         <div class="protocol-title">
           <div class="protocol-icon-lg" id="protocol-icon">🔮</div>
           <div class="protocol-info">
-            <h1><span id="protocol-name">Protocol</span><span class="badge badge-active" id="tev-badge">Cash Cow</span></h1>
+            <h1><span id="protocol-name">Protocol</span><span class="badge badge-active" id="return-badge">Cash Cow</span></h1>
             <div class="protocol-ticker" id="protocol-ticker">TICKER · Category</div>
             <div class="protocol-links">
               <a href="#" class="protocol-link" id="link-website" target="_blank">🌐 Website</a>
@@ -534,7 +534,7 @@
     const getTevStatus = (s, cfg) => cfg?.tevStatus || ((s.fee_switch === 'ON' || s.buybacks === 'ACTIVE' || s.dividends === 'ACTIVE' || s.burns === 'ACTIVE' || s.staking === 'ACTIVE') ? 'active' : (s.fee_switch === 'PARTIAL' || s.dividends === 'PARTIAL') ? 'partial' : 'none');
     const getValueClass = v => { const u = (v || '').toUpperCase(); return u === 'ON' || u === 'ACTIVE' ? 'value-on' : u === 'PARTIAL' ? 'value-partial' : 'value-off'; };
 
-    const TEV_COLORS = { buyback_burn: { bg: 'rgba(34,197,94,0.7)', border: '#22c55e' }, buyback: { bg: 'rgba(34,197,94,0.6)', border: '#22c55e' }, staking_reward: { bg: 'rgba(59,130,246,0.7)', border: '#3b82f6' }, direct_distribution: { bg: 'rgba(168,85,247,0.7)', border: '#a855f7' }, ve_reward: { bg: 'rgba(245,158,11,0.7)', border: '#f59e0b' }, fee_sharing: { bg: 'rgba(236,72,153,0.7)', border: '#ec4899' }, aggregate: { bg: 'rgba(99,102,241,0.7)', border: '#6366f1' }, burn: { bg: 'rgba(239,68,68,0.7)', border: '#ef4444' }, airdrop: { bg: 'rgba(168,85,247,0.7)', border: '#a855f7' }, ve_reward: { bg: 'rgba(245,158,11,0.7)', border: '#f59e0b' }, direct_distribution: { bg: 'rgba(14,165,233,0.7)', border: '#0ea5e9' }, holders_revenue: { bg: 'rgba(16,185,129,0.7)', border: '#10b981' } };
+    const RETURN_COLORS = { buyback_burn: { bg: 'rgba(34,197,94,0.7)', border: '#22c55e' }, buyback: { bg: 'rgba(34,197,94,0.6)', border: '#22c55e' }, staking_reward: { bg: 'rgba(59,130,246,0.7)', border: '#3b82f6' }, direct_distribution: { bg: 'rgba(168,85,247,0.7)', border: '#a855f7' }, ve_reward: { bg: 'rgba(245,158,11,0.7)', border: '#f59e0b' }, fee_sharing: { bg: 'rgba(236,72,153,0.7)', border: '#ec4899' }, aggregate: { bg: 'rgba(99,102,241,0.7)', border: '#6366f1' }, burn: { bg: 'rgba(239,68,68,0.7)', border: '#ef4444' }, airdrop: { bg: 'rgba(168,85,247,0.7)', border: '#a855f7' }, ve_reward: { bg: 'rgba(245,158,11,0.7)', border: '#f59e0b' }, direct_distribution: { bg: 'rgba(14,165,233,0.7)', border: '#0ea5e9' }, holders_revenue: { bg: 'rgba(16,185,129,0.7)', border: '#10b981' } };
     const BURN_CONFIG = { bnb: { file: 'bnb-burns.json', ticker: 'BNB', color: 'rgba(240,185,11,0.8)', borderColor: '#f0b90b', title: { zh: 'BNB 季度销毁', en: 'BNB Quarterly Burns' }, dataType: 'quarterly', initialSupply: 2e8, targetSupply: 1e8 } };
 
     // 获取机制名称：config name > i18n > raw type
@@ -598,7 +598,7 @@
           const asterEstEnd = '2025-12-22';
           const isAsterEstimated = (d) => isAster && d >= asterEstStart && d <= asterEstEnd;
           const barDs = types.map(type => {
-            const c = TEV_COLORS[type] || { bg: 'rgba(161,161,170,0.5)', border: '#a1a1aa' };
+            const c = RETURN_COLORS[type] || { bg: 'rgba(161,161,170,0.5)', border: '#a1a1aa' };
             const dataForType = records.filter(r => r.type === type);
             const bgColors = dataForType.map(r => isAsterEstimated(r.date) ? 'rgba(168,85,247,0.55)' : c.bg);
             const borderColors = dataForType.map(r => isAsterEstimated(r.date) ? 'rgba(168,85,247,1)' : c.border);
@@ -648,7 +648,7 @@
           // Stacked bar：每种 TEV 类型（burn / staking / buyback 等）都是同一根柱子里的一段
           // 视觉表达"TEV 由多部分构成"，颜色区分不同类型
           const barDs = types.map(type => {
-            const c = TEV_COLORS[type] || { bg: 'rgba(161,161,170,0.5)', border: '#a1a1aa' };
+            const c = RETURN_COLORS[type] || { bg: 'rgba(161,161,170,0.5)', border: '#a1a1aa' };
             const dataByLabel = {};
             records.filter(r => r.type === type).forEach(r => {
               const lbl = r.period || new Date(r.date).toLocaleDateString(currentLang === 'zh' ? 'zh-CN' : 'en-US', { year: 'numeric', month: 'short' });
@@ -702,7 +702,7 @@
     }
 
     async function loadGovernance(pid) {
-      const govName = TEV_TO_GOV[pid];
+      const govName = RETURN_TO_GOV[pid];
       if (!govName) return;
       try {
         const resp = await fetch('../data/governance.json');
@@ -719,7 +719,7 @@
 
         // Try TEV-related first, fallback to all proposals for this protocol
         let tevProposals = data.proposals
-          .filter(p => p.protocol === govName && p.tev_related)
+          .filter(p => p.protocol === govName && p.return_related)
           .sort(sortByDate)
           .slice(0, 5);
 
@@ -792,7 +792,7 @@
         document.getElementById('protocol-ticker').textContent = `${cfg.ticker} · ${currentLang === 'zh' ? (catMap[cfg.category] || cfg.category) : cfg.category}`;
         const tevStatus = getTevStatus(cfg.tev_summary || {}, cfg);
         const style = cfg.style || (tevStatus === 'active' ? 'cash_cow' : 'growth');
-        const badge = document.getElementById('tev-badge');
+        const badge = document.getElementById('return-badge');
         badge.className = `badge badge-${style === 'cash_cow' ? 'active' : 'partial'}`;
         badge.textContent = style === 'cash_cow' ? (currentLang === 'zh' ? '现金牛' : 'Cash Cow') : (currentLang === 'zh' ? '成长股' : 'Growth');
         document.getElementById('link-website').href = cfg.website || '#';

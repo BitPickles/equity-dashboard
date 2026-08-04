@@ -15,8 +15,8 @@
 | 废弃术语 | 新术语（损益表语言） | 含义 |
 |---|---|---|
 | TEV（Token Economic Value） | **股东回报**（Shareholder Returns） | 流向持币人的价值：股息 + 回购 + 销毁 |
-| TEV Yield | **股东回报率**（Shareholder Yield） | 股东回报 ÷ 市值 |
-| TEV 机制 | 股东回报机制 / 价值分配机制 | 每项机制的损益表归类 |
+| Shareholder Yield | **股东回报率**（Shareholder Yield） | 股东回报 ÷ 市值 |
+| 价值分配机制 | 股东回报机制 / 价值分配机制 | 每项机制的损益表归类 |
 | （新概念） | **毛利 Gross Profit** | 收入 − 直接成本（LP 分润等） |
 | （新概念） | **净利 Net Income** | 毛利 − 运营成本/激励（= 协议可分配盈余） |
 | （新概念） | **留存 Retained** | 净利中未分配给持币人、留在国库的部分 |
@@ -148,7 +148,7 @@ TEV 目前的框架虽已具备美股化雏形，但离"像分析一家上市公
 | **Dividend Yield 股息率** | 股息 ÷ 股价 | 直接分润（现金/稳定币/质押奖励）÷ 市值 | 各协议 | 🟢 现有 |
 | **Buyback Yield 回购率** | 回购 ÷ 市值 | 回购并销毁 ÷ 市值 | 各协议 | 🟢 现有 |
 | **Burn Yield 销毁率** | —（类比注销库存股） | 纯销毁（无回购路径）÷ 市值 | 链上 | 🟡 部分 |
-| **Shareholder Yield 股东总回报** | 股息率 + 回购率 | 股息 + 回购 + 销毁 ÷ 市值（原 TEV Yield） | 计算 | 🟢 现有 |
+| **Shareholder Yield 股东总回报** | 股息率 + 回购率 | 股息 + 回购 + 销毁 ÷ 市值（原 Shareholder Yield） | 计算 | 🟢 现有 |
 | **Payout Ratio 派息率** | 股息 ÷ 净利润 | 股东回报 ÷ 净利 | 计算 | 🟢 现有（payout_ratio） |
 | **P/E 市盈率** | 市值 ÷ 净利润 | 市值 ÷ 股东回报（当前）；市值 ÷ Net Income（二期） | 计算 | 🟡 现有 |
 | **P/S 市销率** | 市值 ÷ 营收 | 市值 ÷ Revenue | 计算 | 🟢 现有 |
@@ -474,7 +474,7 @@ L5 财报组织   损益表 / 股东回报 / 估值 / 计算口径（呈现层�
       "note": "净利为负时详情页必须展示完整计算过程（收入−LP−增发=负）"
     }
   },
-  "holder_returns": {             // L3 股东回报（原 TEV 机制拆解）
+  "holder_returns": {             // L3 股东回报（原 价值分配机制拆解）
     "by_mechanism": [             // 每个机制带"含金量属性"（3.3.4 展示标注）
       { "mechanism": "auto_burn",  "type": "destroy", "usd_365d": 1000000000, "yield_percent": 4.42 },
       { "mechanism": "bep95_burn", "type": "destroy", "usd_365d": 500000000,  "yield_percent": 2.21 },

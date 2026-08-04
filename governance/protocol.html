@@ -43,7 +43,7 @@
     .status-badge { padding: 2px 8px; border-radius: 8px; font-size: 11px; font-weight: 500; }
     .status-badge.active { background: var(--accent-dim); color: var(--accent); }
     .status-badge.passed { background: var(--blue-dim); color: var(--blue); }
-    .tev-badge { background: var(--danger-dim); color: var(--danger); font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 8px; }
+    .return-badge { background: var(--danger-dim); color: var(--danger); font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 8px; }
     .show-more-btn { text-align: center; padding: 12px; color: var(--accent); font-size: 14px; cursor: pointer; border: 1px dashed var(--border); border-radius: 8px; margin-top: 12px; transition: all 0.2s; }
     .show-more-btn:hover { background: var(--accent-dim); border-color: var(--accent); }
     .empty-state { text-align: center; padding: 60px 20px; color: var(--text-tertiary); }
@@ -60,7 +60,7 @@
         </a>
         <div class="nav-links">
           <a href="../" data-zh="首页" data-en="Home">首页</a>
-          <a href="../tev/" style="color:var(--text-primary);">TEV</a>
+          <a href="../tev/" style="color:var(--text-primary);">Shareholder Yield</a>
         </div>
       </div>
     </div>
@@ -121,11 +121,11 @@
       const sc = p.status === 'active' ? 'active' : 'passed';
       const statusText = p.status === 'active' ? '进行中' : '已通过';
       return `
-        <div class="proposal-card ${p.tev_related ? 'tev-related' : ''}">
+        <div class="proposal-card ${p.return_related ? 'tev-related' : ''}">
           <div class="proposal-header">
             <div class="proposal-tags">
               <span class="proposal-source">${p.source}</span>
-              ${p.tev_related ? '<span class="tev-badge">⚠️ TEV</span>' : ''}
+              ${p.return_related ? '<span class="return-badge">⚠️ Shareholder Yield</span>' : ''}
             </div>
             <span class="status-badge ${sc}">${statusText}</span>
           </div>
@@ -169,7 +169,7 @@
         
         // Sort: TEV first, then by time
         const sortFn = (a, b) => {
-          if (a.tev_related !== b.tev_related) return a.tev_related ? -1 : 1;
+          if (a.return_related !== b.return_related) return a.return_related ? -1 : 1;
           const ta = typeof a.created === 'number' ? a.created : 0;
           const tb = typeof b.created === 'number' ? b.created : 0;
           return tb - ta;
@@ -177,7 +177,7 @@
 
         const active = proposals.filter(p => p.status === 'active').sort(sortFn);
         const passed = proposals.filter(p => p.status === 'passed').sort(sortFn);
-        const tevCount = proposals.filter(p => p.tev_related).length;
+        const tevCount = proposals.filter(p => p.return_related).length;
         const sources = [...new Set(proposals.map(p => p.source))];
 
         document.getElementById('detail-title').textContent = protocolName;

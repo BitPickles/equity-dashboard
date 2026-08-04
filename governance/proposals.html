@@ -257,15 +257,15 @@
   </main>
 
   <script>
-    const TEV_TO_GOV = {
+    const RETURN_TO_GOV = {
       'aave': 'Aave', 'bnb': 'BNB Chain', 'compound': 'Compound', 'curve': 'Curve',
       'dydx': 'dYdX', 'eigenlayer': 'EigenLayer', 'ethena': 'Ethena', 'etherfi': 'ether.fi',
       'fluid': 'Fluid', 'gmx': 'GMX', 'lido': 'Lido', 'maple': 'Maple Finance',
       'morpho': 'Morpho', 'pancakeswap': 'PancakeSwap', 'pendle': 'Pendle',
       'mnt': 'Mantle', 'sky': 'Sky (MakerDAO)', 'spark': 'Spark', 'uniswap': 'Uniswap'
     };
-    const GOV_TO_TEV = {};
-    for (const [k,v] of Object.entries(TEV_TO_GOV)) GOV_TO_TEV[v] = k;
+    const GOV_TO_RETURN = {};
+    for (const [k,v] of Object.entries(RETURN_TO_GOV)) GOV_TO_RETURN[v] = k;
 
     let tevProtocols = {};
     let allProposals = [];
@@ -305,7 +305,7 @@
       return allProposals.filter(p => {
         if (activeFilters.status === 'active' && p.status !== 'active') return false;
         if (activeFilters.status === 'passed' && p.status !== 'passed' && p.status !== 'closed') return false;
-        if (activeFilters.tev && !p.tev_related) return false;
+        if (activeFilters.tev && !p.return_related) return false;
         if (activeFilters.protocol && p.protocol !== activeFilters.protocol) return false;
         return true;
       });
@@ -317,7 +317,7 @@
         all: allProposals.length,
         active: allProposals.filter(p => p.status === 'active').length,
         passed: allProposals.filter(p => p.status === 'passed' || p.status === 'closed').length,
-        tev: allProposals.filter(p => p.tev_related).length,
+        tev: allProposals.filter(p => p.return_related).length,
       };
 
       // Filter buttons
@@ -355,8 +355,8 @@
       }
 
       list.innerHTML = filtered.map(p => {
-        const tevId = GOV_TO_TEV[p.protocol];
-        const tevInfo = tevId ? tevProtocols[tevId] : null;
+        const returnId = GOV_TO_RETURN[p.protocol];
+        const tevInfo = returnId ? tevProtocols[returnId] : null;
         const icon = tevInfo?.icon;
         const sc = p.status === 'active' ? 'active' : p.status === 'passed' ? 'passed' : 'closed';
         const sl = p.status === 'active' ? '进行中' : p.status === 'passed' ? '已通过' : '已关闭';
@@ -379,7 +379,7 @@
         }
 
         return `
-          <a class="proposal-row ${sc === 'active' ? 'is-active' : ''} ${p.tev_related ? 'is-tev' : ''}" href="${p.link}" target="_blank" rel="noopener">
+          <a class="proposal-row ${sc === 'active' ? 'is-active' : ''} ${p.return_related ? 'is-tev' : ''}" href="${p.link}" target="_blank" rel="noopener">
             ${logo}
             <div class="prop-main">
               <div class="prop-title-row">

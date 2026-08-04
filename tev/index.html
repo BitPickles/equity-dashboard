@@ -390,7 +390,7 @@
     let currentSort = { field: 'mcap', dir: 'desc' };  // 默认按市值降序（Boss 2026-08-04）
     let currentYieldPeriod = '365d';
     let currentFilter = 'all';
-    const TEV_STATUS_ORDER = { active: 3, partial: 2, none: 1 };
+    const RETURN_STATUS_ORDER = { active: 3, partial: 2, none: 1 };
 
     // === Formatting ===
     const formatCurrency = (v, d = 0) => { if (v == null) return '—'; if (v >= 1e9) return '$' + (v / 1e9).toFixed(2) + 'B'; if (v >= 1e6) return '$' + (v / 1e6).toFixed(2) + 'M'; if (v >= 1e3) return '$' + (v / 1e3).toFixed(1) + 'K'; return '$' + v.toFixed(d); };
