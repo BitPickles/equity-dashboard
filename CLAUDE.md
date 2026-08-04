@@ -1,9 +1,9 @@
-# Crypto3D TEV Dashboard - 开发维护规范
+# Crypto3D Equity Dashboard - 开发维护规范
 
 ## 部署流程（铁律）
 
 1. **所有开发在 `dev` 分支完成**
-2. Push `dev` 后在测试站验证：https://bitpickles.github.io/tev-dashboard
+2. Push `dev` 后在测试站验证：https://bitpickles.github.io/equity-dashboard
 3. **向 Boss 展示测试站效果，等待确认**
 4. Boss 确认后才 merge `dev` → `main` 并 push `main`
 5. Push `main` 自动触发 GitHub Actions → Cloudflare Pages 部署到正式站
