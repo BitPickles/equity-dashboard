@@ -1,6 +1,6 @@
 {
   "protocol": "aster",
-  "updated_at": "2026-08-03T13:10:57.702001Z",
+  "updated_at": "2026-08-04T01:11:20.473007Z",
   "data_source": "Moralis ASTER → Stage5/6 buyback wallets × 当前 ASTER 价 (CoinGecko)",
   "note": "Stage5/6 是 treasury buyback（wallet 持仓），部分 burn 部分给 community rewards；不是全部真销毁",
   "records": [
@@ -10,7 +10,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 319329.47,
-      "amount_usd": 191533,
+      "amount_usd": 193238,
       "period": "2026-01-30",
       "tx_count": 38,
       "source": {
@@ -26,7 +26,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 923182.49,
-      "amount_usd": 553724,
+      "amount_usd": 558652,
       "period": "2026-01-31",
       "tx_count": 100,
       "source": {
@@ -42,7 +42,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 928270.39,
-      "amount_usd": 556776,
+      "amount_usd": 561731,
       "period": "2026-02-01",
       "tx_count": 100,
       "source": {
@@ -58,7 +58,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage5)",
       "amount_aster": 664597.79,
-      "amount_usd": 398625,
+      "amount_usd": 402173,
       "period": "2026-02-02",
       "tx_count": 60,
       "source": {
@@ -69,14 +69,718 @@
       }
     },
     {
+      "id": "aster-buyback-2026-02-03-stage6",
+      "date": "2026-02-03",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 0.01,
+      "amount_usd": 0,
+      "period": "2026-02-03",
+      "tx_count": 1,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-04-stage6",
+      "date": "2026-02-04",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 1605718.46,
+      "amount_usd": 971680,
+      "period": "2026-02-04",
+      "tx_count": 180,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-05-stage6",
+      "date": "2026-02-05",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 721459.18,
+      "amount_usd": 436582,
+      "period": "2026-02-05",
+      "tx_count": 80,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-06-stage6",
+      "date": "2026-02-06",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 1533879.23,
+      "amount_usd": 928207,
+      "period": "2026-02-06",
+      "tx_count": 150,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-07-stage6",
+      "date": "2026-02-07",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 1152129.99,
+      "amount_usd": 697196,
+      "period": "2026-02-07",
+      "tx_count": 120,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-08-stage6",
+      "date": "2026-02-08",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 835386.79,
+      "amount_usd": 505523,
+      "period": "2026-02-08",
+      "tx_count": 90,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-09-stage6",
+      "date": "2026-02-09",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 317141.17,
+      "amount_usd": 191914,
+      "period": "2026-02-09",
+      "tx_count": 40,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-10-stage6",
+      "date": "2026-02-10",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 455449.38,
+      "amount_usd": 275609,
+      "period": "2026-02-10",
+      "tx_count": 50,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-11-stage6",
+      "date": "2026-02-11",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 363994.48,
+      "amount_usd": 220267,
+      "period": "2026-02-11",
+      "tx_count": 50,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-12-stage6",
+      "date": "2026-02-12",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 340532.39,
+      "amount_usd": 206069,
+      "period": "2026-02-12",
+      "tx_count": 50,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-13-stage6",
+      "date": "2026-02-13",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 278256.93,
+      "amount_usd": 168384,
+      "period": "2026-02-13",
+      "tx_count": 40,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-14-stage6",
+      "date": "2026-02-14",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 220184.82,
+      "amount_usd": 133242,
+      "period": "2026-02-14",
+      "tx_count": 30,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-15-stage6",
+      "date": "2026-02-15",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 163165.77,
+      "amount_usd": 98738,
+      "period": "2026-02-15",
+      "tx_count": 25,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-16-stage6",
+      "date": "2026-02-16",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 219859.54,
+      "amount_usd": 133045,
+      "period": "2026-02-16",
+      "tx_count": 30,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-17-stage6",
+      "date": "2026-02-17",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 217633.79,
+      "amount_usd": 131698,
+      "period": "2026-02-17",
+      "tx_count": 30,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-18-stage6",
+      "date": "2026-02-18",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 223710.58,
+      "amount_usd": 135376,
+      "period": "2026-02-18",
+      "tx_count": 30,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-19-stage6",
+      "date": "2026-02-19",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 224865.42,
+      "amount_usd": 136074,
+      "period": "2026-02-19",
+      "tx_count": 30,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-20-stage6",
+      "date": "2026-02-20",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 166479.36,
+      "amount_usd": 100743,
+      "period": "2026-02-20",
+      "tx_count": 30,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-21-stage6",
+      "date": "2026-02-21",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 220488.95,
+      "amount_usd": 133426,
+      "period": "2026-02-21",
+      "tx_count": 30,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-22-stage6",
+      "date": "2026-02-22",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 111453.12,
+      "amount_usd": 67444,
+      "period": "2026-02-22",
+      "tx_count": 15,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-23-stage6",
+      "date": "2026-02-23",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 116439.18,
+      "amount_usd": 70462,
+      "period": "2026-02-23",
+      "tx_count": 15,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-24-stage6",
+      "date": "2026-02-24",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 286611.33,
+      "amount_usd": 173439,
+      "period": "2026-02-24",
+      "tx_count": 40,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-25-stage6",
+      "date": "2026-02-25",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 225711.69,
+      "amount_usd": 136586,
+      "period": "2026-02-25",
+      "tx_count": 30,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-26-stage6",
+      "date": "2026-02-26",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 341323.27,
+      "amount_usd": 206547,
+      "period": "2026-02-26",
+      "tx_count": 50,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-27-stage6",
+      "date": "2026-02-27",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 228541.86,
+      "amount_usd": 138299,
+      "period": "2026-02-27",
+      "tx_count": 30,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-02-28-stage6",
+      "date": "2026-02-28",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 170757.18,
+      "amount_usd": 103331,
+      "period": "2026-02-28",
+      "tx_count": 25,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-03-01-stage6",
+      "date": "2026-03-01",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 218282.82,
+      "amount_usd": 132091,
+      "period": "2026-03-01",
+      "tx_count": 35,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-03-02-stage6",
+      "date": "2026-03-02",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 169339.91,
+      "amount_usd": 102474,
+      "period": "2026-03-02",
+      "tx_count": 25,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-03-03-stage6",
+      "date": "2026-03-03",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 227117.65,
+      "amount_usd": 137437,
+      "period": "2026-03-03",
+      "tx_count": 35,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-03-04-stage6",
+      "date": "2026-03-04",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 171361.63,
+      "amount_usd": 103697,
+      "period": "2026-03-04",
+      "tx_count": 25,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-03-05-stage6",
+      "date": "2026-03-05",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 223361.75,
+      "amount_usd": 135164,
+      "period": "2026-03-05",
+      "tx_count": 35,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-03-06-stage6",
+      "date": "2026-03-06",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 169938.92,
+      "amount_usd": 102836,
+      "period": "2026-03-06",
+      "tx_count": 25,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-03-07-stage6",
+      "date": "2026-03-07",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 170556.44,
+      "amount_usd": 103210,
+      "period": "2026-03-07",
+      "tx_count": 30,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-03-08-stage6",
+      "date": "2026-03-08",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 57981.55,
+      "amount_usd": 35087,
+      "period": "2026-03-08",
+      "tx_count": 10,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-03-09-stage6",
+      "date": "2026-03-09",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 115749.95,
+      "amount_usd": 70045,
+      "period": "2026-03-09",
+      "tx_count": 20,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-03-10-stage6",
+      "date": "2026-03-10",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 169095.93,
+      "amount_usd": 102326,
+      "period": "2026-03-10",
+      "tx_count": 25,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-03-11-stage6",
+      "date": "2026-03-11",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 170880.06,
+      "amount_usd": 103406,
+      "period": "2026-03-11",
+      "tx_count": 30,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-03-12-stage6",
+      "date": "2026-03-12",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 170348.27,
+      "amount_usd": 103084,
+      "period": "2026-03-12",
+      "tx_count": 30,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-03-13-stage6",
+      "date": "2026-03-13",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 112272.68,
+      "amount_usd": 67940,
+      "period": "2026-03-13",
+      "tx_count": 20,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-03-14-stage6",
+      "date": "2026-03-14",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 228458.7,
+      "amount_usd": 138249,
+      "period": "2026-03-14",
+      "tx_count": 35,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-03-15-stage6",
+      "date": "2026-03-15",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 166838.98,
+      "amount_usd": 100960,
+      "period": "2026-03-15",
+      "tx_count": 25,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-03-16-stage6",
+      "date": "2026-03-16",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 165595.39,
+      "amount_usd": 100208,
+      "period": "2026-03-16",
+      "tx_count": 30,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-03-17-stage6",
+      "date": "2026-03-17",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 159976.37,
+      "amount_usd": 96808,
+      "period": "2026-03-17",
+      "tx_count": 30,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
+      "id": "aster-buyback-2026-03-18-stage6",
+      "date": "2026-03-18",
+      "type": "buyback_burn",
+      "mechanism": "ASTER Buyback (stage6)",
+      "amount_aster": 158998.02,
+      "amount_usd": 96216,
+      "period": "2026-03-18",
+      "tx_count": 30,
+      "source": {
+        "type": "onchain",
+        "provider": "Moralis",
+        "stage": "stage6",
+        "note": "ASTER → Stage5/6 buyback wallet"
+      }
+    },
+    {
       "id": "aster-buyback-2026-03-19-stage6",
       "date": "2026-03-19",
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
-      "amount_aster": 85971.61,
-      "amount_usd": 51566,
+      "amount_aster": 171789.36,
+      "amount_usd": 103956,
       "period": "2026-03-19",
-      "tx_count": 15,
+      "tx_count": 30,
       "source": {
         "type": "onchain",
         "provider": "Moralis",
@@ -90,7 +794,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 174627.74,
-      "amount_usd": 104742,
+      "amount_usd": 105674,
       "period": "2026-03-20",
       "tx_count": 30,
       "source": {
@@ -106,7 +810,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 172700.5,
-      "amount_usd": 103586,
+      "amount_usd": 104507,
       "period": "2026-03-21",
       "tx_count": 30,
       "source": {
@@ -122,7 +826,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 60310.6,
-      "amount_usd": 36174,
+      "amount_usd": 36496,
       "period": "2026-03-22",
       "tx_count": 10,
       "source": {
@@ -138,7 +842,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 118604.15,
-      "amount_usd": 71139,
+      "amount_usd": 71772,
       "period": "2026-03-23",
       "tx_count": 20,
       "source": {
@@ -154,7 +858,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 180864.74,
-      "amount_usd": 108482,
+      "amount_usd": 109448,
       "period": "2026-03-24",
       "tx_count": 25,
       "source": {
@@ -170,7 +874,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 177519.65,
-      "amount_usd": 106476,
+      "amount_usd": 107424,
       "period": "2026-03-25",
       "tx_count": 30,
       "source": {
@@ -186,7 +890,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 120160.05,
-      "amount_usd": 72072,
+      "amount_usd": 72713,
       "period": "2026-03-26",
       "tx_count": 20,
       "source": {
@@ -202,7 +906,7 @@
       "type": "buyback_burn",
       "mechanism": "ASTER Buyback (stage6)",
       "amount_aster": 118403.22,
-      "amount_usd": 71018,
+      "amount_usd": 71650,
       "period": "2026-03-27",
       "tx_count": 20,
       "source": {

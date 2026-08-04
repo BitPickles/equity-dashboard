@@ -1,11 +1,11 @@
 {
   "protocol": "curve",
   "method": "Community Fund Treasury crvUSD inflow × 9 (FeeAllocator 90/10 比例反推)",
-  "updated_at": "2026-08-03T01:12:20.900135Z",
+  "updated_at": "2026-08-04T01:12:33.903381Z",
   "crv_price_usd": 0.202254,
   "crv_market_cap_usd": 312177554.1130333,
-  "crv_locked_in_vecrv": 850840206.8721508,
-  "vecrv_tvl_usd": 172085835.20071998,
+  "crv_locked_in_vecrv": 850837273.3066534,
+  "vecrv_tvl_usd": 172085241.87536386,
   "lock_ratio_pct": 55.1,
   "addresses": {
     "CRV": "0xD533a949740bb3306d119CC777fa900bA034cd52",
@@ -349,11 +349,11 @@
       "yield_pct_vecrv_only": 33.34
     },
     "90d": {
-      "treasury_crvusd": 914136,
-      "vecrv_tev_usd": 8227226,
-      "annualized_usd": 33365974,
-      "yield_pct_nominal": 10.69,
-      "yield_pct_vecrv_only": 19.39
+      "treasury_crvusd": 907113,
+      "vecrv_tev_usd": 8164019,
+      "annualized_usd": 33109631,
+      "yield_pct_nominal": 10.61,
+      "yield_pct_vecrv_only": 19.24
     },
     "365d": {
       "treasury_crvusd": 1703979,
