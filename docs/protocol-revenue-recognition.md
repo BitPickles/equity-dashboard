@@ -24,13 +24,14 @@
 - **公式**：收入 = aBNB APY × 市值 + (Auto-Burn + BEP-95) USD
 - **data_pipeline**：链上（0xdead 遍历 + StakeHub APY，日频，update-bnb-tev.py）+ 官方（AI 抓 Auto-Burn 公告，事件驱动，ai-watch-official.py）+ AI 自检
 
-### 2. MNT（Mantle） ✅ 已定稿（Boss 2026-08-02，选 B）
+### 2. MNT（Mantle） ✅ 已定稿（Boss 2026-08-02，选 B + **2026-08-04 补质押收益**）
 
 - **实体类型**：platform_token 平台币（L2 链代币，交易所生态孵化）
-- **收入口径**：同 BNB（赋能即收入），但**当前无赋能机制**（sequencer fees 进 BaseFeeVault 不 burn 给 MNT、mETH 收益归 mETH 持有人、Staking planned）
-- **展示**：收入显示 `0%` + 标注「当前无赋能机制，治理代币」（选 B：时间性状态，非本质无 TEV）
-- **将来**：MNT Staking 上线后按质押收益 🟡 补进收入
-- **data_pipeline**：静态（TEV=0，季度复核）；Staking 上线后补链上采集
+- **收入口径**：同 BNB（赋能即收入）
+- **🆕 2026-08-04 Boss 拍板**：MNT 原生质押已上线（stacky.fi 实测 ~5.0% APY，30% 供应质押 ≈ $647M）→ **质押收益按 BNB asBNB 同口径补进收入**（staking_usd = APY × 市值 ≈ $99M/年，股息率 5.0%）
+- **口径标注**：质押收益 = 持币人质押利息（非协议利润），详情页注记
+- **不计入**：sequencer fees（进 BaseFeeVault 不 burn 给 MNT）、mETH 收益（归 mETH 持有人）
+- **data_pipeline**：静态（季度复核 APY）；质押收益上线后补链上采集
 
 ### 3. Aster（AsterDEX） ✅ 已定稿（Boss 2026-08-02）
 
@@ -61,13 +62,14 @@
 - **仓库修复**：config 现标 unverified/tevRatio=0 → 需按官方公告口径更新（M0/M1）
 - **data_pipeline**：官方（AI 抓季度销毁公告，季度 + 日复核）+ 链上销毁地址验证（日频）
 
-### 5. OKB（OKX） ✅ 已定稿（Boss 2026-08-02）
+### 5. OKB（OKX） ✅ 已定稿（Boss 2026-08-02 + **2026-08-04 补质押收益**）
 
 - **实体类型**：platform_token 平台币
-- **现状**：**2025-08 永久停止回购/销毁**（一次性销毁 65.26M OKB，供应锁定 21M，合约移除机制）→ 无持续赋能
-- **定稿**：**空气币，TEV = 0**，标注「回购销毁已于 2025-08 终止，无赋能机制」（Jumpstart 打新忽略）
-- **计入 TEV**：无（0）
-- **data_pipeline**：静态（TEV=0，季度复核）
+- **现状**：**2025-08 永久停止回购/销毁**（一次性销毁 65.26M OKB，供应锁定 21M，合约移除机制）
+- **🆕 2026-08-04 Boss 拍板**：OKB OKX Earn 质押仍在（官方 2026-07 ~5.2% APR 灵活质押）→ **质押收益按 BNB asBNB 同口径补进收入**（staking_usd = APY × 市值 ≈ $78M/年，股息率 5.2%）
+- **口径标注**：质押收益 = 持币人质押利息（OKX 储蓄产品，非协议利润）；回购销毁 2025-08 已终止不计入
+- **计入 TEV**：质押收益（股息率 5.2%）；Jumpstart 打新忽略
+- **data_pipeline**：静态（季度复核 APY）
 
 ---
 

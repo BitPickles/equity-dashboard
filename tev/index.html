@@ -138,11 +138,11 @@
                 <th class="text-right sortable" data-sort="revenue" data-zh="Rev" data-en="Rev">Rev</th>
                 <th class="text-right sortable" data-sort="netIncome" data-zh="Net Inc" data-en="Net Inc">Net Inc</th>
                 <th class="text-right sortable sorted desc" data-sort="shareholderYield" data-zh="Sh. Yld" data-en="Sh. Yld">Sh. Yld</th>
-                <th class="text-right sortable" data-sort="divYield" data-zh="Div Yld" data-en="Div Yld">Div Yld</th>
-                <th class="text-right sortable" data-sort="buybackYield" data-zh="Buyback Yld" data-en="Buyback Yld">Buyback Yld</th>
                 <th class="text-right sortable" data-sort="pe" data-zh="P/E" data-en="P/E">P/E</th>
                 <th class="text-right sortable" data-sort="ps" data-zh="P/S" data-en="P/S">P/S</th>
                 <th class="text-right sortable" data-sort="payout" data-zh="Payout" data-en="Payout">Payout</th>
+                <th class="text-right sortable" data-sort="divYield" data-zh="Div Yld" data-en="Div Yld">Div Yld</th>
+                <th class="text-right sortable" data-sort="buybackYield" data-zh="Buyback Yld" data-en="Buyback Yld">Buyback Yld</th>
               </tr>
             </thead>
             <tbody id="protocol-tbody"></tbody>
@@ -318,26 +318,26 @@
     // Header tooltips（悬停解释：表头用美股英文简称，悬停显示中文名+含义）
     const headerTips = {
       zh: {
-        mcap: '市值 Market Cap — 代币流通市值 = 当前价格 × 流通量，是计算股东回报率与市销率的分母',
-        revenue: '收入 Revenue — 年化协议收入（365d）。平台币 = 赋能总额（打新+质押+销毁）；应用型 = 协议费收入。数据不可得时显示 —',
-        netIncome: '净利 Net Income — 毛利 − 增发成本 − 运营成本。可为负（如 Curve 增发 > 收入）',
-        shareholderYield: '股东回报率 Shareholder Yield — 股息率 + 回购率 = 年化股东回报 ÷ 市值。衡量协议把多少收入返还给持币人',
-        divYield: '股息率 Dividend Yield — 年化分红 ÷ 市值。协议以现金/稳定币直接分给持币人/质押者的部分',
-        buybackYield: '回购率 Buyback Yield — 年化回购销毁 ÷ 市值。协议用收入回购并销毁代币的部分，类比上市公司股票回购',
-        pe: '市盈率 P/E — 市值 ÷ 年化归属持币人收入（= 100 ÷ 股东回报率）。数值越低越便宜；持币人无收入时显示 —',
-        ps: '市销率 P/S — 市值 ÷ 年化协议营收。类比美股市销率，越低代表相对营收越便宜；无营收时显示 —',
-        payout: '派息率 Payout Ratio — 股东回报 ÷ 协议营收。衡量协议把多少比例的营收返还给持币人',
+        mcap: 'Market Cap（市值）：代币流通市值 ＝ 当前价格 × 流通量，是计算股东回报率与市销率的分母',
+        revenue: 'Revenue（收入）：年化协议收入（365 天）。平台币 ＝ 赋能总额（打新＋质押＋销毁）；应用型 ＝ 协议费收入。数据不可得时显示 —',
+        netIncome: 'Net Income（净利）：毛利 − 增发成本 − 运营成本。可为负（如 Curve 增发 > 收入）',
+        shareholderYield: 'Shareholder Yield（股东回报率）：股息率 ＋ 回购率 ＝ 年化股东回报 ÷ 市值。衡量协议把多少收入返还给持币人',
+        divYield: 'Dividend Yield（股息率）：年化分红 ÷ 市值。协议以现金/稳定币直接分给持币人/质押者的部分',
+        buybackYield: 'Buyback Yield（回购率）：年化回购销毁 ÷ 市值。协议用收入回购并销毁代币的部分，类比上市公司股票回购',
+        pe: 'P/E（市盈率）：市值 ÷ 年化归属持币人收入（＝ 100 ÷ 股东回报率）。数值越低越便宜；持币人无收入时显示 —',
+        ps: 'P/S（市销率）：市值 ÷ 年化协议营收。类比美股市销率，越低代表相对营收越便宜；无营收时显示 —',
+        payout: 'Payout Ratio（派息率）：股东回报 ÷ 协议营收。衡量协议把多少比例的营收返还给持币人',
       },
       en: {
-        mcap: 'Market Cap — circulating market cap = price × circulating supply, the denominator for Shareholder Yield and P/S',
-        revenue: 'Revenue — annualized protocol revenue (365d). Platform tokens: total empowerment (launchpad+staking+burn); apps: protocol fees. — when unavailable',
-        netIncome: 'Net Income — gross profit − emission cost − operating costs. Can be negative (e.g. Curve)',
-        shareholderYield: 'Shareholder Yield — Dividend Yield + Buyback Yield = annualized shareholder returns ÷ market cap. Total revenue returned to holders',
-        divYield: 'Dividend Yield — annualized dividends ÷ market cap. Revenue paid directly to holders/stakers (cash/stablecoin)',
-        buybackYield: 'Buyback Yield — annualized buyback-and-burn ÷ market cap. Revenue used to buy back and burn the token',
-        pe: 'P/E — Market Cap ÷ annualized holder-attributable income (= 100 ÷ Shareholder Yield). Lower is cheaper; — when holders earn nothing',
-        ps: 'P/S — Market Cap ÷ annualized protocol revenue. Lower means cheaper relative to revenue; — when no revenue',
-        payout: 'Payout Ratio — shareholder returns ÷ protocol revenue. What share of revenue is returned to holders',
+        mcap: 'Market Cap: circulating market cap = price × circulating supply, the denominator for Shareholder Yield and P/S',
+        revenue: 'Revenue: annualized protocol revenue (365d). Platform tokens: total empowerment (launchpad+staking+burn); apps: protocol fees. Shows — when unavailable',
+        netIncome: 'Net Income: gross profit − emission cost − operating costs. Can be negative (e.g. Curve)',
+        shareholderYield: 'Shareholder Yield: Dividend Yield + Buyback Yield = annualized shareholder returns ÷ market cap. Total revenue returned to holders',
+        divYield: 'Dividend Yield: annualized dividends ÷ market cap. Revenue paid directly to holders/stakers (cash/stablecoin)',
+        buybackYield: 'Buyback Yield: annualized buyback-and-burn ÷ market cap. Revenue used to buy back and burn the token',
+        pe: 'P/E: Market Cap ÷ annualized holder-attributable income (= 100 ÷ Shareholder Yield). Lower is cheaper; shows — when holders earn nothing',
+        ps: 'P/S: Market Cap ÷ annualized protocol revenue. Lower means cheaper relative to revenue; shows — when no revenue',
+        payout: 'Payout Ratio: shareholder returns ÷ protocol revenue. What share of revenue is returned to holders',
       }
     };
     function setupHeaderTips() {
@@ -615,11 +615,11 @@
           <td class="text-right"><span class="value ${p.revenue_usd_365d ? 'value-highlight' : 'value-zero'}">${formatMoney(p.revenue_usd_365d)}</span></td>
           <td class="text-right"><span class="value ${p.net_income_usd_365d > 0 ? 'value-highlight' : p.net_income_usd_365d < 0 ? 'value-negative' : 'value-zero'}">${formatMoney(p.net_income_usd_365d)}</span></td>
           <td class="text-right"><span class="value ${yieldCls}" style="font-size:15px;font-weight:700;">${yieldDisplay}</span></td>
-          <td class="text-right"><span class="value ${divYield > 0 ? 'value-highlight' : 'value-zero'}">${divYield > 0 ? formatPercent(divYield, precision) : '—'}</span></td>
-          <td class="text-right"><span class="value ${buybackYield > 0 ? 'value-highlight' : 'value-zero'}">${buybackYield > 0 ? formatPercent(buybackYield, precision) : '—'}</span></td>
           <td class="text-right"><span class="value ${pe == null ? 'value-zero' : ''}">${peDisplay}</span></td>
           <td class="text-right"><span class="value ${ps == null ? 'value-zero' : ''}">${psDisplay}</span></td>
           <td class="text-right"><span class="value ${payout >= 0.5 ? 'value-highlight' : payout > 0 ? '' : 'value-zero'}">${payoutDisplay}</span></td>
+          <td class="text-right"><span class="value ${divYield > 0 ? 'value-highlight' : 'value-zero'}">${divYield > 0 ? formatPercent(divYield, precision) : '—'}</span></td>
+          <td class="text-right"><span class="value ${buybackYield > 0 ? 'value-highlight' : 'value-zero'}">${buybackYield > 0 ? formatPercent(buybackYield, precision) : '—'}</span></td>
         `;
         tbody.appendChild(row);
       });

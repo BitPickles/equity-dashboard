@@ -36,20 +36,25 @@ def build_snapshot(proto_dir):
     rr = config.get("revenue_recognition", {})
     mcap = ap.get("market_cap_usd") or (config.get("market_data") or {}).get("circulating_market_cap")
 
-    # ── 收入（L2）：2025-08 永久停止回购/销毁 → 0 ──────────────
-    total_rev = 0  # 空气币：无持续赋能（合约 mint/burn 已移除，供应锁定 21M）
+    # ── 收入（L2）：质押收益（2026-08-04 补充）+ 回购已终止 ─────
+    # 2026-08-04 Boss 拍板：OKB 质押收益（OKX Earn）按 BNB asBNB 同口径补进
+    # 回购销毁 2025-08 已终止（合约移除 mint/burn，供应锁定 21M）→ burn = 0
+    STAKING_APY = 0.052  # ~5.2%（2026-07 OKX 官方：OKB Flexible Staking APR 5.2%，日结复利）
+    staking_usd = round(STAKING_APY * mcap, 2) if mcap else None
+    total_rev = staking_usd or 0
     revenue_included = {
-        "burn_usd_365d": 0,
-        "staking_rewards_usd_365d": None,
+        "burn_usd_365d": 0,  # 回购销毁 2025-08 终止
+        "staking_rewards_usd_365d": staking_usd,  # 2026-08-04 补：OKX Earn 质押收益 🟡
         "launchpad_launchpool_usd_365d": None,  # Jumpstart 打新忽略（判定书 §5）
         "total_usd_365d": total_rev,
+        "note": "质押收益口径（Boss 2026-08-04 拍板）：OKB OKX Earn 质押 ~5.2% APY × 市值。持币人质押利息，非协议利润；回购销毁 2025-08 已终止不计入",
     }
 
     # ── 毛利/增发/净利 ─────────────────────────────────────────
     gp = {
         "lp_share_cost_usd_365d": None,
         "gross_profit_usd_365d": total_rev,
-        "calculation_note": "回购销毁已于 2025-08 终止，无赋能机制，毛利 = 收入 = 0",
+        "calculation_note": "平台币无 LP 成本模型，毛利 = 收入（质押收益赋能口径）",
     }
     emission = {
         "usd_365d": None,
@@ -61,39 +66,41 @@ def build_snapshot(proto_dir):
     net_income = {
         "net_income_usd_365d": total_rev,
         "operating_cost_usd_365d": None,
-        "calculation_note": "空气币：2025-08 永久停止回购/销毁，净利 = 0",
+        "calculation_note": "平台币：净利 = 收入 = 质押收益（赋能口径）；回购销毁 2025-08 终止，不计入",
     }
 
-    # ── 股东回报（L3）：机制确凿零（永久停止）→ summary = 0 ────
+    # ── 股东回报（L3）：质押收益 = 股息（收益型 🟡）────────────
+    yield_pct = round(staking_usd / mcap * 100, 4) if (staking_usd and mcap) else None
     by_mechanism = [
         {
-            "mechanism": "回购销毁（已终止）",
-            "type": "buyback",
-            "usd_365d": 0,
-            "yield_percent": 0,
-            "note": "判定书 §5：回购销毁已于 2025-08 终止，无赋能机制（2025-08-13 一次性销毁 65.26M OKB 后供应锁定 21M，合约移除 mint/burn）",
+            "mechanism": "OKB OKX Earn 质押收益（~5.2% APY）",
+            "type": "yield",
+            "usd_365d": staking_usd,
+            "yield_percent": yield_pct,
+            "note": "2026-08-04 补充：OKX Earn Flexible Staking ~5.2% APR（官方 2026-07），按 BNB asBNB 同口径计入；持币人质押利息，非协议利润。回购销毁已于 2025-08 终止（机制移除）",
         }
     ]
     holder_returns = {
         "by_mechanism": by_mechanism,
         "summary": {
-            "destroy_usd_365d": 0,
-            "yield_usd_365d": 0,
-            "destroy_yield_percent": 0,
-            "yield_yield_percent": 0,
-            "shareholder_returns_usd_365d": 0,
-            "shareholder_yield_percent": 0,
+            "destroy_usd_365d": None,
+            "yield_usd_365d": staking_usd,
+            "destroy_yield_percent": None,
+            "yield_yield_percent": yield_pct,
+            "shareholder_returns_usd_365d": staking_usd,
+            "shareholder_yield_percent": yield_pct,
         },
     }
 
-    # ── 派生估值（L4）：收入/回报为 0 → null ──────────────────
-    valuation = {"pe": None, "ps": None, "pb": None, "ev_revenue": None, "payout_ratio": None}
+    # ── 派生估值（L4）──────────────────────────────────────────
+    pe = round(mcap / staking_usd, 4) if (mcap and staking_usd) else None
+    valuation = {"pe": pe, "ps": pe, "pb": None, "ev_revenue": None, "payout_ratio": 1.0}
 
-    # ── margins：收入为 0 → null ──────────────────────────────
+    # ── margins ────────────────────────────────────────────────
     margins = {
-        "gross_margin_percent": None,
-        "net_margin_percent": None,
-        "note": "收入为 0（回购销毁已终止），毛利率/净利率无意义（null）",
+        "gross_margin_percent": 100.0,
+        "net_margin_percent": 100.0,
+        "note": "平台币无成本模型，毛利率/净利率 = 100%（口径标注，非经营性利润）",
     }
 
     return {

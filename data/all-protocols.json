@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T10:39:29.354132+00:00",
+  "generated_at": "2026-08-04T10:53:54.322790+00:00",
   "protocols": {
     "aave": {
       "name": "Aave",
@@ -1950,10 +1950,10 @@
         "en": "Mantle L2 sequencer fees do not flow to MNT holders; mETH rewards go to mETH holders; Treasury Burn proposal under discussion, not executed. Pure governance token (similar to LDO)"
       },
       "tevStatus": "none",
-      "tev_yield_percent": 0,
+      "tev_yield_percent": 5.0,
       "market_cap_usd": 1981231322,
       "tvl": 0,
-      "tevRatio": 0,
+      "tevRatio": 1.0,
       "earning_yield_percent": 0,
       "tevRatioNote": "待确认 - Gas 消耗 + 潜在的质押奖励",
       "tev_mechanisms": [
@@ -1989,10 +1989,10 @@
         "buyback_yield_30d_ann": 0,
         "dividend_yield_90d_ann": 0,
         "buyback_yield_90d_ann": 0,
-        "tev_yield_365d_ann": 0
+        "tev_yield_365d_ann": 5.0
       },
-      "dividend_yield_percent": 0,
-      "buyback_yield_percent": 0,
+      "dividend_yield_percent": 5.0,
+      "buyback_yield_percent": null,
       "style": "growth",
       "financial_snapshot": {
         "entity_type": "platform_token",
@@ -2019,10 +2019,10 @@
         "verification_status": "estimated",
         "as_of": "2026-08-02"
       },
-      "revenue_usd_365d": 0,
-      "gross_profit_usd_365d": 0,
-      "net_income_usd_365d": 0,
-      "net_margin_percent": null,
+      "revenue_usd_365d": 99061566.1,
+      "gross_profit_usd_365d": 99061566.1,
+      "net_income_usd_365d": 99061566.1,
+      "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
       "entity_type": "platform_token"
     },
@@ -2122,10 +2122,10 @@
         "en": "2025-08 governance decision permanently caps supply at 21M, mint/burn removed from contract. Clear governance + on-chain verifiable."
       },
       "tevStatus": "none",
-      "tev_yield_percent": 0,
+      "tev_yield_percent": 5.2,
       "market_cap_usd": 1503276222,
       "tvl": 0,
-      "tevRatio": 0,
+      "tevRatio": 1.0,
       "earning_yield_percent": 0,
       "tevRatioNote": "无持续 TEV 回流（供应已锁定，不再回购或销毁）",
       "tev_mechanisms": [
@@ -2163,10 +2163,10 @@
         "buyback_yield_30d_ann": 0,
         "dividend_yield_90d_ann": 0,
         "buyback_yield_90d_ann": 0,
-        "tev_yield_365d_ann": 0
+        "tev_yield_365d_ann": 5.2
       },
-      "dividend_yield_percent": 0,
-      "buyback_yield_percent": 0,
+      "dividend_yield_percent": 5.2,
+      "buyback_yield_percent": null,
       "style": "growth",
       "financial_snapshot": {
         "entity_type": "platform_token",
@@ -2193,10 +2193,10 @@
         "verification_status": "verified",
         "as_of": "2026-08-02"
       },
-      "revenue_usd_365d": 0,
-      "gross_profit_usd_365d": 0,
-      "net_income_usd_365d": 0,
-      "net_margin_percent": null,
+      "revenue_usd_365d": 78170363.54,
+      "gross_profit_usd_365d": 78170363.54,
+      "net_income_usd_365d": 78170363.54,
+      "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
       "entity_type": "platform_token"
     },
