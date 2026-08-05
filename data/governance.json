@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-08-05T01:08:06.998723+00:00",
+  "updated_at": "2026-08-05T13:08:10.249828+00:00",
   "total": 244,
-  "active_count": 38,
-  "passed_count": 206,
+  "active_count": 39,
+  "passed_count": 205,
   "tev_related": 62,
   "monitored_protocols": 19,
   "protocols_meta": {
@@ -2904,6 +2904,20 @@
     {
       "source": "GitHub BEP",
       "protocol": "BNB Chain",
+      "title": "bep-703: refine some trivals",
+      "status": "active",
+      "link": "https://github.com/bnb-chain/BEPs/pull/705",
+      "created": "2026-08-05T02:17:52",
+      "end": "",
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "bep-703: refine some trivals",
+      "summary_zh": "标题：bep-703：精炼一些争议点\n摘要：bep-703：对部分争议性条款进行精细化修订。",
+      "analysis_zh": ""
+    },
+    {
+      "source": "GitHub BEP",
+      "protocol": "BNB Chain",
       "title": "docs: refine bep703",
       "status": "passed",
       "link": "https://github.com/bnb-chain/BEPs/pull/704",
@@ -3025,20 +3039,6 @@
       "tev_keywords": [],
       "summary_en": "bep-696: Allow BSC block producers to use currently unused header fields for producer metadata after a hard fork.",
       "summary_zh": "BEP-696：BSC 协议将未使用的区块头部字段重新用于生产者元数据，自硬分叉后生效。",
-      "analysis_zh": ""
-    },
-    {
-      "source": "GitHub BEP",
-      "protocol": "BNB Chain",
-      "title": "BEP-695: Staking and Governance Security Hardening",
-      "status": "passed",
-      "link": "https://github.com/bnb-chain/BEPs/pull/695",
-      "created": "2026-06-09T08:14:42",
-      "end": "",
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "Consolidate three bsc-genesis-contract hardening changes into one BEP:",
-      "summary_zh": "协议：BNB Chain\n标题：BEP-695：抵押和治理安全强化\n摘要：将三个 bsc-genesis-contract 强化变更合并为一个 BEP。",
       "analysis_zh": ""
     },
     {
