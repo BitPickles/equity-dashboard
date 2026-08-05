@@ -11,7 +11,7 @@
       },
       "revenue_excluded": {
         "lp_share": {
-          "note": "总费用 N/A 中 LP 分润 N/A（~65%）不计入（收入按协议收入口径）"
+          "note": "总费用 $271,241,291 中 LP 分润 $177,370,961（~65%）不计入（收入按协议收入口径）"
         },
         "gas_fees": {
           "note": "链上 gas 手续费不计入（交易费口径已含 buyback 路由部分）"
@@ -24,9 +24,9 @@
       }
     },
     "gross_profit": {
-      "lp_share_cost_usd_365d": null,
+      "lp_share_cost_usd_365d": 177370961.4,
       "gross_profit_usd_365d": 93870329.6,
-      "calculation_note": "收入 = 协议收入（总费用 N/A − LP 分润 N/A）；回购销毁 $58,668,956 ≈ 总费用 22% / 协议收入 60-65%（payout_ratio 0.625）→ 毛利 = 协议收入"
+      "calculation_note": "收入 = 协议收入（总费用 $271,241,291 − LP 分润 $177,370,961）；回购销毁 $58,668,956 ≈ 总费用 22% / 协议收入 60-65%（payout_ratio 0.625）→ 毛利 = 协议收入"
     },
     "token_emission_cost": {
       "usd_365d": 11700000,
@@ -38,7 +38,7 @@
     "net_income": {
       "net_income_usd_365d": 82170329.6,
       "operating_cost_usd_365d": null,
-      "calculation_note": "净利 = 收入 − LP − 增发成本 = $93,870,330 − N/A − $11,700,000 = $82,170,330；增发按成本（farm 激励有对价换收入，美股 SBC 类比）；增发 $11,700,000 < 回购销毁 $58,668,956 → 净利为正（净通缩，连续 34 个月）"
+      "calculation_note": "净利 = 收入 − LP − 增发成本 = $93,870,330 − $177,370,961 − $11,700,000 = $82,170,330；增发按成本（farm 激励有对价换收入，美股 SBC 类比）；增发 $11,700,000 < 回购销毁 $58,668,956 → 净利为正（净通缩，连续 34 个月）"
     },
     "margins": {
       "gross_margin_percent": 100.0,
@@ -52,28 +52,28 @@
         "mechanism": "CAKE 回购销毁（Tokenomics 3.0）",
         "type": "destroy",
         "usd_365d": 58668956,
-        "yield_percent": 12.8041,
+        "yield_percent": 12.9807,
         "note": "现货 15-23%、永续 20%、CAKE.PAD 100% 等产品 fee 路由去回购销毁（DefiLlama dailyHoldersRevenue，gross 口径）；CAKE → 0x000...dEaD 链上可验证；≈ 总费用 22% / 协议收入 60-65% 🟢"
       }
     ],
     "summary": {
       "destroy_usd_365d": 58668956,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 12.8041,
+      "destroy_yield_percent": 12.9807,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 58668956,
-      "shareholder_yield_percent": 12.8041
+      "shareholder_yield_percent": 12.9807
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 458205923,
+    "market_cap_usd": 451971667,
     "tvl_usd": 2063271713.806489,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 7.81,
-    "ps": 4.8813,
+    "pe": 7.7038,
+    "ps": 4.8149,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0.714

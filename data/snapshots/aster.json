@@ -49,7 +49,7 @@
         "mechanism": "TWAP 回购 ASTER → veASTER 质押者（99% 手续费）",
         "type": "yield",
         "usd_365d": 23462575.29,
-        "yield_percent": 1.4438,
+        "yield_percent": 1.4403,
         "note": "Spot 上币费（5 万 USDT/次）并入回购；1:1 储备销毁不计入（未流通币）；回购即分发=股息口径"
       }
     ],
@@ -57,20 +57,20 @@
       "destroy_usd_365d": null,
       "yield_usd_365d": 23462575.29,
       "destroy_yield_percent": null,
-      "yield_yield_percent": 1.4438,
+      "yield_yield_percent": 1.4403,
       "shareholder_returns_usd_365d": 23462575.29,
-      "shareholder_yield_percent": 1.4438
+      "shareholder_yield_percent": 1.4403
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 1625037612,
+    "market_cap_usd": 1628997317,
     "tvl_usd": 820487118.1176946,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 69.2608,
-    "ps": 68.5682,
+    "pe": 69.4296,
+    "ps": 68.7353,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0.99

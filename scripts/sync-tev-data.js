@@ -821,19 +821,27 @@ async function main() {
       const tev_90d  = calcYield(buy90d_aster,  90);
       const tev_365d = calcYield(buy365d_aster, 365);
 
+      // ⚠️ 2026-08-05 修复：onchain 数据停更（2026-03-27）时窗口为 0，
+      // 但 DefiLlama 折算的短周期值已写入 all-protocols（validation.period_source）
+      // → 保留现有值，不覆盖成 0（否则短周期显示空，Boss 反馈问题）
+      const existing7  = protocol.metrics && protocol.metrics.shareholder_yield_7d_ann;
+      const existing30 = protocol.metrics && protocol.metrics.shareholder_yield_30d_ann;
+      const existing90 = protocol.metrics && protocol.metrics.shareholder_yield_90d_ann;
+      const hasDefiLlamaFallback = protocol.validation && protocol.validation.period_source;
+
       if (!protocol.metrics) protocol.metrics = {};
-      protocol.metrics.shareholder_yield_7d_ann  = tev_7d;
-      protocol.metrics.shareholder_yield_30d_ann = tev_30d;
-      protocol.metrics.shareholder_yield_90d_ann = tev_90d;
+      protocol.metrics.shareholder_yield_7d_ann  = (tev_7d  > 0 || !hasDefiLlamaFallback) ? tev_7d  : (existing7  != null ? existing7  : tev_7d);
+      protocol.metrics.shareholder_yield_30d_ann = (tev_30d > 0 || !hasDefiLlamaFallback) ? tev_30d : (existing30 != null ? existing30 : tev_30d);
+      protocol.metrics.shareholder_yield_90d_ann = (tev_90d > 0 || !hasDefiLlamaFallback) ? tev_90d : (existing90 != null ? existing90 : tev_90d);
       protocol.shareholder_yield_percent         = tev_365d;
       // Aster 的 TEV = Earning（100% 买回 → stage 合约，用 treasury buyback 口径，等同 100% 分润）
-      protocol.metrics.total_yield_7d_ann  = tev_7d;
-      protocol.metrics.total_yield_30d_ann = tev_30d;
-      protocol.metrics.total_yield_90d_ann = tev_90d;
+      protocol.metrics.total_yield_7d_ann  = (tev_7d  > 0 || !hasDefiLlamaFallback) ? tev_7d  : (protocol.metrics.total_yield_7d_ann  != null ? protocol.metrics.total_yield_7d_ann  : tev_7d);
+      protocol.metrics.total_yield_30d_ann = (tev_30d > 0 || !hasDefiLlamaFallback) ? tev_30d : (protocol.metrics.total_yield_30d_ann != null ? protocol.metrics.total_yield_30d_ann : tev_30d);
+      protocol.metrics.total_yield_90d_ann = (tev_90d > 0 || !hasDefiLlamaFallback) ? tev_90d : (protocol.metrics.total_yield_90d_ann != null ? protocol.metrics.total_yield_90d_ann : tev_90d);
       protocol.total_yield_percent         = tev_365d;
-      protocol.metrics.trailing_7d_revenue_usd   = Math.round(buy7d_aster * asterPrice);
-      protocol.metrics.trailing_30d_revenue_usd  = Math.round(buy30d_aster * asterPrice);
-      protocol.metrics.trailing_90d_revenue_usd  = Math.round(buy90d_aster * asterPrice);
+      protocol.metrics.trailing_7d_revenue_usd   = (buy7d_aster  > 0 || !hasDefiLlamaFallback) ? Math.round(buy7d_aster * asterPrice)  : (protocol.metrics.trailing_7d_revenue_usd  != null ? protocol.metrics.trailing_7d_revenue_usd  : Math.round(buy7d_aster * asterPrice));
+      protocol.metrics.trailing_30d_revenue_usd  = (buy30d_aster > 0 || !hasDefiLlamaFallback) ? Math.round(buy30d_aster * asterPrice) : (protocol.metrics.trailing_30d_revenue_usd != null ? protocol.metrics.trailing_30d_revenue_usd : Math.round(buy30d_aster * asterPrice));
+      protocol.metrics.trailing_90d_revenue_usd  = (buy90d_aster > 0 || !hasDefiLlamaFallback) ? Math.round(buy90d_aster * asterPrice) : (protocol.metrics.trailing_90d_revenue_usd != null ? protocol.metrics.trailing_90d_revenue_usd : Math.round(buy90d_aster * asterPrice));
       protocol.metrics.trailing_365d_revenue_usd = Math.round(buy365d_aster * asterPrice);
 
       protocol.validation = protocol.validation || {};
