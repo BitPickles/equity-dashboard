@@ -1,6 +1,6 @@
 {
   "protocol": "gmx",
-  "updated_at": "2026-08-04T13:02:37.288918+00:00",
+  "updated_at": "2026-08-05T11:54:19.144209+00:00",
   "data_sources": {
     "defillama": "gmx",
     "coingecko": "gmx",
@@ -18,9 +18,9 @@
     "trailing_30d_shareholder_returns_usd": 767610.6,
     "trailing_365d_shareholder_returns_usd": null,
     "annualized_returns_usd": 9211327.2,
-    "current_market_cap_usd": 65344773,
+    "current_market_cap_usd": 65119533,
     "return_yield": "13.83%",
     "return_yield_decimal": 0.13826,
-    "calculated_at": "2026-08-04T13:02:37.288918+00:00"
+    "calculated_at": "2026-08-05T11:54:19.144209+00:00"
   }
 }

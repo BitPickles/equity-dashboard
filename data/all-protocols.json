@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T18:13:06.257918+00:00",
+  "generated_at": "2026-08-05T11:55:04.493429+00:00",
   "protocols": {
     "aave": {
       "name": "Aave",
@@ -148,15 +148,15 @@
       "total_yield_percent": 1.4584,
       "payout_ratio_note": "手续费回购 (60-80%)",
       "metrics": {
-        "shareholder_yield_7d_ann": 0,
-        "shareholder_yield_30d_ann": 0,
-        "shareholder_yield_90d_ann": 0,
-        "total_yield_7d_ann": 0,
-        "total_yield_30d_ann": 0,
-        "total_yield_90d_ann": 0,
-        "trailing_7d_revenue_usd": 0,
-        "trailing_30d_revenue_usd": 0,
-        "trailing_90d_revenue_usd": 0,
+        "shareholder_yield_7d_ann": 0.2492,
+        "shareholder_yield_30d_ann": 0.1948,
+        "shareholder_yield_90d_ann": 0.2274,
+        "total_yield_7d_ann": 0.2492,
+        "total_yield_30d_ann": 0.1948,
+        "total_yield_90d_ann": 0.2274,
+        "trailing_7d_revenue_usd": 77653,
+        "trailing_30d_revenue_usd": 260144,
+        "trailing_90d_revenue_usd": 911296,
         "trailing_365d_revenue_usd": 23699571,
         "dividend_yield_7d_ann": 0,
         "buyback_yield_7d_ann": 0,
@@ -184,7 +184,11 @@
           "Stage5/6 是 treasury buyback（wallet 持仓），部分 burn 部分给 community rewards，不全是真销毁",
           "2026-03-30 tokenomics 改革后新增 staking rewards（暂不计入 TEV）",
           "Moralis 免费 tier 可能滞后几天"
-        ]
+        ],
+        "period_source": "DefiLlama dailyFees × 协议费率(onchain 365d/同窗 fees)",
+        "period_fee_rate": 0.055631,
+        "period_fees_range": "2023-07-18 ~ 2026-08-05",
+        "period_caveat": "7d/30d/90d 为 DefiLlama fees 折算估算；onchain 回购数据停更 2026-03-27"
       },
       "return_mechanisms": [
         {

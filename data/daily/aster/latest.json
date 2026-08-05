@@ -1,6 +1,6 @@
 {
   "protocol": "aster",
-  "updated_at": "2026-08-04T13:02:37.288918+00:00",
+  "updated_at": "2026-08-05T11:54:19.144209+00:00",
   "data_sources": {
     "defillama": "无（平台币/静态，专属脚本维护）",
     "coingecko": "aster-2",
@@ -18,9 +18,9 @@
     "trailing_30d_shareholder_returns_usd": 11949835,
     "trailing_365d_shareholder_returns_usd": null,
     "annualized_returns_usd": 143398020,
-    "current_market_cap_usd": 1625037612,
+    "current_market_cap_usd": 1628997317,
     "return_yield": "9.55%",
     "return_yield_decimal": 0.0955,
-    "calculated_at": "2026-08-04T13:02:37.288918+00:00"
+    "calculated_at": "2026-08-05T11:54:19.144209+00:00"
   }
 }
