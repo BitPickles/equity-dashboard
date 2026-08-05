@@ -1,26 +1,26 @@
 {
   "protocol": "maple",
-  "updated_at": "2026-08-04T13:02:37.288918+00:00",
+  "updated_at": "2026-08-05T12:01:49.000Z",
   "data_sources": {
     "defillama": "maple",
     "coingecko": "syrup",
     "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-08-04",
-    "price_usd": 0.153701,
-    "market_cap_usd": 191358076,
-    "daily_fees_usd": 4751,
-    "total30d_fees_usd": 8353005,
-    "total1y_fees_usd": 106916831
+    "date": "2026-08-05",
+    "price_usd": 0.155485,
+    "market_cap_usd": 193564405,
+    "daily_fees_usd": 566514,
+    "total30d_fees_usd": 9764060,
+    "total1y_fees_usd": 108097525
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 343878,
     "trailing_365d_shareholder_returns_usd": 1139925,
     "annualized_returns_usd": 4126536,
-    "current_market_cap_usd": 194617593,
-    "return_yield": "0.00%",
+    "current_market_cap_usd": 193564405,
+    "tev_yield": null,
     "return_yield_decimal": 0,
-    "calculated_at": "2026-08-04T13:02:37.288918+00:00"
+    "calculated_at": "2026-08-05T12:01:49.000Z"
   }
 }

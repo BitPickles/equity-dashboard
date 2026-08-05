@@ -1,26 +1,26 @@
 {
   "protocol": "curve",
-  "updated_at": "2026-08-05T11:54:19.144209+00:00",
+  "updated_at": "2026-08-05T12:00:55.000Z",
   "data_sources": {
     "defillama": "curve-dex",
     "coingecko": "curve-dao-token",
     "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-08-04",
+    "date": "2026-08-05",
     "price_usd": 0.24,
     "market_cap_usd": 355558659,
-    "daily_fees_usd": 40604,
-    "total30d_fees_usd": 1796226,
-    "total1y_fees_usd": 61656968
+    "daily_fees_usd": 13973,
+    "total30d_fees_usd": 1811985,
+    "total1y_fees_usd": 61693387
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 970876,
     "trailing_365d_shareholder_returns_usd": null,
     "annualized_returns_usd": 11650512,
-    "current_market_cap_usd": 315385322,
-    "return_yield": "3.28%",
+    "current_market_cap_usd": 355558659,
+    "tev_yield": null,
     "return_yield_decimal": 0.0328,
-    "calculated_at": "2026-08-05T11:54:19.144209+00:00"
+    "calculated_at": "2026-08-05T12:00:55.000Z"
   }
 }
