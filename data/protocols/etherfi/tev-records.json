@@ -1,6 +1,6 @@
 {
   "protocol": "etherfi",
-  "updated_at": "2026-08-05T01:15:04.474Z",
+  "updated_at": "2026-08-05T13:16:02.796Z",
   "data_source": "DefiLlama API (dailyHoldersRevenue)",
   "data_source_url": "https://api.llama.fi/summary/fees/ether.fi?dataType=dailyHoldersRevenue",
   "records": [
@@ -315,9 +315,9 @@
       "date": "2026-01-01",
       "type": "aggregate",
       "mechanism": "ETHFI Buyback",
-      "amount_usd": 1399491,
+      "amount_usd": 1499380,
       "period": "2026-01",
-      "days_with_data": 15,
+      "days_with_data": 16,
       "source": {
         "type": "api",
         "provider": "DefiLlama",
@@ -325,7 +325,7 @@
         "data_type": "dailyHoldersRevenue",
         "methodology": "Token buybacks executed by ether.fi benefiting ETHFI token holders."
       },
-      "notes": "Monthly aggregate from 15 days of data"
+      "notes": "Monthly aggregate from 16 days of data"
     },
     {
       "id": "etherfi-buyback-accumulate-2026-02",
@@ -380,10 +380,10 @@
     }
   ],
   "summary": {
-    "total_tev_usd": 16709085,
+    "total_tev_usd": 16808974,
     "total_30d_usd": 0,
     "by_mechanism": {
-      "buyback_accumulate": 16709085
+      "buyback_accumulate": 16808974
     },
     "by_period": {
       "2024-Q3": 324000,
@@ -392,7 +392,7 @@
       "2025-Q2": 1709076,
       "2025-Q3": 4252761,
       "2025-Q4": 6351092,
-      "2026-Q1": 3179158,
+      "2026-Q1": 3279047,
       "2026-Q2": 29998
     }
   }
