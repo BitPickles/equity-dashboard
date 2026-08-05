@@ -810,10 +810,17 @@ async function main() {
       const buy90d_aster  = sumAster(90);
       const buy365d_aster = sumAster(365);
 
+      // ⚠️ 2026-08-06 修复（Boss 质疑 PE 虚高）：数据实际覆盖天数 < 窗口天数时
+      // 必须按实际天数年化。aster-onchain 只有 95 天（2025-12-23~2026-03-27），
+      // sumAster(365) 拿到的是 95 天总量，直接当 365 天用导致 PE 虚高 3.6 倍。
+      const dataDays = (onchain || []).length || 1;
+      const effectiveDays = Math.min(365, Math.max(dataDays, 1));
       const calcYield = (aster_sum, days) => {
         if (!marketCap || !asterPrice) return 0;
         const usd = aster_sum * asterPrice;
-        const ann = days >= 365 ? 1 : (365 / days);
+        // 年化基准：实际数据覆盖天数（而非窗口天数）
+        const baseDays = Math.max(days, dataDays);
+        const ann = (365 / baseDays);
         return Math.round(usd * ann / marketCap * 10000) / 100;
       };
       const tev_7d   = calcYield(buy7d_aster,   7);

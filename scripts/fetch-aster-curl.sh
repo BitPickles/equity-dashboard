@@ -1,7 +1,15 @@
 #!/bin/bash
 # Fetch Aster buyback data using curl (avoid SSL issues)
 
-API_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjdmYWFmNTdkLTNiOWQtNGNhNS1hNGY3LTExZGI4Y2YyYzBlNiIsIm9yZ0lkIjoiNTAwNDkyIiwidXNlcklkIjoiNTE0OTg0IiwidHlwZUlkIjoiMjA4MzcyMWEtZmJjMC00NzQzLWEzNGItNGEyYmFlY2ExNTNlIiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3NzA5OTIwNTMsImV4cCI6NDkyNjc1MjA1M30.Ef1yoypuIgSdnMMFnB9aFaDX6ILinqWuchJ8npxEZrA"
+API_KEY="${MORALIS_API_KEY:-}"
+# ⚠️ 安全修复 2026-08-06：key 曾硬编码，改为环境变量 MORALIS_API_KEY（或 .env）
+if [ -z "$API_KEY" ] && [ -f "$(dirname "$0")/../.env" ]; then
+  API_KEY=$(grep -E "^MORALIS_API_KEY=" "$(dirname "$0")/../.env" | cut -d= -f2 | tr -d "
+")
+fi
+if [ -z "$API_KEY" ]; then
+  echo "❌ 未设置 MORALIS_API_KEY" >&2; exit 1
+fi
 TOKEN="0x000ae314e2a2172a039b26378814c252734f556a"
 
 STAGE5_WALLET="0x4786927333c0bA8aB27CA41361ADF33148C5301E"

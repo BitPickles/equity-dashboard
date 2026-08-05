@@ -5,8 +5,8 @@
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 23699571,
-        "total_usd_365d": 23699571,
+        "protocol_fees_usd_365d": 84244140.35,
+        "total_usd_365d": 84244140.35,
         "note": "平台手续费（DefiLlama dailyRevenue 365d）；Spot 上币费 5 万 USDT/次并入回购（次数不可得）"
       },
       "revenue_excluded": {
@@ -22,7 +22,7 @@
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": 23699571,
+      "gross_profit_usd_365d": 84244140.35,
       "calculation_note": "DefiLlama dailyRevenue 已扣 LP 分润 → 毛利 = 协议净收入（平台手续费）"
     },
     "token_emission_cost": {
@@ -33,7 +33,7 @@
       "calculation_note": "无持续增发成本；总供应 80亿→30亿 为 1:1 储备销毁（烧未流通储备币，减少潜在稀释），按判定书作注记不计入主数字"
     },
     "net_income": {
-      "net_income_usd_365d": 23699571,
+      "net_income_usd_365d": 84244140.35,
       "operating_cost_usd_365d": null,
       "calculation_note": "应用型：净利 = 平台手续费（DefiLlama dailyRevenue 365d，已扣 LP）"
     },
@@ -48,18 +48,18 @@
       {
         "mechanism": "TWAP 回购 ASTER → veASTER 质押者（99% 手续费）",
         "type": "yield",
-        "usd_365d": 23462575.29,
-        "yield_percent": 1.4403,
+        "usd_365d": 83401698.95,
+        "yield_percent": 5.1198,
         "note": "Spot 上币费（5 万 USDT/次）并入回购；1:1 储备销毁不计入（未流通币）；回购即分发=股息口径"
       }
     ],
     "summary": {
       "destroy_usd_365d": null,
-      "yield_usd_365d": 23462575.29,
+      "yield_usd_365d": 83401698.95,
       "destroy_yield_percent": null,
-      "yield_yield_percent": 1.4403,
-      "shareholder_returns_usd_365d": 23462575.29,
-      "shareholder_yield_percent": 1.4403
+      "yield_yield_percent": 5.1198,
+      "shareholder_returns_usd_365d": 83401698.95,
+      "shareholder_yield_percent": 5.1198
     }
   },
   "balance_sheet": {
@@ -69,14 +69,14 @@
     "debt_usd": null
   },
   "valuation": {
-    "pe": 69.4296,
-    "ps": 68.7353,
+    "pe": 19.5319,
+    "ps": 19.3366,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0.99
   },
   "verification": {
-    "method": "DefiLlama dailyRevenue 365d $23699571 × payout_ratio 0.99 = 回购/分配 $23462575.29；链上回购 wallet 365d 36177482 ASTER（缓存 95 天，2025-12-23→2026-03-27）",
+    "method": "DefiLlama dailyRevenue 365d $84244140.35 × payout_ratio 0.99 = 回购/分配 $83401698.95；链上回购 wallet 365d 36177482 ASTER（缓存 95 天，2025-12-23→2026-03-27）",
     "status": "verified",
     "last_checked": "2026-08-06"
   }

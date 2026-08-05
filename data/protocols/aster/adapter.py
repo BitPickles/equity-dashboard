@@ -49,9 +49,12 @@ def build_snapshot(proto_dir):
     revenue = (ap.get("metrics", {}) or {}).get("trailing_365d_revenue_usd")
     buy_365d_aster = validation.get("buy_365d_aster")
     aster_price = validation.get("aster_price_usd")
+    data_days = validation.get("data_days") or 365
     if revenue is None and buy_365d_aster and aster_price:
         # 兜底：链上 365d 回购 ASTER × 价（回购额 ≈ 99% 手续费 → dailyRevenue 近似）
-        revenue = round(buy_365d_aster * aster_price, 2)
+        # ⚠️ 2026-08-06 修复（Boss 质疑 PE 虚高）：链上数据仅覆盖 data_days 天（95d）
+        #    时按实际天数年化（365/data_days），否则 95d 额被当 365d 用 → PE 虚高 3.6 倍
+        revenue = round(buy_365d_aster * aster_price * (365 / data_days), 2)
     # 判定书 payout_ratio（config 只读）：99% 手续费 → TWAP 回购分发 veASTER 🟢
     payout_ratio = (config.get("revenue_recognition", {}) or {}).get("calculation", {}).get("payout_ratio")
     if payout_ratio is None:
