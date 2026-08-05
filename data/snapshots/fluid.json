@@ -1,6 +1,6 @@
 {
   "protocol": "fluid",
-  "as_of": "2026-08-05",
+  "as_of": "2026-08-06",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -78,6 +78,6 @@
   "verification": {
     "method": "股东回报 = DefiLlama dailyHoldersRevenue 365d $4,745,308（= 35% 收入回购）；链上 reserve 钱包实测 $4,613,558（tev-records，差 <0.5%）",
     "status": "partial",
-    "last_checked": "2026-08-05"
+    "last_checked": "2026-08-06"
   }
 }

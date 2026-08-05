@@ -1,6 +1,6 @@
 {
   "protocol": "pancakeswap",
-  "as_of": "2026-08-05",
+  "as_of": "2026-08-06",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -81,6 +81,6 @@
   "verification": {
     "method": "回购销毁 365d $58,668,956（DefiLlama dailyHoldersRevenue，burn-history.json）× payout_ratio 0.625 反推协议收入 $93,870,330（判定书 60-65%，现货 15-23%/永续 20%/CAKE.PAD 100%）；增发成本 $11,700,000（config.token_emission_cost，treatment=cost）；净利 $82,170,330（正，净通缩）",
     "status": "verified",
-    "last_checked": "2026-08-05"
+    "last_checked": "2026-08-06"
   }
 }

@@ -2,16 +2,6 @@
   "protocol": "compound",
   "records": [
     {
-      "as_of": "2025-08-06",
-      "net_income": 216668.0,
-      "daily_value": 593.61,
-      "pe": 765.509,
-      "ps": 765.509,
-      "shareholder_yield": 0.1306,
-      "net_margin": null,
-      "_period": "daily"
-    },
-    {
       "as_of": "2025-08-07",
       "net_income": 216668.0,
       "daily_value": 593.61,
@@ -3641,6 +3631,14 @@
     },
     {
       "as_of": "2026-08-05",
+      "net_income": 216668,
+      "pe": null,
+      "ps": 756.6509,
+      "shareholder_yield": 0,
+      "net_margin": 100.0
+    },
+    {
+      "as_of": "2026-08-06",
       "net_income": 216668,
       "pe": null,
       "ps": 756.6509,

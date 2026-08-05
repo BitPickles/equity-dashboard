@@ -1,6 +1,6 @@
 {
   "protocol": "okb",
-  "as_of": "2026-08-05",
+  "as_of": "2026-08-06",
   "income_statement": {
     "revenue": {
       "entity_type": "platform_token",
@@ -80,6 +80,6 @@
   "verification": {
     "method": "OKX 2025-08 治理决议（一次性销毁 65.26M OKB → 供应锁定 21M，合约 mint/burn 功能移除，链上可验证）",
     "status": "verified",
-    "last_checked": "2026-08-05"
+    "last_checked": "2026-08-06"
   }
 }

@@ -1,6 +1,6 @@
 {
   "protocol": "spark",
-  "as_of": "2026-08-05",
+  "as_of": "2026-08-06",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -78,6 +78,6 @@
   "verification": {
     "method": "净利 = DefiLlama dailyRevenue 365d $22,144,959（协议净收入）；SPK 治理代币不回购——收入流向 Sky 主 DAO 回购 SKY；SPK 股东回报 = 0",
     "status": "estimated",
-    "last_checked": "2026-08-05"
+    "last_checked": "2026-08-06"
   }
 }

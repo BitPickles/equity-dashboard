@@ -1,6 +1,6 @@
 {
   "protocol": "eigenlayer",
-  "as_of": "2026-08-05",
+  "as_of": "2026-08-06",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -78,6 +78,6 @@
   "verification": {
     "method": "DefiLlama dailyRevenue 365d = $0（AVS 费用流向 operator/restaker，协议端无收入）；EIGEN 治理代币不回购（fee switch OFF）；restaking rewards 全流向 validator",
     "status": "estimated",
-    "last_checked": "2026-08-05"
+    "last_checked": "2026-08-06"
   }
 }

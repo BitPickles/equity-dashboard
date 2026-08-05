@@ -1,6 +1,6 @@
 {
   "protocol": "gmx",
-  "as_of": "2026-08-05",
+  "as_of": "2026-08-06",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -78,6 +78,6 @@
   "verification": {
     "method": "净利 = DefiLlama V2 交易费 dailyRevenue 365d $12,675,745；27% 协议费全额留存国库（提案 #5042，2026-03-04 Restore Price Discovery）；股东回报 = 0，锁定至 $90；tev-records 365d $7,816,073（含暂停前历史，仅参考）",
     "status": "partial",
-    "last_checked": "2026-08-05"
+    "last_checked": "2026-08-06"
   }
 }

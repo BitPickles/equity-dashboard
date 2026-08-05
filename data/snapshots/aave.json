@@ -1,6 +1,6 @@
 {
   "protocol": "aave",
-  "as_of": "2026-08-05",
+  "as_of": "2026-08-06",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -86,6 +86,6 @@
   "verification": {
     "method": "净利 = DefiLlama dailyRevenue 365d $115,460,247；股东回报 = 官方披露回购 $30,000,000/年（2026-03 治理）；SM 质押奖励 $27,438,501/365d 待定保留（tev-records 365d 合计 $27,722,900 交叉核对）",
     "status": "verified",
-    "last_checked": "2026-08-05"
+    "last_checked": "2026-08-06"
   }
 }
