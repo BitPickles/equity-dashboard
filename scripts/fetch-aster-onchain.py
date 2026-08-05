@@ -8,9 +8,21 @@ import json
 from datetime import datetime
 from collections import defaultdict
 from pathlib import Path
+import os
 import time
 
-MORALIS_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjdmYWFmNTdkLTNiOWQtNGNhNS1hNGY3LTExZGI4Y2YyYzBlNiIsIm9yZ0lkIjoiNTAwNDkyIiwidXNlcklkIjoiNTE0OTg0IiwidHlwZUlkIjoiMjA4MzcyMWEtZmJjMC00NzQzLWEzNGItNGEyYmFlY2ExNTNlIiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3NzA5OTIwNTMsImV4cCI6NDkyNjc1MjA1M30.Ef1yoypuIgSdnMMFnB9aFaDX6ILinqWuchJ8npxEZrA"
+# ⚠️ 安全修复 2026-08-06：Moralis key 曾硬编码在此文件并进入 git 历史（public 仓库）。
+# 已改为环境变量读取。历史版本若被第三方抓取，请在 Moralis 后台轮换此 key。
+MORALIS_API_KEY = os.environ.get("MORALIS_API_KEY", "")
+if not MORALIS_API_KEY:
+    _env = Path(__file__).resolve().parent.parent / ".env"
+    if _env.exists():
+        for _line in _env.read_text(encoding="utf-8").splitlines():
+            if _line.startswith("MORALIS_API_KEY="):
+                MORALIS_API_KEY = _line.split("=", 1)[1].strip()
+                break
+if not MORALIS_API_KEY:
+    raise SystemExit("❌ 未设置 MORALIS_API_KEY 环境变量（或 .env）。请配置后运行。")
 
 ASTER_CONTRACT = "0x000Ae314E2A2172a039B26378814C252734f556A"
 
