@@ -29,7 +29,7 @@ python3 -m pip install requests   # 仅 fetch-aster-onchain.py 需要，其余�
 cd ~/tev-dashboard
 cat > .env << 'EOF'
 CMC_API_KEY=你的CMCkey
-MORALIS_API_KEY=你的Moraliskey（已轮换后的新key）
+MORALIS_API_KEY=你的Moraliskey（Boss 2026-08-06 确认：只读查询 key，暴露风险低，直接复用现有 key 即可）
 GLM_API_KEY=你的GLMkey（用于AI审计，可选）
 EOF
 chmod 600 .env   # 权限收紧，防他人读取

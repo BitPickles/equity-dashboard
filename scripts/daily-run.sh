@@ -11,6 +11,9 @@ echo "=== $(date) 每日更新开始 ==="
 # 1. 更新价格/市值（CoinGecko，约1分钟）
 $PY scripts/update-prices.py
 
+# 1.5 Aster 链上回购采集（Moralis，2026-08-06 接入；失败不阻断主流程）
+$PY scripts/update-aster.py || echo "⚠️ update-aster 失败（网络/key），继续主流程"
+
 # 2. 刷新 daily 数据（防僵尸）
 $PY scripts/rebuild-daily.py
 
