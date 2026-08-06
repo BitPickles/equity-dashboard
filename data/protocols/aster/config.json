@@ -255,5 +255,8 @@
       "data-plausibility",
       "freshness"
     ]
-  }
+  },
+  "caveats": [
+    "2026-08-06 调查：官方公布的 6-17 新机制钱包（TWAP 回购 0xa0edBaBcb48034e368de286b49F9603C7AfA1b60 / 上市费 0x39C473f4420e4ae9Ab3fe9e7ceDFc08F9684bB1a）链上执行量极低（25 ASTER，均为 6-17 测试小额）——官方 6-29 声称的 2.9M ASTER 回购未显化于公布钱包，实际执行地址待官方披露；当前 365d 以 S4 链上 95 天年化（PE 19.5x，Boss 2026-08-06 确认）"
+  ]
 }

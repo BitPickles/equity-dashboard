@@ -1,5 +1,19 @@
 [
   {
+    "date": "2025-12-02",
+    "aster": 3042317.95,
+    "txs": 422,
+    "stage": "s4_buyback",
+    "source": "moralis"
+  },
+  {
+    "date": "2025-12-03",
+    "aster": 2034419.48,
+    "txs": 378,
+    "stage": "s4_buyback",
+    "source": "moralis"
+  },
+  {
     "date": "2025-12-23",
     "aster": 566079.44,
     "txs": 80,
@@ -662,6 +676,20 @@
     "aster": 118403.22,
     "txs": 20,
     "stage": "stage6",
+    "source": "moralis"
+  },
+  {
+    "date": "2026-06-17",
+    "aster": 25.45,
+    "txs": 11,
+    "stage": "new_twap_buyback",
+    "source": "moralis"
+  },
+  {
+    "date": "2026-07-04",
+    "aster": 0.0,
+    "txs": 1,
+    "stage": "new_twap_buyback",
     "source": "moralis"
   }
 ]
