@@ -1,6 +1,6 @@
 {
   "protocol": "dydx",
-  "updated_at": "2026-08-05T13:15:51.762Z",
+  "updated_at": "2026-08-06T01:32:02.758Z",
   "data_source": "DefiLlama API (dailyHoldersRevenue)",
   "data_source_url": "https://api.llama.fi/summary/fees/dydx?dataType=dailyHoldersRevenue",
   "records": [
@@ -585,7 +585,7 @@
   ],
   "summary": {
     "total_tev_usd": 63688301,
-    "total_30d_usd": 257794,
+    "total_30d_usd": 240372,
     "by_mechanism": {
       "staking_reward": 63688301
     },

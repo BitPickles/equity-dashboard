@@ -422,14 +422,14 @@
   "tev_data": {
     "has_tev": true,
     "tev_yield_percent": 12.46,
-    "calculation_date": "2026-08-05",
+    "calculation_date": "2026-08-06",
     "methodology": "Auto-Burn（短周期=近4季USD累加；365d=近4季BNB×当前价）+ BEP-95（按窗口从日时间序列求和）+ asBNB APY。BEP-95 现已真正波动——数据源：Dune Analytics bnb.traces + 每日 BSC RPC 累积。",
     "validation": {
       "method": "Auto-Burn（短周期=近4季USD累加；365d=近4季BNB×当前价）+ BEP-95（按窗口从日时间序列计算）+ asBNB APY (Aster)",
       "burn_apy_percent": 4.42,
       "asbnb_apy_percent": 6.87,
       "total_apy_percent": 11.29,
-      "burn_source": "Auto-Burn 近4季 5,977,992 BNB (历史$4.49B / 当前价$3.50B); BEP-95 510天数据, 7/30/90/365d = 741/1617636/1620999/1641845 BNB",
+      "burn_source": "Auto-Burn 近4季 5,977,992 BNB (历史$4.49B / 当前价$3.50B); BEP-95 511天数据, 7/30/90/365d = 797/1617669/1621052/1641903 BNB",
       "asbnb_source": "Aster asBNB (Staking + Launchpool/HODLer/Megadrop)",
       "asbnb_url": "https://www.asterdex.com/en/earn/astoken?token=slisBNB",
       "burn_data_url": "https://www.bnbburn.info/",
@@ -454,14 +454,14 @@
       "tev_yield_30d_percent": 26.93,
       "tev_yield_90d_percent": 17.32,
       "tev_yield_365d_percent": 12.46,
-      "bep95_7d_bnb": 741.12,
-      "bep95_30d_bnb": 1617636.32,
-      "bep95_90d_bnb": 1620998.97,
-      "bep95_365d_bnb": 1641845.12,
-      "bep95_data_days": 510,
+      "bep95_7d_bnb": 796.68,
+      "bep95_30d_bnb": 1617669.23,
+      "bep95_90d_bnb": 1621051.9,
+      "bep95_365d_bnb": 1641903.27,
+      "bep95_data_days": 511,
       "bep95_data_range": {
         "start": "2025-03-14",
-        "end": "2026-08-05"
+        "end": "2026-08-06"
       }
     },
     "sources": [

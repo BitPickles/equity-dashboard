@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-08-05",
+  "updated_at": "2026-08-06",
   "source": "CoinGecko API",
   "initial_supply": 1000000000,
-  "total_supply": 891996420.0329479,
-  "circulating_supply": 624748423.7271129,
-  "total_burned": 108003579.9670521,
-  "burn_percentage": 10.8004,
-  "current_price": 4.0,
-  "burned_value_usd": 432014319.87,
+  "total_supply": 891992420.0329479,
+  "circulating_supply": 624744423.7271129,
+  "total_burned": 108007579.9670521,
+  "burn_percentage": 10.8008,
+  "current_price": 4.09,
+  "burned_value_usd": 441751002.07,
   "target_supply": null,
   "monthly_burns": [
     {
@@ -48,9 +48,9 @@
     },
     {
       "month": "2026-08",
-      "date": "2026-08-05",
-      "amount": 108003579.9670521,
-      "value_usd": 432014319.87
+      "date": "2026-08-06",
+      "amount": 108007579.9670521,
+      "value_usd": 441751002.07
     }
   ],
   "note": "UNI 通过 buyback 机制销毁"

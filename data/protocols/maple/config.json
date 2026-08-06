@@ -59,10 +59,10 @@
   "last_updated": "2026-04-27",
   "tev_data": {
     "has_tev": true,
-    "tev_yield_percent": 1.39,
+    "tev_yield_percent": 1.34,
     "annual_tev_usd": 2641317,
-    "market_cap_usd": 189511503.86,
-    "calculation_date": "2026-08-05",
+    "market_cap_usd": 197024342.57522097,
+    "calculation_date": "2026-08-06",
     "sources": [
       {
         "name": "DefiLlama dailyHoldersRevenue",
@@ -95,29 +95,29 @@
   },
   "analyst_notes": "【2026-04-27 链上调研】\n\n## 机制\nMaple Improvement Proposal MIP-019 (2024-Q4 通过):\n- 25% 协议收入 → Syrup Strategic Fund (SSF) 回购 SYRUP\n- 取消原 stSYRUP staking reward, 改为 DAO 资产负债表建设\n- Snapshot 投票 99%+ 赞成\n\nMIP-020 (2026-Q1-Q2): 延续 MIP-019, 月度执行.\n\n## 数据\n- DefiLlama dailyHoldersRevenue 365d $1.81M (6 个月数据)\n- DefiLlama dailyRevenue 365d $11.74M\n- 比例 1.81/11.74 = 15.4% (低于宣称 25%, 可能是 6 个月外推不完整)\n- 流通市值 ~$303M\n- yield ≈ 0.97%\n\n## 警示\n- SSF 国库地址未公开\n- Burn vs Reserve 比例未披露\n- DefiLlama 数据时间跨度不足\n\n## 关键地址\n- SYRUP: 0x643C4E15d7d62Ad0aBeC4a9BD4b001aA3Ef52d66\n\n## 历史\n- 2026-04-27: 链上调研, 标 medium confidence (国库地址未公开, 数据 6 个月)\n- 2025-Q4: MIP-019 通过启动 SSF\n",
   "tevRatio": 0.25,
-  "earning_yield_percent": 1.39,
-  "market_cap_usd": 189511503.86,
-  "tev_yield_percent": 1.39,
+  "earning_yield_percent": 1.34,
+  "market_cap_usd": 197024342.57522097,
+  "tev_yield_percent": 1.34,
   "metrics": {
-    "current_market_cap_usd": 189511503.86,
+    "current_market_cap_usd": 197024342.57522097,
     "trailing_365d_revenue_usd": 2641317,
     "trailing_30d_revenue_usd": 283010,
     "trailing_365d_tev_usd": 2641317,
     "trailing_30d_tev_usd": 220109.75,
     "trailing_7d_revenue_usd": 74722,
     "trailing_90d_revenue_usd": 728349,
-    "tev_yield_7d_ann": 2.06,
-    "tev_yield_30d_ann": 1.82,
-    "tev_yield_90d_ann": 1.56,
-    "earning_yield_7d_ann": 2.06,
-    "earning_yield_30d_ann": 1.82,
-    "earning_yield_90d_ann": 1.56,
+    "tev_yield_7d_ann": 1.98,
+    "tev_yield_30d_ann": 1.75,
+    "tev_yield_90d_ann": 1.5,
+    "earning_yield_7d_ann": 1.98,
+    "earning_yield_30d_ann": 1.75,
+    "earning_yield_90d_ann": 1.5,
     "dividend_yield_7d_ann": 0,
-    "buyback_yield_7d_ann": 2.06,
+    "buyback_yield_7d_ann": 1.98,
     "dividend_yield_30d_ann": 0,
-    "buyback_yield_30d_ann": 1.82,
+    "buyback_yield_30d_ann": 1.75,
     "dividend_yield_90d_ann": 0,
-    "buyback_yield_90d_ann": 1.56
+    "buyback_yield_90d_ann": 1.5
   },
   "calc_pipeline": [
     {
@@ -176,6 +176,6 @@
     }
   ],
   "dividend_yield_percent": 0,
-  "buyback_yield_percent": 1.39,
+  "buyback_yield_percent": 1.34,
   "style": "cash_cow"
 }
