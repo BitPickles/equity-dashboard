@@ -39,15 +39,14 @@ CG_IDS = {
     "justlend": "just", "kamino": "kamino", "layerzero": "layerzero", "lido": "lido-dao",
     "maple": "syrup", "mnt": "mantle", "morpho": "morpho", "okb": "okb",
     "pancakeswap": "pancakeswap-token", "pendle": "pendle",
-    "spark": "spark", "uniswap": "uniswap",
-    # sky 用 CMC slug（在 fetch_cmc 处理）；spark CG 404 → CMC 兜底
+    "spark": "spark-2", "uniswap": "uniswap",  # ⚠️ 2026-08-08 修复：spark 正确 CG id=spark-2（原 spark 拉到错误币）
+    # sky 用 CMC slug（在 fetch_cmc 处理）
     "sky": "sky",  # ← CMC slug，标记走 CMC
 }
 
 # 走 CMC 的协议（CoinGecko 无数据或异常）：slug → CMC slug
 CMC_SLUGS = {
     "sky": "sky",      # CG maker 改名返回 0
-    "spark": "spark",  # CG 无 spark id（404）
 }
 
 

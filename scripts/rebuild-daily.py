@@ -47,8 +47,8 @@ SLUGS = {
     "okb": (None, "okb"),
     "pancakeswap": ("pancakeswap", "pancakeswap-token"),
     "pendle": ("pendle", "pendle"),
-    "sky": ("sky", "maker"),
-    "spark": ("spark", "spark"),
+    "sky": ("sky", "sky"),   # ⚠️ 2026-08-08 修复：原用 maker（$1262）导致 daily 价格异常；Sky 代币正确 id=sky
+    "spark": ("spark", "spark-2"),  # ⚠️ 2026-08-08 修复：原用 spark（拉到错误币 $0.022）；正确 id=spark-2（$0.015）
     "uniswap": ("uniswap", "uniswap"),
     "fluid": ("fluid", "instadapp"),
     "layerzero": ("layerzero-v2", "layerzero"),
