@@ -61,8 +61,8 @@
     "has_tev": true,
     "tev_yield_percent": 1.48,
     "annual_tev_usd": 2655048,
-    "market_cap_usd": 179418275.91,
-    "calculation_date": "2026-08-09",
+    "market_cap_usd": 179523006.9,
+    "calculation_date": "2026-08-10",
     "sources": [
       {
         "name": "DefiLlama dailyHoldersRevenue",
@@ -96,10 +96,10 @@
   "analyst_notes": "【2026-04-27 链上调研】\n\n## 机制\nMaple Improvement Proposal MIP-019 (2024-Q4 通过):\n- 25% 协议收入 → Syrup Strategic Fund (SSF) 回购 SYRUP\n- 取消原 stSYRUP staking reward, 改为 DAO 资产负债表建设\n- Snapshot 投票 99%+ 赞成\n\nMIP-020 (2026-Q1-Q2): 延续 MIP-019, 月度执行.\n\n## 数据\n- DefiLlama dailyHoldersRevenue 365d $1.81M (6 个月数据)\n- DefiLlama dailyRevenue 365d $11.74M\n- 比例 1.81/11.74 = 15.4% (低于宣称 25%, 可能是 6 个月外推不完整)\n- 流通市值 ~$303M\n- yield ≈ 0.97%\n\n## 警示\n- SSF 国库地址未公开\n- Burn vs Reserve 比例未披露\n- DefiLlama 数据时间跨度不足\n\n## 关键地址\n- SYRUP: 0x643C4E15d7d62Ad0aBeC4a9BD4b001aA3Ef52d66\n\n## 历史\n- 2026-04-27: 链上调研, 标 medium confidence (国库地址未公开, 数据 6 个月)\n- 2025-Q4: MIP-019 通过启动 SSF\n",
   "tevRatio": 0.25,
   "earning_yield_percent": 1.48,
-  "market_cap_usd": 179418275.91,
+  "market_cap_usd": 179523006.9,
   "tev_yield_percent": 1.48,
   "metrics": {
-    "current_market_cap_usd": 179418275.91,
+    "current_market_cap_usd": 179523006.9,
     "trailing_365d_revenue_usd": 2655048,
     "trailing_30d_revenue_usd": 242184,
     "trailing_365d_tev_usd": 2655048,
