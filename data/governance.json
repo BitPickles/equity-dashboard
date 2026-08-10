@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-08-09T13:08:10.635240+00:00",
-  "total": 243,
-  "active_count": 35,
-  "passed_count": 208,
-  "tev_related": 62,
+  "updated_at": "2026-08-10T01:07:59.198941+00:00",
+  "total": 241,
+  "active_count": 32,
+  "passed_count": 209,
+  "tev_related": 61,
   "monitored_protocols": 19,
   "protocols_meta": {
     "Aave": {
@@ -134,7 +134,7 @@
       "source": "Snapshot",
       "protocol": "Aave",
       "title": "[ARFC] Governance Framework v2",
-      "status": "active",
+      "status": "passed",
       "link": "https://snapshot.org/#/aavedao.eth/proposal/0x3e91a954f13f3b65cd4b87b4aaf56ba4f8dc91bfac9f9f1ce03fd619e9ea38f5",
       "created": 1785965122,
       "end": 1786310722,
@@ -148,7 +148,7 @@
       "source": "Snapshot",
       "protocol": "Aave",
       "title": "[ARFC] Onboard PT-AUSD-8OCT2026 to Aave V3 Monad Instance",
-      "status": "active",
+      "status": "passed",
       "link": "https://snapshot.org/#/aavedao.eth/proposal/0x1d5029f1b99b62843590e28d027a1a5aa21f4fe19f175284197c58779db14027",
       "created": 1785956339,
       "end": 1786301939,
@@ -412,35 +412,6 @@
       "tev_keywords": [],
       "summary_en": "This proposal follows the March 2026 signer update and achieves two key goals.",
       "summary_zh": "[ARFC] 2026年6月 - 更新签名者和SAFE配置\n本提案继2026年3月签名者更新之后，实现两大关键目标。",
-      "analysis_zh": ""
-    },
-    {
-      "source": "Snapshot",
-      "protocol": "Aave",
-      "title": "[Temp Check] Deploy Aave V4 on Arc",
-      "status": "passed",
-      "link": "https://snapshot.org/#/aavedao.eth/proposal/0x483ba786774174ea9620df6964f83787d984d7e5ae524aaa27878ff324e6d00f",
-      "created": 1780669332,
-      "end": 1781014932,
-      "tev_related": true,
-      "tev_keywords": [
-        "fee"
-      ],
-      "summary_en": "This Temp Check seeks community feedback on deploying Aave V4 on Arc alongside supporting an initial set of high-quality assets.",
-      "summary_zh": "[临时检查]于Arc上部署Aave V4，并支持一组高质量资产，征求社区反馈。"
-    },
-    {
-      "source": "Snapshot",
-      "protocol": "Aave",
-      "title": "[TEMP CHECK] Babylon Trustless BTC Vault Integration on Aave V4",
-      "status": "passed",
-      "link": "https://snapshot.org/#/aavedao.eth/proposal/0x6d05c10d60b0db6dee34fbece3583d0dbe4b838bd05ce197ba74c4bd5ba7ebe1",
-      "created": 1780496696,
-      "end": 1780842296,
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "This Temperature Check seeks community input on the deployment of two new Aave V4 Spokes (Babylon Core Lending Spoke and BTC Vault Swap Spoke) to onboard native BTC as collateral, via the Trustless Bitcoin Vaults protocol. In TBV, a depositor locks B",
-      "summary_zh": "[TEMP CHECK] Aave V4上Babylon无信任BTC保险库集成提案\n本提案征求社区意见，关于在Aave V4部署两个新支点（Babylon核心借贷支点和BTC保险库交易支点），通过无信任比特币保险库协议将原生BTC作为抵押品。在TBV中，存款人锁定BTC，以获得AAVE代币。",
       "analysis_zh": ""
     },
     {
@@ -2196,7 +2167,7 @@
       "source": "Snapshot",
       "protocol": "Ethena",
       "title": "Ethena Risk Committee Elections - Fifth Term",
-      "status": "active",
+      "status": "passed",
       "link": "https://snapshot.org/#/ethenagovernance.eth/proposal/0xd696aa2d588f8140a55805e9bce6813a201d16df28b0b925992562951be1a536",
       "created": 1785790831,
       "end": 1786319940,
