@@ -15,8 +15,8 @@
     "circulating_supply": 848066802.5927889,
     "total_supply": 1000000000
   },
-  "tev_mechanisms": [],
-  "tev_summary": {
+  "return_mechanisms": [],
+  "return_summary": {
     "fee_switch": "OFF",
     "fee_switch_details": "所有收入归 DAO 国库，无分配给 LDO 持有者",
     "buybacks": "NONE",
@@ -34,13 +34,13 @@
     }
   ],
   "notes": "【收入规模】年化协议费用约 $677M，DAO 分成（10%费率的50%）约 $34M/年。尽管 Lido 是最大的 DeFi 协议之一（TVL $22B+），但 LDO 代币不分享任何协议收入（fee switch OFF）。协议收入完全归 DAO 国库控制。若未来开启 fee switch，潜在 TEV 基数较大。",
-  "last_updated": "2026-04-27",
-  "tev_data": {
-    "has_tev": false,
-    "tev_yield_percent": 0,
-    "annual_tev_usd": 0,
-    "market_cap_usd": 246073335.84,
-    "calculation_date": "2026-08-10",
+  "last_updated": "2026-08-02",
+  "return_data": {
+    "has_returns": false,
+    "shareholder_yield_percent": 0,
+    "annual_returns_usd": 0,
+    "market_cap_usd": 269834735.75,
+    "calculation_date": "2026-08-02",
     "sources": [
       {
         "name": "协议机制",
@@ -57,31 +57,35 @@
   },
   "market_data": {
     "tvl": 18986133323.106007,
-    "tvl_updated": "2026-03-27T01:01:06.143Z"
+    "tvl_updated": "2026-03-27T01:01:06.143Z",
+    "price_usd": 0.295906,
+    "circulating_market_cap": 247488396,
+    "circulating_supply": 836305815.1238776,
+    "price_updated_at": "2026-08-10T19:54:19.498207+00:00"
   },
-  "tevStatus": "none",
+  "return_status": "none",
   "confidence_reason": {
     "zh": "纯治理代币. stETH 收益 (~3% ETH staking yield) 给 stETH 持有人, LDO 不分润",
     "en": "纯治理代币. stETH 收益 (~3% ETH staking yield) 给 stETH 持有人, LDO 不分润"
   },
-  "tevRatio": 0,
-  "earning_yield_percent": 15.64,
-  "market_cap_usd": 246073335.84,
-  "tev_yield_percent": 0,
+  "payout_ratio": 0,
+  "total_yield_percent": 14.42,
+  "market_cap_usd": 269834735.75,
+  "shareholder_yield_percent": 0,
   "metrics": {
-    "trailing_365d_revenue_usd": 38477064,
-    "trailing_30d_revenue_usd": 2172861,
-    "current_market_cap_usd": 246073335.84,
-    "trailing_365d_tev_usd": 0,
-    "trailing_30d_tev_usd": 0,
-    "trailing_7d_revenue_usd": 515150,
-    "trailing_90d_revenue_usd": 6587296,
-    "tev_yield_7d_ann": 0,
-    "tev_yield_30d_ann": 0,
-    "tev_yield_90d_ann": 0,
-    "earning_yield_7d_ann": 10.92,
-    "earning_yield_30d_ann": 10.74,
-    "earning_yield_90d_ann": 10.86,
+    "trailing_365d_revenue_usd": 38920031,
+    "trailing_30d_revenue_usd": 2130595,
+    "current_market_cap_usd": 269834735.75,
+    "trailing_365d_shareholder_returns_usd": 0,
+    "trailing_30d_shareholder_returns_usd": 0,
+    "trailing_7d_revenue_usd": 523871,
+    "trailing_90d_revenue_usd": 6754343,
+    "shareholder_yield_7d_ann": 0,
+    "shareholder_yield_30d_ann": 0,
+    "shareholder_yield_90d_ann": 0,
+    "total_yield_7d_ann": 10.12,
+    "total_yield_30d_ann": 9.61,
+    "total_yield_90d_ann": 10.15,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 0,
@@ -106,15 +110,45 @@
       "label": "股东回报率: 0% (governance-only)",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
   ],
   "dividend_yield_percent": 0,
   "buyback_yield_percent": 0,
-  "style": "growth"
+  "style": "growth",
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "只统计利润：收入 → 毛利（扣 LP/成本）→ 净利照算并展示；股东回报 = 0（不回购）",
+    "revenue_included": {
+      "protocol_fees": {
+        "note": "DefiLlama dailyRevenue（协议归属部分）"
+      }
+    },
+    "revenue_excluded": {},
+    "calculation": {
+      "payout_ratio": 0,
+      "note": "LDO 仅治理；不回购的钱进国库/支出 → 损益表留存行"
+    },
+    "source_type": "defillama",
+    "source_url": "https://defillama.com/protocol/lido"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "defillama",
+        "method": "dailyFees/dailyRevenue 日频",
+        "frequency": "daily",
+        "script": "fetch-defillama.js"
+      }
+    ],
+    "ai_self_check": [
+      "data-plausibility",
+      "freshness"
+    ]
+  }
 }

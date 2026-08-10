@@ -2,16 +2,6 @@
   "protocol": "jito",
   "records": [
     {
-      "as_of": "2025-08-07",
-      "net_income": 61132744.08,
-      "daily_value": 239577.9,
-      "pe": 4.007,
-      "ps": 4.007,
-      "shareholder_yield": 24.955,
-      "net_margin": 100.0,
-      "_period": "daily"
-    },
-    {
       "as_of": "2025-08-08",
       "net_income": 61192895.38,
       "daily_value": 151599.88,
@@ -3642,6 +3632,14 @@
       "net_income": 13763565,
       "pe": null,
       "ps": 18.656,
+      "shareholder_yield": 0,
+      "net_margin": 100.0
+    },
+    {
+      "as_of": "2026-08-11",
+      "net_income": 13763565,
+      "pe": null,
+      "ps": 20.2001,
       "shareholder_yield": 0,
       "net_margin": 100.0
     }

@@ -2,7 +2,7 @@
   "id": "fluid",
   "name": "Fluid",
   "ticker": "FLUID",
-  "icon": "../tev/logos/fluid.png",
+  "icon": "../equity/logos/fluid.png",
   "category": "lending",
   "description": "Lending + DEX 一体化协议，由 Instadapp 团队推出，建立在统一的 Liquidity Layer 上",
   "website": "https://fluid.io",
@@ -13,14 +13,14 @@
     "coingecko_id": "instadapp",
     "defillama_id": "fluid"
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "buyback",
       "name": "Fluid Reserve Buyback",
       "description": "Treasury 用协议收入回购 FLUID 代币，建立链上储备",
       "status": "active",
       "start_date": "2025-10-01",
-      "tev_ratio": 0.35,
+      "payout_ratio": 0.35,
       "source": {
         "type": "blog",
         "title": "FLUID Reserve: Buybacks & Growth Strategy",
@@ -28,7 +28,7 @@
       }
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "ON",
     "fee_switch_details": "35% Revenue 用于回购",
     "buybacks": "ACTIVE",
@@ -82,15 +82,15 @@
     }
   ],
   "analyst_notes": "【2026-04-27 链上调研 medium-high confidence】\n\n## 机制\n- 2025-10 起 Fluid 35% 协议收入 → Treasury 回购 FLUID\n- 来源: 官方 blog《FLUID Reserve: Buybacks & Growth Strategy》\n- Reserve 钱包: 0x3e6FeBd2b195e1Ef3e8e3F4AABB6772aada32353 + 0x9Afb8C1798B93a8E04a18553eE65bAFa41a012F1\n- 终极用途: 未公开 (储备/burn/分配)\n\n## 数据\n- DefiLlama dailyHoldersRevenue 365d $4.75M\n- 链上 Etherscan 实测 1.25M FLUID inflow (差 <0.5%)\n- 流通市值 ~$132M\n- yield ≈ 3.4%\n\n## 警示\n- 35% 比例无链上治理投票\n- 回购后终极用途模糊\n- Reserve 钱包占 0.11% supply, 未来可能用作 inflation 分配\n\n## 关键地址\n- FLUID: 0x6f40d4A6237C257fff2dB00FA0510DeEECd303eb\n- Reserve Wallet 1: 0x3e6FeBd2b195e1Ef3e8e3F4AABB6772aada32353\n- Reserve Wallet 2: 0x9Afb8C1798B93a8E04a18553eE65bAFa41a012F1\n\n## 历史\n- 2026-04-27: 链上调研 medium-high confidence\n- 2025-10: 35% buyback 启动\n",
-  "last_updated": "2026-04-27",
+  "last_updated": "2026-08-02",
   "data_confidence": "high",
   "data_source_note": "链上追踪 (FLUID 流入储备钱包)",
-  "tev_data": {
-    "has_tev": true,
-    "tev_yield_percent": 4.66,
-    "annual_tev_usd": 4745308,
-    "market_cap_usd": 101775538.29,
-    "calculation_date": "2026-08-10",
+  "return_data": {
+    "has_returns": true,
+    "shareholder_yield_percent": 5.15,
+    "annual_returns_usd": 4745308,
+    "market_cap_usd": 92201612.29,
+    "calculation_date": "2026-08-02",
     "sources": [
       {
         "name": "DefiLlama dailyHoldersRevenue",
@@ -137,33 +137,37 @@
       }
     ]
   },
-  "tevStatus": "active",
+  "return_status": "active",
   "confidence_reason": {
     "zh": "双钱包链上完全可追踪（Etherscan），与 DefiLlama 交叉验证差异 <0.1%",
     "en": "Dual wallets fully on-chain trackable (Etherscan), cross-validated with DefiLlama <0.1% diff"
   },
   "market_data": {
     "tvl": 858549305.8980845,
-    "tvl_updated": "2026-03-27T01:00:50.616Z"
+    "tvl_updated": "2026-03-27T01:00:50.616Z",
+    "price_usd": 1.2,
+    "circulating_market_cap": 100261946,
+    "circulating_supply": 83696996.82034639,
+    "price_updated_at": "2026-08-10T19:54:19.498207+00:00"
   },
-  "tevRatio": 0.35,
-  "earning_yield_percent": 4.66,
-  "market_cap_usd": 101775538.29,
-  "tev_yield_percent": 4.66,
+  "payout_ratio": 0.35,
+  "total_yield_percent": 5.15,
+  "market_cap_usd": 92201612.29,
+  "shareholder_yield_percent": 5.15,
   "metrics": {
-    "current_market_cap_usd": 101775538.29,
+    "current_market_cap_usd": 92201612.29,
     "trailing_365d_revenue_usd": 4745308,
     "trailing_30d_revenue_usd": 0,
-    "trailing_365d_tev_usd": 4745308,
-    "trailing_30d_tev_usd": 395442.3333333333,
+    "trailing_365d_shareholder_returns_usd": 4745308,
+    "trailing_30d_shareholder_returns_usd": 395442.3333333333,
     "trailing_7d_revenue_usd": 0,
     "trailing_90d_revenue_usd": 0,
-    "tev_yield_7d_ann": 0,
-    "tev_yield_30d_ann": 0,
-    "tev_yield_90d_ann": 0,
-    "earning_yield_7d_ann": 0,
-    "earning_yield_30d_ann": 0,
-    "earning_yield_90d_ann": 0,
+    "shareholder_yield_7d_ann": 0,
+    "shareholder_yield_30d_ann": 0,
+    "shareholder_yield_90d_ann": 0,
+    "total_yield_7d_ann": 0,
+    "total_yield_30d_ann": 0,
+    "total_yield_90d_ann": 0,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 0,
@@ -217,15 +221,52 @@
       "label": "最终 股东回报率",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
   ],
   "dividend_yield_percent": 0,
-  "buyback_yield_percent": 4.66,
-  "style": "cash_cow"
+  "buyback_yield_percent": 5.15,
+  "style": "cash_cow",
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "35% revenue → Treasury 回购（链上 2 个 reserve 钱包；回购后 FLUID 终极用途未公开）",
+    "revenue_included": {
+      "protocol_fees": {
+        "note": "DefiLlama dailyRevenue（协议归属部分）"
+      }
+    },
+    "revenue_excluded": {},
+    "calculation": {
+      "payout_ratio": 0.35,
+      "note": "35% 回购口径（DefiLlama dailyHoldersRevenue 365d $4.75M 与官方 35% 一致）"
+    },
+    "source_type": "defillama",
+    "source_url": "https://defillama.com/protocol/fluid"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "chain",
+        "method": "2 个 reserve 钱包链上追踪（0x3e6F.../0x9Afb...）",
+        "frequency": "daily",
+        "script": "track-fluid-buybacks-v3.py"
+      },
+      {
+        "type": "defillama",
+        "method": "dailyRevenue 日频",
+        "frequency": "daily",
+        "script": "fetch-defillama.js"
+      }
+    ],
+    "ai_self_check": [
+      "mechanism-change",
+      "data-plausibility",
+      "freshness"
+    ]
+  }
 }

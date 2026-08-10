@@ -1,6 +1,6 @@
 {
   "protocol": "sky",
-  "as_of": "2026-08-06",
+  "as_of": "2026-08-11",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -56,7 +56,7 @@
         "mechanism": "Elixir / SBE 真燃烧（Splitter burn → MKR LP 销毁）",
         "type": "destroy",
         "usd_365d": 77998812,
-        "yield_percent": 5.9014,
+        "yield_percent": 6.3053,
         "note": "销毁 = 股息 🟢 计入股东回报：DefiLlama dailyHoldersRevenue（= Splitter burn，SBE 真实支出，2026-03 后日均 ~$37.6k 与治理公告吻合）"
       },
       {
@@ -70,21 +70,21 @@
     "summary": {
       "destroy_usd_365d": 77998812,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 5.9014,
+      "destroy_yield_percent": 6.3053,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 77998812,
-      "shareholder_yield_percent": 5.9014
+      "shareholder_yield_percent": 6.3053
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 1321689005.7638912,
+    "market_cap_usd": 1237035721.9086685,
     "tvl_usd": 6773732996.1381645,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 16.945,
-    "ps": 5.6391,
+    "pe": 15.8597,
+    "ps": 5.278,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0.3328
@@ -92,6 +92,6 @@
   "verification": {
     "method": "DefiLlama dailyHoldersRevenue 365d 77998812 USD（Splitter burn/SBE 真燃烧）+ dailyRevenue 365d 234377977 USD；2026-03 治理减速后短周期 < 365d（日均 ~$37.6k）",
     "status": "verified",
-    "last_checked": "2026-08-06"
+    "last_checked": "2026-08-11"
   }
 }

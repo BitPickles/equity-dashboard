@@ -13,7 +13,7 @@
     "coingecko_id": "aster-2",
     "total_supply": 1000000000
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "buyback",
       "name": "协议回购",
@@ -36,13 +36,13 @@
       }
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "ON",
     "buybacks": "ACTIVE",
     "dividends": "NONE",
     "burns": "ACTIVE",
     "primary_value_accrual": "手续费回购 (60-80%)",
-    "tevRatio": 0.7
+    "payout_ratio": 0.7
   },
   "confidence": "high",
   "notes": "**当前 TEV 情况**\n\nAster 将较大比例的协议收入（约60-80%）用于回购 ASTER，包含每日自动回购与战略回购储备。\n\n**历史数据：**\n- Stage 1-4 (2025.10-12): 依据公开报道的回购总量，按天均摩摘形成日度数据\n- Stage 5-6 (2025.12至今): 链上回购记录，可按日追踪\n\n**透明度**：回购钱包地址公开，可通过 BscScan 实时验证。\n\n**注意**：官方文档未披露精确回购比例分配，60-80% 为公开材料中的估算范围。",
@@ -75,12 +75,12 @@
       "date": "2025-11-14"
     }
   ],
-  "last_updated": "2026-04-24",
-  "tev_data": {
-    "has_tev": true,
-    "tev_yield_percent": 1.47,
-    "market_cap_usd": 1636033774.2740283,
-    "calculation_date": "2026-08-10",
+  "last_updated": "2026-08-02",
+  "return_data": {
+    "has_returns": true,
+    "shareholder_yield_percent": 1.47,
+    "market_cap_usd": 1611525735.7600327,
+    "calculation_date": "2026-08-02",
     "sources": [
       {
         "name": "DefiLlama holdersRevenue",
@@ -96,7 +96,7 @@
       "buy_30d_aster": 0,
       "buy_90d_aster": 0,
       "buy_365d_aster": 36177482,
-      "aster_price_usd": 0.6651,
+      "aster_price_usd": 0.6551,
       "data_days": 95,
       "data_range": {
         "start": "2025-12-23",
@@ -110,30 +110,34 @@
     },
     "methodology": "Stage5/6 buyback wallet ASTER 入金（按窗口）× 当前价 / 市值。类似 Hyperliquid AF 的 treasury buyback 口径（不区分 burn vs rewards）"
   },
-  "tevStatus": "active",
+  "return_status": "active",
   "confidence_reason": {
     "zh": "链上回购钱包可追踪（Moralis + BscScan）",
     "en": "On-chain buyback wallets trackable (Moralis + BscScan)"
   },
   "market_data": {
     "tvl": 820487118.1176946,
-    "tvl_updated": "2026-03-27T01:00:22.764Z"
+    "tvl_updated": "2026-03-27T01:00:22.764Z",
+    "price_usd": 0.60299,
+    "circulating_market_cap": 1622098786,
+    "circulating_supply": 2690596387.6597533,
+    "price_updated_at": "2026-08-10T19:54:19.498207+00:00"
   },
-  "tevRatio": 0.7,
-  "earning_yield_percent": 1.47,
-  "market_cap_usd": 1636033774.2740283,
-  "tev_yield_percent": 1.47,
+  "payout_ratio": 0.7,
+  "total_yield_percent": 1.47,
+  "market_cap_usd": 1611525735.7600327,
+  "shareholder_yield_percent": 1.47,
   "metrics": {
-    "tev_yield_7d_ann": 0,
-    "tev_yield_30d_ann": 0,
-    "tev_yield_90d_ann": 0,
-    "earning_yield_7d_ann": 0,
-    "earning_yield_30d_ann": 0,
-    "earning_yield_90d_ann": 0,
+    "shareholder_yield_7d_ann": 0,
+    "shareholder_yield_30d_ann": 0,
+    "shareholder_yield_90d_ann": 0,
+    "total_yield_7d_ann": 0,
+    "total_yield_30d_ann": 0,
+    "total_yield_90d_ann": 0,
     "trailing_7d_revenue_usd": 0,
     "trailing_30d_revenue_usd": 0,
     "trailing_90d_revenue_usd": 0,
-    "trailing_365d_revenue_usd": 24059993,
+    "trailing_365d_revenue_usd": 23699571,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 0,
@@ -199,10 +203,10 @@
       "label": "最终 股东回报率",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
@@ -210,5 +214,49 @@
   "analyst_notes": "【2026-04-24 更新 - A 口径 treasury buyback】\n\n## TEV 机制（类似 Hyperliquid AF）\n\nAster 协议 ~80% 平台 fee → 市场买 ASTER → 转入 **Stage5 / Stage6 buyback wallet**。\n这些 ASTER 部分 burn、部分留作 community rewards / treasury。\n\n**口径选择（Boss 2026-04-24 定，类似 HYPE/Aave 的 treasury buyback 视为 TEV）**：\n- 计算：所有进入 Stage5/6 wallet 的 ASTER 都视为 supply 收缩（treasury buyback 视同 TEV）\n- 不严格区分 \"burn\" vs \"rewards\"（需要进一步追踪各 wallet 的 outgoing flow 才能区分）\n\n## 数据源\n\n- 链上采集：Moralis API（BSC 链），每日调用 fetch-aster-moralis.py\n- 存储：`data/aster-onchain.json`（95 天，2025-12-23 → 2026-03-27）\n- 计算：`sync-tev-data.js` 的 Aster 专属分支按窗口求和\n\n## 合约地址\n\n- ASTER (BEP-20): `0x000Ae314E2A2172a039B26378814C252734f556A`\n- Stage5 buyback（已清算）: `0x4786927333c0bA8aB27CA41361ADF33148C5301E`\n- Stage6 buyback（当前）: `0x664827c71193018D7843f0D0F41A5D0D6dcEBE0F`\n- Stage6 当前持 ~15M ASTER (~$10.2M)\n\n## 已知局限（caveats）\n\n1. **Stage5/6 是 treasury buyback 非真 burn**：部分 burn 部分给 community rewards，治理可动用（类似 Hyperliquid AF 风险）\n2. **2026-03-30 tokenomics 改革**：emissions 砍 97%，新增 staking rewards（暂未计入 TEV）\n3. **Moralis 免费 tier 可能滞后**：当前数据截止 2026-03-27，最近 27 天窗口显示为 0，不是真的没有 buyback\n4. **Stage6 之后可能有 Stage7**：改革后 buyback 路径可能变，需人工 review 合约地址\n\n## 历史\n\n- 2026-04-24：A 口径上线；update-aster-tev.py 每日维护\n- 2026-03-30：Aster tokenomics 大改，emissions 砍 97%\n- 2025-12：Stage6 启用（之前是 Stage5）\n",
   "dividend_yield_percent": 0,
   "buyback_yield_percent": 1.47,
-  "style": "cash_cow"
+  "style": "cash_cow",
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "只计流向流通持币人的价值流；1:1 储备销毁（未流通）不计入股东回报",
+    "revenue_included": {
+      "platform_fees": {
+        "note": "平台手续费（DefiLlama dailyRevenue）"
+      }
+    },
+    "revenue_excluded": {
+      "reserve_burn": {
+        "note": "1:1 储备销毁烧的是未流通储备币，只减少未来潜在稀释，不作股东回报（198% 为营销话术）"
+      }
+    },
+    "calculation": {
+      "payout_ratio": 0.99,
+      "note": "99% 手续费回购给质押者（TWAP 回购 ASTER → veASTER）"
+    },
+    "source_type": "chain",
+    "source_url": "https://www.asterdex.com"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "chain",
+        "method": "新回购钱包 + 1:1 销毁记录（2026-06-17 后机制）",
+        "frequency": "daily",
+        "script": "update-aster.py"
+      },
+      {
+        "type": "official",
+        "method": "AI 抓公告（机制升级检测）",
+        "frequency": "event",
+        "script": "ai-watch-official.py"
+      }
+    ],
+    "ai_self_check": [
+      "mechanism-change",
+      "data-plausibility",
+      "freshness"
+    ]
+  },
+  "caveats": [
+    "2026-08-06 调查：官方公布的 6-17 新机制钱包（TWAP 回购 0xa0edBaBcb48034e368de286b49F9603C7AfA1b60 / 上市费 0x39C473f4420e4ae9Ab3fe9e7ceDFc08F9684bB1a）链上执行量极低（25 ASTER，均为 6-17 测试小额）——官方 6-29 声称的 2.9M ASTER 回购未显化于公布钱包，实际执行地址待官方披露；当前 365d 以 S4 链上 95 天年化（PE 19.5x，Boss 2026-08-06 确认）"
+  ]
 }

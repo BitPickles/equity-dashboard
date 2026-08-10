@@ -15,7 +15,7 @@
     "circulating_supply": 2356595748.026746,
     "total_supply": 10000000000
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "airdrop",
       "name": "SPK Airdrop",
@@ -24,7 +24,7 @@
       "start_date": "2024-09-01"
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "OFF",
     "fee_switch_details": "SPK 代币刚启动，收入流向 Sky DAO",
     "buybacks": "NONE",
@@ -48,13 +48,13 @@
     }
   ],
   "notes": "Spark 是 Sky 生态的 SubDAO，SPK 代币于 2024 年 Q3 启动。作为新代币，TEV 机制仍在发展中。协议收入主要流向 Sky 主 DAO，通过 Smart Burn Engine 回购 MKR。",
-  "last_updated": "2026-04-27",
-  "tev_data": {
-    "has_tev": false,
-    "tev_yield_percent": 0,
-    "annual_tev_usd": 0,
-    "market_cap_usd": 44941230.42,
-    "calculation_date": "2026-08-10",
+  "last_updated": "2026-08-02",
+  "return_data": {
+    "has_returns": false,
+    "shareholder_yield_percent": 0,
+    "annual_returns_usd": 0,
+    "market_cap_usd": 47796024.33,
+    "calculation_date": "2026-08-02",
     "sources": [
       {
         "name": "协议机制",
@@ -71,31 +71,35 @@
   },
   "market_data": {
     "tvl": 5328898278.33737,
-    "tvl_updated": "2026-03-27T01:01:14.993Z"
+    "tvl_updated": "2026-03-27T01:01:14.993Z",
+    "price_usd": 0.0145686,
+    "circulating_market_cap": 44578399,
+    "circulating_supply": 3060170995.219822,
+    "price_updated_at": "2026-08-10T19:54:19.498207+00:00"
   },
-  "tevStatus": "none",
+  "return_status": "none",
   "confidence_reason": {
     "zh": "Spark 是 Sky DAO 子协议, 收入归 Sky, SPK 仅 SubDAO 治理",
     "en": "Spark 是 Sky DAO 子协议, 收入归 Sky, SPK 仅 SubDAO 治理"
   },
-  "tevRatio": 0,
-  "earning_yield_percent": 46.19,
-  "market_cap_usd": 44941230.42,
-  "tev_yield_percent": 0,
+  "payout_ratio": 0,
+  "total_yield_percent": 46.33,
+  "market_cap_usd": 47796024.33,
+  "shareholder_yield_percent": 0,
   "metrics": {
-    "trailing_365d_revenue_usd": 20756418,
-    "trailing_30d_revenue_usd": -359289,
-    "current_market_cap_usd": 44941230.42,
-    "trailing_365d_tev_usd": 0,
-    "trailing_30d_tev_usd": 0,
-    "trailing_7d_revenue_usd": -137695,
-    "trailing_90d_revenue_usd": 1120345,
-    "tev_yield_7d_ann": 0,
-    "tev_yield_30d_ann": 0,
-    "tev_yield_90d_ann": 0,
-    "earning_yield_7d_ann": -15.98,
-    "earning_yield_30d_ann": -9.73,
-    "earning_yield_90d_ann": 10.11,
+    "trailing_365d_revenue_usd": 22144959,
+    "trailing_30d_revenue_usd": 263810,
+    "current_market_cap_usd": 47796024.33,
+    "trailing_365d_shareholder_returns_usd": 0,
+    "trailing_30d_shareholder_returns_usd": 0,
+    "trailing_7d_revenue_usd": -39283,
+    "trailing_90d_revenue_usd": 1331719,
+    "shareholder_yield_7d_ann": 0,
+    "shareholder_yield_30d_ann": 0,
+    "shareholder_yield_90d_ann": 0,
+    "total_yield_7d_ann": -4.29,
+    "total_yield_30d_ann": 6.72,
+    "total_yield_90d_ann": 11.3,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 0,
@@ -120,15 +124,45 @@
       "label": "股东回报率: 0% (governance-only)",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
   ],
   "dividend_yield_percent": 0,
   "buyback_yield_percent": 0,
-  "style": "growth"
+  "style": "growth",
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "只统计利润；股东回报 = 0（SPK 收入流向 Sky DAO）",
+    "revenue_included": {
+      "protocol_fees": {
+        "note": "DefiLlama dailyRevenue（协议归属部分）"
+      }
+    },
+    "revenue_excluded": {},
+    "calculation": {
+      "payout_ratio": 0,
+      "note": "收入流向 Sky DAO，SPK 本身无股东回报"
+    },
+    "source_type": "defillama",
+    "source_url": "https://defillama.com/protocol/spark"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "defillama",
+        "method": "dailyFees/dailyRevenue 日频",
+        "frequency": "daily",
+        "script": "fetch-defillama.js"
+      }
+    ],
+    "ai_self_check": [
+      "data-plausibility",
+      "freshness"
+    ]
+  }
 }

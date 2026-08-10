@@ -2,16 +2,6 @@
   "protocol": "lido",
   "records": [
     {
-      "as_of": "2025-08-07",
-      "net_income": 41162321.82,
-      "daily_value": 131941.81,
-      "pe": 6.555,
-      "ps": 6.555,
-      "shareholder_yield": 15.2546,
-      "net_margin": 100.0,
-      "_period": "daily"
-    },
-    {
       "as_of": "2025-08-08",
       "net_income": 41186788.67,
       "daily_value": 135929.0,
@@ -3642,6 +3632,14 @@
       "net_income": 38920031,
       "pe": null,
       "ps": 6.3664,
+      "shareholder_yield": 0,
+      "net_margin": 100.0
+    },
+    {
+      "as_of": "2026-08-11",
+      "net_income": 38920031,
+      "pe": null,
+      "ps": 6.3589,
       "shareholder_yield": 0,
       "net_margin": 100.0
     }

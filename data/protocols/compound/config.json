@@ -15,8 +15,8 @@
     "circulating_supply": 9668189.278360886,
     "total_supply": 10000000
   },
-  "tev_mechanisms": [],
-  "tev_summary": {
+  "return_mechanisms": [],
+  "return_summary": {
     "fee_switch": "OFF",
     "fee_switch_details": "Compound 协议费用开关未开启，收入保留在协议储备",
     "buybacks": "NONE",
@@ -40,13 +40,13 @@
     }
   ],
   "notes": "Compound 作为 DeFi 借贷的先驱，COMP 代币开创了治理代币模式。尽管协议收入可观，但 COMP 始终是纯治理代币，费用开关从未开启。社区多次讨论过开启费用分配但未通过。",
-  "last_updated": "2026-04-27",
-  "tev_data": {
-    "has_tev": false,
-    "tev_yield_percent": 0,
-    "annual_tev_usd": 0,
-    "market_cap_usd": 165845606.26,
-    "calculation_date": "2026-08-10",
+  "last_updated": "2026-08-02",
+  "return_data": {
+    "has_returns": false,
+    "shareholder_yield_percent": 0,
+    "annual_returns_usd": 0,
+    "market_cap_usd": 165861204.25,
+    "calculation_date": "2026-08-02",
     "sources": [
       {
         "name": "协议机制",
@@ -63,31 +63,35 @@
   },
   "market_data": {
     "tvl": 1419957846.641336,
-    "tvl_updated": "2026-03-27T01:00:25.147Z"
+    "tvl_updated": "2026-03-27T01:00:25.147Z",
+    "price_usd": 16.49,
+    "circulating_market_cap": 164921933,
+    "circulating_supply": 9668189.278360886,
+    "price_updated_at": "2026-08-10T19:54:19.498207+00:00"
   },
-  "tevStatus": "none",
+  "return_status": "none",
   "confidence_reason": {
     "zh": "纯治理代币. fee switch 从未开启, 协议 fees ($180M+/年) 100% 给 LP, COMP 持有人不分润",
     "en": "纯治理代币. fee switch 从未开启, 协议 fees ($180M+/年) 100% 给 LP, COMP 持有人不分润"
   },
-  "tevRatio": 0,
-  "earning_yield_percent": 0.16,
-  "market_cap_usd": 165845606.26,
-  "tev_yield_percent": 0,
+  "payout_ratio": 0,
+  "total_yield_percent": 0.13,
+  "market_cap_usd": 165861204.25,
+  "shareholder_yield_percent": 0,
   "metrics": {
-    "current_market_cap_usd": 165845606.26,
-    "trailing_365d_revenue_usd": 259162,
-    "trailing_30d_revenue_usd": 130175,
-    "trailing_365d_tev_usd": 0,
-    "trailing_30d_tev_usd": 0,
-    "trailing_7d_revenue_usd": 37372,
-    "trailing_90d_revenue_usd": 259162,
-    "tev_yield_7d_ann": 0,
-    "tev_yield_30d_ann": 0,
-    "tev_yield_90d_ann": 0,
-    "earning_yield_7d_ann": 1.17,
-    "earning_yield_30d_ann": 0.95,
-    "earning_yield_90d_ann": 0.63,
+    "current_market_cap_usd": 165861204.25,
+    "trailing_365d_revenue_usd": 216668,
+    "trailing_30d_revenue_usd": 114091,
+    "trailing_365d_shareholder_returns_usd": 0,
+    "trailing_30d_shareholder_returns_usd": 0,
+    "trailing_7d_revenue_usd": 31873,
+    "trailing_90d_revenue_usd": 216668,
+    "shareholder_yield_7d_ann": 0,
+    "shareholder_yield_30d_ann": 0,
+    "shareholder_yield_90d_ann": 0,
+    "total_yield_7d_ann": 1,
+    "total_yield_30d_ann": 0.84,
+    "total_yield_90d_ann": 0.53,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 0,
@@ -112,15 +116,45 @@
       "label": "股东回报率: 0% (governance-only)",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
   ],
   "dividend_yield_percent": 0,
   "buyback_yield_percent": 0,
-  "style": "growth"
+  "style": "growth",
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "只统计利润；股东回报 = 0（COMP 纯治理，fee switch OFF）",
+    "revenue_included": {
+      "protocol_fees": {
+        "note": "DefiLlama dailyRevenue（协议归属部分）"
+      }
+    },
+    "revenue_excluded": {},
+    "calculation": {
+      "payout_ratio": 0,
+      "note": "不回购的钱进国库/支出 → 留存行"
+    },
+    "source_type": "defillama",
+    "source_url": "https://defillama.com/protocol/compound-v2"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "defillama",
+        "method": "dailyFees/dailyRevenue 日频",
+        "frequency": "daily",
+        "script": "fetch-defillama.js"
+      }
+    ],
+    "ai_self_check": [
+      "data-plausibility",
+      "freshness"
+    ]
+  }
 }

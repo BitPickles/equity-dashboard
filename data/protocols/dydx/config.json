@@ -16,7 +16,7 @@
     "circulating_supply": 29630256.481182758,
     "total_supply": 824145891.8983325
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "fee_sharing",
       "name": "DYDX 质押分红",
@@ -36,29 +36,31 @@
       }
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "ON",
     "fee_switch_details": "75% 净协议费用用于 DYDX 回购",
     "buybacks": "ACTIVE",
     "dividends": "NONE",
     "burns": "NONE",
     "primary_value_accrual": "回购 - 75% 净协议费用用于 DYDX 回购",
-    "tevRatio": 0.75
+    "payout_ratio": 0.75
   },
   "market_data": {
-    "price_usd": 0.11,
-    "circulating_market_cap": 90016535,
+    "price_usd": 0.115115,
+    "circulating_market_cap": 97687908,
     "total_supply": 1000000000,
     "snapshot_date": "2026-02-05",
     "data_source": "CoinGecko (dydx-chain)",
     "tvl": 158666696.85028014,
-    "tvl_updated": "2026-03-27T01:00:29.222Z"
+    "tvl_updated": "2026-03-27T01:00:29.222Z",
+    "circulating_supply": 848599091.0780612,
+    "price_updated_at": "2026-08-10T19:54:19.498207+00:00"
   },
-  "calculated_tev": {
+  "calculated_returns": {
     "holders_revenue_30d_usd": 381311,
     "holders_revenue_annual_usd": 4575732,
     "market_cap_usd": 90016535,
-    "tev_yield_percent": 5.1,
+    "shareholder_yield_percent": 5.1,
     "calculation_date": "2026-02-05",
     "note": "TEV yield = 年化 holders revenue / 流通市值"
   },
@@ -83,14 +85,14 @@
       "reliability": "high"
     }
   ],
-  "analyst_notes": "【2026-04-26 切链上口径】\n\n## V4 dYdX Chain 时代\n\ndYdX V4 已迁到独立 Cosmos 链 (dYdX Chain), 原 ERC-20 ethDYDX bridge **已永久关闭 (2025-06-13)**.\n\n### 双重 TEV 路径\n\n1. **100% Fees → Cosmos staker** (USDC 实时分发)\n   - 通过 Cosmos SDK x/distribution 模块按区块即时分配\n   - 365d 累计 ~$53M USDC 分给 staker (官方数据)\n   - 验证者 commission 平均 6%, 实际 staker 拿 ~94%\n\n2. **75% Buyback → Treasury SubDAO** (Proposal #313, 2025-11-13 通过)\n   - 75% 网络费用用于 DYDX 回购\n   - 5% Treasury / 5% MegaVault / 15% 待分配\n   - 执行账户: dydx1zc0jd76vfluauk6pc6rsq5dkwyjz9h8uqgppj6\n   - TWAP 策略经 Binance/Osmosis 执行\n   - **链上 tracker 缺失**: 该账户 USDC 流入/流出无公开 dashboard\n\n### 数据口径选择\n\n- DefiLlama dailyHoldersRevenue 365d = $11.74M\n- 已是 holders 部分 (USDC 给 staker), tevRatio = 1.0\n- 分母用 DYDX Chain 原生流通市值 ~$134M (排除 ethDYDX 孤儿)\n- yield = $11.74M / $134.4M = **8.74%**\n\n### 警示\n\n1. **ethDYDX 完全无 TEV**: bridge 关闭, 41.7M ethDYDX (~$26.2M 当时) 永久滞留, 持有人 0 捕获\n2. **75% buyback 链上无 tracker**: 治理通过但 Treasury SubDAO 账户活动无公开 dashboard\n3. **DefiLlama 可能混 V3/V4 数据**: V3 已 sunset, 历史数据可能仍计入聚合\n\n### 关键地址\n\n- ethDYDX (ERC-20, **已死**): 0x92D6C1e31e14520e676a687F0a93788B716BEff5\n- DYDX Chain Treasury SubDAO: dydx1zc0jd76vfluauk6pc6rsq5dkwyjz9h8uqgppj6\n- DYDX Chain 区块浏览器: https://www.mintscan.io/dydx\n\n### 历史变更\n\n- 2026-04-26: 切链上口径 (DefiLlama holdersRevenue × 1.0); confidence 从 high 降到 medium\n- 2025-11-13: Proposal #313 通过 (25% → 75% buyback)\n- 2025-06-13: ethDYDX bridge 永久关闭\n- 2023-10-26: dYdX Chain 主网启动 (V4)\n",
-  "last_updated": "2026-04-26",
-  "tev_data": {
-    "has_tev": true,
-    "tev_yield_percent": 8.39,
-    "annual_tev_usd": 8128804,
-    "market_cap_usd": 96941553.19,
-    "calculation_date": "2026-08-10",
+  "analyst_notes": "【2026-04-26 切链上口径】\n\n## V4 dYdX Chain 时代\n\ndYdX V4 已迁到独立 Cosmos 链 (dYdX Chain), 原 ERC-20 ethDYDX bridge **已永久关闭 (2025-06-13)**.\n\n### 双重 TEV 路径\n\n1. **100% Fees → Cosmos staker** (USDC 实时分发)\n   - 通过 Cosmos SDK x/distribution 模块按区块即时分配\n   - 365d 累计 ~$53M USDC 分给 staker (官方数据)\n   - 验证者 commission 平均 6%, 实际 staker 拿 ~94%\n\n2. **75% Buyback → Treasury SubDAO** (Proposal #313, 2025-11-13 通过)\n   - 75% 网络费用用于 DYDX 回购\n   - 5% Treasury / 5% MegaVault / 15% 待分配\n   - 执行账户: dydx1zc0jd76vfluauk6pc6rsq5dkwyjz9h8uqgppj6\n   - TWAP 策略经 Binance/Osmosis 执行\n   - **链上 tracker 缺失**: 该账户 USDC 流入/流出无公开 dashboard\n\n### 数据口径选择\n\n- DefiLlama dailyHoldersRevenue 365d = $11.74M\n- 已是 holders 部分 (USDC 给 staker), payout_ratio = 1.0\n- 分母用 DYDX Chain 原生流通市值 ~$134M (排除 ethDYDX 孤儿)\n- yield = $11.74M / $134.4M = **8.74%**\n\n### 警示\n\n1. **ethDYDX 完全无 TEV**: bridge 关闭, 41.7M ethDYDX (~$26.2M 当时) 永久滞留, 持有人 0 捕获\n2. **75% buyback 链上无 tracker**: 治理通过但 Treasury SubDAO 账户活动无公开 dashboard\n3. **DefiLlama 可能混 V3/V4 数据**: V3 已 sunset, 历史数据可能仍计入聚合\n\n### 关键地址\n\n- ethDYDX (ERC-20, **已死**): 0x92D6C1e31e14520e676a687F0a93788B716BEff5\n- DYDX Chain Treasury SubDAO: dydx1zc0jd76vfluauk6pc6rsq5dkwyjz9h8uqgppj6\n- DYDX Chain 区块浏览器: https://www.mintscan.io/dydx\n\n### 历史变更\n\n- 2026-04-26: 切链上口径 (DefiLlama holdersRevenue × 1.0); confidence 从 high 降到 medium\n- 2025-11-13: Proposal #313 通过 (25% → 75% buyback)\n- 2025-06-13: ethDYDX bridge 永久关闭\n- 2023-10-26: dYdX Chain 主网启动 (V4)\n",
+  "last_updated": "2026-08-02",
+  "return_data": {
+    "has_returns": true,
+    "shareholder_yield_percent": 8.93,
+    "annual_returns_usd": 8518106,
+    "market_cap_usd": 95400331.54,
+    "calculation_date": "2026-08-02",
     "sources": [
       {
         "name": "DefiLlama dailyHoldersRevenue",
@@ -113,34 +115,34 @@
       "Cosmos REST API 查询能力受限, 无法精确二次核实 365d staker 分发总量"
     ]
   },
-  "tevStatus": "active",
+  "return_status": "active",
   "confidence_reason": {
     "zh": "DYDX Chain (Cosmos) 100% fees 给 staker 机制可信, 但 75% buyback (Proposal #313) 链上无公开 tracker, ethDYDX bridge 已关闭无法捕获",
     "en": "100% fees-to-staker on dYdX Chain (Cosmos) is verifiable, but 75% buyback (Proposal #313) has no public on-chain tracker. ethDYDX bridge closed."
   },
-  "tevRatio": 0.75,
-  "earning_yield_percent": 8.39,
-  "market_cap_usd": 96941553.19,
-  "tev_yield_percent": 8.39,
+  "payout_ratio": 0.75,
+  "total_yield_percent": 8.93,
+  "market_cap_usd": 95400331.54,
+  "shareholder_yield_percent": 8.93,
   "metrics": {
-    "current_market_cap_usd": 96941553.19,
-    "trailing_365d_revenue_usd": 8128804,
-    "trailing_30d_revenue_usd": 208110,
-    "trailing_365d_tev_usd": 8128804,
-    "trailing_30d_tev_usd": 677400.3333333334,
-    "trailing_7d_revenue_usd": 40549,
-    "trailing_90d_revenue_usd": 595264,
-    "tev_yield_7d_ann": 2.18,
-    "tev_yield_30d_ann": 2.61,
-    "tev_yield_90d_ann": 2.49,
-    "earning_yield_7d_ann": 2.18,
-    "earning_yield_30d_ann": 2.61,
-    "earning_yield_90d_ann": 2.49,
-    "dividend_yield_7d_ann": 2.18,
+    "current_market_cap_usd": 95400331.54,
+    "trailing_365d_revenue_usd": 8518106,
+    "trailing_30d_revenue_usd": 281440,
+    "trailing_365d_shareholder_returns_usd": 8518106,
+    "trailing_30d_shareholder_returns_usd": 709842.1666666666,
+    "trailing_7d_revenue_usd": 35124,
+    "trailing_90d_revenue_usd": 658158,
+    "shareholder_yield_7d_ann": 1.92,
+    "shareholder_yield_30d_ann": 3.59,
+    "shareholder_yield_90d_ann": 2.8,
+    "total_yield_7d_ann": 1.92,
+    "total_yield_30d_ann": 3.59,
+    "total_yield_90d_ann": 2.8,
+    "dividend_yield_7d_ann": 1.92,
     "buyback_yield_7d_ann": 0,
-    "dividend_yield_30d_ann": 2.61,
+    "dividend_yield_30d_ann": 3.59,
     "buyback_yield_30d_ann": 0,
-    "dividend_yield_90d_ann": 2.49,
+    "dividend_yield_90d_ann": 2.8,
     "buyback_yield_90d_ann": 0
   },
   "calc_pipeline": [
@@ -192,15 +194,52 @@
       "label": "最终 股东回报率",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
   ],
-  "dividend_yield_percent": 8.39,
+  "dividend_yield_percent": 8.93,
   "buyback_yield_percent": 0,
-  "style": "cash_cow"
+  "style": "cash_cow",
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "收入 = 净协议费（含 affiliate/rebate 前、外部不可精确复算，需标注）；回购 = 市价买入后质押（非销毁）",
+    "revenue_included": {
+      "net_fees": {
+        "note": "75% 回购、15% 质押、5% MegaVault、5% 金库（提案 #313）；大量前置补贴归交易者"
+      }
+    },
+    "revenue_excluded": {},
+    "calculation": {
+      "payout_ratio": 0.75,
+      "note": "回购(质押非销毁)，存 Treasury 专用账户；质押奖励 ~0.01% APY 极低；交易所已更名 Arcus，DYDX 代币未更名"
+    },
+    "source_type": "official",
+    "source_url": "https://www.dydx.foundation"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "official",
+        "method": "dYdX Foundation 月度报告 + Buyback Dashboard",
+        "frequency": "monthly",
+        "script": "ai-watch-governance.py"
+      },
+      {
+        "type": "chain",
+        "method": "链上回购账户",
+        "frequency": "daily",
+        "script": "update-dydx-tev.py"
+      }
+    ],
+    "ai_self_check": [
+      "mechanism-change",
+      "data-plausibility",
+      "freshness"
+    ]
+  }
 }

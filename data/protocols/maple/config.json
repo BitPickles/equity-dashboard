@@ -15,7 +15,7 @@
     "circulating_supply": 1157145692.5385313,
     "total_supply": 1216127147.998563
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "buyback",
       "name": "Syrup Strategic Fund (SSF) Buyback",
@@ -31,14 +31,14 @@
       }
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "ON",
     "fee_switch_details": "25% 协议收入通过 SSF 回购 SYRUP，按月执行",
     "buybacks": "ACTIVE",
     "dividends": "NONE",
     "burns": "NONE",
     "primary_value_accrual": "回购分配 - 25% 协议收入回购 SYRUP",
-    "tevRatio": 0.25
+    "payout_ratio": 0.25
   },
   "confidence": "medium",
   "data_sources": [
@@ -56,13 +56,13 @@
     }
   ],
   "notes": "【数据说明】MIP-019 提案于 2024 年通过（25% 协议收入回购 SYRUP），但实际 TEV 数据从 2025-11 才开始记录（DefiLlama dailyHoldersRevenue）。Maple 于 2024 年将代币从 MPL 迁移到 SYRUP，新代币经济模型强化了收入分配机制。作为机构借贷协议，收入主要来自贷款利差。",
-  "last_updated": "2026-04-27",
-  "tev_data": {
-    "has_tev": true,
-    "tev_yield_percent": 1.45,
-    "annual_tev_usd": 2655048,
-    "market_cap_usd": 182988210.9,
-    "calculation_date": "2026-08-10",
+  "last_updated": "2026-08-02",
+  "return_data": {
+    "has_returns": true,
+    "shareholder_yield_percent": 1.43,
+    "annual_returns_usd": 2602180,
+    "market_cap_usd": 182500815.56,
+    "calculation_date": "2026-08-02",
     "sources": [
       {
         "name": "DefiLlama dailyHoldersRevenue",
@@ -86,38 +86,42 @@
   },
   "market_data": {
     "tvl": 2109989088.5761566,
-    "tvl_updated": "2026-03-27T01:01:07.239Z"
+    "tvl_updated": "2026-03-27T01:01:07.239Z",
+    "price_usd": 0.151484,
+    "circulating_market_cap": 188548600,
+    "circulating_supply": 1167185889.5510674,
+    "price_updated_at": "2026-08-10T19:54:19.498207+00:00"
   },
-  "tevStatus": "active",
+  "return_status": "active",
   "confidence_reason": {
     "zh": "MIP-018 治理提案明确 25% 利润回购 SYRUP，链上可追踪",
     "en": "MIP-018 governance proposal mandates 25% profit buyback of SYRUP, on-chain trackable"
   },
   "analyst_notes": "【2026-04-27 链上调研】\n\n## 机制\nMaple Improvement Proposal MIP-019 (2024-Q4 通过):\n- 25% 协议收入 → Syrup Strategic Fund (SSF) 回购 SYRUP\n- 取消原 stSYRUP staking reward, 改为 DAO 资产负债表建设\n- Snapshot 投票 99%+ 赞成\n\nMIP-020 (2026-Q1-Q2): 延续 MIP-019, 月度执行.\n\n## 数据\n- DefiLlama dailyHoldersRevenue 365d $1.81M (6 个月数据)\n- DefiLlama dailyRevenue 365d $11.74M\n- 比例 1.81/11.74 = 15.4% (低于宣称 25%, 可能是 6 个月外推不完整)\n- 流通市值 ~$303M\n- yield ≈ 0.97%\n\n## 警示\n- SSF 国库地址未公开\n- Burn vs Reserve 比例未披露\n- DefiLlama 数据时间跨度不足\n\n## 关键地址\n- SYRUP: 0x643C4E15d7d62Ad0aBeC4a9BD4b001aA3Ef52d66\n\n## 历史\n- 2026-04-27: 链上调研, 标 medium confidence (国库地址未公开, 数据 6 个月)\n- 2025-Q4: MIP-019 通过启动 SSF\n",
-  "tevRatio": 0.25,
-  "earning_yield_percent": 1.45,
-  "market_cap_usd": 182988210.9,
-  "tev_yield_percent": 1.45,
+  "payout_ratio": 0.25,
+  "total_yield_percent": 1.43,
+  "market_cap_usd": 182500815.56,
+  "shareholder_yield_percent": 1.43,
   "metrics": {
-    "current_market_cap_usd": 182988210.9,
-    "trailing_365d_revenue_usd": 2655048,
-    "trailing_30d_revenue_usd": 206407,
-    "trailing_365d_tev_usd": 2655048,
-    "trailing_30d_tev_usd": 221254,
-    "trailing_7d_revenue_usd": 52728,
-    "trailing_90d_revenue_usd": 725139,
-    "tev_yield_7d_ann": 1.5,
-    "tev_yield_30d_ann": 1.37,
-    "tev_yield_90d_ann": 1.61,
-    "earning_yield_7d_ann": 1.5,
-    "earning_yield_30d_ann": 1.37,
-    "earning_yield_90d_ann": 1.61,
+    "current_market_cap_usd": 182500815.56,
+    "trailing_365d_revenue_usd": 2602180,
+    "trailing_30d_revenue_usd": 251460,
+    "trailing_365d_shareholder_returns_usd": 2602180,
+    "trailing_30d_shareholder_returns_usd": 216848.33333333334,
+    "trailing_7d_revenue_usd": 39242,
+    "trailing_90d_revenue_usd": 697704,
+    "shareholder_yield_7d_ann": 1.12,
+    "shareholder_yield_30d_ann": 1.68,
+    "shareholder_yield_90d_ann": 1.55,
+    "total_yield_7d_ann": 1.12,
+    "total_yield_30d_ann": 1.68,
+    "total_yield_90d_ann": 1.55,
     "dividend_yield_7d_ann": 0,
-    "buyback_yield_7d_ann": 1.5,
+    "buyback_yield_7d_ann": 1.12,
     "dividend_yield_30d_ann": 0,
-    "buyback_yield_30d_ann": 1.37,
+    "buyback_yield_30d_ann": 1.68,
     "dividend_yield_90d_ann": 0,
-    "buyback_yield_90d_ann": 1.61
+    "buyback_yield_90d_ann": 1.55
   },
   "calc_pipeline": [
     {
@@ -167,15 +171,46 @@
       "label": "最终 股东回报率",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
   ],
   "dividend_yield_percent": 0,
-  "buyback_yield_percent": 1.45,
-  "style": "cash_cow"
+  "buyback_yield_percent": 1.43,
+  "style": "cash_cow",
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "MIP-021 阶梯回购（2026-07-17 通过）：月收入 <$1.5M → 10%；$1.5-2M → 20%；>$2M → 30%",
+    "revenue_included": {
+      "protocol_fees": {
+        "note": "协议费收入（月收入 ~$1.29M → 落在 10% 档）"
+      }
+    },
+    "revenue_excluded": {},
+    "calculation": {
+      "payout_ratio": 0.1,
+      "note": "动态阶梯：2026-07 起按 MIP-021；MIP-019/020 固定 25% 已于 2026-Q2 结束"
+    },
+    "source_type": "official",
+    "source_url": "https://maple.finance/transparency"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "official",
+        "method": "maple.finance/transparency 官方仪表盘 + MIP 提案",
+        "frequency": "monthly",
+        "script": "ai-watch-governance.py"
+      }
+    ],
+    "ai_self_check": [
+      "mechanism-change",
+      "data-plausibility",
+      "freshness"
+    ]
+  }
 }

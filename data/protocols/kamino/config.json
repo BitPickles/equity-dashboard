@@ -15,8 +15,8 @@
     "circulating_supply": 3859589230,
     "total_supply": 9999959341.50722
   },
-  "tev_mechanisms": [],
-  "tev_summary": {
+  "return_mechanisms": [],
+  "return_summary": {
     "fee_switch": "NONE",
     "fee_switch_details": "无协议收入直接分配给 KMNO 持有者。所谓 'staking' 实为 farming 奖励加成机制",
     "buybacks": "NONE",
@@ -56,13 +56,13 @@
     }
   ],
   "notes": "⚠️ 从 PARTIAL 降级为 NONE。经深入调研确认：KMNO staking 不是协议收入分配，而是 farming 奖励加成（boost）机制。具体：(1) 新质押者起始 3% boost，每天 +0.1%；(2) 每 1 KMNO 质押对 $1 仓位施加 boost；(3) Season 奖励每 3 月最多 100M KMNO，来自代币国库（inflation），非协议费用；(4) 有 6 个月 vesting 期。Kamino 是优秀的 Solana 借贷协议（$3.34B AUM，零坏账），但 KMNO 代币目前无真正的 fee distribution 机制。2026 路线图专注机构产品（固定利率、链下抵押品），未来可能引入真正的 TEV。",
-  "last_updated": "2026-04-27",
-  "tev_data": {
-    "has_tev": false,
-    "tev_yield_percent": 0,
-    "annual_tev_usd": 0,
-    "market_cap_usd": 95444843.99,
-    "calculation_date": "2026-08-10",
+  "last_updated": "2026-08-02",
+  "return_data": {
+    "has_returns": false,
+    "shareholder_yield_percent": 0,
+    "annual_returns_usd": 0,
+    "market_cap_usd": 93761764.95,
+    "calculation_date": "2026-08-02",
     "sources": [
       {
         "name": "协议机制",
@@ -79,31 +79,35 @@
   },
   "market_data": {
     "tvl": 2058177618.5805178,
-    "tvl_updated": "2026-03-27T01:01:04.942Z"
+    "tvl_updated": "2026-03-27T01:01:04.942Z",
+    "price_usd": 0.0180218,
+    "circulating_market_cap": 94935231,
+    "circulating_supply": 5268493465.75,
+    "price_updated_at": "2026-08-10T19:54:19.498207+00:00"
   },
-  "tevStatus": "none",
+  "return_status": "none",
   "confidence_reason": {
     "zh": "KMNO staking 是 farming reward boost, 不是协议 fee 分润",
     "en": "KMNO staking 是 farming reward boost, 不是协议 fee 分润"
   },
-  "tevRatio": 0,
-  "earning_yield_percent": 12.42,
-  "market_cap_usd": 95444843.99,
-  "tev_yield_percent": 0,
+  "payout_ratio": 0,
+  "total_yield_percent": 12.89,
+  "market_cap_usd": 93761764.95,
+  "shareholder_yield_percent": 0,
   "metrics": {
-    "trailing_365d_revenue_usd": 11857551,
-    "trailing_30d_revenue_usd": 542452,
-    "current_market_cap_usd": 95444843.99,
-    "trailing_365d_tev_usd": 0,
-    "trailing_30d_tev_usd": 0,
-    "trailing_7d_revenue_usd": 119243,
-    "trailing_90d_revenue_usd": 2025224,
-    "tev_yield_7d_ann": 0,
-    "tev_yield_30d_ann": 0,
-    "tev_yield_90d_ann": 0,
-    "earning_yield_7d_ann": 6.51,
-    "earning_yield_30d_ann": 6.91,
-    "earning_yield_90d_ann": 8.61,
+    "trailing_365d_revenue_usd": 12082624,
+    "trailing_30d_revenue_usd": 632635,
+    "current_market_cap_usd": 93761764.95,
+    "trailing_365d_shareholder_returns_usd": 0,
+    "trailing_30d_shareholder_returns_usd": 0,
+    "trailing_7d_revenue_usd": 124389,
+    "trailing_90d_revenue_usd": 2079175,
+    "shareholder_yield_7d_ann": 0,
+    "shareholder_yield_30d_ann": 0,
+    "shareholder_yield_90d_ann": 0,
+    "total_yield_7d_ann": 6.92,
+    "total_yield_30d_ann": 8.21,
+    "total_yield_90d_ann": 8.99,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 0,
@@ -128,15 +132,45 @@
       "label": "股东回报率: 0% (governance-only)",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
   ],
   "dividend_yield_percent": 0,
   "buyback_yield_percent": 0,
-  "style": "growth"
+  "style": "growth",
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "只统计利润；股东回报 = 0（KMNO 不回购）",
+    "revenue_included": {
+      "protocol_fees": {
+        "note": "DefiLlama dailyRevenue（协议归属部分）"
+      }
+    },
+    "revenue_excluded": {},
+    "calculation": {
+      "payout_ratio": 0,
+      "note": "不回购的钱进国库/支出 → 留存行"
+    },
+    "source_type": "defillama",
+    "source_url": "https://defillama.com/protocol/kamino"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "defillama",
+        "method": "dailyFees/dailyRevenue 日频",
+        "frequency": "daily",
+        "script": "fetch-defillama.js"
+      }
+    ],
+    "ai_self_check": [
+      "data-plausibility",
+      "freshness"
+    ]
+  }
 }

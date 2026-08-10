@@ -11,7 +11,7 @@
     "chain": "Hyperliquid L1",
     "coingecko_id": "hyperliquid"
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "buyback_burn",
       "name": "Assistance Fund Buyback & Burn",
@@ -49,27 +49,28 @@
       "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/hyperevm"
     ]
   },
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "ON",
     "fee_switch_details": "交易费用扣除 deployer/builder/HLP/referral 后，进入 AF 回购销毁 HYPE",
     "buybacks": "ACTIVE",
     "dividends": "NONE",
     "burns": "ACTIVE",
     "primary_value_accrual": "回购销毁 - Assistance Fund 自动将费用换成 HYPE 并永久移除",
-    "tevRatio": "100%",
-    "tevRatio_note": "净利润（Token Holder Net Income）= 进入 AF 回购金额；逐期相等，因此净利润 100% 用于回购销毁"
+    "payout_ratio": "100%",
+    "payout_ratio_note": "净利润（Token Holder Net Income）= 进入 AF 回购金额；逐期相等，因此净利润 100% 用于回购销毁"
   },
   "market_data": {
-    "price_usd": 30.92,
-    "circulating_market_cap": 7368065201,
+    "price_usd": 55.76,
+    "circulating_market_cap": 12395944162,
     "snapshot_date": "2026-03-01",
     "data_source": "CoinGecko",
-    "circulating_supply": 238385316,
+    "circulating_supply": 222445714.0741414,
     "tvl": 5326286571.667961,
-    "tvl_updated": "2026-03-27T01:00:52.904Z"
+    "tvl_updated": "2026-03-27T01:00:52.904Z",
+    "price_updated_at": "2026-08-10T19:54:19.498207+00:00"
   },
-  "calculated_tev": {
-    "tev_yield_percent": 12.42,
+  "calculated_returns": {
+    "shareholder_yield_percent": 12.42,
     "calculation_status": "CALCULATED",
     "calculation_date": "2026-03-01",
     "inputs": {
@@ -147,7 +148,7 @@
     }
   ],
   "analyst_notes": "## Hyperliquid TEV 机制（更新：2026-04-19）\n\n### 1. 核心结论（重要修正）\n\n过去版本说 'AF 买入即销毁'——**不准确**。真相是：\n- **AF 买入的 HYPE 留在 AF 地址（0xfefe...fefe），不是销毁**\n- AF 是 **treasury buyback**，理论上可被 validator consensus 动用于救灾/清算补偿/用户补偿\n- 历史上尚未发生 AF 大规模动用（JELLY 事件 2025-03 是 HLP 补的），但可能性存在\n- 真正的永久销毁只有 **spot 交易 HYPE 手续费销毁**（~745k HYPE，约占供应 0.075%）\n\n因此 TEV 的保守口径应该是 **AF 净累积 + spot burn**，而不是 '全部视为销毁'。\n\n### 2. 机制路径\n\n用户手续费 → 扣除 (referral + builder + deployer)\n  → 余下部分：\n    - **HLP share**（做市/清算收益，约 40-46% perp net fee）→ 归 HLP LP，不归 HYPE 持有人\n    - **AF share**（剩下大头）→ 用 USDC 市价买 HYPE 存 AF\n    - **Spot 手续费（HYPE 计价部分）** → 直接销毁\n\n### 3. DefiLlama 口径验证\n\n已验证：DefiLlama `dailyRevenue` 和 `dailyHoldersRevenue` 对 Hyperliquid 完全相等，都 = AF 买入金额（已剥离 HLP/builder/referral）。数值与链上 AF `entryNtl` 吻合（误差 <5%）。\n\n### 4. 当前数字（2026-04-19 快照）\n\n- 链上 AF 持仓：~43.4M HYPE, entry_ntl ~$1.065B（累计买入成本）\n- Spot burn 累计：~745k HYPE（真正永久销毁）\n- 365d AF 买入：~$942M（DefiLlama）≈ AF net accumulation\n- TEV Yield 365d ≈ $942M / $7.37B = **12.78%**\n\n### 5. Caveats（向用户展示）\n\n- **AF 可被动用风险**：若 validator consensus 决议动用，这部分 TEV 会瞬间归零\n- **HLP 不归 HYPE 持有人**：DefiLlama `dailyFees` 减去 `dailyRevenue` 就是 HLP 部分\n- **Funding 不计入 TEV**：多空点对点支付，平台不收取\n\n### 6. 自动化\n\n- 日度：`sync-tev-data.js` 拉 DefiLlama `dailyRevenue`，算 7/30/90/365d yield\n- 日度校验：`update-hype-tev.py` 拉链上 AF `entryNtl`，与 DefiLlama delta 对比，偏差 >15% 告警\n\n### 7. 历史口径变更\n\n- 2026-04-19: 修正 'AF 买入即销毁' 错误描述；365d 字段改为 sync-tev-data.js 每日刷新；加入链上校验\n- 2026-03-01: 初版 AF 口径\n",
-  "last_updated": "2026-04-24",
+  "last_updated": "2026-08-02",
   "buyback_data": {
     "enabled": true,
     "data_file": "hype-buybacks.json",
@@ -155,11 +156,11 @@
     "api_endpoint": "https://api.hyperliquid.xyz/info",
     "note": "Assistance Fund 回购数据，HYPE 直接从 circulating + total supply 移除"
   },
-  "tev_data": {
-    "has_tev": true,
-    "tev_yield_percent": 10.31,
+  "return_data": {
+    "has_returns": true,
+    "shareholder_yield_percent": 10.49,
     "market_cap_usd": 7368065201,
-    "calculation_date": "2026-08-10",
+    "calculation_date": "2026-08-02",
     "sources": [
       {
         "name": "DefiLlama holdersRevenue",
@@ -169,7 +170,7 @@
       }
     ],
     "calculation": "详见 calc_pipeline 数组（5 steps 端到端推导）",
-    "trailing_365d_tev_usd": 926166161,
+    "trailing_365d_shareholder_returns_usd": 926166161,
     "last_updated": "2026-03-26"
   },
   "burn_progress": {
@@ -182,32 +183,32 @@
     "pct": 0.075,
     "af_pct": 4.34
   },
-  "tevStatus": "active",
+  "return_status": "active",
   "confidence_reason": {
     "zh": "链上 AF 余额可验证 + DefiLlama holdersRevenue 交叉验证",
     "en": "On-chain AF balance verifiable + DefiLlama holdersRevenue cross-validated"
   },
-  "tevRatio": 1,
-  "earning_yield_percent": 10.31,
+  "payout_ratio": 1,
+  "total_yield_percent": 10.49,
   "market_cap_usd": 7368065201,
-  "tev_yield_percent": 10.31,
+  "shareholder_yield_percent": 10.49,
   "metrics": {
-    "trailing_7d_revenue_usd": 6436338,
-    "trailing_30d_revenue_usd": 32027142,
-    "trailing_90d_revenue_usd": 137162784,
-    "tev_yield_7d_ann": 4.55,
-    "tev_yield_30d_ann": 5.29,
-    "tev_yield_90d_ann": 7.55,
-    "earning_yield_7d_ann": 4.55,
-    "earning_yield_30d_ann": 5.29,
-    "earning_yield_90d_ann": 7.55,
-    "trailing_365d_revenue_usd": 759934857,
+    "trailing_7d_revenue_usd": 8228544,
+    "trailing_30d_revenue_usd": 34979838,
+    "trailing_90d_revenue_usd": 142582881,
+    "shareholder_yield_7d_ann": 5.82,
+    "shareholder_yield_30d_ann": 5.78,
+    "shareholder_yield_90d_ann": 7.85,
+    "total_yield_7d_ann": 5.82,
+    "total_yield_30d_ann": 5.78,
+    "total_yield_90d_ann": 7.85,
+    "trailing_365d_revenue_usd": 772987701,
     "dividend_yield_7d_ann": 0,
-    "buyback_yield_7d_ann": 4.55,
+    "buyback_yield_7d_ann": 5.82,
     "dividend_yield_30d_ann": 0,
-    "buyback_yield_30d_ann": 5.29,
+    "buyback_yield_30d_ann": 5.78,
     "dividend_yield_90d_ann": 0,
-    "buyback_yield_90d_ann": 7.55
+    "buyback_yield_90d_ann": 7.85
   },
   "calc_pipeline": [
     {
@@ -251,15 +252,49 @@
       "label": "最终 股东回报率",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
   ],
   "dividend_yield_percent": 0,
-  "buyback_yield_percent": 10.31,
-  "style": "cash_cow"
+  "buyback_yield_percent": 10.49,
+  "style": "cash_cow",
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "只计流向流通持币人的价值流；AF 余额（可被动用）不计入",
+    "revenue_included": {
+      "trading_fees": {
+        "note": "手续费直接销毁 ≈ 回购，基本 99%（spot 手续费真销毁计入）"
+      }
+    },
+    "revenue_excluded": {
+      "assistance_fund": {
+        "note": "AF 用交易费回购 HYPE 留在 AF 地址（可被动用），仅作注记"
+      }
+    },
+    "calculation": {
+      "payout_ratio": 0.99,
+      "note": "以链上实际销毁为准（spot 销毁地址）"
+    },
+    "source_type": "chain",
+    "source_url": "https://app.hyperliquid.xyz"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "chain",
+        "method": "spot 销毁地址 + AF 地址",
+        "frequency": "daily",
+        "script": "update-hype.py"
+      }
+    ],
+    "ai_self_check": [
+      "data-plausibility",
+      "freshness"
+    ]
+  }
 }

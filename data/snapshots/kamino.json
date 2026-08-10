@@ -1,6 +1,6 @@
 {
   "protocol": "kamino",
-  "as_of": "2026-08-06",
+  "as_of": "2026-08-11",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -63,14 +63,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 94103459,
+    "market_cap_usd": 94935231,
     "tvl_usd": 2058177618.5805178,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": null,
-    "ps": 7.7883,
+    "ps": 7.8572,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null
@@ -78,6 +78,6 @@
   "verification": {
     "method": "净利 = DefiLlama dailyRevenue 365d $12,082,624（协议净收入）；KMNO 治理代币不回购（staking 为 farming boost 非分润）；净利留存协议",
     "status": "estimated",
-    "last_checked": "2026-08-06"
+    "last_checked": "2026-08-11"
   }
 }

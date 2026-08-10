@@ -15,7 +15,7 @@
     "circulating_supply": 10394463.42351323,
     "total_supply": 10394463.42351323
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "staking_reward",
       "name": "GMX 质押奖励",
@@ -36,30 +36,31 @@
       }
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "ON",
     "fee_switch_details": "27% 平台费用分配给质押 GMX 持有者（通过回购机制）",
     "buybacks": "ACTIVE",
     "dividends": "ACTIVE",
     "burns": "NONE",
     "primary_value_accrual": "回购分红 - 质押 GMX 获得回购分配的 GMX",
-    "tevRatio": 0.27
+    "payout_ratio": 0.27
   },
   "market_data": {
-    "price_usd": 5.93,
-    "circulating_supply": 10386388,
-    "circulating_market_cap": 61633069,
+    "price_usd": 6.24,
+    "circulating_supply": 10451822.69826324,
+    "circulating_market_cap": 65012908,
     "total_supply": 10685596,
     "holders": 300830,
     "snapshot_date": "2026-02-05",
     "tvl": 256520219.69048157,
-    "tvl_updated": "2026-03-27T01:00:52.307Z"
+    "tvl_updated": "2026-03-27T01:00:52.307Z",
+    "price_updated_at": "2026-08-10T19:54:19.498207+00:00"
   },
-  "calculated_tev": {
+  "calculated_returns": {
     "holders_revenue_30d_usd": 1208117,
     "holders_revenue_annual_usd": 14497404,
     "market_cap_usd": 61633069,
-    "tev_yield_percent": 23.5,
+    "shareholder_yield_percent": 23.5,
     "calculation_date": "2026-02-05",
     "note": "TEV yield = 年化 holders revenue / 流通市值"
   },
@@ -85,13 +86,13 @@
     }
   ],
   "analyst_notes": "【2026-04-26 链上调研后 — TEV 标 paused (低 confidence)】\n\n## 当前实际状态: 分红暂停\n\nGMX 协议分红机制经历重大变化:\n\n**2026-03-04 之前**:\n- 27% 平台费用通过 RewardRouter V2 实时分给 sGMX 持有人\n- 形式: ETH (Arbitrum) / AVAX (Avalanche), 持有人能即时领取\n- 这是真 TEV (外部资产现金分红)\n\n**2026-03-04 起 (新机制, \"Staking Power\" 系统)**:\n- ETH/AVAX 实时分红停止\n- 改为 Treasury 用 USDC 收入回购 GMX, 累积在 Treasury\n- **触发条件: GMX 价格 ≥ $90 才解锁分配**\n- 持有人累积 \"Staking Power\" = Σ(持仓天数 × 持仓量)\n- Loyalty: 若持仓跌至历史高位 80% 以下, 累积归零 (防套利)\n- 2026-03-25 引入 Loyalty Tracking\n\n**当前价格 ~$7 (2026-04-26)**, 距触发条件 $90 还差 12 倍, 实际**当前现金收益 = 0**.\n\n## DefiLlama 数据失真\n\n- DefiLlama dailyHoldersRevenue 365d 仍显示 $12.30M (历史含暂停前数据)\n- 30d 滚动 ~$0.6M (近期, 与暂停状态一致)\n- **持有人实际拿到的 = 0** (DefiLlama 跟踪 fees 不跟踪触发解锁)\n\n## 推荐口径\n\n- **yield = 0% (paused)**, status='partial'\n- 详情页明确标注 \"等待 GMX > $90 触发分配, 当前实际现金收益 = 0\"\n- 监控 Treasury GMX 累积量 + Staking Power 增长\n\n## 关键地址\n\n- GMX (Arbitrum): 0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a\n- GMX (Avalanche): 0x62edc0692BD897D2295872a9FFCac5425011c661\n- RewardRouter V2: 0xB95DB5B167D75e6d04227CfFFA61069348d271F5\n- sGMX Tracker: 0x908C4D94D34924765f1eDc22A1DD098397c59dD4\n\n## 何时恢复\n\n如未来:\n- GMX 价格 ≥ $90 (当前 1200% 涨幅) → Treasury 解锁分配\n- 治理改回实时分红 → 切回 27% × revenue / mcap 口径\n- esGMX vesting / 其他机制变化 → 重新评估\n",
-  "last_updated": "2026-04-26",
-  "tev_data": {
-    "has_tev": false,
-    "tev_yield_percent": 0,
-    "annual_tev_usd": 0,
-    "market_cap_usd": 65427885.75,
-    "calculation_date": "2026-08-10",
+  "last_updated": "2026-08-02",
+  "return_data": {
+    "has_returns": false,
+    "shareholder_yield_percent": 0,
+    "annual_returns_usd": 0,
+    "market_cap_usd": 64130927.2,
+    "calculation_date": "2026-08-02",
     "sources": [
       {
         "name": "协议机制 (paused)",
@@ -114,29 +115,29 @@
       "esGMX (vesting token) 不是真 TEV — vesting 期满回流"
     ]
   },
-  "tevStatus": "partial",
+  "return_status": "partial",
   "confidence_reason": {
     "zh": "2026-03-04 起 ETH/AVAX 实时分红停止, 改为 Treasury 累积 GMX 等价格 ≥ $90 才解锁分配. 当前 GMX ~$7, 触发条件远未达, staker 实际现金收益 = 0",
     "en": "ETH/AVAX real-time distributions halted since 2026-03-04. Switched to Treasury GMX accumulation, awaiting GMX price ≥ $90 to trigger distribution. Currently ~$7, far from trigger."
   },
-  "tevRatio": 0.27,
-  "earning_yield_percent": 18.69,
-  "market_cap_usd": 65427885.75,
-  "tev_yield_percent": 0,
+  "payout_ratio": 0.27,
+  "total_yield_percent": 19.77,
+  "market_cap_usd": 64130927.2,
+  "shareholder_yield_percent": 0,
   "metrics": {
-    "current_market_cap_usd": 65427885.75,
-    "trailing_365d_revenue_usd": 12228099,
-    "trailing_30d_revenue_usd": 504929,
-    "trailing_365d_tev_usd": 0,
-    "trailing_30d_tev_usd": 0,
-    "trailing_7d_revenue_usd": 97633,
-    "trailing_90d_revenue_usd": 1953587,
-    "tev_yield_7d_ann": 0,
-    "tev_yield_30d_ann": 0,
-    "tev_yield_90d_ann": 0,
-    "earning_yield_7d_ann": 7.78,
-    "earning_yield_30d_ann": 9.39,
-    "earning_yield_90d_ann": 12.11,
+    "current_market_cap_usd": 64130927.2,
+    "trailing_365d_revenue_usd": 12675745,
+    "trailing_30d_revenue_usd": 600334,
+    "trailing_365d_shareholder_returns_usd": 0,
+    "trailing_30d_shareholder_returns_usd": 0,
+    "trailing_7d_revenue_usd": 135839,
+    "trailing_90d_revenue_usd": 2098400,
+    "shareholder_yield_7d_ann": 0,
+    "shareholder_yield_30d_ann": 0,
+    "shareholder_yield_90d_ann": 0,
+    "total_yield_7d_ann": 11.04,
+    "total_yield_30d_ann": 11.39,
+    "total_yield_90d_ann": 13.27,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 0,
@@ -178,15 +179,57 @@
       "label": "当前 股东回报率: 0% (paused)",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
   ],
   "dividend_yield_percent": 0,
   "buyback_yield_percent": 0,
-  "style": "growth"
+  "style": "growth",
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "锁定期内实质为 0：27% 协议费用全额转国库（回购但不向质押者分发，回购-留存模式）",
+    "revenue_included": {
+      "platform_fees": {
+        "note": "平台费（V2 交易费可算）"
+      }
+    },
+    "revenue_excluded": {
+      "staking_dividends": {
+        "note": "质押分红已暂停（2026-03-04 Restore Price Discovery）"
+      }
+    },
+    "calculation": {
+      "revenue_usd_365d": "扣 LP → 净利 → 留存 27%",
+      "payout_ratio": 0,
+      "note": "恢复条件：价格阈值 $90（对应市值 ~$9 亿），当前 $6-7 远未触发；股东回报 = 0，标注「锁定至 $90」"
+    },
+    "source_type": "official",
+    "source_url": "https://gov.gmx.io/t/5042"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "official",
+        "method": "gov.gmx.io 提案 #5042 监控（价格阈值恢复条件）",
+        "frequency": "event",
+        "script": "ai-watch-governance.py"
+      },
+      {
+        "type": "defillama",
+        "method": "V2 交易费日频",
+        "frequency": "daily",
+        "script": "fetch-defillama.js"
+      }
+    ],
+    "ai_self_check": [
+      "mechanism-change",
+      "data-plausibility",
+      "freshness"
+    ]
+  }
 }

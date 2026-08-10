@@ -15,8 +15,8 @@
     "circulating_supply": 589512855.7955344,
     "total_supply": 1791332848.045445
   },
-  "tev_mechanisms": [],
-  "tev_summary": {
+  "return_mechanisms": [],
+  "return_summary": {
     "fee_switch": "OFF",
     "fee_switch_details": "协议费用开关未开启",
     "buybacks": "NONE",
@@ -35,13 +35,13 @@
     }
   ],
   "notes": "EigenLayer 作为再质押基础设施，当前 EIGEN 代币仅有治理功能。协议收入（AVS 费用）目前未分配给代币持有者。未来可能通过治理开启费用开关。",
-  "last_updated": "2026-04-27",
-  "tev_data": {
-    "has_tev": false,
-    "tev_yield_percent": 0,
-    "annual_tev_usd": 0,
-    "market_cap_usd": 160652351.13,
-    "calculation_date": "2026-08-10",
+  "last_updated": "2026-08-02",
+  "return_data": {
+    "has_returns": false,
+    "shareholder_yield_percent": 0,
+    "annual_returns_usd": 0,
+    "market_cap_usd": 162824450.72,
+    "calculation_date": "2026-08-02",
     "sources": [
       {
         "name": "协议机制",
@@ -58,31 +58,35 @@
   },
   "market_data": {
     "tvl": 8717705308.933592,
-    "tvl_updated": "2026-03-27T01:00:32.145Z"
+    "tvl_updated": "2026-03-27T01:00:32.145Z",
+    "price_usd": 0.180138,
+    "circulating_market_cap": 133503525,
+    "circulating_supply": 741228566.6979554,
+    "price_updated_at": "2026-08-10T19:54:19.498207+00:00"
   },
-  "tevStatus": "none",
+  "return_status": "none",
   "confidence_reason": {
     "zh": "纯治理代币. AVS 费用不分给 EIGEN 持有人, restaking rewards 全流向 validator",
     "en": "纯治理代币. AVS 费用不分给 EIGEN 持有人, restaking rewards 全流向 validator"
   },
-  "tevRatio": 0,
-  "earning_yield_percent": 0,
-  "market_cap_usd": 160652351.13,
-  "tev_yield_percent": 0,
+  "payout_ratio": 0,
+  "total_yield_percent": 0,
+  "market_cap_usd": 162824450.72,
+  "shareholder_yield_percent": 0,
   "metrics": {
-    "current_market_cap_usd": 160652351.13,
+    "current_market_cap_usd": 162824450.72,
     "trailing_365d_revenue_usd": 0,
     "trailing_30d_revenue_usd": 0,
-    "trailing_365d_tev_usd": 0,
-    "trailing_30d_tev_usd": 0,
+    "trailing_365d_shareholder_returns_usd": 0,
+    "trailing_30d_shareholder_returns_usd": 0,
     "trailing_7d_revenue_usd": 0,
     "trailing_90d_revenue_usd": 0,
-    "tev_yield_7d_ann": 0,
-    "tev_yield_30d_ann": 0,
-    "tev_yield_90d_ann": 0,
-    "earning_yield_7d_ann": 0,
-    "earning_yield_30d_ann": 0,
-    "earning_yield_90d_ann": 0,
+    "shareholder_yield_7d_ann": 0,
+    "shareholder_yield_30d_ann": 0,
+    "shareholder_yield_90d_ann": 0,
+    "total_yield_7d_ann": 0,
+    "total_yield_30d_ann": 0,
+    "total_yield_90d_ann": 0,
     "dividend_yield_7d_ann": 0,
     "buyback_yield_7d_ann": 0,
     "dividend_yield_30d_ann": 0,
@@ -107,15 +111,45 @@
       "label": "股东回报率: 0% (governance-only)",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
   ],
   "dividend_yield_percent": 0,
   "buyback_yield_percent": 0,
-  "style": "growth"
+  "style": "growth",
+  "revenue_recognition": {
+    "entity_type": "app",
+    "principle": "只统计利润；股东回报 = 0（不回购）",
+    "revenue_included": {
+      "protocol_fees": {
+        "note": "DefiLlama dailyRevenue（协议归属部分）"
+      }
+    },
+    "revenue_excluded": {},
+    "calculation": {
+      "payout_ratio": 0,
+      "note": "EIGEN 无收益权；不回购的钱进国库/支出 → 留存行"
+    },
+    "source_type": "defillama",
+    "source_url": "https://defillama.com/protocol/eigenlayer"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "defillama",
+        "method": "dailyFees/dailyRevenue 日频",
+        "frequency": "daily",
+        "script": "fetch-defillama.js"
+      }
+    ],
+    "ai_self_check": [
+      "data-plausibility",
+      "freshness"
+    ]
+  }
 }
