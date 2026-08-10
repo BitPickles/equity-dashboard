@@ -2,16 +2,6 @@
   "protocol": "curve",
   "records": [
     {
-      "as_of": "2025-08-07",
-      "net_income": -14762387.9,
-      "daily_value": -22393.12,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": -69.5378,
-      "_period": "daily"
-    },
-    {
       "as_of": "2025-08-08",
       "net_income": -14766846.98,
       "daily_value": -10823.35,
@@ -3639,6 +3629,14 @@
     },
     {
       "as_of": "2026-08-06",
+      "net_income": null,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": null,
+      "net_margin": null
+    },
+    {
+      "as_of": "2026-08-11",
       "net_income": null,
       "pe": null,
       "ps": null,
