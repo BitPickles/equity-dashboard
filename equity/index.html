@@ -429,10 +429,17 @@
           const res = await fetch(`../data/daily/${key}/latest.json`);
           if (!res.ok) throw new Error();
           const data = await res.json();
-          // 合并 metrics：优先用 daily 数据，回退到 all-protocols.json
-          const mergedMetrics = { ...config.metrics, ...data.metrics };
+          // 合并 metrics：daily 的 null 代表该字段未记录，不能覆盖权威汇总数据。
+          // 否则每日快照只含价格/收入时，会把 P/E、P/S、股东回报率清空为“—”。
+          const definedDailyMetrics = Object.fromEntries(
+            Object.entries(data.metrics || {}).filter(([, value]) => value != null)
+          );
+          const definedDailyData = Object.fromEntries(
+            Object.entries(data).filter(([, value]) => value != null)
+          );
+          const mergedMetrics = { ...config.metrics, ...definedDailyMetrics };
           // payout_ratio 直接使用 all-protocols.json 中的预计算值，不再动态计算
-          let merged = { key, ...config, ...data, metrics: mergedMetrics, payout_ratio: config.payout_ratio };
+          let merged = { key, ...config, ...definedDailyData, metrics: mergedMetrics, payout_ratio: config.payout_ratio };
           // 财务字段 fallback：当 all-protocols.json 缺失 gross_profit/net_income/net_margin 时，
           // 从 snapshots/{id}.json 的 income_statement 补全（详情页用同一数据源）。
           // 规范：仅在 snapshots 给非零值时才 fallback（避免把"snapshots 写了 0"的协议显示成 $0，
