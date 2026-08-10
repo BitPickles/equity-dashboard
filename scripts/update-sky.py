@@ -90,7 +90,7 @@ def update_records():
     existing['protocol'] = 'sky'
     
     existing['summary'] = {
-        'total_tev_usd': total_tev,
+        'total_returns_usd': total_tev,
         'total_30d_usd': total_30d,
         'by_mechanism': {
             'holders_revenue': total_tev
@@ -116,7 +116,7 @@ def main():
             data = json.load(f)
         
         summary = data.get('summary', {})
-        total_tev = summary.get('total_tev_usd', 0)
+        total_tev = summary.get('total_returns_usd', 0)
         total_30d = summary.get('total_30d_usd', 0)
         
         print(f'  ✅ TEV 365d: ${total_tev/1e6:.2f}M')

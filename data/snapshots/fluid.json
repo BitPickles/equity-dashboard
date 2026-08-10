@@ -1,0 +1,83 @@
+{
+  "protocol": "fluid",
+  "as_of": "2026-08-06",
+  "income_statement": {
+    "revenue": {
+      "entity_type": "app",
+      "revenue_included": {
+        "protocol_fees_usd_365d": 4745308,
+        "total_usd_365d": 4745308
+      },
+      "revenue_excluded": {
+        "lending_fees_to_lp": {
+          "note": "借贷/DEX 费用给 LP 部分已在 DefiLlama dailyHoldersRevenue 口径内扣减；回购额 ≈ 收入 $12.85M × 35%"
+        }
+      },
+      "growth_yoy_percent": null,
+      "source": {
+        "type": "defillama",
+        "url": "https://defillama.com/protocol/fluid"
+      }
+    },
+    "gross_profit": {
+      "lp_share_cost_usd_365d": null,
+      "gross_profit_usd_365d": 4745308,
+      "calculation_note": "DefiLlama dailyHoldersRevenue 为协议净收入口径（LP 分润已扣），毛利 = 收入"
+    },
+    "token_emission_cost": {
+      "usd_365d": null,
+      "annual_emission_tokens": null,
+      "inflation_rate_percent": null,
+      "treatment": "none",
+      "calculation_note": "FLUID 无持续增发成本模型（供应 10 亿，回购进 reserve 钱包）"
+    },
+    "net_income": {
+      "net_income_usd_365d": 4745308,
+      "operating_cost_usd_365d": null,
+      "calculation_note": "净利 = 收入 − 增发(0) − 运营成本(数据不可得)；35% 用于回购（= 净利口径），其余留存/支出"
+    },
+    "margins": {
+      "gross_margin_percent": 100.0,
+      "net_margin_percent": 100.0,
+      "note": "派生计算：gross = GP/Rev, net = NI/Rev；协议收入为净额口径，故为 100%"
+    }
+  },
+  "holder_returns": {
+    "by_mechanism": [
+      {
+        "mechanism": "Fluid Reserve Buyback（35% 收入回购）",
+        "type": "buyback",
+        "usd_365d": 4745308,
+        "yield_percent": 5.0329,
+        "verified": "partial",
+        "note": "2025-10 起 35% 收入 → Treasury 回购 FLUID（reserve 钱包 0x3e6F.../0x9Afb...，链上可追踪）；回购后终极用途未公开（储备/burn/分配待定）；35% 比例无链上治理投票"
+      }
+    ],
+    "summary": {
+      "destroy_usd_365d": 4745308,
+      "yield_usd_365d": null,
+      "destroy_yield_percent": 5.0329,
+      "yield_yield_percent": null,
+      "shareholder_returns_usd_365d": 4745308,
+      "shareholder_yield_percent": 5.0329
+    }
+  },
+  "balance_sheet": {
+    "market_cap_usd": 94286499,
+    "tvl_usd": 858549305.8980845,
+    "treasury_usd": null,
+    "debt_usd": null
+  },
+  "valuation": {
+    "pe": 19.8694,
+    "ps": 19.8694,
+    "pb": null,
+    "ev_revenue": null,
+    "payout_ratio": 1.0
+  },
+  "verification": {
+    "method": "股东回报 = DefiLlama dailyHoldersRevenue 365d $4,745,308（= 35% 收入回购）；链上 reserve 钱包实测 $4,613,558（tev-records，差 <0.5%）",
+    "status": "partial",
+    "last_checked": "2026-08-06"
+  }
+}

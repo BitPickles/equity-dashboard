@@ -2,11 +2,11 @@
 
 本文档说明 Sky（原 MakerDAO）协议的 TEV（Token Economic Value）数据如何计算、数据源、自动更新。
 
-> **品牌变化**：Maker 于 2024-08 重品牌为 Sky，MKR → SKY（1:24000 转换）。本 dashboard 继续用 MKR 作为 ticker 显示（历史连续性）；但 TEV 机制数据已对齐到 Sky 时代（Splitter/SBE）。
+> **品牌变化**：Maker 于 2024-08 重品牌为 Sky，MKR → SKY（1:24000 转换）。本 dashboard 继续用 MKR 作为 ticker 显示（历史连续性）；但 价值分配机制数据已对齐到 Sky 时代（Splitter/SBE）。
 
 ---
 
-## 一、TEV 机制
+## 一、价值分配机制
 
 ### Smart Burn Engine (SBE)
 
@@ -37,7 +37,7 @@ Surplus DAI/USDS
 
 ---
 
-## 二、TEV 口径（2026-04-22 切换）
+## 二、回报口径（2026-04-22 切换）
 
 **TEV = DefiLlama `dailyHoldersRevenue`（Sky slug）**
 
@@ -48,13 +48,13 @@ Surplus DAI/USDS
 
 **Earning Yield = DefiLlama `dailyRevenue`**（协议归属总收入，已扣除 DSR/SSR 支出）
 
-**动态 tevRatio** = holdersRevenue / revenue ≈ 0.48（Splitter 当前 burn 比例）
+**动态 payout_ratio** = holdersRevenue / revenue ≈ 0.48（Splitter 当前 burn 比例）
 
 ---
 
 ## 三、各周期数字（2026-04-22 快照）
 
-| 周期 | HoldersRevenue | Revenue | TEV Yield | Earning Yield |
+| 周期 | HoldersRevenue | Revenue | Shareholder Yield | Earning Yield |
 |---|---|---|---|---|
 | 7d | $0.26M | $3.34M | 0.76% | 9.60% |
 | 30d | $1.13M | $14.25M | 0.75% | 9.55% |
@@ -100,7 +100,7 @@ Sky 不能这么做：
 
 ## 六、历史口径变更
 
-- 2026-04-22: 从 `fixedTevUsd: $13.724M`（写死）改为动态 `dailyHoldersRevenue`；tevRatio 从 0.7 静态改为动态计算（当前 ~0.483）
+- 2026-04-22: 从 `fixedTevUsd: $13.724M`（写死）改为动态 `dailyHoldersRevenue`；payout_ratio 从 0.7 静态改为动态计算（当前 ~0.483）
 - 2026-03: SBE 治理减速生效（$300k/天 → $37.6k/天，-87.5%）
 - 2024-08: Maker 重品牌为 Sky，MKR → SKY 1:24000 转换
 
@@ -128,9 +128,9 @@ done
 python3 -c "
 import json
 d=json.load(open('data/all-protocols.json'))['protocols']['sky']
-print('TEV 365d:', d['tev_yield_percent'])
-print('Earning 365d:', d['earning_yield_percent'])
-print('tevRatio:', d['tevRatio'])
+print('TEV 365d:', d['shareholder_yield_percent'])
+print('Earning 365d:', d['total_yield_percent'])
+print('payout_ratio:', d['payout_ratio'])
 print('validation:', json.dumps(d.get('validation', {}), indent=2, ensure_ascii=False))
 "
 ```

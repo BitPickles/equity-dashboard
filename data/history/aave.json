@@ -1,0 +1,3649 @@
+{
+  "protocol": "aave",
+  "records": [
+    {
+      "as_of": "2025-08-07",
+      "net_income": 93983171.91,
+      "daily_value": 436695.84,
+      "pe": 19.142,
+      "ps": 19.142,
+      "shareholder_yield": 5.224,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-08",
+      "net_income": 94306640.08,
+      "daily_value": 445377.73,
+      "pe": 19.077,
+      "ps": 19.077,
+      "shareholder_yield": 5.242,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-09",
+      "net_income": 94648260.04,
+      "daily_value": 463206.52,
+      "pe": 19.008,
+      "ps": 19.008,
+      "shareholder_yield": 5.261,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-10",
+      "net_income": 94976349.17,
+      "daily_value": 457184.6,
+      "pe": 18.942,
+      "ps": 18.942,
+      "shareholder_yield": 5.2792,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-11",
+      "net_income": 95281670.56,
+      "daily_value": 436258.84,
+      "pe": 18.881,
+      "ps": 18.881,
+      "shareholder_yield": 5.2962,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-12",
+      "net_income": 95666957.0,
+      "daily_value": 517724.88,
+      "pe": 18.805,
+      "ps": 18.805,
+      "shareholder_yield": 5.3176,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-13",
+      "net_income": 96113525.72,
+      "daily_value": 567543.29,
+      "pe": 18.718,
+      "ps": 18.718,
+      "shareholder_yield": 5.3424,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-14",
+      "net_income": 96557488.47,
+      "daily_value": 580342.14,
+      "pe": 18.632,
+      "ps": 18.632,
+      "shareholder_yield": 5.3671,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-15",
+      "net_income": 97022475.98,
+      "daily_value": 599916.91,
+      "pe": 18.543,
+      "ps": 18.543,
+      "shareholder_yield": 5.393,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-16",
+      "net_income": 97401285.5,
+      "daily_value": 527591.76,
+      "pe": 18.471,
+      "ps": 18.471,
+      "shareholder_yield": 5.414,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-17",
+      "net_income": 97833204.39,
+      "daily_value": 567698.29,
+      "pe": 18.389,
+      "ps": 18.389,
+      "shareholder_yield": 5.438,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-18",
+      "net_income": 98236052.63,
+      "daily_value": 568688.28,
+      "pe": 18.314,
+      "ps": 18.314,
+      "shareholder_yield": 5.4604,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-19",
+      "net_income": 98659437.62,
+      "daily_value": 570639.25,
+      "pe": 18.235,
+      "ps": 18.235,
+      "shareholder_yield": 5.4839,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-20",
+      "net_income": 99046768.04,
+      "daily_value": 536420.66,
+      "pe": 18.164,
+      "ps": 18.164,
+      "shareholder_yield": 5.5055,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-21",
+      "net_income": 99394630.93,
+      "daily_value": 484496.27,
+      "pe": 18.1,
+      "ps": 18.1,
+      "shareholder_yield": 5.5248,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-22",
+      "net_income": 99797540.17,
+      "daily_value": 546083.54,
+      "pe": 18.027,
+      "ps": 18.027,
+      "shareholder_yield": 5.5472,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-23",
+      "net_income": 100141225.11,
+      "daily_value": 493777.16,
+      "pe": 17.965,
+      "ps": 17.965,
+      "shareholder_yield": 5.5663,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-24",
+      "net_income": 100510005.75,
+      "daily_value": 515134.91,
+      "pe": 17.899,
+      "ps": 17.899,
+      "shareholder_yield": 5.5868,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-25",
+      "net_income": 100883955.32,
+      "daily_value": 525733.78,
+      "pe": 17.833,
+      "ps": 17.833,
+      "shareholder_yield": 5.6076,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-26",
+      "net_income": 101237616.14,
+      "daily_value": 504586.03,
+      "pe": 17.771,
+      "ps": 17.771,
+      "shareholder_yield": 5.6273,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-27",
+      "net_income": 101547769.48,
+      "daily_value": 483258.29,
+      "pe": 17.716,
+      "ps": 17.716,
+      "shareholder_yield": 5.6445,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-28",
+      "net_income": 101895328.37,
+      "daily_value": 491124.19,
+      "pe": 17.656,
+      "ps": 17.656,
+      "shareholder_yield": 5.6638,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-29",
+      "net_income": 102293066.67,
+      "daily_value": 534115.69,
+      "pe": 17.587,
+      "ps": 17.587,
+      "shareholder_yield": 5.6859,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-30",
+      "net_income": 102624434.75,
+      "daily_value": 469376.45,
+      "pe": 17.531,
+      "ps": 17.531,
+      "shareholder_yield": 5.7043,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-08-31",
+      "net_income": 102963385.74,
+      "daily_value": 472809.41,
+      "pe": 17.473,
+      "ps": 17.473,
+      "shareholder_yield": 5.7232,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-01",
+      "net_income": 103302958.73,
+      "daily_value": 478020.35,
+      "pe": 17.415,
+      "ps": 17.415,
+      "shareholder_yield": 5.7421,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-02",
+      "net_income": 103686185.2,
+      "daily_value": 529149.74,
+      "pe": 17.351,
+      "ps": 17.351,
+      "shareholder_yield": 5.7634,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-03",
+      "net_income": 104021177.24,
+      "daily_value": 485209.26,
+      "pe": 17.295,
+      "ps": 17.295,
+      "shareholder_yield": 5.782,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-04",
+      "net_income": 104362250.2,
+      "daily_value": 503659.05,
+      "pe": 17.239,
+      "ps": 17.239,
+      "shareholder_yield": 5.8009,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-05",
+      "net_income": 104724608.92,
+      "daily_value": 508657.99,
+      "pe": 17.179,
+      "ps": 17.179,
+      "shareholder_yield": 5.8211,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-06",
+      "net_income": 105008189.57,
+      "daily_value": 481980.3,
+      "pe": 17.133,
+      "ps": 17.133,
+      "shareholder_yield": 5.8368,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-07",
+      "net_income": 105353962.48,
+      "daily_value": 473032.41,
+      "pe": 17.076,
+      "ps": 17.076,
+      "shareholder_yield": 5.8561,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-08",
+      "net_income": 105709149.28,
+      "daily_value": 482360.3,
+      "pe": 17.019,
+      "ps": 17.019,
+      "shareholder_yield": 5.8758,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-09",
+      "net_income": 106077646.92,
+      "daily_value": 497999.11,
+      "pe": 16.96,
+      "ps": 16.96,
+      "shareholder_yield": 5.8963,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-10",
+      "net_income": 106452565.49,
+      "daily_value": 498355.11,
+      "pe": 16.9,
+      "ps": 16.9,
+      "shareholder_yield": 5.9171,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-11",
+      "net_income": 106849348.8,
+      "daily_value": 520560.85,
+      "pe": 16.837,
+      "ps": 16.837,
+      "shareholder_yield": 5.9392,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-12",
+      "net_income": 107263314.91,
+      "daily_value": 534957.68,
+      "pe": 16.772,
+      "ps": 16.772,
+      "shareholder_yield": 5.9622,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-13",
+      "net_income": 107673105.06,
+      "daily_value": 532405.71,
+      "pe": 16.709,
+      "ps": 16.709,
+      "shareholder_yield": 5.985,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-14",
+      "net_income": 108053031.57,
+      "daily_value": 505553.02,
+      "pe": 16.65,
+      "ps": 16.65,
+      "shareholder_yield": 6.0061,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-15",
+      "net_income": 108475297.58,
+      "daily_value": 548648.51,
+      "pe": 16.585,
+      "ps": 16.585,
+      "shareholder_yield": 6.0296,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-16",
+      "net_income": 108942814.05,
+      "daily_value": 600205.9,
+      "pe": 16.514,
+      "ps": 16.514,
+      "shareholder_yield": 6.0555,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-17",
+      "net_income": 109366090.05,
+      "daily_value": 555543.43,
+      "pe": 16.45,
+      "ps": 16.45,
+      "shareholder_yield": 6.0791,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-18",
+      "net_income": 109800253.91,
+      "daily_value": 569623.27,
+      "pe": 16.385,
+      "ps": 16.385,
+      "shareholder_yield": 6.1032,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-19",
+      "net_income": 110210032.07,
+      "daily_value": 544439.56,
+      "pe": 16.324,
+      "ps": 16.324,
+      "shareholder_yield": 6.126,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-20",
+      "net_income": 110593066.54,
+      "daily_value": 521868.83,
+      "pe": 16.267,
+      "ps": 16.267,
+      "shareholder_yield": 6.1473,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-21",
+      "net_income": 110976155.01,
+      "daily_value": 527082.77,
+      "pe": 16.211,
+      "ps": 16.211,
+      "shareholder_yield": 6.1686,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-22",
+      "net_income": 111492943.9,
+      "daily_value": 654356.26,
+      "pe": 16.136,
+      "ps": 16.136,
+      "shareholder_yield": 6.1973,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-23",
+      "net_income": 111875553.38,
+      "daily_value": 517340.88,
+      "pe": 16.081,
+      "ps": 16.081,
+      "shareholder_yield": 6.2186,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-24",
+      "net_income": 112248819.97,
+      "daily_value": 514764.91,
+      "pe": 16.027,
+      "ps": 16.027,
+      "shareholder_yield": 6.2393,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-25",
+      "net_income": 112598690.83,
+      "daily_value": 491715.19,
+      "pe": 15.978,
+      "ps": 15.978,
+      "shareholder_yield": 6.2588,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-26",
+      "net_income": 112965060.5,
+      "daily_value": 510197.97,
+      "pe": 15.926,
+      "ps": 15.926,
+      "shareholder_yield": 6.2791,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-27",
+      "net_income": 113263777.97,
+      "daily_value": 445312.74,
+      "pe": 15.884,
+      "ps": 15.884,
+      "shareholder_yield": 6.2957,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-28",
+      "net_income": 113592302.08,
+      "daily_value": 455135.62,
+      "pe": 15.838,
+      "ps": 15.838,
+      "shareholder_yield": 6.314,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-29",
+      "net_income": 113917310.24,
+      "daily_value": 451253.67,
+      "pe": 15.793,
+      "ps": 15.793,
+      "shareholder_yield": 6.332,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-09-30",
+      "net_income": 114240619.42,
+      "daily_value": 456828.6,
+      "pe": 15.748,
+      "ps": 15.748,
+      "shareholder_yield": 6.35,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-01",
+      "net_income": 114546689.8,
+      "daily_value": 463803.52,
+      "pe": 15.706,
+      "ps": 15.706,
+      "shareholder_yield": 6.367,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-02",
+      "net_income": 114872677.95,
+      "daily_value": 472480.41,
+      "pe": 15.661,
+      "ps": 15.661,
+      "shareholder_yield": 6.3852,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-03",
+      "net_income": 115192577.16,
+      "daily_value": 473671.4,
+      "pe": 15.618,
+      "ps": 15.618,
+      "shareholder_yield": 6.4029,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-04",
+      "net_income": 115512725.38,
+      "daily_value": 459667.57,
+      "pe": 15.575,
+      "ps": 15.575,
+      "shareholder_yield": 6.4207,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-05",
+      "net_income": 115837782.54,
+      "daily_value": 462717.53,
+      "pe": 15.531,
+      "ps": 15.531,
+      "shareholder_yield": 6.4388,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-06",
+      "net_income": 116176790.53,
+      "daily_value": 469443.45,
+      "pe": 15.486,
+      "ps": 15.486,
+      "shareholder_yield": 6.4576,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-07",
+      "net_income": 116512093.56,
+      "daily_value": 473176.41,
+      "pe": 15.441,
+      "ps": 15.441,
+      "shareholder_yield": 6.4763,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-08",
+      "net_income": 116985317.97,
+      "daily_value": 483782.28,
+      "pe": 15.379,
+      "ps": 15.379,
+      "shareholder_yield": 6.5026,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-09",
+      "net_income": 117300366.25,
+      "daily_value": 490133.21,
+      "pe": 15.337,
+      "ps": 15.337,
+      "shareholder_yield": 6.5201,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-10",
+      "net_income": 118942653.83,
+      "daily_value": 1793348.8,
+      "pe": 15.125,
+      "ps": 15.125,
+      "shareholder_yield": 6.6114,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-11",
+      "net_income": 119315441.42,
+      "daily_value": 527198.77,
+      "pe": 15.078,
+      "ps": 15.078,
+      "shareholder_yield": 6.6321,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-12",
+      "net_income": 119724038.59,
+      "daily_value": 553431.46,
+      "pe": 15.027,
+      "ps": 15.027,
+      "shareholder_yield": 6.6548,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-13",
+      "net_income": 120025104.03,
+      "daily_value": 443877.75,
+      "pe": 14.989,
+      "ps": 14.989,
+      "shareholder_yield": 6.6715,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-14",
+      "net_income": 120323464.51,
+      "daily_value": 463650.52,
+      "pe": 14.952,
+      "ps": 14.952,
+      "shareholder_yield": 6.6881,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-15",
+      "net_income": 120589943.36,
+      "daily_value": 426801.95,
+      "pe": 14.919,
+      "ps": 14.919,
+      "shareholder_yield": 6.7029,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-16",
+      "net_income": 120876576.97,
+      "daily_value": 445832.73,
+      "pe": 14.883,
+      "ps": 14.883,
+      "shareholder_yield": 6.7189,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-17",
+      "net_income": 121186407.3,
+      "daily_value": 465343.5,
+      "pe": 14.845,
+      "ps": 14.845,
+      "shareholder_yield": 6.7361,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-18",
+      "net_income": 121409503.67,
+      "daily_value": 394438.34,
+      "pe": 14.818,
+      "ps": 14.818,
+      "shareholder_yield": 6.7485,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-19",
+      "net_income": 121640519.94,
+      "daily_value": 406716.19,
+      "pe": 14.79,
+      "ps": 14.79,
+      "shareholder_yield": 6.7613,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-20",
+      "net_income": 121877693.13,
+      "daily_value": 408803.17,
+      "pe": 14.761,
+      "ps": 14.761,
+      "shareholder_yield": 6.7745,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-21",
+      "net_income": 122119496.27,
+      "daily_value": 433199.88,
+      "pe": 14.732,
+      "ps": 14.732,
+      "shareholder_yield": 6.788,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-22",
+      "net_income": 122370368.31,
+      "daily_value": 434166.87,
+      "pe": 14.702,
+      "ps": 14.702,
+      "shareholder_yield": 6.8019,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-23",
+      "net_income": 122606344.52,
+      "daily_value": 421007.02,
+      "pe": 14.673,
+      "ps": 14.673,
+      "shareholder_yield": 6.815,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-24",
+      "net_income": 122823963.94,
+      "daily_value": 415547.09,
+      "pe": 14.647,
+      "ps": 14.647,
+      "shareholder_yield": 6.8271,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-25",
+      "net_income": 123014531.69,
+      "daily_value": 387008.42,
+      "pe": 14.625,
+      "ps": 14.625,
+      "shareholder_yield": 6.8377,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-26",
+      "net_income": 123245838.96,
+      "daily_value": 396766.31,
+      "pe": 14.597,
+      "ps": 14.597,
+      "shareholder_yield": 6.8506,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-27",
+      "net_income": 123472148.28,
+      "daily_value": 397274.3,
+      "pe": 14.571,
+      "ps": 14.571,
+      "shareholder_yield": 6.8632,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-28",
+      "net_income": 123702012.56,
+      "daily_value": 406630.19,
+      "pe": 14.543,
+      "ps": 14.543,
+      "shareholder_yield": 6.8759,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-29",
+      "net_income": 123918971.0,
+      "daily_value": 408533.17,
+      "pe": 14.518,
+      "ps": 14.518,
+      "shareholder_yield": 6.888,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-30",
+      "net_income": 124167434.06,
+      "daily_value": 420288.03,
+      "pe": 14.489,
+      "ps": 14.489,
+      "shareholder_yield": 6.9018,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-10-31",
+      "net_income": 124382541.52,
+      "daily_value": 388921.4,
+      "pe": 14.464,
+      "ps": 14.464,
+      "shareholder_yield": 6.9138,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-01",
+      "net_income": 124578945.2,
+      "daily_value": 371975.6,
+      "pe": 14.441,
+      "ps": 14.441,
+      "shareholder_yield": 6.9247,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-02",
+      "net_income": 124784236.77,
+      "daily_value": 375211.56,
+      "pe": 14.417,
+      "ps": 14.417,
+      "shareholder_yield": 6.9361,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-03",
+      "net_income": 125028970.88,
+      "daily_value": 414970.09,
+      "pe": 14.389,
+      "ps": 14.389,
+      "shareholder_yield": 6.9497,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-04",
+      "net_income": 125901029.57,
+      "daily_value": 1042913.67,
+      "pe": 14.289,
+      "ps": 14.289,
+      "shareholder_yield": 6.9982,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-05",
+      "net_income": 126120653.97,
+      "daily_value": 398414.29,
+      "pe": 14.265,
+      "ps": 14.265,
+      "shareholder_yield": 7.0104,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-06",
+      "net_income": 126271744.18,
+      "daily_value": 374884.57,
+      "pe": 14.248,
+      "ps": 14.248,
+      "shareholder_yield": 7.0188,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-07",
+      "net_income": 126423476.39,
+      "daily_value": 405654.2,
+      "pe": 14.23,
+      "ps": 14.23,
+      "shareholder_yield": 7.0272,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-08",
+      "net_income": 126543429.97,
+      "daily_value": 396388.31,
+      "pe": 14.217,
+      "ps": 14.217,
+      "shareholder_yield": 7.0339,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-09",
+      "net_income": 126710202.0,
+      "daily_value": 390291.39,
+      "pe": 14.198,
+      "ps": 14.198,
+      "shareholder_yield": 7.0431,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-10",
+      "net_income": 126866783.15,
+      "daily_value": 375440.56,
+      "pe": 14.181,
+      "ps": 14.181,
+      "shareholder_yield": 7.0518,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-11",
+      "net_income": 126968478.95,
+      "daily_value": 369653.63,
+      "pe": 14.169,
+      "ps": 14.169,
+      "shareholder_yield": 7.0575,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-12",
+      "net_income": 127016911.37,
+      "daily_value": 366136.67,
+      "pe": 14.164,
+      "ps": 14.164,
+      "shareholder_yield": 7.0602,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-13",
+      "net_income": 127168281.58,
+      "daily_value": 419744.04,
+      "pe": 14.147,
+      "ps": 14.147,
+      "shareholder_yield": 7.0686,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-14",
+      "net_income": 127333106.64,
+      "daily_value": 390439.38,
+      "pe": 14.129,
+      "ps": 14.129,
+      "shareholder_yield": 7.0778,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-15",
+      "net_income": 127430809.48,
+      "daily_value": 327377.13,
+      "pe": 14.118,
+      "ps": 14.118,
+      "shareholder_yield": 7.0832,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-16",
+      "net_income": 127804961.06,
+      "daily_value": 596305.95,
+      "pe": 14.077,
+      "ps": 14.077,
+      "shareholder_yield": 7.104,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-17",
+      "net_income": 127973906.06,
+      "daily_value": 391241.37,
+      "pe": 14.058,
+      "ps": 14.058,
+      "shareholder_yield": 7.1134,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-18",
+      "net_income": 128084991.75,
+      "daily_value": 364236.69,
+      "pe": 14.046,
+      "ps": 14.046,
+      "shareholder_yield": 7.1196,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-19",
+      "net_income": 128200752.38,
+      "daily_value": 400840.26,
+      "pe": 14.033,
+      "ps": 14.033,
+      "shareholder_yield": 7.126,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-20",
+      "net_income": 128442812.52,
+      "daily_value": 544086.57,
+      "pe": 14.007,
+      "ps": 14.007,
+      "shareholder_yield": 7.1394,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-21",
+      "net_income": 128882451.32,
+      "daily_value": 729185.38,
+      "pe": 13.959,
+      "ps": 13.959,
+      "shareholder_yield": 7.1639,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-22",
+      "net_income": 128844603.77,
+      "daily_value": 297076.49,
+      "pe": 13.963,
+      "ps": 13.963,
+      "shareholder_yield": 7.1618,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-23",
+      "net_income": 128843244.78,
+      "daily_value": 303256.41,
+      "pe": 13.963,
+      "ps": 13.963,
+      "shareholder_yield": 7.1617,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-24",
+      "net_income": 128845011.76,
+      "daily_value": 306673.37,
+      "pe": 13.963,
+      "ps": 13.963,
+      "shareholder_yield": 7.1618,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-25",
+      "net_income": 128881130.33,
+      "daily_value": 294283.52,
+      "pe": 13.959,
+      "ps": 13.959,
+      "shareholder_yield": 7.1638,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-26",
+      "net_income": 128859093.6,
+      "daily_value": 289746.57,
+      "pe": 13.961,
+      "ps": 13.961,
+      "shareholder_yield": 7.1626,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-27",
+      "net_income": 128810822.17,
+      "daily_value": 283279.65,
+      "pe": 13.967,
+      "ps": 13.967,
+      "shareholder_yield": 7.1599,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-28",
+      "net_income": 128781693.51,
+      "daily_value": 278252.71,
+      "pe": 13.97,
+      "ps": 13.97,
+      "shareholder_yield": 7.1583,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-29",
+      "net_income": 128701956.45,
+      "daily_value": 276784.73,
+      "pe": 13.978,
+      "ps": 13.978,
+      "shareholder_yield": 7.1538,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-11-30",
+      "net_income": 128672648.8,
+      "daily_value": 281487.67,
+      "pe": 13.982,
+      "ps": 13.982,
+      "shareholder_yield": 7.1522,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-01",
+      "net_income": 128658307.97,
+      "daily_value": 316293.26,
+      "pe": 13.983,
+      "ps": 13.983,
+      "shareholder_yield": 7.1514,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-02",
+      "net_income": 128495883.89,
+      "daily_value": 302515.42,
+      "pe": 14.001,
+      "ps": 14.001,
+      "shareholder_yield": 7.1424,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-03",
+      "net_income": 128365409.43,
+      "daily_value": 293446.53,
+      "pe": 14.015,
+      "ps": 14.015,
+      "shareholder_yield": 7.1351,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-04",
+      "net_income": 128226450.07,
+      "daily_value": 290889.56,
+      "pe": 14.03,
+      "ps": 14.03,
+      "shareholder_yield": 7.1274,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-05",
+      "net_income": 127923934.65,
+      "daily_value": 284213.64,
+      "pe": 14.064,
+      "ps": 14.064,
+      "shareholder_yield": 7.1106,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-06",
+      "net_income": 127666983.69,
+      "daily_value": 266469.85,
+      "pe": 14.092,
+      "ps": 14.092,
+      "shareholder_yield": 7.0963,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-07",
+      "net_income": 127572947.8,
+      "daily_value": 272737.78,
+      "pe": 14.102,
+      "ps": 14.102,
+      "shareholder_yield": 7.0911,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-08",
+      "net_income": 127472593.99,
+      "daily_value": 287785.6,
+      "pe": 14.113,
+      "ps": 14.113,
+      "shareholder_yield": 7.0855,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-09",
+      "net_income": 127099592.4,
+      "daily_value": 309563.34,
+      "pe": 14.155,
+      "ps": 14.155,
+      "shareholder_yield": 7.0648,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-10",
+      "net_income": 126976956.85,
+      "daily_value": 301739.43,
+      "pe": 14.168,
+      "ps": 14.168,
+      "shareholder_yield": 7.058,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-11",
+      "net_income": 126820457.7,
+      "daily_value": 300759.44,
+      "pe": 14.186,
+      "ps": 14.186,
+      "shareholder_yield": 7.0493,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-12",
+      "net_income": 126682288.33,
+      "daily_value": 297449.48,
+      "pe": 14.201,
+      "ps": 14.201,
+      "shareholder_yield": 7.0416,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-13",
+      "net_income": 126586507.46,
+      "daily_value": 287817.6,
+      "pe": 14.212,
+      "ps": 14.212,
+      "shareholder_yield": 7.0363,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-14",
+      "net_income": 126484967.66,
+      "daily_value": 279142.7,
+      "pe": 14.224,
+      "ps": 14.224,
+      "shareholder_yield": 7.0306,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-15",
+      "net_income": 126371452.0,
+      "daily_value": 297100.49,
+      "pe": 14.236,
+      "ps": 14.236,
+      "shareholder_yield": 7.0243,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-16",
+      "net_income": 126192493.12,
+      "daily_value": 277229.72,
+      "pe": 14.256,
+      "ps": 14.256,
+      "shareholder_yield": 7.0144,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-17",
+      "net_income": 126089185.34,
+      "daily_value": 275173.75,
+      "pe": 14.268,
+      "ps": 14.268,
+      "shareholder_yield": 7.0086,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-18",
+      "net_income": 125901310.56,
+      "daily_value": 270048.81,
+      "pe": 14.289,
+      "ps": 14.289,
+      "shareholder_yield": 6.9982,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-19",
+      "net_income": 125714043.78,
+      "daily_value": 269671.81,
+      "pe": 14.311,
+      "ps": 14.311,
+      "shareholder_yield": 6.9878,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-20",
+      "net_income": 125500362.3,
+      "daily_value": 277350.72,
+      "pe": 14.335,
+      "ps": 14.335,
+      "shareholder_yield": 6.9759,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-21",
+      "net_income": 125352493.05,
+      "daily_value": 264641.87,
+      "pe": 14.352,
+      "ps": 14.352,
+      "shareholder_yield": 6.9677,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-22",
+      "net_income": 125225655.55,
+      "daily_value": 273003.77,
+      "pe": 14.367,
+      "ps": 14.367,
+      "shareholder_yield": 6.9606,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-23",
+      "net_income": 125083068.24,
+      "daily_value": 268810.82,
+      "pe": 14.383,
+      "ps": 14.383,
+      "shareholder_yield": 6.9527,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-24",
+      "net_income": 124956587.73,
+      "daily_value": 264481.87,
+      "pe": 14.397,
+      "ps": 14.397,
+      "shareholder_yield": 6.9457,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-25",
+      "net_income": 124834471.18,
+      "daily_value": 264788.87,
+      "pe": 14.412,
+      "ps": 14.412,
+      "shareholder_yield": 6.9389,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-26",
+      "net_income": 124706990.68,
+      "daily_value": 264789.87,
+      "pe": 14.426,
+      "ps": 14.426,
+      "shareholder_yield": 6.9318,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-27",
+      "net_income": 124589524.07,
+      "daily_value": 260356.92,
+      "pe": 14.44,
+      "ps": 14.44,
+      "shareholder_yield": 6.9253,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-28",
+      "net_income": 124481364.35,
+      "daily_value": 272801.77,
+      "pe": 14.452,
+      "ps": 14.452,
+      "shareholder_yield": 6.9192,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-29",
+      "net_income": 124372924.63,
+      "daily_value": 262608.9,
+      "pe": 14.465,
+      "ps": 14.465,
+      "shareholder_yield": 6.9132,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-30",
+      "net_income": 124259122.98,
+      "daily_value": 276270.73,
+      "pe": 14.478,
+      "ps": 14.478,
+      "shareholder_yield": 6.9069,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2025-12-31",
+      "net_income": 124164744.09,
+      "daily_value": 278887.7,
+      "pe": 14.489,
+      "ps": 14.489,
+      "shareholder_yield": 6.9016,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-01",
+      "net_income": 124088882.99,
+      "daily_value": 273379.77,
+      "pe": 14.498,
+      "ps": 14.498,
+      "shareholder_yield": 6.8974,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-02",
+      "net_income": 123991600.14,
+      "daily_value": 281822.67,
+      "pe": 14.51,
+      "ps": 14.51,
+      "shareholder_yield": 6.892,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-03",
+      "net_income": 123895632.27,
+      "daily_value": 276624.73,
+      "pe": 14.521,
+      "ps": 14.521,
+      "shareholder_yield": 6.8867,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-04",
+      "net_income": 123801373.39,
+      "daily_value": 281554.67,
+      "pe": 14.532,
+      "ps": 14.532,
+      "shareholder_yield": 6.8815,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-05",
+      "net_income": 123700587.58,
+      "daily_value": 284182.64,
+      "pe": 14.544,
+      "ps": 14.544,
+      "shareholder_yield": 6.8758,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-06",
+      "net_income": 123595088.83,
+      "daily_value": 274688.75,
+      "pe": 14.556,
+      "ps": 14.556,
+      "shareholder_yield": 6.87,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-07",
+      "net_income": 123443121.62,
+      "daily_value": 273701.76,
+      "pe": 14.574,
+      "ps": 14.574,
+      "shareholder_yield": 6.8615,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-08",
+      "net_income": 123311833.18,
+      "daily_value": 285631.62,
+      "pe": 14.59,
+      "ps": 14.59,
+      "shareholder_yield": 6.8542,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-09",
+      "net_income": 123194078.57,
+      "daily_value": 272379.78,
+      "pe": 14.603,
+      "ps": 14.603,
+      "shareholder_yield": 6.8477,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-10",
+      "net_income": 123103625.64,
+      "daily_value": 272098.78,
+      "pe": 14.614,
+      "ps": 14.614,
+      "shareholder_yield": 6.8427,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-11",
+      "net_income": 123030766.5,
+      "daily_value": 279705.69,
+      "pe": 14.623,
+      "ps": 14.623,
+      "shareholder_yield": 6.8386,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-12",
+      "net_income": 122969030.23,
+      "daily_value": 289707.58,
+      "pe": 14.63,
+      "ps": 14.63,
+      "shareholder_yield": 6.8352,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-13",
+      "net_income": 122844845.7,
+      "daily_value": 288630.59,
+      "pe": 14.645,
+      "ps": 14.645,
+      "shareholder_yield": 6.8283,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-14",
+      "net_income": 122800246.22,
+      "daily_value": 293181.53,
+      "pe": 14.65,
+      "ps": 14.65,
+      "shareholder_yield": 6.8258,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-15",
+      "net_income": 122745840.87,
+      "daily_value": 299706.46,
+      "pe": 14.657,
+      "ps": 14.657,
+      "shareholder_yield": 6.8228,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-16",
+      "net_income": 122703432.37,
+      "daily_value": 290102.57,
+      "pe": 14.662,
+      "ps": 14.662,
+      "shareholder_yield": 6.8204,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-17",
+      "net_income": 122637690.15,
+      "daily_value": 289306.58,
+      "pe": 14.67,
+      "ps": 14.67,
+      "shareholder_yield": 6.8168,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-18",
+      "net_income": 122581814.81,
+      "daily_value": 286250.62,
+      "pe": 14.676,
+      "ps": 14.676,
+      "shareholder_yield": 6.8137,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-19",
+      "net_income": 122535370.36,
+      "daily_value": 324292.17,
+      "pe": 14.682,
+      "ps": 14.682,
+      "shareholder_yield": 6.8111,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-20",
+      "net_income": 122573456.91,
+      "daily_value": 419035.05,
+      "pe": 14.677,
+      "ps": 14.677,
+      "shareholder_yield": 6.8132,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-21",
+      "net_income": 122508579.67,
+      "daily_value": 311696.32,
+      "pe": 14.685,
+      "ps": 14.685,
+      "shareholder_yield": 6.8096,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-22",
+      "net_income": 122458385.27,
+      "daily_value": 308224.36,
+      "pe": 14.691,
+      "ps": 14.691,
+      "shareholder_yield": 6.8068,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-23",
+      "net_income": 122393424.03,
+      "daily_value": 304338.4,
+      "pe": 14.699,
+      "ps": 14.699,
+      "shareholder_yield": 6.8032,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-24",
+      "net_income": 122338086.69,
+      "daily_value": 300534.45,
+      "pe": 14.706,
+      "ps": 14.706,
+      "shareholder_yield": 6.8001,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-25",
+      "net_income": 122302438.11,
+      "daily_value": 311639.32,
+      "pe": 14.71,
+      "ps": 14.71,
+      "shareholder_yield": 6.7981,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-26",
+      "net_income": 122262156.59,
+      "daily_value": 301136.44,
+      "pe": 14.715,
+      "ps": 14.715,
+      "shareholder_yield": 6.7959,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-27",
+      "net_income": 122138707.05,
+      "daily_value": 310685.33,
+      "pe": 14.73,
+      "ps": 14.73,
+      "shareholder_yield": 6.789,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-28",
+      "net_income": 122112199.36,
+      "daily_value": 317594.25,
+      "pe": 14.733,
+      "ps": 14.733,
+      "shareholder_yield": 6.7876,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-29",
+      "net_income": 122152949.88,
+      "daily_value": 361909.72,
+      "pe": 14.728,
+      "ps": 14.728,
+      "shareholder_yield": 6.7898,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-30",
+      "net_income": 122179095.57,
+      "daily_value": 352393.83,
+      "pe": 14.725,
+      "ps": 14.725,
+      "shareholder_yield": 6.7913,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-01-31",
+      "net_income": 122964619.28,
+      "daily_value": 1105471.93,
+      "pe": 14.631,
+      "ps": 14.631,
+      "shareholder_yield": 6.8349,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-01",
+      "net_income": 123021927.6,
+      "daily_value": 362781.71,
+      "pe": 14.624,
+      "ps": 14.624,
+      "shareholder_yield": 6.8381,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-02",
+      "net_income": 123095322.74,
+      "daily_value": 518389.87,
+      "pe": 14.615,
+      "ps": 14.615,
+      "shareholder_yield": 6.8422,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-03",
+      "net_income": 121821347.8,
+      "daily_value": 443701.75,
+      "pe": 14.768,
+      "ps": 14.768,
+      "shareholder_yield": 6.7714,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-04",
+      "net_income": 121797650.08,
+      "daily_value": 317982.24,
+      "pe": 14.771,
+      "ps": 14.771,
+      "shareholder_yield": 6.7701,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-05",
+      "net_income": 122605610.53,
+      "daily_value": 1097859.02,
+      "pe": 14.674,
+      "ps": 14.674,
+      "shareholder_yield": 6.815,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-06",
+      "net_income": 123307863.22,
+      "daily_value": 977174.45,
+      "pe": 14.59,
+      "ps": 14.59,
+      "shareholder_yield": 6.854,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-07",
+      "net_income": 123324251.03,
+      "daily_value": 297642.48,
+      "pe": 14.588,
+      "ps": 14.588,
+      "shareholder_yield": 6.8549,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-08",
+      "net_income": 123300402.31,
+      "daily_value": 244592.11,
+      "pe": 14.591,
+      "ps": 14.591,
+      "shareholder_yield": 6.8536,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-09",
+      "net_income": 123280228.55,
+      "daily_value": 244500.11,
+      "pe": 14.593,
+      "ps": 14.593,
+      "shareholder_yield": 6.8525,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-10",
+      "net_income": 123261114.78,
+      "daily_value": 238397.18,
+      "pe": 14.596,
+      "ps": 14.596,
+      "shareholder_yield": 6.8514,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-11",
+      "net_income": 123240299.02,
+      "daily_value": 231066.27,
+      "pe": 14.598,
+      "ps": 14.598,
+      "shareholder_yield": 6.8503,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-12",
+      "net_income": 123211497.36,
+      "daily_value": 219913.4,
+      "pe": 14.601,
+      "ps": 14.601,
+      "shareholder_yield": 6.8487,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-13",
+      "net_income": 123212478.35,
+      "daily_value": 224682.34,
+      "pe": 14.601,
+      "ps": 14.601,
+      "shareholder_yield": 6.8487,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-14",
+      "net_income": 123252005.88,
+      "daily_value": 262675.89,
+      "pe": 14.597,
+      "ps": 14.597,
+      "shareholder_yield": 6.8509,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-15",
+      "net_income": 123351956.7,
+      "daily_value": 317222.25,
+      "pe": 14.585,
+      "ps": 14.585,
+      "shareholder_yield": 6.8565,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-16",
+      "net_income": 123373948.44,
+      "daily_value": 247716.07,
+      "pe": 14.582,
+      "ps": 14.582,
+      "shareholder_yield": 6.8577,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-17",
+      "net_income": 123378683.39,
+      "daily_value": 234806.22,
+      "pe": 14.582,
+      "ps": 14.582,
+      "shareholder_yield": 6.858,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-18",
+      "net_income": 123366192.53,
+      "daily_value": 215332.45,
+      "pe": 14.583,
+      "ps": 14.583,
+      "shareholder_yield": 6.8573,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-19",
+      "net_income": 123355295.66,
+      "daily_value": 217463.43,
+      "pe": 14.584,
+      "ps": 14.584,
+      "shareholder_yield": 6.8567,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-20",
+      "net_income": 123341220.83,
+      "daily_value": 213772.47,
+      "pe": 14.586,
+      "ps": 14.586,
+      "shareholder_yield": 6.8559,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-21",
+      "net_income": 123300273.31,
+      "daily_value": 207853.54,
+      "pe": 14.591,
+      "ps": 14.591,
+      "shareholder_yield": 6.8536,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-22",
+      "net_income": 123247336.94,
+      "daily_value": 206468.56,
+      "pe": 14.597,
+      "ps": 14.597,
+      "shareholder_yield": 6.8507,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-23",
+      "net_income": 123221793.24,
+      "daily_value": 213243.48,
+      "pe": 14.6,
+      "ps": 14.6,
+      "shareholder_yield": 6.8492,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-24",
+      "net_income": 123153391.05,
+      "daily_value": 215556.45,
+      "pe": 14.608,
+      "ps": 14.608,
+      "shareholder_yield": 6.8454,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-25",
+      "net_income": 122921059.8,
+      "daily_value": 248692.06,
+      "pe": 14.636,
+      "ps": 14.636,
+      "shareholder_yield": 6.8325,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-26",
+      "net_income": 122749605.82,
+      "daily_value": 209237.53,
+      "pe": 14.656,
+      "ps": 14.656,
+      "shareholder_yield": 6.823,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-27",
+      "net_income": 122694970.47,
+      "daily_value": 209615.52,
+      "pe": 14.663,
+      "ps": 14.663,
+      "shareholder_yield": 6.82,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-02-28",
+      "net_income": 122421018.71,
+      "daily_value": 212283.49,
+      "pe": 14.696,
+      "ps": 14.696,
+      "shareholder_yield": 6.8047,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-01",
+      "net_income": 122416076.77,
+      "daily_value": 203824.59,
+      "pe": 14.696,
+      "ps": 14.696,
+      "shareholder_yield": 6.8044,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-02",
+      "net_income": 122404509.9,
+      "daily_value": 224111.35,
+      "pe": 14.698,
+      "ps": 14.698,
+      "shareholder_yield": 6.8038,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-03",
+      "net_income": 122365417.37,
+      "daily_value": 216675.44,
+      "pe": 14.702,
+      "ps": 14.702,
+      "shareholder_yield": 6.8016,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-04",
+      "net_income": 122265804.54,
+      "daily_value": 237933.19,
+      "pe": 14.714,
+      "ps": 14.714,
+      "shareholder_yield": 6.7961,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-05",
+      "net_income": 122278184.4,
+      "daily_value": 218956.41,
+      "pe": 14.713,
+      "ps": 14.713,
+      "shareholder_yield": 6.7968,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-06",
+      "net_income": 122284998.32,
+      "daily_value": 211148.5,
+      "pe": 14.712,
+      "ps": 14.712,
+      "shareholder_yield": 6.7972,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-07",
+      "net_income": 122266077.54,
+      "daily_value": 194639.7,
+      "pe": 14.714,
+      "ps": 14.714,
+      "shareholder_yield": 6.7961,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-08",
+      "net_income": 122269271.5,
+      "daily_value": 199004.65,
+      "pe": 14.714,
+      "ps": 14.714,
+      "shareholder_yield": 6.7963,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-09",
+      "net_income": 122226486.01,
+      "daily_value": 187773.78,
+      "pe": 14.719,
+      "ps": 14.719,
+      "shareholder_yield": 6.7939,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-10",
+      "net_income": 122071903.84,
+      "daily_value": 340535.97,
+      "pe": 14.738,
+      "ps": 14.738,
+      "shareholder_yield": 6.7853,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-11",
+      "net_income": 121955364.21,
+      "daily_value": 194250.7,
+      "pe": 14.752,
+      "ps": 14.752,
+      "shareholder_yield": 6.7788,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-12",
+      "net_income": 121948174.3,
+      "daily_value": 186720.79,
+      "pe": 14.753,
+      "ps": 14.753,
+      "shareholder_yield": 6.7784,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-13",
+      "net_income": 121968817.05,
+      "daily_value": 199622.64,
+      "pe": 14.75,
+      "ps": 14.75,
+      "shareholder_yield": 6.7796,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-14",
+      "net_income": 121981573.9,
+      "daily_value": 186953.79,
+      "pe": 14.749,
+      "ps": 14.749,
+      "shareholder_yield": 6.7803,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-15",
+      "net_income": 122002834.65,
+      "daily_value": 192934.72,
+      "pe": 14.746,
+      "ps": 14.746,
+      "shareholder_yield": 6.7815,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-16",
+      "net_income": 122040526.21,
+      "daily_value": 217757.43,
+      "pe": 14.741,
+      "ps": 14.741,
+      "shareholder_yield": 6.7836,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-17",
+      "net_income": 122061193.96,
+      "daily_value": 198023.66,
+      "pe": 14.739,
+      "ps": 14.739,
+      "shareholder_yield": 6.7847,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-18",
+      "net_income": 122062806.94,
+      "daily_value": 196642.68,
+      "pe": 14.739,
+      "ps": 14.739,
+      "shareholder_yield": 6.7848,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-19",
+      "net_income": 122077807.77,
+      "daily_value": 206407.56,
+      "pe": 14.737,
+      "ps": 14.737,
+      "shareholder_yield": 6.7856,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-20",
+      "net_income": 122108234.41,
+      "daily_value": 193812.71,
+      "pe": 14.733,
+      "ps": 14.733,
+      "shareholder_yield": 6.7873,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-21",
+      "net_income": 122130514.14,
+      "daily_value": 191965.73,
+      "pe": 14.731,
+      "ps": 14.731,
+      "shareholder_yield": 6.7886,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-22",
+      "net_income": 122156323.84,
+      "daily_value": 196036.68,
+      "pe": 14.728,
+      "ps": 14.728,
+      "shareholder_yield": 6.79,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-23",
+      "net_income": 122181515.54,
+      "daily_value": 197770.66,
+      "pe": 14.724,
+      "ps": 14.724,
+      "shareholder_yield": 6.7914,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-24",
+      "net_income": 122200882.31,
+      "daily_value": 189669.76,
+      "pe": 14.722,
+      "ps": 14.722,
+      "shareholder_yield": 6.7925,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-25",
+      "net_income": 122219355.09,
+      "daily_value": 193584.71,
+      "pe": 14.72,
+      "ps": 14.72,
+      "shareholder_yield": 6.7935,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-26",
+      "net_income": 122248136.75,
+      "daily_value": 198040.66,
+      "pe": 14.716,
+      "ps": 14.716,
+      "shareholder_yield": 6.7951,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-27",
+      "net_income": 122324086.85,
+      "daily_value": 245916.09,
+      "pe": 14.707,
+      "ps": 14.707,
+      "shareholder_yield": 6.7993,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-28",
+      "net_income": 122329651.79,
+      "daily_value": 193700.71,
+      "pe": 14.707,
+      "ps": 14.707,
+      "shareholder_yield": 6.7996,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-29",
+      "net_income": 122345028.61,
+      "daily_value": 193172.72,
+      "pe": 14.705,
+      "ps": 14.705,
+      "shareholder_yield": 6.8005,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-30",
+      "net_income": 122370988.3,
+      "daily_value": 195761.69,
+      "pe": 14.702,
+      "ps": 14.702,
+      "shareholder_yield": 6.8019,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-03-31",
+      "net_income": 122397909.98,
+      "daily_value": 195222.69,
+      "pe": 14.698,
+      "ps": 14.698,
+      "shareholder_yield": 6.8034,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-01",
+      "net_income": 122438190.51,
+      "daily_value": 209680.52,
+      "pe": 14.694,
+      "ps": 14.694,
+      "shareholder_yield": 6.8057,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-02",
+      "net_income": 122463286.21,
+      "daily_value": 202240.61,
+      "pe": 14.691,
+      "ps": 14.691,
+      "shareholder_yield": 6.8071,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-03",
+      "net_income": 122481625.99,
+      "daily_value": 192815.72,
+      "pe": 14.688,
+      "ps": 14.688,
+      "shareholder_yield": 6.8081,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-04",
+      "net_income": 122515581.59,
+      "daily_value": 193261.72,
+      "pe": 14.684,
+      "ps": 14.684,
+      "shareholder_yield": 6.81,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-05",
+      "net_income": 122555065.12,
+      "daily_value": 194139.7,
+      "pe": 14.68,
+      "ps": 14.68,
+      "shareholder_yield": 6.8122,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-06",
+      "net_income": 122310092.02,
+      "daily_value": 200672.63,
+      "pe": 14.709,
+      "ps": 14.709,
+      "shareholder_yield": 6.7986,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-07",
+      "net_income": 121995236.74,
+      "daily_value": 212166.49,
+      "pe": 14.747,
+      "ps": 14.747,
+      "shareholder_yield": 6.7811,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-08",
+      "net_income": 122050702.09,
+      "daily_value": 213463.48,
+      "pe": 14.74,
+      "ps": 14.74,
+      "shareholder_yield": 6.7841,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-09",
+      "net_income": 122056654.02,
+      "daily_value": 200943.62,
+      "pe": 14.74,
+      "ps": 14.74,
+      "shareholder_yield": 6.7845,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-10",
+      "net_income": 122110294.38,
+      "daily_value": 207073.55,
+      "pe": 14.733,
+      "ps": 14.733,
+      "shareholder_yield": 6.7875,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-11",
+      "net_income": 122168617.69,
+      "daily_value": 203581.59,
+      "pe": 14.726,
+      "ps": 14.726,
+      "shareholder_yield": 6.7907,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-12",
+      "net_income": 122214559.15,
+      "daily_value": 202927.6,
+      "pe": 14.72,
+      "ps": 14.72,
+      "shareholder_yield": 6.7932,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-13",
+      "net_income": 122264298.56,
+      "daily_value": 207192.55,
+      "pe": 14.715,
+      "ps": 14.715,
+      "shareholder_yield": 6.796,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-14",
+      "net_income": 122332005.76,
+      "daily_value": 215626.45,
+      "pe": 14.706,
+      "ps": 14.706,
+      "shareholder_yield": 6.7998,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-15",
+      "net_income": 122402394.93,
+      "daily_value": 217142.43,
+      "pe": 14.698,
+      "ps": 14.698,
+      "shareholder_yield": 6.8037,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-16",
+      "net_income": 122465111.19,
+      "daily_value": 210058.52,
+      "pe": 14.69,
+      "ps": 14.69,
+      "shareholder_yield": 6.8072,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-17",
+      "net_income": 122550384.18,
+      "daily_value": 227105.32,
+      "pe": 14.68,
+      "ps": 14.68,
+      "shareholder_yield": 6.8119,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-18",
+      "net_income": 122676481.69,
+      "daily_value": 267597.84,
+      "pe": 14.665,
+      "ps": 14.665,
+      "shareholder_yield": 6.8189,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-19",
+      "net_income": 123212637.35,
+      "daily_value": 675647.01,
+      "pe": 14.601,
+      "ps": 14.601,
+      "shareholder_yield": 6.8487,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-20",
+      "net_income": 123677382.85,
+      "daily_value": 607504.82,
+      "pe": 14.546,
+      "ps": 14.546,
+      "shareholder_yield": 6.8746,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-21",
+      "net_income": 124038476.59,
+      "daily_value": 519628.86,
+      "pe": 14.504,
+      "ps": 14.504,
+      "shareholder_yield": 6.8946,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-22",
+      "net_income": 124309825.38,
+      "daily_value": 435491.85,
+      "pe": 14.472,
+      "ps": 14.472,
+      "shareholder_yield": 6.9097,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-23",
+      "net_income": 124547054.57,
+      "daily_value": 391681.37,
+      "pe": 14.445,
+      "ps": 14.445,
+      "shareholder_yield": 6.9229,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-24",
+      "net_income": 124736826.33,
+      "daily_value": 345721.91,
+      "pe": 14.423,
+      "ps": 14.423,
+      "shareholder_yield": 6.9334,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-25",
+      "net_income": 124888056.54,
+      "daily_value": 305046.39,
+      "pe": 14.405,
+      "ps": 14.405,
+      "shareholder_yield": 6.9419,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-26",
+      "net_income": 125018788.0,
+      "daily_value": 283549.65,
+      "pe": 14.39,
+      "ps": 14.39,
+      "shareholder_yield": 6.9491,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-27",
+      "net_income": 125137383.59,
+      "daily_value": 272929.77,
+      "pe": 14.377,
+      "ps": 14.377,
+      "shareholder_yield": 6.9557,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-28",
+      "net_income": 125253272.22,
+      "daily_value": 270069.81,
+      "pe": 14.363,
+      "ps": 14.363,
+      "shareholder_yield": 6.9622,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-29",
+      "net_income": 125349022.09,
+      "daily_value": 246139.09,
+      "pe": 14.352,
+      "ps": 14.352,
+      "shareholder_yield": 6.9675,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-04-30",
+      "net_income": 125457480.81,
+      "daily_value": 259626.93,
+      "pe": 14.34,
+      "ps": 14.34,
+      "shareholder_yield": 6.9735,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-01",
+      "net_income": 125524423.02,
+      "daily_value": 222078.37,
+      "pe": 14.332,
+      "ps": 14.332,
+      "shareholder_yield": 6.9772,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-02",
+      "net_income": 125563699.55,
+      "daily_value": 202056.61,
+      "pe": 14.328,
+      "ps": 14.328,
+      "shareholder_yield": 6.9794,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-03",
+      "net_income": 125613543.97,
+      "daily_value": 213480.48,
+      "pe": 14.322,
+      "ps": 14.322,
+      "shareholder_yield": 6.9822,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-04",
+      "net_income": 125670370.29,
+      "daily_value": 218656.41,
+      "pe": 14.316,
+      "ps": 14.316,
+      "shareholder_yield": 6.9853,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-05",
+      "net_income": 125730978.58,
+      "daily_value": 225687.33,
+      "pe": 14.309,
+      "ps": 14.309,
+      "shareholder_yield": 6.9887,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-06",
+      "net_income": 127254607.56,
+      "daily_value": 1692959.99,
+      "pe": 14.137,
+      "ps": 14.137,
+      "shareholder_yield": 7.0734,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-07",
+      "net_income": 127260833.49,
+      "daily_value": 180026.87,
+      "pe": 14.137,
+      "ps": 14.137,
+      "shareholder_yield": 7.0737,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-08",
+      "net_income": 127227904.88,
+      "daily_value": 165327.05,
+      "pe": 14.14,
+      "ps": 14.14,
+      "shareholder_yield": 7.0719,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-09",
+      "net_income": 127205234.15,
+      "daily_value": 180064.87,
+      "pe": 14.143,
+      "ps": 14.143,
+      "shareholder_yield": 7.0707,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-10",
+      "net_income": 127166650.6,
+      "daily_value": 164588.05,
+      "pe": 14.147,
+      "ps": 14.147,
+      "shareholder_yield": 7.0685,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-11",
+      "net_income": 127117259.19,
+      "daily_value": 160897.1,
+      "pe": 14.153,
+      "ps": 14.153,
+      "shareholder_yield": 7.0658,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-12",
+      "net_income": 127065241.8,
+      "daily_value": 161273.09,
+      "pe": 14.159,
+      "ps": 14.159,
+      "shareholder_yield": 7.0629,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-13",
+      "net_income": 126995909.62,
+      "daily_value": 160537.1,
+      "pe": 14.166,
+      "ps": 14.166,
+      "shareholder_yield": 7.059,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-14",
+      "net_income": 126912911.6,
+      "daily_value": 155800.16,
+      "pe": 14.176,
+      "ps": 14.176,
+      "shareholder_yield": 7.0544,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-15",
+      "net_income": 126830252.58,
+      "daily_value": 162210.08,
+      "pe": 14.185,
+      "ps": 14.185,
+      "shareholder_yield": 7.0498,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-16",
+      "net_income": 126764096.36,
+      "daily_value": 154140.18,
+      "pe": 14.192,
+      "ps": 14.192,
+      "shareholder_yield": 7.0461,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-17",
+      "net_income": 126698440.14,
+      "daily_value": 150839.22,
+      "pe": 14.2,
+      "ps": 14.2,
+      "shareholder_yield": 7.0425,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-18",
+      "net_income": 126604043.26,
+      "daily_value": 153385.19,
+      "pe": 14.21,
+      "ps": 14.21,
+      "shareholder_yield": 7.0372,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-19",
+      "net_income": 126530645.12,
+      "daily_value": 151286.21,
+      "pe": 14.218,
+      "ps": 14.218,
+      "shareholder_yield": 7.0332,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-20",
+      "net_income": 126459046.97,
+      "daily_value": 155198.17,
+      "pe": 14.226,
+      "ps": 14.226,
+      "shareholder_yield": 7.0292,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-21",
+      "net_income": 126377364.94,
+      "daily_value": 154222.18,
+      "pe": 14.236,
+      "ps": 14.236,
+      "shareholder_yield": 7.0246,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-22",
+      "net_income": 126308404.75,
+      "daily_value": 163141.07,
+      "pe": 14.243,
+      "ps": 14.243,
+      "shareholder_yield": 7.0208,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-23",
+      "net_income": 126227518.71,
+      "daily_value": 154107.18,
+      "pe": 14.253,
+      "ps": 14.253,
+      "shareholder_yield": 7.0163,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-24",
+      "net_income": 126150976.61,
+      "daily_value": 147565.26,
+      "pe": 14.261,
+      "ps": 14.261,
+      "shareholder_yield": 7.0121,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-25",
+      "net_income": 126069749.57,
+      "daily_value": 146420.27,
+      "pe": 14.27,
+      "ps": 14.27,
+      "shareholder_yield": 7.0075,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-26",
+      "net_income": 126006484.32,
+      "daily_value": 158400.13,
+      "pe": 14.278,
+      "ps": 14.278,
+      "shareholder_yield": 7.004,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-27",
+      "net_income": 125921210.33,
+      "daily_value": 148407.25,
+      "pe": 14.287,
+      "ps": 14.287,
+      "shareholder_yield": 6.9993,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-28",
+      "net_income": 125827098.44,
+      "daily_value": 146571.27,
+      "pe": 14.298,
+      "ps": 14.298,
+      "shareholder_yield": 6.9941,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-29",
+      "net_income": 125721829.68,
+      "daily_value": 138205.37,
+      "pe": 14.31,
+      "ps": 14.31,
+      "shareholder_yield": 6.9882,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-30",
+      "net_income": 125621241.87,
+      "daily_value": 141911.32,
+      "pe": 14.321,
+      "ps": 14.321,
+      "shareholder_yield": 6.9826,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-05-31",
+      "net_income": 125521921.05,
+      "daily_value": 142694.31,
+      "pe": 14.333,
+      "ps": 14.333,
+      "shareholder_yield": 6.9771,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-01",
+      "net_income": 125416291.3,
+      "daily_value": 139945.35,
+      "pe": 14.345,
+      "ps": 14.345,
+      "shareholder_yield": 6.9712,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-02",
+      "net_income": 125416633.29,
+      "daily_value": 253726.0,
+      "pe": 14.345,
+      "ps": 14.345,
+      "shareholder_yield": 6.9712,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-03",
+      "net_income": 125365911.89,
+      "daily_value": 200227.63,
+      "pe": 14.35,
+      "ps": 14.35,
+      "shareholder_yield": 6.9684,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-04",
+      "net_income": 125362252.94,
+      "daily_value": 249552.05,
+      "pe": 14.351,
+      "ps": 14.351,
+      "shareholder_yield": 6.9682,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-05",
+      "net_income": 125729720.59,
+      "daily_value": 702974.69,
+      "pe": 14.309,
+      "ps": 14.309,
+      "shareholder_yield": 6.9886,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-06",
+      "net_income": 125841226.27,
+      "daily_value": 362138.72,
+      "pe": 14.296,
+      "ps": 14.296,
+      "shareholder_yield": 6.9948,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-07",
+      "net_income": 125714870.77,
+      "daily_value": 126733.5,
+      "pe": 14.311,
+      "ps": 14.311,
+      "shareholder_yield": 6.9878,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-08",
+      "net_income": 125585188.3,
+      "daily_value": 128834.48,
+      "pe": 14.325,
+      "ps": 14.325,
+      "shareholder_yield": 6.9806,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-09",
+      "net_income": 125412776.34,
+      "daily_value": 131926.44,
+      "pe": 14.345,
+      "ps": 14.345,
+      "shareholder_yield": 6.971,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-10",
+      "net_income": 125271156.01,
+      "daily_value": 127134.5,
+      "pe": 14.361,
+      "ps": 14.361,
+      "shareholder_yield": 6.9631,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-11",
+      "net_income": 125125700.73,
+      "daily_value": 131350.45,
+      "pe": 14.378,
+      "ps": 14.378,
+      "shareholder_yield": 6.9551,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-12",
+      "net_income": 124982416.43,
+      "daily_value": 129074.47,
+      "pe": 14.394,
+      "ps": 14.394,
+      "shareholder_yield": 6.9471,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-13",
+      "net_income": 124814229.41,
+      "daily_value": 125624.51,
+      "pe": 14.414,
+      "ps": 14.414,
+      "shareholder_yield": 6.9378,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-14",
+      "net_income": 124686027.93,
+      "daily_value": 132367.44,
+      "pe": 14.429,
+      "ps": 14.429,
+      "shareholder_yield": 6.9306,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-15",
+      "net_income": 124563776.38,
+      "daily_value": 134376.41,
+      "pe": 14.443,
+      "ps": 14.443,
+      "shareholder_yield": 6.9238,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-16",
+      "net_income": 124427528.99,
+      "daily_value": 131586.44,
+      "pe": 14.459,
+      "ps": 14.459,
+      "shareholder_yield": 6.9163,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-17",
+      "net_income": 124298735.51,
+      "daily_value": 129015.47,
+      "pe": 14.474,
+      "ps": 14.474,
+      "shareholder_yield": 6.9091,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-18",
+      "net_income": 124184521.86,
+      "daily_value": 133553.42,
+      "pe": 14.487,
+      "ps": 14.487,
+      "shareholder_yield": 6.9027,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-19",
+      "net_income": 124071996.19,
+      "daily_value": 134050.42,
+      "pe": 14.5,
+      "ps": 14.5,
+      "shareholder_yield": 6.8965,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-20",
+      "net_income": 123953476.59,
+      "daily_value": 134198.41,
+      "pe": 14.514,
+      "ps": 14.514,
+      "shareholder_yield": 6.8899,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-21",
+      "net_income": 123810888.28,
+      "daily_value": 133814.42,
+      "pe": 14.531,
+      "ps": 14.531,
+      "shareholder_yield": 6.882,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-22",
+      "net_income": 123641456.28,
+      "daily_value": 135377.4,
+      "pe": 14.551,
+      "ps": 14.551,
+      "shareholder_yield": 6.8726,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-23",
+      "net_income": 123531375.58,
+      "daily_value": 158397.13,
+      "pe": 14.564,
+      "ps": 14.564,
+      "shareholder_yield": 6.8664,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-24",
+      "net_income": 123440654.65,
+      "daily_value": 155395.16,
+      "pe": 14.574,
+      "ps": 14.574,
+      "shareholder_yield": 6.8614,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-25",
+      "net_income": 123368967.5,
+      "daily_value": 169542.0,
+      "pe": 14.583,
+      "ps": 14.583,
+      "shareholder_yield": 6.8574,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-26",
+      "net_income": 123252601.88,
+      "daily_value": 123556.54,
+      "pe": 14.597,
+      "ps": 14.597,
+      "shareholder_yield": 6.8509,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-27",
+      "net_income": 123135587.26,
+      "daily_value": 113181.66,
+      "pe": 14.61,
+      "ps": 14.61,
+      "shareholder_yield": 6.8444,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-28",
+      "net_income": 123022781.59,
+      "daily_value": 117501.61,
+      "pe": 14.624,
+      "ps": 14.624,
+      "shareholder_yield": 6.8382,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-29",
+      "net_income": 122922743.78,
+      "daily_value": 136534.39,
+      "pe": 14.636,
+      "ps": 14.636,
+      "shareholder_yield": 6.8326,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-06-30",
+      "net_income": 122813614.07,
+      "daily_value": 123365.54,
+      "pe": 14.649,
+      "ps": 14.649,
+      "shareholder_yield": 6.8265,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-01",
+      "net_income": 122724665.12,
+      "daily_value": 146232.27,
+      "pe": 14.659,
+      "ps": 14.659,
+      "shareholder_yield": 6.8216,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-02",
+      "net_income": 122602325.56,
+      "daily_value": 120754.57,
+      "pe": 14.674,
+      "ps": 14.674,
+      "shareholder_yield": 6.8148,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-03",
+      "net_income": 122463977.2,
+      "daily_value": 117681.61,
+      "pe": 14.691,
+      "ps": 14.691,
+      "shareholder_yield": 6.8071,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-04",
+      "net_income": 122329063.8,
+      "daily_value": 121336.57,
+      "pe": 14.707,
+      "ps": 14.707,
+      "shareholder_yield": 6.7996,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-05",
+      "net_income": 122194588.38,
+      "daily_value": 119989.58,
+      "pe": 14.723,
+      "ps": 14.723,
+      "shareholder_yield": 6.7921,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-06",
+      "net_income": 122049817.1,
+      "daily_value": 117850.61,
+      "pe": 14.74,
+      "ps": 14.74,
+      "shareholder_yield": 6.7841,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-07",
+      "net_income": 121908008.77,
+      "daily_value": 119688.59,
+      "pe": 14.758,
+      "ps": 14.758,
+      "shareholder_yield": 6.7762,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-08",
+      "net_income": 121753028.61,
+      "daily_value": 124075.53,
+      "pe": 14.776,
+      "ps": 14.776,
+      "shareholder_yield": 6.7676,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-09",
+      "net_income": 121603052.38,
+      "daily_value": 126756.5,
+      "pe": 14.795,
+      "ps": 14.795,
+      "shareholder_yield": 6.7593,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-10",
+      "net_income": 121427775.45,
+      "daily_value": 122843.55,
+      "pe": 14.816,
+      "ps": 14.816,
+      "shareholder_yield": 6.7495,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-11",
+      "net_income": 121235655.72,
+      "daily_value": 114807.64,
+      "pe": 14.839,
+      "ps": 14.839,
+      "shareholder_yield": 6.7388,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-12",
+      "net_income": 121056861.84,
+      "daily_value": 120588.57,
+      "pe": 14.861,
+      "ps": 14.861,
+      "shareholder_yield": 6.7289,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-13",
+      "net_income": 120885139.87,
+      "daily_value": 127584.49,
+      "pe": 14.882,
+      "ps": 14.882,
+      "shareholder_yield": 6.7194,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-14",
+      "net_income": 120662080.5,
+      "daily_value": 120629.57,
+      "pe": 14.91,
+      "ps": 14.91,
+      "shareholder_yield": 6.707,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-15",
+      "net_income": 120411203.47,
+      "daily_value": 132282.44,
+      "pe": 14.941,
+      "ps": 14.941,
+      "shareholder_yield": 6.693,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-16",
+      "net_income": 120083467.34,
+      "daily_value": 128290.48,
+      "pe": 14.982,
+      "ps": 14.982,
+      "shareholder_yield": 6.6748,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-17",
+      "net_income": 119780862.92,
+      "daily_value": 126325.51,
+      "pe": 15.02,
+      "ps": 15.02,
+      "shareholder_yield": 6.658,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-18",
+      "net_income": 119426124.11,
+      "daily_value": 120456.58,
+      "pe": 15.064,
+      "ps": 15.064,
+      "shareholder_yield": 6.6383,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-19",
+      "net_income": 119224080.5,
+      "daily_value": 127612.49,
+      "pe": 15.09,
+      "ps": 15.09,
+      "shareholder_yield": 6.627,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-20",
+      "net_income": 118939436.87,
+      "daily_value": 125099.52,
+      "pe": 15.126,
+      "ps": 15.126,
+      "shareholder_yield": 6.6112,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-21",
+      "net_income": 118580203.12,
+      "daily_value": 126415.51,
+      "pe": 15.172,
+      "ps": 15.172,
+      "shareholder_yield": 6.5912,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-22",
+      "net_income": 118213416.45,
+      "daily_value": 129548.47,
+      "pe": 15.219,
+      "ps": 15.219,
+      "shareholder_yield": 6.5708,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-23",
+      "net_income": 117943808.64,
+      "daily_value": 137798.37,
+      "pe": 15.254,
+      "ps": 15.254,
+      "shareholder_yield": 6.5559,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-24",
+      "net_income": 117724008.24,
+      "daily_value": 130927.45,
+      "pe": 15.282,
+      "ps": 15.282,
+      "shareholder_yield": 6.5436,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-25",
+      "net_income": 117496292.93,
+      "daily_value": 131145.45,
+      "pe": 15.312,
+      "ps": 15.312,
+      "shareholder_yield": 6.531,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-26",
+      "net_income": 117284476.43,
+      "daily_value": 133790.42,
+      "pe": 15.339,
+      "ps": 15.339,
+      "shareholder_yield": 6.5192,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-27",
+      "net_income": 117045169.26,
+      "daily_value": 131915.44,
+      "pe": 15.371,
+      "ps": 15.371,
+      "shareholder_yield": 6.5059,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-28",
+      "net_income": 116811961.02,
+      "daily_value": 135058.4,
+      "pe": 15.401,
+      "ps": 15.401,
+      "shareholder_yield": 6.4929,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-29",
+      "net_income": 116569682.88,
+      "daily_value": 132395.43,
+      "pe": 15.433,
+      "ps": 15.433,
+      "shareholder_yield": 6.4795,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-30",
+      "net_income": 116322951.8,
+      "daily_value": 133942.42,
+      "pe": 15.466,
+      "ps": 15.466,
+      "shareholder_yield": 6.4658,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-07-31",
+      "net_income": 116053703.98,
+      "daily_value": 133309.42,
+      "pe": 15.502,
+      "ps": 15.502,
+      "shareholder_yield": 6.4508,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-08-01",
+      "net_income": 115736575.73,
+      "daily_value": 136179.39,
+      "pe": 15.544,
+      "ps": 15.544,
+      "shareholder_yield": 6.4332,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-08-02",
+      "net_income": 115460247.0,
+      "daily_value": 137799.37,
+      "pe": 15.582,
+      "ps": 15.582,
+      "shareholder_yield": 6.4178,
+      "net_margin": 100.0,
+      "_period": "daily"
+    },
+    {
+      "as_of": "2026-08-03",
+      "net_income": 115460247,
+      "daily_value": 137799.37,
+      "pe": 59.9686,
+      "ps": 15.5816,
+      "shareholder_yield": 1.6675,
+      "net_margin": 100.0,
+      "_period": "snapshot"
+    },
+    {
+      "as_of": "2026-08-04",
+      "net_income": 115460247,
+      "pe": 47.0429,
+      "ps": 12.2231,
+      "shareholder_yield": 2.1257,
+      "net_margin": 100.0
+    },
+    {
+      "as_of": "2026-08-05",
+      "net_income": 115460247,
+      "pe": 46.9021,
+      "ps": 12.1866,
+      "shareholder_yield": 2.1321,
+      "net_margin": 100.0
+    },
+    {
+      "as_of": "2026-08-06",
+      "net_income": 115460247,
+      "pe": 46.9021,
+      "ps": 12.1866,
+      "shareholder_yield": 2.1321,
+      "net_margin": 100.0
+    }
+  ]
+}

@@ -1,9 +1,9 @@
-# Crypto3D TEV Dashboard - 开发维护规范
+# Crypto3D Equity Dashboard - 开发维护规范
 
 ## 部署流程（铁律）
 
 1. **所有开发在 `dev` 分支完成**
-2. Push `dev` 后在测试站验证：https://bitpickles.github.io/tev-dashboard
+2. Push `dev` 后在测试站验证：https://bitpickles.github.io/equity-dashboard
 3. **向 Boss 展示测试站效果，等待确认**
 4. Boss 确认后才 merge `dev` → `main` 并 push `main`
 5. Push `main` 自动触发 GitHub Actions → Cloudflare Pages 部署到正式站
@@ -25,7 +25,7 @@
   - `null` = 协议无 fee 分润机制（如 BNB），前端渲染 `—`
   - `0` = 有 fee 但 0% 归持有人（如 Lido / Compound）
   - 数字 = 明确分润比例（如 Pendle 0.8、Curve 0.5）
-- **前端两个数据源必须同步**：主表 `/tev/index.html` 读 `data/all-protocols.json`，详情页 `/tev/protocol.html` 读 `data/protocols/<id>/config.json`，改动要两边核对
+- **前端两个数据源必须同步**：主表 `/equity/index.html` 读 `data/all-protocols.json`，详情页 `/equity/protocol.html` 读 `data/protocols/<id>/config.json`，改动要两边核对
 - **显示精度**：默认 2 位小数；协议 TEV 某部分贡献 <0.1%（如 BNB 的 BEP-95 ~0.02%）时，在 config 里标 `display_precision: 3`
 - **核心规范（schema / 新协议工作流 / 已踩坑清单）**见 `docs/skill/tev-data-layer.md`，公式不可擅自更改
 

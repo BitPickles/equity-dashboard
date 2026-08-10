@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <script>(function(){var t=localStorage.getItem('theme');if(t!=='dark')document.documentElement.setAttribute('data-theme','light')})()</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto3D 估值仪表盘 — 加密协议股东回报率</title>
+  <meta name="description" content="用美股口径衡量加密协议：股东回报率（股息率 + 回购率）、市销率 P/S、派息率。Crypto3D 为长期投资者提供价值判断工具——逐协议展示链上验证过的股东回报数据与 buyback/burn 证据，可横向对比科技股。">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://crypto3d.pro/equity/">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../indicators/css/common.css">
+  <style>
+    /* TEV-specific overrides */
+    .container { max-width: 1200px; }
+    header { background: var(--bg-primary); }
+    nav { display: flex; gap: 32px; }
+    nav a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--text-primary); }
+    .header-right { display: flex; align-items: center; gap: 24px; }
+    @media (max-width: 768px) { nav { display: none; } }
+  
+    /* Global tooltip v2（Boss 2026-08-04 UI 优化） */
+    #g-tip { display: block; position: fixed; background: rgba(20,20,24,0.96); color: #e4e4e7; font-size: 12px; font-weight: 400; line-height: 1.65; padding: 10px 12px 10px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); max-width: 320px; text-align: left; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 2px 6px rgba(0,0,0,0.25); pointer-events: none; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); opacity: 0; transform: translateY(-4px); transition: opacity .15s ease, transform .15s ease; visibility: hidden; }
+    #g-tip.show { opacity: 1; transform: translateY(0); visibility: visible; }
+    /* tooltip 顶部箭头（指向表头中心） */
+    #g-tip::after { content: ''; position: absolute; top: -5px; left: var(--arrow-x, 18px); width: 8px; height: 8px; background: rgba(20,20,24,0.96); border-left: 1px solid rgba(255,255,255,0.08); border-top: 1px solid rgba(255,255,255,0.08); transform: rotate(45deg); }
+    [data-tip] { cursor: help; }
+    /* 表头 hover：整列变 accent + 文字下划线提示可悬停查看解释 */
+    #protocol-table thead th.sortable:hover { color: var(--accent); background: var(--bg-hover, rgba(128,128,128,0.06)); }
+    #protocol-table thead th.sortable:hover span, #protocol-table thead th.sortable:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); text-decoration-style: dotted; }
+
+    .yield-period-btns { display: inline-flex; gap: 2px; margin-left: 6px; vertical-align: middle; }
+    .yield-btn { background: transparent; border: 1px solid var(--border, #333); color: var(--text-secondary, #888); font-size: 10px; padding: 1px 5px; border-radius: 4px; cursor: pointer; font-family: 'JetBrains Mono', monospace; }
+    .yield-btn.active { background: #22c55e; color: #000; border-color: #22c55e; font-weight: 600; }
+    .yield-btn:hover { border-color: #22c55e; }
+
+    /* 首页表格美化 v3.0（Boss 2026-08-04） */
+    #protocol-table { border-collapse: separate; border-spacing: 0; width: 100%; }
+    #protocol-table thead th { position: sticky; top: 0; background: var(--bg-secondary); z-index: 5; white-space: nowrap; padding: 12px 10px; font-size: 12px; font-weight: 600; color: var(--text-secondary); border-bottom: 1px solid var(--border); letter-spacing: 0.02em; }
+    #protocol-table tbody td { padding: 11px 10px; font-family: 'JetBrains Mono', monospace; font-size: 13px; border-bottom: 1px solid var(--border, rgba(128,128,128,0.08)); vertical-align: middle; }
+    #protocol-table tbody tr { cursor: pointer; transition: background 0.15s; }
+    #protocol-table tbody tr:hover { background: var(--bg-hover, rgba(128,128,128,0.06)); }
+    #protocol-table .protocol-cell { display: flex; align-items: center; gap: 10px; }
+    #protocol-table .protocol-icon { width: 28px; height: 28px; border-radius: 50%; background: var(--bg-tertiary); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; overflow: hidden; flex-shrink: 0; }
+    #protocol-table .protocol-icon img { width: 100%; height: 100%; object-fit: cover; }
+    #protocol-table .protocol-name { font-weight: 600; color: var(--text-primary); font-family: 'Inter', sans-serif; font-size: 14px; }
+    #protocol-table .protocol-ticker { color: var(--text-tertiary); font-size: 11px; margin-left: 6px; font-family: 'JetBrains Mono', monospace; }
+    /* 股东回报率高亮 */
+    .yield-hot { color: #f59e0b; }        /* ≥10% 橙色 */
+    .yield-warm { color: #22c55e; }       /* 5-10% 绿色 */
+    .value-negative { color: #e5484d; font-weight: 600; }
+    .value-zero { color: var(--text-tertiary, #71717a); }
+    .value-highlight { color: var(--accent); font-weight: 600; }
+    /* 表头排序箭头 */
+    th.sortable { cursor: pointer; user-select: none; }
+    th.sortable.sorted::after { content: attr(data-dir-prefix); }
+    th.sorted.desc::after { content: ' ▼'; font-size: 10px; color: var(--accent); }
+    th.sorted.asc::after { content: ' ▲'; font-size: 10px; color: var(--accent); }
+    /* 搜索框 focus */
+    #protocol-search:focus { border-color: var(--accent) !important; box-shadow: 0 0 0 2px var(--accent-dim, rgba(52,211,153,0.15)); }
+    #protocol-search::placeholder { color: var(--text-tertiary); }
+
+  </style>
+  <link rel="stylesheet" href="../css/theme-override.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="../" class="logo">
+          <img src="../logo.svg" alt="3D" class="logo-icon" onerror="this.onerror=null;this.src='logo.svg'">
+          <span class="logo-text">Crypto3D</span>
+        </a>
+        <div class="header-right">
+          <nav>
+            <a href="../" data-i18n="nav.home" data-zh="首页" data-en="Home">首页</a>
+            <a href="../governance/" data-i18n="nav.governance" style="color:var(--text-secondary);">治理</a>
+          </nav>
+          <div class="lang-switch-tev">
+            <button class="lang-btn active" data-lang="zh">中文</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 data-i18n="hero.title">加密协议估值仪表盘</h1>
+        <p data-i18n="hero.subtitle">用美股的估值语言看加密协议：股东回报率、市销率、派息率——把成熟协议当蓝筹，把高增长协议当科技股。</p>
+      </div>
+    </section>
+
+    
+
+    <section class="table-section" id="protocols">
+      <div class="container">
+        <div class="table-container">
+          <div class="table-header">
+            <div class="table-title" data-i18n="table.title">协议排名</div>
+            <div class="table-filters">
+              <button class="filter-btn active" data-filter="all" data-i18n="filter.all" data-zh="全部" data-en="All">全部</button>
+              <button class="filter-btn" data-filter="lending" data-i18n="filter.lending" data-zh="借贷" data-en="Lending">借贷</button>
+              <button class="filter-btn" data-filter="dex" data-i18n="filter.dex">DEX</button>
+              <button class="filter-btn" data-filter="cex" data-i18n="filter.cex">CEX</button>
+              <button class="filter-btn" data-filter="perpetuals" data-i18n="filter.perps">Perps</button>
+              <button class="filter-btn" data-filter="yield" data-i18n="filter.yield">收益</button>
+            </div>
+            <div style="margin-left:16px;">
+              <input type="text" id="protocol-search" placeholder="🔍" data-ph-zh="🔍 搜索协议 / Ticker" data-ph-en="🔍 Search protocol / Ticker" style="background:var(--bg-tertiary);border:1px solid var(--border);border-radius:8px;color:var(--text-primary);font-size:13px;padding:6px 12px;width:180px;outline:none;transition:border-color .2s;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
+            </div>
+            <div class="table-filters" style="margin-left:auto;">
+              <span style="font-size:12px;color:var(--text-secondary);margin-right:6px;" data-zh="Yield Period" data-en="Yield Period">Yield Period</span>
+              <button class="yield-btn" data-period="7d">7D</button>
+              <button class="yield-btn" data-period="30d">30D</button>
+              <button class="yield-btn" data-period="90d">90D</button>
+              <button class="yield-btn active" data-period="365d">1Y</button>
+            </div>
+          </div>
+          <div id="table-loading" class="loading">
+            <div class="loading-spinner"></div>
+            <div data-i18n="table.loading">加载协议数据中...</div>
+          </div>
+          <table id="protocol-table" style="display: none;">
+            <thead>
+              <tr>
+                <th style="width: 44px;">#</th>
+                <th style="min-width:170px;" data-zh="Protocol" data-en="Protocol">Protocol</th>
+                <th class="text-right sortable sorted desc" data-sort="mcap" data-zh="Mkt Cap" data-en="Mkt Cap">Mkt Cap</th>
+                <th class="text-right sortable" data-sort="revenue" data-zh="Rev" data-en="Rev">Rev</th>
+                <th class="text-right sortable" data-sort="netIncome" data-zh="Net Inc" data-en="Net Inc">Net Inc</th>
+                <th class="text-right sortable" data-sort="shareholderYield" data-zh="Sh. Yld" data-en="Sh. Yld">Sh. Yld</th>
+                <th class="text-right sortable" data-sort="pe" data-zh="P/E" data-en="P/E">P/E</th>
+                <th class="text-right sortable" data-sort="ps" data-zh="P/S" data-en="P/S">P/S</th>
+                <th class="text-right sortable" data-sort="payout" data-zh="Payout" data-en="Payout">Payout</th>
+                <th class="text-right sortable" data-sort="divYield" data-zh="Div Yld" data-en="Div Yld">Div Yld</th>
+              </tr>
+            </thead>
+            <tbody id="protocol-tbody"></tbody>
+          </table>
+          <div class="data-update-time" id="data-update-time">数据更新: —</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro-section" id="methodology">
+      <div class="container">
+        <div class="intro-grid">
+          <div class="intro-card">
+            <h2><span class="icon">📊</span> <span data-i18n="intro.what.title">什么是股东回报率?</span></h2>
+            <p data-i18n="intro.what.p1"><strong>股东回报率 (Shareholder Yield)</strong> 衡量一个加密协议把多少收入真正以分红和回购的形式返还给代币持有者，等于「股息率 + 回购率」。</p>
+            <p data-i18n="intro.what.p2">它直接对标美股的同名指标：<strong>股息率</strong> = 协议以现金/稳定币等形式直接分配给持币人和质押者的部分；<strong>回购率</strong> = 协议用收入回购并销毁代币的部分，等价于上市公司的股票回购。</p>
+            <div class="formula-box">股东回报率 = 股息率 + 回购率 = 年化股东回报 ÷ 市值 × 100%</div>
+            <p data-i18n="intro.what.p3">配合<strong>市销率 (P/S)</strong> 和<strong>派息率</strong>，你可以像分析美股一样横向对比加密协议——把持续返还收入的成熟协议看作派息蓝筹（现金牛），把暂不返还、靠营收增长定价的项目看作科技成长股。</p>
+          </div>
+          <div class="intro-card">
+            <h2><span class="icon">💡</span> <span data-i18n="intro.why.title">为什么向美股指标看齐?</span></h2>
+            <p data-i18n="intro.why.p1">加密行业发展了这么多年，大部分 Token 依然是「空气」——持有它们除了投机，几乎没有任何实际价值。这也是为什么越来越多的投资者对「持币」失去信心。</p>
+            <p data-i18n="intro.why.p2">但并非所有项目都是如此。一些真正优秀的加密协议，正在通过回购、分红、销毁等方式，将协议收入回馈给代币持有者——这才是「持币者权益」应有的样子。</p>
+            <p data-i18n="intro.why.p3">我们不另造新概念，而是直接套用美股成熟的估值框架，让你用熟悉的指标筛选出真正为持币者创造价值的协议，并和美股科技股横向对比。用数据说话，让回报可量化。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="author-video-section" id="about">
+      <div class="container">
+        <div class="author-video-grid">
+          <div class="author-card">
+            <div class="author-header">
+              <div class="author-avatar">🔮</div>
+              <div class="author-meta">
+                <h3>3D</h3>
+                <div class="tagline" data-i18n="author.tagline">DeFi 实战派 | 股东回报估值框架</div>
+              </div>
+            </div>
+            <p class="author-bio" data-i18n="author.bio">专注 DeFi、链上套利及低风险机会的探索与实战。我不另造新概念，而是直接套用美股成熟的估值口径——股东回报率（股息率 + 回购率）、市销率 P/S、派息率——审视加密项目，区分真正回馈持币者的优质协议和只会画饼的空气项目，并和美股科技股横向对比。相信「活得久」比「赚得多」更重要，希望这个工具能帮助更多人做出理性投资决策。我在 YouTube「3D 加密频道」持续分享 DeFi 研究和实战心得，欢迎订阅交流。</p>
+            <div class="author-links">
+              <a href="https://x.com/22333D" target="_blank" class="author-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                <span>@22333D</span>
+              </a>
+              <a href="https://www.youtube.com/@Crypto36D" target="_blank" class="author-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <span data-i18n="author.youtube">3D 加密频道</span>
+              </a>
+            </div>
+          </div>
+          <div class="video-card">
+            <h2 data-i18n="video.title">📺 股东回报估值框架详解</h2>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/Gl8e_t2Zo6w" title="Shareholder Yield Framework Explained" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="yt-banner">
+    <div class="container">
+      <div class="yt-banner-content">
+        <div class="yt-banner-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </div>
+        <div class="yt-banner-text">
+          <h3 data-i18n="ytbanner.title">📺 订阅 3D 加密频道</h3>
+          <p data-i18n="ytbanner.desc">更多 DeFi 深度分析、链上套利实战、低风险机会分享，尽在 YouTube</p>
+        </div>
+        <a href="https://www.youtube.com/@Crypto36D?sub_confirmation=1" target="_blank" class="yt-banner-btn" data-i18n="ytbanner.btn">立即订阅</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-text" id="footer-updated" data-i18n="footer.loading">加载数据中...</div>
+        <div class="footer-links">
+          <a href="#methodology" data-i18n="footer.methodology">方法论</a>
+          <a href="../about" data-zh="关于我们" data-en="About">关于我们</a>
+          <a href="../privacy" data-zh="隐私政策" data-en="Privacy Policy">隐私政策</a>
+          <a href="../terms" data-zh="使用条款" data-en="Terms">使用条款</a>
+          <a href="../disclaimer" data-zh="风险披露" data-en="Risk Disclosure">风险披露</a>
+          <a href="../about#contact" data-zh="联系方式" data-en="Contact">联系方式</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // === i18n ===
+    const i18n = {
+      zh: {
+        'nav.home': '← 首页', 'nav.governance': '治理', 'nav.protocols': '协议数据', 'nav.methodology': '方法论', 'nav.about': '关于',
+        'hero.title': '加密协议估值仪表盘', 'hero.subtitle': '用美股的估值语言看加密协议：股东回报率、市销率、派息率——把成熟协议当蓝筹，把高增长协议当科技股。',
+        'intro.what.title': '什么是股东回报率?',
+        'intro.what.p1': '<strong>股东回报率 (Shareholder Yield)</strong> 衡量一个加密协议把多少收入真正以分红和回购的形式返还给代币持有者，等于「股息率 + 回购率」。',
+        'intro.what.p2': '它直接对标美股的同名指标：<strong>股息率</strong> = 协议以现金/稳定币等形式直接分配给持币人和质押者的部分；<strong>回购率</strong> = 协议用收入回购并销毁代币的部分，等价于上市公司的股票回购。',
+        'intro.what.p3': '配合<strong>市销率 (P/S)</strong> 和<strong>派息率</strong>，你可以像分析美股一样横向对比加密协议——把持续返还收入的成熟协议看作派息蓝筹（现金牛），把暂不返还、靠营收增长定价的项目看作科技成长股。',
+        'intro.why.title': '为什么向美股指标看齐?',
+        'intro.why.p1': '加密行业发展了这么多年，大部分 Token 依然是「空气」——持有它们除了投机，几乎没有任何实际价值。这也是为什么越来越多的投资者对「持币」失去信心。',
+        'intro.why.p2': '但并非所有项目都是如此。一些真正优秀的加密协议，正在通过回购、分红、销毁等方式，将协议收入回馈给代币持有者——这才是「持币者权益」应有的样子。',
+        'intro.why.p3': '我们不另造新概念，而是直接套用美股成熟的估值框架，让你用熟悉的指标筛选出真正为持币者创造价值的协议，并和美股科技股横向对比。用数据说话，让回报可量化。',
+        'video.title': '📺 股东回报估值框架详解', 'author.tagline': 'DeFi 实战派 | 股东回报估值框架',
+        'author.bio': '专注 DeFi、链上套利及低风险机会的探索与实战。我不另造新概念，而是直接套用美股成熟的估值口径——股东回报率（股息率 + 回购率）、市销率 P/S、派息率——审视加密项目，区分真正回馈持币者的优质协议和只会画饼的空气项目，并和美股科技股横向对比。相信「活得久」比「赚得多」更重要，希望这个工具能帮助更多人做出理性投资决策。我在 YouTube「3D 加密频道」持续分享 DeFi 研究和实战心得，欢迎订阅交流。',
+        'author.youtube': '3D 加密频道',
+        'stats.protocols': '追踪协议数', 'stats.mcap': '总市值', 'stats.fees': '30日总费用', 'stats.returns': '30日股东回报',
+        'table.title': '协议排名', 'table.loading': '加载协议数据中...',
+        'filter.all': '全部', 'filter.lending': '借贷', 'filter.dex': 'DEX', 'filter.cex': 'CEX', 'filter.perps': 'Perps', 'filter.yield': '收益',
+        'th.protocol': 'Protocol', 'th.style': 'Style', 'th.mcap': 'Market Cap', 'th.ps': 'P/S', 'th.pe': 'P/E', 'th.divYield': 'Div Yield', 'th.shareholderYield': 'Shareholder Yield', 'th.payout': 'Payout Ratio', 'th.dataQuality': 'Data Quality',
+        'th.revenue': 'Revenue', 'th.grossProfit': 'Gross Profit', 'th.netIncome': 'Net Income', 'th.growth': 'Revenue Growth', 'th.netMargin': 'Net Margin',
+        'style.cash_cow': '现金牛', 'style.growth': '成长股',
+        'style.tip.cash_cow': '现金牛 — 已进入成熟期、持续把收入以分红/回购返还给持币人的价值股，类比派息成熟的蓝筹（股东回报率 ≥ 1%）',
+        'style.tip.growth': '成长股 — 暂未向持币人返还收入、靠营收增长与市销率定价的科技成长型项目（股东回报率 < 1%）',
+        'confidence.high': '高', 'confidence.medium': '中', 'confidence.low': '低',
+        'footer.loading': '加载数据中...', 'footer.updated': '数据更新时间：{date} · 维护者 3D', 'footer.methodology': '方法论', 'footer.sources': '数据来源',
+        'ytbanner.title': '📺 订阅 3D 加密频道', 'ytbanner.desc': '更多 DeFi 深度分析、链上套利实战、低风险机会分享，尽在 YouTube', 'ytbanner.btn': '立即订阅',
+      },
+      en: {
+        'nav.home': '← Home', 'nav.governance': 'Governance', 'nav.protocols': 'Protocols', 'nav.methodology': 'Methodology', 'nav.about': 'About',
+        'hero.title': 'Crypto Protocol Valuation Dashboard', 'hero.subtitle': 'Read crypto protocols in US-equity terms: Shareholder Yield, P/S, and Payout Ratio — mature protocols as blue chips, high-growth ones as tech stocks.',
+        'intro.what.title': 'What is Shareholder Yield?',
+        'intro.what.p1': '<strong>Shareholder Yield</strong> measures how much protocol revenue is actually returned to token holders via dividends and buybacks — it equals Dividend Yield + Buyback Yield.',
+        'intro.what.p2': 'It maps directly to the equity metric of the same name: <strong>Dividend Yield</strong> is revenue paid directly to holders/stakers (cash/stablecoin); <strong>Buyback Yield</strong> is revenue used to buy back and burn the token, equivalent to corporate share buybacks.',
+        'intro.what.p3': 'Together with <strong>P/S</strong> and <strong>Payout Ratio</strong>, you can compare crypto protocols just like US stocks — treating protocols that consistently return revenue as dividend blue chips (cash cows), and those not yet returning as tech growth stocks.',
+        'intro.why.title': 'Why Align With US-Equity Metrics?',
+        'intro.why.p1': 'After years of crypto evolution, most tokens remain "vaporware" — holding them offers nothing beyond speculation. That\'s why more investors are losing faith in "holding tokens."',
+        'intro.why.p2': 'But not all projects are the same. Some truly excellent DeFi protocols are giving back to token holders through buybacks, dividends, and burns — this is what "token holder equity" should look like.',
+        'intro.why.p3': 'Rather than inventing a new vocabulary, we reuse the mature valuation framework of US equities, so you can screen protocols that genuinely create value for holders and compare them side by side with tech stocks. Let data speak, make returns measurable.',
+        'video.title': '📺 Shareholder Yield Framework Explained', 'author.tagline': 'DeFi Practitioner | Shareholder-Yield Valuation',
+        'author.bio': 'Focused on DeFi, on-chain arbitrage, and low-risk opportunities. Rather than inventing new jargon, I apply mature US-equity metrics — Shareholder Yield (dividend + buyback yield), P/S ratio, and Payout Ratio — to evaluate crypto projects and compare them directly with tech stocks, separating protocols that truly return capital to holders from empty promises. Subscribe to my YouTube channel "3D Crypto" for DeFi research and insights.',
+        'author.youtube': '3D Crypto Channel',
+        'stats.protocols': 'Protocols Tracked', 'stats.mcap': 'Total Market Cap', 'stats.fees': '30d Total Fees', 'stats.returns': '30d Shareholder Returns',
+        'table.title': 'Protocol Rankings', 'table.loading': 'Loading protocol data...',
+        'filter.all': 'All', 'filter.lending': 'Lending', 'filter.dex': 'DEX', 'filter.cex': 'CEX', 'filter.perps': 'Perps', 'filter.yield': 'Yield',
+        'th.protocol': 'Protocol', 'th.style': 'Style', 'th.mcap': 'Market Cap', 'th.ps': 'P/S', 'th.pe': 'P/E', 'th.divYield': 'Dividend Yield', 'th.shareholderYield': 'Shareholder Yield', 'th.payout': 'Payout Ratio', 'th.dataQuality': 'Data Quality',
+        'th.revenue': 'Revenue', 'th.grossProfit': 'Gross Profit', 'th.netIncome': 'Net Income', 'th.growth': 'Rev Growth', 'th.netMargin': 'Net Margin',
+        'style.cash_cow': 'Cash Cow', 'style.growth': 'Growth',
+        'style.tip.cash_cow': 'Cash Cow — a mature value stock that consistently returns revenue to holders via dividends/buybacks, like a dividend-paying blue chip (Shareholder Yield ≥ 1%)',
+        'style.tip.growth': 'Growth — a tech-style project not yet returning revenue to holders, priced on revenue growth and P/S (Shareholder Yield < 1%)',
+        'confidence.high': 'High', 'confidence.medium': 'Medium', 'confidence.low': 'Low',
+        'footer.loading': 'Loading data...', 'footer.updated': 'Data updated: {date} · Maintained by 3D', 'footer.methodology': 'Methodology', 'footer.sources': 'Data Sources',
+        'ytbanner.title': '📺 Subscribe to 3D Crypto Channel', 'ytbanner.desc': 'More DeFi deep dives, on-chain arbitrage tactics, and low-risk opportunities on YouTube', 'ytbanner.btn': 'Subscribe Now',
+      }
+    };
+    let currentLang = localStorage.getItem('lang') || 'zh';
+    const t = key => i18n[currentLang][key] || key;
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+      document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.dataset.i18n; if (i18n[lang][k]) el.innerHTML = i18n[lang][k]; });
+      // 表头：英文简称双语一致，用 data-zh/data-en 里对应值（实际均为英文）
+      document.querySelectorAll('th[data-zh]').forEach(th => {
+        const v = th.getAttribute(lang === 'zh' ? 'data-zh' : 'data-en');
+        if (v) th.textContent = v;
+      });
+      // 搜索框 placeholder 双语
+      const si = document.getElementById('protocol-search');
+      if (si) si.placeholder = si.getAttribute(lang === 'zh' ? 'data-ph-zh' : 'data-ph-en') || '🔍';
+      if (window.protocolData) { renderTable(window.protocolData); updateFooter(window.protocolData); } setupHeaderTips();
+    }
+    // Listen to global lang toggle
+    window.addEventListener('langchange', function(e) { setLanguage(e.detail.lang); });
+
+    // === Data & State ===
+    let PROTOCOLS = {}, LOGO_URLS = {};
+
+    // Header tooltips（悬停解释：表头用美股英文简称，悬停显示中文名+含义）
+    const headerTips = {
+      zh: {
+        mcap: 'Market Cap（市值）：代币流通市值 ＝ 当前价格 × 流通量，是计算股东回报率与市销率的分母',
+        revenue: 'Revenue（收入）：年化协议收入（365 天）。平台币 ＝ 赋能总额（打新＋质押＋销毁）；应用型 ＝ 协议费收入。数据不可得时显示 —',
+        netIncome: 'Net Income（净利）：毛利 − 增发成本 − 运营成本。可为负（如 Curve 增发 > 收入）',
+        shareholderYield: 'Shareholder Yield（股东回报率）：股息率 ＋ 回购率 ＝ 年化股东回报 ÷ 市值。衡量协议把多少收入返还给持币人',
+        divYield: 'Dividend Yield（股息率）：年化分红 ÷ 市值。协议以现金/稳定币直接分给持币人/质押者的部分',
+        pe: 'P/E（市盈率）：市值 ÷ 年化归属持币人收入（＝ 100 ÷ 股东回报率）。数值越低越便宜；持币人无收入时显示 —',
+        ps: 'P/S（市销率）：市值 ÷ 年化协议营收。类比美股市销率，越低代表相对营收越便宜；无营收时显示 —',
+        payout: 'Payout Ratio（派息率）：股东回报 ÷ 协议营收。衡量协议把多少比例的营收返还给持币人',
+      },
+      en: {
+        mcap: 'Market Cap: circulating market cap = price × circulating supply, the denominator for Shareholder Yield and P/S',
+        revenue: 'Revenue: annualized protocol revenue (365d). Platform tokens: total empowerment (launchpad+staking+burn); apps: protocol fees. Shows — when unavailable',
+        netIncome: 'Net Income: gross profit − emission cost − operating costs. Can be negative (e.g. Curve)',
+        shareholderYield: 'Shareholder Yield: Dividend Yield + Buyback Yield = annualized shareholder returns ÷ market cap. Total revenue returned to holders',
+        divYield: 'Dividend Yield: annualized dividends ÷ market cap. Revenue paid directly to holders/stakers (cash/stablecoin)',
+        pe: 'P/E: Market Cap ÷ annualized holder-attributable income (= 100 ÷ Shareholder Yield). Lower is cheaper; shows — when holders earn nothing',
+        ps: 'P/S: Market Cap ÷ annualized protocol revenue. Lower means cheaper relative to revenue; shows — when no revenue',
+        payout: 'Payout Ratio: shareholder returns ÷ protocol revenue. What share of revenue is returned to holders',
+      }
+    };
+    function setupHeaderTips() {
+      // Boss 2026-08-04：去掉 ⓘ 图标，data-tip 直接挂 th 上，悬停表头文字即触发
+      document.querySelectorAll('th[data-sort]').forEach(th => {
+        const key = th.dataset.sort;
+        const tip = (headerTips[currentLang] || headerTips.zh)[key];
+        if (!tip) return;
+        th.setAttribute('data-tip', tip);
+      });
+    }
+    // Global tooltip controller v2（Boss 2026-08-04 UI 优化：箭头 + 淡入动画）
+    (function() {
+      const tip = document.createElement('div'); tip.id = 'g-tip'; document.body.appendChild(tip);
+      const showTip = (el) => {
+        tip.textContent = el.dataset.tip;
+        tip.classList.add('show');
+        const r = el.getBoundingClientRect();
+        const tipWidth = tip.offsetWidth || 280;
+        let top = r.bottom + 8;
+        let left = r.left;
+        // 防止右侧溢出
+        if (left + tipWidth + 14 > window.innerWidth) left = window.innerWidth - tipWidth - 14;
+        if (left < 8) left = 8;
+        // 防止底部溢出，改为上方显示
+        if (top + tip.offsetHeight > window.innerHeight) {
+          top = r.top - tip.offsetHeight - 8;
+        }
+        tip.style.top = top + 'px';
+        tip.style.left = left + 'px';
+        // 箭头指向表头中心
+        const centerX = r.left + r.width / 2;
+        const arrowLeft = Math.min(Math.max(centerX - left, 8), tipWidth - 8);
+        tip.style.setProperty('--arrow-x', arrowLeft + 'px');
+      };
+      const hideTip = () => tip.classList.remove('show');
+      document.addEventListener('mouseover', e => {
+        const el = e.target.closest('[data-tip]');
+        if (el && el.dataset.tip) { showTip(el); return; }
+        // 不在 tip 元素上时隐藏
+        if (!e.target.closest('[data-tip]')) hideTip();
+      });
+      document.addEventListener('mouseout', e => {
+        if (e.target.closest('[data-tip]')) hideTip();
+      });
+      // 滚动/切窗口时隐藏
+      window.addEventListener('scroll', hideTip, true);
+    })();
+
+    let currentSort = { field: 'mcap', dir: 'desc' };  // 默认按市值降序（Boss 2026-08-04）
+    let currentYieldPeriod = '365d';
+    let currentFilter = 'all';
+    const RETURN_STATUS_ORDER = { active: 3, partial: 2, none: 1 };
+
+    // === Formatting ===
+    const formatCurrency = (v, d = 0) => { if (v == null) return '—'; if (v >= 1e9) return '$' + (v / 1e9).toFixed(2) + 'B'; if (v >= 1e6) return '$' + (v / 1e6).toFixed(2) + 'M'; if (v >= 1e3) return '$' + (v / 1e3).toFixed(1) + 'K'; return '$' + v.toFixed(d); };
+    // formatPercent: v 已经是百分比（如 6.21 表示 6.21%），直接格式化即可
+    // precision 参数：可选，默认 2；BNB 等 BEP-95 占比极小的协议可传 3 以显示细微波动
+    const formatPercent = (v, precision = 2) => v == null ? '—' : v.toFixed(precision) + '%';
+    // 财务列格式化：带符号金额（净利可为负）
+    const formatMoney = (v) => {
+      if (v == null) return '—';
+      const abs = Math.abs(v);
+      const sign = v < 0 ? '−' : '';
+      if (abs >= 1e9) return sign + '$' + (abs / 1e9).toFixed(2) + 'B';
+      if (abs >= 1e6) return sign + '$' + (abs / 1e6).toFixed(2) + 'M';
+      if (abs >= 1e3) return sign + '$' + (abs / 1e3).toFixed(1) + 'K';
+      return sign + '$' + v.toFixed(0);
+    };
+    // 收入增速：正绿负红（A 股惯例：涨红跌绿 → 这里正增长用红/绿色系区分，标 +/-）
+    const formatGrowth = (v) => {
+      if (v == null) return '—';
+      return (v > 0 ? '+' : '') + v.toFixed(1) + '%';
+    };
+
+    // === Data Loading ===
+    async function loadProtocolData() {
+      try {
+        const baseRes = await fetch('../data/all-protocols.json');
+        if (baseRes.ok) {
+          const baseData = await baseRes.json();
+          PROTOCOLS = baseData.protocols || {};
+          if (baseData.generated_at) {
+            const date = new Date(baseData.generated_at).toISOString().split('T')[0];
+            document.getElementById('data-update-time').textContent = (currentLang === 'zh' ? '数据更新: ' : 'Data updated: ') + date;
+          }
+        }
+      } catch (e) { console.warn('Failed to load all-protocols.json'); }
+      const entries = Object.entries(PROTOCOLS);
+      return Promise.all(entries.map(async ([key, config]) => {
+        try {
+          const res = await fetch(`../data/daily/${key}/latest.json`);
+          if (!res.ok) throw new Error();
+          const data = await res.json();
+          // 合并 metrics：优先用 daily 数据，回退到 all-protocols.json
+          const mergedMetrics = { ...config.metrics, ...data.metrics };
+          // payout_ratio 直接使用 all-protocols.json 中的预计算值，不再动态计算
+          let merged = { key, ...config, ...data, metrics: mergedMetrics, payout_ratio: config.payout_ratio };
+          // 财务字段 fallback：当 all-protocols.json 缺失 gross_profit/net_income/net_margin 时，
+          // 从 snapshots/{id}.json 的 income_statement 补全（详情页用同一数据源）。
+          // 规范：仅在 snapshots 给非零值时才 fallback（避免把"snapshots 写了 0"的协议显示成 $0，
+          // 同时保留负净利等真实场景）
+          const needFallback = merged.revenue_usd_365d == null || merged.gross_profit_usd_365d == null || merged.net_income_usd_365d == null || merged.net_margin_percent == null;
+          if (needFallback) {
+            try {
+              const sr = await fetch(`../data/snapshots/${key}.json`);
+              if (sr.ok) {
+                const snap = await sr.json();
+                const inc = snap.income_statement || {};
+                const rv = (inc.revenue || {}).revenue_included || {};
+                const gp = inc.gross_profit || {};
+                const ni = inc.net_income || {};
+                const mg = inc.margins || {};
+                // Revenue：all-protocols 缺时从 snapshot 补（0 视为真 0 不补，保持 —）
+                if (merged.revenue_usd_365d == null && rv.total_usd_365d != null && rv.total_usd_365d !== 0) merged.revenue_usd_365d = rv.total_usd_365d;
+                if (merged.gross_profit_usd_365d == null && gp.gross_profit_usd_365d != null && gp.gross_profit_usd_365d !== 0) merged.gross_profit_usd_365d = gp.gross_profit_usd_365d;
+                if (merged.net_income_usd_365d == null && ni.net_income_usd_365d != null && ni.net_income_usd_365d !== 0) merged.net_income_usd_365d = ni.net_income_usd_365d;
+                if (merged.net_margin_percent == null && mg.net_margin_percent != null && mg.net_margin_percent !== 0) merged.net_margin_percent = mg.net_margin_percent;
+              }
+            } catch {}
+          }
+          return merged;
+        } catch { return { key, ...config, error: true }; }
+      }));
+    }
+
+    // === Sorting ===
+    const psVal = p => { const e = p.total_yield_percent || 0; return e > 0 ? 100 / e : Infinity; };
+    const peVal = p => { const y = p.shareholder_yield_percent || 0; return y > 0 ? 100 / y : Infinity; };
+    function getSortValue(p, f) {
+      switch (f) {
+        case 'payout': return p.payout_ratio || 0;
+        case 'mcap': return p.market_cap_usd || 0;
+        case 'ps': return psVal(p);
+        case 'pe': return peVal(p);
+        case 'divYield': return p.dividend_yield_percent || 0;
+        case 'shareholderYield': return p.shareholder_yield_percent || 0;
+        case 'revenue': return p.revenue_usd_365d || 0;
+        case 'netIncome': return p.net_income_usd_365d || 0;
+        default: return 0;
+      }
+    }
+    function sortProtocols(arr, f, d) {
+      return [...arr].sort((a, b) => {
+        // 默认排序：市值降序，同值按股东回报率降序（Boss 2026-08-04）
+        if (f === 'mcap' && d === 'desc') {
+          const md = (b.market_cap_usd || 0) - (a.market_cap_usd || 0);
+          if (md !== 0) return md;
+          return (b.shareholder_yield_percent || 0) - (a.shareholder_yield_percent || 0);
+        }
+        // 其他字段：按点击的字段排序，使用预计算值
+        let aVal, bVal;
+        switch (f) {
+          case 'payout': aVal = a.payout_ratio || 0; bVal = b.payout_ratio || 0; break;
+          case 'mcap': aVal = a.market_cap_usd || 0; bVal = b.market_cap_usd || 0; break;
+          case 'ps': aVal = psVal(a); bVal = psVal(b); break;
+          case 'pe': aVal = peVal(a); bVal = peVal(b); break;
+          case 'divYield': aVal = a.dividend_yield_percent || 0; bVal = b.dividend_yield_percent || 0; break;
+          case 'shareholderYield': aVal = a.shareholder_yield_percent || 0; bVal = b.shareholder_yield_percent || 0; break;
+          case 'revenue': aVal = a.revenue_usd_365d || 0; bVal = b.revenue_usd_365d || 0; break;
+          case 'netIncome': aVal = a.net_income_usd_365d || 0; bVal = b.net_income_usd_365d || 0; break;
+          default: aVal = a.market_cap_usd || 0; bVal = b.market_cap_usd || 0;
+        }
+        // 根据方向排序
+        const diff = bVal - aVal;  // 默认降序
+        return d === 'asc' ? -diff : diff;
+      });
+    }
+    function updateSortIndicators() {
+      document.querySelectorAll('th.sortable').forEach(th => {
+        th.classList.remove('sorted', 'asc', 'desc');
+        const key = th.dataset.sort;
+        // 表头固定英文简称，不随语言翻译
+        const zhLabel = th.getAttribute('data-zh') || th.textContent;
+        th.textContent = zhLabel.replace(/ⓘ$/, '');
+      });
+      const active = document.querySelector(`th[data-sort="${currentSort.field}"]`);
+      if (active) active.classList.add('sorted', currentSort.dir);
+    }
+
+    // === Render ===
+    let searchQuery = '';
+    function renderTable(protocols, filter = currentFilter, sortField = null, sortDir = null) {
+      const tbody = document.getElementById('protocol-tbody');
+      tbody.innerHTML = '';
+      currentFilter = filter;
+      let filtered = protocols;
+      if (filter !== 'all') {
+        if (filter === 'cex') filtered = protocols.filter(p => p.category === 'cex');
+        else if (filter === 'perpetuals') filtered = protocols.filter(p => p.category === 'perpetuals');
+        else filtered = protocols.filter(p => p.category === filter);
+      }
+      // 搜索过滤：按名称/Ticker 实时过滤
+      if (searchQuery) {
+        const q = searchQuery.toLowerCase();
+        filtered = filtered.filter(p => (p.name || '').toLowerCase().includes(q) || (p.ticker || '').toLowerCase().includes(q));
+      }
+      if (sortField) { currentSort.field = sortField; currentSort.dir = sortDir || 'desc'; }
+      filtered = sortProtocols(filtered, currentSort.field, currentSort.dir);
+      updateSortIndicators();
+      // 空结果提示
+      if (!filtered.length) {
+        tbody.innerHTML = `<tr><td colspan="11" style="text-align:center;padding:40px;color:var(--text-tertiary);font-size:13px;">${currentLang === 'zh' ? '没有匹配的协议 🔍' : 'No matching protocols 🔍'}</td></tr>`;
+        return;
+      }
+
+      filtered.forEach((p, i) => {
+        // 直接使用 all-protocols.json 中的预计算值
+        const m = p.metrics || {};
+        const yieldMap = {
+          '7d': m.shareholder_yield_7d_ann,
+          '30d': m.shareholder_yield_30d_ann,
+          '90d': m.shareholder_yield_90d_ann,
+          '365d': p.shareholder_yield_percent || 0,
+        };
+        const tevYield = yieldMap[currentYieldPeriod] != null ? yieldMap[currentYieldPeriod] : (p.shareholder_yield_percent || 0);
+        const earningYieldMap = {
+          '7d': m.total_yield_7d_ann,
+          '30d': m.total_yield_30d_ann,
+          '90d': m.total_yield_90d_ann,
+          '365d': p.total_yield_percent || 0,
+        };
+        const earningYield = earningYieldMap[currentYieldPeriod] != null ? earningYieldMap[currentYieldPeriod] : (p.total_yield_percent || 0);
+        // 股息率 / 回购率 按周期（数据层 post-pass 已保证 股息率 + 回购率 ≡ 股东回报率）
+        const divYieldMap = {
+          '7d': m.dividend_yield_7d_ann,
+          '30d': m.dividend_yield_30d_ann,
+          '90d': m.dividend_yield_90d_ann,
+          '365d': p.dividend_yield_percent,
+        };
+        const divYield = divYieldMap[currentYieldPeriod] != null ? divYieldMap[currentYieldPeriod] : (p.dividend_yield_percent || 0);
+        // 派息率 (Payout Ratio) = 股东回报 ÷ 营收，按周期
+        const payoutMap = {
+          '7d':   p.payout_ratio_7d,
+          '30d':  p.payout_ratio_30d,
+          '90d':  p.payout_ratio_90d,
+          '365d': p.payout_ratio_365d != null ? p.payout_ratio_365d : p.payout_ratio,
+        };
+        const payout = payoutMap[currentYieldPeriod] != null ? payoutMap[currentYieldPeriod] : (p.payout_ratio || 0);
+        const mcap = p.market_cap_usd || 0;
+        const precision = p.display_precision || 2;
+        // 市销率 P/S = 市值 ÷ 年化营收 = 100 ÷ Earning Yield(%)
+        const ps = earningYield > 0 ? (100 / earningYield) : null;
+        const psDisplay = ps != null ? (ps >= 100 ? Math.round(ps) : ps.toFixed(1)) + 'x' : '—';
+        // 市盈率 P/E = 市值 ÷ 年化归属持币人收入 = 100 ÷ 股东回报率(%)；无股东回报时 —
+        const pe = tevYield > 0 ? (100 / tevYield) : null;
+        const peDisplay = pe != null ? (pe >= 100 ? Math.round(pe) : pe.toFixed(1)) + 'x' : '—';
+        // 派息率显示：处理 'dynamic' 字符串、null（N/A）、数字
+        let payoutDisplay = '—';
+        if (typeof payout === 'string') payoutDisplay = payout;
+        else if (payout > 0) payoutDisplay = (payout * 100).toFixed(0) + '%';
+        // 没有实际股东回报时，派息率无意义（如 GMX 配置 27% 但实算 TEV=0），显示 —
+        if (!tevYield) payoutDisplay = '—';
+        const row = document.createElement('tr');
+        row.onclick = () => window.location.href = `protocol.html?id=${p.key}`;
+        // 股东回报率高亮：≥10% 橙色加粗 / 5-10% 绿 / <5% 灰 / 0% 显示 —
+        const yieldCls = tevYield >= 10 ? 'yield-hot' : tevYield >= 5 ? 'yield-warm' : 'value-zero';
+        const yieldDisplay = tevYield > 0 ? formatPercent(tevYield, precision) : '—';
+        row.innerHTML = `
+          <td>${i + 1}</td>
+          <td><div class="protocol-cell">
+            <div class="protocol-icon"><img src="${LOGO_URLS[p.key] || p.icon}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${p.name.charAt(0)}'"></div>
+            <div class="protocol-info"><span class="protocol-name">${p.name}</span><span class="protocol-ticker">${p.ticker}</span></div>
+          </div></td>
+          <td class="text-right"><span class="value">${formatCurrency(mcap)}</span></td>
+          <td class="text-right"><span class="value ${p.revenue_usd_365d ? 'value-highlight' : 'value-zero'}">${formatMoney(p.revenue_usd_365d)}</span></td>
+          <td class="text-right"><span class="value ${p.net_income_usd_365d > 0 ? 'value-highlight' : p.net_income_usd_365d < 0 ? 'value-negative' : 'value-zero'}">${formatMoney(p.net_income_usd_365d)}</span></td>
+          <td class="text-right"><span class="value ${yieldCls}" style="font-size:15px;font-weight:700;">${yieldDisplay}</span></td>
+          <td class="text-right"><span class="value ${pe == null ? 'value-zero' : ''}">${peDisplay}</span></td>
+          <td class="text-right"><span class="value ${ps == null ? 'value-zero' : ''}">${psDisplay}</span></td>
+          <td class="text-right"><span class="value ${payout >= 0.5 ? 'value-highlight' : payout > 0 ? '' : 'value-zero'}">${payoutDisplay}</span></td>
+          <td class="text-right"><span class="value ${divYield > 0 ? 'value-highlight' : 'value-zero'}">${divYield > 0 ? formatPercent(divYield, precision) : '—'}</span></td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    function updateStats(protocols) {
+      const valid = protocols.filter(p => !p.error);
+
+    }
+
+    function updateFooter(protocols) {
+      const latest = protocols.map(p => p.updated_at).filter(Boolean).sort().reverse()[0];
+      if (latest) {
+        const dateStr = new Date(latest).toLocaleDateString(currentLang === 'zh' ? 'zh-CN' : 'en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+        document.getElementById('footer-updated').textContent = t('footer.updated').replace('{date}', dateStr);
+      }
+    }
+
+    // === Init ===
+    async function init() {
+      try {
+        try { const lr = await fetch('../data/logo_urls.json'); if (lr.ok) LOGO_URLS = await lr.json(); } catch {}
+        const protocols = await loadProtocolData();
+        window.protocolData = protocols;
+        document.getElementById('table-loading').style.display = 'none';
+        document.getElementById('protocol-table').style.display = 'table';
+        renderTable(protocols);
+        setupHeaderTips();
+        updateStats(protocols);
+        updateFooter(protocols);
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.addEventListener('click', () => {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderTable(window.protocolData, btn.dataset.filter);
+        }));
+        document.querySelectorAll('th.sortable').forEach(th => th.addEventListener('click', () => {
+          const f = th.dataset.sort, d = currentSort.field === f && currentSort.dir === 'desc' ? 'asc' : 'desc';
+          renderTable(window.protocolData, currentFilter, f, d);
+        }));
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLanguage(btn.dataset.lang)));
+        // 搜索框：输入即过滤
+        const searchInput = document.getElementById('protocol-search');
+        if (searchInput) {
+          searchInput.addEventListener('input', () => {
+            searchQuery = searchInput.value.trim();
+            renderTable(window.protocolData, currentFilter);
+          });
+          searchInput.addEventListener('keydown', e => { if (e.key === 'Escape') { searchInput.value = ''; searchQuery = ''; renderTable(window.protocolData, currentFilter); } });
+        }
+      } catch (e) {
+        console.error('Init failed:', e);
+        document.getElementById('table-loading').innerHTML = `<div style="color:var(--danger);">Failed to load data</div><div style="margin-top:8px;font-size:12px;">${e.message}</div>`;
+      }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      init();
+      document.querySelectorAll('.yield-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          document.querySelectorAll('.yield-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentYieldPeriod = btn.dataset.period;
+          renderTable(window.protocolData);
+        });
+      });
+    });
+  </script>
+<script src="../js/theme.js"></script>
+<script src="../js/lang.js"></script>
+</body>
+</html>

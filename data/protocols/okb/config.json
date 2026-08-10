@@ -15,7 +15,7 @@
     "coingecko_id": "okb",
     "note": "OKB 同时存在于 Ethereum 和 X Layer"
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "buyback_burn",
       "name": "Buyback & Burn (terminated)",
@@ -31,7 +31,7 @@
       }
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "OFF",
     "fee_switch_details": "2025-08 后停止回购/销毁，供应已锁定",
     "buybacks": "NONE",
@@ -39,17 +39,18 @@
     "burns": "NONE",
     "burn_details": "2025-08-13 一次性销毁 65,256,712.097 OKB，之后不再有回购/销毁",
     "primary_value_accrual": "无持续 TEV 回流（供应已锁定，不再回购或销毁）",
-    "tevRatio": 0
+    "payout_ratio": 0
   },
   "market_data": {
-    "price_usd": 71.07,
-    "circulating_supply": 21000000,
-    "circulating_market_cap": 1503276222,
+    "price_usd": 85.9,
+    "circulating_supply": 21000000.0,
+    "circulating_market_cap": 1803872143,
     "snapshot_date": "2026-02-05",
-    "data_source": "CoinGecko / Etherscan"
+    "data_source": "CoinGecko / Etherscan",
+    "price_updated_at": "2026-08-05T11:54:19.144209+00:00"
   },
-  "calculated_tev": {
-    "tev_yield_percent": null,
+  "calculated_returns": {
+    "shareholder_yield_percent": null,
     "calculation_status": "UNABLE_TO_CALCULATE",
     "reason": "OKX 作为私营公司不公开财务数据，无法获取准确的销毁金额",
     "note": "需要整理历史季度销毁公告来估算"
@@ -109,10 +110,10 @@
     "OKB 30% 回购销毁比例是否为最新政策？",
     "是否需要整理历史季度销毁数据？"
   ],
-  "last_updated": "2026-04-27",
-  "tev_data": {
-    "has_tev": false,
-    "tev_yield_percent": 0,
+  "last_updated": "2026-08-02",
+  "return_data": {
+    "has_returns": false,
+    "shareholder_yield_percent": 0,
     "market_cap_usd": 1503276222,
     "calculation_date": "2026-08-10",
     "sources": [
@@ -130,15 +131,15 @@
       "历史 buyback 数据 (2025-08 之前) 不再延续, 不应外推作 TEV"
     ]
   },
-  "tevStatus": "none",
+  "return_status": "none",
   "confidence_reason": {
     "zh": "2025-08 OKX 治理决议永久锁定 21M 供应, 移除合约 mint/burn 功能. 治理决议明确公开, 链上合约升级可验证.",
     "en": "2025-08 governance decision permanently caps supply at 21M, mint/burn removed from contract. Clear governance + on-chain verifiable."
   },
-  "earning_yield_percent": 0,
+  "total_yield_percent": 0,
   "market_cap_usd": 1503276222,
-  "tev_yield_percent": 0,
-  "tevRatio": 0,
+  "shareholder_yield_percent": 0,
+  "payout_ratio": 1.0,
   "calc_pipeline": [
     {
       "step": 1,
@@ -173,10 +174,10 @@
       "label": "股东回报率: 0% (high confidence — 永久停止)",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
@@ -191,5 +192,35 @@
     "buyback_yield_30d_ann": 0,
     "dividend_yield_90d_ann": 0,
     "buyback_yield_90d_ann": 0
+  },
+  "revenue_recognition": {
+    "entity_type": "platform_token",
+    "principle": "空气币：2025-08 永久停止回购/销毁（一次性销毁 65.26M OKB，合约移除机制）",
+    "revenue_included": {},
+    "revenue_excluded": {
+      "jumpstart": {
+        "note": "Jumpstart 打新忽略"
+      }
+    },
+    "calculation": {
+      "revenue_usd_365d": 0,
+      "note": "TEV=0，标注「回购销毁已于 2025-08 终止，无赋能机制」"
+    },
+    "source_type": "estimate",
+    "source_url": null
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "estimate",
+        "method": "静态（TEV=0，季度复核）",
+        "frequency": "quarterly",
+        "script": null
+      }
+    ],
+    "ai_self_check": [
+      "mechanism-change",
+      "freshness"
+    ]
   }
 }

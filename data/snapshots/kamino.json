@@ -1,0 +1,83 @@
+{
+  "protocol": "kamino",
+  "as_of": "2026-08-06",
+  "income_statement": {
+    "revenue": {
+      "entity_type": "app",
+      "revenue_included": {
+        "protocol_fees_usd_365d": 12082624,
+        "total_usd_365d": 12082624
+      },
+      "revenue_excluded": {
+        "staking_boost_rewards": {
+          "note": "KMNO staking 提供 farming boost（起始 3% 每天 +0.1%），奖励来自代币国库排放（季度 100M），非协议 fee 分润，不计入股东回报"
+        }
+      },
+      "growth_yoy_percent": null,
+      "source": {
+        "type": "defillama",
+        "url": "https://defillama.com/protocol/kamino"
+      }
+    },
+    "gross_profit": {
+      "lp_share_cost_usd_365d": null,
+      "gross_profit_usd_365d": 12082624,
+      "calculation_note": "DefiLlama dailyRevenue 为协议净收入口径（借贷 fees 给 LP 部分已在数据源扣减），毛利 = 收入"
+    },
+    "token_emission_cost": {
+      "usd_365d": null,
+      "annual_emission_tokens": null,
+      "inflation_rate_percent": null,
+      "treatment": "none",
+      "calculation_note": "KMNO 季度 100M 排放（Season 奖励，来自代币国库）为无对价稀释，按判定书不扣成本（不做增发成本）"
+    },
+    "net_income": {
+      "net_income_usd_365d": 12082624,
+      "operating_cost_usd_365d": null,
+      "calculation_note": "净利 = 收入 − 增发(0，稀释注记) − 运营成本(数据不可得)；净利留存协议，股东回报 = 0（治理代币）"
+    },
+    "margins": {
+      "gross_margin_percent": 100.0,
+      "net_margin_percent": 100.0,
+      "note": "派生计算：gross = GP/Rev, net = NI/Rev；协议收入为净额口径，故为 100%"
+    }
+  },
+  "holder_returns": {
+    "by_mechanism": [
+      {
+        "mechanism": "治理代币（无股东回报）",
+        "type": "yield",
+        "usd_365d": 0,
+        "yield_percent": 0,
+        "verified": "estimated",
+        "note": "治理代币，无股东回报（不回购/不分红/不销毁）；KMNO staking 是 farming reward boost（奖励来自代币国库排放），非协议 fee 分润"
+      }
+    ],
+    "summary": {
+      "destroy_usd_365d": null,
+      "yield_usd_365d": null,
+      "destroy_yield_percent": null,
+      "yield_yield_percent": null,
+      "shareholder_returns_usd_365d": 0,
+      "shareholder_yield_percent": 0
+    }
+  },
+  "balance_sheet": {
+    "market_cap_usd": 94103459,
+    "tvl_usd": 2058177618.5805178,
+    "treasury_usd": null,
+    "debt_usd": null
+  },
+  "valuation": {
+    "pe": null,
+    "ps": 7.7883,
+    "pb": null,
+    "ev_revenue": null,
+    "payout_ratio": null
+  },
+  "verification": {
+    "method": "净利 = DefiLlama dailyRevenue 365d $12,082,624（协议净收入）；KMNO 治理代币不回购（staking 为 farming boost 非分润）；净利留存协议",
+    "status": "estimated",
+    "last_checked": "2026-08-06"
+  }
+}

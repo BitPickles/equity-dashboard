@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-02",
+  "generated_at": "2026-08-02T14:40:34.413883+00:00",
+  "protocols": [
+    "bnb"
+  ],
+  "tasks": [
+    "freshness",
+    "regression"
+  ],
+  "results": {
+    "regression": {
+      "regressed": [],
+      "verdict": "ok",
+      "summary_zh": "无 before 基线（首次运行），跳过回归检查"
+    },
+    "freshness": {
+      "alerts": [],
+      "verdict": "ok",
+      "summary_zh": "全部快照新鲜"
+    }
+  },
+  "alerts": {
+    "alert": [],
+    "review": [],
+    "ok": []
+  }
+}

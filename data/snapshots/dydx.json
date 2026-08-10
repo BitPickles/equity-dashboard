@@ -1,0 +1,92 @@
+{
+  "protocol": "dydx",
+  "as_of": "2026-08-06",
+  "income_statement": {
+    "revenue": {
+      "entity_type": "app",
+      "revenue_included": {
+        "net_fees_usd_365d": 8518106,
+        "total_usd_365d": 8518106
+      },
+      "revenue_excluded": {
+        "affiliate_rebate": {
+          "note": "大量前置补贴归交易者（affiliate 30-50% 分成、Surge 50% rebate、零费率市场）——收入为净协议费毛口径，外部不可精确复算"
+        },
+        "ethdydx": {
+          "note": "ethDYDX（ERC-20）bridge 已永久关闭（2025-06-13），持有人 0 股东回报，不计入"
+        }
+      },
+      "growth_yoy_percent": null,
+      "source": {
+        "type": "defillama",
+        "url": "DefiLlama dailyRevenue 365d 缓存 + 判定书（dYdX Foundation 月度报告 / 链上回购账户 / 提案 #313）"
+      }
+    },
+    "gross_profit": {
+      "lp_share_cost_usd_365d": null,
+      "gross_profit_usd_365d": 8518106,
+      "calculation_note": "永续应用无 LP 分润成本 → 毛利 = 收入；affiliate 30-50% 分成 / Surge 50% rebate 等前置补贴归交易者（含 affiliate/rebate 前、外部不可精确复算）"
+    },
+    "token_emission_cost": {
+      "usd_365d": null,
+      "annual_emission_tokens": null,
+      "inflation_rate_percent": null,
+      "treatment": "none",
+      "calculation_note": "DYDX 无挖矿增发成本模型（判定书未按增发成本处理，仅通胀解锁，不作成本扣除）"
+    },
+    "net_income": {
+      "net_income_usd_365d": 8518106,
+      "operating_cost_usd_365d": null,
+      "calculation_note": "净利 = 收入（净协议费毛口径）；真实净协议费含 affiliate/rebate 前不可精确复算，实际低于此值"
+    },
+    "margins": {
+      "gross_margin_percent": 100.0,
+      "net_margin_percent": 100.0,
+      "note": "无 LP/成本模型 → 毛利率/净利率口径性 100%；真实净协议费含 affiliate/rebate 前不可精确复算"
+    }
+  },
+  "holder_returns": {
+    "by_mechanism": [
+      {
+        "mechanism": "净协议费回购（提案 #313，75%）",
+        "type": "buyback",
+        "usd_365d": 1093065.44,
+        "yield_percent": 1.1364,
+        "note": "回购(质押非销毁)：市价买入 DYDX 后质押于 Treasury 专用账户（dydx1zc0jd76...），非销毁勿计销毁；链上无公开 tracker，按判定书 P/F~88x 反推（外部不可精确复算）"
+      },
+      {
+        "mechanism": "质押分红（USDC，Cosmos x/distribution）",
+        "type": "yield",
+        "usd_365d": 218613.09,
+        "yield_percent": 0.2273,
+        "note": "提案 #313 15% 净协议费以 USDC 分给 staker；DYDX 通胀 staking 奖励 ~0.01% APY 极低"
+      }
+    ],
+    "summary": {
+      "destroy_usd_365d": 1093065.44,
+      "yield_usd_365d": 218613.09,
+      "destroy_yield_percent": 1.1364,
+      "yield_yield_percent": 0.2273,
+      "shareholder_returns_usd_365d": 1311678.53,
+      "shareholder_yield_percent": 1.3636
+    }
+  },
+  "balance_sheet": {
+    "market_cap_usd": 96189759,
+    "tvl_usd": 158666696.85028014,
+    "treasury_usd": null,
+    "debt_usd": null
+  },
+  "valuation": {
+    "pe": 73.3333,
+    "ps": 11.2924,
+    "pb": null,
+    "ev_revenue": null,
+    "payout_ratio": 0.154
+  },
+  "verification": {
+    "method": "DefiLlama dailyRevenue 365d=8518106 · 回购额按判定书 P/F~88x 反推（mcap/88）· 提案 #313 比例（75% 回购/15% 质押）",
+    "status": "partial",
+    "last_checked": "2026-08-06"
+  }
+}

@@ -4,3 +4,16 @@
 *.key
 *.pem
 secrets/
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 本地预览服务器
+.preview-server.cjs
+
+# 本地预览服务器
+.preview-server.cjs
+
+# WorkBuddy 本地状态（不入仓库）
+.workbuddy/

@@ -41,11 +41,7 @@ PROTOCOLS = {
         "tvl_slugs": ["ethena-usde"],
         "fee_slugs": ["ethena-usde"],
     },
-    "etherfi": {
-        "coingecko_id": "ether-fi",
-        "tvl_slugs": ["ether.fi"],
-        "fee_slugs": ["ether.fi-liquid", "etherfi-borrowing-market", "etherfi-cash-liquid"],
-    },
+
     "gmx": {
         "coingecko_id": "gmx",
         "tvl_slugs": ["gmx"],
@@ -105,8 +101,7 @@ TEV_RATIOS = {
     "dydx": 1.0,         # 100% 给 stakers
     "eigenlayer": 0,     # 无 TEV
     "ethena": 0,         # 待定 (sENA)
-    "etherfi": 0,        # Partial
-    "gmx": 0.30,         # 30% 给 GMX stakers
+        "gmx": 0.30,         # 30% 给 GMX stakers
     "jito": 0,           # Fee Switch OFF
     "justlend": 0,       # Partial
     "kamino": 0,         # Partial
@@ -284,7 +279,7 @@ def process_protocol(protocol_id, cfg, fee_map, dry_run=False):
     print(f"{'='*60}")
 
     now = datetime.now(timezone.utc)
-    tev_ratio = TEV_RATIOS.get(protocol_id, 0)
+    payout_ratio = TEV_RATIOS.get(protocol_id, 0)
 
     # 1. DefiLlama TVL
     print("  📈 获取 TVL...")
@@ -311,8 +306,8 @@ def process_protocol(protocol_id, cfg, fee_map, dry_run=False):
     # 4. 计算 TEV 指标
     daily_fees = fees.get("total24h", 0) or 0
     fees_30d = fees.get("total30d", 0) or 0
-    daily_tev = daily_fees * tev_ratio
-    tev_30d = fees_30d * tev_ratio
+    daily_tev = daily_fees * payout_ratio
+    tev_30d = fees_30d * payout_ratio
     tev_annualized = tev_30d * 12
     mcap = cg.get("market_cap_usd") or 0
     tev_yield = (tev_annualized / mcap) if mcap > 0 else 0
@@ -336,16 +331,16 @@ def process_protocol(protocol_id, cfg, fee_map, dry_run=False):
             "tvl_usd": tvl,
             "daily_fees_usd": daily_fees,
             "daily_tev_usd": round(daily_tev, 2),
-            "tev_ratio_used": tev_ratio,
+            "tev_ratio_used": payout_ratio,
         },
         "metrics": {
             "trailing_30d_fees_usd": fees_30d,
-            "trailing_30d_tev_usd": round(tev_30d, 2),
+            "trailing_30d_shareholder_returns_usd": round(tev_30d, 2),
             "annualized_fees_usd": round(fees_30d * 12, 2),
-            "annualized_tev_usd": round(tev_annualized, 2),
+            "annualized_returns_usd": round(tev_annualized, 2),
             "current_market_cap_usd": mcap,
             "tev_yield": f"{tev_yield:.2%}" if mcap > 0 else "N/A",
-            "tev_yield_decimal": round(tev_yield, 6) if mcap > 0 else 0,
+            "return_yield_decimal": round(tev_yield, 6) if mcap > 0 else 0,
             "tvl_usd": tvl,
             "mcap_tvl_ratio": round(mcap / tvl, 4) if tvl > 0 else None,
             "calculated_at": now.isoformat(),

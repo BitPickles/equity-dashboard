@@ -16,7 +16,7 @@
     "total_supply": 2000000000,
     "note": "合约支持 burn 功能"
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "buyback_burn",
       "name": "Quarterly Buy-Back & Burn",
@@ -31,7 +31,7 @@
       }
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "N/A",
     "fee_switch_details": "CEX 收入不直接链上分配",
     "buybacks": "ACTIVE",
@@ -41,14 +41,16 @@
     "primary_value_accrual": "回购销毁 - 季度用平台收入回购销毁 BGB"
   },
   "market_data": {
-    "price_usd": 2.7,
-    "circulating_market_cap": 1888393751,
+    "price_usd": 1.62,
+    "circulating_market_cap": 1133141498,
     "total_supply": 2000000000,
     "snapshot_date": "2026-02-05",
-    "data_source": "CoinGecko"
+    "data_source": "CoinGecko",
+    "circulating_supply": 699992029.6481038,
+    "price_updated_at": "2026-08-05T11:54:19.144209+00:00"
   },
-  "calculated_tev": {
-    "tev_yield_percent": null,
+  "calculated_returns": {
+    "shareholder_yield_percent": null,
     "calculation_status": "UNABLE_TO_CALCULATE",
     "reason": "Bitget 不公开财务数据，无法获取准确的销毁金额",
     "note": "需要整理历史季度销毁公告来估算"
@@ -98,10 +100,10 @@
     "BGB 销毁比例是多少？",
     "是否有其他 TEV 机制（如 Launchpad 参与权）？"
   ],
-  "last_updated": "2026-04-27",
-  "tev_data": {
-    "has_tev": false,
-    "tev_yield_percent": 0,
+  "last_updated": "2026-08-02",
+  "return_data": {
+    "has_returns": false,
+    "shareholder_yield_percent": 0,
     "market_cap_usd": 1888393751,
     "calculation_date": "2026-08-10",
     "sources": [
@@ -119,15 +121,15 @@
       "<strong>Morph 迁移变量</strong>: 2025-09 BGB 部分迁移 Morph 基金会, 销毁机制未来可能变更"
     ]
   },
-  "tevStatus": "none",
+  "return_status": "none",
   "confidence_reason": {
     "zh": "销毁源头无链上溯源, 类似 JustLend pocket-to-pocket 嫌疑. Bitget 自持 BGB 转账到黑洞 vs 真实市场买入无市场对手方证据",
     "en": "No on-chain source tracing for burns. Similar pocket-to-pocket suspicion as JustLend — no market counterparty evidence for \"20% revenue buyback\" claim"
   },
-  "tevRatio": 0,
-  "earning_yield_percent": 0,
+  "payout_ratio": 1.0,
+  "total_yield_percent": 0,
   "market_cap_usd": 1888393751,
-  "tev_yield_percent": 0,
+  "shareholder_yield_percent": 0,
   "calc_pipeline": [
     {
       "step": 1,
@@ -162,10 +164,10 @@
       "label": "当前 股东回报率: 0% (low confidence)",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
@@ -180,5 +182,44 @@
     "buyback_yield_30d_ann": 0,
     "dividend_yield_90d_ann": 0,
     "buyback_yield_90d_ann": 0
+  },
+  "revenue_recognition": {
+    "entity_type": "platform_token",
+    "principle": "平台币赋能即收入；已与 Bitget 平台切割",
+    "revenue_included": {
+      "buyback_burn": {
+        "note": "季度回购销毁：交易所+钱包业务利润的 20%（现货/合约/杠杆手续费 + Wallet 收入）"
+      }
+    },
+    "revenue_excluded": {
+      "launchpad": {
+        "note": "Bitget 基本没有打新，不计入"
+      }
+    },
+    "calculation": {
+      "revenue_usd_365d": "季度利润 20% 回购销毁（官方公告 + 链上验证）"
+    },
+    "source_type": "official",
+    "source_url": "https://www.bitget.com"
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "official",
+        "method": "AI 抓季度销毁公告（数量 + 日期）",
+        "frequency": "quarterly",
+        "script": "ai-watch-official.py"
+      },
+      {
+        "type": "chain",
+        "method": "链上销毁地址复核",
+        "frequency": "daily",
+        "script": "update-bgb-tev.py"
+      }
+    ],
+    "ai_self_check": [
+      "mechanism-change",
+      "freshness"
+    ]
   }
 }

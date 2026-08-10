@@ -1,0 +1,83 @@
+{
+  "protocol": "gmx",
+  "as_of": "2026-08-06",
+  "income_statement": {
+    "revenue": {
+      "entity_type": "app",
+      "revenue_included": {
+        "protocol_fees_usd_365d": 12675745,
+        "total_usd_365d": 12675745
+      },
+      "revenue_excluded": {
+        "staking_dividends": {
+          "note": "质押分红已暂停（2026-03-04 Restore Price Discovery），改 Treasury 累积回购，等价格 ≥ $90 触发分配"
+        }
+      },
+      "growth_yoy_percent": null,
+      "source": {
+        "type": "defillama",
+        "url": "https://api.llama.fi/summary/fees/gmx?dataType=dailyRevenue（V2 交易费）+ gov.gmx.io 提案 #5042"
+      }
+    },
+    "gross_profit": {
+      "lp_share_cost_usd_365d": null,
+      "gross_profit_usd_365d": 12675745,
+      "calculation_note": "DefiLlama dailyRevenue（V2 交易费）为协议净收入，LP 分润已在数据源扣减；毛利 = 收入"
+    },
+    "token_emission_cost": {
+      "usd_365d": null,
+      "annual_emission_tokens": null,
+      "inflation_rate_percent": null,
+      "treatment": "none",
+      "calculation_note": "GMX 供应固定（~1000 万枚，无持续增发），不涉及增发成本"
+    },
+    "net_income": {
+      "net_income_usd_365d": 12675745,
+      "operating_cost_usd_365d": null,
+      "calculation_note": "净利 = 27% 协议费（全额留存国库，回购-留存模式）；股东回报 = 0，标注「锁定至 $90」"
+    },
+    "margins": {
+      "gross_margin_percent": 100.0,
+      "net_margin_percent": 100.0,
+      "note": "派生计算：gross = GP/Rev, net = NI/Rev；协议收入为净额口径，故为 100%"
+    }
+  },
+  "holder_returns": {
+    "by_mechanism": [
+      {
+        "mechanism": "27% 协议费回购留存（Treasury 累积，非流通）",
+        "type": "buyback",
+        "usd_365d": 0,
+        "yield_percent": 0,
+        "verified": "partial",
+        "note": "2026-03-04 Restore Price Discovery：质押分红暂停，27% 协议费用全额转国库（公开市场回购 + PCV 积累），回购进国库不流通 → 股东回报 = 0；恢复条件 GMX 价格 ≥ $90（对应市值 ~$9 亿，当前 ~$6-7 远未触发），标注「锁定至 $90」"
+      }
+    ],
+    "summary": {
+      "destroy_usd_365d": null,
+      "yield_usd_365d": null,
+      "destroy_yield_percent": null,
+      "yield_yield_percent": null,
+      "shareholder_returns_usd_365d": 0,
+      "shareholder_yield_percent": 0
+    }
+  },
+  "balance_sheet": {
+    "market_cap_usd": 65119533,
+    "tvl_usd": 256520219.69048157,
+    "treasury_usd": null,
+    "debt_usd": null
+  },
+  "valuation": {
+    "pe": null,
+    "ps": 5.1373,
+    "pb": null,
+    "ev_revenue": null,
+    "payout_ratio": null
+  },
+  "verification": {
+    "method": "净利 = DefiLlama V2 交易费 dailyRevenue 365d $12,675,745；27% 协议费全额留存国库（提案 #5042，2026-03-04 Restore Price Discovery）；股东回报 = 0，锁定至 $90；tev-records 365d $7,816,073（含暂停前历史，仅参考）",
+    "status": "partial",
+    "last_checked": "2026-08-06"
+  }
+}

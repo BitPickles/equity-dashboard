@@ -2,14 +2,14 @@
 
 本文档说明 BNB 协议的 TEV（Token Economic Value）数据如何计算、从哪里来、怎么自动更新。
 
-> **前提**：其他协议的 TEV 计算由 `scripts/sync-tev-data.js` 通用分支处理（基于 `tevRatio × DefiLlama revenue`）。**BNB 不适用通用公式**（CEX token，没有 fee 分润机制），所以独立维护。
+> **前提**：其他协议的 TEV 计算由 `scripts/sync-tev-data.js` 通用分支处理（基于 `payout_ratio × DefiLlama revenue`）。**BNB 不适用通用公式**（CEX token，没有 fee 分润机制），所以独立维护。
 
 ---
 
 ## 一、TEV 公式
 
 ```
-TEV Yield = Burn Yield + asBNB APY
+Shareholder Yield = Burn Yield + asBNB APY
          = (Auto-Burn USD + BEP-95 USD) ÷ 市值 + asBNB APY
 ```
 
@@ -103,7 +103,7 @@ Step 4: TEV 协议汇总
 
 | 文件 | 用途 | 维护方式 |
 |---|---|---|
-| `data/protocols/bnb/config.json` | 协议元数据、TEV 机制、analyst_notes | 手写；脚本回写计算字段 |
+| `data/protocols/bnb/config.json` | 协议元数据、价值分配机制、analyst_notes | 手写；脚本回写计算字段 |
 | `data/protocols/bnb/burn-history.json` | quarterly_burns 历史 + asbnb_apy | 手动补新 burn；asbnb_apy 手动季度更新 |
 | `data/protocols/bnb/bep95-history.json` | BEP-95 日时间序列 | Dune 种子 + 每日 RPC 累积 |
 | `data/protocols/bnb/bep95-dune-seed.csv` | Dune 一次性种子数据 | 保留审计，可重跑 `scripts/seed-bep95-from-csv.py` |
@@ -168,7 +168,7 @@ node scripts/sync-tev-data.js bnb
 python3 -c "
 import json
 d = json.load(open('data/all-protocols.json'))['protocols']['bnb']
-print('tev_yield_percent:', d.get('tev_yield_percent'))
+print('shareholder_yield_percent:', d.get('shareholder_yield_percent'))
 print('market_cap_usd:', d.get('market_cap_usd'))
 print('metrics:', d.get('metrics'))
 "
@@ -190,5 +190,5 @@ print('Dead balance:', int(r['result'],16)/1e18, 'BNB')
 ## 八、历史记录
 
 - 2026-04-19: 初版 `update-bnb-tev.py` 上线；Dune 种子一次性导入 2025-03-14 → 2026-04-18 共 401 天 BEP-95 数据；发现并补录 35th Auto-Burn (2026-04-15)
-- 2026-04-19: TEV Yield 改为真实的按周期计算（之前所有周期共用同一值）
+- 2026-04-19: Shareholder Yield 改为真实的按周期计算（之前所有周期共用同一值）
 - 2026-03-01: 从 slisBNB 单一 proxy 改为 Burn + asBNB 双源

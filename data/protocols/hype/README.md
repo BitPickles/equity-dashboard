@@ -4,7 +4,7 @@
 
 ---
 
-## 一、TEV 机制（关键澄清）
+## 一、价值分配机制（关键澄清）
 
 Hyperliquid 有**两个独立的供给相关机制**，容易混淆：
 
@@ -13,7 +13,7 @@ Hyperliquid 有**两个独立的供给相关机制**，容易混淆：
 | **AF (Assistance Fund) 买入** | ~43M HYPE（$1.07B 累计买入成本）| **Treasury buyback**：HYPE 留在 AF 地址 `0xfefe...fefe`，理论上可被 validator consensus 动用 |
 | **Spot 手续费销毁** | ~745k HYPE（0.075%）| **真正的永久销毁**：spot 交易中用 HYPE 支付的手续费直接销毁 |
 
-### TEV 口径选择
+### 回报口径选择
 
 crypto3d 采用 **"AF buyback + spot burn"** 作为 TEV，因为：
 - AF 累积对流通供给确实有**收缩效应**（等效销毁，至少在 AF 不动用时）
@@ -30,7 +30,7 @@ crypto3d 采用 **"AF buyback + spot burn"** 作为 TEV，因为：
 ## 二、公式
 
 ```
-TEV Yield = (AF buyback USD + spot burn USD) ÷ market_cap × 年化因子
+Shareholder Yield = (AF buyback USD + spot burn USD) ÷ market_cap × 年化因子
          ≈ DefiLlama dailyRevenue ÷ market_cap
 ```
 
@@ -126,7 +126,7 @@ Step 4: TEV 协议汇总
 
 ### 3. HYPE tokenomics 变更
 
-**处理**：重写 analyst_notes，更新 tev_mechanisms
+**处理**：重写 analyst_notes，更新 return_mechanisms
 
 ---
 
@@ -150,7 +150,7 @@ node scripts/sync-tev-data.js hype
 python3 -c "
 import json
 d = json.load(open('data/all-protocols.json'))['protocols']['hype']
-print('tev_yield_percent:', d.get('tev_yield_percent'))
+print('shareholder_yield_percent:', d.get('shareholder_yield_percent'))
 print('market_cap_usd:', d.get('market_cap_usd'))
 print('metrics:', json.dumps(d.get('metrics'), indent=2))
 "

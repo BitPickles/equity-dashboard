@@ -1,0 +1,10 @@
+{
+  "provider": "zhipu-glm",
+  "endpoint": "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+  "model": "glm-4.6",
+  "api_key_env": "GLM_API_KEY",
+  "temperature": 0,
+  "timeout_sec": 60,
+  "max_retries": 2,
+  "tasks": ["mechanism-change", "data-plausibility", "cross-validation", "freshness", "regression"]
+}

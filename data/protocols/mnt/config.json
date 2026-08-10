@@ -21,7 +21,7 @@
     "bybit_relation": "BitDAO 由 Bybit 支持创立，转型为 Mantle 后关系延续",
     "treasury": "Mantle 拥有 DeFi 领域最大的 DAO 国库之一"
   },
-  "tev_mechanisms": [
+  "return_mechanisms": [
     {
       "type": "gas_token",
       "name": "Mantle Network Gas",
@@ -37,7 +37,7 @@
       "note": "需要确认质押奖励机制"
     }
   ],
-  "tev_summary": {
+  "return_summary": {
     "fee_switch": "N/A",
     "fee_switch_details": "L2 gas 费用机制，非传统 fee switch",
     "buybacks": "UNKNOWN",
@@ -46,15 +46,16 @@
     "primary_value_accrual": "待确认 - Gas 消耗 + 潜在的质押奖励"
   },
   "market_data": {
-    "price_usd": 0.61,
-    "circulating_supply": 3252944056,
-    "circulating_market_cap": 1981231322,
+    "price_usd": 0.403057,
+    "circulating_supply": 3302294382.53684,
+    "circulating_market_cap": 1330922104,
     "total_supply": 6219316794,
     "snapshot_date": "2026-02-05",
-    "data_source": "CoinGecko / Etherscan"
+    "data_source": "CoinGecko / Etherscan",
+    "price_updated_at": "2026-08-05T11:54:19.144209+00:00"
   },
-  "calculated_tev": {
-    "tev_yield_percent": null,
+  "calculated_returns": {
+    "shareholder_yield_percent": null,
     "calculation_status": "UNABLE_TO_CALCULATE",
     "reason": "MNT 的 TEV 机制不明确，与传统 CEX 平台币不同",
     "note": "需要进一步调研 Mantle 的收入分配机制"
@@ -113,10 +114,10 @@
     "Bybit 收入与 MNT 的具体关联？",
     "MNT 是否有明确的回购/销毁/分红机制？"
   ],
-  "last_updated": "2026-04-27",
-  "tev_data": {
-    "has_tev": false,
-    "tev_yield_percent": 0,
+  "last_updated": "2026-08-02",
+  "return_data": {
+    "has_returns": false,
+    "shareholder_yield_percent": 0,
     "market_cap_usd": 1981231322,
     "calculation_date": "2026-08-10",
     "sources": [
@@ -135,15 +136,15 @@
       "若未来 Treasury Burn 提案通过执行, 重新评估"
     ]
   },
-  "tevStatus": "none",
+  "return_status": "none",
   "confidence_reason": {
     "zh": "Mantle L2 sequencer fees 不流向 MNT 持有人; mETH 收益给 mETH 持有人; Treasury Burn 提案讨论中未执行. 纯治理代币 (类 LDO)",
     "en": "Mantle L2 sequencer fees do not flow to MNT holders; mETH rewards go to mETH holders; Treasury Burn proposal under discussion, not executed. Pure governance token (similar to LDO)"
   },
-  "tevRatio": 0,
-  "earning_yield_percent": 0,
+  "payout_ratio": 1.0,
+  "total_yield_percent": 0,
   "market_cap_usd": 1981231322,
-  "tev_yield_percent": 0,
+  "shareholder_yield_percent": 0,
   "calc_pipeline": [
     {
       "step": 1,
@@ -179,10 +180,10 @@
       "label": "股东回报率: 0% (governance-only, 类 LDO)",
       "derived": true,
       "value_fields_by_period": {
-        "7d": "metrics.tev_yield_7d_ann",
-        "30d": "metrics.tev_yield_30d_ann",
-        "90d": "metrics.tev_yield_90d_ann",
-        "365d": "tev_yield_percent"
+        "7d": "metrics.shareholder_yield_7d_ann",
+        "30d": "metrics.shareholder_yield_30d_ann",
+        "90d": "metrics.shareholder_yield_90d_ann",
+        "365d": "shareholder_yield_percent"
       },
       "unit": "%"
     }
@@ -197,5 +198,35 @@
     "buyback_yield_30d_ann": 0,
     "dividend_yield_90d_ann": 0,
     "buyback_yield_90d_ann": 0
+  },
+  "revenue_recognition": {
+    "entity_type": "platform_token",
+    "principle": "同 BNB（赋能即收入），但当前无赋能机制（sequencer fees 进 BaseFeeVault 不 burn、mETH 收益归 mETH 持有人、Staking planned）",
+    "revenue_included": {},
+    "revenue_excluded": {
+      "staking": {
+        "note": "Staking 未上线，上线后按质押收益 🟡 补进收入"
+      }
+    },
+    "calculation": {
+      "revenue_usd_365d": 0,
+      "note": "当前显示 0% + 治理代币标注（时间性状态，非本质无赋能）"
+    },
+    "source_type": "estimate",
+    "source_url": null
+  },
+  "data_pipeline": {
+    "sources": [
+      {
+        "type": "estimate",
+        "method": "静态（TEV=0，季度复核）；Staking 上线后补链上采集",
+        "frequency": "quarterly",
+        "script": null
+      }
+    ],
+    "ai_self_check": [
+      "mechanism-change",
+      "freshness"
+    ]
   }
 }

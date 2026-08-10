@@ -1,37 +1,26 @@
 {
   "protocol": "compound",
-  "updated_at": "2026-03-01T13:02:14.800096+00:00",
+  "updated_at": "2026-08-05T12:00:53.000Z",
   "data_sources": {
-    "tvl": "DefiLlama",
-    "fees": "DefiLlama",
-    "market": "CoinGecko"
+    "defillama": "compound-v3",
+    "coingecko": "compound-governance-token",
+    "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-03-01",
-    "price_usd": 17.89,
-    "market_cap_usd": 172998094,
-    "fdv_usd": 178935361,
-    "circulating_supply": 9668189.278360886,
-    "total_supply": 10000000.0,
-    "tvl_usd": 1426818013.3637507,
-    "daily_fees_usd": 49779,
-    "daily_tev_usd": 0,
-    "tev_ratio_used": 0
+    "date": "2026-08-05",
+    "price_usd": 16.34,
+    "market_cap_usd": 163433690,
+    "daily_fees_usd": 56446,
+    "total30d_fees_usd": 1763675,
+    "total1y_fees_usd": 29784748
   },
   "metrics": {
-    "trailing_30d_fees_usd": 1711705,
-    "trailing_30d_tev_usd": 0,
-    "annualized_fees_usd": 20540460,
-    "annualized_tev_usd": 0,
-    "current_market_cap_usd": 172998094,
-    "tev_yield": "0.00%",
-    "tev_yield_decimal": 0.0,
-    "tvl_usd": 1426818013.3637507,
-    "mcap_tvl_ratio": 0.1212,
-    "calculated_at": "2026-03-01T13:02:14.800096+00:00"
-  },
-  "fees_breakdown": {
-    "compound-v2": 101144,
-    "compound-v3": 1610561
+    "trailing_30d_shareholder_returns_usd": 0,
+    "trailing_365d_shareholder_returns_usd": null,
+    "annualized_returns_usd": 0,
+    "current_market_cap_usd": 163433690,
+    "tev_yield": null,
+    "return_yield_decimal": 0.0,
+    "calculated_at": "2026-08-05T12:00:53.000Z"
   }
 }

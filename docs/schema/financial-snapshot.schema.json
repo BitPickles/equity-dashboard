@@ -1,0 +1,170 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://crypto3d.pro/schema/financial-snapshot.schema.json",
+  "title": "Financial Snapshot",
+  "description": "DeFi 协议美股化财报快照统一 Schema（PRD v2.1 第 5.2 节）。每个协议一个快照，由 build-snapshot.py 从 data/protocols/<id>/ 的 adapter.py + config.json 生成。禁止在 config 里手写 valuation/margins 派生字段。",
+  "type": "object",
+  "required": ["protocol", "as_of", "income_statement", "holder_returns", "balance_sheet", "valuation", "verification"],
+  "additionalProperties": false,
+  "properties": {
+    "protocol": {
+      "type": "string",
+      "description": "协议 id（与 data/protocols/<id>/ 目录名一致）",
+      "pattern": "^[a-z0-9.-]+$"
+    },
+    "as_of": {
+      "type": "string",
+      "description": "快照数据日期（YYYY-MM-DD）",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "income_statement": {
+      "type": "object",
+      "required": ["revenue", "gross_profit", "token_emission_cost", "net_income", "margins"],
+      "properties": {
+        "revenue": {
+          "type": "object",
+          "required": ["entity_type", "revenue_included", "revenue_excluded", "source"],
+          "properties": {
+            "entity_type": {
+              "type": "string",
+              "enum": ["platform_token", "public_chain", "app"],
+              "description": "实体类型：platform_token=平台币 / public_chain=独立公链 / app=应用型协议"
+            },
+            "revenue_included": {
+              "type": "object",
+              "description": "计入收入的科目（平台币口径：打新/质押/销毁；应用型：协议费）",
+              "properties": {
+                "launchpad_launchpool_usd_365d": { "type": ["number", "null"] },
+                "staking_rewards_usd_365d": { "type": ["number", "null"] },
+                "burn_usd_365d": { "type": ["number", "null"] },
+                "protocol_fees_usd_365d": { "type": ["number", "null"] },
+                "total_usd_365d": { "type": ["number", "null"] }
+              },
+              "additionalProperties": true
+            },
+            "revenue_excluded": {
+              "type": "object",
+              "description": "明确不计入的科目及理由",
+              "additionalProperties": {
+                "type": "object",
+                "properties": { "note": { "type": "string" } }
+              }
+            },
+            "growth_yoy_percent": { "type": ["number", "null"] },
+            "source": {
+              "type": "object",
+              "required": ["type", "url"],
+              "properties": {
+                "type": { "type": "string", "enum": ["defillama", "chain", "official", "estimate"] },
+                "url": { "type": ["string", "null"] }
+              }
+            }
+          }
+        },
+        "gross_profit": {
+          "type": "object",
+          "required": ["gross_profit_usd_365d", "calculation_note"],
+          "properties": {
+            "lp_share_cost_usd_365d": { "type": ["number", "null"] },
+            "gross_profit_usd_365d": { "type": ["number", "null"] },
+            "calculation_note": { "type": "string" }
+          }
+        },
+        "token_emission_cost": {
+          "type": "object",
+          "properties": {
+            "usd_365d": { "type": ["number", "null"] },
+            "annual_emission_tokens": { "type": ["number", "null"] },
+            "inflation_rate_percent": { "type": ["number", "null"] },
+            "calculation_note": { "type": "string" },
+            "treatment": {
+              "type": "string",
+              "enum": ["cost", "dilution_note", "none"],
+              "description": "cost=有对价换收入作为成本扣除 / dilution_note=无对价作稀释注记 / none=无增发"
+            }
+          },
+          "required": ["treatment"]
+        },
+        "net_income": {
+          "type": "object",
+          "required": ["net_income_usd_365d", "calculation_note"],
+          "properties": {
+            "net_income_usd_365d": { "type": ["number", "null"] },
+            "operating_cost_usd_365d": { "type": ["number", "null"] },
+            "calculation_note": { "type": "string" }
+          }
+        },
+        "margins": {
+          "type": "object",
+          "properties": {
+            "gross_margin_percent": { "type": ["number", "null"] },
+            "net_margin_percent": { "type": ["number", "null"] },
+            "note": { "type": "string" }
+          }
+        }
+      }
+    },
+    "holder_returns": {
+      "type": "object",
+      "required": ["by_mechanism", "summary"],
+      "properties": {
+        "by_mechanism": {
+          "type": "array",
+          "description": "股东回报机制拆解，每个机制带含金量属性",
+          "items": {
+            "type": "object",
+            "required": ["mechanism", "type", "usd_365d", "yield_percent"],
+            "properties": {
+              "mechanism": { "type": "string" },
+              "type": { "type": "string", "enum": ["destroy", "yield", "dividend", "buyback"] },
+              "usd_365d": { "type": ["number", "null"] },
+              "yield_percent": { "type": ["number", "null"] }
+            }
+          }
+        },
+        "summary": {
+          "type": "object",
+          "required": ["shareholder_returns_usd_365d", "shareholder_yield_percent"],
+          "properties": {
+            "destroy_usd_365d": { "type": ["number", "null"] },
+            "yield_usd_365d": { "type": ["number", "null"] },
+            "destroy_yield_percent": { "type": ["number", "null"] },
+            "yield_yield_percent": { "type": ["number", "null"] },
+            "shareholder_returns_usd_365d": { "type": ["number", "null"] },
+            "shareholder_yield_percent": { "type": ["number", "null"] }
+          }
+        }
+      }
+    },
+    "balance_sheet": {
+      "type": "object",
+      "required": ["market_cap_usd", "tvl_usd"],
+      "properties": {
+        "market_cap_usd": { "type": ["number", "null"] },
+        "tvl_usd": { "type": ["number", "null"] },
+        "treasury_usd": { "type": ["number", "null"] },
+        "debt_usd": { "type": ["number", "null"] }
+      }
+    },
+    "valuation": {
+      "type": "object",
+      "description": "派生估值，必须由上层脚本计算，禁止手写。无数据 → null → 前端显示 —",
+      "properties": {
+        "pe": { "type": ["number", "null"] },
+        "ps": { "type": ["number", "null"] },
+        "pb": { "type": ["number", "null"] },
+        "ev_revenue": { "type": ["number", "null"] },
+        "payout_ratio": { "type": ["number", "null"] }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "required": ["method", "status", "last_checked"],
+      "properties": {
+        "method": { "type": "string" },
+        "status": { "type": "string", "enum": ["verified", "partial", "estimated"] },
+        "last_checked": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+      }
+    }
+  }
+}

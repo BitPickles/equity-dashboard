@@ -5,11 +5,23 @@ Get all ASTER token transfers to buyback wallets
 """
 
 import requests
+import os
 import json
 from datetime import datetime
 from collections import defaultdict
+from pathlib import Path
 
-API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjdmYWFmNTdkLTNiOWQtNGNhNS1hNGY3LTExZGI4Y2YyYzBlNiIsIm9yZ0lkIjoiNTAwNDkyIiwidXNlcklkIjoiNTE0OTg0IiwidHlwZUlkIjoiMjA4MzcyMWEtZmJjMC00NzQzLWEzNGItNGEyYmFlY2ExNTNlIiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3NzA5OTIwNTMsImV4cCI6NDkyNjc1MjA1M30.Ef1yoypuIgSdnMMFnB9aFaDX6ILinqWuchJ8npxEZrA"
+# ⚠️ 安全修复 2026-08-06：key 曾硬编码，已改为环境变量/.env 读取
+API_KEY = os.environ.get("MORALIS_API_KEY", "")
+if not API_KEY:
+    _env = Path(__file__).resolve().parent.parent / ".env"
+    if _env.exists():
+        for _line in _env.read_text(encoding="utf-8").splitlines():
+            if _line.startswith("MORALIS_API_KEY="):
+                API_KEY = _line.split("=", 1)[1].strip()
+                break
+if not API_KEY:
+    raise SystemExit("❌ 未设置 MORALIS_API_KEY 环境变量（或 .env）。请配置后运行。")
 
 ASTER_TOKEN = "0x000ae314e2a2172a039b26378814c252734f556a"
 

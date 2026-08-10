@@ -1,0 +1,82 @@
+{
+  "protocol": "justlend",
+  "as_of": "2026-08-06",
+  "income_statement": {
+    "revenue": {
+      "entity_type": "app",
+      "revenue_included": {
+        "protocol_fees_usd_365d": 500000,
+        "total_usd_365d": 500000
+      },
+      "revenue_excluded": {
+        "buyback_burn": {
+          "note": "做账式销毁不计入股东回报（金库转 Black Hole，无市场买入证据）"
+        }
+      },
+      "growth_yoy_percent": null,
+      "source": {
+        "type": "estimate",
+        "url": "DefiLlama justlend slug interest spread（~$500k/年）+ 链上 burn-history.json（做账式核实）"
+      }
+    },
+    "gross_profit": {
+      "lp_share_cost_usd_365d": null,
+      "gross_profit_usd_365d": 500000,
+      "calculation_note": "借贷利差（interest spread，DefiLlama ~$500k/年）→ 毛利 = 收入"
+    },
+    "token_emission_cost": {
+      "usd_365d": null,
+      "annual_emission_tokens": null,
+      "inflation_rate_percent": null,
+      "treatment": "none",
+      "calculation_note": "JST 总供应固定（~8.8B，无持续增发）"
+    },
+    "net_income": {
+      "net_income_usd_365d": 500000,
+      "operating_cost_usd_365d": null,
+      "calculation_note": "净收入照算（判定书）；宣称 100% 净收入回购销毁，但链上核实为做账式 → 股东回报 = 0"
+    },
+    "margins": {
+      "gross_margin_percent": 100.0,
+      "net_margin_percent": 100.0,
+      "note": "借贷利差口径（无 LP 分润）→ 毛利率/净利率 = 100%；净收入照算但股东回报 = 0（做账式销毁不计入）"
+    }
+  },
+  "holder_returns": {
+    "by_mechanism": [
+      {
+        "mechanism": "宣称 100% 净收入回购销毁（链上核实做账式）",
+        "type": "buyback",
+        "usd_365d": 0,
+        "yield_percent": 0,
+        "note": "链上核实为 pocket-to-pocket 做账式：孙宇晨金库 TFTWNgDBkQ5wQoP8RXpRznnHvAVV8x5jLu（持 HTX/WIN/TUSD 等）→ executor → TRON Black Hole，无 USDT 市场买入证据；销毁的 JST 本不在流通 → 对流通量和价格无实际支撑，TEV = 0；链上累计 burn 1,604,586,131 JST（2025-10/2026-01/2026-04/2026-07，burn-history.json）仅作供给侧记录"
+      }
+    ],
+    "summary": {
+      "destroy_usd_365d": null,
+      "yield_usd_365d": null,
+      "destroy_yield_percent": null,
+      "yield_yield_percent": null,
+      "shareholder_returns_usd_365d": 0,
+      "shareholder_yield_percent": 0
+    }
+  },
+  "balance_sheet": {
+    "market_cap_usd": 860515946,
+    "tvl_usd": 3292346561.2761326,
+    "treasury_usd": null,
+    "debt_usd": null
+  },
+  "valuation": {
+    "pe": null,
+    "ps": 1721.0319,
+    "pb": null,
+    "ev_revenue": null,
+    "payout_ratio": null
+  },
+  "verification": {
+    "method": "净收入照算（DefiLlama interest spread ~$500k/年）；链上核实（burn-history.json）：累计 burn 1604586131 JST（4 次）全部来自孙宇晨金库 TFTWNgDBkQ5wQoP8RXpRznnHvAVV8x5jLu，无 USDT 市场买入证据 → TEV = 0",
+    "status": "estimated",
+    "last_checked": "2026-08-06"
+  }
+}

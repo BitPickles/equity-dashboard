@@ -1,38 +1,26 @@
 {
   "protocol": "jito",
-  "updated_at": "2026-02-24T18:49:01.946289+00:00",
+  "updated_at": "2026-08-05T12:01:26.000Z",
   "data_sources": {
-    "tvl": "DefiLlama",
-    "fees": "DefiLlama",
-    "market": "CoinGecko"
+    "defillama": "jito",
+    "coingecko": "jito-governance-token",
+    "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-02-24",
-    "price_usd": null,
-    "market_cap_usd": null,
-    "fdv_usd": null,
-    "circulating_supply": null,
-    "total_supply": null,
-    "tvl_usd": 993573612.70653,
-    "daily_fees_usd": 484673,
-    "daily_tev_usd": 0,
-    "tev_ratio_used": 0
+    "date": "2026-08-05",
+    "price_usd": 0.484871,
+    "market_cap_usd": 245037863,
+    "daily_fees_usd": 343976,
+    "total30d_fees_usd": 6672776,
+    "total1y_fees_usd": 219766155
   },
   "metrics": {
-    "trailing_30d_fees_usd": 14369705,
-    "trailing_30d_tev_usd": 0,
-    "annualized_fees_usd": 172436460,
-    "annualized_tev_usd": 0,
-    "current_market_cap_usd": 0,
-    "tev_yield": "N/A",
-    "tev_yield_decimal": 0,
-    "tvl_usd": 993573612.70653,
-    "mcap_tvl_ratio": 0.0,
-    "calculated_at": "2026-02-24T18:49:01.946289+00:00"
-  },
-  "fees_breakdown": {
-    "jito-liquid-staking": 5990509,
-    "jito-mev-tips": 8306628,
-    "jito-dao": 72568
+    "trailing_30d_shareholder_returns_usd": 0,
+    "trailing_365d_shareholder_returns_usd": null,
+    "annualized_returns_usd": 0,
+    "current_market_cap_usd": 245037863,
+    "tev_yield": null,
+    "return_yield_decimal": 0,
+    "calculated_at": "2026-08-05T12:01:26.000Z"
   }
 }

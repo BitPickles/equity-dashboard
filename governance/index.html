@@ -341,12 +341,12 @@
     <div class="container">
       <div class="header-content">
         <a href="../" class="logo">
-          <img src="../logo.svg" alt="3D" class="logo-icon">
+          <img src="../logo.svg" alt="3D" class="logo-icon" onerror="this.onerror=null;this.src='logo.svg'">
           <span class="logo-text">Crypto3D</span>
         </a>
         <div class="nav-links">
           <a href="../" data-zh="首页" data-en="Home" data-zh="首页" data-en="Home">首页</a>
-          <a href="../tev/" style="color:var(--text-primary);">TEV</a>
+          <a href="../equity/" style="color:var(--text-primary);">Shareholder Yield</a>
         </div>
       </div>
     </div>
@@ -396,18 +396,18 @@
       restaking: '再质押', cdp: 'CDP', rwa: 'RWA', perp_dex: '永续DEX'
     };
 
-    const TEV_TO_GOV = {
+    const RETURN_TO_GOV = {
       'aave': 'Aave', 'bnb': 'BNB Chain', 'compound': 'Compound', 'curve': 'Curve',
       'dydx': 'dYdX', 'eigenlayer': 'EigenLayer', 'ethena': 'Ethena', 'etherfi': 'ether.fi',
       'fluid': 'Fluid', 'gmx': 'GMX', 'lido': 'Lido', 'maple': 'Maple Finance',
       'morpho': 'Morpho', 'pancakeswap': 'PancakeSwap', 'pendle': 'Pendle',
       'mnt': 'Mantle', 'sky': 'Sky (MakerDAO)', 'spark': 'Spark', 'uniswap': 'Uniswap'
     };
-    const GOV_TO_TEV = {};
-    for (const [k,v] of Object.entries(TEV_TO_GOV)) GOV_TO_TEV[v] = k;
+    const GOV_TO_RETURN = {};
+    for (const [k,v] of Object.entries(RETURN_TO_GOV)) GOV_TO_RETURN[v] = k;
 
     let tevProtocols = {};
-    const TEV_ORDER = [];
+    const RETURN_ORDER = [];
 
     function formatMcap(v) {
       if (!v || v <= 0) return '';
@@ -431,8 +431,8 @@
       const items = allTevProposals.slice(0, FEED_DEFAULT);
 
       list.innerHTML = items.map(p => {
-        const tevId = GOV_TO_TEV[p.protocol];
-        const tevInfo = tevId ? tevProtocols[tevId] : null;
+        const returnId = GOV_TO_RETURN[p.protocol];
+        const tevInfo = returnId ? tevProtocols[returnId] : null;
         const icon = tevInfo?.icon;
         const ticker = tevInfo?.ticker || '';
         const sc = p.status === 'active' ? 'active' : p.status === 'passed' ? 'passed' : 'closed';
@@ -480,12 +480,12 @@
         const tevData = await tevResp.json();
         tevProtocols = tevData.protocols;
         const sorted = Object.entries(tevProtocols).sort((a,b) => {
-          const aH = (a[1].tev_yield_percent||0) > 0 ? 1 : 0;
-          const bH = (b[1].tev_yield_percent||0) > 0 ? 1 : 0;
+          const aH = (a[1].shareholder_yield_percent||0) > 0 ? 1 : 0;
+          const bH = (b[1].shareholder_yield_percent||0) > 0 ? 1 : 0;
           if (bH !== aH) return bH - aH;
           return (b[1].market_cap_usd||0) - (a[1].market_cap_usd||0);
         });
-        for (const [id, info] of sorted) TEV_ORDER.push({ id, ...info });
+        for (const [id, info] of sorted) RETURN_ORDER.push({ id, ...info });
       } catch(e) {}
 
       const resp = await fetch('../data/governance.json');
@@ -493,13 +493,13 @@
 
       document.getElementById('s-active').textContent = data.active_count || 0;
       document.getElementById('s-passed').textContent = data.passed_count || 0;
-      document.getElementById('s-tev').textContent = data.tev_related || 0;
+      document.getElementById('s-tev').textContent = data.return_related || 0;
       document.getElementById('s-protocols').textContent = data.monitored_protocols || 0;
       document.getElementById('updated-at').textContent =
         '最后更新: ' + new Date(data.updated_at).toLocaleString('zh-CN', {timeZone:'Asia/Shanghai'});
 
       // Feed
-      const tevP = data.proposals.filter(p => p.tev_related);
+      const tevP = data.proposals.filter(p => p.return_related);
       tevP.sort((a,b) => {
         const aA = a.status==='active'?1:0, bA = b.status==='active'?1:0;
         if (bA!==aA) return bA-aA;
@@ -530,8 +530,8 @@
       let html = '';
       const rendered = new Set();
 
-      for (const tp of TEV_ORDER) {
-        const gn = TEV_TO_GOV[tp.id];
+      for (const tp of RETURN_ORDER) {
+        const gn = RETURN_TO_GOV[tp.id];
         if (!gn) continue;
         const ps = byProto[gn] || [];
         if (!ps.length && !data.protocols_meta?.[gn]) continue;
@@ -547,8 +547,8 @@
     function renderCard(name, proposals, tevInfo) {
       const active = proposals.filter(p=>p.status==='active').length;
       const passed = proposals.filter(p=>p.status==='passed').length;
-      const tevRel = proposals.filter(p=>p.tev_related).length;
-      const hasYield = tevInfo && (tevInfo.tev_yield_percent||0) > 0;
+      const tevRel = proposals.filter(p=>p.return_related).length;
+      const hasYield = tevInfo && (tevInfo.shareholder_yield_percent||0) > 0;
       const slug = encodeURIComponent(name);
       const icon = tevInfo?.icon;
 
@@ -559,7 +559,7 @@
       const ticker = tevInfo?.ticker || '';
       const cat = tevInfo?.category ? (CATEGORY_ZH[tevInfo.category]||tevInfo.category) : '';
       const mcap = formatMcap(tevInfo?.market_cap_usd);
-      const yld = hasYield ? tevInfo.tev_yield_percent.toFixed(1)+'%' : '';
+      const yld = hasYield ? tevInfo.shareholder_yield_percent.toFixed(1)+'%' : '';
 
       const metaParts = [];
       if (cat) metaParts.push(cat);

@@ -137,7 +137,7 @@
   fetch('./data/all-protocols.json').then(function(r){return r.json()}).then(function(d){
     var protos=d.protocols,list=[];
     var totalProtos=Object.keys(protos).length;
-    for(var k in protos){var p=protos[k];var y=p.tev_yield_percent||0;if(y>0)list.push(y)}
+    for(var k in protos){var p=protos[k];var y=p.shareholder_yield_percent||0;if(y>0)list.push(y)}
     var el1=document.getElementById('kpi-total');if(el1)el1.textContent=totalProtos;
     var el1b=document.getElementById('stat-total');if(el1b)el1b.textContent=totalProtos;
     var el2=document.getElementById('kpi-active');if(el2)el2.textContent=list.length;

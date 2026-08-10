@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <script>(function(){var t=localStorage.getItem('theme');if(t!=='dark')document.documentElement.setAttribute('data-theme','light')})()</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <title>Protocol — Crypto3D 估值仪表盘</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../indicators/css/common.css">
+  <style>
+    .protocol-notes { font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
+    .protocol-notes h2 { font-size: 18px; color: var(--text-primary); margin: 24px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .protocol-notes h3 { font-size: 15px; color: var(--text-primary); margin: 20px 0 8px; }
+    .protocol-notes table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+    .protocol-notes th, .protocol-notes td { padding: 10px 12px; text-align: left; border: 1px solid var(--border); }
+    .protocol-notes th { background: var(--bg-tertiary); color: var(--text-primary); font-weight: 600; }
+
+    /* Governance cards */
+    .gov-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      text-decoration: none;
+      display: block;
+      transition: all 0.2s;
+    }
+    .gov-card:hover { border-color: var(--border-hover); background: var(--bg-tertiary); }
+    .gov-card.is-active { border-left: 3px solid #22c55e; }
+    .gov-card-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.4;
+      margin-bottom: 4px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .gov-card-summary {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .gov-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+    .gov-card-status {
+      font-size: 10px;
+      padding: 1px 7px;
+      border-radius: 5px;
+      font-weight: 500;
+    }
+    .gov-card-status.active { background: rgba(34,197,94,0.1); color: #22c55e; }
+    .gov-card-status.passed { background: rgba(148,163,184,0.1); color: #64748b; }
+    .gov-card-kw {
+      font-size: 9px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-tertiary);
+      background: var(--bg-tertiary);
+      padding: 1px 5px;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+    .gov-more-link {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .gov-more-link:hover { color: var(--text-primary); }
+    .protocol-notes td { background: var(--bg-secondary); }
+    .protocol-notes tr:hover td { background: var(--bg-hover); }
+    .protocol-notes code { background: var(--bg-tertiary); padding: 2px 6px; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+    .protocol-notes pre { background: var(--bg-tertiary); padding: 16px; border-radius: 8px; overflow-x: auto; }
+    .protocol-notes pre code { background: none; padding: 0; }
+    .protocol-notes a { color: var(--blue); text-decoration: none; }
+    .protocol-notes a:hover { text-decoration: underline; }
+    .protocol-notes ul, .protocol-notes ol { padding-left: 24px; margin: 12px 0; }
+    .protocol-notes li { margin: 6px 0; }
+    .protocol-notes strong { color: var(--text-primary); }
+    .protocol-notes hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+    /* TEV 概览紧凑样式 */
+    .tev-grid-compact { 
+      display: grid; 
+      grid-template-columns: repeat(4, 1fr); 
+      gap: 8px; 
+    }
+    .tev-grid-compact .tev-summary-item { 
+      padding: 12px 8px; 
+      min-height: auto;
+    }
+    .tev-grid-compact .tev-summary-label { 
+      font-size: 10px; 
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .tev-grid-compact .tev-summary-label .label-zh { 
+      font-size: 9px; 
+    }
+    .tev-grid-compact .tev-summary-value { 
+      font-size: 14px; 
+    }
+    @media (max-width: 640px) {
+      .tev-grid-compact { grid-template-columns: repeat(2, 1fr); }
+      #tokenomics-grid { grid-template-columns: 1fr !important; }
+    }
+
+    /* TEV 算法透明区块 */
+    .tev-calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      font-size: 14px;
+    }
+    .tev-calc-row {
+      display: contents;
+    }
+    .tev-calc-label {
+      padding: 10px 16px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border);
+    }
+    .tev-calc-value {
+      padding: 10px 16px;
+      text-align: right;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border);
+    }
+    .tev-calc-derived .tev-calc-label {
+      color: #22c55e;
+      font-weight: 600;
+    }
+    .tev-calc-derived .tev-calc-value {
+      color: #22c55e;
+      font-weight: 600;
+    }
+    .tev-calc-footer {
+      padding: 12px 16px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    .tev-calc-footer span {
+      display: inline-block;
+      margin-right: 16px;
+    }
+    @media (max-width: 640px) {
+      .tev-calc-grid { font-size: 13px; }
+      .tev-calc-label, .tev-calc-value { padding: 8px 12px; }
+    }
+
+    /* ===== Redesigned Detail Page (2026-04-22, 方案 B) ===== */
+    /* 周期切换 tab */
+    .period-tabs {
+      display: inline-flex; gap: 2px; padding: 3px;
+      background: var(--bg-tertiary); border-radius: 8px;
+      margin-bottom: 14px;
+    }
+    .period-tab {
+      padding: 5px 14px; border: none; background: transparent;
+      color: var(--text-secondary); font-size: 12px; font-weight: 500;
+      border-radius: 6px; cursor: pointer; transition: all .15s;
+      font-family: inherit; letter-spacing: 0.3px;
+    }
+    .period-tab:hover { color: var(--text-primary); }
+    .period-tab.active { background: var(--bg-primary); color: var(--text-primary); box-shadow: 0 1px 2px rgba(0,0,0,.15); }
+
+    /* TEV 概览 Hero + KPI */
+    .tev-overview-hero {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: 16px; margin-bottom: 16px;
+    }
+    .tev-hero-primary { flex: 1 1 260px; }
+    .tev-hero-label { font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px; }
+    .tev-hero-value { font-size: 17px; color: var(--text-primary); font-weight: 600; line-height: 1.4; }
+    .tev-kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .tev-kpi-item {
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px;
+    }
+    .tev-kpi-label {
+      font-size: 10px; color: var(--text-tertiary);
+      text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 6px;
+    }
+    .tev-kpi-value {
+      font-size: 20px; font-weight: 700; color: var(--text-primary);
+      font-family: 'JetBrains Mono', monospace; line-height: 1.15;
+    }
+    .tev-kpi-value.value-on { color: #22c55e; }
+    .tev-kpi-value.value-partial { color: #f59e0b; }
+    .tev-kpi-sub { font-size: 11px; color: var(--text-tertiary); margin-top: 3px; }
+    @media (max-width: 640px) { .tev-kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* 状态徽章小组（Buybacks/Dividends/Burns/Confidence）*/
+    .tev-status-chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; font-size: 12px; }
+    .tev-status-chip {
+      padding: 4px 10px; border-radius: 6px;
+      background: var(--bg-tertiary); color: var(--text-secondary);
+    }
+    .tev-status-chip strong { color: var(--text-primary); font-weight: 600; }
+
+    /* Caveats 警示卡（可折叠）*/
+    .caveats-card {
+      margin-top: 14px; padding: 10px 14px;
+      background: rgba(251,146,60,0.06); border: 1px solid rgba(251,146,60,0.2);
+      border-left: 3px solid rgb(251,146,60); border-radius: 8px;
+    }
+    .caveats-card > summary { cursor: pointer; list-style: none; user-select: none; }
+    .caveats-card > summary::-webkit-details-marker { display: none; }
+    .caveats-card > summary:hover { opacity: 0.8; }
+    .caveats-chevron { margin-left: auto; font-size: 10px; transition: transform .2s; }
+    .caveats-card[open] .caveats-chevron { transform: rotate(90deg); }
+    .caveats-title { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: rgb(234,88,12); text-transform: uppercase; letter-spacing: 0.4px; }
+    .caveats-list { font-size: 12px; color: var(--text-secondary); line-height: 1.6; margin: 8px 0 0; padding-left: 20px; }
+    .caveats-list li { margin: 4px 0; }
+
+    /* 历史指标切换按钮（图表下方，pill 风格） */
+    .history-tab {
+      background: var(--bg-tertiary); border: 1px solid var(--border); color: var(--text-secondary);
+      padding: 6px 14px; border-radius: 20px; font-size: 12px; cursor: pointer;
+      transition: all .15s; font-weight: 500;
+    }
+    .history-tab:hover { border-color: var(--accent); color: var(--text-primary); }
+    .history-tab.active { background: rgba(34,197,94,0.12); border-color: var(--accent); color: var(--accent); font-weight: 600; }
+
+    /* 深度分析 tabs */
+    .deep-tabs {
+      display: flex; gap: 0; margin-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+    .deep-tab {
+      padding: 10px 18px; border: none; background: transparent;
+      color: var(--text-secondary); font-size: 14px; font-weight: 500;
+      cursor: pointer; border-bottom: 2px solid transparent;
+      margin-bottom: -1px; font-family: inherit; transition: all .15s;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .deep-tab:hover { color: var(--text-primary); }
+    .deep-tab.active { color: var(--text-primary); border-bottom-color: #22c55e; }
+    .deep-panel { display: none; }
+    .deep-panel.active { display: block; }
+
+    /* 附加内容 accordion */
+    details.extra-section {
+      margin-bottom: 8px; background: var(--bg-secondary);
+      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+    }
+    details.extra-section > summary {
+      list-style: none; padding: 12px 18px; cursor: pointer;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; font-weight: 600; color: var(--text-primary);
+      transition: background .15s;
+    }
+    details.extra-section > summary::-webkit-details-marker { display: none; }
+    details.extra-section > summary::after {
+      content: '▸'; margin-left: auto; color: var(--text-tertiary);
+      transition: transform .2s; font-family: monospace;
+    }
+    details.extra-section[open] > summary::after { transform: rotate(90deg); }
+    details.extra-section > summary:hover { background: var(--bg-tertiary); }
+    details.extra-section > .extra-body { padding: 0 18px 18px; }
+
+    /* Calc Pipeline（端到端计算逻辑）*/
+    .calc-pipeline-wrap { display: block !important; }
+    .calc-pipeline { display: flex; flex-direction: column; gap: 10px; grid-column: 1 / -1; width: 100%; }
+    .calc-step {
+      position: relative; padding: 12px 14px 12px 18px;
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: 8px; border-left: 3px solid #3b82f6;
+    }
+    .calc-step-derived { border-left-color: #22c55e; background: rgba(34,197,94,0.04); }
+    .calc-step-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+    .calc-step-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--bg-tertiary); color: var(--text-secondary);
+      font-size: 11px; font-weight: 700; font-family: 'JetBrains Mono', monospace;
+    }
+    .calc-step-derived .calc-step-num { background: #22c55e; color: #fff; }
+    .calc-step-label { font-size: 14px; font-weight: 600; color: var(--text-primary); flex: 1; }
+    .calc-step-value {
+      font-family: 'JetBrains Mono', monospace; font-size: 14px;
+      font-weight: 600; color: var(--text-primary);
+    }
+    .calc-step-derived .calc-step-value { color: #22c55e; }
+    .calc-step-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 4px 0; }
+    .calc-step-formula {
+      margin: 8px 0; padding: 8px 10px; background: var(--bg-tertiary);
+      border-radius: 6px; font-size: 12px; overflow-x: auto;
+    }
+    .calc-step-formula code { font-family: 'JetBrains Mono', monospace; color: var(--text-primary); background: none; }
+    .calc-step-inputs { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--text-secondary); margin-top: 6px; }
+    .calc-step-inputs strong { color: var(--text-primary); font-weight: 500; }
+    .calc-step-addrs { font-size: 11px; color: var(--text-secondary); margin-top: 6px; line-height: 1.8; }
+    .calc-step-addrs code { font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 1px 5px; background: var(--bg-tertiary); border-radius: 3px; color: var(--text-primary); }
+    .calc-step-meta {
+      font-size: 11px; color: var(--text-tertiary); margin-top: 8px;
+      padding-top: 8px; border-top: 1px dashed var(--border);
+    }
+    .calc-step-meta code { font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="../indicators/js/chart-utils.js"></script>
+<script src="notes-helper.js"></script>  <link rel="stylesheet" href="../css/theme-override.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="../" class="logo"><img src="../logo.svg" alt="3D" class="logo-icon" onerror="this.onerror=null;this.src='logo.svg'"><span class="logo-text">Crypto3D</span></a>
+        <nav class="nav-links">
+          <a href="../" data-i18n="nav.home" data-zh="首页" data-en="Home">首页</a>
+          <a href="./" data-i18n="nav.valuation" data-zh="协议估值" data-en="Valuation">协议估值</a>
+        </nav>
+        <div class="lang-switch-tev">
+          <button class="lang-btn active" data-lang="zh">中文</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="breadcrumb"><a href="index.html" data-i18n="nav.dashboard">Dashboard</a> / <span id="breadcrumb-name">Loading...</span></div>
+    <div id="loading" class="loading"><div class="loading-spinner"></div><div data-i18n="loading">加载中...</div></div>
+
+    <div id="content" style="display: none;">
+      <!-- Header -->
+      <div class="protocol-header">
+        <div class="protocol-title">
+          <div class="protocol-icon-lg" id="protocol-icon">🔮</div>
+          <div class="protocol-info">
+            <h1><span id="protocol-name">Protocol</span><span class="badge badge-active" id="return-badge">Cash Cow</span></h1>
+            <div class="protocol-ticker" id="protocol-ticker">TICKER · Category</div>
+            <div class="protocol-links">
+              <a href="#" class="protocol-link" id="link-website" target="_blank">🌐 Website</a>
+              <a href="#" class="protocol-link" id="link-docs" target="_blank">📄 Docs</a>
+              <a href="#" class="protocol-link" id="link-coingecko" target="_blank">🦎 CoinGecko</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1. TEV 概览（紧凑版 + 周期切换 + Caveats）-->
+      <div class="section">
+        <div class="section-title"><span class="icon">📊</span><span data-i18n="section.valuationSummary">估值概览</span></div>
+        <div class="tev-overview-hero">
+          <div class="tev-hero-primary">
+            <div class="tev-hero-label" data-zh="价值捕获方式" data-en="Primary Value Accrual">价值捕获方式</div>
+            <div class="tev-hero-value" id="hero-primary-accrual">—</div>
+          </div>
+          <div class="period-tabs" id="period-tabs" role="tablist">
+            <button class="period-tab" data-period="7d">7D</button>
+            <button class="period-tab" data-period="30d">30D</button>
+            <button class="period-tab" data-period="90d">90D</button>
+            <button class="period-tab active" data-period="365d">365D</button>
+          </div>
+        </div>
+        <div class="tev-kpi-grid">
+          <div class="tev-kpi-item">
+            <div class="tev-kpi-label" data-zh="市值" data-en="Market Cap">市值 / Market Cap</div>
+            <div class="tev-kpi-value" id="kpi-marketcap">—</div>
+          </div>
+          <div class="tev-kpi-item">
+            <div class="tev-kpi-label" data-zh="股东回报率" data-en="Shareholder Yield">股东回报率 / Shareholder Yield</div>
+            <div class="tev-kpi-value" id="kpi-tevyield">—</div>
+          </div>
+          <div class="tev-kpi-item">
+            <div class="tev-kpi-label" data-zh="股息率" data-en="Dividend Yield">股息率 / Dividend Yield</div>
+            <div class="tev-kpi-value" id="kpi-divyield">—</div>
+          </div>
+          <div class="tev-kpi-item">
+            <div class="tev-kpi-label" data-zh="回购率" data-en="Buyback Yield">回购率 / Buyback Yield</div>
+            <div class="tev-kpi-value" id="kpi-buybackyield">—</div>
+          </div>
+          <div class="tev-kpi-item">
+            <div class="tev-kpi-label" data-zh="市销率 P/S" data-en="P/S">市销率 / P/S</div>
+            <div class="tev-kpi-value" id="kpi-earningyield">—</div>
+          </div>
+          <div class="tev-kpi-item">
+            <div class="tev-kpi-label" data-zh="市盈率 P/E" data-en="P/E">市盈率 / P/E</div>
+            <div class="tev-kpi-value" id="kpi-pe">—</div>
+          </div>
+          <div class="tev-kpi-item">
+            <div class="tev-kpi-label" data-zh="派息率" data-en="Payout Ratio">派息率 / Payout Ratio</div>
+            <div class="tev-kpi-value" id="kpi-tevratio">—</div>
+          </div>
+        </div>
+        <div class="tev-status-chips">
+          <div class="tev-status-chip"><span data-zh="回购" data-en="Buyback">回购</span>: <strong id="chip-buybacks">—</strong></div>
+          <div class="tev-status-chip"><span data-zh="销毁" data-en="Burn">销毁</span>: <strong id="chip-burns">—</strong></div>
+          <div class="tev-status-chip"><span data-zh="分红" data-en="Dividend">分红</span>: <strong id="chip-dividends">—</strong></div>
+          <div class="tev-status-chip"><span data-zh="置信度" data-en="Confidence">置信度</span>: <strong id="chip-confidence">—</strong></div>
+        </div>
+        <details class="caveats-card" id="caveats-card" style="display:none;">
+          <summary class="caveats-title">⚠️ <span data-zh="关键注意事项" data-en="Key Caveats">关键注意事项</span> <span class="caveats-chevron">▸</span></summary>
+          <ul class="caveats-list" id="caveats-list"></ul>
+        </details>
+      </div>
+
+      <!-- 2. 损益表（美股化财报核心）-->
+      <div class="section" id="income-statement-section" style="display:none;">
+        <div class="section-title"><span class="icon">📋</span><span data-i18n="section.incomeStatement" data-zh="损益表" data-en="Income Statement">损益表</span></div>
+        <div class="income-statement-wrap" id="income-statement-wrap">
+          <div class="calc-pipeline" id="income-statement-pipeline"></div>
+          <div class="income-margin-row" id="income-margin-row"></div>
+        </div>
+      </div>
+
+      <!-- 3. 历史数据看板（单图表叠加：柱状=单期值 + 折线=累计总量，双 Y 轴，日期横轴可拖动）-->
+      <div class="section chart-section" id="history-dashboard-section">
+        <div class="section-title"><span class="icon">📈</span><span data-i18n="section.historyDashboard">历史数据</span></div>
+        <div class="history-chart-container" style="position:relative;height:360px;"><div class="chart-canvas-wrap" style="height:360px;"><canvas id="history-chart"></canvas></div></div>
+        <div style="text-align:center;font-size:11px;color:var(--text-tertiary);margin-top:10px;">
+          <span data-i18n="chart.zoomHint">🖱️ 拖动框选时间范围 · 滚轮缩放 · 按住拖动平移 · 双击重置</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;flex-wrap:wrap;">
+          <div class="history-metric-tabs" id="history-metric-tabs" style="display:flex;gap:6px;">
+            <button class="history-tab active" data-metric="net_income" data-i18n="hd.netIncome">净收益</button>
+            <button class="history-tab" data-metric="pe" data-i18n="hd.pe">P/E</button>
+            <button class="history-tab" data-metric="ps" data-i18n="hd.ps">P/S</button>
+            <button class="history-tab" data-metric="shareholder_yield" data-i18n="hd.shareholderYield">股东回报率</button>
+            <button class="history-tab" data-metric="net_margin" data-i18n="hd.netMargin">净利率</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. 代币流通量（当前值 + 历史曲线，CMC 数据源）-->
+      <div class="section chart-section" id="supply-section">
+        <div class="section-title"><span class="icon">🪙</span><span data-i18n="section.supply">代币流通量</span></div>
+        <div class="supply-hero" style="display:flex;align-items:center;gap:32px;margin-bottom:16px;flex-wrap:wrap;">
+          <div>
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;"><span data-i18n="supply.current">当前流通量</span></div>
+            <div style="font-size:38px;font-weight:700;font-family:'JetBrains Mono',monospace;color:#f0b90b;line-height:1;" id="supply-current-value">—</div>
+            <div style="font-size:11px;color:var(--text-tertiary);margin-top:6px;" id="supply-current-meta"></div>
+          </div>
+          <div style="flex:1;min-width:200px;color:var(--text-tertiary);font-size:12px;line-height:1.6;padding-left:32px;border-left:1px solid var(--border);">
+            <span data-i18n="supply.desc">🪙 流通量随时间的变化反映增发与销毁的净效果（如 BNB 的 BEP-95 销毁使流通量持续下降）。数据来源 CoinMarketCap，每日更新。</span>
+          </div>
+        </div>
+        <div class="supply-chart-container" style="position:relative;height:300px;"><div class="chart-canvas-wrap" style="height:300px;"><canvas id="supply-chart"></canvas></div></div>
+        <div class="supply-note" id="supply-note" style="text-align:center;color:var(--text-tertiary);font-size:11px;margin-top:8px;"></div>
+      </div>
+
+      <!-- 5. 深度分析（机制 / 计算 / 备注 合并 tab）-->
+      <div class="section" id="deep-analysis-section">
+        <div class="section-title"><span class="icon">🔬</span><span data-zh="深度分析" data-en="Deep Analysis">深度分析</span></div>
+        <div class="deep-tabs" role="tablist">
+          <button class="deep-tab active" data-deep-tab="mechanisms">⚙️ <span data-zh="机制详情" data-en="Mechanisms">机制详情</span></button>
+          <button class="deep-tab" data-deep-tab="calc">🔬 <span data-zh="计算逻辑" data-en="Calculation">计算逻辑</span></button>
+          <button class="deep-tab" data-deep-tab="notes">📝 <span data-zh="分析师备注" data-en="Analyst Notes">分析师备注</span></button>
+        </div>
+        <div class="deep-panel active" id="deep-panel-mechanisms">
+          <div id="mechanisms-container"></div>
+        </div>
+        <div class="deep-panel" id="deep-panel-calc">
+          <div class="tev-calc-grid" id="tev-calc-content"></div>
+          <div class="tev-calc-footer" id="tev-calc-footer"></div>
+        </div>
+        <div class="deep-panel" id="deep-panel-notes">
+          <div class="protocol-notes" id="protocol-notes"></div>
+        </div>
+      </div>
+
+      <!-- 6. 附加内容（折叠）-->
+      <details class="extra-section" id="extra-governance" style="display:none;">
+        <summary><span class="icon">🏛️</span><span data-zh="治理动态" data-en="Governance Feed">治理动态</span></summary>
+        <div class="extra-body">
+          <div id="governance-list" style="display:flex;flex-direction:column;gap:8px;"></div>
+          <div id="governance-more" style="margin-top:12px;text-align:right;"></div>
+        </div>
+      </details>
+
+      <details class="extra-section" id="extra-sources">
+        <summary><span class="icon">🔗</span><span data-i18n="section.dataSources" data-zh="数据来源" data-en="Data Source">数据来源</span></summary>
+        <div class="extra-body"><div class="sources-list" id="sources-container"></div></div>
+      </details>
+
+      <details class="extra-section" id="extra-references" style="display:none;">
+        <summary><span class="icon">📚</span><span data-i18n="section.references" data-zh="参考资料" data-en="References">参考资料</span></summary>
+        <div class="extra-body"><div class="references-list" id="references-container"></div></div>
+      </details>
+
+      <!-- 旧字段兼容（前端 JS 仍可能引用）-->
+      <span id="tev-calc-section" style="display:none;"></span>
+      <span id="notes-section" style="display:none;"></span>
+      <span id="references-section" style="display:none;"></span>
+      <span id="governance-section" style="display:none;"></span>
+
+      <!-- 6. 计算口径（详情页最后区块，PRD 4.3）-->
+      <div class="section" id="calculation-basis-section" style="display:none;">
+        <div class="section-title"><span class="icon">🧮</span><span data-i18n="section.calcBasis" data-zh="计算口径" data-en="Calculation Basis">计算口径</span></div>
+        <div class="calc-basis-wrap" id="calc-basis-wrap"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer><div class="container"><div class="footer-content" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px"><div class="footer-text">Crypto3D · <span data-i18n="footer.lastUpdated">最后更新</span>: <span id="last-updated">—</span></div><div class="footer-links" style="display:flex;gap:14px;flex-wrap:wrap;font-size:12px"><a href="/about" data-zh="关于我们" data-en="About">关于我们</a><a href="/privacy" data-zh="隐私政策" data-en="Privacy Policy">隐私政策</a><a href="/terms" data-zh="使用条款" data-en="Terms">使用条款</a><a href="/disclaimer" data-zh="风险披露" data-en="Risk Disclosure">风险披露</a><a href="/about#contact" data-zh="联系方式" data-en="Contact">联系方式</a></div></div></div></footer>
+
+  <script>
+    const i18n = {
+      zh: { 'nav.dashboard': '仪表盘', 'nav.home': '首页', 'nav.valuation': '协议估值', 'loading': '加载中...', 'section.valuationSummary': '估值概览', 'section.returnsHistory': '股东回报历史', 'section.buybackAddresses': '回购地址', 'section.returnMechanisms': '价值返还机制', 'section.dataSources': '数据来源', 'section.notes': '分析师备注', 'section.references': '参考资料', 'section.incomeStatement': '损益表', 'section.calcBasis': '计算口径', 'is.revenue': '收入 Revenue', 'is.lpCost': '− 直接成本（LP 分润）', 'is.grossProfit': '= 毛利 Gross Profit', 'is.emission': '− 增发成本（SBC 类比）', 'is.operating': '− 运营成本', 'is.netIncome': '= 净利 Net Income', 'is.margin': '利润率', 'is.grossMargin': '毛利率', 'is.netMargin': '净利率', 'is.holderAlloc': '净利分配', 'is.holderReturns': '→ 股东回报（流向持币人）', 'is.retained': '→ 留存（国库）', 'is.details': '计算过程与数据源', 'is.platformNote': '平台币口径：无 LP 成本模型，毛利 = 净利 = 收入（赋能总额）', 'cb.entityType': '实体类型判定', 'cb.revenue': '收入口径判定书', 'cb.emission': '增发成本处理', 'cb.netIncome': '净利润口径', 'cb.goldGrade': '含金量标注', 'cb.pipeline': '数据源与验证', 'cb.caveats': '已知假设 / Caveats', 'cb.included': '计入收入', 'cb.excluded': '不计入', 'cb.treatment.cost': '增发作为成本从净利扣除（有对价换当期收入）', 'cb.treatment.dilution': '无对价增发，作稀释注记展示', 'cb.treatment.none': '无代币增发', 'cb.verification.verified': '✅ 已验证（链上可复算）', 'cb.verification.partial': '🟡 部分验证', 'cb.verification.estimated': '🟠 估算口径（数据不可得时用）', 'cb.grade.destroy': '销毁型 🟢 真金白银回收（链上可验证）', 'cb.grade.yield': '收益型 🟡 增发/生态资源支付（含稀释成本）', 'cb.grade.dividend': '分红型 直接分配给持币人/质押者', 'cb.grade.buyback': '回购型 回购销毁或回购后分发', 'cb.noData': '数据不可得（— 而非 0）', 'section.historyDashboard': '历史数据', 'section.supply': '代币流通量', 'hd.netIncome': '净收益', 'hd.pe': 'P/E', 'hd.ps': 'P/S', 'hd.shareholderYield': '股东回报率', 'hd.netMargin': '净利率', 'supply.current': '当前流通量', 'supply.desc': '🪙 流通量随时间的变化反映增发与销毁的净效果（如 BNB 的 BEP-95 销毁使流通量持续下降）。数据来源 CoinMarketCap，每日更新。', 'buyback.current': '当前阶段', 'buyback.historical': '历史阶段', 'buyback.legacy': '历史钱包', 'buyback.disposal': '处置地址', 'buyback.autoDailyBuyback': '自动每日回购', 'buyback.strategicReserve': '战略回购储备', 'buyback.burnAddress': '销毁地址', 'buyback.airdropLock': '空投锁仓', 'buyback.progress': '回购进度', 'buyback.totalBought': '已回购', 'buyback.totalUsd': '回购价值', 'buyback.totalSupply': '代币总量', 'section.buybackData': '回购数据', 'chart.totalReturns': '累计股东回报', 'chart.records': '记录数', 'chart.avgMonthly': '月均回报', 'chart.period': '数据周期', 'chart.cumulative': '累计回报', 'chart.zoomHint': '🖱️ 拖动框选时间范围 · 滚轮缩放 · 按住拖动平移 · 双击重置', 'valuation.feeSwitch': '费用开关', 'valuation.buybacks': '回购', 'valuation.dividends': '分红', 'valuation.burns': '销毁', 'valuation.confidence': '可信度', 'footer.lastUpdated': '最后更新', 'status.active': '活跃', 'status.planned': '计划中', 'status.inactive': '未激活', 'status.ON': '已开启', 'status.OFF': '未开启', 'status.PARTIAL': '部分', 'status.NONE': '无', 'status.ACTIVE': '活跃', 'noReturns.title': '该协议暂无股东回报', 'noReturns.desc': '代币仅用于治理，协议收入未以分红或回购返还给代币持有者', 'mechanism.type.buyback': '回购', 'mechanism.type.buyback_burn': '回购销毁', 'mechanism.type.staking_reward': '质押奖励', 'mechanism.type.fee_sharing': '费用分成', 'mechanism.type.ve_distribution': 've 分配', 'mechanism.type.airdrop': '空投', 'mechanism.type.aggregate': '综合回报', 'mechanism.type.burn': '销毁', 'mechanism.type.direct_distribution': '直接分配', 'mechanism.type.ve_reward': 've 奖励', 'mechanism.type.holders_revenue': '持有者收入', 'source.governance': '治理', 'source.documentation': '文档', 'source.report': '报告', 'source.api': 'API', 'source.onchain': '链上', 'confidence.high': '高', 'confidence.medium': '中', 'confidence.low': '低', 'burn.progress': '销毁进度', 'burn.totalBurned': '已销毁', 'burn.remaining': '剩余供应', 'burn.target': '目标供应' },
+      en: { 'nav.dashboard': 'Dashboard', 'nav.home': 'Home', 'nav.valuation': 'Valuation', 'loading': 'Loading...', 'section.valuationSummary': 'Valuation Summary', 'section.returnsHistory': 'Shareholder Return History', 'section.buybackAddresses': 'Buyback Addresses', 'section.returnMechanisms': 'Value Return Mechanisms', 'section.dataSources': 'Data Sources', 'section.notes': 'Analyst Notes', 'section.references': 'References', 'section.incomeStatement': 'Income Statement', 'section.calcBasis': 'Calculation Basis', 'is.revenue': 'Revenue', 'is.lpCost': '− Direct Costs (LP share)', 'is.grossProfit': '= Gross Profit', 'is.emission': '− Token Emission Cost (SBC-style)', 'is.operating': '− Operating Costs', 'is.netIncome': '= Net Income', 'is.margin': 'Margins', 'is.grossMargin': 'Gross Margin', 'is.netMargin': 'Net Margin', 'is.holderAlloc': 'Net Income Allocation', 'is.holderReturns': '→ Shareholder Returns (to holders)', 'is.retained': '→ Retained (treasury)', 'is.details': 'Calculation & Data Source', 'is.platformNote': 'Platform token: no LP cost model, GP = NI = Revenue (empowerment total)', 'cb.entityType': 'Entity Type', 'cb.revenue': 'Revenue Recognition', 'cb.emission': 'Emission Cost Treatment', 'cb.netIncome': 'Net Income Basis', 'cb.goldGrade': 'Gold-Grade Labels', 'cb.pipeline': 'Data Pipeline & Verification', 'cb.caveats': 'Assumptions / Caveats', 'cb.included': 'Included', 'cb.excluded': 'Excluded', 'cb.treatment.cost': 'Emission counted as cost (exchanged for current revenue)', 'cb.treatment.dilution': 'No-quid-pro-quo emission, shown as dilution note', 'cb.treatment.none': 'No token emission', 'cb.verification.verified': '✅ Verified (on-chain reproducible)', 'cb.verification.partial': '🟡 Partially verified', 'cb.verification.estimated': '🟠 Estimated (when data unavailable)', 'cb.grade.destroy': 'Destroy 🟢 Real cash recovery (on-chain verifiable)', 'cb.grade.yield': 'Yield 🟡 Emission/ecosystem-funded (includes dilution cost)', 'cb.grade.dividend': 'Dividend Directly distributed to holders/stakers', 'cb.grade.buyback': 'Buyback Bought back & burned or redistributed', 'cb.noData': 'Unavailable (— rather than 0)', 'section.historyDashboard': 'History', 'section.supply': 'Circulating Supply', 'hd.netIncome': 'Net Income', 'hd.pe': 'P/E', 'hd.ps': 'P/S', 'hd.shareholderYield': 'Shareholder Yield', 'hd.netMargin': 'Net Margin', 'supply.current': 'Current Supply', 'supply.desc': '🪙 Supply trend shows net effect of issuance vs burns (e.g. BNB BEP-95 burn). Source: CoinMarketCap, updated daily.', 'buyback.current': 'Current Stage', 'buyback.historical': 'Historical Stage', 'buyback.legacy': 'Legacy Wallets', 'buyback.disposal': 'Disposal Addresses', 'buyback.autoDailyBuyback': 'Auto Daily Buyback', 'buyback.strategicReserve': 'Strategic Reserve', 'buyback.burnAddress': 'Burn Address', 'buyback.airdropLock': 'Airdrop Lock', 'buyback.progress': 'Buyback Progress', 'buyback.totalBought': 'Total Bought', 'buyback.totalUsd': 'Total Value', 'buyback.totalSupply': 'Total Supply', 'section.buybackData': 'Buyback Data', 'chart.totalReturns': 'Total Returns', 'chart.records': 'Records', 'chart.avgMonthly': 'Avg Monthly', 'chart.period': 'Period', 'chart.cumulative': 'Cumulative Returns', 'chart.zoomHint': '🖱️ Drag to select time range · Scroll to zoom · Drag to pan · Double-click to reset', 'valuation.feeSwitch': 'Fee Switch', 'valuation.buybacks': 'Buybacks', 'valuation.dividends': 'Dividends', 'valuation.burns': 'Burns', 'valuation.confidence': 'Confidence', 'footer.lastUpdated': 'Last Updated', 'status.active': 'Active', 'status.planned': 'Planned', 'status.inactive': 'Inactive', 'status.ON': 'ON', 'status.OFF': 'OFF', 'status.PARTIAL': 'Partial', 'status.NONE': 'None', 'status.ACTIVE': 'Active', 'noReturns.title': 'No Shareholder Returns Yet', 'noReturns.desc': 'Token is governance-only; protocol revenue is not returned to holders via dividends or buybacks', 'mechanism.type.buyback': 'Buyback', 'mechanism.type.buyback_burn': 'Buyback & Burn', 'mechanism.type.staking_reward': 'Staking Reward', 'mechanism.type.fee_sharing': 'Fee Sharing', 'mechanism.type.ve_distribution': 've Distribution', 'mechanism.type.airdrop': 'Airdrop', 'mechanism.type.aggregate': 'Total Return', 'mechanism.type.burn': 'Burn', 'mechanism.type.direct_distribution': 'Direct Distribution', 'mechanism.type.ve_reward': 've Reward', 'mechanism.type.holders_revenue': 'Holders Revenue', 'source.governance': 'Governance', 'source.documentation': 'Docs', 'source.report': 'Report', 'source.api': 'API', 'source.onchain': 'On-chain', 'confidence.high': 'High', 'confidence.medium': 'Medium', 'confidence.low': 'Low', 'burn.progress': 'Burn Progress', 'burn.totalBurned': 'Total Burned', 'burn.remaining': 'Remaining Supply', 'burn.target': 'Target Supply' }
+    };
+    let currentLang = localStorage.getItem('lang') || 'zh';
+    const t = k => i18n[currentLang][k] || k;
+    const updateI18n = () => document.querySelectorAll('[data-i18n]').forEach(el => el.textContent = t(el.dataset.i18n));
+    // Listen to global lang toggle
+    window.addEventListener('langchange', function(e) { currentLang = e.detail.lang; updateI18n(); });
+    const getProtocolId = () => new URLSearchParams(window.location.search).get('id') || 'aave';
+    const fmtCurrency = v => v >= 1e9 ? '$' + (v/1e9).toFixed(2) + 'B' : v >= 1e6 ? '$' + (v/1e6).toFixed(2) + 'M' : v >= 1e3 ? '$' + (v/1e3).toFixed(1) + 'K' : '$' + v.toFixed(0);
+    const getTevStatus = (s, cfg) => cfg?.return_status || ((s.fee_switch === 'ON' || s.buybacks === 'ACTIVE' || s.dividends === 'ACTIVE' || s.burns === 'ACTIVE' || s.staking === 'ACTIVE') ? 'active' : (s.fee_switch === 'PARTIAL' || s.dividends === 'PARTIAL') ? 'partial' : 'none');
+    const getValueClass = v => { const u = (v || '').toUpperCase(); return u === 'ON' || u === 'ACTIVE' ? 'value-on' : u === 'PARTIAL' ? 'value-partial' : 'value-off'; };
+
+    const RETURN_COLORS = { buyback_burn: { bg: 'rgba(34,197,94,0.7)', border: '#22c55e' }, buyback: { bg: 'rgba(34,197,94,0.6)', border: '#22c55e' }, staking_reward: { bg: 'rgba(59,130,246,0.7)', border: '#3b82f6' }, direct_distribution: { bg: 'rgba(168,85,247,0.7)', border: '#a855f7' }, ve_reward: { bg: 'rgba(245,158,11,0.7)', border: '#f59e0b' }, fee_sharing: { bg: 'rgba(236,72,153,0.7)', border: '#ec4899' }, aggregate: { bg: 'rgba(99,102,241,0.7)', border: '#6366f1' }, burn: { bg: 'rgba(239,68,68,0.7)', border: '#ef4444' }, airdrop: { bg: 'rgba(168,85,247,0.7)', border: '#a855f7' }, ve_reward: { bg: 'rgba(245,158,11,0.7)', border: '#f59e0b' }, direct_distribution: { bg: 'rgba(14,165,233,0.7)', border: '#0ea5e9' }, holders_revenue: { bg: 'rgba(16,185,129,0.7)', border: '#10b981' } };
+    const BURN_CONFIG = { bnb: { file: 'bnb-burns.json', ticker: 'BNB', color: 'rgba(240,185,11,0.8)', borderColor: '#f0b90b', title: { zh: 'BNB 季度销毁', en: 'BNB Quarterly Burns' }, dataType: 'quarterly', initialSupply: 2e8, targetSupply: 1e8 } };
+
+    // 获取机制名称：config name > i18n > raw type
+    function getMechLabel(type) {
+      if (protocolConfig?.return_mechanisms) {
+        const m = protocolConfig.return_mechanisms.find(m => m.type === type);
+        if (m?.name) return m.name;
+      }
+      return t('mechanism.type.' + type) || type;
+    }
+
+    let tevChart = null, burnAmtChart = null, burnValChart = null, buybackChart = null, unlockCurveChart = null, allocationPieChart = null;
+    let protocolConfig = null;
+
+    function renderMechanisms(mechanisms) {
+      const c = document.getElementById('mechanisms-container');
+      if (!mechanisms?.length) { c.innerHTML = `<div class="no-tev-notice"><div class="icon">❌</div><h3>${t('noReturns.title')}</h3><p>${t('noReturns.desc')}</p></div>`; return; }
+      c.innerHTML = '<div class="mechanism-list">' + mechanisms.map(m => `<div class="mechanism-card"><div class="mechanism-header"><div><div class="mechanism-name">${m.name}</div><div class="mechanism-type">${t('mechanism.type.' + m.type) || m.type}</div></div><span class="mechanism-status status-${m.status}">${t('status.' + m.status) || m.status}</span></div><div class="mechanism-desc">${m.description}</div><div class="mechanism-meta">${m.start_date ? `<span>📅 ${m.start_date}</span>` : ''}${m.fee_share_percentage ? `<span>💰 ${m.fee_share_percentage}%</span>` : ''}${m.annual_budget_usd ? `<span>💵 $${(m.annual_budget_usd / 1e6).toFixed(0)}M/year</span>` : ''}${m.source?.url ? `<a href="${m.source.url}" target="_blank">🔗 ${m.source.title || 'Source'}</a>` : ''}</div></div>`).join('') + '</div>';
+    }
+
+    function renderSources(sources) {
+      const c = document.getElementById('sources-container');
+      if (!sources?.length) { c.innerHTML = '<div style="color:var(--text-tertiary);text-align:center;padding:20px;">No data sources</div>'; return; }
+      c.innerHTML = sources.map(s => `<div class="source-item"><div><span class="source-name">${s.name}</span><span class="source-type">${t('source.' + s.type) || s.type}</span></div>${s.url ? `<a href="${s.url}" class="source-link" target="_blank">Open →</a>` : ''}</div>`).join('');
+    }
+
+    function renderReferences(refs) {
+      const section = document.getElementById('extra-references');
+      const c = document.getElementById('references-container');
+      if (!section) return;
+      if (!refs?.length) { section.style.display = 'none'; return; }
+      section.style.display = 'block';
+      c.innerHTML = refs.map(r => `<div class="source-item"><div><span class="source-name">${r.title}</span>${r.date ? `<span class="source-type">${r.date}</span>` : ''}</div>${r.url ? `<a href="${r.url}" class="source-link" target="_blank">Open →</a>` : ''}</div>`).join('');
+    }
+
+    async function loadTevChart(pid) {
+      try {
+        const resp = await fetch(`../data/protocols/${pid}/tev-records.json`);
+        if (!resp.ok) return;
+        let { records } = await resp.json();
+        if (!records?.length) { const sec=document.getElementById('tev-chart-section'); if (sec) sec.style.display='none'; return; }
+        records.sort((a, b) => new Date(a.date) - new Date(b.date));
+        const types = [...new Set(records.map(r => r.type))];
+        // Daily Mode 仅在全部 records 都是日频时启用
+        // - 无 period 字段：daily
+        // - period 字段等于 date（冗余的日级别 period 标签）：仍视为 daily
+        // 如果 period 是聚合标签（"Q4 2017" / "2025-03" 等，≠ date），说明是月/季度数据，走 Monthly Mode
+        const isDaily = records.every(r => {
+          if (!/^\d{4}-\d{2}-\d{2}$/.test(r.date)) return false;
+          if (!r.period) return true;
+          return r.period === r.date;
+        });
+        
+        const ctx = document.getElementById('tev-history-chart').getContext('2d');
+        if (tevChart) tevChart.destroy();
+        
+        if (isDaily) {
+          // Daily mode: time axis, bar + cumulative line
+          const isAster = pid === 'aster';
+          const asterEstStart = '2025-10-28';
+          const asterEstEnd = '2025-12-22';
+          const isAsterEstimated = (d) => isAster && d >= asterEstStart && d <= asterEstEnd;
+          const barDs = types.map(type => {
+            const c = RETURN_COLORS[type] || { bg: 'rgba(161,161,170,0.5)', border: '#a1a1aa' };
+            const dataForType = records.filter(r => r.type === type);
+            const bgColors = dataForType.map(r => isAsterEstimated(r.date) ? 'rgba(168,85,247,0.55)' : c.bg);
+            const borderColors = dataForType.map(r => isAsterEstimated(r.date) ? 'rgba(168,85,247,1)' : c.border);
+            return {
+              label: getMechLabel(type),
+              data: dataForType.map(r => ({ x: r.date, y: r.amount_usd })),
+              backgroundColor: bgColors, borderColor: borderColors, borderWidth: 1, borderRadius: 4,
+              type: 'bar', yAxisID: 'y', order: 2
+            };
+          });
+          let cum = 0;
+          const cumData = records.map(r => { cum += r.amount_usd; return { x: r.date, y: cum }; });
+          const lineDs = { label: t('chart.cumulative'), data: cumData, borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,0.1)', borderWidth: 2, pointRadius: 0, fill: true, type: 'line', yAxisID: 'y2', tension: 0.3, order: 1 };
+          tevChart = new Chart(ctx, {
+            data: { datasets: [...barDs, lineDs] },
+            options: {
+              responsive: true, maintainAspectRatio: false,
+              interaction: { mode: 'index', intersect: false },
+              plugins: {
+                legend: { position: 'top', labels: { color: '#a1a1aa', font: { size: 11 }, boxWidth: 12, padding: 16 } },
+                tooltip: { backgroundColor: '#18181b', titleColor: '#fafafa', bodyColor: '#a1a1aa', borderColor: '#27272a', borderWidth: 1,
+                  callbacks: {
+                    label: ctx => ctx.raw.y === 0 ? null : ` ${ctx.dataset.label}: ${fmtCurrency(ctx.raw.y)}`,
+                    afterBody: ctxs => {
+                      const x = ctxs?.[0]?.raw?.x;
+                      if (isAsterEstimated(x)) {
+                        return currentLang === 'zh' ? '公告总量均摊到每日（非链上）' : 'Estimated: official total averaged per day (non-onchain)';
+                      }
+                      return null;
+                    }
+                  },
+                  filter: i => i.raw.y !== 0
+                },
+                zoom: { pan: { enabled: true, mode: 'x' }, zoom: { wheel: { enabled: true }, pinch: { enabled: true }, mode: 'x' } }
+              },
+              scales: {
+                x: { type: 'time', time: { unit: records.length > 180 ? 'month' : 'day', displayFormats: { day: 'MM-dd', month: 'yyyy-MM' }, tooltipFormat: 'yyyy-MM-dd' }, grid: { display: false }, ticks: { color: '#71717a', font: { size: 10 }, maxRotation: 0, maxTicksLimit: 15 } },
+                y: { position: 'left', grid: { color: 'rgba(39,39,42,0.5)' }, ticks: { color: '#71717a', callback: v => fmtCurrency(v) }, title: { display: true, text: currentLang === 'zh' ? '每日股东回报 (USD)' : 'Daily Returns (USD)', color: '#71717a' } },
+                y2: { position: 'right', grid: { display: false }, ticks: { color: '#f59e0b', callback: v => fmtCurrency(v) }, title: { display: true, text: t('chart.cumulative'), color: '#f59e0b' } }
+              }
+            }
+          });
+        } else {
+          // Monthly/category mode — grouped bar（各 type 并排，不 stack，避免视觉混淆）
+          const allLabels = records.map(r => r.period || new Date(r.date).toLocaleDateString(currentLang === 'zh' ? 'zh-CN' : 'en-US', { year: 'numeric', month: 'short' }));
+          const labels = [...new Set(allLabels)];
+          // Stacked bar：每种 TEV 类型（burn / staking / buyback 等）都是同一根柱子里的一段
+          // 视觉表达"TEV 由多部分构成"，颜色区分不同类型
+          const barDs = types.map(type => {
+            const c = RETURN_COLORS[type] || { bg: 'rgba(161,161,170,0.5)', border: '#a1a1aa' };
+            const dataByLabel = {};
+            records.filter(r => r.type === type).forEach(r => {
+              const lbl = r.period || new Date(r.date).toLocaleDateString(currentLang === 'zh' ? 'zh-CN' : 'en-US', { year: 'numeric', month: 'short' });
+              dataByLabel[lbl] = (dataByLabel[lbl] || 0) + r.amount_usd;
+            });
+            return { label: getMechLabel(type), data: labels.map(l => dataByLabel[l] || 0), backgroundColor: c.bg, borderColor: c.border, borderWidth: 1, borderRadius: 4, type: 'bar', yAxisID: 'y', stack: 'tev', order: 2 };
+          });
+          let cum = 0;
+          const cumByLabel = {};
+          records.forEach(r => {
+            const lbl = r.period || new Date(r.date).toLocaleDateString(currentLang === 'zh' ? 'zh-CN' : 'en-US', { year: 'numeric', month: 'short' });
+            cumByLabel[lbl] = (cumByLabel[lbl] || 0) + r.amount_usd;
+          });
+          const cumData = labels.map(l => { cum += (cumByLabel[l] || 0); return cum; });
+          const lineDs = { label: t('chart.cumulative'), data: cumData, borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,0.1)', borderWidth: 2, pointRadius: 3, fill: true, type: 'line', yAxisID: 'y2', tension: 0.3, order: 1 };
+          tevChart = new Chart(ctx, {
+            data: { labels, datasets: [...barDs, lineDs] },
+            options: {
+              responsive: true, maintainAspectRatio: false,
+              interaction: { mode: 'index', intersect: false },
+              plugins: {
+                legend: { position: 'top', labels: { color: '#a1a1aa', font: { size: 11 }, boxWidth: 12, padding: 16 } },
+                tooltip: { backgroundColor: '#18181b', titleColor: '#fafafa', bodyColor: '#a1a1aa', borderColor: '#27272a', borderWidth: 1,
+                  callbacks: { label: ctx => ctx.raw === 0 ? null : ` ${ctx.dataset.label}: ${fmtCurrency(ctx.raw)}` },
+                  filter: i => i.raw !== 0 }
+              },
+              scales: {
+                x: { stacked: true, grid: { color: 'rgba(39,39,42,0.5)' }, ticks: { color: '#71717a', font: { size: 11 } } },
+                y: { stacked: true, position: 'left', grid: { color: 'rgba(39,39,42,0.5)' }, ticks: { color: '#71717a', callback: v => fmtCurrency(v) }, title: { display: true, text: currentLang === 'zh' ? '单期回报' : 'Period Returns', color: '#71717a' } },
+                y2: { position: 'right', grid: { display: false }, ticks: { color: '#f59e0b', callback: v => fmtCurrency(v) }, title: { display: true, text: t('chart.cumulative'), color: '#f59e0b' } }
+              }
+            }
+          });
+        }
+        
+        const total = records.reduce((s, r) => s + r.amount_usd, 0);
+        const avgLabel = isDaily ? (currentLang === 'zh' ? '日均回报' : 'Avg Daily') : t('chart.avgMonthly');
+        const fmtPeriod = (d) => { const [y,m] = d.split('-'); return y + '/' + m; };
+        document.getElementById('chart-stats').innerHTML = `<div class="chart-stat"><div class="chart-stat-value">${fmtCurrency(total)}</div><div class="chart-stat-label">${t('chart.totalReturns')}</div></div><div class="chart-stat"><div class="chart-stat-value">${records.length}</div><div class="chart-stat-label">${isDaily ? (currentLang === 'zh' ? '天数' : 'Days') : t('chart.records')}</div></div><div class="chart-stat"><div class="chart-stat-value">${fmtCurrency(total / records.length)}</div><div class="chart-stat-label">${avgLabel}</div></div>`;
+        // 在图表右上角显示数据周期
+        let periodEl = document.getElementById('tev-chart-period');
+        if (!periodEl) { periodEl = document.createElement('div'); periodEl.id = 'tev-chart-period'; periodEl.style.cssText = 'position:absolute;top:12px;right:16px;font-size:11px;color:#71717a;'; document.querySelector('#tev-chart-section .chart-container').style.position = 'relative'; document.querySelector('#tev-chart-section .chart-container').appendChild(periodEl); }
+        periodEl.textContent = fmtPeriod(records[0].date) + ' - ' + fmtPeriod(records[records.length - 1].date);
+        document.getElementById('tev-chart-section').classList.add('has-data');
+      } catch (e) {
+        console.log('No TEV records:', e.message);
+        // 无数据时隐藏图表区块，避免空白
+        const sec = document.getElementById('tev-chart-section');
+        if (sec) sec.style.display = 'none';
+      }
+    }
+
+    async function loadGovernance(pid) {
+      const govName = RETURN_TO_GOV[pid];
+      if (!govName) return;
+      try {
+        const resp = await fetch('../data/governance.json');
+        if (!resp.ok) return;
+        const data = await resp.json();
+        const sortByDate = (a, b) => {
+          const aA = a.status === 'active' ? 1 : 0;
+          const bA = b.status === 'active' ? 1 : 0;
+          if (bA !== aA) return bA - aA;
+          const aT = typeof a.created === 'number' ? a.created : new Date(a.created).getTime() / 1000;
+          const bT = typeof b.created === 'number' ? b.created : new Date(b.created).getTime() / 1000;
+          return bT - aT;
+        };
+
+        // Try TEV-related first, fallback to all proposals for this protocol
+        let tevProposals = data.proposals
+          .filter(p => p.protocol === govName && p.return_related)
+          .sort(sortByDate)
+          .slice(0, 5);
+
+        if (!tevProposals.length) {
+          tevProposals = data.proposals
+            .filter(p => p.protocol === govName)
+            .sort(sortByDate)
+            .slice(0, 5);
+        }
+
+        if (!tevProposals.length) return;
+
+        document.getElementById('extra-governance').style.display = '';
+        const list = document.getElementById('governance-list');
+
+        list.innerHTML = tevProposals.map(p => {
+          const sc = p.status === 'active' ? 'active' : 'passed';
+          const sl = p.status === 'active' ? '进行中' : '已通过';
+          const analysis = p.analysis_zh || '';
+          let title, summary;
+          if (analysis) {
+            const parts = analysis.split(/\n\s*\n/);
+            title = parts[0].trim();
+            summary = parts.slice(1).join('\n\n').trim();
+          } else {
+            title = p.title.replace(/^#\s*/, '');
+            summary = p.summary_zh || '';
+          }
+          const kws = (p.tev_keywords || []).map(k => `<span class="gov-card-kw">${k}</span>`).join('');
+          const dt = p.created ? (typeof p.created === 'number' ? new Date(p.created * 1000) : new Date(p.created)) : null;
+          const dateStr = dt ? `${dt.getMonth()+1}月${dt.getDate()}日` : '';
+
+          return `<a class="gov-card ${sc === 'active' ? 'is-active' : ''}" href="${p.link}" target="_blank" rel="noopener">
+            <div class="gov-card-title">${title}</div>
+            ${summary ? `<div class="gov-card-summary">${summary}</div>` : ''}
+            <div class="gov-card-meta">
+              <span class="gov-card-status ${sc}">${sl}</span>
+              ${kws}
+              <span style="margin-left:auto">${dateStr}</span>
+            </div>
+          </a>`;
+        }).join('');
+
+        const govSlug = encodeURIComponent(govName);
+        document.getElementById('governance-more').innerHTML =
+          `<a class="gov-more-link" href="../governance/protocol.html?name=${govSlug}">查看全部治理提案 →</a>`;
+      } catch(e) {
+        console.warn('Governance load failed:', e);
+      }
+    }
+
+    async function init() {
+      const pid = getProtocolId();
+      try {
+        // 首次进入翻译所有 data-i18n 元素（包括 supply.desc 等静态文本）
+        updateI18n();
+        let logoUrls = {}; try { const lr = await fetch('../data/logo_urls.json'); if (lr.ok) logoUrls = await lr.json(); } catch {}
+        const resp = await fetch(`../data/protocols/${pid}/config.json`);
+        if (!resp.ok) throw new Error('Protocol not found');
+        const cfg = await resp.json();
+        protocolConfig = cfg;
+        document.title = `${cfg.name} — Crypto3D 估值仪表盘`;
+        document.getElementById('breadcrumb-name').textContent = cfg.name;
+        const iconEl = document.getElementById('protocol-icon');
+        const logoUrl = logoUrls[pid] || (cfg.icon?.startsWith('http') ? cfg.icon : null);
+        if (logoUrl) iconEl.innerHTML = `<img src="${logoUrl}" alt="${cfg.ticker}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${cfg.name.charAt(0)}'">`;
+        else iconEl.textContent = cfg.name.charAt(0);
+        document.getElementById('protocol-name').textContent = cfg.name;
+        const catMap = { lending: '借贷', dex: 'DEX', liquid_staking: '流动性质押', restaking: '再质押', perpetuals: '永续合约', yield: '收益' };
+        document.getElementById('protocol-ticker').textContent = `${cfg.ticker} · ${currentLang === 'zh' ? (catMap[cfg.category] || cfg.category) : cfg.category}`;
+        const return_status = getTevStatus(cfg.return_summary || {}, cfg);
+        const style = cfg.style || (return_status === 'active' ? 'cash_cow' : 'growth');
+        const badge = document.getElementById('return-badge');
+        badge.className = `badge badge-${style === 'cash_cow' ? 'active' : 'partial'}`;
+        badge.textContent = style === 'cash_cow' ? (currentLang === 'zh' ? '现金牛' : 'Cash Cow') : (currentLang === 'zh' ? '成长股' : 'Growth');
+        document.getElementById('link-website').href = cfg.website || '#';
+        document.getElementById('link-docs').href = cfg.docs || '#';
+        document.getElementById('link-coingecko').href = cfg.token?.coingecko_id ? `https://www.coingecko.com/en/coins/${cfg.token.coingecko_id}` : '#';
+        const feeSwitch = cfg.return_summary?.fee_switch;
+        const primaryAccrual = cfg.return_summary?.primary_value_accrual || '—';
+        document.getElementById('hero-primary-accrual').textContent = primaryAccrual;
+
+        // ===== 新概览：KPI + 周期切换 =====
+        // 拉主表数据以获得按周期字段（tevRatio_Xd / metrics.*_yield_Nd_ann / validation.caveats）
+        let allTable = null;
+        try {
+          const _r = await fetch('../data/all-protocols.json');
+          if (_r.ok) { const _d = await _r.json(); allTable = (_d.protocols || {})[pid] || null; }
+        } catch {}
+        const proto = allTable || cfg;
+        const marketCap = proto.market_cap_usd || cfg.market_cap_usd || cfg.return_data?.market_cap_usd || 0;
+        const metrics = (allTable && allTable.metrics) || {};
+        const displayPrecision = (allTable && allTable.display_precision) || cfg.display_precision || 2;
+
+        function periodKPI(period) {
+          const tevMap = { '7d': metrics.shareholder_yield_7d_ann, '30d': metrics.shareholder_yield_30d_ann, '90d': metrics.shareholder_yield_90d_ann, '365d': proto.shareholder_yield_percent };
+          const earnMap = { '7d': metrics.total_yield_7d_ann, '30d': metrics.total_yield_30d_ann, '90d': metrics.total_yield_90d_ann, '365d': proto.total_yield_percent };
+          const ratioMap = { '7d': proto.payout_ratio_7d, '30d': proto.payout_ratio_30d, '90d': proto.payout_ratio_90d, '365d': proto.payout_ratio_365d != null ? proto.payout_ratio_365d : proto.payout_ratio };
+          const divMap = { '7d': metrics.dividend_yield_7d_ann, '30d': metrics.dividend_yield_30d_ann, '90d': metrics.dividend_yield_90d_ann, '365d': proto.dividend_yield_percent };
+          const buyMap = { '7d': metrics.buyback_yield_7d_ann, '30d': metrics.buyback_yield_30d_ann, '90d': metrics.buyback_yield_90d_ann, '365d': proto.buyback_yield_percent };
+          return {
+            tev:   tevMap[period]   != null ? tevMap[period]   : proto.shareholder_yield_percent,
+            earn:  earnMap[period]  != null ? earnMap[period]  : proto.total_yield_percent,
+            ratio: ratioMap[period] != null ? ratioMap[period] : proto.payout_ratio,
+            div:   divMap[period]   != null ? divMap[period]   : (proto.dividend_yield_percent || 0),
+            buy:   buyMap[period]   != null ? buyMap[period]   : (proto.buyback_yield_percent || 0),
+          };
+        }
+        function formatPct(v, p) { return v == null ? '—' : v.toFixed(p) + '%'; }
+        // 市销率 P/S = 100 ÷ Earning Yield(%)；无营收时 —
+        function formatPS(earn) {
+          if (earn == null || earn <= 0) return '—';
+          const ps = 100 / earn;
+          return (ps >= 100 ? Math.round(ps) : ps.toFixed(1)) + 'x';
+        }
+        // 市盈率 P/E = 100 ÷ 股东回报率(%)；无股东回报时 —
+        function formatPE(tev) {
+          if (tev == null || tev <= 0) return '—';
+          const pe = 100 / tev;
+          return (pe >= 100 ? Math.round(pe) : pe.toFixed(1)) + 'x';
+        }
+        function formatPayout(v, tev) {
+          if (!tev) return '—';  // 无实际股东回报时派息率无意义
+          if (typeof v === 'string') return v;
+          if (v == null || v <= 0) return '—';
+          return (v * 100).toFixed(1) + '%';
+        }
+        function renderKPI(period) {
+          const k = periodKPI(period);
+          document.getElementById('kpi-marketcap').textContent = marketCap ? '$' + (marketCap / 1e9).toFixed(2) + 'B' : '—';
+          const tevEl = document.getElementById('kpi-tevyield');
+          tevEl.textContent = formatPct(k.tev, displayPrecision);
+          tevEl.className = 'tev-kpi-value ' + ((k.tev || 0) > 5 ? 'value-on' : (k.tev || 0) > 0 ? 'value-partial' : '');
+          document.getElementById('kpi-divyield').textContent = (k.div || 0) > 0 ? formatPct(k.div, displayPrecision) : '—';
+          document.getElementById('kpi-buybackyield').textContent = (k.buy || 0) > 0 ? formatPct(k.buy, displayPrecision) : '—';
+          document.getElementById('kpi-earningyield').textContent = formatPS(k.earn);
+          document.getElementById('kpi-pe').textContent = formatPE(k.tev);
+          document.getElementById('kpi-tevratio').textContent = formatPayout(k.ratio, k.tev);
+        }
+        renderKPI('365d');
+        document.querySelectorAll('#period-tabs .period-tab').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('#period-tabs .period-tab').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderKPI(btn.dataset.period);
+            // 周期变化时，计算逻辑 tab 的 pipeline 各 step 的 value 也要刷新
+            renderTevCalc(pid);
+          });
+        });
+
+        // 状态 chips（s[k] 可能含括号后缀，如 "ACTIVE (但非真 buyback)"，取首词查表）
+        const s = cfg.return_summary || {};
+        ['buybacks', 'burns', 'dividends'].forEach(k => {
+          const el = document.getElementById('chip-' + k);
+          if (el) {
+            const raw = (s[k] || 'NONE').toString();
+            const key = (raw.split(/[\s(]/)[0] || 'NONE').toUpperCase();
+            el.textContent = t('status.' + key);
+          }
+        });
+        document.getElementById('chip-confidence').textContent = t('confidence.' + (cfg.confidence || 'medium'));
+
+        // Caveats 警示卡（可折叠，默认收起）
+        const caveats = (cfg.return_data && cfg.return_data.caveats) || (allTable && allTable.validation && allTable.validation.caveats) || null;
+        if (Array.isArray(caveats) && caveats.length) {
+          const card = document.getElementById('caveats-card');
+          card.style.display = 'block';
+          card.removeAttribute('open');
+          document.getElementById('caveats-list').innerHTML = caveats.map(c => `<li>${c}</li>`).join('');
+        }
+
+        // 深度分析 tab 切换
+        document.querySelectorAll('.deep-tab').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const key = btn.dataset.deepTab;
+            document.querySelectorAll('.deep-tab').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.deep-panel').forEach(p => p.classList.remove('active'));
+            document.getElementById('deep-panel-' + key).classList.add('active');
+          });
+        });
+
+        // 渲染 mechanisms / sources / references / notes
+        renderMechanisms(cfg.return_mechanisms);
+        renderSources(cfg.data_sources);
+        renderReferences(cfg.references);
+        const notes = cfg.analyst_notes || cfg.notes;
+        if (notes) {
+          document.getElementById('protocol-notes').innerHTML = marked.parse ? marked.parse(notesToMarkdown(notes)) : notes.replace(/\n/g, '<br>').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\|(.+)\|/g, '<span style="font-family:monospace">$1</span>');
+        } else {
+          document.getElementById('protocol-notes').innerHTML = '<p style="color:var(--text-tertiary);font-size:13px;" data-zh="暂无分析师备注" data-en="No analyst notes yet">暂无分析师备注</p>';
+        }
+        document.getElementById('last-updated').textContent = cfg.last_updated || '—';
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+        loadHistoryDashboard(pid);
+        loadGovernance(pid);
+        renderTevCalc(pid);
+        renderIncomeStatement(pid);
+        renderCalcBasis(pid);
+        loadSupplyChart(pid);
+        // v2.2: 销毁/回购/Tokenomics 区块已移除，历史数据统一走 loadHistoryDashboard
+      } catch (e) {
+        console.error('Failed:', e);
+        document.getElementById('loading').innerHTML = `<div style="color:var(--danger);">Failed to load protocol</div><div style="margin-top:8px;font-size:12px;">${e.message}</div><div style="margin-top:16px;"><a href="index.html" style="color:var(--blue);">← Back</a></div>`;
+      }
+    }
+
+    // 按点路径从对象里读取（a.b.c.d → obj.a.b.c.d）
+    function getPath(obj, path) {
+      if (!path) return null;
+      return path.split('.').reduce((o, k) => (o != null ? o[k] : null), obj);
+    }
+
+    // 格式化：按 unit 格式化值
+    function formatPipelineValue(v, unit) {
+      if (v == null) return '—';
+      if (unit === 'USD') {
+        if (Math.abs(v) >= 1e9) return '$' + (v/1e9).toFixed(2) + 'B';
+        if (Math.abs(v) >= 1e6) return '$' + (v/1e6).toFixed(2) + 'M';
+        if (Math.abs(v) >= 1e3) return '$' + (v/1e3).toFixed(1) + 'K';
+        return '$' + v.toFixed(0);
+      }
+      if (unit === '%') return (typeof v === 'number' ? v.toFixed(2) : v) + '%';
+      if (typeof v === 'number') {
+        if (Math.abs(v) >= 1e6) return (v/1e6).toFixed(2) + 'M';
+        if (Math.abs(v) >= 1e3) return v.toLocaleString();
+        return v.toString();
+      }
+      return String(v);
+    }
+
+    // 渲染 calc_pipeline 端到端推导步骤（按当前概览的周期 tab 读取对应值）
+    function renderCalcPipeline(pipeline, proto) {
+      const container = document.getElementById('tev-calc-content');
+      // 外层是 .tev-calc-grid（2 列 grid），pipeline 用 block/flex 布局，需移除 grid 类
+      container.classList.remove('tev-calc-grid');
+      container.classList.add('calc-pipeline-wrap');
+      const currentPeriod = document.querySelector('#period-tabs .period-tab.active')?.dataset.period || '365d';
+      let html = '<div class="calc-pipeline">';
+      for (const s of pipeline) {
+        html += '<div class="calc-step' + (s.derived ? ' calc-step-derived' : '') + '">';
+        html += '  <div class="calc-step-head">';
+        html += '    <span class="calc-step-num">' + s.step + '</span>';
+        html += '    <span class="calc-step-label">' + (s.label || '') + '</span>';
+        // 右侧当前值
+        let val = null, unit = s.unit || '';
+        if (s.value_fields_by_period) {
+          val = getPath(proto, s.value_fields_by_period[currentPeriod]);
+        } else if (s.value_field) {
+          val = getPath(proto, s.value_field);
+        }
+        if (val != null) {
+          const suffix = s.value_suffix || '';
+          html += '    <span class="calc-step-value">' + formatPipelineValue(val, unit) + suffix + '</span>';
+        }
+        html += '  </div>';
+        if (s.description) html += '  <div class="calc-step-desc">' + s.description + '</div>';
+        if (s.formula) html += '  <div class="calc-step-formula"><code>' + s.formula + '</code></div>';
+        // inputs（可能有 field 引用，替换为实际值）
+        if (s.inputs) {
+          html += '  <div class="calc-step-inputs">';
+          for (const [k, v] of Object.entries(s.inputs)) {
+            let display = v;
+            if (typeof v === 'string' && v.includes('.')) {
+              const resolved = getPath(proto, v);
+              if (resolved != null) display = formatPipelineValue(resolved, '');
+            }
+            html += '    <span><strong>' + k + '</strong>: ' + display + '</span>';
+          }
+          html += '  </div>';
+        }
+        // addresses
+        if (s.addresses) {
+          html += '  <div class="calc-step-addrs">';
+          for (const [name, addr] of Object.entries(s.addresses)) {
+            html += '    <div><strong>' + name + '</strong>: <code>' + addr + '</code></div>';
+          }
+          html += '  </div>';
+        }
+        // meta: source_url, output_file, updated_by
+        const metaBits = [];
+        if (s.source_url) metaBits.push('🔗 ' + s.source_url);
+        if (s.source_note) metaBits.push(s.source_note);
+        if (s.output_file) metaBits.push('→ <code>' + s.output_file + '</code>');
+        if (s.updated_by) metaBits.push('维护脚本: <code>' + s.updated_by + '</code>');
+        if (metaBits.length) html += '  <div class="calc-step-meta">' + metaBits.join(' · ') + '</div>';
+        html += '</div>';
+      }
+      html += '</div>';
+      container.innerHTML = html;
+    }
+
+    function renderCalcFooter(p, allData) {
+      const footer = document.getElementById('tev-calc-footer');
+      if (!footer) return;
+      const conf = p.confidence || 'medium';
+      const confLabel = currentLang === 'zh' ? { high: '高', medium: '中', low: '低' }[conf] || conf : conf;
+      const updatedAt = allData.generated_at ? allData.generated_at.split('T')[0] : '—';
+      footer.innerHTML = [
+        `<span>${currentLang === 'zh' ? '置信度' : 'Confidence'}: ${confLabel}</span>`,
+        `<span>${currentLang === 'zh' ? '数据更新' : 'Updated'}: ${updatedAt}</span>`,
+      ].join('');
+    }
+
+    async function renderTevCalc(pid) {
+      try {
+        const resp = await fetch('../data/all-protocols.json');
+        if (!resp.ok) return;
+        const allData = await resp.json();
+        const p = (allData.protocols || {})[pid];
+        if (!p) return;
+
+        // ===== 新：如果 config 里有 calc_pipeline，渲染端到端推导流程 =====
+        const pipeline = protocolConfig?.calc_pipeline;
+        if (Array.isArray(pipeline) && pipeline.length) {
+          renderCalcPipeline(pipeline, p);
+          renderCalcFooter(p, allData);
+          return;
+        }
+
+        // ===== 兼容旧版：没有 calc_pipeline 时用原 5 行表格 =====
+        if (!p.metrics) return;
+        const m = p.metrics;
+        const fmt = (n) => n != null ? '$' + Math.round(n).toLocaleString() : '—';
+        const pct = (n) => n != null ? (n * 100).toFixed(1) + '%' : '—';
+        const yld = (n) => n != null ? n.toFixed(2) + '%' : '—';
+
+        const revenue = m.trailing_365d_revenue_usd;
+        const payout_ratio = p.payout_ratio;
+        const tev = m.trailing_365d_shareholder_returns_usd;
+        const mcap = m.current_market_cap_usd;
+        const tevYield = p.shareholder_yield_percent;
+
+        // 精简：只保留核心 5 行推导。多周期 yield 在概览 KPI + 周期 tab 已展示，不重复。
+        const rows = [
+          { label: currentLang === 'zh' ? '365D 协议收入' : '365D Revenue', value: fmt(revenue) },
+          { label: currentLang === 'zh' ? '派息率' : 'Payout Ratio', value: (payout_ratio != null && tevYield) ? pct(payout_ratio) : '—' },
+          { label: currentLang === 'zh' ? '365D 股东回报' : '365D Shareholder Returns', value: fmt(tev), derived: true },
+          { label: currentLang === 'zh' ? '市值' : 'Market Cap', value: fmt(mcap) },
+          { label: currentLang === 'zh' ? '股东回报率' : 'Shareholder Yield', value: yld(tevYield), derived: true },
+        ];
+
+        const container = document.getElementById('tev-calc-content');
+        container.innerHTML = rows.map(r => {
+          const cls = r.derived ? ' tev-calc-derived' : '';
+          return `<div class="tev-calc-row${cls}" style="display:contents"><div class="tev-calc-label">${r.label}</div><div class="tev-calc-value">${r.value}</div></div>`;
+        }).join('');
+
+        // Footer
+        const footer = document.getElementById('tev-calc-footer');
+        const note = p.payout_ratio_note || '';
+        const conf = p.confidence || 'medium';
+        const confLabel = currentLang === 'zh'
+          ? { high: '高', medium: '中', low: '低' }[conf] || conf
+          : conf;
+        const updatedAt = allData.generated_at ? allData.generated_at.split('T')[0] : '—';
+        footer.innerHTML = [
+          `<span>${currentLang === 'zh' ? '数据来源' : 'Source'}: DefiLlama Revenue API</span>`,
+          note ? `<span>${currentLang === 'zh' ? '派息率依据' : 'Payout basis'}: ${note}</span>` : '',
+          `<span>${currentLang === 'zh' ? '置信度' : 'Confidence'}: ${confLabel}</span>`,
+          `<span>${currentLang === 'zh' ? '更新' : 'Updated'}: ${updatedAt}</span>`,
+        ].filter(Boolean).join('');
+
+        // tev-calc-section 已迁移到深度分析 tab 的 deep-panel-calc，tab 本身总是可见
+        // 保持兼容：老 span#tev-calc-section 显示与否无视觉影响
+      } catch (e) {
+        console.warn('TEV calc render failed:', e);
+      }
+    }
+
+    // ===== M1 财报页：损益表（5 段式 + 可展开计算过程）=====
+    const moneyFmt = (v) => {
+      if (v == null) return '—';
+      const abs = Math.abs(v), sign = v < 0 ? '−' : '';
+      if (abs >= 1e9) return sign + '$' + (abs/1e9).toFixed(2) + 'B';
+      if (abs >= 1e6) return sign + '$' + (abs/1e6).toFixed(2) + 'M';
+      if (abs >= 1e3) return sign + '$' + (abs/1e3).toFixed(1) + 'K';
+      return sign + '$' + v.toFixed(0);
+    };
+    const pctFmt = (v, p = 2) => v == null ? '—' : (v > 0 ? '' : '') + v.toFixed(p) + '%';
+
+    async function renderIncomeStatement(pid) {
+      try {
+        const resp = await fetch(`../data/snapshots/${pid}.json`);
+        if (!resp.ok) return;
+        const snap = await resp.json();
+        const inc = snap.income_statement;
+        if (!inc || !inc.revenue) return;
+        const rev = inc.revenue.revenue_included || {};
+        const gp = inc.gross_profit || {};
+        const em = inc.token_emission_cost || {};
+        const ni = inc.net_income || {};
+        const mg = inc.margins || {};
+        const isPlatform = inc.revenue.entity_type === 'platform_token';
+
+        // 5 段式推导步骤
+        const steps = [];
+        steps.push({ label: t('is.revenue'), value: moneyFmt(rev.total_usd_365d), note: buildRevenueNote(inc.revenue, rev, isPlatform), derived: false });
+        // LP 成本（应用型）
+        if (!isPlatform) {
+          steps.push({ label: t('is.lpCost'), value: moneyFmt(gp.lp_share_cost_usd_365d), note: gp.calculation_note || '', derived: false });
+        }
+        steps.push({ label: t('is.grossProfit'), value: moneyFmt(gp.gross_profit_usd_365d), note: gp.calculation_note || '', derived: true });
+        // 增发成本（有对价才作为成本行）
+        if (em.treatment === 'cost') {
+          steps.push({ label: t('is.emission'), value: '−' + moneyFmt(em.usd_365d), note: em.calculation_note || `年增发 ${em.annual_emission_tokens || '—'} 枚，通胀 ${pctFmt(em.inflation_rate_percent)}`, derived: false });
+        } else if (em.treatment === 'dilution_note') {
+          steps.push({ label: t('is.emission') + '（稀释注记）', value: moneyFmt(em.usd_365d), note: em.calculation_note || '无对价增发，不计成本，作稀释注记', derived: false });
+        }
+        steps.push({ label: t('is.netIncome'), value: moneyFmt(ni.net_income_usd_365d), note: ni.calculation_note || '', derived: true });
+
+        // 净利分配（股东回报 vs 留存）
+        const hr = snap.holder_returns?.summary || {};
+        const alloc = [
+          { label: t('is.holderReturns'), value: moneyFmt(hr.shareholder_returns_usd_365d) },
+        ];
+        if (ni.net_income_usd_365d != null && hr.shareholder_returns_usd_365d != null) {
+          const retained = ni.net_income_usd_365d - hr.shareholder_returns_usd_365d;
+          alloc.push({ label: t('is.retained'), value: moneyFmt(retained) });
+        }
+
+        // 瀑布式损益表：收入 → 毛利 → 净利（阶梯流向 + 可展开计算过程）
+        const cards = [
+          { label: t('is.revenue'), value: rev.total_usd_365d, note: buildRevenueNote(inc.revenue, rev, isPlatform), highlight: rev.total_usd_365d != null, key: 'revenue' },
+          { label: t('is.grossProfit'), value: gp.gross_profit_usd_365d, note: gp.calculation_note || '', highlight: gp.gross_profit_usd_365d != null, key: 'gross' },
+          { label: t('is.netIncome'), value: ni.net_income_usd_365d, note: ni.calculation_note || '', highlight: true, negative: (ni.net_income_usd_365d || 0) < 0, key: 'net' },
+        ];
+        // 增发成本作为净利 note 的补充（cost 时才展示）
+        if (em.treatment === 'cost' && em.usd_365d) {
+          cards[2].note = `${t('is.emission')}: −${moneyFmt(em.usd_365d)}（${em.calculation_note || '增发作为成本扣除'}）${ni.calculation_note ? '；' + ni.calculation_note : ''}`;
+        } else if (em.treatment === 'dilution_note' && em.usd_365d) {
+          cards[2].note = `${t('is.emission')}（稀释注记）: ${moneyFmt(em.usd_365d)}（${em.calculation_note || '无对价增发，作稀释注记'}）`;
+        }
+
+        // 瀑布流向：每个节点之间画一条渐变连接线（收入 → 毛利 → 净利）
+        const connector = (c) => c.value == null ? '' :
+          `<div style="display:flex;align-items:center;justify-content:center;padding:0 2px;flex:0 0 26px;">
+            <svg width="26" height="40" viewBox="0 0 26 40" style="display:block;">
+              <path d="M1 20 H25 M25 20 L18 13 M25 20 L18 27" stroke="${c.value < 0 ? '#e5484d' : 'var(--accent)'}" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>`;
+        const container = document.getElementById('income-statement-pipeline');
+        container.innerHTML = `<div style="display:flex;align-items:stretch;gap:0;flex-wrap:wrap;">
+          ${cards.map((c, i) => `
+            ${i > 0 ? connector(cards[i - 1]) : ''}
+            <div style="flex:1 1 160px;min-width:150px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:16px 18px;${c.highlight ? 'border-top:3px solid #22c55e;' : ''}box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+              <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;letter-spacing:0.3px;">${c.label}</div>
+              <div style="font-weight:700;font-size:22px;font-family:'JetBrains Mono',monospace;${c.negative ? 'color:#e5484d;' : 'color:var(--text-primary);'}">${moneyFmt(c.value)}</div>
+              <div style="font-size:11px;color:var(--text-tertiary);margin-top:6px;font-family:'JetBrains Mono',monospace;">
+                ${c.key === 'gross' ? `毛利率 ${pctFmt(mg.gross_margin_percent)}` : ''}
+                ${c.key === 'net' ? `净利率 ${pctFmt(mg.net_margin_percent)}${(mg.net_margin_percent||0)<0?'':''}` : ''}
+                ${c.key === 'revenue' ? `年化收入` : ''}
+              </div>
+              ${c.note ? `<details class="calc-detail" style="margin-top:10px;"><summary style="font-size:11px;color:var(--text-tertiary);cursor:pointer;">${t('is.details')} ⓘ</summary><div class="extra-body" style="font-size:12px;color:var(--text-secondary);line-height:1.7;margin-top:4px;padding:8px 10px;background:var(--bg-tertiary);border-radius:6px;">${c.note}</div></details>` : ''}
+            </div>`).join('')}
+        </div>`;
+
+        // 利润率行 + 净利分配
+        const marginRow = document.getElementById('income-margin-row');
+        marginRow.innerHTML = `
+          <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:14px;padding:0 4px;">
+            <span style="font-size:12px;color:var(--text-secondary);">${t('is.grossMargin')} <strong style="font-family:'JetBrains Mono',monospace;">${pctFmt(mg.gross_margin_percent)}</strong></span>
+            <span style="font-size:12px;color:var(--text-secondary);">${t('is.netMargin')} <strong style="font-family:'JetBrains Mono',monospace;${(mg.net_margin_percent||0) < 0 ? 'color:#e5484d;' : ''}">${pctFmt(mg.net_margin_percent)}</strong></span>
+            ${isPlatform ? `<span style="font-size:11px;color:var(--text-tertiary);">${t('is.platformNote')}</span>` : ''}
+            ${alloc.length ? alloc.map(a => `<span style="font-size:12px;color:var(--text-secondary);">${a.label} <strong style="font-family:'JetBrains Mono',monospace;">${a.value}</strong></span>`).join('') : ''}
+          </div>`;
+
+        document.getElementById('income-statement-section').style.display = 'block';
+      } catch (e) {
+        console.warn('Income statement render failed:', e);
+      }
+    }
+
+    function buildRevenueNote(revObj, rev, isPlatform) {
+      if (isPlatform) {
+        const parts = [];
+        if (rev.burn_usd_365d) parts.push(`销毁 ${moneyFmt(rev.burn_usd_365d)} 🟢`);
+        if (rev.staking_rewards_usd_365d) parts.push(`打新+质押 ${moneyFmt(rev.staking_rewards_usd_365d)} 🟡`);
+        if (parts.length) return `收入 = 赋能总额（${parts.join(' + ')}）；gas 手续费不计入（BEP-95 销毁部分已含于 burn 科目）`;
+        return revObj.revenue_excluded?.fees?.note || '平台币：收入 = 股东回报（赋能口径）';
+      }
+      return revObj.revenue_excluded && Object.keys(revObj.revenue_excluded).length
+        ? `协议费收入（DefiLlama dailyRevenue）；不计入：${Object.entries(revObj.revenue_excluded).map(([k,v]) => `${k}（${v.note||''}）`).join('；')}`
+        : '协议费收入（DefiLlama dailyRevenue，协议归属部分）';
+    }
+
+    // ===== M1 财报页：计算口径（详情页最后区块）=====
+    async function renderCalcBasis(pid) {
+      try {
+        const cfg = protocolConfig;
+        const snapResp = await fetch(`../data/snapshots/${pid}.json`);
+        const snap = snapResp.ok ? await snapResp.json() : null;
+        const rr = cfg.revenue_recognition || {};
+        const dp = cfg.data_pipeline || {};
+        const inc = snap?.income_statement || {};
+        const em = inc.token_emission_cost || {};
+
+        const gradeMap = {
+          destroy: t('cb.grade.destroy'), yield: t('cb.grade.yield'),
+          dividend: t('cb.grade.dividend'), buyback: t('cb.grade.buyback'),
+        };
+
+        const cards = [];
+        // ① 实体类型判定 —— 为什么这么分
+        const etNames = { platform_token: '平台币', app: '应用型协议', public_chain: '公链' };
+        const etWhy = {
+          platform_token: '平台币像一家交易所/公链的"股票"：它的价值来自平台的全部赋能（打新、质押、销毁都算收入），所以收入口径 = 股东回报口径。',
+          app: '应用型协议（借贷/DEX/衍生品等）像一家软件公司：收入 = 协议费（扣除分给流动性提供者的部分），赚的钱再通过回购/分红/销毁返还给持币人。',
+          public_chain: '公链代币的收入口径视具体机制而定。',
+        };
+        const et = inc.revenue?.entity_type || rr.entity_type || '—';
+        cards.push({ title: t('cb.entityType'), body: `<div style="font-size:13px;margin-bottom:6px;"><strong>${etNames[et] || et}</strong></div><div style="font-size:13px;line-height:1.8;color:var(--text-secondary);">${etWhy[et] || rr.principle || '—'}</div>` });
+        // ② 收入口径判定书 —— 计入什么、不计入什么、为什么
+        const incl = rr.revenue_included || {};
+        const excl = rr.revenue_excluded || {};
+        const inclLabel = { protocol_fees: '协议费（协议真正留下的部分）', buyback_burn: '回购销毁', staking: '质押收益', burn: '销毁', launchpad_launchpool: '打新（Launchpad/Launchpool）', staking_rewards: '质押奖励' };
+        let revBody = '<div style="font-size:13px;margin-bottom:8px;"><strong style="color:var(--accent);">' + t('cb.included') + '</strong></div>';
+        const inclParts = Object.entries(incl).map(([k, v]) => `<div style="font-size:13px;line-height:1.8;padding-left:12px;border-left:2px solid var(--border);margin-bottom:6px;">${inclLabel[k] || k}${v?.note ? `<div style="color:var(--text-secondary);font-size:12px;">${v.note}</div>` : ''}</div>`);
+        revBody += (inclParts.length ? inclParts.join('') : '<div style="font-size:13px;color:var(--text-secondary);padding-left:12px;">—</div>');
+        if (Object.keys(excl).length) {
+          revBody += '<div style="font-size:13px;margin:10px 0 8px;"><strong style="color:var(--text-tertiary);">' + t('cb.excluded') + '</strong></div>';
+          revBody += Object.entries(excl).map(([k, v]) => `<div style="font-size:13px;line-height:1.8;padding-left:12px;border-left:2px solid var(--border);margin-bottom:6px;">${inclLabel[k] || k}${v?.note ? `<div style="color:var(--text-secondary);font-size:12px;">${v.note}</div>` : ''}</div>`).join('');
+        }
+        if (rr.calculation) {
+          const calcStr = typeof rr.calculation === 'string' ? rr.calculation : (rr.calculation.revenue_usd_365d || rr.calculation.note || '');
+          revBody += `<div style="font-size:12px;color:var(--text-tertiary);margin-top:8px;">${calcStr}</div>`;
+        }
+        cards.push({ title: t('cb.revenue'), body: revBody });
+        // ③ 增发成本处理 —— 为什么这样处理
+        const emTreat = {
+          cost: '增发的代币是"花钱买增长"（给 LP 挖矿激励等），像美股的股权激励（SBC）——从净利润里扣除。',
+          dilution_note: '增发是无对价的"印钞稀释"，不算成本，但在页面上明确标注，提醒你流通量在膨胀。',
+          none: '这个协议不增发代币（或供应量只减不增），没有稀释成本。',
+        };
+        cards.push({ title: t('cb.emission'), body: `<div style="font-size:13px;line-height:1.8;">${emTreat[em.treatment] || emTreat.none}</div>${em.calculation_note ? `<div style="font-size:12px;color:var(--text-secondary);margin-top:6px;">${em.calculation_note}</div>` : ''}${em.usd_365d ? `<div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">每年增发折合 ${moneyFmt(em.usd_365d)}${em.annual_emission_tokens ? `（${em.annual_emission_tokens.toLocaleString()} 枚）` : ''}${em.inflation_rate_percent ? `，通胀率 ${pctFmt(em.inflation_rate_percent)}` : ''}</div>` : ''}` });
+        // ④ 净利润口径 —— 净利怎么算出来的
+        const niNote = inc.net_income?.calculation_note || (inc.revenue?.entity_type === 'platform_token' ? '平台币没有成本模型：收入就是净利（全部赋能都是给持币人的价值）。' : '毛利 − 增发成本 − 运营成本。');
+        cards.push({ title: t('cb.netIncome'), body: `<div style="font-size:13px;line-height:1.8;">${niNote}</div>` });
+        // ⑤ 含金量标注 —— 每笔回报的"含金量"
+        const mechs = snap?.holder_returns?.by_mechanism || [];
+        const gradeBody = mechs.length
+          ? mechs.map(m => `<div style="font-size:13px;line-height:1.8;padding:6px 0;border-bottom:1px dashed var(--border);">${m.mechanism} — <strong>${gradeMap[m.type] || m.type}</strong></div>`).join('')
+          : '<span style="font-size:13px;color:var(--text-secondary);">' + (snap ? '' : t('cb.noData')) + '</span>';
+        cards.push({ title: t('cb.goldGrade'), body: gradeBody });
+        // ⑥ 数据源与验证 —— 数字从哪来、可信吗
+        const srcLabel = { chain: '链上数据', official: '官方公告/治理', defillama: 'DefiLlama', estimate: '估算' };
+        const srcList = (dp.sources || []).map(s => `<div style="font-size:13px;line-height:1.8;margin-bottom:4px;">${srcLabel[s.type] || s.type} · ${s.method || ''}${s.frequency ? `（${s.frequency}）` : ''}</div>`).join('');
+        const verMap = { verified: t('cb.verification.verified'), partial: t('cb.verification.partial'), estimated: t('cb.verification.estimated') };
+        const verStatus = snap?.verification?.status || 'partial';
+        cards.push({ title: t('cb.pipeline'), body: `${srcList || '—'}<div style="font-size:13px;margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);">${verMap[verStatus] || verStatus}${snap?.verification?.method ? `<div style="color:var(--text-secondary);font-size:12px;margin-top:2px;">${snap.verification.method}</div>` : ''}</div>` });
+        // ⑦ Caveats（analyst_notes 摘要）
+        if (cfg.analyst_notes) {
+          const firstLine = cfg.analyst_notes.split('\n').find(l => l.trim()) || '';
+          cards.push({ title: t('cb.caveats'), body: `<span style="font-size:12px;color:var(--text-secondary);">${firstLine.length > 200 ? firstLine.slice(0, 200) + '…' : firstLine}</span>` });
+        }
+
+        const wrap = document.getElementById('calc-basis-wrap');
+        wrap.innerHTML = cards.map(c => `
+          <details class="extra-section" open>
+            <summary><span class="icon">📌</span>${c.title}</summary>
+            <div class="extra-body" style="font-size:13px;line-height:1.8;">${c.body}</div>
+          </details>`).join('');
+        document.getElementById('calculation-basis-section').style.display = 'block';
+      } catch (e) {
+        console.warn('Calc basis render failed:', e);
+      }
+    }
+
+    // ===== v2.2 历史数据看板（净收益/PE/PS/股东回报率/净利率 可切换）=====
+    let historyChart = null;
+    let currentHistoryMetric = 'net_income';
+
+    async function loadHistoryDashboard(pid) {
+      try {
+        const resp = await fetch(`../data/history/${pid}.json`);
+        if (!resp.ok) {
+          document.getElementById('history-dashboard-section').innerHTML =
+            '<div class="section-title"><span class="icon">📈</span><span data-i18n="section.historyDashboard">历史数据</span></div>' +
+            '<div style="padding:24px;text-align:center;color:var(--text-tertiary);font-size:13px;">' +
+            (currentLang === 'zh' ? '历史数据累积中（每日快照生成后显示）…' : 'History accumulating (visible after daily snapshots)…') + '</div>';
+          return;
+        }
+        const hist = await resp.json();
+        const records = hist.records || [];
+        if (!records.length) { document.getElementById('history-dashboard-section').style.display = 'none'; return; }
+
+        const metricDefs = {
+          net_income:        { label: currentLang === 'zh' ? '净收益' : 'Net Income',       fmt: moneyFmt, color: '#22c55e' },
+          pe:                { label: 'P/E',                                               fmt: v => v == null ? '—' : v.toFixed(1) + 'x', color: '#3b82f6' },
+          ps:                { label: 'P/S',                                               fmt: v => v == null ? '—' : v.toFixed(1) + 'x', color: '#8b5cf6' },
+          shareholder_yield: { label: currentLang === 'zh' ? '股东回报率' : 'Shareholder Yield', fmt: v => v == null ? '—' : v.toFixed(2) + '%', color: '#f59e0b' },
+          net_margin:        { label: currentLang === 'zh' ? '净利率' : 'Net Margin',      fmt: v => v == null ? '—' : v.toFixed(1) + '%', color: '#ec4899' },
+        };
+        const ALL_KEYS = ['net_income', 'pe', 'ps', 'shareholder_yield', 'net_margin'];
+
+        // ── 单图表叠加（Boss 2026-08-03）：柱状=单期值（左轴）+ 折线=累计总量（右轴），日期横轴可拖动 ──
+        const yFmtShort = v => v == null ? '—' : (Math.abs(v) >= 1e9 ? (v/1e9).toFixed(1)+'B' : Math.abs(v) >= 1e6 ? (v/1e6).toFixed(1)+'M' : Math.abs(v) >= 1e3 ? (v/1e3).toFixed(1)+'K' : v.toFixed(0));
+        // 横坐标显示完整日期（2025-06-01），按 tick 密度自动跳过
+        const xDateFmt = function(v) {
+          let label = (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v)) ? v : (this.getLabelForValue ? this.getLabelForValue(v) : String(v));
+          const d = new Date(label + 'T00:00:00');
+          if (isNaN(d)) return label;
+          const m = String(d.getMonth() + 1).padStart(2, '0'), dd = String(d.getDate()).padStart(2, '0');
+          return `${d.getFullYear()}-${m}-${dd}`;
+        };
+        // 数据准备：一天一个点（Boss 2026-08-03：不要稀疏采样）
+        function prepareData(metric) {
+          const sorted = records.slice().sort((a, b) => a.as_of.localeCompare(b.as_of));
+          // 数据仅 500+ 条，Chart.js 完全能渲染，不做采样（保持一天一个数字）
+          const all = sorted;
+          // 折线 = TTM 累计总量（net_income = 滚动 365 天净收益，Boss 2026-08-03 定名：
+          // 每过一天加新增一期、减掉超过一年那期，与损益表同口径）
+          const lineVals = metric === 'net_income'
+            ? all.map(r => r.net_income)
+            : all.map(r => r[metric]);
+          // 柱状 = 单日净收益（daily_value = 当天统计值）
+          const barVals = all.map(r => r.daily_value != null ? r.daily_value : r[metric]);
+          return { labels: all.map(r => r.as_of), lineVals, barVals };
+        }
+        function renderHistoryChart() {
+          try {
+            const def = metricDefs[currentHistoryMetric];
+            const ctx = document.getElementById('history-chart');
+            if (!ctx) return;
+            if (historyChart) historyChart.destroy();
+            const { labels, lineVals, barVals } = prepareData(currentHistoryMetric);
+            const isNet = currentHistoryMetric === 'net_income';
+            // 颜色区分：单日净收益柱状=绿色，TTM 累计总量折线=橙色
+            const barColor = '#22c55e';   // 单日净收益（柱）
+            const lineColor = '#f59e0b';  // TTM 累计总量（线）
+            // Boss 2026-08-03 定名：折线 = TTM 累计总量（过去 365 天滚动和，
+            // 每天加新增一期、减掉超一年那期）；柱状 = 单日净收益（当天统计值）
+            const barLabel = currentLang === 'zh' ? '单日净收益' : 'Daily Net Income';
+            const lineLabel = isNet
+              ? (currentLang === 'zh' ? 'TTM 累计总量' : 'TTM Cumulative')
+              : def.label;
+            // Boss 2026-08-03 修正：单日净收益（柱）最高点 ≤ 图 1/2 高度
+            // 用 p90 分位 × 2.2（避免单日异常值拉爆 Y 轴，如 Auto-Burn 执行日）
+            const finiteBars = barVals.filter(v => v != null && isFinite(v)).sort((a, b) => a - b);
+            const p90 = finiteBars.length ? finiteBars[Math.min(finiteBars.length - 1, Math.floor(finiteBars.length * 0.9))] : 0;
+            const barYMax = p90 > 0 ? p90 * 2.2 : undefined;
+            historyChart = new Chart(ctx, {
+              type: 'bar',
+              data: {
+                labels,
+                datasets: [
+                  // 单日净收益：柱状（左轴，绿色）
+                  { type: 'bar', label: barLabel, data: barVals, backgroundColor: barColor + '44', borderColor: barColor + '88', borderWidth: 1, yAxisID: 'y', barPercentage: 0.85, categoryPercentage: 0.85, order: 2 },
+                  // TTM 累计总量：折线（右轴，橙色，与损益表同口径）
+                  { type: 'line', label: lineLabel, data: lineVals, borderColor: lineColor, backgroundColor: lineColor + '18', fill: true, tension: 0.3, pointRadius: 0, pointHoverRadius: 4, borderWidth: 2, yAxisID: 'y1', order: 1 },
+                ],
+              },
+              options: {
+                responsive: true, maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                  legend: { display: true, labels: { color: 'var(--text-secondary)', font: { size: 11 }, boxWidth: 14, padding: 12, usePointStyle: true } },
+                  tooltip: { callbacks: {
+                    title: items => items[0]?.label || '',
+                    label: c => {
+                      const isLine = c.dataset.type === 'line';
+                      return (isLine ? (isNet ? lineLabel + ': ' : def.label + ': ') : barLabel + ': ') + def.fmt(c.parsed.y);
+                    },
+                  } },
+                  // chartjs-plugin-zoom v2 正确结构：zoom.zoom / zoom.pan 并列
+                  // drag 框选时间范围 + wheel 缩放 + pan 拖动 + 双击重置
+                  zoom: {
+                    pan: { enabled: true, mode: 'x', threshold: 5 },
+                    zoom: {
+                      wheel: { enabled: true, speed: 0.08 },
+                      pinch: { enabled: true },
+                      drag: { enabled: true, mode: 'x' },
+                      mode: 'x',
+                    },
+                  },
+                },
+                scales: {
+                  x: { ticks: { maxTicksLimit: 10, color: '#71717a', font: { size: 10 }, callback: xDateFmt, maxRotation: 0, autoSkip: true }, grid: { display: false } },
+                  y: { position: 'left', max: barYMax, ticks: { color: '#71717a', font: { size: 10 }, callback: yFmtShort }, grid: { color: 'rgba(128,128,128,0.08)' }, title: { display: true, text: barLabel, color: '#71717a', font: { size: 10 } } },
+                  y1: { position: 'right', ticks: { color: lineColor, font: { size: 10 }, callback: yFmtShort }, grid: { display: false }, title: { display: true, text: lineLabel, color: lineColor, font: { size: 10 } } },
+                },
+              },
+            });
+          } catch (e) { console.warn('History chart failed:', e); }
+        }
+
+        // 渲染图表 + 绑定指标 tab
+        renderHistoryChart();
+        document.getElementById('history-dashboard-section').classList.add('has-data');
+        document.querySelectorAll('#history-metric-tabs .history-tab').forEach(btn => {
+          btn.onclick = () => {
+            document.querySelectorAll('#history-metric-tabs .history-tab').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentHistoryMetric = btn.dataset.metric;
+            renderHistoryChart();
+          };
+        });
+      } catch (e) {
+        console.warn('History dashboard failed:', e);
+      }
+    }
+
+    // ===== v2.2 代币流通量（当前值 hero + 历史曲线，CMC 数据源）=====
+    let supplyChart = null;
+    const fmtSupplyShort = v => v == null ? '—' : (v >= 1e9 ? (v/1e9).toFixed(2)+'B' : v >= 1e6 ? (v/1e6).toFixed(2)+'M' : v >= 1e3 ? (v/1e3).toFixed(1)+'K' : v.toFixed(0));
+    const fmtSupplyLong = v => v == null ? '—' : v.toLocaleString();
+
+    async function loadSupplyChart(pid) {
+      try {
+        const resp = await fetch(`../data/supply/${pid}.json`);
+        if (!resp.ok) {
+          const note = document.getElementById('supply-note');
+          if (note) note.textContent = currentLang === 'zh'
+            ? '🪙 代币流通量 — 数据源 CoinMarketCap（接入中）'
+            : '🪙 Circulating supply — source CoinMarketCap (pending)';
+          return;
+        }
+        const sup = await resp.json();
+        const pts = sup.points || [];
+        if (!pts.length) { document.getElementById('supply-section').style.display = 'none'; return; }
+        const note = document.getElementById('supply-note');
+        const latest = pts[pts.length - 1];
+
+        // ① Hero：当前流通量大数字（始终显示）
+        const curVal = document.getElementById('supply-current-value');
+        if (curVal) curVal.textContent = fmtSupplyShort(latest.circulating_supply);
+        const curMeta = document.getElementById('supply-current-meta');
+        if (curMeta) curMeta.textContent = `${latest.date} · ${sup.symbol || ''} · ${fmtSupplyLong(latest.circulating_supply)} 枚`;
+
+        // ② 历史曲线（≥2 点画线；1 点隐藏图表区提示）
+        const ctx = document.getElementById('supply-chart');
+        const chartWrap = document.querySelector('.supply-chart-container .chart-canvas-wrap');
+        if (pts.length < 2) {
+          if (chartWrap) chartWrap.style.display = 'none';
+          if (note) note.textContent = currentLang === 'zh'
+            ? '📊 历史曲线需 ≥2 个数据点，每日更新自动累积（CMC daily snapshot）'
+            : '📊 History needs ≥2 data points, accumulating daily (CMC)';
+          document.getElementById('supply-section').classList.add('has-data');
+          return;
+        }
+        if (chartWrap) chartWrap.style.display = '';
+        // 时间取整（横坐标按月份）
+        const xFmt2 = (v) => {
+          const d = new Date(v + 'T00:00:00');
+          if (isNaN(d)) return v;
+          const y = d.getFullYear(), m = d.getMonth() + 1;
+          return (currentLang === 'zh') ? (y + '年' + m + '月') : (y + '-' + String(m).padStart(2, '0'));
+        };
+        const labels = pts.map(p => p.date);
+        const values = pts.map(p => p.circulating_supply);
+        if (note) note.textContent = (currentLang === 'zh' ? '数据来源：CoinMarketCap' : 'Source: CoinMarketCap') + ' · ' + (sup.symbol || '');
+        if (!ctx) return;
+        if (supplyChart) supplyChart.destroy();
+        supplyChart = new Chart(ctx, {
+          type: 'line',
+          data: { labels, datasets: [{ label: (currentLang === 'zh' ? '流通量' : 'Circulating Supply'), data: values, borderColor: '#f0b90b', backgroundColor: '#f0b90b22', fill: true, tension: 0.3, pointRadius: 0, pointHoverRadius: 4, borderWidth: 2 }] },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+              legend: { display: false },
+              tooltip: { callbacks: { label: c => (currentLang === 'zh' ? '流通量: ' : 'Supply: ') + fmtSupplyLong(c.parsed.y) } },
+              zoom: {
+                pan: { enabled: true, mode: 'x', threshold: 5 },
+                zoom: {
+                  wheel: { enabled: true, speed: 0.08 },
+                  pinch: { enabled: true },
+                  drag: { enabled: true, mode: 'x' },
+                  mode: 'x',
+                },
+              },
+            },
+            scales: {
+              x: { ticks: { maxTicksLimit: 10, color: '#71717a', font: { size: 10 }, callback: xFmt2, maxRotation: 0 }, grid: { display: false } },
+              y: { ticks: { color: '#71717a', font: { size: 10 }, callback: fmtSupplyShort }, grid: { color: 'rgba(128,128,128,0.08)' } },
+            },
+          },
+        });
+        document.getElementById('supply-section').classList.add('has-data');
+      } catch (e) {
+        console.warn('Supply chart failed:', e);
+      }
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => {
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentLang = btn.dataset.lang;
+      updateI18n();
+      init();
+    }));
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+<script src="../js/theme.js"></script>
+<script src="../js/lang.js"></script>
+</body>
+</html>

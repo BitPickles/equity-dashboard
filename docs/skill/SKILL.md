@@ -6,7 +6,7 @@
 | 指标 | 公式 | 数据口径 |
 |-----|------|---------|
 | **TEV** | 项目分配给代币持有者的价值（回购+分润+分代币） | **过去365天累计** |
-| **TEV Yield** | `TEV ÷ 代币市值` | 年化 |
+| **Shareholder Yield** | `TEV ÷ 代币市值` | 年化 |
 | **分配比例** | `TEV ÷ 协议利润(Revenue)` | 年化 |
 | **收益率** | `协议利润(Revenue) ÷ 市值` | 年化 |
 
@@ -19,9 +19,9 @@
 |-----|------|------|
 | 协议利润 | DefiLlama | `trailing_365d_revenue_usd` |
 | 代币市值 | CMC / 交易所 API | `market_cap_usd` |
-| TEV | **每个项目单独计算** | `trailing_365d_tev_usd` |
+| TEV | **每个项目单独计算** | `trailing_365d_shareholder_returns_usd` |
 
-> **重要**：所有数据口径统一为「过去365天」，每个协议必须输出 `trailing_365d_tev_usd` 值。
+> **重要**：所有数据口径统一为「过去365天」，每个协议必须输出 `trailing_365d_shareholder_returns_usd` 值。
 
 ---
 
@@ -94,7 +94,7 @@ tev-dashboard/
 - [设计系统](./design-system.md)
 - [页面模板](./page-template.md)
 - [数据规范](./data-spec.md)
-- [TEV 数据层](./tev-data-layer.md) ← **TEV 口径合并逻辑**
+- [TEV 数据层](./tev-data-layer.md) ← **回报口径合并逻辑**
 - [组件说明](./components.md)
 - [运营手册](./operations.md) ← **日常工作流程**
 - [每日推文](./daily-tweet.md) ← **日常推特发布规范**

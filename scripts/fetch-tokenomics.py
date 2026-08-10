@@ -152,7 +152,7 @@ PROTOCOLS = {
 # We'll create template files for these.
 ALL_PROTOCOL_IDS = [
     "aave", "aster", "bgb", "bnb", "compound", "curve", "dydx",
-    "eigenlayer", "ethena", "etherfi", "fluid", "gmx", "hype",
+    "eigenlayer", "ethena", "fluid", "gmx", "hype",
     "jito", "justlend", "kamino", "lido", "maple", "mnt",
     "morpho", "okb", "pancakeswap", "pendle", "sky", "spark", "uniswap",
 ]

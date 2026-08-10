@@ -84,7 +84,7 @@ async function processProtocol(id, slug, dataType, mechanism, mechName) {
     data_source_url: url,
     records,
     summary: {
-      total_tev_usd: Math.round(nonZero.reduce((s, [_, v]) => s + v, 0)),
+      total_returns_usd: Math.round(nonZero.reduce((s, [_, v]) => s + v, 0)),
       total_30d_usd: data.total30d || 0,
       by_mechanism: { [mechanism]: Math.round(nonZero.reduce((s, [_, v]) => s + v, 0)) },
       by_period: Object.fromEntries(Object.entries(quarterly).sort().map(([k, v]) => [k, Math.round(v)]))
@@ -94,7 +94,7 @@ async function processProtocol(id, slug, dataType, mechanism, mechName) {
   const dir = path.join(DATA_DIR, id);
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, 'tev-records.json'), JSON.stringify(result, null, 2));
-  console.log(`  ✅ Written ${records.length} records, total: $${result.summary.total_tev_usd.toLocaleString()}`);
+  console.log(`  ✅ Written ${records.length} records, total: $${result.summary.total_returns_usd.toLocaleString()}`);
 }
 
 async function main() {
