@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-10T01:07:59.198941+00:00",
+  "updated_at": "2026-08-10T13:07:49.223809+00:00",
   "total": 241,
   "active_count": 32,
   "passed_count": 209,
@@ -2861,8 +2861,22 @@
     {
       "source": "GitHub BEP",
       "protocol": "BNB Chain",
-      "title": "bep-703: refine some trivals",
+      "title": "BEP-706: Millisecond-Precision Block Timestamp Precompile",
       "status": "active",
+      "link": "https://github.com/bnb-chain/BEPs/pull/706",
+      "created": "2026-08-10T07:24:56",
+      "end": "",
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "BEP-706: Millisecond-Precision Block Timestamp Precompile",
+      "summary_zh": "BEP-706：毫秒级区块时间戳预编译",
+      "analysis_zh": ""
+    },
+    {
+      "source": "GitHub BEP",
+      "protocol": "BNB Chain",
+      "title": "bep-703: refine some trivals",
+      "status": "passed",
       "link": "https://github.com/bnb-chain/BEPs/pull/705",
       "created": "2026-08-05T02:17:52",
       "end": "",
@@ -2982,20 +2996,6 @@
       "tev_keywords": [],
       "summary_en": "complete Pasteur BEPs",
       "summary_zh": "协议：BNB Chain\n标题：完成Pasteur BEPs\n摘要：完成Pasteur BEPs",
-      "analysis_zh": ""
-    },
-    {
-      "source": "GitHub BEP",
-      "protocol": "BNB Chain",
-      "title": "BEP-696: Repurpose Unused Block Header Fields for Metadata",
-      "status": "passed",
-      "link": "https://github.com/bnb-chain/BEPs/pull/696",
-      "created": "2026-06-11T01:51:15",
-      "end": "",
-      "tev_related": false,
-      "tev_keywords": [],
-      "summary_en": "bep-696: Allow BSC block producers to use currently unused header fields for producer metadata after a hard fork.",
-      "summary_zh": "BEP-696：BSC 协议将未使用的区块头部字段重新用于生产者元数据，自硬分叉后生效。",
       "analysis_zh": ""
     },
     {
