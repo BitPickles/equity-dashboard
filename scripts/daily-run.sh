@@ -39,8 +39,9 @@ if ! $PY scripts/validate.py 2>&1 | tee /tmp/validate-out.txt | grep -q "0 error
   exit 1
 fi
 
-# 6. 提交推送 main（线上站点每日自动更新）
-git add -A
+# 6. 仅提交每日数据产物到 main（线上站点每日自动更新）。
+# 不使用 git add -A，避免把运行日志或人工中的非数据改动误发布。
+git add -A -- data
 if git diff --cached --quiet; then
   echo "无数据变更，跳过提交"
 else

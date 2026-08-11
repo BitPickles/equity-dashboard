@@ -9,7 +9,6 @@ Top 20 DeFi protocols by TVL, analyzed for Token Empowerment Value (TEV) mechani
 | 1 | Aave V3 | AAVE | $29.6B | ✅ ACTIVE | $50M annual buyback + Safety Module |
 | 2 | Lido | LDO | $22.7B | ❌ NONE | Governance only, fee switch OFF |
 | 3 | EigenLayer | EIGEN | $10.8B | ❌ NONE | Governance only, fee switch OFF |
-| 4 | ether.fi | ETHFI | $6.9B | ⚠️ PARTIAL | ETHFI staking rewards |
 | 5 | Ethena | ENA | $6.5B | ⚠️ PARTIAL | sENA staking rewards |
 | 6 | Morpho | MORPHO | $6.2B | ❌ NONE | Governance only, no protocol fees |
 | 7 | Sky | MKR | $5.2B | ✅ ACTIVE | 70% surplus → MKR buyback/burn |
@@ -55,7 +54,6 @@ These protocols have significant TVL but NO value accrual to token holders:
 ### Emerging TEV
 
 Protocols with new or developing TEV mechanisms:
-- **ether.fi** - ETHFI staking launched, details still emerging
 - **Ethena** - sENA staking for protocol rewards
 - **Kamino** - KMNO staking on Solana
 

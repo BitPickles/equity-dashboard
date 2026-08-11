@@ -354,8 +354,8 @@ def main():
         pid = proto_dir.name
         daily = _load_json(DATA_DIR / "daily" / pid / "latest.json")
         if daily is None:
-            # 兼容冗余目录（curve-dex / ether.fi / hyperliquid）
-            for alt in ("curve-dex", "ether.fi", "hyperliquid"):
+            # 兼容冗余目录（curve-dex / hyperliquid）
+            for alt in ("curve-dex", "hyperliquid"):
                 d2 = _load_json(DATA_DIR / "daily" / alt / "latest.json")
                 if d2 is not None and d2.get("protocol") in (pid, alt):
                     daily = d2

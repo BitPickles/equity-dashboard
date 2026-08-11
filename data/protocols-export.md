@@ -331,33 +331,6 @@ Curve 采用特殊的双重激励模式，需区分 TEV 和 LP 激励：
 
 ---
 
-## etherfi
-
-**名称**: ether.fi (ETHFI)
-**类别**: liquid_staking
-**置信度**: high
-
-### TEV 摘要
-```json
-  "tev_summary": {
-    "fee_switch": "ACTIVE",
-    "fee_switch_details": "100% 提现收入用于 ETHFI 回购，分配给 sETHFI 质押者；另有 $50M 国库回购额度（ETHFI < $3 时）",
-    "buybacks": "ACTIVE",
-    "dividends": "NONE",
-    "burns": "NONE",
-    "primary_value_accrual": "回购分配 — 协议收入回购 ETHFI 并分配给 sETHFI 质押者"
-  },
-  "confidence": "high",
-  "data_sources": [
-    {
-      "name": "ether.fi Governance Forum",
-      "type": "governance",
-      "url": "https://governance.ether.fi",
-      "description": "DAO 治理论坛，含回购提案原文",
-```
-
----
-
 ## gmx
 
 **名称**: GMX (GMX)

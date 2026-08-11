@@ -21,7 +21,7 @@ DAILY = BASE / "data" / "daily"
 DRY = "--dry-run" in sys.argv
 
 # 冗余目录（已并入规范目录，禁止重建，待删除）
-EXCLUDED_DIRS = {"curve-dex", "ether.fi", "hyperliquid"}
+EXCLUDED_DIRS = {"curve-dex", "hyperliquid"}
 
 # 协议 → (DefiLlama slug, CoinGecko id)
 # 无 DefiLlama 数据（平台币/静态协议）→ slug=None，仅刷新时间戳并保留原结构
