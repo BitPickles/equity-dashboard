@@ -1,0 +1,127 @@
+=== Tue Aug 11 08:05:05 CST 2026 每日更新开始 ===
+Already up to date.
+  ✓ aave: $89.15  mcap=$1.37B  circ=15,422,574
+  ✓ aster: $0.60  mcap=$1.61B  circ=2,690,596,388
+  ✓ bgb: $1.63  mcap=$1.14B  circ=699,992,030
+  ✓ bnb: $598.70  mcap=$79.73B  circ=133,164,304
+  ✓ compound: $16.44  mcap=$0.16B  circ=9,668,189
+    ⚠ curve 429 限流，等待重试 (1/2)
+    ⚠ curve 429 限流，等待重试 (2/2)
+  ✓ curve: $0.26  mcap=$0.41B  circ=1,546,590,492
+  ✓ dydx: $0.11  mcap=$0.10B  circ=848,599,091
+  ✓ eigenlayer: $0.18  mcap=$0.13B  circ=741,228,567
+  ✓ ethena: $0.09  mcap=$0.87B  circ=9,828,125,000
+  ✓ fluid: $1.20  mcap=$0.10B  circ=83,696,997
+  ✓ gmx: $6.25  mcap=$0.07B  circ=10,451,911
+    ⚠ hype 429 限流，等待重试 (1/2)
+    ⚠ hype 429 限流，等待重试 (2/2)
+  ✓ hype: $54.96  mcap=$12.23B  circ=222,445,714
+  ✓ jito: $0.54  mcap=$0.28B  circ=508,737,409
+  ✓ justlend: $0.10  mcap=$0.83B  circ=8,188,743,036
+  ✓ kamino: $0.02  mcap=$0.09B  circ=5,268,493,466
+  ✓ layerzero: $0.86  mcap=$0.30B  circ=353,313,326
+    ⚠ lido 429 限流，等待重试 (1/2)
+    ⚠ lido 429 限流，等待重试 (2/2)
+  ✓ lido: $0.29  mcap=$0.25B  circ=836,305,815
+  ✓ maple: $0.15  mcap=$0.19B  circ=1,167,185,890
+  ✓ mnt: $0.45  mcap=$1.47B  circ=3,302,294,383
+  ✓ morpho: $1.93  mcap=$1.27B  circ=656,171,463
+  ✓ okb: $94.81  mcap=$1.99B  circ=21,000,000
+  ✓ pancakeswap: $1.44  mcap=$0.46B  circ=321,592,669
+    ⚠ pendle 429 限流，等待重试 (1/2)
+    ⚠ pendle 429 限流，等待重试 (2/2)
+  ✓ pendle: $1.35  mcap=$0.23B  circ=172,080,138
+  ✓ sky: $0.05  mcap=$1.24B  circ=23,411,730,332
+  ✓ spark: $0.01  mcap=$0.04B  circ=3,060,170,995
+  ✓ uniswap: $3.94  mcap=$2.46B  circ=624,352,424
+
+完成: 26 ok, 0 fail | 时间 2026-08-11T00:05
+📊 s4_buyback: 0x573ca9FF6b7f164dfF513077850d5CD796006fF4
+  2 天有转入, 累计 5,076,737 ASTER
+📊 new_twap_buyback: 0xa0edBaBcb48034e368de286b49F9603C7AfA1b60
+  2 天有转入, 累计 25 ASTER
+📊 new_listing_fee: 0x39C473f4420e4ae9Ab3fe9e7ceDFc08F9684bB1a
+  ⚠️ 无 ASTER 转入（可能是 6-17 新机制执行量未显化）
+  0 天有转入, 累计 0 ASTER
+
+✅ 已写入 /Users/aibot/tev-dashboard/data/aster-onchain.json（共 99 天记录）
+   范围: 2025-12-02 ~ 2026-07-04
+   累计: 41,254,245 ASTER
+重建 26 个 data/daily latest.json（DefiLlama + CoinGecko）
+  ✓ aave: mcap=1374299218 daily_fees=1007287 cg_price=89.06
+  ✓ aster: mcap=1614823014 daily_fees=None cg_price=0.600178
+  ✓ bgb: mcap=1142780625 daily_fees=None cg_price=1.63
+  ✓ bnb: mcap=79767609606 daily_fees=None cg_price=599.07
+    ⚠ CoinGecko compound-governance-token 失败: HTTP Error 429: Too Many Requests
+  ✓ compound: mcap=164980215 daily_fees=60615 cg_price=16.49
+    ⚠ CoinGecko curve-dao-token 失败: HTTP Error 429: Too Many Requests
+  ✓ curve: mcap=355558659 daily_fees=47783 cg_price=0.24
+    ⚠ CoinGecko dydx-chain 失败: HTTP Error 429: Too Many Requests
+  ✓ dydx: mcap=2717736 daily_fees=1714 cg_price=0.091578
+    ⚠ CoinGecko eigenlayer 失败: HTTP Error 429: Too Many Requests
+  ✓ eigenlayer: mcap=118679418 daily_fees=763 cg_price=0.18544
+    ⚠ CoinGecko ethena 失败: HTTP Error 429: Too Many Requests
+  ✓ ethena: mcap=853363511 daily_fees=21 cg_price=0.103722
+    ⚠ CoinGecko instadapp 失败: HTTP Error 429: Too Many Requests
+  ✓ fluid: mcap=91752826 daily_fees=105644 cg_price=1.17
+    ⚠ CoinGecko gmx 失败: HTTP Error 429: Too Many Requests
+  ✓ gmx: mcap=66623136 daily_fees=23420 cg_price=6.41
+    ⚠ CoinGecko hyperliquid 失败: HTTP Error 429: Too Many Requests
+  ✓ hype: mcap=11458194541 daily_fees=842720 cg_price=51.51
+    ⚠ CoinGecko jito-governance-token 失败: HTTP Error 429: Too Many Requests
+  ✓ jito: mcap=245037863 daily_fees=145065 cg_price=0.484871
+    ⚠ CoinGecko just 失败: HTTP Error 429: Too Many Requests
+  ✓ justlend: mcap=861962578 daily_fees=31497 cg_price=0.105259
+    ⚠ CoinGecko kamino 失败: HTTP Error 429: Too Many Requests
+  ✓ kamino: mcap=93704839 daily_fees=131569 cg_price=0.01798556
+    ⚠ CoinGecko layerzero 失败: HTTP Error 429: Too Many Requests
+  ✓ layerzero: mcap=252697161 daily_fees=3804 cg_price=0.715246
+    ⚠ CoinGecko lido-dao 失败: HTTP Error 429: Too Many Requests
+  ✓ lido: mcap=339050020 daily_fees=1213433 cg_price=0.403239
+    ⚠ CoinGecko syrup 失败: HTTP Error 429: Too Many Requests
+  ✓ maple: mcap=193564405 daily_fees=0 cg_price=0.155485
+    ⚠ CoinGecko mantle 失败: HTTP Error 429: Too Many Requests
+  ✓ mnt: mcap=1331416209 daily_fees=None cg_price=0.403246
+    ⚠ CoinGecko morpho 失败: HTTP Error 429: Too Many Requests
+  ✓ morpho: mcap=1235503184 daily_fees=506713 cg_price=1.88
+    ⚠ CoinGecko okb 失败: HTTP Error 429: Too Many Requests
+  ✓ okb: mcap=1803818247 daily_fees=None cg_price=85.89
+  ✓ pancakeswap: mcap=463872393 daily_fees=670561 cg_price=1.44
+  ✓ pendle: mcap=232806493 daily_fees=214592 cg_price=1.35
+  ✓ sky: mcap=1234853068 daily_fees=916359 cg_price=0.05274
+  ✓ spark: mcap=44389719 daily_fees=350040 cg_price=0.01450448
+    ⚠ CoinGecko uniswap 失败: HTTP Error 429: Too Many Requests
+  ✓ uniswap: mcap=2616946758 daily_fees=2446218 cg_price=4.19
+完成
+  ✓ aave: as_of=2026-08-11 yield=2.1824% rev=115460247
+  ✓ aster: as_of=2026-08-11 yield=5.6529% rev=92184609.25
+  ✓ bgb: as_of=2026-08-11 yield=2.4281% rev=27700000
+  ✓ bnb: as_of=2026-08-11 yield=12.2607% rev=9774961300.93
+  ✓ compound: as_of=2026-08-11 yield=0% rev=216668
+  ✓ curve: as_of=2026-08-11 yield=3.8341% rev=15605589
+  ✓ dydx: as_of=2026-08-11 yield=1.3636% rev=8518106
+  ✓ eigenlayer: as_of=2026-08-11 yield=0% rev=0
+  ✓ ethena: as_of=2026-08-11 yield=0% rev=330636647
+    ↳ 历史表回填 364 个周期点（7d/30d/90d）
+  ✓ etherfi: as_of=2026-08-11 yield=None% rev=None
+  ✓ fluid: as_of=2026-08-11 yield=4.727% rev=4745308
+  ✓ gmx: as_of=2026-08-11 yield=0% rev=12675745
+  ✓ hype: as_of=2026-08-11 yield=6.2563% rev=772987701
+  ✓ hyperliquid: as_of=2026-08-11 yield=6.2563% rev=772987701
+  ✓ jito: as_of=2026-08-11 yield=0% rev=13763565
+  ✓ justlend: as_of=2026-08-11 yield=0% rev=500000
+  ✓ kamino: as_of=2026-08-11 yield=0% rev=12082624
+  ✓ layerzero: as_of=2026-08-11 yield=0.2588% rev=3068511
+  ✓ lido: as_of=2026-08-11 yield=0% rev=38920031
+  ✓ maple: as_of=2026-08-11 yield=0.8245% rev=15480000
+  ✓ mnt: as_of=2026-08-11 yield=5.0% rev=73478386.0
+  ✓ morpho: as_of=2026-08-11 yield=0% rev=0
+  ✓ okb: as_of=2026-08-11 yield=5.2% rev=103614488.9
+  ✓ pancakeswap: as_of=2026-08-11 yield=12.6805% rev=94063758.4
+  ✓ pendle: as_of=2026-08-11 yield=8.016% rev=18665264
+  ✓ sky: as_of=2026-08-11 yield=6.308% rev=234377977
+  ✓ spark: as_of=2026-08-11 yield=0% rev=22144959
+  ✓ uniswap: as_of=2026-08-11 yield=0.7466% rev=18365812.03
+
+✅ 成功: 28 ok, 0 fail
+✅ 已从 26 个 snapshot 同步 all-protocols.json

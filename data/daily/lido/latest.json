@@ -1,6 +1,6 @@
 {
   "protocol": "lido",
-  "updated_at": "2026-08-10T20:02:03.000Z",
+  "updated_at": "2026-08-11T00:13:52.000Z",
   "data_sources": {
     "defillama": "lido",
     "coingecko": "lido-dao",
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 339050020,
     "tev_yield": null,
     "return_yield_decimal": 0.0,
-    "calculated_at": "2026-08-10T20:02:03.000Z"
+    "calculated_at": "2026-08-11T00:13:52.000Z"
   }
 }

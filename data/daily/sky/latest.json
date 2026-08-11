@@ -1,6 +1,6 @@
 {
   "protocol": "sky",
-  "updated_at": "2026-08-10T20:03:09.534574+00:00",
+  "updated_at": "2026-08-11T00:14:12.000Z",
   "data_sources": {
     "defillama": "sky",
     "coingecko": "sky",
@@ -8,8 +8,8 @@
   },
   "latest_record": {
     "date": "2026-08-11",
-    "price_usd": 0.0552624430417532,
-    "market_cap_usd": 1292716810.2843876,
+    "price_usd": 0.05274,
+    "market_cap_usd": 1234853068,
     "daily_fees_usd": 916359,
     "total30d_fees_usd": 27782530,
     "total1y_fees_usd": 408229800
@@ -18,9 +18,9 @@
     "trailing_30d_shareholder_returns_usd": 8257731,
     "trailing_365d_shareholder_returns_usd": 147072404,
     "annualized_returns_usd": 99092772,
-    "current_market_cap_usd": 1237035721.9086685,
+    "current_market_cap_usd": 1234853068,
     "tev_yield": null,
     "return_yield_decimal": 0,
-    "calculated_at": "2026-08-10T20:03:09.534574+00:00"
+    "calculated_at": "2026-08-11T00:14:12.000Z"
   }
 }

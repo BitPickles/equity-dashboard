@@ -2,16 +2,6 @@
   "protocol": "etherfi",
   "records": [
     {
-      "as_of": "2025-08-05",
-      "net_income": 44436222.0,
-      "daily_value": 160217.0,
-      "pe": 8.773,
-      "ps": 8.773,
-      "shareholder_yield": 11.3981,
-      "net_margin": null,
-      "_period": "daily"
-    },
-    {
       "as_of": "2025-08-06",
       "net_income": 44584731.0,
       "daily_value": 160905.0,
@@ -3647,6 +3637,14 @@
       "pe": 22.0058,
       "ps": null,
       "shareholder_yield": 4.5443,
+      "net_margin": null
+    },
+    {
+      "as_of": "2026-08-11",
+      "net_income": null,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": null,
       "net_margin": null
     }
   ]

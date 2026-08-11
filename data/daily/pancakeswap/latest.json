@@ -1,6 +1,6 @@
 {
   "protocol": "pancakeswap",
-  "updated_at": "2026-08-10T20:02:11.000Z",
+  "updated_at": "2026-08-11T00:14:05.000Z",
   "data_sources": {
     "defillama": "pancakeswap",
     "coingecko": "pancakeswap-token",
@@ -8,8 +8,8 @@
   },
   "latest_record": {
     "date": "2026-08-11",
-    "price_usd": 1.4,
-    "market_cap_usd": 452045456,
+    "price_usd": 1.44,
+    "market_cap_usd": 463872393,
     "daily_fees_usd": 670561,
     "total30d_fees_usd": 9819992,
     "total1y_fees_usd": 270582617
@@ -18,9 +18,9 @@
     "trailing_30d_shareholder_returns_usd": 2674450.2,
     "trailing_365d_shareholder_returns_usd": null,
     "annualized_returns_usd": 32093402.4,
-    "current_market_cap_usd": 452045456,
+    "current_market_cap_usd": 463872393,
     "tev_yield": null,
     "return_yield_decimal": 0.063299,
-    "calculated_at": "2026-08-10T20:02:11.000Z"
+    "calculated_at": "2026-08-11T00:14:05.000Z"
   }
 }

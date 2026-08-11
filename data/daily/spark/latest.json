@@ -1,6 +1,6 @@
 {
   "protocol": "spark",
-  "updated_at": "2026-08-10T20:02:15.000Z",
+  "updated_at": "2026-08-11T00:14:16.000Z",
   "data_sources": {
     "defillama": "spark",
     "coingecko": "spark-2",
@@ -8,8 +8,8 @@
   },
   "latest_record": {
     "date": "2026-08-11",
-    "price_usd": 0.015329078237837657,
-    "market_cap_usd": 46577102.94781833,
+    "price_usd": 0.01450448,
+    "market_cap_usd": 44389719,
     "daily_fees_usd": 350040,
     "total30d_fees_usd": 9709489,
     "total1y_fees_usd": 198070286
@@ -18,9 +18,9 @@
     "trailing_30d_shareholder_returns_usd": 0,
     "trailing_365d_shareholder_returns_usd": null,
     "annualized_returns_usd": 0,
-    "current_market_cap_usd": 46577102.94781833,
+    "current_market_cap_usd": 44389719,
     "tev_yield": null,
     "return_yield_decimal": 0,
-    "calculated_at": "2026-08-10T20:02:15.000Z"
+    "calculated_at": "2026-08-11T00:14:16.000Z"
   }
 }

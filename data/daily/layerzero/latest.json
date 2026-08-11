@@ -1,6 +1,6 @@
 {
   "protocol": "layerzero",
-  "updated_at": "2026-08-10T20:02:02.000Z",
+  "updated_at": "2026-08-11T00:13:49.000Z",
   "data_sources": {
     "defillama": "layerzero-v2",
     "coingecko": "layerzero",
@@ -10,7 +10,7 @@
     "date": "2026-08-11",
     "price_usd": 0.715246,
     "market_cap_usd": 252697161,
-    "daily_fees_usd": 3261,
+    "daily_fees_usd": 3804,
     "total30d_fees_usd": 115985,
     "total1y_fees_usd": 2464021
   },
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 252697161,
     "tev_yield": null,
     "return_yield_decimal": null,
-    "calculated_at": "2026-08-10T20:02:02.000Z"
+    "calculated_at": "2026-08-11T00:13:49.000Z"
   }
 }

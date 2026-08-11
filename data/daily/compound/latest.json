@@ -1,6 +1,6 @@
 {
   "protocol": "compound",
-  "updated_at": "2026-08-10T20:01:45.000Z",
+  "updated_at": "2026-08-11T00:13:03.000Z",
   "data_sources": {
     "defillama": "compound-v3",
     "coingecko": "compound-governance-token",
@@ -10,7 +10,7 @@
     "date": "2026-08-11",
     "price_usd": 16.49,
     "market_cap_usd": 164980215,
-    "daily_fees_usd": 60167,
+    "daily_fees_usd": 60615,
     "total30d_fees_usd": 1768942,
     "total1y_fees_usd": 29507932
   },
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 164980215,
     "tev_yield": null,
     "return_yield_decimal": 0.0,
-    "calculated_at": "2026-08-10T20:01:45.000Z"
+    "calculated_at": "2026-08-11T00:13:03.000Z"
   }
 }
