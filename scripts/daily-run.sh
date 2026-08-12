@@ -32,14 +32,20 @@ $PY scripts/build-snapshot.py
 # 4. 从刚生成的 snapshot 同步财务字段到主表
 $PY scripts/sync-all-protocols-from-snapshots.py
 
-# 5. 校验（必须 0 errors，否则终止不推送）
+# 5. 重建历史图：TTM 折线与单日净收益柱必须来自不同字段。
+#    网络源短暂失败时保留旧历史；前端会显示缺失而非把 TTM 冒充日值。
+$PY scripts/fetch-protocol-history.py --all || echo "⚠️ 通用日频历史刷新失败，保留上一版历史"
+$PY scripts/fetch-bnb-history.py || echo "⚠️ BNB 日频历史刷新失败，保留上一版历史"
+$PY scripts/refresh-unavailable-history.py
+
+# 6. 校验（必须 0 errors，否则终止不推送）
 if ! $PY scripts/validate.py 2>&1 | tee /tmp/validate-out.txt | grep -q "0 errors"; then
   echo "❌ validate 失败，终止不推送"
   tail -20 /tmp/validate-out.txt
   exit 1
 fi
 
-# 6. 仅提交每日数据产物到 main（线上站点每日自动更新）。
+# 7. 仅提交每日数据产物到 main（线上站点每日自动更新）。
 # 不使用 git add -A，避免把运行日志或人工中的非数据改动误发布。
 git add -A -- data
 if git diff --cached --quiet; then

@@ -18,7 +18,7 @@ BNB 专属适配器 — data/protocols/bnb/adapter.py
 """
 
 import json
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent  # tev-dashboard/
@@ -41,13 +41,25 @@ def build_snapshot(proto_dir):
     ap = all_protocols.get("protocols", {}).get(pid, {})
 
     validation = ap.get("validation", {})
+    metrics = ap.get("metrics", {}) or {}
     mcap = ap.get("market_cap_usd")
-    price = validation.get("bnb_price_usd")
+    price = metrics.get("current_price_usd") or validation.get("bnb_price_usd")
 
     # ── 收入（L2）──────────────────────────────────────────────
     # 销毁：Auto-Burn（近 4 季 USD 当前价重估）+ BEP-95（365d 序列）
-    burn_4q_usd = validation.get("recent_4q_burn_usd_current")
-    bep95_365d_bnb = validation.get("bep95_365d_bnb")
+    # 不读 validation 中的旧缓存：它会与每日市值/价格脱节，并可能把
+    # 季度 Auto-Burn 混入 BEP-95 而造成重复计算。
+    recent_burns = (burn.get("quarterly_burns") or [])[-4:]
+    burn_4q_bnb = sum(float(row.get("bnb_burned") or 0) for row in recent_burns)
+    burn_4q_usd = round(burn_4q_bnb * price, 2) if (burn_4q_bnb and price) else None
+    cutoff = date.today() - timedelta(days=364)
+    bep95_365d_bnb = sum(
+        float(row.get("bnb") or 0)
+        for row in (bep95.get("daily") or [])
+        if row.get("date") and date.fromisoformat(row["date"]) >= cutoff
+        # 单日大额入黑洞是季度 Auto-Burn，不是 BEP-95 实时燃烧。
+        and float(row.get("bnb") or 0) < 1000
+    )
     bep95_usd = round(bep95_365d_bnb * price, 2) if (bep95_365d_bnb and price) else None
     burn_usd = round((burn_4q_usd or 0) + (bep95_usd or 0), 2) if (burn_4q_usd or bep95_usd) else None
 
@@ -157,7 +169,7 @@ def build_snapshot(proto_dir):
         },
         "valuation": valuation,
         "verification": {
-            "method": "Auto-Burn 近4季 " + str(validation.get("recent_4q_burn_bnb")) + " BNB + BEP-95 日序列 " + str(validation.get("bep95_data_days")) + " 天 + asBNB APY " + str(apy) + "%",
+            "method": "Auto-Burn 近4季 " + str(round(burn_4q_bnb, 3)) + " BNB + BEP-95 日序列 " + str(len(bep95.get("daily") or [])) + " 天（剔除季度大额销毁）+ asBNB APY " + str(apy) + "%",
             "status": "verified",
             "last_checked": date.today().isoformat(),
         },

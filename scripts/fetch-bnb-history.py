@@ -55,10 +55,17 @@ def fetch_bnb_history():
         bnb = d.get("bnb", 0)
         if bnb > AUTO_BURN_THRESHOLD:
             exec_days.append((d["date"], bnb))
-    # 合并 burn-history 公告日（如果链上没抓到）
+    # 合并 burn-history 公告日；公告日期与链上执行日可能相差一个 UTC 日，
+    # 因此先在 ±2 天内匹配大额链上转账，避免把同一季度销毁重复计入。
     for q in burn.get("quarterly_burns", []):
         qd = q["date"]
-        if qd not in [e[0] for e in exec_days]:
+        q_dt = datetime.strptime(qd, "%Y-%m-%d")
+        nearby = [e for e in exec_days if abs((datetime.strptime(e[0], "%Y-%m-%d") - q_dt).days) <= 2]
+        if nearby:
+            matched = min(nearby, key=lambda e: abs(e[1] - q["bnb_burned"]))
+            exec_days = [e for e in exec_days if e[0] != matched[0]]
+            exec_days.append((matched[0], q["bnb_burned"]))
+        else:
             exec_days.append((qd, q["bnb_burned"]))
     exec_days.sort(key=lambda x: x[0])
     # 若没有执行日（异常），fallback 到 burn-history 的月份均摊
@@ -94,7 +101,7 @@ def fetch_bnb_history():
                 end = (datetime.strptime(cur_date, "%Y-%m-%d") + timedelta(days=90)).strftime("%Y-%m-%d")
             span = (datetime.strptime(end, "%Y-%m-%d") - datetime.strptime(cur_date, "%Y-%m-%d")).days
             span = max(span, 1)
-            quarter_bnb = cur_amount / span if date_str >= cur_date else 0
+            quarter_bnb = cur_amount / span if cur_date <= date_str <= end else 0
             # 只在执行日当天起才均摊（执行日之前不摊）
             if date_str < cur_date:
                 quarter_bnb = 0
@@ -149,13 +156,13 @@ def fetch_bnb_history():
     # 用 snapshot 的 as_of 作为日期；如果与 daily 最后一天同一天则跳过（避免重复）
     snap_as_of = snap.get("as_of")
     if snap_as_of and snap_as_of > records[-1]["as_of"]:
-        # snapshot 行的 daily_value/cumulative 沿用上一条（避免突跳）
-        last_dv = records[-1].get("daily_value")
+        # 源数据未覆盖当天时，单日值留空，不能把上一日值伪装成当天数据。
         last_cum = records[-1].get("cumulative")
         records.append({
             "as_of": snap_as_of,
             "net_income": snap_net,
-            "daily_value": last_dv,
+            "daily_value": None,
+            "daily_value_status": "pending",
             "cumulative": last_cum,
             "pe": snap["valuation"]["pe"],
             "ps": snap["valuation"]["ps"],
@@ -164,7 +171,7 @@ def fetch_bnb_history():
             "_period": "snapshot",
         })
 
-    return {"protocol": "bnb", "records": records}
+    return {"protocol": "bnb", "records": records[-365:]}
 
 
 def main():

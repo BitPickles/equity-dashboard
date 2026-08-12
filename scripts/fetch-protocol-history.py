@@ -31,7 +31,7 @@ SNAP_DIR = BASE / "data" / "snapshots"
 # 协议 → DefiLlama fees id（需人工确认一次）
 DEFILLAMA_IDS = {
     "aave": "aave",
-    "hyperliquid": "hyperliquid",
+    "hype": "hyperliquid",
     "sky": "sky",
     "uniswap": "uniswap",
     "pendle": "pendle",
@@ -39,7 +39,6 @@ DEFILLAMA_IDS = {
     "dydx": "dydx",
     "gmx": "gmx",
     # M3 批量（2026-08-03）
-    "mnt": "mantle",
     "pancakeswap": "pancakeswap",
     "maple": "maple",
     "ethena": "ethena",
@@ -52,8 +51,8 @@ DEFILLAMA_IDS = {
     "jito": "jito",
     "fluid": "fluid",
     "layerzero": "layerzero",
-    # aster 在 DefiLlama 无 fee 面板 → 保留 4 条周期回填
-    # bgb/okb/compound 无 DefiLlama fee 面板（平台币/无收入模型）→ 用 snapshot 单点
+    # aster/bgb/bnb/compound/mnt/okb 没有与当前净收益口径一致的日频源，
+    # 由 refresh-unavailable-history.py 显式标记为不可得，不能用旧年化均摊伪造日值。
 }
 
 
@@ -78,13 +77,20 @@ def fetch_daily_revenue(pid):
 
 
 def build_history(pid, daily_rev, snap):
-    """由每日收入序列 + snapshot 计算 TTM 历史。"""
+    """由每日收入序列 + snapshot 计算 TTM 历史。
+
+    daily_value 是可审计的「单日净收益估算」：以每日协议收入为形状，
+    将收入与净利的年度差额平摊为日成本，确保过去 365 天之和与最新
+    financial snapshot 的净收益一致。它绝不以 TTM 本身充当单日值。
+    """
     mcap = (snap.get("balance_sheet") or {}).get("market_cap_usd")
     records = []
     cumulative = 0.0
-    # 归一化：末端对齐 snapshot 的 net_income（口径一致，避免 TTM 与损益表差）
+    # 末端对齐 snapshot 的 net_income（口径一致，避免 TTM 与损益表差）。
+    # 先保留每日收入的真实波动；收入与净利之间的年度差额按日平摊，
+    # 适用于 LP 分润/排放等缺乏日频成本明细的估算场景。
     snap_net = (snap.get("income_statement") or {}).get("net_income", {}).get("net_income_usd_365d")
-    # 先按原始收入算 TTM，再末端归一化
+    # 先按原始收入算 TTM。
     revs = [r for _, r in daily_rev]
     dates = [datetime.utcfromtimestamp(ts).strftime("%Y-%m-%d") for ts, _ in daily_rev]
     window = 365
@@ -94,15 +100,21 @@ def build_history(pid, daily_rev, snap):
         wsum = sum(revs[start:i + 1])
         days_in = min(i + 1, window)
         raw_ttm.append(wsum * 365 / days_in)
-    # 归一化系数：末端 raw_ttm 对齐 snap_net
-    k = 1.0
-    if snap_net and raw_ttm and raw_ttm[-1] > 0:
-        k = snap_net / raw_ttm[-1]
+    daily_adjustment = 0.0
+    if snap_net is not None and raw_ttm:
+        daily_adjustment = (raw_ttm[-1] - snap_net) / 365
+    net_revs = [r - daily_adjustment for r in revs]
+    net_ttm = []
+    for i in range(len(net_revs)):
+        start = max(0, i - window + 1)
+        wsum = sum(net_revs[start:i + 1])
+        days_in = min(i + 1, window)
+        net_ttm.append(wsum * 365 / days_in)
     for i in range(len(revs)):
         date_str = dates[i]
-        daily_value = revs[i] * k
+        daily_value = net_revs[i]
         cumulative += daily_value
-        ttm = raw_ttm[i] * k
+        ttm = net_ttm[i]
         pe = mcap / ttm if (mcap and ttm > 0) else None
         ps = mcap / ttm if (mcap and ttm > 0) else None  # 近似（平台币 P/S=PE）
         shr_yield = ttm / mcap * 100 if (mcap and ttm > 0) else None
@@ -116,22 +128,25 @@ def build_history(pid, daily_rev, snap):
             "shareholder_yield": round(shr_yield, 4) if shr_yield else None,
             "net_margin": net_margin,
             "_period": "daily",
+            "daily_value_status": "estimated",
         })
-    # 末端补 snapshot 点（保证最新值 = 损益表）
+    # 末端补 snapshot 点（保证最新值 = 损益表）。若源数据尚未到当天，
+    # 单日值必须留空，等待真实日分区到达，禁止沿用上一天的值。
     snap_as_of = snap.get("as_of")
     if snap_as_of and records and snap_as_of > records[-1]["as_of"]:
         last = records[-1]
         records.append({
             "as_of": snap_as_of,
             "net_income": snap_net if snap_net else last["net_income"],
-            "daily_value": last["daily_value"],
+            "daily_value": None,
+            "daily_value_status": "pending",
             "pe": (snap.get("valuation") or {}).get("pe"),
             "ps": (snap.get("valuation") or {}).get("ps"),
             "shareholder_yield": (snap.get("holder_returns") or {}).get("summary", {}).get("shareholder_yield_percent"),
             "net_margin": net_margin,
             "_period": "snapshot",
         })
-    return {"protocol": pid, "records": records}
+    return {"protocol": pid, "records": records[-365:]}
 
 
 def main():

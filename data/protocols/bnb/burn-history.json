@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-19",
+  "updated_at": "2026-08-12",
   "asbnb_apy_percent": 6.87,
   "asbnb_source": "Aster asBNB (Staking + Launchpool/HODLer/Megadrop)",
   "bep95_weekly_bnb": 720.64,
@@ -66,6 +66,14 @@
       "bnb_burned": 1569307.34,
       "bnb_price": 627,
       "usd_value": 983955702
+    },
+    {
+      "number": 36,
+      "date": "2026-07-16",
+      "announced_date": "2026-07-15",
+      "bnb_burned": 1615827.795,
+      "usd_value": 931702464,
+      "source": "https://www.bnbchain.org/en/blog/36th-bnb-burn"
     }
   ]
 }

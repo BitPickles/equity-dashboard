@@ -2,46 +2,6 @@
   "protocol": "morpho",
   "records": [
     {
-      "as_of": "2025-08-09",
-      "net_income": 0.0,
-      "daily_value": 0.0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": null,
-      "_period": "daily"
-    },
-    {
-      "as_of": "2025-08-10",
-      "net_income": 0.0,
-      "daily_value": 0.0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": null,
-      "_period": "daily"
-    },
-    {
-      "as_of": "2025-08-11",
-      "net_income": 0.0,
-      "daily_value": 0.0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": null,
-      "_period": "daily"
-    },
-    {
-      "as_of": "2025-08-12",
-      "net_income": 0.0,
-      "daily_value": 0.0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": null,
-      "_period": "daily"
-    },
-    {
       "as_of": "2025-08-13",
       "net_income": 0.0,
       "daily_value": 0.0,
@@ -49,7 +9,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-08-14",
@@ -59,7 +20,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-08-15",
@@ -69,7 +31,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-08-16",
@@ -79,7 +42,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-08-17",
@@ -89,7 +53,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-08-18",
@@ -99,7 +64,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-08-19",
@@ -109,7 +75,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-08-20",
@@ -119,7 +86,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-08-21",
@@ -129,7 +97,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-08-22",
@@ -139,7 +108,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-08-23",
@@ -149,7 +119,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-08-24",
@@ -159,7 +130,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-08-25",
@@ -169,7 +141,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-08-26",
@@ -179,7 +152,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-08-27",
@@ -189,7 +163,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-08-28",
@@ -199,7 +174,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-08-29",
@@ -209,7 +185,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-08-30",
@@ -219,7 +196,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-08-31",
@@ -229,7 +207,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-01",
@@ -239,7 +218,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-02",
@@ -249,7 +229,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-03",
@@ -259,7 +240,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-04",
@@ -269,7 +251,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-05",
@@ -279,7 +262,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-06",
@@ -289,7 +273,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-07",
@@ -299,7 +284,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-08",
@@ -309,7 +295,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-09",
@@ -319,7 +306,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-10",
@@ -329,7 +317,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-11",
@@ -339,7 +328,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-12",
@@ -349,7 +339,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-13",
@@ -359,7 +350,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-14",
@@ -369,7 +361,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-15",
@@ -379,7 +372,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-16",
@@ -389,7 +383,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-17",
@@ -399,7 +394,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-18",
@@ -409,7 +405,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-19",
@@ -419,7 +416,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-20",
@@ -429,7 +427,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-21",
@@ -439,7 +438,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-22",
@@ -449,7 +449,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-23",
@@ -459,7 +460,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-24",
@@ -469,7 +471,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-25",
@@ -479,7 +482,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-26",
@@ -489,7 +493,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-27",
@@ -499,7 +504,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-28",
@@ -509,7 +515,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-29",
@@ -519,7 +526,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-09-30",
@@ -529,7 +537,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-01",
@@ -539,7 +548,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-02",
@@ -549,7 +559,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-03",
@@ -559,7 +570,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-04",
@@ -569,7 +581,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-05",
@@ -579,7 +592,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-06",
@@ -589,7 +603,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-07",
@@ -599,7 +614,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-08",
@@ -609,7 +625,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-09",
@@ -619,7 +636,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-10",
@@ -629,7 +647,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-11",
@@ -639,7 +658,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-12",
@@ -649,7 +669,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-13",
@@ -659,7 +680,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-14",
@@ -669,7 +691,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-15",
@@ -679,7 +702,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-16",
@@ -689,7 +713,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-17",
@@ -699,7 +724,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-18",
@@ -709,7 +735,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-19",
@@ -719,7 +746,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-20",
@@ -729,7 +757,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-21",
@@ -739,7 +768,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-22",
@@ -749,7 +779,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-23",
@@ -759,7 +790,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-24",
@@ -769,7 +801,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-25",
@@ -779,7 +812,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-26",
@@ -789,7 +823,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-27",
@@ -799,7 +834,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-28",
@@ -809,7 +845,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-29",
@@ -819,7 +856,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-30",
@@ -829,7 +867,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-10-31",
@@ -839,7 +878,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-01",
@@ -849,7 +889,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-02",
@@ -859,7 +900,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-03",
@@ -869,7 +911,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-04",
@@ -879,7 +922,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-05",
@@ -889,7 +933,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-06",
@@ -899,7 +944,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-07",
@@ -909,7 +955,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-08",
@@ -919,7 +966,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-09",
@@ -929,7 +977,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-10",
@@ -939,7 +988,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-11",
@@ -949,7 +999,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-12",
@@ -959,7 +1010,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-13",
@@ -969,7 +1021,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-14",
@@ -979,7 +1032,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-15",
@@ -989,7 +1043,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-16",
@@ -999,7 +1054,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-17",
@@ -1009,7 +1065,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-18",
@@ -1019,7 +1076,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-19",
@@ -1029,7 +1087,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-20",
@@ -1039,7 +1098,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-21",
@@ -1049,7 +1109,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-22",
@@ -1059,7 +1120,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-23",
@@ -1069,7 +1131,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-24",
@@ -1079,7 +1142,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-25",
@@ -1089,7 +1153,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-26",
@@ -1099,7 +1164,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-27",
@@ -1109,7 +1175,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-28",
@@ -1119,7 +1186,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-29",
@@ -1129,7 +1197,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-11-30",
@@ -1139,7 +1208,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-01",
@@ -1149,7 +1219,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-02",
@@ -1159,7 +1230,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-03",
@@ -1169,7 +1241,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-04",
@@ -1179,7 +1252,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-05",
@@ -1189,7 +1263,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-06",
@@ -1199,7 +1274,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-07",
@@ -1209,7 +1285,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-08",
@@ -1219,7 +1296,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-09",
@@ -1229,7 +1307,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-10",
@@ -1239,7 +1318,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-11",
@@ -1249,7 +1329,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-12",
@@ -1259,7 +1340,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-13",
@@ -1269,7 +1351,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-14",
@@ -1279,7 +1362,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-15",
@@ -1289,7 +1373,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-16",
@@ -1299,7 +1384,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-17",
@@ -1309,7 +1395,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-18",
@@ -1319,7 +1406,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-19",
@@ -1329,7 +1417,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-20",
@@ -1339,7 +1428,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-21",
@@ -1349,7 +1439,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-22",
@@ -1359,7 +1450,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-23",
@@ -1369,7 +1461,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-24",
@@ -1379,7 +1472,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-25",
@@ -1389,7 +1483,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-26",
@@ -1399,7 +1494,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-27",
@@ -1409,7 +1505,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-28",
@@ -1419,7 +1516,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-29",
@@ -1429,7 +1527,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-30",
@@ -1439,7 +1538,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2025-12-31",
@@ -1449,7 +1549,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-01",
@@ -1459,7 +1560,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-02",
@@ -1469,7 +1571,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-03",
@@ -1479,7 +1582,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-04",
@@ -1489,7 +1593,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-05",
@@ -1499,7 +1604,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-06",
@@ -1509,7 +1615,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-07",
@@ -1519,7 +1626,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-08",
@@ -1529,7 +1637,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-09",
@@ -1539,7 +1648,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-10",
@@ -1549,7 +1659,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-11",
@@ -1559,7 +1670,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-12",
@@ -1569,7 +1681,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-13",
@@ -1579,7 +1692,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-14",
@@ -1589,7 +1703,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-15",
@@ -1599,7 +1714,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-16",
@@ -1609,7 +1725,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-17",
@@ -1619,7 +1736,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-18",
@@ -1629,7 +1747,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-19",
@@ -1639,7 +1758,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-20",
@@ -1649,7 +1769,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-21",
@@ -1659,7 +1780,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-22",
@@ -1669,7 +1791,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-23",
@@ -1679,7 +1802,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-24",
@@ -1689,7 +1813,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-25",
@@ -1699,7 +1824,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-26",
@@ -1709,7 +1835,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-27",
@@ -1719,7 +1846,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-28",
@@ -1729,7 +1857,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-29",
@@ -1739,7 +1868,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-30",
@@ -1749,7 +1879,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-01-31",
@@ -1759,7 +1890,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-01",
@@ -1769,7 +1901,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-02",
@@ -1779,7 +1912,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-03",
@@ -1789,7 +1923,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-04",
@@ -1799,7 +1934,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-05",
@@ -1809,7 +1945,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-06",
@@ -1819,7 +1956,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-07",
@@ -1829,7 +1967,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-08",
@@ -1839,7 +1978,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-09",
@@ -1849,7 +1989,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-10",
@@ -1859,7 +2000,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-11",
@@ -1869,7 +2011,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-12",
@@ -1879,7 +2022,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-13",
@@ -1889,7 +2033,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-14",
@@ -1899,7 +2044,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-15",
@@ -1909,7 +2055,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-16",
@@ -1919,7 +2066,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-17",
@@ -1929,7 +2077,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-18",
@@ -1939,7 +2088,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-19",
@@ -1949,7 +2099,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-20",
@@ -1959,7 +2110,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-21",
@@ -1969,7 +2121,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-22",
@@ -1979,7 +2132,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-23",
@@ -1989,7 +2143,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-24",
@@ -1999,7 +2154,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-25",
@@ -2009,7 +2165,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-26",
@@ -2019,7 +2176,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-27",
@@ -2029,7 +2187,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-02-28",
@@ -2039,7 +2198,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-01",
@@ -2049,7 +2209,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-02",
@@ -2059,7 +2220,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-03",
@@ -2069,7 +2231,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-04",
@@ -2079,7 +2242,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-05",
@@ -2089,7 +2253,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-06",
@@ -2099,7 +2264,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-07",
@@ -2109,7 +2275,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-08",
@@ -2119,7 +2286,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-09",
@@ -2129,7 +2297,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-10",
@@ -2139,7 +2308,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-11",
@@ -2149,7 +2319,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-12",
@@ -2159,7 +2330,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-13",
@@ -2169,7 +2341,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-14",
@@ -2179,7 +2352,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-15",
@@ -2189,7 +2363,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-16",
@@ -2199,7 +2374,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-17",
@@ -2209,7 +2385,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-18",
@@ -2219,7 +2396,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-19",
@@ -2229,7 +2407,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-20",
@@ -2239,7 +2418,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-21",
@@ -2249,7 +2429,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-22",
@@ -2259,7 +2440,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-23",
@@ -2269,7 +2451,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-24",
@@ -2279,7 +2462,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-25",
@@ -2289,7 +2473,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-26",
@@ -2299,7 +2484,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-27",
@@ -2309,7 +2495,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-28",
@@ -2319,7 +2506,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-29",
@@ -2329,7 +2517,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-30",
@@ -2339,7 +2528,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-03-31",
@@ -2349,7 +2539,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-01",
@@ -2359,7 +2550,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-02",
@@ -2369,7 +2561,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-03",
@@ -2379,7 +2572,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-04",
@@ -2389,7 +2583,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-05",
@@ -2399,7 +2594,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-06",
@@ -2409,7 +2605,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-07",
@@ -2419,7 +2616,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-08",
@@ -2429,7 +2627,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-09",
@@ -2439,7 +2638,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-10",
@@ -2449,7 +2649,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-11",
@@ -2459,7 +2660,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-12",
@@ -2469,7 +2671,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-13",
@@ -2479,7 +2682,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-14",
@@ -2489,7 +2693,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-15",
@@ -2499,7 +2704,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-16",
@@ -2509,7 +2715,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-17",
@@ -2519,7 +2726,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-18",
@@ -2529,7 +2737,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-19",
@@ -2539,7 +2748,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-20",
@@ -2549,7 +2759,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-21",
@@ -2559,7 +2770,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-22",
@@ -2569,7 +2781,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-23",
@@ -2579,7 +2792,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-24",
@@ -2589,7 +2803,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-25",
@@ -2599,7 +2814,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-26",
@@ -2609,7 +2825,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-27",
@@ -2619,7 +2836,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-28",
@@ -2629,7 +2847,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-29",
@@ -2639,7 +2858,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-04-30",
@@ -2649,7 +2869,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-01",
@@ -2659,7 +2880,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-02",
@@ -2669,7 +2891,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-03",
@@ -2679,7 +2902,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-04",
@@ -2689,7 +2913,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-05",
@@ -2699,7 +2924,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-06",
@@ -2709,7 +2935,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-07",
@@ -2719,7 +2946,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-08",
@@ -2729,7 +2957,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-09",
@@ -2739,7 +2968,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-10",
@@ -2749,7 +2979,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-11",
@@ -2759,7 +2990,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-12",
@@ -2769,7 +3001,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-13",
@@ -2779,7 +3012,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-14",
@@ -2789,7 +3023,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-15",
@@ -2799,7 +3034,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-16",
@@ -2809,7 +3045,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-17",
@@ -2819,7 +3056,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-18",
@@ -2829,7 +3067,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-19",
@@ -2839,7 +3078,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-20",
@@ -2849,7 +3089,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-21",
@@ -2859,7 +3100,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-22",
@@ -2869,7 +3111,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-23",
@@ -2879,7 +3122,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-24",
@@ -2889,7 +3133,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-25",
@@ -2899,7 +3144,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-26",
@@ -2909,7 +3155,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-27",
@@ -2919,7 +3166,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-28",
@@ -2929,7 +3177,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-29",
@@ -2939,7 +3188,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-30",
@@ -2949,7 +3199,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-05-31",
@@ -2959,7 +3210,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-01",
@@ -2969,7 +3221,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-02",
@@ -2979,7 +3232,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-03",
@@ -2989,7 +3243,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-04",
@@ -2999,7 +3254,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-05",
@@ -3009,7 +3265,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-06",
@@ -3019,7 +3276,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-07",
@@ -3029,7 +3287,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-08",
@@ -3039,7 +3298,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-09",
@@ -3049,7 +3309,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-10",
@@ -3059,7 +3320,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-11",
@@ -3069,7 +3331,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-12",
@@ -3079,7 +3342,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-13",
@@ -3089,7 +3353,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-14",
@@ -3099,7 +3364,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-15",
@@ -3109,7 +3375,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-16",
@@ -3119,7 +3386,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-17",
@@ -3129,7 +3397,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-18",
@@ -3139,7 +3408,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-19",
@@ -3149,7 +3419,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-20",
@@ -3159,7 +3430,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-21",
@@ -3169,7 +3441,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-22",
@@ -3179,7 +3452,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-23",
@@ -3189,7 +3463,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-24",
@@ -3199,7 +3474,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-25",
@@ -3209,7 +3485,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-26",
@@ -3219,7 +3496,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-27",
@@ -3229,7 +3507,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-28",
@@ -3239,7 +3518,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-29",
@@ -3249,7 +3529,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-06-30",
@@ -3259,7 +3540,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-01",
@@ -3269,7 +3551,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-02",
@@ -3279,7 +3562,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-03",
@@ -3289,7 +3573,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-04",
@@ -3299,7 +3584,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-05",
@@ -3309,7 +3595,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-06",
@@ -3319,7 +3606,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-07",
@@ -3329,7 +3617,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-08",
@@ -3339,7 +3628,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-09",
@@ -3349,7 +3639,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-10",
@@ -3359,7 +3650,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-11",
@@ -3369,7 +3661,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-12",
@@ -3379,7 +3672,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-13",
@@ -3389,7 +3683,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-14",
@@ -3399,7 +3694,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-15",
@@ -3409,7 +3705,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-16",
@@ -3419,7 +3716,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-17",
@@ -3429,7 +3727,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-18",
@@ -3439,7 +3738,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-19",
@@ -3449,7 +3749,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-20",
@@ -3459,7 +3760,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-21",
@@ -3469,7 +3771,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-22",
@@ -3479,7 +3782,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-23",
@@ -3489,7 +3793,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-24",
@@ -3499,7 +3804,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-25",
@@ -3509,7 +3815,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-26",
@@ -3519,7 +3826,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-27",
@@ -3529,7 +3837,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-28",
@@ -3539,7 +3848,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-29",
@@ -3549,7 +3859,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-30",
@@ -3559,7 +3870,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-07-31",
@@ -3569,7 +3881,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-08-01",
@@ -3579,7 +3892,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-08-02",
@@ -3589,7 +3903,8 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-08-03",
@@ -3599,47 +3914,107 @@
       "ps": null,
       "shareholder_yield": null,
       "net_margin": null,
-      "_period": "daily"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-08-04",
-      "net_income": 0,
+      "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-08-05",
-      "net_income": 0,
+      "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-08-06",
-      "net_income": 0,
+      "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
+    },
+    {
+      "as_of": "2026-08-07",
+      "net_income": 0.0,
+      "daily_value": 0.0,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
+    },
+    {
+      "as_of": "2026-08-08",
+      "net_income": 0.0,
+      "daily_value": 0.0,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
+    },
+    {
+      "as_of": "2026-08-09",
+      "net_income": 0.0,
+      "daily_value": 0.0,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
+    },
+    {
+      "as_of": "2026-08-10",
+      "net_income": 0.0,
+      "daily_value": 0.0,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-08-11",
-      "net_income": 0,
+      "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-08-12",
-      "net_income": 0,
+      "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     }
   ]
 }

@@ -1336,8 +1336,9 @@
           const lineVals = metric === 'net_income'
             ? all.map(r => r.net_income)
             : all.map(r => r[metric]);
-          // 柱状 = 单日净收益（daily_value = 当天统计值）
-          const barVals = all.map(r => r.daily_value != null ? r.daily_value : r[metric]);
+          // 柱状只接受已验证的单日值。不得把 TTM 回退显示为「单日净收益」，
+          // 否则数据源延迟时会把整年净收益错误画成一日收入。
+          const barVals = all.map(r => r.daily_value != null ? r.daily_value : null);
           return { labels: all.map(r => r.as_of), lineVals, barVals };
         }
         function renderHistoryChart() {

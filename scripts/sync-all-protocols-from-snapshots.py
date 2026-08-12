@@ -94,6 +94,23 @@ def main():
                 continue
             p[k] = v  # None 也覆盖（避免残留旧值误导）
 
+        # 兼容旧消费者的嵌套财务快照也必须与当前 snapshot 同步。
+        # 否则主表已经更新、嵌套对象仍停在 08-02，会造成同一协议两套 TTM。
+        legacy_financial = p.get("financial_snapshot")
+        if isinstance(legacy_financial, dict):
+            legacy_financial.update({
+                "revenue_usd_365d": rev_incl.get("total_usd_365d"),
+                "gross_profit_usd_365d": gp.get("gross_profit_usd_365d"),
+                "net_income_usd_365d": ni.get("net_income_usd_365d"),
+                "gross_margin_percent": mg.get("gross_margin_percent"),
+                "net_margin_percent": mg.get("net_margin_percent"),
+                "pe": val.get("pe"),
+                "ps": val.get("ps"),
+                "payout_ratio": val.get("payout_ratio"),
+                "shareholder_returns_usd_365d": hr.get("shareholder_returns_usd_365d"),
+                "as_of": snap.get("as_of"),
+            })
+
         updated += 1
         if args.dry_run:
             print(f"  [DRY] {pid}: yld={p.get('shareholder_yield_percent')} rev={p.get('revenue_usd_365d')} net={p.get('net_income_usd_365d')}")

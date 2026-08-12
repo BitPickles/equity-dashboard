@@ -264,6 +264,27 @@ def main():
     else:
         print("  ✓ 全部 fresh")
 
+    # 历史图数据：TTM 折线与单日柱必须语义分离。
+    # 若当天日源尚未结算，可显式标记 pending/unavailable；绝不能缺字段后由前端回退 TTM。
+    print("\ndata/history 单日净收益语义检查：")
+    for proto, ap in sorted((all_protocols or {}).get("protocols", {}).items()):
+        hist = load_json(DATA_DIR / "history" / f"{proto}.json")
+        snap = load_json(SNAPSHOTS_DIR / f"{proto}.json")
+        if not hist or not hist.get("records"):
+            report.error(proto, "历史图缺少 records")
+            continue
+        latest = max(hist["records"], key=lambda r: r.get("as_of", ""))
+        if snap and latest.get("as_of") != snap.get("as_of"):
+            report.error(proto, f"历史图未同步最新快照: history={latest.get('as_of')} snapshot={snap.get('as_of')}")
+        if latest.get("daily_value") is None:
+            status = latest.get("daily_value_status")
+            if status not in ("pending", "unavailable"):
+                report.error(proto, "单日净收益为空但未声明 pending/unavailable")
+        elif latest.get("daily_value_status") not in (None, "estimated", "verified"):
+            report.error(proto, f"单日净收益状态非法: {latest.get('daily_value_status')}")
+    if not report.errors:
+        print("  ✓ 历史图已区分 TTM 与单日值")
+
     print(f"\n结果: {len(report.errors)} errors, {len(report.warnings)} warnings")
     if report.failed:
         sys.exit(1)
