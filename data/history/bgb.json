@@ -2,16 +2,6 @@
   "protocol": "bgb",
   "records": [
     {
-      "as_of": "2025-08-08",
-      "net_income": 520000000.0,
-      "daily_value": 1424657.53,
-      "pe": 3.632,
-      "ps": 3.632,
-      "shareholder_yield": 27.5366,
-      "net_margin": null,
-      "_period": "daily"
-    },
-    {
       "as_of": "2025-08-09",
       "net_income": 520000000.0,
       "daily_value": 1424657.53,
@@ -3641,6 +3631,14 @@
       "pe": 41.1848,
       "ps": 41.1848,
       "shareholder_yield": 2.4281,
+      "net_margin": 100.0
+    },
+    {
+      "as_of": "2026-08-12",
+      "net_income": 27700000,
+      "pe": 41.3725,
+      "ps": 41.3725,
+      "shareholder_yield": 2.4171,
       "net_margin": 100.0
     }
   ]

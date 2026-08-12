@@ -1,6 +1,6 @@
 {
   "protocol": "bgb",
-  "as_of": "2026-08-11",
+  "as_of": "2026-08-12",
   "income_statement": {
     "revenue": {
       "entity_type": "platform_token",
@@ -50,28 +50,28 @@
         "mechanism": "季度回购销毁（Morph 链费挂钩，2025-11 起）",
         "type": "buyback",
         "usd_365d": 27700000,
-        "yield_percent": 2.4281,
+        "yield_percent": 2.4171,
         "note": "⚠️ 2025-11 机制变更：从「利润 20%」改为挂钩 Morph 链 Gas 费（boost ~1100-1400×），销毁额骤降 90%。2026 Q1 ~$807 万 / Q2 ~$578 万，年化 ~$2,770 万（旧口径 $5.2 亿基于 2025 一次性事件，已弃用）"
       }
     ],
     "summary": {
       "destroy_usd_365d": 27700000,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 2.4281,
+      "destroy_yield_percent": 2.4171,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 27700000,
-      "shareholder_yield_percent": 2.4281
+      "shareholder_yield_percent": 2.4171
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 1140820022,
+    "market_cap_usd": 1146019047,
     "tvl_usd": 0,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 41.1848,
-    "ps": 41.1848,
+    "pe": 41.3725,
+    "ps": 41.3725,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 1.0
@@ -79,6 +79,6 @@
   "verification": {
     "method": "官方季度公告（2025 Q1/Q2 各销毁 ~3000 万枚 / $1.2-1.4 亿季度）年化 + 链上销毁地址 0x000...000 复核",
     "status": "partial",
-    "last_checked": "2026-08-11"
+    "last_checked": "2026-08-12"
   }
 }

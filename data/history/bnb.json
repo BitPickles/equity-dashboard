@@ -2,17 +2,6 @@
   "protocol": "bnb",
   "records": [
     {
-      "as_of": "2025-08-07",
-      "net_income": 9985650222.27,
-      "daily_value": 25207455.08,
-      "cumulative": 4021618034.72,
-      "pe": 7.702,
-      "ps": 7.702,
-      "shareholder_yield": 12.9831,
-      "net_margin": 100.0,
-      "_period": "daily"
-    },
-    {
       "as_of": "2025-08-08",
       "net_income": 9980335441.02,
       "daily_value": 25202911.23,
@@ -4002,6 +3991,14 @@
       "pe": 8.1561,
       "ps": 8.1561,
       "shareholder_yield": 12.2607,
+      "net_margin": 100.0
+    },
+    {
+      "as_of": "2026-08-12",
+      "net_income": 9938124291.45,
+      "pe": 8.2612,
+      "ps": 8.2612,
+      "shareholder_yield": 12.1048,
       "net_margin": 100.0
     }
   ]

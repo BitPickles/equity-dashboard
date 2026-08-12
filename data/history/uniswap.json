@@ -2,16 +2,6 @@
   "protocol": "uniswap",
   "records": [
     {
-      "as_of": "2025-08-08",
-      "net_income": 0.0,
-      "daily_value": 0.0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": 100.0,
-      "_period": "daily"
-    },
-    {
       "as_of": "2025-08-09",
       "net_income": 0.0,
       "daily_value": 0.0,
@@ -3641,6 +3631,14 @@
       "pe": 133.9376,
       "ps": 133.9376,
       "shareholder_yield": 0.7466,
+      "net_margin": 100.0
+    },
+    {
+      "as_of": "2026-08-12",
+      "net_income": 18365812.03,
+      "pe": 127.2592,
+      "ps": 127.2592,
+      "shareholder_yield": 0.7858,
       "net_margin": 100.0
     }
   ]
