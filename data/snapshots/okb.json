@@ -1,14 +1,14 @@
 {
   "protocol": "okb",
-  "as_of": "2026-08-14",
+  "as_of": "2026-08-15",
   "income_statement": {
     "revenue": {
       "entity_type": "platform_token",
       "revenue_included": {
         "burn_usd_365d": 0,
-        "staking_rewards_usd_365d": 113077106.43,
+        "staking_rewards_usd_365d": 117113045.09,
         "launchpad_launchpool_usd_365d": null,
-        "total_usd_365d": 113077106.43,
+        "total_usd_365d": 117113045.09,
         "note": "质押收益口径（Boss 2026-08-04 拍板）：OKB OKX Earn 质押 ~5.2% APY × 市值。持币人质押利息，非协议利润；回购销毁 2025-08 已终止不计入"
       },
       "revenue_excluded": {
@@ -24,7 +24,7 @@
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": 113077106.43,
+      "gross_profit_usd_365d": 117113045.09,
       "calculation_note": "平台币无 LP 成本模型，毛利 = 收入（质押收益赋能口径）"
     },
     "token_emission_cost": {
@@ -35,7 +35,7 @@
       "calculation_note": "OKB 供应永久锁定 21M（合约移除 mint/burn 功能），无增发"
     },
     "net_income": {
-      "net_income_usd_365d": 113077106.43,
+      "net_income_usd_365d": 117113045.09,
       "operating_cost_usd_365d": null,
       "calculation_note": "平台币：净利 = 收入 = 质押收益（赋能口径）；回购销毁 2025-08 终止，不计入"
     },
@@ -50,22 +50,22 @@
       {
         "mechanism": "OKB OKX Earn 质押收益（~5.2% APY）",
         "type": "yield",
-        "usd_365d": 113077106.43,
+        "usd_365d": 117113045.09,
         "yield_percent": 5.2,
         "note": "2026-08-04 补充：OKX Earn Flexible Staking ~5.2% APR（官方 2026-07），按 BNB asBNB 同口径计入；持币人质押利息，非协议利润。回购销毁已于 2025-08 终止（机制移除）"
       }
     ],
     "summary": {
       "destroy_usd_365d": null,
-      "yield_usd_365d": 113077106.43,
+      "yield_usd_365d": 117113045.09,
       "destroy_yield_percent": null,
       "yield_yield_percent": 5.2,
-      "shareholder_returns_usd_365d": 113077106.43,
+      "shareholder_returns_usd_365d": 117113045.09,
       "shareholder_yield_percent": 5.2
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 2174559739,
+    "market_cap_usd": 2252173944,
     "tvl_usd": 0,
     "treasury_usd": null,
     "debt_usd": null
@@ -80,6 +80,6 @@
   "verification": {
     "method": "OKX 2025-08 治理决议（一次性销毁 65.26M OKB → 供应锁定 21M，合约 mint/burn 功能移除，链上可验证）",
     "status": "verified",
-    "last_checked": "2026-08-14"
+    "last_checked": "2026-08-15"
   }
 }

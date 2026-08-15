@@ -1,6 +1,6 @@
 {
   "protocol": "hyperliquid",
-  "as_of": "2026-08-14",
+  "as_of": "2026-08-15",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -51,7 +51,7 @@
         "mechanism": "Assistance Fund 手续费销毁（spot 真销毁）",
         "type": "destroy",
         "usd_365d": 765257823.99,
-        "yield_percent": 5.9868,
+        "yield_percent": 6.0929,
         "verified": "verified",
         "note": "手续费直接销毁 ≈ 回购，99% 计入 🟢（销毁流通币 = 流向所有持币人）；AF 用交易费回购 HYPE 留存在 AF 地址（~1%，可被动用）不计入，仅作注记；funding（点对点）/ 清算（无手续费）/ HyperEVM gas（供给收缩）均不计入"
       }
@@ -59,28 +59,28 @@
     "summary": {
       "destroy_usd_365d": 765257823.99,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 5.9868,
+      "destroy_yield_percent": 6.0929,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 765257823.99,
-      "shareholder_yield_percent": 5.9868
+      "shareholder_yield_percent": 6.0929
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 12782479659,
+    "market_cap_usd": 12559893335,
     "tvl_usd": 5326286571.667961,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 16.7035,
-    "ps": 16.5365,
+    "pe": 16.4126,
+    "ps": 16.2485,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0.99
   },
   "verification": {
-    "method": "净利 = DefiLlama dailyRevenue 365d $772,987,701；股东回报 = 收入 × 0.99 = $765,257,824（销毁型 🟢，payout_ratio=0.99）；af-history 旧缓存 365d $657,235,557（截至 2026-04-17，窗口不重叠，仅参考）",
+    "method": "净利 = DefiLlama dailyRevenue 365d $772,987,701；股东回报 = 收入 × 0.99 = $765,257,824（销毁型 🟢，payout_ratio=0.99）；af-history 旧缓存 365d $648,722,152（截至 2026-04-17，窗口不重叠，仅参考）",
     "status": "verified",
-    "last_checked": "2026-08-14"
+    "last_checked": "2026-08-15"
   }
 }

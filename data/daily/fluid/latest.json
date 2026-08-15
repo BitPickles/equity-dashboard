@@ -1,18 +1,18 @@
 {
   "protocol": "fluid",
-  "updated_at": "2026-08-14T00:13:08.000Z",
+  "updated_at": "2026-08-15T00:13:13.000Z",
   "data_sources": {
     "defillama": "fluid",
     "coingecko": "instadapp",
     "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-08-14",
+    "date": "2026-08-15",
     "price_usd": 1.17,
     "market_cap_usd": 91752826,
-    "daily_fees_usd": 111422,
-    "total30d_fees_usd": 3389052,
-    "total1y_fees_usd": 70162765
+    "daily_fees_usd": 109222,
+    "total30d_fees_usd": 3384535,
+    "total1y_fees_usd": 69909733
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": null,
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 91752826,
     "tev_yield": null,
     "return_yield_decimal": null,
-    "calculated_at": "2026-08-14T00:13:08.000Z"
+    "calculated_at": "2026-08-15T00:13:13.000Z"
   }
 }
