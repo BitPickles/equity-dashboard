@@ -1,6 +1,6 @@
 {
   "protocol": "uniswap",
-  "as_of": "2026-08-15",
+  "as_of": "2026-08-16",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -52,28 +52,28 @@
         "mechanism": "Firepit 销毁 UNI（fee switch → TokenJar → 0xdead）",
         "type": "destroy",
         "usd_365d": 18365812.03,
-        "yield_percent": 0.9156,
+        "yield_percent": 0.9095,
         "note": "销毁 = 回购性质 🟢：365d 0xdead 累计 4580003 UNI × 4.01 USD，排除一次性 100M UNI retroactive burn（2025-12-27）"
       }
     ],
     "summary": {
       "destroy_usd_365d": 18365812.03,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 0.9156,
+      "destroy_yield_percent": 0.9095,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 18365812.03,
-      "shareholder_yield_percent": 0.9156
+      "shareholder_yield_percent": 0.9095
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 2005968720,
+    "market_cap_usd": 2019439743,
     "tvl_usd": 3091182140.0588913,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 109.223,
-    "ps": 109.223,
+    "pe": 109.9565,
+    "ps": 109.9565,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 1.0
@@ -81,6 +81,6 @@
   "verification": {
     "method": "链上 365d UNI 转入 0xdead 累计 4580003 UNI（Etherscan logs，排除 >=10M 一次性事件）× 当前价 4.01 USD",
     "status": "verified",
-    "last_checked": "2026-08-15"
+    "last_checked": "2026-08-16"
   }
 }
