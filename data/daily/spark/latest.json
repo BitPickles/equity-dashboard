@@ -1,18 +1,18 @@
 {
   "protocol": "spark",
-  "updated_at": "2026-08-16T00:13:55.000Z",
+  "updated_at": "2026-08-17T00:13:53.000Z",
   "data_sources": {
     "defillama": "spark",
     "coingecko": "spark-2",
     "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-08-16",
+    "date": "2026-08-17",
     "price_usd": 0.01450448,
     "market_cap_usd": 44389719,
-    "daily_fees_usd": 438127,
-    "total30d_fees_usd": 9635303,
-    "total1y_fees_usd": 196114498
+    "daily_fees_usd": 402140,
+    "total30d_fees_usd": 9826294,
+    "total1y_fees_usd": 195766322
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 0,
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 44389719,
     "tev_yield": null,
     "return_yield_decimal": 0,
-    "calculated_at": "2026-08-16T00:13:55.000Z"
+    "calculated_at": "2026-08-17T00:13:53.000Z"
   }
 }
