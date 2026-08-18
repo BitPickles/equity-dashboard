@@ -1,18 +1,18 @@
 {
   "protocol": "lido",
-  "updated_at": "2026-08-17T00:13:34.000Z",
+  "updated_at": "2026-08-18T00:13:26.000Z",
   "data_sources": {
     "defillama": "lido",
     "coingecko": "lido-dao",
     "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-08-17",
+    "date": "2026-08-18",
     "price_usd": 0.403239,
     "market_cap_usd": 339050020,
-    "daily_fees_usd": 1177454,
-    "total30d_fees_usd": 35388364,
-    "total1y_fees_usd": 688067688
+    "daily_fees_usd": 1164866,
+    "total30d_fees_usd": 35424259,
+    "total1y_fees_usd": 686068023
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 0,
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 339050020,
     "tev_yield": null,
     "return_yield_decimal": 0.0,
-    "calculated_at": "2026-08-17T00:13:34.000Z"
+    "calculated_at": "2026-08-18T00:13:26.000Z"
   }
 }

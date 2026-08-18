@@ -1,6 +1,6 @@
 {
   "protocol": "aster",
-  "as_of": "2026-08-17",
+  "as_of": "2026-08-18",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -49,7 +49,7 @@
         "mechanism": "TWAP 回购 ASTER → veASTER 质押者（99% 手续费）",
         "type": "yield",
         "usd_365d": 91262763.16,
-        "yield_percent": 5.6634,
+        "yield_percent": 5.6428,
         "note": "Spot 上币费（5 万 USDT/次）并入回购；1:1 储备销毁不计入（未流通币）；回购即分发=股息口径"
       }
     ],
@@ -57,20 +57,20 @@
       "destroy_usd_365d": null,
       "yield_usd_365d": 91262763.16,
       "destroy_yield_percent": null,
-      "yield_yield_percent": 5.6634,
+      "yield_yield_percent": 5.6428,
       "shareholder_returns_usd_365d": 91262763.16,
-      "shareholder_yield_percent": 5.6634
+      "shareholder_yield_percent": 5.6428
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 1611445101,
+    "market_cap_usd": 1617337051,
     "tvl_usd": 820487118.1176946,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 17.6572,
-    "ps": 17.4806,
+    "pe": 17.7218,
+    "ps": 17.5445,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0.99
@@ -78,6 +78,6 @@
   "verification": {
     "method": "DefiLlama dailyRevenue 365d $92184609.25 × payout_ratio 0.99 = 回购/分配 $91262763.16；链上回购 wallet 365d 36177482 ASTER（缓存 95 天，2025-12-23→2026-03-27）",
     "status": "verified",
-    "last_checked": "2026-08-17"
+    "last_checked": "2026-08-18"
   }
 }
