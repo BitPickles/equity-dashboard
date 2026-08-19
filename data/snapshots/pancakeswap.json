@@ -1,6 +1,6 @@
 {
   "protocol": "pancakeswap",
-  "as_of": "2026-08-18",
+  "as_of": "2026-08-19",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -11,7 +11,7 @@
       },
       "revenue_excluded": {
         "lp_share": {
-          "note": "总费用 $269,545,843 中 LP 分润 $175,482,085（~65%）不计入（收入按协议收入口径）"
+          "note": "总费用 $269,609,341 中 LP 分润 $175,545,583（~65%）不计入（收入按协议收入口径）"
         },
         "gas_fees": {
           "note": "链上 gas 手续费不计入（交易费口径已含 buyback 路由部分）"
@@ -24,9 +24,9 @@
       }
     },
     "gross_profit": {
-      "lp_share_cost_usd_365d": 175482084.6,
+      "lp_share_cost_usd_365d": 175545582.6,
       "gross_profit_usd_365d": 94063758.4,
-      "calculation_note": "收入 = 协议收入（总费用 $269,545,843 − LP 分润 $175,482,085）；回购销毁 $58,789,849 ≈ 总费用 22% / 协议收入 60-65%（payout_ratio 0.625）→ 毛利 = 协议收入"
+      "calculation_note": "收入 = 协议收入（总费用 $269,609,341 − LP 分润 $175,545,583）；回购销毁 $58,789,849 ≈ 总费用 22% / 协议收入 60-65%（payout_ratio 0.625）→ 毛利 = 协议收入"
     },
     "token_emission_cost": {
       "usd_365d": 11700000,
@@ -38,7 +38,7 @@
     "net_income": {
       "net_income_usd_365d": 82363758.4,
       "operating_cost_usd_365d": null,
-      "calculation_note": "净利 = 收入 − LP − 增发成本 = $94,063,758 − $175,482,085 − $11,700,000 = $82,363,758；增发按成本（farm 激励有对价换收入，美股 SBC 类比）；增发 $11,700,000 < 回购销毁 $58,789,849 → 净利为正（净通缩，连续 34 个月）"
+      "calculation_note": "净利 = 收入 − LP − 增发成本 = $94,063,758 − $175,545,583 − $11,700,000 = $82,363,758；增发按成本（farm 激励有对价换收入，美股 SBC 类比）；增发 $11,700,000 < 回购销毁 $58,789,849 → 净利为正（净通缩，连续 34 个月）"
     },
     "margins": {
       "gross_margin_percent": 100.0,
@@ -52,28 +52,28 @@
         "mechanism": "CAKE 回购销毁（Tokenomics 3.0）",
         "type": "destroy",
         "usd_365d": 58789849,
-        "yield_percent": 12.5051,
+        "yield_percent": 12.047,
         "note": "现货 15-23%、永续 20%、CAKE.PAD 100% 等产品 fee 路由去回购销毁（DefiLlama dailyHoldersRevenue，gross 口径）；CAKE → 0x000...dEaD 链上可验证；≈ 总费用 22% / 协议收入 60-65% 🟢"
       }
     ],
     "summary": {
       "destroy_usd_365d": 58789849,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 12.5051,
+      "destroy_yield_percent": 12.047,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 58789849,
-      "shareholder_yield_percent": 12.5051
+      "shareholder_yield_percent": 12.047
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 470126207,
+    "market_cap_usd": 488002228,
     "tvl_usd": 2063271713.806489,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 7.9967,
-    "ps": 4.998,
+    "pe": 8.3008,
+    "ps": 5.188,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0.7138
@@ -81,6 +81,6 @@
   "verification": {
     "method": "回购销毁 365d $58,789,849（DefiLlama dailyHoldersRevenue，burn-history.json）× payout_ratio 0.625 反推协议收入 $94,063,758（判定书 60-65%，现货 15-23%/永续 20%/CAKE.PAD 100%）；增发成本 $11,700,000（config.token_emission_cost，treatment=cost）；净利 $82,363,758（正，净通缩）",
     "status": "verified",
-    "last_checked": "2026-08-18"
+    "last_checked": "2026-08-19"
   }
 }
