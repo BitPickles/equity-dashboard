@@ -1,18 +1,18 @@
 {
   "protocol": "pancakeswap",
-  "updated_at": "2026-08-19T00:13:34.000Z",
+  "updated_at": "2026-08-20T00:13:37.000Z",
   "data_sources": {
     "defillama": "pancakeswap",
     "coingecko": "pancakeswap-token",
     "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-08-19",
+    "date": "2026-08-20",
     "price_usd": 1.44,
     "market_cap_usd": 463872393,
-    "daily_fees_usd": 599151,
-    "total30d_fees_usd": 12657018,
-    "total1y_fees_usd": 269609341
+    "daily_fees_usd": 684649,
+    "total30d_fees_usd": 13179911,
+    "total1y_fees_usd": 269634077
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 2674450.2,
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 463872393,
     "tev_yield": null,
     "return_yield_decimal": 0.063299,
-    "calculated_at": "2026-08-19T00:13:34.000Z"
+    "calculated_at": "2026-08-20T00:13:37.000Z"
   }
 }
