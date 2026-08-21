@@ -1,6 +1,6 @@
 {
   "protocol": "lido",
-  "as_of": "2026-08-20",
+  "as_of": "2026-08-21",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -63,14 +63,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 275245340,
+    "market_cap_usd": 283691456,
     "tvl_usd": 18986133323.106007,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": null,
-    "ps": 7.0721,
+    "ps": 7.2891,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null
@@ -78,6 +78,6 @@
   "verification": {
     "method": "净利 = DefiLlama dailyRevenue 365d $38,920,031（协议净收入）；LDO 治理代币不回购（fee switch OFF）；净利留存 DAO 国库",
     "status": "estimated",
-    "last_checked": "2026-08-20"
+    "last_checked": "2026-08-21"
   }
 }

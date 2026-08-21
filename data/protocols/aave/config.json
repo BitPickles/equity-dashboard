@@ -67,15 +67,15 @@
     }
   ],
   "market_data": {
-    "price_usd": 95.4,
+    "price_usd": 99.17,
     "market_cap_usd": 1736849395,
     "snapshot_date": "2026-02-14",
     "data_source": "CoinGecko",
     "tvl": 24631521067.11426,
     "tvl_updated": "2026-03-27T01:00:14.491Z",
-    "circulating_market_cap": 1471200460,
-    "circulating_supply": 15423006.758486426,
-    "price_updated_at": "2026-08-20T00:05:05.443119+00:00"
+    "circulating_market_cap": 1529808043,
+    "circulating_supply": 15423076.794677105,
+    "price_updated_at": "2026-08-21T00:05:05.802999+00:00"
   },
   "notes": "Aave 在 2024 年通过 Aavenomics 升级开启了代币回购机制。TEV 来源：Safety Module 质押奖励 + 年度回购。",
   "last_updated": "2026-08-02",

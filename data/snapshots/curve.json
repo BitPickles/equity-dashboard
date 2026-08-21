@@ -1,6 +1,6 @@
 {
   "protocol": "curve",
-  "as_of": "2026-08-20",
+  "as_of": "2026-08-21",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -52,7 +52,7 @@
         "mechanism": "veCRV 分红（FeeAllocator 90% admin fee）",
         "type": "yield",
         "usd_365d": 15605589,
-        "yield_percent": 3.9508,
+        "yield_percent": 3.5107,
         "note": "90% admin fee 兑换 crvUSD 分给 veCRV 锁仓持有人（裸 CRV 不参与）；名义 yield = 股东回报 / CRV 全市值，实际锁仓持有人更高（veCRV-only 口径）"
       }
     ],
@@ -60,20 +60,20 @@
       "destroy_usd_365d": null,
       "yield_usd_365d": 15605589,
       "destroy_yield_percent": null,
-      "yield_yield_percent": 3.9508,
+      "yield_yield_percent": 3.5107,
       "shareholder_returns_usd_365d": 15605589,
-      "shareholder_yield_percent": 3.9508
+      "shareholder_yield_percent": 3.5107
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 395001839,
+    "market_cap_usd": 444511374,
     "tvl_usd": 1808019756.5740514,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 25.3116,
-    "ps": 25.3116,
+    "pe": 28.4841,
+    "ps": 28.4841,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null
@@ -81,6 +81,6 @@
   "verification": {
     "method": "FeeAllocator 90/10：Community Fund Treasury crvUSD inflow × 9 反推 veCRV TEV 365d=15605589 · 增发成本 26000000（config.token_emission_cost）",
     "status": "verified",
-    "last_checked": "2026-08-20"
+    "last_checked": "2026-08-21"
   }
 }

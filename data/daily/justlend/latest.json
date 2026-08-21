@@ -1,18 +1,18 @@
 {
   "protocol": "justlend",
-  "updated_at": "2026-08-20T00:13:15.000Z",
+  "updated_at": "2026-08-21T00:13:13.000Z",
   "data_sources": {
     "defillama": "justlend",
     "coingecko": "just",
     "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-08-20",
+    "date": "2026-08-21",
     "price_usd": 0.105259,
     "market_cap_usd": 861962578,
-    "daily_fees_usd": 64647,
-    "total30d_fees_usd": 1772505,
-    "total1y_fees_usd": 11608518
+    "daily_fees_usd": 55647,
+    "total30d_fees_usd": 1757105,
+    "total1y_fees_usd": 11641136
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 0,
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 861962578,
     "tev_yield": null,
     "return_yield_decimal": 0,
-    "calculated_at": "2026-08-20T00:13:15.000Z"
+    "calculated_at": "2026-08-21T00:13:13.000Z"
   }
 }
