@@ -1,6 +1,6 @@
 {
   "protocol": "aave",
-  "as_of": "2026-08-22",
+  "as_of": "2026-08-23",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -48,7 +48,7 @@
         "mechanism": "AAVE 年度回购（$30M/年，2026-03 治理）",
         "type": "buyback",
         "usd_365d": 30000000,
-        "yield_percent": 1.5804,
+        "yield_percent": 1.5373,
         "verified": "verified",
         "note": "AIP-73 年度回购预算，2026-03 治理从 $50M 下调至 $30M；DAO 财库市场买入 AAVE → Ecosystem Reserve（treasury 积累，非真 burn，治理可 redistribute；链上 0xdead 365d ≈ 0）"
       },
@@ -64,21 +64,21 @@
     "summary": {
       "destroy_usd_365d": 30000000,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 1.5804,
+      "destroy_yield_percent": 1.5373,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 30000000,
-      "shareholder_yield_percent": 1.5804
+      "shareholder_yield_percent": 1.5373
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 1898241374,
+    "market_cap_usd": 1951467283,
     "tvl_usd": 24631521067.11426,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 63.2747,
-    "ps": 16.4406,
+    "pe": 65.0489,
+    "ps": 16.9016,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0.2598
@@ -86,6 +86,6 @@
   "verification": {
     "method": "净利 = DefiLlama dailyRevenue 365d $115,460,247；股东回报 = 官方披露回购 $30,000,000/年（2026-03 治理）；SM 质押奖励 $27,438,501/365d 待定保留（tev-records 365d 合计 $27,722,900 交叉核对）",
     "status": "verified",
-    "last_checked": "2026-08-22"
+    "last_checked": "2026-08-23"
   }
 }
