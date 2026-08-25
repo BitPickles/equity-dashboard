@@ -2,17 +2,6 @@
   "protocol": "morpho",
   "records": [
     {
-      "as_of": "2025-08-25",
-      "net_income": 0.0,
-      "daily_value": 0.0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": null,
-      "_period": "daily",
-      "daily_value_status": "estimated"
-    },
-    {
       "as_of": "2025-08-26",
       "net_income": 0.0,
       "daily_value": 0.0,
@@ -4007,6 +3996,17 @@
     },
     {
       "as_of": "2026-08-24",
+      "net_income": 0.0,
+      "daily_value": 0.0,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
+    },
+    {
+      "as_of": "2026-08-25",
       "net_income": 0.0,
       "daily_value": null,
       "daily_value_status": "pending",

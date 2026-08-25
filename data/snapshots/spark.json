@@ -1,6 +1,6 @@
 {
   "protocol": "spark",
-  "as_of": "2026-08-24",
+  "as_of": "2026-08-25",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -63,14 +63,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 73669535,
+    "market_cap_usd": 60552640,
     "tvl_usd": 5328898278.33737,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": null,
-    "ps": 3.3267,
+    "ps": 2.7344,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null
@@ -78,6 +78,6 @@
   "verification": {
     "method": "净利 = DefiLlama dailyRevenue 365d $22,144,959（协议净收入）；SPK 治理代币不回购——收入流向 Sky 主 DAO 回购 SKY；SPK 股东回报 = 0",
     "status": "estimated",
-    "last_checked": "2026-08-24"
+    "last_checked": "2026-08-25"
   }
 }
