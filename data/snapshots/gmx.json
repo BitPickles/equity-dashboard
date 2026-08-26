@@ -1,6 +1,6 @@
 {
   "protocol": "gmx",
-  "as_of": "2026-08-25",
+  "as_of": "2026-08-26",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -63,14 +63,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 75918574,
+    "market_cap_usd": 75707031,
     "tvl_usd": 256520219.69048157,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": null,
-    "ps": 5.9893,
+    "ps": 5.9726,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null
@@ -78,6 +78,6 @@
   "verification": {
     "method": "净利 = DefiLlama V2 交易费 dailyRevenue 365d $12,675,745；27% 协议费全额留存国库（提案 #5042，2026-03-04 Restore Price Discovery）；股东回报 = 0，锁定至 $90；tev-records 365d $7,901,852（含暂停前历史，仅参考）",
     "status": "partial",
-    "last_checked": "2026-08-25"
+    "last_checked": "2026-08-26"
   }
 }
