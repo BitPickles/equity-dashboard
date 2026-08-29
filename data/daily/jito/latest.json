@@ -1,18 +1,18 @@
 {
   "protocol": "jito",
-  "updated_at": "2026-08-28T00:13:11.000Z",
+  "updated_at": "2026-08-29T00:13:07.000Z",
   "data_sources": {
     "defillama": "jito",
     "coingecko": "jito-governance-token",
     "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-08-28",
+    "date": "2026-08-29",
     "price_usd": 0.484871,
     "market_cap_usd": 245037863,
-    "daily_fees_usd": 504244,
-    "total30d_fees_usd": 7603790,
-    "total1y_fees_usd": 186690625
+    "daily_fees_usd": 291132,
+    "total30d_fees_usd": 7756040,
+    "total1y_fees_usd": 184407311
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 0,
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 245037863,
     "tev_yield": null,
     "return_yield_decimal": 0,
-    "calculated_at": "2026-08-28T00:13:11.000Z"
+    "calculated_at": "2026-08-29T00:13:07.000Z"
   }
 }
