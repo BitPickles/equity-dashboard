@@ -1,16 +1,16 @@
 {
   "protocol": "ethena",
-  "as_of": "2026-08-29",
+  "as_of": "2026-08-30",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 314299452,
-        "total_usd_365d": 314299452
+        "protocol_fees_usd_365d": 299733410,
+        "total_usd_365d": 299733410
       },
       "revenue_excluded": {
         "susde_yield": {
-          "note": "sUSDe yield ~3.5-4% APY（$305,302,587/365d）全归 sUSDe 持有人，不计入 ENA 股东回报"
+          "note": "sUSDe yield ~3.5-4% APY（$290,736,545/365d）全归 sUSDe 持有人，不计入 ENA 股东回报"
         },
         "dat_buyback": {
           "note": "DAT 回购（~$890M）确认为金库/储备出资的资本运作，不计入持续股东回报"
@@ -26,9 +26,9 @@
       }
     },
     "gross_profit": {
-      "lp_share_cost_usd_365d": 305302586.95,
+      "lp_share_cost_usd_365d": 290736544.95,
       "gross_profit_usd_365d": 8996865.049999999,
-      "calculation_note": "总费用 $314,299,452 − 分给 sUSDe 持有人 $305,302,587 = 协议留存 $8,996,865（sUSDe yield ~3.5-4% APY 全归 sUSDe 持有人，不计入 ENA 股东回报）"
+      "calculation_note": "总费用 $299,733,410 − 分给 sUSDe 持有人 $290,736,545 = 协议留存 $8,996,865（sUSDe yield ~3.5-4% APY 全归 sUSDe 持有人，不计入 ENA 股东回报）"
     },
     "token_emission_cost": {
       "usd_365d": null,
@@ -40,11 +40,11 @@
     "net_income": {
       "net_income_usd_365d": 600000,
       "operating_cost_usd_365d": 8396865.05,
-      "calculation_note": "判定书：近 12 月收入 $314,299,452 但净利仅 $600,000（绝大部分费用分配给 sUSDe + 储备/运营成本；费用开关激活前 ENA 股东回报 = 0）"
+      "calculation_note": "判定书：近 12 月收入 $299,733,410 但净利仅 $600,000（绝大部分费用分配给 sUSDe + 储备/运营成本；费用开关激活前 ENA 股东回报 = 0）"
     },
     "margins": {
-      "gross_margin_percent": 2.8625,
-      "net_margin_percent": 0.1909,
+      "gross_margin_percent": 3.0016,
+      "net_margin_percent": 0.2002,
       "note": "费用开关生效前：绝大部分费用分配给 sUSDe 持有人 → 协议毛利率极低（~2.7%）、净利率 ~0.2%；股东回报 = 0"
     }
   },
@@ -68,21 +68,21 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 1610464481,
+    "market_cap_usd": 1568620618,
     "tvl_usd": 6677560266.30153,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": null,
-    "ps": 5.124,
+    "ps": 5.2334,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null
   },
   "verification": {
-    "method": "近 12 月费用 $314,299,452（判定书 ~$310M），协议留存 $8,996,865（DefiLlama dailyRevenue 365d），净利 $600,000（判定书）；费用开关生效前 ENA 股东回报 = 0（2026Q3 观察点）",
+    "method": "近 12 月费用 $299,733,410（判定书 ~$310M），协议留存 $8,996,865（DefiLlama dailyRevenue 365d），净利 $600,000（判定书）；费用开关生效前 ENA 股东回报 = 0（2026Q3 观察点）",
     "status": "estimated",
-    "last_checked": "2026-08-29"
+    "last_checked": "2026-08-30"
   }
 }
