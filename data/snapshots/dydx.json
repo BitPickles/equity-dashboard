@@ -1,6 +1,6 @@
 {
   "protocol": "dydx",
-  "as_of": "2026-09-01",
+  "as_of": "2026-09-02",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -50,43 +50,43 @@
       {
         "mechanism": "净协议费回购（提案 #313，75%）",
         "type": "buyback",
-        "usd_365d": 1034052.8,
+        "usd_365d": 1069617.75,
         "yield_percent": 1.1364,
         "note": "回购(质押非销毁)：市价买入 DYDX 后质押于 Treasury 专用账户（dydx1zc0jd76...），非销毁勿计销毁；链上无公开 tracker，按判定书 P/F~88x 反推（外部不可精确复算）"
       },
       {
         "mechanism": "质押分红（USDC，Cosmos x/distribution）",
         "type": "yield",
-        "usd_365d": 206810.56,
+        "usd_365d": 213923.55,
         "yield_percent": 0.2273,
         "note": "提案 #313 15% 净协议费以 USDC 分给 staker；DYDX 通胀 staking 奖励 ~0.01% APY 极低"
       }
     ],
     "summary": {
-      "destroy_usd_365d": 1034052.8,
-      "yield_usd_365d": 206810.56,
+      "destroy_usd_365d": 1069617.75,
+      "yield_usd_365d": 213923.55,
       "destroy_yield_percent": 1.1364,
       "yield_yield_percent": 0.2273,
-      "shareholder_returns_usd_365d": 1240863.36,
+      "shareholder_returns_usd_365d": 1283541.3,
       "shareholder_yield_percent": 1.3636
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 90996646,
+    "market_cap_usd": 94126362,
     "tvl_usd": 158666696.85028014,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": 73.3333,
-    "ps": 10.6827,
+    "ps": 11.0502,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": 0.1457
+    "payout_ratio": 0.1507
   },
   "verification": {
     "method": "DefiLlama dailyRevenue 365d=8518106 · 回购额按判定书 P/F~88x 反推（mcap/88）· 提案 #313 比例（75% 回购/15% 质押）",
     "status": "partial",
-    "last_checked": "2026-09-01"
+    "last_checked": "2026-09-02"
   }
 }
