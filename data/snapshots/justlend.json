@@ -1,6 +1,6 @@
 {
   "protocol": "justlend",
-  "as_of": "2026-09-02",
+  "as_of": "2026-09-03",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -62,14 +62,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 838726000,
+    "market_cap_usd": 881014178,
     "tvl_usd": 3292346561.2761326,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": null,
-    "ps": 1677.452,
+    "ps": 1762.0284,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null
@@ -77,6 +77,6 @@
   "verification": {
     "method": "净收入照算（DefiLlama interest spread ~$500k/年）；链上核实（burn-history.json）：累计 burn 1604586131 JST（4 次）全部来自孙宇晨金库 TFTWNgDBkQ5wQoP8RXpRznnHvAVV8x5jLu，无 USDT 市场买入证据 → TEV = 0",
     "status": "estimated",
-    "last_checked": "2026-09-02"
+    "last_checked": "2026-09-03"
   }
 }
