@@ -1,18 +1,18 @@
 {
   "protocol": "ethena",
-  "updated_at": "2026-09-03T00:13:45.000Z",
+  "updated_at": "2026-09-04T00:13:56.000Z",
   "data_sources": {
     "defillama": "ethena",
     "coingecko": "ethena",
     "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-09-03",
+    "date": "2026-09-04",
     "price_usd": 0.103722,
     "market_cap_usd": 853363511,
-    "daily_fees_usd": 105,
-    "total30d_fees_usd": 15947807,
-    "total1y_fees_usd": 299590115
+    "daily_fees_usd": 217,
+    "total30d_fees_usd": 15948017,
+    "total1y_fees_usd": 299550758
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 0,
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 853363511,
     "tev_yield": null,
     "return_yield_decimal": 0.0,
-    "calculated_at": "2026-09-03T00:13:45.000Z"
+    "calculated_at": "2026-09-04T00:13:56.000Z"
   }
 }
