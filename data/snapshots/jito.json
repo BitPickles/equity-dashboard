@@ -1,6 +1,6 @@
 {
   "protocol": "jito",
-  "as_of": "2026-09-05",
+  "as_of": "2026-09-06",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -63,14 +63,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 208669373,
+    "market_cap_usd": 216434937,
     "tvl_usd": 1092767451.87587,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": null,
-    "ps": 15.161,
+    "ps": 15.7252,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null
@@ -78,6 +78,6 @@
   "verification": {
     "method": "净利 = DefiLlama dailyRevenue 365d $13,763,565（协议净收入）；JTO 治理代币不回购（MEV 归 JitoSOL）；净利留存 Foundation；JTO staking 收入分成 planned",
     "status": "estimated",
-    "last_checked": "2026-09-05"
+    "last_checked": "2026-09-06"
   }
 }
