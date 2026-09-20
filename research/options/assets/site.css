@@ -5,5 +5,3 @@
 @media(max-width:600px){.site-brand{font-size:19px}.site-nav a:first-child{display:none}.site-header-inner{gap:12px}.research-card{grid-template-columns:1fr}.research-card-mark{min-height:130px;flex-direction:row;gap:28px;border-left:0;border-top:1px solid var(--line)}.research-card-mark>span{font-size:48px}.research-card-mark small{max-width:80px;line-height:1.8}.research-eyebrow{margin-top:30px}.research-card-copy{padding:25px}.research-intro{font-size:16px}.method-page{padding:0 22px}.method-page h1{font-size:27px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.research-card{transition:none}.research-card:hover{transform:none}}
 @media print{.site-header,.site-footer,.breadcrumbs,.skip-link{display:none}body{background:#fff;color:#000}.method-page{max-width:none;padding:0}}
-
-.research-index .research-card + .research-card{margin-top:24px}

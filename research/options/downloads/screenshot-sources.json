@@ -1,0 +1,92 @@
+[
+  {
+    "file": "01_苹果卖Put成交单.png",
+    "source_url": "https://xueqiu.com/1247347556/338780522",
+    "post_date": "2025-06-15",
+    "captured_at": "2026-09-20T22:35:49.405182+08:00",
+    "method": "Browser screenshot; rectangular crop only; original pixels, no text replacement",
+    "crop_pixels": [
+      175,
+      220,
+      842,
+      644
+    ],
+    "note": "公开成交单局部：2025-06-12 成交，AAPL 2026-01-16 195 Put，999 张，每股 14.45 美元。",
+    "asset": "assets/duan-apple-trade.png"
+  },
+  {
+    "file": "02_到期与被Call走_20260805.png",
+    "source_url": "https://xueqiu.com/1247347556/403826416",
+    "post_date": "2026-08-05",
+    "captured_at": "2026-09-20T22:35:49.410229+08:00",
+    "method": "Browser screenshot; rectangular crop only; original pixels, no text replacement",
+    "crop_pixels": [
+      156,
+      68,
+      808,
+      186
+    ],
+    "note": "本人原帖：Put 到期，部分股票被 Call 走。",
+    "asset": "assets/duan-expiry-response.png"
+  },
+  {
+    "file": "03_为什么先卖Put_20260415.png",
+    "source_url": "https://xueqiu.com/1043075279/383954978/402889082",
+    "post_date": "2026-04-15 12:15",
+    "captured_at": "2026-09-20T22:35:49.415247+08:00",
+    "method": "Browser screenshot; rectangular crop only; original pixels, no text replacement",
+    "crop_pixels": [
+      294,
+      299,
+      953,
+      386
+    ],
+    "note": "讨论页内本人回复，保留姓名、时间与原句。",
+    "asset": "assets/duan-capital-response.png"
+  },
+  {
+    "file": "04_买股同时卖Call_20260806.png",
+    "source_url": "https://xueqiu.com/1247347556/403863283",
+    "post_date": "2026-08-06",
+    "captured_at": "2026-09-20T22:35:49.418806+08:00",
+    "method": "Browser screenshot; rectangular crop only; original pixels, no text replacement",
+    "crop_pixels": [
+      294,
+      214,
+      622,
+      237
+    ],
+    "note": "原帖局部：161 买入股票，同时卖一个月 162.5 Call。披露日不是已确认成交日。",
+    "asset": "assets/duan-covered-call.png"
+  },
+  {
+    "file": "05_卖Put数量_20260414.png",
+    "source_url": "https://xueqiu.com/1247347556/383788351",
+    "post_date": "2026-04-14",
+    "captured_at": "2026-09-20T22:35:49.422870+08:00",
+    "method": "Browser screenshot; rectangular crop only; original pixels, no text replacement",
+    "crop_pixels": [
+      194,
+      184,
+      483,
+      210
+    ],
+    "note": "原帖数量披露局部：225000 张，已满。",
+    "asset": "assets/duan-put-size.png"
+  },
+  {
+    "file": "06_关注长期价值_20260323.png",
+    "source_url": "https://xueqiu.com/1247347556/380588002",
+    "post_date": "2026-03-23",
+    "captured_at": "2026-09-20T22:35:49.426374+08:00",
+    "method": "Browser screenshot; rectangular crop only; original pixels, no text replacement",
+    "crop_pixels": [
+      211,
+      185,
+      519,
+      209
+    ],
+    "note": "英伟达讨论中的本人原话节选，用于说明一般思路。",
+    "asset": "assets/duan-long-term.png"
+  }
+]

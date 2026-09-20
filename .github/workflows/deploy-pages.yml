@@ -34,15 +34,45 @@ jobs:
           rsync -av ./ ./_site/ \
             --exclude '.git/' \
             --exclude '.github/' \
+            --exclude '**/node_modules/' \
             --exclude '_site/' \
             --exclude 'tmp/' \
             --exclude 'review/' \
             --exclude 'poster/' \
             --exclude 'web/' \
-            --exclude '**/node_modules/' \
+            --exclude 'memory/' \
+            --exclude 'logs/' \
+            --exclude 'projects/' \
+            --exclude 'tasks/' \
             --exclude 'skills/' \
+            --exclude 'archive/' \
+            --exclude 'canvas/' \
+            --exclude 'docs/' \
+            --exclude 'scripts/' \
+            --exclude 'polymarket-monitor/' \
+            --exclude '.openclaw/' \
+            --exclude '.clawdhub/' \
+            --exclude '.clawhub/' \
             --exclude '**/*.bak' \
+            --exclude '**/*.stub' \
+            --exclude '.DS_Store' \
             --exclude 'debug-report.md' \
+            --exclude 'SOUL.md' \
+            --exclude 'IDENTITY.md' \
+            --exclude 'HEARTBEAT.md' \
+            --exclude 'TOOLS.md' \
+            --exclude 'USER.md' \
+            --exclude 'AGENTS.md' \
+            --exclude 'MEMORY.md' \
+            --exclude 'CLAUDE.md' \
+            --exclude 'VERSIONING.md' \
+            --exclude 'README.md' \
+            --exclude 'data/protocols/PROGRESS.md' \
+            --exclude 'data/protocols/README.md' \
+            --exclude 'data/protocols/**/README.md' \
+            --exclude 'data/protocols/**/*.md' \
+            --exclude 'show_portfolio.py' \
+            --exclude 'buyback_candidates.csv' \
             --exclude 'equity/debug.html' \
             --exclude 'equity/final-debug.html' \
             --exclude 'equity/simple-debug.html' \

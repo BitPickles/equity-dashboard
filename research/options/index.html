@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+
+<html data-theme="light" lang="zh-CN"><head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>期权入门：看懂 Put、Call 与卖方的选择 | Crypto3D</title>
+<meta content="从四种期权操作、IV 与 Delta、到期结算和卖方保证金，到双币赢、末日期权及段永平的苹果与泡泡玛特案例，配独立盈亏图和原文截图。" name="description"/>
+<link href="https://crypto3d.pro/research/options/" rel="canonical"/>
+<meta content="article" property="og:type"/><meta content="Crypto3D" property="og:site_name"/>
+<meta content="期权入门：看懂 Put、Call 与卖方的选择" property="og:title"/><meta content="zh_CN" property="og:locale"/>
+<link href="assets/logo-3d.jpg" rel="icon"/><link href="assets/site.css" rel="stylesheet"/>
+<link href="article.css" rel="stylesheet"/>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('theme')==='dark'?'dark':'light'}catch(e){}</script>
+<meta content="从四种期权操作、IV 与 Delta、到期结算和卖方保证金，到双币赢、末日期权及段永平的苹果与泡泡玛特案例，配独立盈亏图和原文截图。" property="og:description"/><meta content="https://crypto3d.pro/research/options/" property="og:url"/><meta content="https://crypto3d.pro/research/options/assets/buy-call.png" property="og:image"/><meta content="买 Call 的到期盈亏图：绿色盈利、红色亏损" property="og:image:alt"/><meta content="2026-09-21" property="article:published_time"/><meta content="2026-09-21" property="article:modified_time"/><meta content="summary_large_image" name="twitter:card"/><meta content="期权入门：看懂 Put、Call 与卖方的选择" name="twitter:title"/><meta content="从四种期权操作、IV 与 Delta、到期结算和卖方保证金，到双币赢、末日期权及段永平的苹果与泡泡玛特案例，配独立盈亏图和原文截图。" name="twitter:description"/><meta content="https://crypto3d.pro/research/options/assets/buy-call.png" name="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "期权入门：看懂 Put、Call 与卖方的选择", "description": "从四种期权操作、IV 与 Delta、到期结算和卖方保证金，到双币赢、末日期权及段永平的苹果与泡泡玛特案例，配独立盈亏图和原文截图。", "datePublished": "2026-09-21", "dateModified": "2026-09-21", "inLanguage": "zh-CN", "author": {"@type": "Organization", "name": "Crypto3D", "url": "https://crypto3d.pro/"}, "publisher": {"@type": "Organization", "name": "Crypto3D"}, "mainEntityOfPage": "https://crypto3d.pro/research/options/", "image": "https://crypto3d.pro/research/options/assets/buy-call.png"}</script></head><body>
+<a class="skip-link" href="#content">跳至正文</a>
+<header class="site-header"><div class="site-header-inner">
+<a class="site-brand" href="../../"><img alt="" height="28" src="assets/logo-3d.jpg" width="28"/>Crypto3D</a>
+<nav aria-label="网站导航" class="site-nav"><a href="../../equity/">协议估值</a><a aria-current="page" href="../">研究文章</a></nav>
+<div class="hd-r"><button aria-label="切换主题" id="theme-toggle" type="button"><span aria-hidden="true">◐</span></button></div>
+</div></header>
+<div class="layout"><aside aria-label="文章目录"><details class="toc" open=""><summary>文章目录</summary><div class="label">OPTIONS / 期权入门</div><nav><a href="#basics">四种操作</a><a href="#chain">盘口、IV 与 Delta</a><a href="#settlement">开仓与到期结算</a><a href="#margin">卖方保证金</a><a href="#dual">例子一 · 双币赢</a><a href="#zero-dte">例子二 · 末日期权</a><a href="#duan">例子三 · 段永平</a><a href="#qa">六个追问</a><a href="#sources">原文与数据来源</a></nav><div class="downloads"><a download="" href="downloads/options-intro.md">下载文章</a><a download="" href="downloads/screenshot-sources.json">截图来源</a></div></details></aside>
+<main id="content"><nav aria-label="当前位置" class="breadcrumbs"><a href="../../">首页</a><span>/</span><a href="../">研究文章</a><span>/</span><span>期权入门</span></nav>
+<div class="article-meta">期权基础 · 案例解析 <span>资料截至 2026.09.20</span></div><h1>期权入门：看懂 Put、Call 与卖方的选择</h1>
+<p>期权是一项有期限的买卖约定：<strong>买方付钱获得选择权，卖方收钱承担履约义务。</strong>看懂这一区别，再看双币赢、末日期权和段永平的操作，就容易理解了。</p>
+<h2 id="basics">四种操作：谁有权利，谁承担义务？</h2>
+<p><strong>Call 是按约定价格买入的权利，Put 是按约定价格卖出的权利。</strong>“买、卖”则表示你付钱获得这项权利，还是收钱把权利交给别人。</p>
+<div aria-label="四种操作：谁有权利，谁承担义务？表格" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="名称">标的</td>
+<td data-label="含义">合约对应的资产，如 BTC、ETH、苹果股票</td>
+</tr>
+<tr>
+<td data-label="名称">行权价</td>
+<td data-label="含义">合约约定的买卖价格，选定后不会跟着现货报价变化</td>
+</tr>
+<tr>
+<td data-label="名称">到期日</td>
+<td data-label="含义">这项权利的期限；能否提前行权，取决于合约规则</td>
+</tr>
+<tr>
+<td data-label="名称">权利金</td>
+<td data-label="含义">买方为这项权利支付的价格，不是行权价，也不是保证金</td>
+</tr>
+</tbody>
+</table></div>
+<div aria-label="四种操作：谁有权利，谁承担义务？表格" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>买卖的是什么？</th>
+<th>单个仓位的方向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="操作">买 Put</td>
+<td data-label="买卖的是什么？">获得按约定价格卖出的权利</td>
+<td data-label="单个仓位的方向">偏看空</td>
+</tr>
+<tr>
+<td data-label="操作">卖 Put</td>
+<td data-label="买卖的是什么？">承担按约定价格买入的义务</td>
+<td data-label="单个仓位的方向">偏看多</td>
+</tr>
+<tr>
+<td data-label="操作">买 Call</td>
+<td data-label="买卖的是什么？">获得按约定价格买入的权利</td>
+<td data-label="单个仓位的方向">偏看多</td>
+</tr>
+<tr>
+<td data-label="操作">卖 Call</td>
+<td data-label="买卖的是什么？">承担按约定价格卖出的义务</td>
+<td data-label="单个仓位的方向">偏看空</td>
+</tr>
+</tbody>
+</table></div>
+<p>现金结算的期权用差额实现这些经济结果，不一定交付币或股票。组合持仓的方向，要把现货和期权一起看。</p>
+<p>下面四张图统一假设：<strong>1 单位资产、行权价 100 U、权利金 5 U</strong>，不计费用。横轴是到期资产价格，纵轴是计入权利金后的净盈亏。<strong>绿色盈利，红色亏损。</strong></p>
+<h3>买 Put：花钱获得卖出保障</h3>
+<p>到期跌到 80，按 100 卖出的权利值 20，扣去权利金后赚 15；到期在 100 或以上，亏掉 5。盈亏平衡点是 95。</p>
+<figure class="chart"><a aria-label="放大查看：买 Put：最多亏掉权利金，价格跌过盈亏平衡点后盈利。" class="zoom-image" href="assets/buy-put.png" title="点击放大"><img alt="买 Put：最多亏掉权利金，价格跌过盈亏平衡点后盈利。" decoding="async" height="1440" loading="lazy" src="assets/buy-put.png" width="2560"/></a></figure>
+<h3>卖 Put：收钱，承担接货或赔付义务</h3>
+<p>同样到期跌到 80，履约差额为 20，减去先收到的 5，净亏 15；到期在 100 或以上，最多赚 5。标的跌到零时，本例最多亏 95。</p>
+<figure class="chart"><a aria-label="放大查看：卖 Put：最多赚取权利金，下跌损失可能远大于这笔收入。" class="zoom-image" href="assets/sell-put.png" title="点击放大"><img alt="卖 Put：最多赚取权利金，下跌损失可能远大于这笔收入。" decoding="async" height="1440" loading="lazy" src="assets/sell-put.png" width="2560"/></a></figure>
+<h3>买 Call：花钱获得买入权利</h3>
+<p>到期涨到 103，权利值 3，但花了 5，仍亏 2；涨到 120，净赚 15。<strong>超过行权价，不代表已经回本</strong>；本例要涨过 105 才盈利。</p>
+<figure class="chart"><a aria-label="放大查看：买 Call：最多亏掉权利金，理论上涨收益没有上限。" class="zoom-image" href="assets/buy-call.png" title="点击放大"><img alt="买 Call：最多亏掉权利金，理论上涨收益没有上限。" decoding="async" height="1440" loading="lazy" src="assets/buy-call.png" width="2560"/></a></figure>
+<h3>卖 Call：收钱，承担卖出或赔付义务</h3>
+<p>到期涨到 120，要支付 20 的差额，扣去收到的 5，净亏 15。裸卖 Call 的理论亏损没有上限；若同时持有现货，还要加上现货的盈亏。</p>
+<figure class="chart"><a aria-label="放大查看：卖 Call：图中只计期权空头，不包含现货持仓。" class="zoom-image" href="assets/sell-call.png" title="点击放大"><img alt="卖 Call：图中只计期权空头，不包含现货持仓。" decoding="async" height="1440" loading="lazy" src="assets/sell-call.png" width="2560"/></a></figure>
+<p>计算到期盈亏时，先算权利值：Call 看高于行权价多少，Put 看低于行权价多少，没有则为零。<strong>买方＝权利值−权利金；卖方＝权利金−权利值。</strong></p>
+<h2 id="chain">看懂盘口、IV 和 Delta</h2>
+<p>交易界面通常是一张“期权链”：选定到期日后，每一行对应一个行权价，左右分别是 Call 和 Put。</p>
+<figure class="chart"><a aria-label="放大查看：历史期权界面：顶部选到期日，中间是行权价，左侧 Call，右侧 Put。" class="zoom-image" href="assets/options-chain.png" title="点击放大"><img alt="历史期权界面：顶部选到期日，中间是行权价，左侧 Call，右侧 Put。" decoding="async" height="1320" loading="lazy" src="assets/options-chain.png" width="3081"/></a><figcaption>图中为历史报价，用于读懂界面；点击图片可放大查看。</figcaption></figure>
+<div aria-label="看懂盘口、IV 和 Delta表格" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>读法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="项目">标的、到期日、行权价、Call／Put</td>
+<td data-label="读法">一起确定你交易的是哪份合约</td>
+</tr>
+<tr>
+<td data-label="项目">买价 Bid／卖价 Ask</td>
+<td data-label="读法">别人愿意买／卖的价格；主动买看 Ask，主动卖看 Bid</td>
+</tr>
+<tr>
+<td data-label="项目">报价数量</td>
+<td data-label="读法">该报价附近的可成交数量；大单可能成交在更差的价格</td>
+</tr>
+<tr>
+<td data-label="项目">标记价格 Mark</td>
+<td data-label="读法">平台用于估值和风控的参考价，不保证能以此成交</td>
+</tr>
+<tr>
+<td data-label="项目">买价 IV／卖价 IV／标记 IV</td>
+<td data-label="读法">分别由买价、卖价、标记价格反推的波动率</td>
+</tr>
+<tr>
+<td data-label="项目">Delta</td>
+<td data-label="读法">标的小幅变动时，期权价格大约变多少</td>
+</tr>
+<tr>
+<td data-label="项目">持仓量／仓位</td>
+<td data-label="读法">前者是市场数据，后者是自己的持仓；注意显示单位</td>
+</tr>
+</tbody>
+</table></div>
+<p>例如截图中行权价 <strong>77,500</strong> 的 Call：买价约 <strong>670</strong>，卖价约 <strong>675</strong>。若以 675 买入，立即以 670 卖回，即使 BTC 没动，也损失 5 个报价单位，另加费用。总金额还要乘上数量与合约乘数。</p>
+<p>盘口显示 0 或没有有效报价，通常表示这一侧缺少可成交挂单；不代表期权免费。标记价也不能代替实际成交价。</p>
+<h3>IV：从期权价格倒推的波动率</h3>
+<p>IV 是隐含波动率。定价模型假设一个波动率，算出期权价格；不断调整这个假设，直到价格与市场报价匹配，就得到 IV。<a href="https://www.optionseducation.org/referencelibrary/faq/technical-information" rel="noopener noreferrer" target="_blank">OIC 说明</a></p>
+<p><strong>历史波动率看过去怎么涨跌，IV 看现在的期权报价包含了多少波动预期。</strong>其他条件相同，普通期权报价越高，反推的 IV 通常越高。</p>
+<p>标记 IV 就是用标记价格反推的结果。屏幕上的 40% 通常是年化口径，不表示未来一定涨 40%，也不区分涨跌方向。</p>
+<h3>Delta：金额变化，不是收益率</h3>
+<p>假设 Call 的 Delta 是 <strong>0.47</strong>。其他条件不变，标的小幅上涨 1 U，期权价格大约上涨 0.47 U；买方受益，卖方相反。Put 的 Delta 若为 <strong>−0.6</strong>，标的上涨 1 U，期权价格则大约减少 0.6 U。<a href="https://www.optionseducation.org/advancedconcepts/delta" rel="noopener noreferrer" target="_blank">OIC 说明</a></p>
+<p>普通线性期权按每单位标的计算：</p>
+<div aria-label="Delta：金额变化，不是收益率表格" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>持仓</th>
+<th>Delta 通常范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="持仓">买 Call</td>
+<td data-label="Delta 通常范围">0 到 +1</td>
+</tr>
+<tr>
+<td data-label="持仓">卖 Call</td>
+<td data-label="Delta 通常范围">−1 到 0</td>
+</tr>
+<tr>
+<td data-label="持仓">买 Put</td>
+<td data-label="Delta 通常范围">−1 到 0</td>
+</tr>
+<tr>
+<td data-label="持仓">卖 Put</td>
+<td data-label="Delta 通常范围">0 到 +1</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Delta 会变。</strong>同一份合约中，标的上涨，Call 买方的 Delta 通常更靠近 +1，Put 买方的 Delta 更靠近 0；下跌则相反。越接近到期，明显价内的 Call／Put 分别趋近 +1／−1，明显价外的趋近 0；平值附近变化最快。<a href="https://www.cmegroup.com/education/courses/option-greeks/options-delta-the-greeks" rel="noopener noreferrer" target="_blank">CME 说明</a></p>
+<p>“价内”指 Call 的现价高于行权价，或 Put 的现价低于行权价；两者接近是平值，相反是价外。价内只说明有行权价值，不代表扣除权利金后赚钱。</p>
+<p>两个容易混淆的地方：</p>
+<ul>
+<li><strong>期权链里纵向变化的是行权价。</strong>同一时刻，Put 行权价越高，通常越价内，买方 Delta 越靠近 −1，绝对值越大。</li>
+<li><strong>总持仓 Delta 可以大于 1。</strong>每份对应 1 单位资产，三份 Delta 为 0.6 的 Call，总 Delta 就是约 1.8。币本位计价或特殊合约要另看平台口径。</li>
+</ul>
+<p>因此，不能拿固定 Delta 推算整段大行情，也不能把 Delta 0.5 理解成“期权涨了 50%”。</p>
+<h2 id="settlement">从开仓到到期：需要手动做什么？</h2>
+<p>开仓前确认：<strong>合约、每张对应数量、权利金与结算币种、费用、卖方保证金。</strong>美股标准期权常见一张 100 股，不能把这个倍数套给所有合约。</p>
+<div aria-label="从开仓到到期：需要手动做什么？表格" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>持仓</th>
+<th>开仓时</th>
+<th>提前结束</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="持仓">买方</td>
+<td data-label="开仓时">支付权利金</td>
+<td data-label="提前结束">卖出同一合约平仓</td>
+</tr>
+<tr>
+<td data-label="持仓">卖方</td>
+<td data-label="开仓时">收权利金，满足保证金要求</td>
+<td data-label="提前结束">买回同一合约平仓</td>
+</tr>
+</tbody>
+</table></div>
+<p>卖掉已有的期权多头是平仓，与新建卖方仓位不同。欧式期权一般只能到期行权，但仍可在有对手盘时提前交易平仓；美式期权可能提前行权，卖方也可能提前被指派。</p>
+<h3>现金结算：通常到期自动处理</h3>
+<p>例如 Deribit 的期权到期自动处理，无需手动点行权。其 USDC 期权会先生成对应期货，再立即以 USDC 结算，最终经济效果是支付差额，账户不会因此自动获得 BTC 现货。<a href="https://support.deribit.com/hc/en-us/articles/31424932728093-Linear-USDC-Options" rel="noopener noreferrer" target="_blank">合约规则</a></p>
+<p>假设你卖出对应 <strong>1 ETH、行权价 2,800 U</strong> 的现金结算 Put，开仓收取 <strong>100 U</strong>，忽略费用：</p>
+<div aria-label="现金结算：通常到期自动处理表格" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>到期结算价</th>
+<th>到期处理</th>
+<th>卖方整笔净盈亏</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="到期结算价">3,000 U</td>
+<td data-label="到期处理">期权失效，无差额赔付</td>
+<td class="gain" data-label="卖方整笔净盈亏">+100 U</td>
+</tr>
+<tr>
+<td data-label="到期结算价">2,750 U</td>
+<td data-label="到期处理">向买方支付 50 U</td>
+<td class="gain" data-label="卖方整笔净盈亏">+50 U</td>
+</tr>
+<tr>
+<td data-label="到期结算价">2,500 U</td>
+<td data-label="到期处理">向买方支付 300 U</td>
+<td class="loss" data-label="卖方整笔净盈亏">−200 U</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>到期收到或支付的钱，不等于整笔交易的净利润。</strong>权利金已经在开仓时收付，到期不会再扣一遍。</p>
+<h3>实物交割：可能真的买入或交出股票</h3>
+<p>卖 Put 被指派，要按行权价付款接股；卖 Call 被指派，要按行权价交股并收款。很多券商有到期自动行权安排，具体门槛、资金与股票要求按券商规则执行。<a href="https://www.optionseducation.org/referencelibrary/faq/options-assignment" rel="noopener noreferrer" target="_blank">OIC 行权说明</a></p>
+<p>不想接受到期结果，就在到期前主动平仓。前面四张收益图画的是“持有到期”，不能直接用来读取今天的平仓价格。</p>
+<h2 id="margin">卖方保证金：估值加上一层风险缓冲</h2>
+<p>卖出对应 1 BTC 的 Call，不一定要先押入 1 BTC。交易所允许以部分保证金开仓，但<strong>保证金门槛不代表最大亏损</strong>。</p>
+<div aria-label="卖方保证金：估值加上一层风险缓冲表格" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>金额</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="金额">权利金</td>
+<td data-label="作用">卖期权收到的钱</td>
+</tr>
+<tr>
+<td data-label="金额">初始保证金 IM</td>
+<td data-label="作用">开仓或增加仓位的资金要求</td>
+</tr>
+<tr>
+<td data-label="金额">维持保证金 MM</td>
+<td data-label="作用">继续持仓的最低资金要求，随市场重新计算</td>
+</tr>
+</tbody>
+</table></div>
+<p>以币安普通卖方模式、合约单位为 1 BTC 的期权为例：</p>
+<p><strong>IM＝［V＋max（10% × S，15% × S − D）］× Q</strong></p>
+<p><strong>MM＝［V＋max（5% × S，7.5% × S − D）］× Q</strong></p>
+<p>S 是 BTC 指数价格，V 是每 1 BTC 对应的期权当前标记价格，Q 是对应 BTC 数量。D 是虚值金额：Call 取 max（行权价−S，0）；Put 取 max（S−行权价，0）。max 表示取较大值。<a href="https://www.binance.com/en/support/faq/detail/1ceb77f837344e3085ecf98d9a6a8097" rel="noopener noreferrer" target="_blank">币安公式</a></p>
+<p>自然语言就是：<strong>计入期权当前估值，再加与币价、虚值程度有关的缓冲，并设最低要求。</strong></p>
+<p>假设 BTC 为 100,000 USDT，Call 行权价 110,000，标记价 2,000，卖出数量对应 1 BTC，则 D＝10,000：</p>
+<ul>
+<li>IM＝2,000＋max（10,000，15,000−10,000）＝<strong>12,000 USDT</strong>。</li>
+<li>MM＝2,000＋max（5,000，7,500−10,000）＝<strong>7,000 USDT</strong>。</li>
+</ul>
+<p>币价向不利方向变化，或 IV 上升推高期权标记价，都可能增加资金压力。实际需追加多少，还取决于账户余额、其他仓位和费用；不足以维持仓位时可能被强平。</p>
+<p><a href="https://support.deribit.com/hc/en-us/articles/31424939096093-Inverse-Options" rel="noopener noreferrer" target="_blank">Deribit</a> 与 <a href="https://www.okx.com/help/ii-option-margin" rel="noopener noreferrer" target="_blank">OKX</a> 的系数、计价币种和账户抵扣规则不同，不能直接套用上述币安公式。</p>
+<h2 id="dual">例子一：双币赢</h2>
+<p>双币赢，也叫双币投资，可以理解为把期权卖方的收益结构包装成产品：</p>
+<div aria-label="例子一：双币赢表格" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>方向</th>
+<th>投入资产</th>
+<th>到期结果</th>
+<th>对应结构</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="方向">低买</td>
+<td data-label="投入资产">稳定币</td>
+<td data-label="到期结果">判定价≤目标价，按目标价换币；否则留在稳定币</td>
+<td data-label="对应结构">现金担保卖 Put</td>
+</tr>
+<tr>
+<td data-label="方向">高卖</td>
+<td data-label="投入资产">币</td>
+<td data-label="到期结果">判定价≥目标价，按目标价换成稳定币；否则继续持币</td>
+<td data-label="对应结构">持币卖备兑 Call</td>
+</tr>
+</tbody>
+</table></div>
+<p>本金及收益如何换币，按产品规则结算；判断依据是到期判定价，并非期间触及目标价。<a href="https://www.binance.com/en/support/faq/detail/09911be9f5754c34806bd3ab4a427e0e" rel="noopener noreferrer" target="_blank">币安规则</a></p>
+<p>这类结构可以手动用期权组合。使用现金结算期权时，实际换币还要另做现货交易，并匹配数量、费用与奖励口径。<strong>低买承担接货后的下跌，高卖让出目标价以上的上涨空间。</strong></p>
+<p>下面用对应的期权组合画出到期盈亏，均以 U 计价、计入权利金。图中权利金单独计算；具体双币赢产品若把收益与本金一起换币，金额需按其规则重算。</p>
+<h3>低买：现金担保卖 Put</h3>
+<p>预留 <strong>100 U</strong>，卖出对应 1 单位币、行权价 <strong>100 U</strong> 的 Put，收 <strong>5 U</strong>。到期在 100 U 以上，最多赚 5 U；跌到 80 U，按 100 U 接货，抵掉权利金后亏 15 U。<strong>盈亏平衡点为 95 U。</strong></p>
+<figure class="chart"><a aria-label="放大查看：双币赢低买对应现金担保卖 Put：盈亏平衡点 95 U，最高盈利 5 U，价格继续下跌时亏损增加。" class="zoom-image" href="assets/dual-buy-put.png" title="点击放大"><img alt="双币赢低买对应现金担保卖 Put：盈亏平衡点 95 U，最高盈利 5 U，价格继续下跌时亏损增加。" decoding="async" height="1440" loading="lazy" src="assets/dual-buy-put.png" width="2560"/></a><figcaption>低买的期权组合示意：<a href="https://www.optionseducation.org/strategies/all-strategies/cash-secured-put" rel="noopener noreferrer" target="_blank">现金担保卖 Put</a>。</figcaption></figure>
+<h3>高卖：持币＋卖 Call</h3>
+<p>持有成本 <strong>100 U</strong> 的 1 单位币，卖出行权价 <strong>110 U</strong> 的 Call，收 <strong>5 U</strong>。到期涨到 110 U 或以上，组合最多赚 <strong>15 U＝10 U 涨幅＋5 U 权利金</strong>；跌到 80 U，组合仍亏 15 U。<strong>盈亏平衡点为 95 U。</strong></p>
+<figure class="chart"><a aria-label="放大查看：双币赢高卖对应持币加卖 Call：盈亏平衡点 95 U，最高盈利 15 U；包含持币盈亏，灰色虚线对比只持币。" class="zoom-image" href="assets/dual-sell-call.png" title="点击放大"><img alt="双币赢高卖对应持币加卖 Call：盈亏平衡点 95 U，最高盈利 15 U；包含持币盈亏，灰色虚线对比只持币。" decoding="async" height="1440" loading="lazy" src="assets/dual-sell-call.png" width="2560"/></a><figcaption>高卖图包含持币与期权的合计盈亏；灰色虚线为只持币的结果。<a href="https://www.optionseducation.org/strategies/all-strategies/covered-call-buy-write" rel="noopener noreferrer" target="_blank">备兑 Call</a>。</figcaption></figure>
+<h2 id="zero-dte">例子二：末日期权</h2>
+<p>末日期权，也叫 0DTE，是当天到期的普通 Put 或 Call。有人用它交易当天涨跌或做短时对冲，也有人卖出收取权利金。<a href="https://www.cboe.com/tradable-products/0dte" rel="noopener noreferrer" target="_blank">Cboe 说明</a></p>
+<p>临近到期且价格靠近行权价时，Delta 可能迅速变化。买方可能很快亏掉全部权利金；卖方收到的钱少，也不代表风险小。</p>
+<h2 id="duan">例子三：段永平的苹果与泡泡玛特操作</h2>
+<h3>苹果：先收权利金，接受按约定价格接货</h3>
+<figure class="evidence evidence-full"><a aria-label="放大查看：段永平公开的苹果卖 Put 成交单局部。" class="zoom-image" href="assets/duan-apple-trade.png" title="点击放大"><img alt="段永平公开的苹果卖 Put 成交单局部。" decoding="async" height="424" loading="lazy" src="assets/duan-apple-trade.png" style="width:667px;aspect-ratio:667/424" width="667"/></a><figcaption>来源：<a href="https://xueqiu.com/1247347556/338780522" rel="noopener noreferrer" target="_blank">2025 年 6 月 15 日本人原帖</a>。图中成交日为 6 月 12 日。</figcaption></figure>
+<div aria-label="苹果：先收权利金，接受按约定价格接货表格" class="table-wrap" role="region" tabindex="0"><table class="timeline">
+<thead>
+<tr>
+<th>日期</th>
+<th>操作或结果</th>
+<th>标的价格</th>
+<th>关键参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="日期"><span class="cell-value">2025-06-12</span></td>
+<td data-label="操作或结果"><span class="cell-value">卖出 999 张苹果 Put</span></td>
+<td data-label="标的价格"><span class="cell-value">当日未复权收盘 <strong>199.20 美元</strong>；成交瞬间股价未披露</span></td>
+<td data-label="关键参数"><span class="cell-value">行权价 195；2026-01-16 到期；每张 100 股，显示权利金 14.45 美元／股</span></td>
+</tr>
+<tr>
+<td data-label="日期"><span class="cell-value">2026-01-16</span></td>
+<td data-label="操作或结果"><span class="cell-value">到期收盘高于行权价</span></td>
+<td data-label="标的价格"><span class="cell-value">收盘 <strong>255.53 美元</strong></span></td>
+<td data-label="关键参数"><span class="cell-value">若原仓位正常持有到期，Put 失效；按成交单扣开仓佣金的收款，保留约 <strong>144.34 万美元</strong></span></td>
+</tr>
+</tbody>
+</table></div>
+<p>如果被指派，他要按 195 美元买股，扣除约 14.45 美元权利金后，净成本约 <strong>180.55 美元</strong>；没有被指派，就留下权利金。</p>
+<p>这里的到期收益是“原仓位持有至正常到期”的测算，未取得他的最终账户结算单。原帖所说约 18% 年化，还计入现金利息，分母采用扣除权利金后的净投入，不能直接当作这笔 Put 已实现的年收益率。</p>
+<h3>泡泡玛特：卖 Put、换股，以及持股卖 Call</h3>
+<div aria-label="泡泡玛特：卖 Put、换股，以及持股卖 Call表格" class="table-wrap" role="region" tabindex="0"><table class="timeline">
+<thead>
+<tr>
+<th>日期</th>
+<th>操作或记录</th>
+<th>标的价格</th>
+<th>参数或结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="日期"><span class="cell-value">2026-04-09</span></td>
+<td data-label="操作或记录"><span class="cell-value">公开表示开始卖 Put，准备建仓</span></td>
+<td data-label="标的价格"><span class="cell-value">披露日收盘 <strong>152.70 港元</strong>；实际开仓价未确认</span></td>
+<td data-label="参数或结果"><span class="cell-value">宣布泡泡玛特的“保险公司”开张</span></td>
+</tr>
+<tr>
+<td data-label="日期"><span class="cell-value">2026-04-14</span></td>
+<td data-label="操作或记录"><span class="cell-value">披露卖 Put 数量已满</span></td>
+<td data-label="标的价格"><span class="cell-value">逐笔开仓日及股价未披露</span></td>
+<td data-label="参数或结果"><span class="cell-value"><strong>225,000 张×200 股＝4,500 万股</strong>对应数量，尚不等于已持有这些股票</span></td>
+</tr>
+<tr>
+<td data-label="日期"><span class="cell-value">2026-04-29</span></td>
+<td data-label="操作或记录"><span class="cell-value">四月 Put 到期</span></td>
+<td data-label="标的价格"><span class="cell-value">收盘 <strong>156.80 港元</strong></span></td>
+<td data-label="参数或结果"><span class="cell-value">高于报道所述的 150 港元行权价，该部分正常到期失效，保留权利金</span></td>
+</tr>
+<tr>
+<td data-label="日期"><span class="cell-value">2026-05-07</span></td>
+<td data-label="操作或记录"><span class="cell-value">披露把中国神华换成泡泡玛特</span></td>
+<td data-label="标的价格"><span class="cell-value">换股成交价未披露</span></td>
+<td data-label="参数或结果"><span class="cell-value">确认通过买股建立持仓</span></td>
+</tr>
+<tr>
+<td data-label="日期"><span class="cell-value">2026-07-30</span></td>
+<td data-label="操作或记录"><span class="cell-value">港交所记录权益变动</span></td>
+<td data-label="标的价格"><span class="cell-value">—</span></td>
+<td data-label="参数或结果"><span class="cell-value">申报好仓由 7.65% 降至 5.55%；这是权益变动日</span></td>
+</tr>
+<tr>
+<td data-label="日期"><span class="cell-value">2026-08-05</span></td>
+<td data-label="操作或记录"><span class="cell-value">回应后续 Put 到期</span></td>
+<td data-label="标的价格"><span class="cell-value">该批开仓价未披露</span></td>
+<td data-label="参数或结果"><span class="cell-value">与四月到期批次分开；具体合约参数未完整公开</span></td>
+</tr>
+<tr>
+<td data-label="日期"><span class="cell-value">2026-08-05</span></td>
+<td data-label="操作或记录"><span class="cell-value">确认部分股票被 Call 走</span></td>
+<td data-label="标的价格"><span class="cell-value">相关持股成本未完整公开</span></td>
+<td data-label="参数或结果"><span class="cell-value">由此前卖出的 Call 导致交股，与 Put 到期是两件事</span></td>
+</tr>
+<tr>
+<td data-label="日期"><span class="cell-value">2026-08-06</span></td>
+<td data-label="操作或记录"><span class="cell-value">回顾买股时同步卖 Call</span></td>
+<td data-label="标的价格"><span class="cell-value"><strong>161 港元</strong>，为本人所述买股价</span></td>
+<td data-label="参数或结果"><span class="cell-value">举例卖出一个月、行权价 <strong>162.5 港元</strong>的 Call；实际成交日未公开</span></td>
+</tr>
+<tr>
+<td data-label="日期"><span class="cell-value">2026-09-01</span></td>
+<td data-label="操作或记录"><span class="cell-value">港交所记录新增衍生工具购股义务</span></td>
+<td data-label="标的价格"><span class="cell-value">未确认</span></td>
+<td data-label="参数或结果"><span class="cell-value">持股和期权交易仍在延续</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>表中“披露日”与“成交日”分别标注；收盘价不等于下单瞬间价格。150 港元行权价只对应报道所述合约，不能套到全部 225,000 张。</p>
+<figure class="evidence evidence-short"><a aria-label="放大查看：段永平披露卖 Put 数量上限已满的原文节选。" class="zoom-image" href="assets/duan-put-size.png" title="点击放大"><img alt="段永平披露卖 Put 数量上限已满的原文节选。" decoding="async" height="26" loading="lazy" src="assets/duan-put-size.png" style="width:289px;aspect-ratio:289/26" width="289"/></a><figcaption>数量依据：<a href="https://xueqiu.com/1247347556/383788351" rel="noopener noreferrer" target="_blank">4 月 14 日本人原帖</a>。次日他在讨论中进一步说明，每张对应 200 股。</figcaption></figure>
+<figure class="evidence evidence-full"><a aria-label="放大查看：段永平在 8 月 5 日区分 Put 到期与部分股票被 Call 走。" class="zoom-image" href="assets/duan-expiry-response.png" title="点击放大"><img alt="段永平在 8 月 5 日区分 Put 到期与部分股票被 Call 走。" decoding="async" height="118" loading="lazy" src="assets/duan-expiry-response.png" style="width:652px;aspect-ratio:652/118" width="652"/></a><figcaption>到期回应：<a href="https://xueqiu.com/1247347556/403826416" rel="noopener noreferrer" target="_blank">8 月 5 日本人原帖</a>。</figcaption></figure>
+<p>公开记录能确认四月部分 Put 的到期结果，以及后续部分股票交付。<strong>不能据此认定 225,000 张全部被指派接货，也无法算出整组投资的最终总盈亏</strong>；还缺各批权利金、股票成本与后续交易记录。</p>
+<h2 id="qa">六个追问：为什么不直接买股票？</h2>
+<h3 id="q-1">1. 涨了只赚权利金，跌了还可能亏，为什么卖 Put 算建仓？</h3>
+<p><strong>它是在安排一个可能发生的买入。</strong>拿苹果这笔交易说，被指派就按 195 美元买股，扣权利金后的净成本约 180.55；未被指派，就只留下权利金。代价是可能没买到，也可能接货后继续跌。<a href="https://www.optionseducation.org/strategies/all-strategies/cash-secured-put" rel="noopener noreferrer" target="_blank">策略说明</a></p>
+<p>真正接到股票以后，后续上涨仍属于持有人，除非又卖了 Call 限制上涨。“最多赚权利金”说的是那笔 Put，不是此后持股的全部收益。</p>
+<p>他原本也已有苹果持仓：H&amp;H 的 2025 年一季度申报早于这笔卖 Put。旧持仓参与上涨，新 Put 安排潜在加仓，两者可以同时存在。<a href="https://www.sec.gov/Archives/edgar/data/1759760/000108514625003301/xslForm13F_X02/infotable.xml" rel="noopener noreferrer" target="_blank">SEC 持仓表</a></p>
+<h3 id="q-2">2. 那为什么不直接买股？他本人怎么解释？</h3>
+<p>直接买股能立即参与全部涨跌；卖 Put 则接受“没买到，只收权利金”的结果。合约做多也能提供上涨敞口，但不等于拥有股票，也不是同一收益结构。</p>
+<p><strong>泡泡玛特这一次，他说自己大部分资金已经投在其他资产中，需要时间决定用哪些持仓来换。</strong>4 月 14 日，他解释先卖 Put，同时考虑换仓；次日又补充了下面这句。<a href="https://xueqiu.com/1952147825/383767713/402751466" rel="noopener noreferrer" target="_blank">4 月 14 日直接回复</a></p>
+<figure class="evidence evidence-short"><a aria-label="放大查看：段永平在 4 月 15 日回应：先卖 Put，是为了留出考虑换股的时间。" class="zoom-image" href="assets/duan-capital-response.png" title="点击放大"><img alt="段永平在 4 月 15 日回应：先卖 Put，是为了留出考虑换股的时间。" decoding="async" height="87" loading="lazy" src="assets/duan-capital-response.png" style="width:659px;aspect-ratio:659/87" width="659"/></a><figcaption>来源：<a href="https://xueqiu.com/1043075279/383954978/402889082" rel="noopener noreferrer" target="_blank">4 月 15 日讨论页内 12:15 的本人回复</a>。</figcaption></figure>
+<p>这解释了他的资金安排，但卖 Put 仍要满足保证金和接货付款要求。公开资料没有披露其完整担保方式。</p>
+<p>他也不认为卖 Put 总比买股好。2023 年的回复提到，喜欢的公司价格不高不低、手里有闲钱时可以考虑；特别便宜时只卖 Put，可能错过持股的大机会。<a href="https://xueqiu.com/1247347556/244724347/277734128" rel="noopener noreferrer" target="_blank">2023 年本人回复</a></p>
+<h3 id="q-3">3. 161 买股，再卖 162.5 的 Call，涨多了不就亏了吗？</h3>
+<p><strong>要把股票和 Call 一起算。</strong>假设每股买入价 161，卖 162.5 Call 收 <strong>5 港元</strong>。5 港元是教学假设，不是他的已核实成交价；以下为到期每股盈亏，不计费用。</p>
+<div aria-label="3. 161 买股，再卖 162.5 的 Call，涨多了不就亏了吗？表格" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>到期股价</th>
+<th>股票盈亏</th>
+<th>卖 Call 盈亏</th>
+<th>合计</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="到期股价">150</td>
+<td class="loss" data-label="股票盈亏">−11</td>
+<td class="gain" data-label="卖 Call 盈亏">+5</td>
+<td class="loss" data-label="合计"><strong>−6</strong></td>
+</tr>
+<tr>
+<td data-label="到期股价">161</td>
+<td data-label="股票盈亏">0</td>
+<td class="gain" data-label="卖 Call 盈亏">+5</td>
+<td class="gain" data-label="合计"><strong>+5</strong></td>
+</tr>
+<tr>
+<td data-label="到期股价">170</td>
+<td class="gain" data-label="股票盈亏">+9</td>
+<td class="loss" data-label="卖 Call 盈亏">−2.5</td>
+<td class="gain" data-label="合计"><strong>+6.5</strong></td>
+</tr>
+<tr>
+<td data-label="到期股价">200</td>
+<td class="gain" data-label="股票盈亏">+39</td>
+<td class="loss" data-label="卖 Call 盈亏">−32.5</td>
+<td class="gain" data-label="合计"><strong>+6.5</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>到期股价达到 162.5 后，组合收益封顶于 6.5；跌破 <strong>156＝161−5</strong> 才开始净亏损。涨到 200 时，他比单独持股少赚，但组合本身仍盈利。<a href="https://www.optionseducation.org/strategies/all-strategies/covered-call-buy-write" rel="noopener noreferrer" target="_blank">备兑 Call 说明</a></p>
+<h3 id="q-4">4. 为什么“买股＋卖 Call”能替代卖 Put？</h3>
+<p>段永平在 8 月 6 日说，卖 Put 存在数量约束，所以有时改为买股时同时卖备兑 Call，并举出 161／162.5 的操作。</p>
+<figure class="evidence evidence-short"><a aria-label="放大查看：段永平说明 161 买股、同时卖一个月 162.5 Call 的原文节选。" class="zoom-image" href="assets/duan-covered-call.png" title="点击放大"><img alt="段永平说明 161 买股、同时卖一个月 162.5 Call 的原文节选。" decoding="async" height="23" loading="lazy" src="assets/duan-covered-call.png" style="width:328px;aspect-ratio:328/23" width="328"/></a><figcaption>来源：<a href="https://xueqiu.com/1247347556/403863283" rel="noopener noreferrer" target="_blank">8 月 6 日本人原帖</a>。该帖是回顾说明，不是已确认的成交日。</figcaption></figure>
+<p>用同一标的、同一到期日、同一行权价 162.5 比较：假设 Call 权利金 5、Put 权利金 6.5，股票现价 161，忽略利息、分红、费用及提前行权。</p>
+<div aria-label="4. 为什么“买股＋卖 Call”能替代卖 Put？表格" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>路径</th>
+<th>净成本</th>
+<th>到期 150</th>
+<th>到期 170</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="路径">备好现金，卖 Put</td>
+<td data-label="净成本">162.5−6.5＝156</td>
+<td data-label="到期 150">接到股票，亏 6</td>
+<td data-label="到期 170">Put 失效，赚 6.5</td>
+</tr>
+<tr>
+<td data-label="路径">买股票，卖备兑 Call</td>
+<td data-label="净成本">161−5＝156</td>
+<td data-label="到期 150">股票留下，亏 6</td>
+<td data-label="到期 170">按 162.5 交股，赚 6.5</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>两条路径都接受：低于行权价留下股票，高于行权价留下现金。</strong>这组假设满足简化的期权平价关系；实际报价、保证金要求与提前行权风险未必相同。<a href="https://www.optionseducation.org/advancedconcepts/put-call-parity" rel="noopener noreferrer" target="_blank">平价关系说明</a></p>
+<h3 id="q-5">5. 这是否说明他觉得 161 是底、162.5 是顶？</h3>
+<p>这些价格说明他接受怎样的买卖条件，不能直接证明他在预测短期顶底。</p>
+<p>2026 年 3 月，网友把他的英伟达期权操作解释成短期区间判断，他明确说“我其实完全没有对短期的预期”，并强调长期价值。</p>
+<figure class="evidence evidence-short"><a aria-label="放大查看：段永平在英伟达讨论中强调关注公司的长期价值。" class="zoom-image" href="assets/duan-long-term.png" title="点击放大"><img alt="段永平在英伟达讨论中强调关注公司的长期价值。" decoding="async" height="24" loading="lazy" src="assets/duan-long-term.png" style="width:308px;aspect-ratio:308/24" width="308"/></a><figcaption>来源：<a href="https://xueqiu.com/1247347556/380588002" rel="noopener noreferrer" target="_blank">3 月 23 日本人原帖</a>。这条回复说明一般思路；泡泡玛特的具体原因仍看对应回复。</figcaption></figure>
+<p>接受少赚一部分上涨，与判断它不会涨，是不同的取舍。</p>
+<h3 id="q-6">6. 四月 Put 到期，七月底的权益变化又是什么？</h3>
+<p>四月已到期的是当时那批 Put；7 月 30 日是港交所记录的权益变动日。8 月 5 日，他说明其中既有后续 Put 到期，也有此前卖出的 Call 导致部分股票交付。</p>
+<p><strong>Put 对应可能接货，Call 对应可能交股。</strong>申报好仓还包含衍生权益，比例下降不能全部换算成卖出了等量现货。后续合约的参数没有完整公开，不能把几个月的交易并成同一笔。</p>
+<h2 id="sources">原文与数据来源</h2><details class="sources-panel"><summary>查看本人回复索引、交易记录和行情来源</summary>
+<p>产品规则和行情资料沿用截至 <strong>2026 年 9 月 20 日</strong>的核查；本次重新查看了所配截图的原帖。截图均为原页面或公开成交单的局部，未改写图中文字。教学价格与已披露交易分别标注。</p>
+<h3>段永平本人回复</h3>
+<div aria-label="段永平本人回复表格" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>日期</th>
+<th>内容</th>
+<th>原文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="日期">2023-03-18</td>
+<td data-label="内容">卖 Put 的常见情境；特别便宜时可能错过机会</td>
+<td data-label="原文"><a href="https://xueqiu.com/1247347556/244724347/277734128" rel="noopener noreferrer" target="_blank">回复</a></td>
+</tr>
+<tr>
+<td data-label="日期">2026-03-23</td>
+<td data-label="内容">英伟达讨论：澄清短期价格预测</td>
+<td data-label="原文"><a href="https://xueqiu.com/1247347556/380588002" rel="noopener noreferrer" target="_blank">原帖</a></td>
+</tr>
+<tr>
+<td data-label="日期">2026-04-14</td>
+<td data-label="内容">泡泡玛特：资金已有安排，先考虑换仓</td>
+<td data-label="原文"><a href="https://xueqiu.com/1952147825/383767713/402751466" rel="noopener noreferrer" target="_blank">直接回复</a></td>
+</tr>
+<tr>
+<td data-label="日期">2026-04-15</td>
+<td data-label="内容">12:15 解释换股时间；11:38 说明合约数量、乘数与到期日</td>
+<td data-label="原文"><a href="https://xueqiu.com/1043075279/383954978/402889082" rel="noopener noreferrer" target="_blank">讨论页</a></td>
+</tr>
+<tr>
+<td data-label="日期">2026-08-05</td>
+<td data-label="内容">Put 到期与股票被 Call 走；20:06 有补充</td>
+<td data-label="原文"><a href="https://xueqiu.com/1247347556/403826416" rel="noopener noreferrer" target="_blank">原帖</a></td>
+</tr>
+<tr>
+<td data-label="日期">2026-08-06</td>
+<td data-label="内容">数量约束下的买股＋卖 Call；161／162.5 示例</td>
+<td data-label="原文"><a href="https://xueqiu.com/1247347556/403863283" rel="noopener noreferrer" target="_blank">原帖</a></td>
+</tr>
+</tbody>
+</table></div>
+<h3>交易记录与行情</h3>
+<ul>
+<li><strong>苹果：</strong><a href="https://xueqiu.com/1247347556/338780522" rel="noopener noreferrer" target="_blank">本人原帖与成交图片</a>、<a href="https://chartexchange.com/symbol/nasdaq-aapl/historical/" rel="noopener noreferrer" target="_blank">开仓日未复权行情</a>、<a href="https://www.trading212.com/trading-instruments/isa/AAPL.US" rel="noopener noreferrer" target="_blank">开仓行情交叉核对</a>、<a href="https://finance.yahoo.com/quote/AAPL/history/" rel="noopener noreferrer" target="_blank">到期历史行情</a>、<a href="https://www.financecharts.com/stocks/AAPL/summary/price" rel="noopener noreferrer" target="_blank">到期行情交叉核对</a>。<a href="https://www.sec.gov/Archives/edgar/data/1759760/000108514625003301/0001085146-25-003301-index.html" rel="noopener noreferrer" target="_blank">H&amp;H 申报主体与期间</a>对应公开机构组合，不代表他的全部个人账户。</li>
+<li><strong>泡泡玛特四月：</strong><a href="https://www.36kr.com/p/3787628678257920" rel="noopener noreferrer" target="_blank">操作与到期报道</a>、<a href="https://xueqiu.com/1247347556/383788351" rel="noopener noreferrer" target="_blank">本人披露 225,000 张</a>、<a href="https://www.hkex.com.hk/News/News-Release/2025/250930news?sc_lang=en" rel="noopener noreferrer" target="_blank">港交所每张 200 股规格</a>、<a href="https://www.hstong.com/news/detail/26040916112691898" rel="noopener noreferrer" target="_blank">4 月 9 日收盘参考</a>、<a href="https://hk.stockstar.com/RB2026042900066895.shtml" rel="noopener noreferrer" target="_blank">4 月 29 日到期收盘</a>。</li>
+<li><strong>泡泡玛特后续：</strong><a href="https://stock.caijing.com.cn/20260507/5158158.shtml" rel="noopener noreferrer" target="_blank">5 月换股披露</a>、<a href="https://di.hkex.com.hk/di/NSForm1.aspx?cid=0&amp;ed=07/08/2026&amp;fn=IS20260805E00004&amp;g_lang=zh-HK&amp;lang=ZH&amp;sa2=an&amp;sced=07/08/2026&amp;scsd=07/08/2025&amp;sd=07/08/2025&amp;sid=312028&amp;src=MAIN" rel="noopener noreferrer" target="_blank">港交所 7 月 30 日权益事件</a>、<a href="https://di.hkex.com.hk/di/NSForm1.aspx?ed=07/09/2026&amp;fn=IS20260905E00004&amp;lang=EN&amp;sa1=cl&amp;sa2=ns&amp;sc=09992&amp;sced=07/09/2026&amp;scsd=07/09/2025&amp;sd=07/09/2025&amp;sid=312028&amp;src=Main&amp;tk=ds" rel="noopener noreferrer" target="_blank">9 月 1 日权益事件</a>。</li>
+</ul>
+<p>合约、保证金、IV、Delta 与双币投资的官方资料已在对应段落链接。部分雪球回复需展开评论或登录，正文已保留理解案例所需的关键信息。</p></details>
+<div class="article-end"><a href="../">← 返回研究文章</a><a href="#content">回到顶部 ↑</a></div>
+</main></div>
+<footer class="site-footer"><span>© 2026 Crypto3D</span><a href="../">研究文章</a><a href="../../about">关于我们</a></footer>
+<dialog aria-label="查看图片" id="image-viewer"><div class="viewer-tools"><a id="original-image" rel="noopener" target="_blank">打开原图</a><button aria-label="关闭图片" id="close-viewer" type="button">关闭 ×</button></div><img alt="" id="viewer-image"/><p id="viewer-caption"></p></dialog>
+<script src="article.js"></script></body></html>
