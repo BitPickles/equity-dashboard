@@ -1,0 +1,110 @@
+{
+  "snapshot": {
+    "block": 26013098,
+    "utc": "2026-09-19T17:37:35.000Z",
+    "beijing": "2026-09-20T01:37:35+08:00",
+    "rpc": "https://ethereum-rpc.publicnode.com"
+  },
+  "denominator_definition": "Initial 1,000,000,000 native UNI: present address balances plus amounts already transferred to 0xdead. Not free float. No cross-chain representations or unsettled burns added.",
+  "remaining_uni": "888182418.916310080918815611",
+  "contract_totalSupply": "1000000000",
+  "categories": [
+    {
+      "id": "other",
+      "label": "其他地址持有",
+      "uni": "608426260.730699216885709433",
+      "share_pct": "60.842626073069921688570943300",
+      "state": "held"
+    },
+    {
+      "id": "treasury",
+      "label": "治理国库",
+      "uni": "267247996.305835021033106178",
+      "share_pct": "26.724799630583502103310617800",
+      "state": "held"
+    },
+    {
+      "id": "airdrop",
+      "label": "空投分发合约",
+      "uni": "12508161.879775843",
+      "share_pct": "1.250816187977584300",
+      "state": "held"
+    },
+    {
+      "id": "treasury_burn",
+      "label": "国库一次性销毁",
+      "uni": "100000000",
+      "share_pct": "10.0",
+      "state": "burned"
+    },
+    {
+      "id": "fee_burn",
+      "label": "持续费用机制销毁",
+      "uni": "11768000",
+      "share_pct": "1.176800",
+      "state": "burned"
+    },
+    {
+      "id": "other_burn",
+      "label": "其他销毁",
+      "uni": "49581.083689919081184389",
+      "share_pct": "0.004958108368991908118438900",
+      "state": "burned"
+    }
+  ],
+  "burn": {
+    "dead_balance": "111817581.083689919081184389",
+    "oneoff_treasury": "100000000",
+    "other_transfers_to_dead": "11817581.083689919081184389",
+    "transaction": "0x091f0083242a777d55821c1189e568d6d033d9da501b75087dc736fa143d2c1e",
+    "block": 24106378,
+    "utc": "2025-12-27T20:33:11.000000Z",
+    "beijing": "2025-12-28T04:33:11+08:00",
+    "from": "0x1a9C8182C09F50C8318d769245beA52c32BE35BC",
+    "to": "0x000000000000000000000000000000000000dEaD",
+    "continuous_fee_burn_settled": "11768000",
+    "misc_burn": "49581.083689919081184389",
+    "misc_before_unification": "49576.620993742992468666",
+    "misc_after_unification": "4.462696176088715723"
+  },
+  "remaining_restrictions": {
+    "original_treasury_vesting_balances": 0,
+    "original_treasury_vesting_end_utc": "2024-09-17T00:00:00+00:00",
+    "growth_budget_allowance_uni": "25000000",
+    "quarterly_uni": "5000000",
+    "currently_claimable_quarters": 0,
+    "next_unlock_utc": "2026-10-01T00:00:00+00:00",
+    "last_scheduled_tranche_if_unchanged_utc": "2027-10-01T00:00:00+00:00",
+    "budget_location": "Included in treasury balance; not an additional separately-held token balance. Governance may revoke/change allowance.",
+    "scope": "Initial published allocations and named public contracts; not an exhaustive audit of private employee vesting or all ecosystem staking/lockups."
+  },
+  "denominator_uni": "1000000000",
+  "reconciliation": {
+    "block": 26013098,
+    "utc": "2026-09-19T17:37:35.000Z",
+    "total_dead_uni": "111817581.083689919081184389",
+    "oneoff_treasury_uni": "100000000",
+    "continuous_fee_burn_settled_uni": "11768000",
+    "other_burn_uni": "49581.083689919081184389",
+    "other_before_unification_uni": "49576.620993742992468666",
+    "other_after_unification_uni": "4.462696176088715723",
+    "counts": {
+      "before": 28,
+      "since": 4453,
+      "continuous_amount_rows": 4436,
+      "matched_utc_days": 265
+    },
+    "tracker_snapshot_utc": "2026-09-19T14:46:53.309Z",
+    "sources": {
+      "before_transfers": "https://eth.blockscout.com/api?module=account&action=tokentx&address=0x000000000000000000000000000000000000dead&contractaddress=0x1f9840a85d5af5bf1d1762f925bdaddc4201f984&startblock=0&endblock=24106377&sort=desc&page=1&offset=10000",
+      "since_transfers": "https://eth.blockscout.com/api?module=account&action=tokentx&address=0x000000000000000000000000000000000000dead&contractaddress=0x1f9840a85d5af5bf1d1762f925bdaddc4201f984&startblock=24106378&endblock=26013098&sort=desc&page=1&offset=10000",
+      "tracker": "https://uniburns.com/api/data"
+    },
+    "checks": {
+      "all_transfers_equal_dead_balance_wei_exact": true,
+      "each_daily_regular_transfer_sum_equals_tracker_mainnet_settled": true
+    },
+    "method": "Nonoverlapping Blockscout token-transfer ranges from genesis to fixed block. Every transfer is native UNI into 0xdead. Post-UNIfication 2000/4000 UNI transfers reconcile on each UTC day to Allium-backed UNI Burns mainnet uni_burned. This cross-check is not an independent trace of every fee-source contract or every open-market purchase.",
+    "crosschain": "Only mainnet-settled burns are in the pie. Other-chain triggered totals are not added again."
+  }
+}

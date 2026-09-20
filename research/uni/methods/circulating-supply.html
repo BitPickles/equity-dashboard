@@ -1,0 +1,53 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CMC 历史流通量的可比性 | Crypto3D</title><meta name="description" content="UNI 研究的数据定义、计算方法与原始来源。"><link rel="canonical" href="https://crypto3d.pro/research/uni/methods/circulating-supply.html"><link rel="icon" href="../../../logo-3d-32.png"><meta property="og:type" content="website"><meta property="og:site_name" content="Crypto3D"><meta property="og:locale" content="zh_CN"><meta property="og:title" content="CMC 历史流通量的可比性"><meta property="og:description" content="UNI 研究的数据定义、计算方法与原始来源。"><meta property="og:url" content="https://crypto3d.pro/research/uni/methods/circulating-supply.html"><meta property="og:image" content="https://crypto3d.pro/research/uni/assets/valuation.png"><meta property="og:image:alt" content="UNI 市值、日均销毁与估值倍数"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="CMC 历史流通量的可比性"><meta name="twitter:description" content="UNI 研究的数据定义、计算方法与原始来源。"><meta name="twitter:image" content="https://crypto3d.pro/research/uni/assets/valuation.png"><script>try{if(localStorage.getItem('theme')!=='dark')document.documentElement.setAttribute('data-theme','light')}catch(e){document.documentElement.setAttribute('data-theme','light')}</script><link rel="stylesheet" href="../../assets/research.css"></head><body><a class="skip-link" href="#content">跳至正文</a><header class="site-header"><div class="site-header-inner"><a class="site-brand" href="../../../"><img src="../../../logo-3d.jpg" width="28" height="28" alt="">Crypto3D</a><nav class="site-nav" aria-label="网站导航"><a href="../../../equity/">协议估值</a><a href="../../../research/" aria-current="page">研究文章</a></nav><div class="hd-r"><button type="button" id="tt" aria-label="切换主题"></button></div></div></header><main id="content" class="method-page"><nav class="breadcrumbs"><a href="../">← 返回 UNI 研究</a></nav><h1>CMC 历史流通量的可比性</h1>
+<p>研究采用解锁计划图展示原始释放安排。原始快照有来源，但不具备已经核实的跨期统一口径；不能把连线解释为真实解锁、增发或销毁历史。不是已经证明 CMC 全部数值错误。</p>
+<h2>观测与影响</h2>
+<table>
+<thead>
+<tr>
+<th>对比时点</th>
+<th align="right">CMC 报告流通量</th>
+<th align="right">差额</th>
+<th align="right">相对前值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2023-02-26 → 2023-03-26</td>
+<td align="right">7.6221 → 5.7750 亿</td>
+<td align="right">-1.8471 亿</td>
+<td align="right">-24.23%</td>
+</tr>
+<tr>
+<td>2025-11-30 → 2025-12-28</td>
+<td align="right">6.3033 → 7.3037 亿</td>
+<td align="right">+1.0003 亿</td>
+<td align="right">+15.87%</td>
+</tr>
+<tr>
+<td>2025-12-28 → 2026-01-25</td>
+<td align="right">7.3037 → 6.3493 亿</td>
+<td align="right">-0.9544 亿</td>
+<td align="right">-13.07%</td>
+</tr>
+</tbody></table>
+<p>2023 年这一段的总供应量字段前后均为 10 亿枚。该事实不足以单独证明全部变动由统计修订造成，但不支持直接把 1.847 亿枚的流通量下降当成同额销毁。2025 年底及 2026 年初的变化同样尚无逐笔归因。</p>
+<h2>已检查与未检查</h2>
+<ul>
+<li>原始数据：74 个历史快照，日期无重复，资产均为 UNI / ID 7083；保留原始来源记录。</li>
+<li>独立核对抓取：2023-02-26、2023-03-26 的网页可见表格与底表相符，排除这两个点的取错列、资产串行或单位错误。</li>
+<li>口径：CMC 官方方法会排除其认定的内部人、国库等余额，即使相关代币已经解锁。流通量不等于累计解锁量。</li>
+<li>未取得：各历史时点排除地址的完整名单、名单调整时间、CMC 对上述 UNI 跳变的具体修订公告，以及对应的地址余额逐期核对。</li>
+<li>分析影响：不将这条历史曲线用于回购强度、销毁数量、解锁抛压或流通收缩的论证。此检查不否定另行取得的当前市值快照，也没有重新审计估值章节的全部来源。</li>
+</ul>
+<h2>图表采用的口径</h2>
+<p>历史解锁图按官方初始分配安排重建，不对异常流通量快照做平滑或插值。完整历史自由流通量仍需统一地址口径，或采用提供商已回溯修正且能说明方法的序列。</p>
+<h2>来源</h2>
+<ul>
+<li><a href="https://coinmarketcap.com/historical/20230226/">CMC 2023-02-26</a></li>
+<li><a href="https://coinmarketcap.com/historical/20230326/">CMC 2023-03-26</a></li>
+<li><a href="https://coinmarketcap.com/historical/20251130/">CMC 2025-11-30</a></li>
+<li><a href="https://coinmarketcap.com/historical/20251228/">CMC 2025-12-28</a></li>
+<li><a href="https://coinmarketcap.com/historical/20260125/">CMC 2026-01-25</a></li>
+<li><a href="https://support.coinmarketcap.com/hc/en-us/articles/360043396252-Supply-Circulating-Total-Max">CMC 当前供应量计算方法</a>：当前说明用于理解机制，不冒充 2023 年当时版本。</li>
+</ul>
+<p>核查日期：北京时间 2026-09-20。</p>
+</main><footer class="site-footer"><span>© 2026 Crypto3D</span><a href="../../../research/">研究文章</a><a href="../../../about">关于我们</a></footer><script src="../../../js/theme.js"></script></body></html>

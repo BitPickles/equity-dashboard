@@ -1,0 +1,792 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>UNI 价值捕获研究：从协议收入到代币销毁 | Crypto3D</title><meta name="description" content="从发行与解锁、多链协议费到 Robinhood Chain 的收入贡献，解析 UNI 回购销毁、估值倍数与增长预期。研究日期：2026 年 9 月 20 日。"><link rel="canonical" href="https://crypto3d.pro/research/uni/"><link rel="icon" href="../../logo-3d-32.png"><meta property="og:type" content="article"><meta property="og:site_name" content="Crypto3D"><meta property="og:locale" content="zh_CN"><meta property="og:title" content="UNI 价值捕获研究：从协议收入到代币销毁"><meta property="og:description" content="从发行与解锁、多链协议费到 Robinhood Chain 的收入贡献，解析 UNI 回购销毁、估值倍数与增长预期。研究日期：2026 年 9 月 20 日。"><meta property="og:url" content="https://crypto3d.pro/research/uni/"><meta property="og:image" content="https://crypto3d.pro/research/uni/assets/valuation.png"><meta property="og:image:alt" content="UNI 市值、日均销毁与估值倍数"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="UNI 价值捕获研究：从协议收入到代币销毁"><meta name="twitter:description" content="从发行与解锁、多链协议费到 Robinhood Chain 的收入贡献，解析 UNI 回购销毁、估值倍数与增长预期。研究日期：2026 年 9 月 20 日。"><meta name="twitter:image" content="https://crypto3d.pro/research/uni/assets/valuation.png"><script>try{if(localStorage.getItem('theme')!=='dark')document.documentElement.setAttribute('data-theme','light')}catch(e){document.documentElement.setAttribute('data-theme','light')}</script><link rel="stylesheet" href="../assets/research.css"><style>
+:root{--bg:#f7f7f5;--ink:#252733;--muted:#656b79;--line:#d9dde4;--pink:#a02464;--blue:#245e92}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:35px}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.8 'Microsoft YaHei',system-ui,sans-serif}
+.layout{display:grid;grid-template-columns:220px minmax(0,1040px);gap:44px;max-width:1370px;padding:45px 32px 90px;margin:auto}aside{position:sticky;top:35px;height:max-content}aside .label{font-size:12px;letter-spacing:2px;color:var(--pink);font-weight:700;margin-bottom:20px}aside a{display:block;text-decoration:none;padding:12px 0;color:var(--muted);line-height:1.5;font-size:15px}aside a:hover{color:var(--pink)}aside .downloads{border-top:1px solid var(--line);margin-top:20px;padding-top:12px}main{min-width:0}h1{font-size:36px;line-height:1.35;margin:0 0 27px;letter-spacing:-.5px}h2{font-size:27px;line-height:1.5;margin:65px 0 25px;padding:16px 0;border-top:3px solid var(--pink)}h3{font-size:21px;line-height:1.5;margin:32px 0 18px}p{margin:16px 0}a{color:var(--blue);text-underline-offset:4px}strong{font-weight:700}ul{padding-left:24px}li{padding:4px 0}.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:5px;margin:22px 0;background:white}table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.75}thead{background:#edf0f4}th,td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;min-width:80px}th{font-weight:700;text-align:left}tr:last-child td{border-bottom:none}th:first-child,td:first-child{min-width:145px}img{display:block;width:100%;height:auto;border-radius:5px;margin:26px 0}code{background:#e8ebee;padding:2px 5px;border-radius:3px;font-size:14px;overflow-wrap:anywhere}footer{margin-top:45px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:20px}
+@media(max-width:980px){.layout{grid-template-columns:1fr;padding:26px 22px 60px;gap:20px}aside{position:static;display:flex;flex-wrap:wrap;gap:0 20px}aside .label{width:100%;margin:0}aside .downloads{border:0;padding:0;margin:0;display:flex;gap:20px}h1{font-size:29px}h2{font-size:25px}body{font-size:16px}th,td{min-width:115px}img{margin:22px 0}}
+@media print{aside{display:none}.layout{display:block;max-width:none;padding:0}body{font-size:10pt;background:white}h1{font-size:23pt}h2{font-size:18pt;break-before:page;margin-top:0}h3{font-size:13pt;break-after:avoid}table{font-size:9pt}tr{break-inside:avoid}img{max-height:360px;object-fit:contain}.table-wrap{overflow:visible}a{color:inherit}}
+</style><link rel="stylesheet" href="../assets/article.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "UNI 价值捕获研究：从协议收入到代币销毁", "description": "从发行与解锁、多链协议费到 Robinhood Chain 的收入贡献，解析 UNI 回购销毁、估值倍数与增长预期。研究日期：2026 年 9 月 20 日。", "datePublished": "2026-09-20", "dateModified": "2026-09-20", "inLanguage": "zh-CN", "author": {"@type": "Organization", "name": "Crypto3D", "url": "https://crypto3d.pro/"}, "publisher": {"@type": "Organization", "name": "Crypto3D"}, "mainEntityOfPage": "https://crypto3d.pro/research/uni/", "image": "https://crypto3d.pro/research/uni/assets/valuation.png"}</script></head><body><a class="skip-link" href="#content">跳至正文</a><header class="site-header"><div class="site-header-inner"><a class="site-brand" href="../../"><img src="../../logo-3d.jpg" width="28" height="28" alt="">Crypto3D</a><nav class="site-nav" aria-label="网站导航"><a href="../../equity/">协议估值</a><a href="../../research/" aria-current="page">研究文章</a></nav><div class="hd-r"><button type="button" id="tt" aria-label="切换主题"></button></div></div></header><div class="layout"><aside aria-label="文章目录"><div class="label">UNI / 价值捕获研究</div><a href="#section-1">代币经济学</a><a href="#section-2">Robinhood 收入贡献</a><a href="#section-3">回购销毁与估值</a><a href="#section-4">增长预期</a><a href="#section-5">历史数据</a><a href="#section-6">数据口径与来源</a><div class="downloads"><a download="" href="downloads/uni-research.md">下载研究全文</a><a download="" href="downloads/uni-burn-history.xlsx">历史数据 Excel</a></div></aside><main id="content"><nav aria-label="当前位置" class="breadcrumbs"><a href="../../">首页</a><span>/</span><a href="../">研究文章</a><span>/</span><span>UNI</span></nav><h1>UNI 价值捕获研究：从协议收入到代币销毁</h1>
+<p>UNI 的价值捕获，正在从治理权延伸至协议收入驱动的代币销毁。多链收费开关的扩展，以及 Robinhood Chain 近期增长的交易活动，使交易收入与 UNI 供给之间的联系更加直接。</p>
+<p>理解这一变化，需要同时观察收入和供给：哪些交易已经向协议付费，费用如何转化为销毁，国库还持有多少 UNI，以及近期销毁规模对应怎样的估值倍数。<strong>近 30 日日均销毁约 9.48 万枚 UNI；Robinhood Chain 贡献了同期约 56.9% 的销毁美元估值；按这一窗口年化，流通市值对应的回购销毁倍数约为 28.6 倍。</strong></p>
+<p><strong>研究截至 2026 年 9 月 20 日。</strong> 历史数据覆盖 2025-12-29 至 2026-09-18，共 264 个完整 UTC 日；价格与市值快照为 <strong>2026-09-20 00:38:40（北京时间）</strong>。持仓与销毁分布采用 Ethereum 区块 26,013,098，即北京时间 2026-09-20 01:37:35。各项指标按其统计区间比较，具体定义见文末。</p>
+<h2 id="section-1">代币经济学：发行、供给与价值捕获</h2>
+<h3>初始发行与分配</h3>
+<p>UNI 于 <strong>2020 年 9 月 16 日</strong>推出，初始铸造 <strong>10 亿枚</strong>。社区合计 60%，团队、投资者与顾问合计 40%。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>初始分配</th>
+<th align="right">占初始供应</th>
+<th align="right">UNI 数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>社区国库</td>
+<td align="right">43%</td>
+<td align="right">4.30 亿</td>
+</tr>
+<tr>
+<td>历史用户与 LP 等空投</td>
+<td align="right">15%</td>
+<td align="right">1.50 亿</td>
+</tr>
+<tr>
+<td>初始流动性挖矿</td>
+<td align="right">2%</td>
+<td align="right">2,000 万</td>
+</tr>
+<tr>
+<td>团队及未来员工</td>
+<td align="right">21.266%</td>
+<td align="right">2.1266 亿</td>
+</tr>
+<tr>
+<td>投资者</td>
+<td align="right">18.044%</td>
+<td align="right">1.8044 亿</td>
+</tr>
+<tr>
+<td>顾问</td>
+<td align="right">0.69%</td>
+<td align="right">690 万</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td align="right"><strong>100%</strong></td>
+<td align="right"><strong>10 亿</strong></td>
+</tr>
+</tbody></table></div>
+<p>初始分配不等于当前持仓结构。原始安排包含四年释放期；即使该安排结束，国库仍可拨款并将存量代币转入市场。来源：<a href="https://blog.uniswap.org/uni">发行公告</a>。</p>
+<h3>原始解锁计划与流通供应</h3>
+<p><img alt="UNI 原始分配的累计解锁计划" decoding="async" loading="lazy" src="assets/unlock-schedule.png"/></p>
+<ul>
+<li><strong>累计计划解锁：</strong> 图中上半部分展示初始分配的累计解锁计划，下半部分分别展示社区国库、团队、投资者、顾问、空投可申领额度与初始流动性挖矿。原始四年计划于 2024 年 9 月结束，合计 10 亿枚；计划线不扣后续销毁，也不代表当前流通量。</li>
+<li><strong>历史流通量的可比性：</strong> CMC 快照从 2023-02-26 的约 7.622 亿枚，降到 2023-03-26 的约 5.775 亿枚，下降约 24.2%；同一来源的总量字段均为 10 亿。这两次快照之间缺少可核实的地址分类调整或资金变动解释，尚不足以据此重建同口径的历史流通曲线。</li>
+<li><strong>解锁量、流通量与剩余总量：</strong> 累计解锁量按既定计划累计；自由流通量还受国库、团队等排除地址及其余额影响，本身可以下降；剩余总量则应按铸造和销毁核对。上图描述原始释放安排，不代表自由流通量的历史变化。</li>
+</ul>
+<p>来源：<a href="https://blog.uniswap.org/uni">发行公告与原始释放图</a>、<a href="https://coinmarketcap.com/historical/20230226/">CMC 2023-02-26 快照</a>、<a href="https://coinmarketcap.com/historical/20230326/">CMC 2023-03-26 快照</a>、<a href="https://support.coinmarketcap.com/hc/en-us/articles/360043396252-Supply-Circulating-Total-Max">CMC 供应量定义</a>。下载：<a href="assets/unlock-schedule.png">4K PNG</a> · <a href="assets/unlock-schedule-1080p.png">1080P PNG</a> · <a href="assets/unlock-schedule.svg">SVG</a> · <a href="methods/unlock-schedule.html">解锁计划计算方法</a> · <a href="methods/circulating-supply.html">历史流通量口径说明</a>。</p>
+<h3>初始 10 亿枚的当前去向：现有持仓与已销毁</h3>
+<p><img alt="UNI 初始发行当前去向（含销毁）" decoding="async" loading="lazy" src="assets/supply-distribution.png"/></p>
+<p><strong>饼图以初始发行的 10 亿枚 UNI 为分母，同时展示现有持仓与已销毁数量。</strong> 快照为北京时间 <strong>2026-09-20 01:37:35</strong>，Ethereum 区块 <strong>26,013,098</strong>。各类别互斥，合计 10 亿枚。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>当前去向</th>
+<th align="right">UNI 数量</th>
+<th align="right">占初始发行</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>其他地址持有</td>
+<td align="right">608,426,260.730699</td>
+<td align="right">60.8426%</td>
+</tr>
+<tr>
+<td>治理国库</td>
+<td align="right">267,247,996.305835</td>
+<td align="right">26.7248%</td>
+</tr>
+<tr>
+<td>空投分发合约</td>
+<td align="right">12,508,161.879776</td>
+<td align="right">1.2508%</td>
+</tr>
+<tr>
+<td>国库一次性销毁</td>
+<td align="right">100,000,000.000000</td>
+<td align="right">10.0000%</td>
+</tr>
+<tr>
+<td>持续费用机制销毁</td>
+<td align="right">11,768,000.000000</td>
+<td align="right">1.1768%</td>
+</tr>
+<tr>
+<td>其他销毁</td>
+<td align="right">49,581.083690</td>
+<td align="right">0.0050%</td>
+</tr>
+</tbody></table></div>
+<p><strong>销毁来源：</strong> 1 亿枚由治理国库直接销毁，没有市场购币；持续费用机制已在主网结算 <strong>1,176.80 万枚</strong>。另有约 <strong>4.96 万枚</strong>其他销毁，主要在机制启动前已进入销毁地址，不归入费用回购。三者合计 <strong>1.1182 亿枚，占初始发行 11.1818%</strong>；扣除后剩余 <strong>8.8818 亿枚</strong>。合约 <code>totalSupply()</code> 本身仍返回 10 亿。</p>
+<p><strong>链上结算口径：</strong> 全历史 4,481 条 UNI 转入记录合计与销毁地址余额精确相等；持续费用金额的 265 个 UTC 日与 UNI Burns 主网已结算序列逐日一致。历史日序列统计各链已触发的销毁流程，包含跨链在途数量；饼图仅使用主网已结算数字。</p>
+<p><strong>原始解锁与后续国库预算：</strong> 原始四年分配计划已结束；当前国库仍有 <strong>2,500 万 UNI</strong> 季度预算待领取，每季度 <strong>500 万</strong>，下一期 <strong>2026-10-01</strong>，已包含在国库 <strong>26.72%</strong> 中。空投合约约 <strong>1,250.82 万枚</strong>没有时间解锁条件，仅标为合约余额，不等于逐笔确认过的有效未领取权利。其他地址不等于自由流通量，跨链映射币不重复计数。</p>
+<p><strong>1 亿枚的来源与日期：</strong> 治理国库 Timelock → <code>0xdead</code>，提案 93 执行于 <strong>2025-12-27 20:33:11 UTC</strong>，即北京时间 <strong>2025-12-28 04:33:11</strong>。相当于初始发行的 <strong>10%</strong>、原始国库 4.3 亿配额的 <strong>23.26%</strong>，没有按比例扣减团队或投资者钱包。</p>
+<p>来源：<a href="https://eth.blockscout.com/tx/0x091f0083242a777d55821c1189e568d6d033d9da501b75087dc736fa143d2c1e">执行交易</a>、<a href="https://vote.uniswapfoundation.org/proposals/93">提案 93</a>、<a href="https://uniburns.com/">UNI Burns</a>、<a href="methods/burn-reconciliation.html">余额与历史转入核对</a>。下载：<a href="assets/supply-distribution.png">4K PNG</a> · <a href="assets/supply-distribution-1080p.png">1080P PNG</a> · <a href="assets/supply-distribution.svg">SVG</a> · <a download="" href="downloads/supply-distribution.json">分类数据</a>。</p>
+<h3>从发行到持续销毁的时间线</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>时间 / 阶段</th>
+<th>已确认事项</th>
+<th>与 UNI 的关系</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2020-09-16</td>
+<td>发行 UNI</td>
+<td>初始功能以协议治理为主</td>
+</tr>
+<tr>
+<td>2025-12-27 UTC（北京时间 12-28）</td>
+<td>UNIfication 提案 #93 执行</td>
+<td>一次性销毁 1 亿枚国库 UNI；Ethereum V2 与选定 V3 池启用协议费；授权持续收入兑换销毁体系</td>
+</tr>
+<tr>
+<td>2025-12-29 起</td>
+<td>UNI Burns 日序列开始记录持续销毁</td>
+<td>统计起点晚于治理执行时点</td>
+</tr>
+<tr>
+<td>2026-03-07 / 03-08</td>
+<td>#94、#95 分批执行</td>
+<td>扩展多链 V2/V3 收费，并更新 V3 费档适配器；Celo 当时存在执行问题</td>
+</tr>
+<tr>
+<td>2026-06-01</td>
+<td>#96 执行</td>
+<td>BNB Chain、Polygon 扩展；修正并完成 Celo 的跨链收费开关操作</td>
+</tr>
+<tr>
+<td>2026-07-27</td>
+<td>#99、#100 执行</td>
+<td>Robinhood Chain V2/V3 启用；V4 第一批 7 条链启用</td>
+</tr>
+</tbody></table></div>
+<p>#93 的日期采用执行交易的区块时间，其他日期采用治理门户记录。跨链执行、池配置生效、收入收集和首次销毁之间可能存在时间差。来源：<a href="https://eth.blockscout.com/tx/0x091f0083242a777d55821c1189e568d6d033d9da501b75087dc736fa143d2c1e">提案 93 执行交易</a>、<a href="https://vote.uniswapfoundation.org/proposals/93">提案 93</a>、<a href="https://vote.uniswapfoundation.org/proposals/94">94</a>、<a href="https://vote.uniswapfoundation.org/proposals/95">95</a>、<a href="https://vote.uniswapfoundation.org/proposals/96">96</a>、<a href="https://vote.uniswapfoundation.org/proposals/99">99</a>、<a href="https://vote.uniswapfoundation.org/proposals/100">100</a>。</p>
+<h3>累计销毁：国库处置与持续费用机制</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th align="right">UNI 数量</th>
+<th align="right">占初始 10 亿枚</th>
+<th>性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>一次性国库销毁</td>
+<td align="right"><strong>100,000,000</strong></td>
+<td align="right"><strong>10.000%</strong></td>
+<td>2025 年底将已有国库代币转入销毁地址，无新增市场买入</td>
+</tr>
+<tr>
+<td>持续费用机制已触发</td>
+<td align="right"><strong>12,070,000</strong></td>
+<td align="right"><strong>1.207%</strong></td>
+<td>2025/12/29—2026/9/18 累计，含跨链待结算</td>
+</tr>
+<tr>
+<td>两项合计（含待结算）</td>
+<td align="right"><strong>112,070,000</strong></td>
+<td align="right"><strong>11.207%</strong></td>
+<td>国库处置与持续费用机制的合计，并非全部来自市场回购</td>
+</tr>
+</tbody></table></div>
+<p>持续机制的统计包含源链已触发、以太坊主网尚待结算的部分，因此高于上文饼图中的主网已结算数量。完整日累计为 <strong>1,207 万枚</strong>；9 月 19 日进行中快照约为 1,208.8 万枚，未纳入完整日汇总。来源：<a href="https://uniburns.com/api/data">UNI Burns</a>、<a href="https://vote.uniswapfoundation.org/proposals/93">一次性销毁执行内容</a>。</p>
+<h3>当前赋能与费用转换路径</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>当前机制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>治理</td>
+<td>UNI 可委托或投票，影响协议费参数、国库拨款及相关治理事项</td>
+</tr>
+<tr>
+<td>协议收入驱动销毁</td>
+<td>部分协议收入兑换成 UNI，进入销毁流程，减少可用供应</td>
+</tr>
+<tr>
+<td>直接分红</td>
+<td>当前机制不向每个 UNI 钱包自动发放现金或手续费</td>
+</tr>
+<tr>
+<td>Unichain 贡献</td>
+<td>排序器收入扣除 L1 数据成本与约定的 Optimism 15% 分配后，进入销毁机制</td>
+</tr>
+<tr>
+<td>Gas 用途</td>
+<td>Unichain 使用 ETH 支付原生 Gas</td>
+</tr>
+</tbody></table></div>
+<p><strong>机制关系：交易活动 → 已启用池的协议费 → TokenJar 累积费用资产 → 执行者交付 UNI、取走费用资产 → UNI 进入销毁流程。</strong></p>
+<p>这通常被称为“回购销毁”，更准确的经济动作是“协议收入兑换 UNI 并销毁”。执行者可使用市场买入的 UNI，也可使用库存；不存在固定每天同一时刻由项目方执行的美元买单。来源：<a href="https://developers.uniswap.org/docs/protocols/protocol-fee/concepts/fees">协议费文档</a>、<a href="https://github.com/Uniswap/protocol-fees">合约仓库</a>、<a href="https://blog.uniswap.org/unification">UNIfication</a>。</p>
+<p><img alt="手续费进入销毁机制" decoding="async" loading="lazy" src="assets/fee-to-burn.png"/></p>
+<h3>不同链的收费开关</h3>
+<p><strong>截至 2026 年 9 月 19 日，V2/V3 已在 12 条链启用协议费；V4 首批覆盖其中 7 条链的获批池族。</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>链</th>
+<th>V2/V3 状态</th>
+<th>对应治理执行阶段</th>
+<th>V4 状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ethereum</td>
+<td>已启用</td>
+<td>#93：2025/12/27 UTC；#94 后续扩大 V3 覆盖</td>
+<td>已启用，#100 首批</td>
+</tr>
+<tr>
+<td>Arbitrum One</td>
+<td>已启用</td>
+<td>#94：2026/3/7</td>
+<td>已启用，#100 首批</td>
+</tr>
+<tr>
+<td>Base</td>
+<td>已启用</td>
+<td>#94：2026/3/7</td>
+<td>已启用，#100 首批</td>
+</tr>
+<tr>
+<td>OP Mainnet</td>
+<td>已启用</td>
+<td>#94：2026/3/7</td>
+<td>已启用，#100 首批</td>
+</tr>
+<tr>
+<td>Soneium</td>
+<td>已启用</td>
+<td>#95：2026/3/8</td>
+<td>尚未启用</td>
+</tr>
+<tr>
+<td>X Layer</td>
+<td>已启用</td>
+<td>#95：2026/3/8</td>
+<td>尚未启用</td>
+</tr>
+<tr>
+<td>World Chain</td>
+<td>已启用</td>
+<td>#95：2026/3/8</td>
+<td>尚未启用</td>
+</tr>
+<tr>
+<td>Zora</td>
+<td>已启用</td>
+<td>#95：2026/3/8</td>
+<td>尚未启用</td>
+</tr>
+<tr>
+<td>Celo</td>
+<td>已启用</td>
+<td>#96：2026/6/1 完成修正</td>
+<td>尚未启用</td>
+</tr>
+<tr>
+<td>BNB Chain</td>
+<td>已启用</td>
+<td>#96：2026/6/1</td>
+<td>已启用，#100 首批</td>
+</tr>
+<tr>
+<td>Polygon</td>
+<td>已启用</td>
+<td>#96：2026/6/1</td>
+<td>已启用，#100 首批</td>
+</tr>
+<tr>
+<td>Robinhood Chain</td>
+<td>已启用</td>
+<td>#99：2026/7/27</td>
+<td>已启用，#100 首批</td>
+</tr>
+</tbody></table></div>
+<p>Unichain 的排序器收入单列统计。Arc 收费扩展仍处于提案阶段，未计入已启用范围。V4 首批七链对应 #100 于 2026/7/27 的执行，其余五链尚未纳入已执行范围。</p>
+<p>收费范围依据上述执行提案、<a href="https://gov.uniswap.org/t/temp-check-protocol-fee-expansion-arc/26287">9/18 扩链讨论</a>和 <a download="" href="downloads/fee-controllers.json">9/19 费用控制器快照</a>。部分概览文档更新滞后，状态以执行记录与链上配置为准。</p>
+<p><img alt="收费开关覆盖" decoding="async" loading="lazy" src="assets/fee-coverage.png"/></p>
+<h3>具体抽成比例</h3>
+<p>以下费率的分母均为<strong>交易输入金额</strong>；最后一列的分母才是交易手续费。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>版本 / 费档</th>
+<th align="right">总交易费率</th>
+<th align="right">LP 所得</th>
+<th align="right">协议所得</th>
+<th align="right">协议占总手续费</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V2</td>
+<td align="right">0.30%</td>
+<td align="right">0.25%</td>
+<td align="right">0.05%</td>
+<td align="right">1/6</td>
+</tr>
+<tr>
+<td>V3：0.01% 档</td>
+<td align="right">0.01%</td>
+<td align="right">0.0075%</td>
+<td align="right">0.0025%</td>
+<td align="right">1/4</td>
+</tr>
+<tr>
+<td>V3：0.05% 档</td>
+<td align="right">0.05%</td>
+<td align="right">0.0375%</td>
+<td align="right">0.0125%</td>
+<td align="right">1/4</td>
+</tr>
+<tr>
+<td>V3：0.30% 档</td>
+<td align="right">0.30%</td>
+<td align="right">0.25%</td>
+<td align="right">0.05%</td>
+<td align="right">1/6</td>
+</tr>
+<tr>
+<td>V3：1% 档</td>
+<td align="right">1%</td>
+<td align="right">约 0.8333%</td>
+<td align="right">约 0.1667%</td>
+<td align="right">1/6</td>
+</tr>
+</tbody></table></div>
+<p>V2 的经济分配示例：1 万美元交易产生 30 美元手续费，其中 25 美元属于 LP、5 美元属于协议。V2 实际通过协议 LP 份额等步骤收集，不是每笔即时向持有人转账。</p>
+<p><strong>V4 原生池采用不同的计费顺序。</strong> 协议费先扣，LP 费再对剩余输入收取。LP 参数 0.30%、协议参数 0.05% 时，合成总费率为约 <strong>0.3499%</strong>，高于 V2 示例中的 0.30% 总费率。不同池族、Hook 和动态费池受不同配置约束。来源：<a href="https://developers.uniswap.org/docs/protocols/protocol-fee/concepts/fees">费用配置</a>、<a href="https://github.com/Uniswap/v4-core/blob/main/src/libraries/ProtocolFeeLibrary.sol">V4 计算代码</a>。</p>
+<h3>国库预算与增发权限</h3>
+<ul>
+<li><strong>国库增长预算：</strong> 每年 2,000 万 UNI，每季度 500 万；授权两年合计 4,000 万，来自已发行国库存量。</li>
+<li><strong>治理增发权限：</strong> 两次增发至少间隔 365 天，每次不超过当时合约总供应量的 2%；不是每年自动增发 2%。截至 2026/9/19，官方文档与链上快照均未显示后续通胀铸造已发生。</li>
+<li><strong>供给口径：</strong> 转入销毁地址不会使 UNI 合约的 <code>totalSupply()</code> 自动减少；行情平台扣除销毁后的供应、合约原始总量与流通量是三种定义。</li>
+<li><strong>流通变化：</strong> 预算授权、实际拨款和市场卖出发生在不同环节。销毁量减去年度预算，并不能直接衡量实际净供给变化。</li>
+</ul>
+<p>来源：<a href="https://vote.uniswapfoundation.org/proposals/93">执行提案 93</a>、<a href="https://developers.uniswap.org/docs/ecosystem/governance/uni">UNI 当前说明</a>、<a href="https://github.com/Uniswap/governance/blob/master/contracts/Uni.sol">铸币权限合约</a>。</p>
+<h2 id="section-2">Robinhood Chain：Meme 交易与收入贡献</h2>
+<h3>新链、发币产品与收费衔接</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>日期</th>
+<th>事实</th>
+<th>收入联系</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2026-07-01</td>
+<td>Robinhood Chain 主网上线，Uniswap V2/V3/V4 同期部署</td>
+<td>新链交易流量进入 Uniswap；部署不等于当日已启用协议抽成</td>
+</tr>
+<tr>
+<td>2026-07-27</td>
+<td>#99 与 #100 执行</td>
+<td>Robinhood 上的 V2/V3 及获批 V4 池进入协议费体系</td>
+</tr>
+<tr>
+<td>2026-08-05</td>
+<td>Uniswap Labs 推出 Pools.trade</td>
+<td>Meme 发币与交易产品，两种发行路径最终进入 Uniswap V4 池</td>
+</tr>
+</tbody></table></div>
+<p>Pools.trade 官方材料说明其面向 Meme，初始 LP 费用为 0.25%，可自动复投到锁定流动性。<strong>这笔 LP 费用不等于全部归 UNI</strong>；代币价值捕获来自符合配置的协议收费部分。</p>
+<p>来源：<a href="https://vote.uniswapfoundation.org/proposals/99">Robinhood 扩链提案</a>、<a href="https://blog.uniswap.org/pools-trade-a-new-way-to-launch-on-robinhood-chain">Pools.trade 官方介绍</a>。</p>
+<h3>交易活跃度与进入销毁环节的贡献</h3>
+<p>采用两个等长 30 日窗口。Robinhood 为<strong>整条链口径</strong>，不是 Meme 专属口径。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>指标</th>
+<th align="right">前 30 日：7/21—8/19</th>
+<th align="right">近 30 日：8/20—9/18</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Robinhood 全链 DEX 交易量</td>
+<td align="right">138.45 亿美元</td>
+<td align="right">412.81 亿美元</td>
+</tr>
+<tr>
+<td>Robinhood 上 Uniswap 交易量</td>
+<td align="right">125.40 亿美元</td>
+<td align="right">325.93 亿美元</td>
+</tr>
+<tr>
+<td>Uniswap 占该链 DEX 交易量</td>
+<td align="right">90.6%</td>
+<td align="right">79.0%</td>
+</tr>
+<tr>
+<td>归因该链的 UNI 持续销毁</td>
+<td align="right">73.6 万枚</td>
+<td align="right"><strong>154.6 万枚</strong></td>
+</tr>
+<tr>
+<td>该链贡献的销毁美元估值</td>
+<td align="right">279.87 万美元</td>
+<td align="right"><strong>903.68 万美元</strong></td>
+</tr>
+<tr>
+<td>占全 Uniswap 销毁美元估值</td>
+<td align="right">47.8%</td>
+<td align="right"><strong>56.9%</strong></td>
+</tr>
+</tbody></table></div>
+<p>近 30 日，Robinhood Chain 贡献的收入中，<strong>约 903.7 万美元最终体现为 UNI 销毁估值，日均约 30.12 万美元，占 Uniswap 同期约 56.9%。</strong> 这衡量已进入销毁环节的价值；不是 Robinhood 公司净利润，也不是链上全部用户支付的手续费。</p>
+<p>来源：<a href="https://api.llama.fi/summary/dexs/uniswap">Uniswap 交易量</a>、<a href="https://api.llama.fi/overview/dexs/Robinhood%20Chain">Robinhood 全链 DEX 交易量</a>、<a href="https://api.llama.fi/summary/fees/uniswap?dataType=dailyHoldersRevenue">Uniswap Holders Revenue</a>、<a href="https://uniburns.com/api/data">UNI Burns</a>。</p>
+<h3>贡献占比的变化</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>统计期间</th>
+<th align="right">Robinhood 销毁美元估值</th>
+<th align="right">占全 Uniswap 同期比例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2026 年 7 月</td>
+<td align="right">80.59 万美元</td>
+<td align="right">18.4%</td>
+</tr>
+<tr>
+<td>2026 年 8 月</td>
+<td align="right">408.71 万美元</td>
+<td align="right">46.0%</td>
+</tr>
+<tr>
+<td>2026 年 9 月 1—18 日</td>
+<td align="right">694.25 万美元</td>
+<td align="right">64.2%</td>
+</tr>
+<tr>
+<td>最近 30 日：8/20—9/18</td>
+<td align="right">903.68 万美元</td>
+<td align="right">56.9%</td>
+</tr>
+</tbody></table></div>
+<p>两个 30 日窗口相比，Uniswap 全部销毁增加 123.6 万枚，其中 Robinhood 增加 81 万枚，贡献新增枚数的 <strong>65.5%</strong>；按美元销毁估值计算，该链贡献新增金额的 <strong>62.2%</strong>。这些是增长贡献的拆分，不是 UNI 涨幅的因果拆分。</p>
+<p><strong>Robinhood Chain 已成为近期收入兑换销毁的重要来源。</strong> Pools.trade 将 Meme 发行与 Uniswap V4 池连接起来，但现有数据尚不足以单独量化 Meme 交易的手续费及销毁贡献。全链 903.7 万美元的销毁估值包含不同类型交易，不能全部归因于 Meme。</p>
+<p><img alt="Robinhood 收入贡献" decoding="async" loading="lazy" src="assets/robinhood-contribution.png"/></p>
+<h2 id="section-3">回购销毁与估值：如何理解 28.6 倍</h2>
+<h3>当前市场快照</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>指标</th>
+<th align="right">数值</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>市场快照时间</td>
+<td align="right"><strong>2026-09-20 00:38:40 北京时间</strong></td>
+<td>CoinGecko <code>last_updated</code></td>
+</tr>
+<tr>
+<td>UNI 价格</td>
+<td align="right"><strong>8.89 美元</strong></td>
+<td>来源报价，已舍入</td>
+</tr>
+<tr>
+<td>流通数量</td>
+<td align="right"><strong>6.2093 亿枚</strong></td>
+<td>来源统计的流通供应</td>
+</tr>
+<tr>
+<td>流通市值</td>
+<td align="right"><strong>55.22 亿美元</strong></td>
+<td>5,522,357,332 USD</td>
+</tr>
+<tr>
+<td>现有未销毁总量</td>
+<td align="right"><strong>8.8818 亿枚</strong></td>
+<td>包含国库等未计入流通的存量</td>
+</tr>
+<tr>
+<td>现有总量估值 / 来源 FDV</td>
+<td align="right"><strong>78.99 亿美元</strong></td>
+<td>7,899,160,546 USD；未模拟未来增发</td>
+</tr>
+</tbody></table></div>
+<p>市值采用数据源原值；表中价格经过舍入，因此与显示供应量相乘可能存在尾差。来源：<a href="https://www.coingecko.com/en/coins/uniswap">CoinGecko UNI</a> · <a download="" href="downloads/coingecko-snapshot.json">市场快照数据</a>。</p>
+<h3>不同时间窗口的日均销毁</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>观察窗口</th>
+<th align="right">日数</th>
+<th align="right">窗口销毁总量（万 UNI）</th>
+<th align="right">日均销毁（UNI）</th>
+<th align="right">日均销毁美元估值（USD）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>启动以来：2025/12/29—2026/9/18</td>
+<td align="right">264</td>
+<td align="right">1,207.0</td>
+<td align="right"><strong>45,720</strong></td>
+<td align="right"><strong>183,244</strong></td>
+</tr>
+<tr>
+<td>前 30 日：7/21—8/19</td>
+<td align="right">30</td>
+<td align="right">160.8</td>
+<td align="right"><strong>53,600</strong></td>
+<td align="right"><strong>195,214</strong></td>
+</tr>
+<tr>
+<td>近 30 日：8/20—9/18</td>
+<td align="right">30</td>
+<td align="right">284.4</td>
+<td align="right"><strong>94,800</strong></td>
+<td align="right"><strong>529,320</strong></td>
+</tr>
+<tr>
+<td>近 7 日：9/12—18</td>
+<td align="right">7</td>
+<td align="right">46.8</td>
+<td align="right"><strong>66,857</strong></td>
+<td align="right"><strong>455,365</strong></td>
+</tr>
+</tbody></table></div>
+<p><strong>近 30 日日均销毁约 9.48 万枚 UNI，对应历史日均销毁估值约 52.93 万美元。</strong> 近 7 日则降至约 6.69 万枚、45.54 万美元/日。日均值反映所选窗口的平均速度，实际执行量会波动。</p>
+<p>枚数与美元估值分别按各自日序列汇总。9.48 万枚乘以当前 8.89 美元得到的是按当前价格重估的金额，与历史日均美元值不同。来源：<a href="https://uniburns.com/api/data">UNI Burns</a>、<a href="https://api.llama.fi/summary/fees/uniswap?dataType=dailyHoldersRevenue">DefiLlama Holders Revenue</a>。</p>
+<h3>年化回购销毁倍数与 PE 的区别</h3>
+<p><strong>这里采用“估值 ÷ 年化回购销毁价值”，衡量估值相对于销毁规模的倍数。</strong> 它可用于类似 PE 的比较，但分母尚未按统一净利润口径计入协议发展、团队和生态等支出，因此不等同于标准市盈率。PE 的定义取决于净利润口径，与是否发放现金分红无关。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>计算步骤</th>
+<th>算式 / 结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>近 30 日销毁美元估值</td>
+<td>15,879,611 美元</td>
+</tr>
+<tr>
+<td>年化销毁美元估值</td>
+<td>15,879,611 ÷ 30 × 365 = <strong>193,201,934 美元</strong>，约 <strong>1.932 亿美元</strong></td>
+</tr>
+<tr>
+<td>流通口径回购倍数</td>
+<td>5,522,357,332 ÷ 193,201,934 = <strong>28.6 倍</strong></td>
+</tr>
+<tr>
+<td>现有总量口径回购倍数</td>
+<td>7,899,160,546 ÷ 193,201,934 = <strong>40.9 倍</strong></td>
+</tr>
+<tr>
+<td>年化销毁价值 / 流通市值</td>
+<td><strong>3.50%</strong>；回购倍数的倒数，不是现金分红率</td>
+</tr>
+</tbody></table></div>
+<p>同一个市场快照，使用不同收入窗口：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>回看窗口</th>
+<th align="right">年化销毁美元估值</th>
+<th align="right">流通市值倍数</th>
+<th align="right">现有总量估值倍数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>近 7 日：9/12—18</td>
+<td align="right">1.662 亿</td>
+<td align="right">33.2 倍</td>
+<td align="right">47.5 倍</td>
+</tr>
+<tr>
+<td>近 30 日：8/20—9/18</td>
+<td align="right">1.932 亿</td>
+<td align="right">28.6 倍</td>
+<td align="right">40.9 倍</td>
+</tr>
+<tr>
+<td>启动以来：2025/12/29—2026/9/18</td>
+<td align="right">0.669 亿</td>
+<td align="right">82.6 倍</td>
+<td align="right">118.1 倍</td>
+</tr>
+</tbody></table></div>
+<p>年化只是将所选窗口的平均速度乘以 365。一次性国库销毁 1 亿枚不计入分母；近 30 日结果不能直接当作已实现全年收益。</p>
+<p><img alt="市值、每日销毁与估值测算" decoding="async" loading="lazy" src="assets/valuation.png"/></p>
+<h3>最近数据变化</h3>
+<ul>
+<li>近 30 日销毁 <strong>284.4 万 UNI</strong>，较前 30 日的 160.8 万增加 <strong>76.9%</strong>。</li>
+<li>同期销毁美元估值增加 <strong>171.1%</strong>，包含 UNI 自身价格变化的影响，不能全部解释为业务收入规模增长。</li>
+<li>最近两个 7 日窗口：销毁 <strong>72.2 万 → 46.8 万枚，下降 35.2%</strong>；同期 9/11—9/18 UNI 收盘价上涨约 47.5%。价格与当期销毁并非同步变化。</li>
+</ul>
+<p>来源为上述 UNI Burns、DefiLlama 序列，以及 <a href="https://developers.binance.com/en/docs/catalog/core-trading-spot-trading/api/rest-api/market">Binance 日 K 数据</a>。</p>
+<h2 id="section-4">增长预期：收费扩展与新增收入来源</h2>
+<p>截至 <strong>2026-09-20（北京时间）</strong>，治理讨论与产品进展指向两类增长来源：扩大现有协议费的覆盖范围，以及引入新的费用渠道。不同方向所处阶段不同，产品上线之后仍需观察实际交易与收入。</p>
+<p><strong>这些进展能否扩大 UNI 的价值捕获，取决于新增交易是否产生协议费，以及费用是否持续进入销毁机制。</strong></p>
+<h3>有明确治理步骤的收费扩展</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>事项</th>
+<th>已确认的讨论或安排</th>
+<th>当前阶段</th>
+<th>需要继续验证的节点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Arc 的 V2/V3/V4 收费</strong></td>
+<td>Uniswap Labs 于 2026/9/18 发起扩链提案；原帖安排 9/18—23 进行 Snapshot，成功后再进行链上投票</td>
+<td><strong>提案／温度检查阶段</strong>；部分收费基础设施地址仍待确定</td>
+<td>Snapshot 结果、链上提案与执行、Arc 实际收费及首笔销毁</td>
+</tr>
+<tr>
+<td><strong>V4 剩余五条链</strong></td>
+<td>已执行的 #100 标题为 Part 1/2，明确将 Celo、Soneium、World Chain、X Layer、Zora 留给后续提案</td>
+<td><strong>首批七链已执行，剩余五链待后续提案</strong>；截至统计日，尚无已核实的 Part 2 执行记录</td>
+<td>后续提案范围、具体池族、链上收费控制器及实际收入</td>
+</tr>
+</tbody></table></div>
+<p>Arc 已于 9/16 支持 Uniswap 产品，但协议部署和收费开关是不同步骤。两项扩展的经济意义是扩大可收费交易范围；收入大小还取决于实际交易量、费率及流动性，链数增加不能直接等比例推算收入。</p>
+<p>来源：<a href="https://gov.uniswap.org/t/temp-check-protocol-fee-expansion-arc/26287">Arc 治理原帖</a>、<a href="https://blog.uniswap.org/uniswap-is-live-on-arc">Arc 上线公告</a>、<a href="https://vote.uniswapfoundation.org/proposals/100">已执行提案 #100</a>、<a href="https://vote.uniswapfoundation.org/proposals">治理提案列表</a>。</p>
+<h3>聚合器 Hook：扩大可收费交易的来源</h3>
+<p>官方在 <strong>2026/3/18</strong> 宣布聚合器 Hook 首次在 Tempo 上线，将 Tempo 原生稳定币交易所的流动性接入 Uniswap V4 路由。官方当时表示将继续支持更多链和流动性来源。聚合器 Hook 已有产品落地，后续增长取决于支持范围的扩展与收费机制的落实。</p>
+<p>#100 已为聚合器 Hook 池族设计收费规则，费用进入 TokenJar。<strong>这一设计意味着，部分通过 Uniswap 路由成交的外部流动性，也可能产生协议收入。</strong> 实际收入仍取决于各部署的收费配置；Tempo 上线本身不代表全部外部交易均已向 UNI 贡献收入，聚合器 Hook 的独立收入规模尚未核实。</p>
+<p>来源：<a href="https://blog.uniswap.org/uniswap-is-live-on-tempo">Tempo 上线与首个聚合器 Hook</a>、<a href="https://vote.uniswapfoundation.org/proposals/100">提案 #100 的聚合器池族规则</a>。</p>
+<h3>PFDA：协议费折扣拍卖</h3>
+<p><strong>Protocol Fee Discount Auctions，协议费折扣拍卖</strong>，是 UNIfication 中明确提出的机制：拍卖某个地址在一段短时间内免付协议费的资格，拍卖收入用于 UNI 销毁，目标是让协议和 LP 留住一部分原本由套利与区块构建环节获取的价值。</p>
+<p><strong>PFDA 已列入官方路线图，正式上线时间和独立收入尚未核实。</strong> 现有依据主要是 2025 年的提案与说明，尚不足以量化新增收入。当前 28.6 倍采用已观察到的销毁金额，未另行加入 PFDA 的预测贡献。</p>
+<p>UniswapX 也曾被列为后续费用来源，但其具体收费执行范围与独立收入尚未核实，仍属于待观察方向。</p>
+<p>来源：<a href="https://blog.uniswap.org/unification">UNIfication 官方路线图</a>、<a href="https://gov.uniswap.org/t/unification-proposal/25881/34">Hayden 对 LP 与 PFDA 的回复</a>、<a href="https://developers.uniswap.org/docs/protocols/protocol-fee/overview">协议费架构概览</a>。</p>
+<h3>稳定币与机构资产：从产品扩展到收入转化</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>产品方向</th>
+<th>官方已披露进展</th>
+<th>对未来收入的含义与边界</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>StablePair Hook</strong></td>
+<td>2026/9/10 上线，以太坊首批为 USDC/USDG、USDC/USDT，使用动态费改善 LP 的价值获取</td>
+<td>可能提升稳定币交易竞争力；具体新增交易量和 UNI 收入仍需数据。该 Hook 的荷兰拍卖设计并不构成 PFDA 已上线的证据</td>
+</tr>
+<tr>
+<td><strong>Permissioned Pools</strong></td>
+<td>2026/8/24 技术说明确认标准已在以太坊主网及 Sepolia 上线，支持发行人的准入规则，适用于代币化基金等资产</td>
+<td>扩大可接入的资产种类；产品可用、资产接入、成交增长、UNI 收费是不同环节，收入规模需依据实际成交和收费测算</td>
+</tr>
+</tbody></table></div>
+<p>上述上线进展依据官方披露。潜在收入增长属于对产品用途的推论，尚需新池交易量、收费配置和销毁数据验证。</p>
+<p>来源：<a href="https://blog.uniswap.org/stablepair-hook-a-fee-that-moves-with-the-market">StablePair 上线公告</a>、<a href="https://blog.uniswap.org/how-permissioned-pools-work-on-uniswap-v4">Permissioned Pools 技术说明</a>。</p>
+<h3>治理讨论中的分歧：收费扩张能否持续</h3>
+<p>V4 收费讨论并非一致乐观。<strong>Panoptic 创始人 guil-lambert</strong> 担心 LP 在收益不足时承受更多抽成；<strong>Gamma Strategies</strong> 主张更谨慎地按链和竞争状况推进。<strong>Uniswap Labs 于 2026/7/18 回复</strong>称，其观察的以太坊前 25 个 V3 池以代币单位计保留约 98.5% 的原有流动性，并表示将持续监测、必要时提出费率调整。该数据是 Labs 披露的 V3 历史样本，其结论能否适用于不同链和 V4 池，仍需持续观察。</p>
+<p>另有社区成员在 8/14 建议先覆盖安全、运营和储备需要，再用审计后的盈余销毁；UNIfication 讨论中也有人提出 UNI 质押设想。<strong>这些建议仍属社区讨论，尚无已核实的生效规则。</strong> 现有依据不足以确认 UNI 将推出分红、质押收益，或改变销毁政策。</p>
+<p>来源：<a href="https://gov.uniswap.org/t/temp-check-activate-v4-protocol-fees/26162">V4 收费争议与 Labs 回复</a>、<a href="https://gov.uniswap.org/t/temp-check-activate-v4-protocol-fees/26162/25">先留储备的社区建议</a>、<a href="https://gov.uniswap.org/t/unification-proposal/25881/58">UNI 质押设想</a>。</p>
+<h3>增长预期如何影响估值倍数</h3>
+<p>现有 <strong>28.6 倍</strong>采用流通市值除以近 30 日年化销毁价值。新增业务只有持续产生费用并进入 UNI 销毁，才会扩大这一分母。当前估值已经包含哪些市场预期，无法仅凭这些治理帖子量化。</p>
+<p><strong>估值敏感性示例：</strong> 假设流通市值维持上述快照水平，年度销毁美元价值恰好翻倍，倍数将从约 28.6 降至 14.3。市值变化、费用下降和代币美元估值变化都会改变结果；币价上涨也意味着相同美元费用能换取更少枚 UNI。</p>
+<p>后续应重点跟踪：<strong>实际收费覆盖、分来源销毁金额、LP 留存与成交量、国库预算拨付</strong>。Robinhood 的贡献也需要观察持续性，暂时不能用其全链收入替代 Meme 专属贡献。</p>
+<p>UNI 未来的估值判断，需要以实际收费、持续销毁和供给变化为依据。现有路线图尚未形成可核实的统一盈利或销毁数量预测，因此这些方向更适合作为收入增长的观察指标，而非一个已经确定的未来 PE。</p>
+<h2 id="section-5">历史数据：持续销毁的逐月变化</h2>
+<p>所有自然月均按完整 UTC 日；12 月和 9 月为部分月份。比较速度使用日均量，不直接比较部分月份与完整月份的总量。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>月份</th>
+<th align="right">已统计日数</th>
+<th align="right">销毁总量（万 UNI）</th>
+<th align="right">日均（万 UNI）</th>
+<th align="right">销毁美元估值（万美元）</th>
+<th align="right">Robinhood 美元贡献占比</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2025-12（12/29—31）</td>
+<td align="right">3</td>
+<td align="right">2.8</td>
+<td align="right">0.93</td>
+<td align="right">16.4</td>
+<td align="right">0.0%</td>
+</tr>
+<tr>
+<td>2026-01</td>
+<td align="right">31</td>
+<td align="right">53.4</td>
+<td align="right">1.72</td>
+<td align="right">286.5</td>
+<td align="right">0.0%</td>
+</tr>
+<tr>
+<td>2026-02</td>
+<td align="right">28</td>
+<td align="right">86.4</td>
+<td align="right">3.09</td>
+<td align="right">320.9</td>
+<td align="right">0.0%</td>
+</tr>
+<tr>
+<td>2026-03</td>
+<td align="right">31</td>
+<td align="right">121.4</td>
+<td align="right">3.92</td>
+<td align="right">458.8</td>
+<td align="right">0.0%</td>
+</tr>
+<tr>
+<td>2026-04</td>
+<td align="right">30</td>
+<td align="right">132.2</td>
+<td align="right">4.41</td>
+<td align="right">450.1</td>
+<td align="right">0.0%</td>
+</tr>
+<tr>
+<td>2026-05</td>
+<td align="right">31</td>
+<td align="right">108.8</td>
+<td align="right">3.51</td>
+<td align="right">385.2</td>
+<td align="right">0.0%</td>
+</tr>
+<tr>
+<td>2026-06</td>
+<td align="right">30</td>
+<td align="right">185.8</td>
+<td align="right">6.19</td>
+<td align="right">511.6</td>
+<td align="right">0.0%</td>
+</tr>
+<tr>
+<td>2026-07</td>
+<td align="right">31</td>
+<td align="right">122.0</td>
+<td align="right">3.94</td>
+<td align="right">438.4</td>
+<td align="right">18.4%</td>
+</tr>
+<tr>
+<td>2026-08</td>
+<td align="right">31</td>
+<td align="right">227.2</td>
+<td align="right">7.33</td>
+<td align="right">888.2</td>
+<td align="right">46.0%</td>
+</tr>
+<tr>
+<td>2026-09（9/1—18）</td>
+<td align="right">18</td>
+<td align="right">167.0</td>
+<td align="right">9.28</td>
+<td align="right">1,081.5</td>
+<td align="right">64.2%</td>
+</tr>
+</tbody></table></div>
+<p><img alt="启动以来销毁历史" decoding="async" loading="lazy" src="assets/burn-history.png"/></p>
+<p>全量逐日数据、价格和各链拆分见 <a download="" href="downloads/uni-burn-history.xlsx">历史数据工作簿</a>。估值计算见 <a download="" href="downloads/valuation-calculations.json">测算数据</a>。进行中 UTC 日仅保留快照，不进入完整日汇总。</p>
+<h2 id="section-6">数据口径与来源</h2>
+<ul>
+<li><strong>统计区间：</strong> 历史交易与销毁覆盖 2025-12-29 至 2026-09-18，共 264 个完整 UTC 日。市场价格、持仓分布和治理状态分别标注快照日期，不视为同一时刻的数据。</li>
+<li><strong>数量与美元估值：</strong> UNI 枚数采用 UNI Burns；美元采用 DefiLlama Holders Revenue 的销毁估值。两套序列独立汇总，局部历史日存在差异，不构成逐笔一致的美元购币现金账，也未经全量交易逐笔独立审计。</li>
+<li><strong>已触发与已结算：</strong> 历史日序列包含各源链已触发的销毁流程；持仓分布仅计入以太坊主网已结算销毁。跨链待结算数量不提前计入饼图，国库一次性销毁不计入持续收入及年化估值分母。</li>
+<li><strong>解锁与流通：</strong> 解锁曲线按发行公告的原始四年安排重建，属于计划模型。自由流通量还受地址分类、国库存量和实际拨款影响。发行公告与后续概览文档的释放终点表述存在差异，精确到各钱包的结束日尚未独立确认。</li>
+<li><strong>收费覆盖：</strong> 链与池族范围依据治理执行记录及费用控制器快照，并非对每个池当前费率的全量扫描。#96 于 2026/6/1 完成包含 Celo 修正在内的扩展；#100 于 2026/7/27 执行 V4 首批收费。</li>
+<li><strong>未来预期：</strong> 治理讨论和产品进展更新至 2026-09-20。提案、产品上线和实际收入分别列示；产品进展依据官方披露，新增部署与各产品盈利能力未逐一独立审计。</li>
+</ul>
+<p>各节附有对应原始来源。可下载 <a download="" href="downloads/uni-research.md">研究全文</a>、<a download="" href="downloads/uni-burn-history.xlsx">历史数据工作簿</a>及 <a download="" href="downloads/valuation-calculations.json">估值计算数据</a>。</p>
+</main></div><footer class="site-footer"><span>© 2026 Crypto3D</span><a href="../../research/">研究文章</a><a href="../../about">关于我们</a></footer><script src="../../js/theme.js"></script></body></html>

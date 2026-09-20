@@ -1,0 +1,119 @@
+[
+  {
+    "id": 1,
+    "name": "MAINNET",
+    "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+    "rpc": "https://ethereum-rpc.publicnode.com",
+    "blockTag": "latest",
+    "retrievedAt": "2026-09-19T12:35:01.877Z",
+    "controller": "0x89a5d5bf00a27d55c02951e49078a5c5771051db"
+  },
+  {
+    "id": 10,
+    "name": "OPTIMISM",
+    "address": "0x9a13f98cb987694c9f086b1f5eb990eea8264ec3",
+    "rpc": "https://optimism-rpc.publicnode.com",
+    "blockTag": "latest",
+    "retrievedAt": "2026-09-19T12:35:01.885Z",
+    "controller": "0xd85393784234fb2ee4f077867a8b78e1ad4ce56b"
+  },
+  {
+    "id": 42161,
+    "name": "ARBITRUM_ONE",
+    "address": "0x360e68faccca8ca495c1b759fd9eee466db9fb32",
+    "rpc": "https://arbitrum-one-rpc.publicnode.com",
+    "blockTag": "latest",
+    "retrievedAt": "2026-09-19T12:35:01.891Z",
+    "controller": "0x6b3c04567cc62fc5d6ab8d50f1bc1dee161eb2cc"
+  },
+  {
+    "id": 137,
+    "name": "POLYGON",
+    "address": "0x67366782805870060151383f4bbff9dab53e5cd6",
+    "rpc": "https://polygon-bor-rpc.publicnode.com",
+    "blockTag": "latest",
+    "retrievedAt": "2026-09-19T12:35:03.079Z",
+    "controller": "0x59e84309afa65f084f9c03668583d231afb12cc6"
+  },
+  {
+    "id": 42220,
+    "name": "CELO",
+    "address": "0x288dc841A52FCA2707c6947B3A777c5E56cd87BC",
+    "rpc": "https://forno.celo.org",
+    "blockTag": "latest",
+    "retrievedAt": "2026-09-19T12:35:01.985Z",
+    "controller": "0x0000000000000000000000000000000000000000"
+  },
+  {
+    "id": 56,
+    "name": "BNB",
+    "address": "0x28e2ea090877bf75740558f6bfb36a5ffee9e9df",
+    "rpc": "https://bsc-rpc.publicnode.com",
+    "blockTag": "latest",
+    "retrievedAt": "2026-09-19T12:35:01.864Z",
+    "controller": "0x66276d2e80784180e4b9b859e4327b9c5646b87c"
+  },
+  {
+    "id": 8453,
+    "name": "BASE",
+    "address": "0x498581ff718922c3f8e6a244956af099b2652b2b",
+    "rpc": "https://base-rpc.publicnode.com",
+    "blockTag": "latest",
+    "retrievedAt": "2026-09-19T12:35:01.884Z",
+    "controller": "0xc53dd825dedbe7814562528a1a30e8e5bcbb4b55"
+  },
+  {
+    "id": 7777777,
+    "name": "ZORA",
+    "address": "0x0575338e4c17006ae181b47900a84404247ca30f",
+    "rpc": "https://rpc.zora.energy/",
+    "blockTag": "latest",
+    "retrievedAt": "2026-09-19T12:35:01.973Z",
+    "controller": "0x0000000000000000000000000000000000000000"
+  },
+  {
+    "id": 480,
+    "name": "WORLDCHAIN",
+    "address": "0xb1860d529182ac3bc1f51fa2abd56662b7d13f33",
+    "rpc": "https://worldchain-mainnet.g.alchemy.com/public",
+    "blockTag": "latest",
+    "retrievedAt": "2026-09-19T12:35:02.017Z",
+    "controller": "0x0000000000000000000000000000000000000000"
+  },
+  {
+    "id": 130,
+    "name": "UNICHAIN",
+    "address": "0x1f98400000000000000000000000000000000004",
+    "rpc": "https://unichain-rpc.publicnode.com",
+    "blockTag": "latest",
+    "retrievedAt": "2026-09-19T12:35:01.865Z",
+    "controller": "0x0000000000000000000000000000000000000000"
+  },
+  {
+    "id": 1868,
+    "name": "SONEIUM",
+    "address": "0x360e68faccca8ca495c1b759fd9eee466db9fb32",
+    "rpc": "https://rpc.soneium.org",
+    "blockTag": "latest",
+    "retrievedAt": "2026-09-19T12:35:02.001Z",
+    "controller": "0x0000000000000000000000000000000000000000"
+  },
+  {
+    "id": 196,
+    "name": "XLAYER",
+    "address": "0x360e68faccca8ca495c1b759fd9eee466db9fb32",
+    "rpc": "https://rpc.xlayer.tech",
+    "blockTag": "latest",
+    "retrievedAt": "2026-09-19T12:35:01.883Z",
+    "controller": "0x0000000000000000000000000000000000000000"
+  },
+  {
+    "id": 4663,
+    "name": "ROBINHOOD",
+    "address": "0x8366a39cc670b4001a1121b8f6a443a643e40951",
+    "rpc": "https://robinhood-rpc.publicnode.com",
+    "blockTag": "latest",
+    "retrievedAt": "2026-09-19T12:35:01.918Z",
+    "controller": "0x6d0009504d129cf5002dba61d9ae8575aa79314c"
+  }
+]

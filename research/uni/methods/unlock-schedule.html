@@ -1,0 +1,81 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>UNI 原始解锁计划：计算方法 | Crypto3D</title><meta name="description" content="UNI 研究的数据定义、计算方法与原始来源。"><link rel="canonical" href="https://crypto3d.pro/research/uni/methods/unlock-schedule.html"><link rel="icon" href="../../../logo-3d-32.png"><meta property="og:type" content="website"><meta property="og:site_name" content="Crypto3D"><meta property="og:locale" content="zh_CN"><meta property="og:title" content="UNI 原始解锁计划：计算方法"><meta property="og:description" content="UNI 研究的数据定义、计算方法与原始来源。"><meta property="og:url" content="https://crypto3d.pro/research/uni/methods/unlock-schedule.html"><meta property="og:image" content="https://crypto3d.pro/research/uni/assets/valuation.png"><meta property="og:image:alt" content="UNI 市值、日均销毁与估值倍数"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="UNI 原始解锁计划：计算方法"><meta name="twitter:description" content="UNI 研究的数据定义、计算方法与原始来源。"><meta name="twitter:image" content="https://crypto3d.pro/research/uni/assets/valuation.png"><script>try{if(localStorage.getItem('theme')!=='dark')document.documentElement.setAttribute('data-theme','light')}catch(e){document.documentElement.setAttribute('data-theme','light')}</script><link rel="stylesheet" href="../../assets/research.css"></head><body><a class="skip-link" href="#content">跳至正文</a><header class="site-header"><div class="site-header-inner"><a class="site-brand" href="../../../"><img src="../../../logo-3d.jpg" width="28" height="28" alt="">Crypto3D</a><nav class="site-nav" aria-label="网站导航"><a href="../../../equity/">协议估值</a><a href="../../../research/" aria-current="page">研究文章</a></nav><div class="hd-r"><button type="button" id="tt" aria-label="切换主题"></button></div></div></header><main id="content" class="method-page"><nav class="breadcrumbs"><a href="../">← 返回 UNI 研究</a></nav><h1>UNI 原始解锁计划：计算方法</h1>
+<p>研究日期：2026-09-20。此图展示初始分配的计划释放安排，不表示逐日自由流通供应。</p>
+<h2>解锁计划的重建</h2>
+<p>来源：<a href="https://blog.uniswap.org/uni">2020-09-16 发行公告</a>及其原始四年释放图。公告给出社区国库四年比例 40% / 30% / 20% / 10%，并说明团队、投资者和顾问采用相同安排。因此，按照这个原始公布计划，将四类分配分别映射至四个年度节点，并在节点间线性展示。</p>
+<ul>
+<li>年度锚点采用 2020/9/16 至 2024/9/16，强调是计划重建，未声称全部私人归属协议都在同一天实际释放。</li>
+<li>国库的可领取起点按公告单独处理为 2020/10/18；此日前曲线为零，当天显示此前累计归属额。具体提款不是该曲线的一部分。</li>
+<li>空投在发行时有 1.5 亿枚可申领，因此曲线为可申领额度，不是钱包累计领取数量。</li>
+<li>初始流动性挖矿 2,000 万枚，按公告 2020/9/18 00:00 UTC 至 11/17 00:00 UTC 的周期线性展示。</li>
+<li>四年后初始计划保持全额解锁，不添加每年 2% 的自动通胀。国库此后的支出、收回和销毁不改变“曾经解锁”的历史累计量。</li>
+<li>后来的概览文档写有 2025 年 9 月结束，与原始四年计划冲突。本图采用原始公告，不使用该冲突日期重绘成五年曲线。</li>
+</ul>
+<p>当前图表仅展示公布计划的重建，不包含 CMC 历史流通曲线，也不是对全部地址和私有归属协议的逐笔审计。</p>
+<h2>计划年度节点</h2>
+<p>单位：百万 UNI；国库首月 cliff 已按上述规则处理。</p>
+<table>
+<thead>
+<tr>
+<th>日期</th>
+<th align="right">国库</th>
+<th align="right">团队</th>
+<th align="right">投资者</th>
+<th align="right">顾问</th>
+<th align="right">空投额度</th>
+<th align="right">初始挖矿</th>
+<th align="right">合计</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2020-09-16</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">150.00</td>
+<td align="right">0.00</td>
+<td align="right">150.00</td>
+</tr>
+<tr>
+<td>2021-09-16</td>
+<td align="right">172.00</td>
+<td align="right">85.06</td>
+<td align="right">72.18</td>
+<td align="right">2.76</td>
+<td align="right">150.00</td>
+<td align="right">20.00</td>
+<td align="right">502.00</td>
+</tr>
+<tr>
+<td>2022-09-16</td>
+<td align="right">301.00</td>
+<td align="right">148.86</td>
+<td align="right">126.31</td>
+<td align="right">4.83</td>
+<td align="right">150.00</td>
+<td align="right">20.00</td>
+<td align="right">751.00</td>
+</tr>
+<tr>
+<td>2023-09-16</td>
+<td align="right">387.00</td>
+<td align="right">191.39</td>
+<td align="right">162.40</td>
+<td align="right">6.21</td>
+<td align="right">150.00</td>
+<td align="right">20.00</td>
+<td align="right">917.00</td>
+</tr>
+<tr>
+<td>2024-09-16</td>
+<td align="right">430.00</td>
+<td align="right">212.66</td>
+<td align="right">180.44</td>
+<td align="right">6.90</td>
+<td align="right">150.00</td>
+<td align="right">20.00</td>
+<td align="right">1,000.00</td>
+</tr>
+</tbody></table>
+<p><a href="../assets/unlock-schedule.png">解锁计划图</a> · <a href="circulating-supply.html">历史流通量口径说明</a></p>
+</main><footer class="site-footer"><span>© 2026 Crypto3D</span><a href="../../../research/">研究文章</a><a href="../../../about">关于我们</a></footer><script src="../../../js/theme.js"></script></body></html>

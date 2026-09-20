@@ -1,0 +1,87 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>初始 10 亿枚 UNI 的当前去向：持仓与已销毁部分 | Crypto3D</title><meta name="description" content="UNI 研究的数据定义、计算方法与原始来源。"><link rel="canonical" href="https://crypto3d.pro/research/uni/methods/burn-reconciliation.html"><link rel="icon" href="../../../logo-3d-32.png"><meta property="og:type" content="website"><meta property="og:site_name" content="Crypto3D"><meta property="og:locale" content="zh_CN"><meta property="og:title" content="初始 10 亿枚 UNI 的当前去向：持仓与已销毁部分"><meta property="og:description" content="UNI 研究的数据定义、计算方法与原始来源。"><meta property="og:url" content="https://crypto3d.pro/research/uni/methods/burn-reconciliation.html"><meta property="og:image" content="https://crypto3d.pro/research/uni/assets/valuation.png"><meta property="og:image:alt" content="UNI 市值、日均销毁与估值倍数"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="初始 10 亿枚 UNI 的当前去向：持仓与已销毁部分"><meta name="twitter:description" content="UNI 研究的数据定义、计算方法与原始来源。"><meta name="twitter:image" content="https://crypto3d.pro/research/uni/assets/valuation.png"><script>try{if(localStorage.getItem('theme')!=='dark')document.documentElement.setAttribute('data-theme','light')}catch(e){document.documentElement.setAttribute('data-theme','light')}</script><link rel="stylesheet" href="../../assets/research.css"></head><body><a class="skip-link" href="#content">跳至正文</a><header class="site-header"><div class="site-header-inner"><a class="site-brand" href="../../../"><img src="../../../logo-3d.jpg" width="28" height="28" alt="">Crypto3D</a><nav class="site-nav" aria-label="网站导航"><a href="../../../equity/">协议估值</a><a href="../../../research/" aria-current="page">研究文章</a></nav><div class="hd-r"><button type="button" id="tt" aria-label="切换主题"></button></div></div></header><main id="content" class="method-page"><nav class="breadcrumbs"><a href="../">← 返回 UNI 研究</a></nav><h1>初始 10 亿枚 UNI 的当前去向：持仓与已销毁部分</h1>
+<p>快照：Ethereum 区块 <strong>26,013,098</strong>；UTC <strong>2026-09-19 17:37:35</strong>，北京时间 <strong>2026-09-20 01:37:35</strong>。当前地址余额固定在同一区块；历史转入记录截止该区块。</p>
+<h2>统计分母：初始 10 亿枚</h2>
+<p>饼图分母使用 <strong>1,000,000,000 UNI</strong>。当前剩余余额和已销毁数量分别列项，精确合计 10 亿。比例表示各类别占初始发行的份额。</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th align="right">UNI 数量</th>
+<th align="right">占初始发行</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>其他地址持有</td>
+<td align="right">608,426,260.730699</td>
+<td align="right">60.8426%</td>
+</tr>
+<tr>
+<td>治理国库</td>
+<td align="right">267,247,996.305835</td>
+<td align="right">26.7248%</td>
+</tr>
+<tr>
+<td>空投分发合约</td>
+<td align="right">12,508,161.879776</td>
+<td align="right">1.2508%</td>
+</tr>
+<tr>
+<td>国库一次性销毁</td>
+<td align="right">100,000,000.000000</td>
+<td align="right">10.0000%</td>
+</tr>
+<tr>
+<td>持续费用机制销毁</td>
+<td align="right">11,768,000.000000</td>
+<td align="right">1.1768%</td>
+</tr>
+<tr>
+<td>其他销毁</td>
+<td align="right">49,581.083690</td>
+<td align="right">0.0050%</td>
+</tr>
+<tr>
+<td>合计</td>
+<td align="right">1,000,000,000</td>
+<td align="right">100%</td>
+</tr>
+</tbody></table>
+<p>其他地址按总量扣除所有列明类别计算，包含交易所、桥托管、做市、借贷、团队、投资者等可能地址，不等于散户或自由流通；不能用初始配额推算今天各群体的实际持仓。跨链映射代币不另加。已销毁不属于现存持仓，图表展示的是初始发行的当前去向。</p>
+<h2>销毁如何核对</h2>
+<ul>
+<li><code>0xdead</code> 合计：<strong>111,817,581.083690 UNI</strong>。</li>
+<li>国库一次性销毁：<strong>100,000,000 UNI</strong>，来自提案 93 执行交易。</li>
+<li>持续费用机制已在主网结算：<strong>11,768,000 UNI</strong>，即 <strong>1,176.80 万枚</strong>。</li>
+<li>其他销毁：<strong>49,581.083690 UNI</strong>，其中机制启动前 <strong>49,576.620994 UNI</strong>，之后其他零星转入 <strong>4.462696 UNI</strong>。未认定它们来自费用回购。</li>
+</ul>
+<p>完整勾稽：Blockscout 原生 UNI 记录分为 0—24,106,377 与 24,106,378—26,013,098 两个不重叠区间，分别 28 与 4,453 条；返回均未达到 10,000 条分页上限。所有记录均转入 <code>0xdead</code>，整数 wei 合计与固定区块余额完全一致。机制启动后 4,436 笔 2,000/4,000 UNI 转账的每个 UTC 日合计，与 UNI Burns 的主网 <code>uni_burned</code> 序列逐日一致，共 265 日，最后一日为进行中快照。</p>
+<p>上述为链上金额与费用销毁看板的交叉核对，并非逐笔独立审计每个费用来源合约、交易执行者及其购币成本。“回购销毁”在本文中是费用换取并销毁 UNI 的经济效果简称，不意味着国库逐笔在市场主动买入。看板快照为 <strong>2026-09-19T14:46:53.309Z</strong>，早于余额区块时点；后续刷新该主网累计值也未改变。</p>
+<p>历史日序列使用各链已触发数量，包含尚未在主网完成的跨链流程；本饼图只列主网已结算数量。这两个累计数不能混加，也不能把跨链在途提前计入已销毁。各类统计沿用其注明的区块和日期。</p>
+<h2>哪些仍受领取限制</h2>
+<ol>
+<li><strong>原始分配计划：</strong> 四年计划已经结束。官方列出的四个国库归属合约当前 UNI 余额均为零，最后一份合约结束时间为 <strong>2024-09-17 00:00 UTC</strong>。团队、投资者和顾问依原始公布计划也已过释放期；此结论限于原始计划，未穷尽审计所有后来设立的私人归属协议或质押合约。上一张图按发行公告周年重建，与实际国库合约按秒计时的边界相差约一至两日，不影响当前“原始释放期已结束”的判断。</li>
+<li><strong>增长预算：</strong> 提案 93 最初授权 4,000 万 UNI；当前授权剩余 <strong>2,500 万 UNI</strong>，每季度 <strong>500 万</strong>。<code>lastUnlockTimestamp</code> 为 2026-07-01；<code>quartersPassed</code> 为 0，当下没有该合约可新增领取的季度。下一期为 <strong>2026-10-01 00:00 UTC</strong>；若参数、授权不变且正常领取，之后为 2027/1/1、4/1、7/1、10/1，共五期。这 2,500 万仍在国库，已包含在饼图国库余额内，不再添加为额外扇区；治理可撤回或变更授权，不是原始投资者锁仓。</li>
+<li><strong>空投分发合约：</strong> 余额 <strong>1,250.82 万 UNI</strong>；已验证合约按资格证明领取，没有时间解锁条件。因此标为合约余额，不标成“未解锁”。未扫描所有历史转入，余额不直接等同于全部有效未领取权利。</li>
+<li><strong>治理国库：</strong> 未拨出的余额需要治理决策才能使用；“尚在国库”不等于“仍在原始时间锁仓”。</li>
+</ol>
+<h2>那 1 亿枚从哪里来</h2>
+<p>执行提案 <strong>93</strong> 的同一交易把 <strong>100,000,000 UNI</strong> 从治理国库 Timelock 直接转入 <code>0x000…dEaD</code>。这笔是已有国库币销毁，没有市场买入；其来源不是按比例扣减团队、投资者或公众钱包。</p>
+<ul>
+<li>来源地址：<code>0x1a9C8182C09F50C8318d769245beA52c32BE35BC</code>。</li>
+<li>接收地址：<code>0x000000000000000000000000000000000000dEaD</code>。</li>
+<li>交易：<a href="https://eth.blockscout.com/tx/0x091f0083242a777d55821c1189e568d6d033d9da501b75087dc736fa143d2c1e">0x091f0083242a777d55821c1189e568d6d033d9da501b75087dc736fa143d2c1e</a>。</li>
+<li>区块：<strong>24,106,378</strong>；UTC <strong>2025-12-27 20:33:11</strong>，北京时间 <strong>2025-12-28 04:33:11</strong>。</li>
+<li>占初始 10 亿枚的 <strong>10%</strong>；与原始国库 4.3 亿配额相比为 <strong>23.2558%</strong>。后一个百分比不是当时国库余额的销毁比例。</li>
+</ul>
+<p>核查：Blockscout 返回交易成功、调用 <code>execute(93)</code>，UNI 转账记录为上述地址及 1 亿枚，转账列表无后续分页；公开 RPC 当前读取 <code>state(93)=7</code>。治理门户显示的日期与链上 UTC 时间并不一致，本文采用交易区块时间；“2025/12/28”为北京时间日期。</p>
+<h2>原始来源与复算</h2>
+<ul>
+<li><a href="https://blog.uniswap.org/uni">发行公告</a>、<a href="https://blog.uniswap.org/unification">UNIfication 提案说明</a>、<a href="https://vote.uniswapfoundation.org/proposals/93">提案 93</a>。</li>
+<li><a href="https://uniburns.com/">持续销毁看板</a>、<a href="https://uniburns.com/api/data">数据接口</a>。</li>
+<li><a href="https://eth.blockscout.com/address/0x000000000000000000000000000000000000dEaD?tab=token_transfers">销毁地址转账</a>。</li>
+<li><a href="https://developers.uniswap.org/docs/ecosystem/governance/technical-reference">官方地址表</a>、<a href="https://github.com/Uniswap/protocol-fees/blob/main/src/UNIVesting.sol">季度预算合约</a>。</li>
+<li>同区块余额：<code>chain-distribution.json</code>；精确类别：<code>UNI_当前筹码分布数据.json</code>；勾稽结果与查询 URL：<code>burn-reconciliation.json</code>。</li>
+<li>全量转入证据：<code>dead-transfers-pre-unification.json</code>、<code>dead-transfers-legacy.json</code>；主网日序列使用原研究冻结的 <code>数据专题_v1/raw/uniburns.json</code>。</li>
+<li>UNI <code>totalSupply()</code> 仍为 10 亿，转入 <code>0xdead</code> 不会减记该字段；有效剩余量 8.8818 亿为人工扣除后的定义。历史 RPC 余额请求需服务商凭据，本次未取得；全历史转账与当前余额的勾稽来自 Blockscout 和当前区块 RPC 两个来源。</li>
+</ul>
+</main><footer class="site-footer"><span>© 2026 Crypto3D</span><a href="../../../research/">研究文章</a><a href="../../../about">关于我们</a></footer><script src="../../../js/theme.js"></script></body></html>
