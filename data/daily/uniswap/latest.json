@@ -1,26 +1,26 @@
 {
   "protocol": "uniswap",
-  "updated_at": "2026-09-25T00:14:39.000Z",
+  "updated_at": "2026-09-26T00:14:45.000Z",
   "data_sources": {
     "defillama": "uniswap",
     "coingecko": "uniswap",
     "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-09-25",
-    "price_usd": 9.19,
-    "market_cap_usd": 5703430520,
-    "daily_fees_usd": 5304187,
-    "total30d_fees_usd": 209126832,
-    "total1y_fees_usd": 963096306
+    "date": "2026-09-26",
+    "price_usd": 9.66,
+    "market_cap_usd": 5998473081,
+    "daily_fees_usd": 5533086,
+    "total30d_fees_usd": 209952770,
+    "total1y_fees_usd": 965355555
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 1996110,
     "trailing_365d_shareholder_returns_usd": 2952151,
     "annualized_returns_usd": 23953320,
-    "current_market_cap_usd": 5703430520,
+    "current_market_cap_usd": 5998473081,
     "tev_yield": null,
     "return_yield_decimal": 0,
-    "calculated_at": "2026-09-25T00:14:39.000Z"
+    "calculated_at": "2026-09-26T00:14:45.000Z"
   }
 }
