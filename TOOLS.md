@@ -5,7 +5,7 @@
 ⚠️ **所有 API Key 已迁移至 `~/.openclaw/.env`（权限 600），此处仅保留说明。**
 
 ### FRED API
-- **用途**: BMRI 指标宏观数据获取
+- **用途**: 宏观原始数据（原 BMRI 指标输入；BMRI 已下线，现由 `scripts/fetch-indicators.py` 走免费 CSV 抓取，不再需要 key）
 - **环境变量**: `FRED_API_KEY`
 
 ### Etherscan/BscScan API

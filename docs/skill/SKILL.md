@@ -67,11 +67,9 @@ tev-dashboard/
 │   └── data/
 │       ├── shared/         # 共享数据（BTC价格、FRED宏观）
 │       ├── ahr999.json
-│       ├── bmri.json
 │       ├── mvrv.json
 │       └── btc-dominance.json
 ├── ahr999/index.html       # AHR999 指标页
-├── bmri/index.html         # BMRI 指标页
 ├── mvrv/index.html         # MVRV 指标页
 ├── btc-dominance/index.html
 ├── tev/                    # TEV 页面（独立，不在重构范围）
@@ -101,6 +99,5 @@ tev-dashboard/
 
 ### 指标专属设计
 - [AHR999](./indicators/ahr999.md) - 九神指标，定投时机判断
-- [BMRI](./indicators/bmri.md) - 宏观风险指数，多版本切换
 - [MVRV](./indicators/mvrv.md) - 链上估值，市值/已实现市值
 - [BTC.D](./indicators/btc-dominance.md) - 市值占比，资金流向

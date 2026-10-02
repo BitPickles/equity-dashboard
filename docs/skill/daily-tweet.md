@@ -19,9 +19,6 @@
 **BTC.D: XX.X%**
 [数据解读]
 
-**BMRI: XX.X**
-[数据解读]
-
 💡 **周期视角**：[基于 BTC 价格波动 + 多指标联动的周期分析]
 
 📈 crypto3d.pro
@@ -37,7 +34,7 @@
 
 | 项目 | 说明 |
 |-----|------|
-| 四大指标 | AHR999 → MVRV → BTC.D → BMRI |
+| 三大指标 | AHR999 → MVRV → BTC.D |
 | 历史对比 | 引用历史相似时期的数据 |
 | 周期视角 | 基于 BTC 价格波动 + 多指标交叉解读 |
 | 网站链接 | crypto3d.pro |
@@ -98,14 +95,6 @@
 | 50-60% | 均衡 |
 | < 50% | 山寨季，风险加大 |
 
-### BMRI
-
-| 区间 | 含义 |
-|-----|------|
-| < 30 | 宏观低风险 |
-| 30-70 | 中等风险 |
-| > 70 | 宏观高风险 |
-
 ## 数据获取
 
 ```python
@@ -123,10 +112,6 @@ indicators/data/mvrv.json → history[-1]
 # BTC.D
 indicators/data/btc-dominance.json → history[-1]
   - value: 占比
-
-# BMRI
-indicators/data/bmri.json → 6m.history[-1]
-  - risk: 风险值
 ```
 
 ## 发布工具
@@ -153,7 +138,6 @@ bird --chrome-profile "Default" --media /path/to/image.png tweet '推文内容'
    cat indicators/data/ahr999.json | jq '.history[-1]'
    cat indicators/data/mvrv.json | jq '.history[-1]'
    cat indicators/data/btc-dominance.json | jq '.history[-1]'
-   cat indicators/data/bmri.json | jq '.["6m"].history[-1]'
    ```
 
 2. **编写推文**（按模板，基于真实数据）

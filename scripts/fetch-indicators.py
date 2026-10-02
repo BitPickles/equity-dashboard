@@ -5,7 +5,7 @@
 
 数据源（全部免费或已配置）：
   - BTC 价格 / 市值 / 总市值：CoinMarketCap（CMC_API_KEY）
-  - FRED 宏观：fred.stlouisfed.org CSV（免费，无需 key；BMRI 的输入）
+  - FRED 宏观：fred.stlouisfed.org CSV（免费，无需 key；原始宏观数据，当前无页面消费）
   - MVRV：bitcoin-data.com（免费，无需 key）
 
 设计原则：
@@ -13,9 +13,7 @@
   - 字段结构 100% 沿用原文件，各文件保持自己的 JSON 格式（避免 diff 膨胀）
   - 幂等：重复运行不会重复插入
 
-BMRI（indicators/data/bmri.json）不在本脚本内，也没有可用的仓库内生成器：
-scripts/recalc-bmri.py 的口径与线上序列对不上（MAE≈15），详见 docs/skill/indicators/bmri.md。
-恢复 openclaw operator 链路前，请勿覆盖线上 bmri.json。
+BMRI 指标已于 2026-10-03 下线（口径不合格），本脚本与站点均不再维护。
 用法：python3 scripts/fetch-indicators.py [--dry-run]
 """
 import json
@@ -37,7 +35,7 @@ DRY = '--dry-run' in sys.argv
 
 # BTC 创世区块日（AHR999 币龄估值起点）
 GENESIS = date(2009, 1, 3)
-# BMRI 依赖的 FRED 序列
+# FRED 宏观序列（原为 BMRI 输入，现作为原始数据保留）
 FRED_SERIES = ['DGS10', 'DFII10', 'WALCL', 'DTWEXBGS', 'VIXCLS', 'BAMLH0A0HYM2']
 
 
@@ -159,7 +157,7 @@ def update_fred_macro():
         cur = series.setdefault(sid, {})
         new = 0
         for d, v in vals.items():
-            if d < '2013-01-01':      # 与原文件范围对齐（BMRI 只用 2013 起）
+            if d < '2013-01-01':      # 与原文件范围对齐
                 continue
             if d not in cur:
                 cur[d] = v; new += 1
@@ -330,7 +328,7 @@ def main():
     log('[4/6] marketcap'); _, dom = update_marketcap()
     log('[5/6] btc-dominance'); update_btc_dominance(dom)
     log('[6/6] mvrv'); update_mvrv()
-    log('=== 完成（BMRI 未包含：等待 openclaw operator 链路恢复）===')
+    log('=== 完成 ===')
 
 
 if __name__ == '__main__':

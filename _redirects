@@ -29,7 +29,11 @@
 # 旧路径 → 新路径 (301 永久重定向)
 /indicators/ahr999.html    /ahr999                301
 /indicators/mvrv.html      /mvrv                  301
-/indicators/bmri.html      /bmri                  301
+
+# BMRI 指标已下线（口径不合格，2026-10-03）；旧入口收口到首页，避免历史外链 404
+/indicators/bmri.html      /                      301
+/bmri                      /                      301
+/bmri/*                    /                      301
 
 # 合规页面由 Cloudflare Pages 自带 clean-URL 处理 (/privacy.html ↔ /privacy)
 # 这里不需要显式规则；如果加了 200 rewrite 会和 clean-URL 形成 308 循环

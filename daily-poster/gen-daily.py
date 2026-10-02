@@ -6,9 +6,7 @@
 数据源：
 - indicators/data/ahr999.json
 - indicators/data/mvrv.json
-- indicators/data/bmri.json
 - indicators/data/btc-dominance.json
-- indicators/data/shared/fred-macro.json
 - data/governance.json
 """
 import asyncio
@@ -113,40 +111,6 @@ def collect_data():
             "prev_cycle_period": target_str,
         }
 
-    # --- BMRI ---
-    bmri = load_json(INDICATORS / "bmri.json")
-    if bmri:
-        c = bmri["1m"]["current"]
-        data["bmri"] = {
-            "value": c["value"],
-            "regime": c["regime"],
-            "rates": c.get("rates", 0),
-            "liq": c.get("liq", 0),
-            "risk": c.get("risk", 0),
-        }
-
-    # --- FRED macro for BMRI sub-indicators ---
-    fred = load_json(INDICATORS / "shared" / "fred-macro.json")
-    if fred and "series" in fred:
-        s = fred["series"]
-        def last_val(key):
-            d = s.get(key)
-            if not d:
-                return None
-            if isinstance(d, str):
-                d = eval(d)
-            if isinstance(d, dict) and d:
-                return list(d.values())[-1]
-            return None
-        # WALCL is Fed balance sheet in millions; rough M2 proxy
-        walcl = last_val("WALCL")
-        data["fred"] = {
-            "dgs10": last_val("DGS10"),
-            "vix": last_val("VIXCLS"),
-            "dxy": last_val("DTWEXBGS"),
-            "m2": walcl * 1e6 if walcl and walcl > 1000 else None,  # Convert millions to raw
-        }
-
     # --- BTC.D ---
     btcd = load_json(INDICATORS / "btc-dominance.json")
     if btcd:
@@ -240,7 +204,7 @@ def render_html(data):
     # === Update timestamp — show data update date, not current time ===
     # Use the latest date from indicator data files
     data_dates = []
-    for key in ["ahr999", "mvrv", "bmri", "btcd"]:
+    for key in ["ahr999", "mvrv", "btcd"]:
         d = data.get(key, {})
         # collect_data stores date in the parent data dict only
     ahr_data = load_json(INDICATORS / "ahr999.json")
@@ -249,9 +213,6 @@ def render_html(data):
     mvrv_data = load_json(INDICATORS / "mvrv.json")
     if mvrv_data:
         data_dates.append(mvrv_data["current"].get("date", ""))
-    bmri_data = load_json(INDICATORS / "bmri.json")
-    if bmri_data:
-        data_dates.append(bmri_data["1m"]["current"].get("date", ""))
     # Latest data date
     data_dates = [d for d in data_dates if d]
     data_dates.sort()
@@ -382,36 +343,6 @@ def render_html(data):
         r'(card-ahr[\s\S]*?<span class="card-change )(up|down)(">)[^<]+(</span>)',
         rf'\g<1>{ahr_chg_cls}\3{ahr_chg_sign}{ahr_chg:.1f}% 7d\4', html, count=1
     )
-
-    # --- BMRI ---
-    bmri = data.get("bmri", {})
-    bmri_val = bmri.get("value", 50)
-    fred = data.get("fred", {})
-
-    html = re.sub(r'(<div class="bmri-num"[^>]*>)\d+(<\/div>)', rf'\g<1>{bmri_val:.0f}\2', html)
-    html = re.sub(r'(<div class="bmri-gauge-needle" style="left:)\d+(%)', rf'\g<1>{bmri_val:.0f}\2', html)
-
-    # === FIX #7: BMRI sub-factors — use real data, M2 from FRED WALCL ===
-    dgs10 = fred.get("dgs10")
-    vix = fred.get("vix")
-    dxy = fred.get("dxy")
-    m2 = fred.get("m2")
-
-    factor_replacements = []
-    if dgs10 is not None:
-        factor_replacements.append(("10Y", f"{dgs10:.2f}%"))
-    if m2 is not None:
-        factor_replacements.append(("M2", f"{m2/1e12:.1f}T" if m2 > 1e6 else f"{m2:.1f}T"))
-    if vix is not None:
-        factor_replacements.append(("VIX", f"{vix:.1f}"))
-    if dxy is not None:
-        factor_replacements.append(("DXY", f"{dxy:.1f}"))
-
-    for label, new_val in factor_replacements:
-        html = re.sub(
-            rf'(<div class="bmri-fv">)[^<]+(</div>\s*<div class="bmri-fn">{label}</div>)',
-            rf'\g<1>{new_val}\2', html
-        )
 
     # --- MVRV ---
     mvrv = data.get("mvrv", {})
@@ -546,13 +477,6 @@ def render_html(data):
             html, count=1
         )
 
-    # === FIX #5: Layout — fill 1920px, no bottom gap ===
-    # Fix BMRI: remove flex:1 from the number wrapper div
-    html = html.replace(
-        'style="display:flex;align-items:center;justify-content:center;flex:1;"',
-        'style="display:flex;align-items:center;justify-content:center;padding:8px 0;"'
-    )
-
     # === FIX #5: Scale up entire poster to fill 1920px ===
     # Content naturally takes ~1490px. Scale 1920/1490 ≈ 1.289x
     # Set inner dimensions to 1080/1.289 × 1920/1.289, then CSS zoom up
@@ -581,7 +505,6 @@ def render_html(data):
 .two-col { align-items: stretch !important; }
 .two-col > .card { display: flex !important; flex-direction: column !important; }
 .card-ahr .card-footer { margin-top: auto; }
-.card-bmri .bmri-factors { margin-top: auto; }
 .card-mvrv .mvrv-chips { margin-top: auto; }
 .card-mvrv .card-footer { margin-top: 8px; }
 .card-btcd .card-footer { margin-top: auto; }
@@ -752,18 +675,6 @@ def build_trend_context():
         lines.extend(weekly_detail(h, "value"))
         lines.append("")
 
-    # --- BMRI ---
-    bmri = load_json(INDICATORS / "bmri.json")
-    if bmri:
-        # BMRI uses nested structure: 6m.history
-        bh = bmri.get("6m", {}).get("history", [])
-        if bh:
-            lines.append("【BMRI 月度趋势（近4年）】")
-            lines.extend(monthly_agg(bh, "risk"))
-            lines.append("【BMRI 近7天】")
-            lines.extend(weekly_detail(bh, "risk"))
-            lines.append("")
-
     if not lines:
         return ""
     header = "\n\n历史趋势参考（请据此判断当前指标处于历史什么位置，避免把低位小幅反弹误判为上升趋势）：\n"
@@ -886,7 +797,6 @@ def generate_comment(data):
     btc = data.get("btc", {})
     ahr = data.get("ahr999", {})
     mvrv = data.get("mvrv", {})
-    bmri = data.get("bmri", {})
     btcd = data.get("btcd", {})
 
     price = btc.get('price', 0)
@@ -901,7 +811,6 @@ def generate_comment(data):
 - AHR999(3D版): {ahr999_3d:.2f}（{ahr.get('status', '')}），7日变化: {ahr.get('chg_7d', 0):+.1f}%
 - 200日定投成本: ${cost_200d:,.0f}，价格偏离: {dev_cost:+.1f}%
 - MVRV: {mvrv.get('value', 0):.2f}，低于历史 {100 - mvrv.get('percentile', 50):.0f}% 的时间，上轮周期同期（{mvrv.get('prev_cycle_period', '2022-04')}）: {mvrv.get('prev_cycle', 0):.2f}
-- BMRI: {bmri.get('value', 0):.0f}（{bmri.get('regime', '')}）
 - BTC.D: {btcd.get('value', 0):.1f}%，7日变化: {btcd.get('chg_7d', 0):+.1f}%
 （补充参考：3D版拟合价格 ${fitted_3d:,.0f}，偏离 {dev_fitted_3d:+.1f}%。拟合价格仅供辅助参考，不要作为标题或核心论点。）"""
 
@@ -970,10 +879,9 @@ def generate_comment(data):
 
 【视角轮换】每天必须从以下视角中选一个你最近3天没用过的：
 A. 链上估值（MVRV、200日成本线、AHR999区间判断）
-B. 宏观环境（BMRI、利率周期、美元流动性）
-C. 市场结构（BTC.D、资金轮动、山寨季信号）
-D. 周期定位（距减半天数、历史同期对比、上轮同期MVRV）
-E. 事件驱动（重大新闻、治理提案、监管动态）
+B. 市场结构（BTC.D、资金轮动、山寨季信号）
+C. 周期定位（距减半天数、历史同期对比、上轮同期MVRV）
+D. 事件驱动（重大新闻、治理提案、监管动态）
 选好后在正文中自然展开，不要标注你选了哪个。
 
 【结构要求】
@@ -1167,8 +1075,6 @@ async def main():
     print(f"  AHR999: {ahr.get('value', 0):.2f} ({ahr.get('chg_7d', 0):+.1f}% 7d)")
     mvrv = data.get("mvrv", {})
     print(f"  MVRV: {mvrv.get('value', 0):.2f} (P{mvrv.get('percentile', 0):.0f}, prev cycle: {mvrv.get('prev_cycle', 0):.2f})")
-    bmri = data.get("bmri", {})
-    print(f"  BMRI: {bmri.get('value', 0):.0f} ({bmri.get('regime', '')})")
     btcd = data.get("btcd", {})
     print(f"  BTC.D: {btcd.get('value', 0):.1f}%")
     gov = data.get("governance")
