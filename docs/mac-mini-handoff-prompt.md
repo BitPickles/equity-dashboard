@@ -23,7 +23,7 @@
 ## 1. 仓库状态（重要）
 
 - **仓库**：`https://github.com/BitPickles/equity-dashboard`（public）
-- **分支**：每日更新只 push **dev**；**main 已包含 equity 改版（558e2e77，2026-08-11 上线）**
+- **分支**：`daily-run.sh` 必须在 **main** 上运行，只提交 `data/` + `indicators/data/`（数据每日自动发布到正式站）；**代码/页面改动走 dev**，由 Boss 批准后 merge main
 - **发版铁律**：不要在 main 上直接开发；main 只接受 merge（由 Boss 批准）
 - 部署链路：dev/main → GitHub Actions `Deploy to Cloudflare Pages` → crypto3d.pro
 
@@ -73,7 +73,7 @@ ls scripts/ | grep -E "sync-tev|fetch-defillama|fetch-tev-history"  # 应确认�
 
 ```bash
 # 若已有旧 clone：直接更新
-cd ~/tev-dashboard && git fetch origin && git checkout dev && git pull origin dev
+cd ~/tev-dashboard && git fetch origin && git checkout main && git pull origin main
 
 # 若新设备：全新 clone
 git clone https://github.com/BitPickles/equity-dashboard.git ~/tev-dashboard
@@ -105,7 +105,7 @@ mkdir -p ~/tev-dashboard/logs
 
 `daily-run.sh` 内部流程（已串好，无需改动）：
 ```
-update-prices → update-aster → rebuild-daily → sync-all-protocols → validate → push dev
+update-prices → update-aster → rebuild-daily → sync-all-protocols → 历史 → 指标 → validate → push main
 ```
 - 网络抖动时 update-prices/update-aster 失败**不阻断**主流程
 - validate 必须 0 errors 才会 push
@@ -141,7 +141,7 @@ curl -sI https://crypto3d.pro/                 # 首页
 4. **Aster 6-17 新机制**：官方公布的回购钱包（0xa0ed...）链上执行量仅 25 ASTER，实际执行地址待官方披露——`update-aster.py` 已采集 S4 钱包（0x573c...），365d 用链上年化（PE 17.8x）。**若官方披露新地址，在 `update-aster.py` 的 WALLETS 里加即可**
 5. **`data/aster-onchain.json` 是 Aster 链上数据权威源**（update-aster.py 维护），勿手改
 6. **git 偶发 `.git/refs` 损坏**（本机 Windows 遇过）：Mac Mini（macOS）一般没有此问题；若遇到 `not a git repository`，检查 `.git/refs/heads` 是否存在
-7. **不要 push 到 main**：每日更新只 push dev；main 由 Boss 批准 merge（参考 2026-08-11 上线流程）
+7. **数据自动发布 ≠ 代码自动发布**：`daily-run.sh` 在 **main** 上运行、只提交 `data/` 与 `indicators/data/`（数据每日自动上正式站）；**代码/页面改动不得直接推 main**，必须走 dev 分支由 Boss 批准后 merge。第 7 步的 `git add` 已由 `-A -- data` 收紧为 `-A -- data indicators/data`，勿改回全量 add。
 
 ---
 

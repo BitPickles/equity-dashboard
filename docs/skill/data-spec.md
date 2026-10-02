@@ -171,8 +171,8 @@ FRED 宏观经济数据，供 BMRI 等指标使用。
 
 ### 数据脚本
 位于 `scripts/` 目录：
-- `fetch-ahr999.py` - AHR999 更新
-- `recalc-bmri.py` - BMRI 重算
+- `fetch-indicators.py` - 指标板块统一更新（btc-price / fred-macro / ahr999 / marketcap / btc-dominance / mvrv）
+- ⚠️ BMRI（`indicators/data/bmri.json`）**没有**可用的仓库内生成器：`recalc-bmri.py` 口径与线上序列不一致（MAE≈15），**不要**用它覆盖线上文件，详见 `docs/skill/indicators/bmri.md`
 - 其他...
 
 ## 日期格式
