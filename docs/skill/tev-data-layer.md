@@ -433,7 +433,7 @@ const isDaily = records.every(r => {
 │
 ├─ 执行：~/crypto3d-updater/update.sh
 │   Step 1  sync-sources.py                       （FRED 等宏观）
-│   Step 2  AHR999 / MVRV / BMRI                  （BTC 指标）
+│   Step 2  AHR999 / MVRV                         （BTC 指标）
 │   Step 3  fetch-tev-market / fetch-bnb-data
 │           update-bnb-tev.py     ← BNB tev-records
 │           update-hype-tev.py    ← HYPE tev-records

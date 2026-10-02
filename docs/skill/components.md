@@ -148,11 +148,8 @@ LangUtils.toggle()
 
 | 系列 | 颜色 |
 |------|------|
-| 主指标 (BMRI/AHR999) | #3b82f6 (蓝) |
+| 主指标 (AHR999/MVRV) | #3b82f6 (蓝) |
 | BTC 价格 | #f7931a (橙) |
-| Rates | #06b6d4 (青) |
-| Liquidity | #22c55e (绿) |
-| Risk | #f59e0b (琥珀) |
 | Total MCap | #8b5cf6 (紫) |
 
 ## Tooltip 结构
@@ -161,7 +158,7 @@ LangUtils.toggle()
   <div class="tooltip-date">2026-02-11</div>
   <div class="tooltip-item">
     <div class="tooltip-dot" style="background: #3b82f6;"></div>
-    <span class="tooltip-label">BMRI:</span>
+    <span class="tooltip-label">AHR999:</span>
     <span class="tooltip-value">59.9</span>
   </div>
 </div>

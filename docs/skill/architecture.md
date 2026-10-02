@@ -50,7 +50,6 @@
 ├── 指标页面（独立工具）
 │   ├── /mvrv/
 │   ├── /ahr999/
-│   ├── /bmri/
 │   └── /btc-dominance/
 └── TEV 专题（独立项目）
     ├── /tev/ (列表页)
@@ -60,7 +59,7 @@
 ### 1. 指标页面 (Indicator Pages)
 - 路径: `/{indicator}/index.html`
 - 结构统一，参见 [page-template.md](./page-template.md)
-- 例: `/ahr999/`, `/bmri/`, `/mvrv/`
+- 例: `/ahr999/`, `/mvrv/`
 - **导航**: 只有「首页」
 
 ### 2. 首页 (Landing)

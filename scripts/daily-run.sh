@@ -41,9 +41,6 @@ $PY scripts/refresh-unavailable-history.py
 # 5.6 指标板块（shared/btc-price、shared/fred-macro、ahr999、marketcap、btc-dominance、mvrv）。
 #     数据源：CoinMarketCap（需 .env 的 CMC_API_KEY）+ FRED CSV + bitcoin-data.com。
 #     失败不阻断主流程：前端会继续显示上一版指标，不会出现空洞。
-#     ⚠️ BMRI 不在本步内：scripts/recalc-bmri.py 无法复现线上 bmri.json 序列（口径不同，
-#        详见 docs/skill/indicators/bmri.md）。BMRI 仍由原 openclaw operator 链路维护；
-#        在恢复该链路前，bmri.json 保持只读，不要用 recalc-bmri.py 覆盖线上文件。
 $PY scripts/fetch-indicators.py || echo "⚠️ 指标板块更新失败（网络/key），保留上一版指标数据"
 
 # 6. 校验（必须 0 errors，否则终止不推送）

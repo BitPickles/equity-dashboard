@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crypto3D — 为长期投资者提供价值判断工具</title>
-  <meta name="description" content="Crypto3D — 为长期投资者提供价值判断工具。聚合 BTC 周期指标（AHR999 / MVRV / BMRI）、主流 DeFi 协议的股东回报率（股息+回购）与市销率估值以及宏观风险数据。">
-  <meta name="keywords" content="BTC 周期, AHR999, MVRV, BMRI, 股东回报率, Shareholder Yield, 市销率, DeFi 估值, 加密数据">
+  <meta name="description" content="Crypto3D — 为长期投资者提供价值判断工具。聚合 BTC 周期指标（AHR999 / MVRV）、主流 DeFi 协议的股东回报率（股息+回购）与市销率估值。">
+  <meta name="keywords" content="BTC 周期, AHR999, MVRV, 股东回报率, Shareholder Yield, 市销率, DeFi 估值, 加密数据">
   <meta name="robots" content="index,follow">
   <meta name="author" content="Crypto3D">
   <link rel="canonical" href="https://crypto3d.pro/">
@@ -14,7 +14,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://crypto3d.pro/">
   <meta property="og:title" content="Crypto3D — 为长期投资者提供价值判断工具">
-  <meta property="og:description" content="为长期投资者提供价值判断工具：BTC 周期指标 · DeFi 股东回报率估值 · 宏观风险聚合。">
+  <meta property="og:description" content="为长期投资者提供价值判断工具：BTC 周期指标 · DeFi 股东回报率估值。">
   <meta property="og:image" content="https://crypto3d.pro/logo-3d-180.png">
   <meta property="og:site_name" content="Crypto3D">
   <meta property="og:locale" content="zh_CN">
@@ -23,7 +23,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@22333D">
   <meta name="twitter:title" content="Crypto3D — 为长期投资者提供价值判断工具">
-  <meta name="twitter:description" content="为长期投资者提供价值判断工具：BTC 周期 / 股东回报率 / 宏观风险。">
+  <meta name="twitter:description" content="为长期投资者提供价值判断工具：BTC 周期 / 股东回报率。">
   <meta name="twitter:image" content="https://crypto3d.pro/logo-3d-180.png">
 
   <!-- Structured Data (schema.org) -->
@@ -33,7 +33,7 @@
     "@type": "WebSite",
     "name": "Crypto3D",
     "url": "https://crypto3d.pro/",
-    "description": "为长期投资者提供价值判断工具，聚合 BTC 周期指标、DeFi 协议股东回报率估值和宏观风险。",
+    "description": "为长期投资者提供价值判断工具，聚合 BTC 周期指标、DeFi 协议股东回报率估值。",
     "inLanguage": "zh-CN",
     "publisher": {
       "@type": "Organization",
@@ -260,33 +260,6 @@
       .stat-num{font-size:36px}
     }
 
-    /* ── RISK SECTION (full-width gradient bg) ── */
-    .risk-section{position:relative;overflow:hidden}
-    .risk-gradient{position:absolute;inset:0;background:linear-gradient(180deg,var(--bg-0) 0%,var(--bg-2) 50%,var(--bg-0) 100%)}
-    [data-theme="light"] .risk-gradient{background:linear-gradient(180deg,var(--bg-0) 0%,#e2e4ed 50%,var(--bg-0) 100%)}
-    .risk-content{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:56px 32px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-    @media(max-width:960px){.risk-content{grid-template-columns:1fr;gap:32px}}
-
-    .risk-text .sec-eyebrow{color:var(--amber)}
-    .risk-text .sec-title{font-size:32px;margin-bottom:12px}
-    .risk-text .sec-desc{margin-bottom:24px}
-    .risk-features{display:flex;flex-direction:column;gap:12px}
-    .risk-feat{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text-2)}
-    .risk-feat .dot{width:4px;height:4px;border-radius:50%;background:var(--amber);flex-shrink:0}
-
-    .risk-viz{background:var(--bg-1);border:1px solid var(--border);border-radius:16px;padding:32px;text-align:center}
-    .risk-val{font-size:80px;font-weight:900;letter-spacing:-0.05em;line-height:1;margin-bottom:8px}
-    .risk-zone{display:inline-block;font-size:14px;font-weight:700;padding:5px 14px;border-radius:6px;margin-bottom:24px}
-
-    /* Gauge bar */
-    .gauge{height:8px;border-radius:4px;background:var(--bg-3);position:relative;margin-bottom:12px}
-    .gauge-fill{height:100%;border-radius:4px;position:relative}
-    .gauge-dot{position:absolute;right:-6px;top:50%;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;border:2px solid var(--bg-1)}
-    .gauge-labels{display:flex;justify-content:space-between;font-size:11px;font-weight:600;color:var(--text-3)}
-
-    .risk-spark{margin-top:24px;height:80px}
-    .risk-spark svg{display:block;width:100%;height:100%}
-
     /* ── GOVERNANCE SECTION (Linear tab-switch inspired) ── */
     .gov-section{position:relative;z-index:1}
     .gov-inner{max-width:1280px;margin:0 auto;padding:56px 32px}
@@ -319,7 +292,7 @@
     .gov-more a svg{width:14px;height:14px}
 
     /* ── MICRO ANIMATIONS ── */
-    .bento-card,.gov-card,.risk-viz{transition:border-color .25s cubic-bezier(.16,1,.3,1),transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s cubic-bezier(.16,1,.3,1)}
+    .bento-card,.gov-card{transition:border-color .25s cubic-bezier(.16,1,.3,1),transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s cubic-bezier(.16,1,.3,1)}
 
     /* ── FOOTER ── */
     footer{border-top:1px solid var(--border);padding:32px 0}
@@ -342,7 +315,7 @@
   <div class="hd">
     <a href="./" class="logo"><img src="./logo-3d.jpg" alt="3D" class="logo-img" style="width:28px;height:28px;border-radius:4px">Crypto3D</a>
     <div class="hd-r">
-      <nav><ul class="hd-nav"><li><a href="#tev" data-zh="协议估值" data-en="Valuation">协议估值</a></li><li><a href="#cycle" data-zh="BTC 周期" data-en="BTC Cycle">BTC 周期</a></li><li><a href="#risk" data-zh="宏观风险" data-en="Macro Risk">宏观风险</a></li><li><a href="./hbm/" data-zh="存储看板" data-en="Memory">存储看板</a></li><li><a href="./research/" data-zh="研究文章" data-en="Research">研究文章</a></li></ul></nav>
+      <nav><ul class="hd-nav"><li><a href="#tev" data-zh="协议估值" data-en="Valuation">协议估值</a></li><li><a href="#cycle" data-zh="BTC 周期" data-en="BTC Cycle">BTC 周期</a></li><li><a href="./hbm/" data-zh="存储看板" data-en="Memory">存储看板</a></li><li><a href="./research/" data-zh="研究文章" data-en="Research">研究文章</a></li></ul></nav>
       <button class="ib tt" id="tt" aria-label="切换主题">
         <svg class="moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
         <svg class="sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
@@ -604,42 +577,6 @@
   </div>
 </div>
 
-<!-- ═══════════════════ MACRO RISK (Split layout + gradient bg) ═══════════════════ -->
-<section class="risk-section" id="risk">
-  <div class="risk-gradient"></div>
-  <div class="risk-content">
-    <div class="risk-text">
-      <div class="sec-eyebrow" style="color:var(--amber)"><div class="dot" style="background:var(--amber)"></div>Macro Risk</div>
-      <h2 class="sec-title" data-zh="宏观风险" data-en="Macro Risk">宏观风险</h2>
-      <p class="sec-desc" data-zh="综合美债利率、全球流动性、风险偏好的多维宏观因子，量化 BTC 面临的系统性风险。" data-en="Composite macro factor combining US bond rates, global liquidity, and risk appetite to quantify systemic risk facing BTC.">综合美债利率、全球流动性、风险偏好的多维宏观因子，量化 BTC 面临的系统性风险。</p>
-      <div class="risk-features">
-        <div class="risk-feat"><div class="dot"></div><span data-zh="10Y 美债利率追踪" data-en="10Y Treasury Rate Tracking">10Y 美债利率追踪</span></div>
-        <div class="risk-feat"><div class="dot"></div><span data-zh="全球流动性 M2 监测" data-en="Global M2 Liquidity Monitor">全球流动性 M2 监测</span></div>
-        <div class="risk-feat"><div class="dot"></div><span data-zh="VIX 风险偏好信号" data-en="VIX Risk Appetite Signal">VIX 风险偏好信号</span></div>
-        <div class="risk-feat"><div class="dot"></div><span data-zh="DXY 美元指数影响" data-en="DXY Dollar Index Impact">DXY 美元指数影响</span></div>
-      </div>
-    </div>
-    <a href="./bmri/" class="risk-viz">
-      <div class="risk-val mono" id="risk-main-value" style="color:var(--amber)">—</div>
-      <div class="risk-zone" id="risk-main-zone" style="color:var(--amber);background:var(--amber-d)" data-zh="加载中" data-en="Loading">加载中</div>
-      <div class="gauge">
-        <div class="gauge-fill" id="risk-gauge-fill" style="width:0%;background:linear-gradient(90deg,var(--green),var(--amber))">
-          <div class="gauge-dot" id="risk-gauge-dot" style="background:var(--amber)"></div>
-        </div>
-      </div>
-      <div class="gauge-labels"><span data-zh="低风险" data-en="Low Risk">低风险</span><span data-zh="中性" data-en="Neutral">中性</span><span data-zh="高风险" data-en="High Risk">高风险</span></div>
-      <div class="risk-spark"><svg id="sp-r" width="100%" height="80" viewBox="0 0 300 80" preserveAspectRatio="none"></svg></div>
-      <div style="display:flex;justify-content:space-between;margin-top:20px;padding-top:16px;border-top:1px solid var(--border)">
-        <div style="text-align:center"><div class="mono" id="risk-rates" style="font-size:13px;font-weight:700">—</div><div style="font-size:10px;color:var(--text-3);margin-top:2px" data-zh="Rates" data-en="Rates">Rates</div></div>
-        <div style="text-align:center"><div class="mono" id="risk-liq" style="font-size:13px;font-weight:700;color:var(--green)">—</div><div style="font-size:10px;color:var(--text-3);margin-top:2px" data-zh="Liquidity" data-en="Liquidity">Liquidity</div></div>
-        <div style="text-align:center"><div class="mono" id="risk-risk" style="font-size:13px;font-weight:700">—</div><div style="font-size:10px;color:var(--text-3);margin-top:2px">Risk</div></div>
-      </div>
-    </a>
-  </div>
-</section>
-
-
-
 <footer>
   <div class="ft">
     <span>© 2026 Crypto3D</span>
@@ -704,62 +641,6 @@ function sp(id,data,color){
 sp('sp-a',[.38,.37,.35,.34,.35,.36,.36],'#60a5fa');
 sp('sp-m',[1.35,1.33,1.30,1.28,1.27,1.29,1.29],'#a78bfa');
 sp('sp-d',[57.5,57.8,58.0,57.9,58.1,58.3,58.2],'#38bdf8');
-
-/* Risk section data sync with BMRI page */
-(function(){
-  const regimeMap = {
-    RISK_ON: { zh: 'Risk-On', en: 'Risk-On', color: 'var(--green)', bg: 'var(--green-d)', gradient: 'linear-gradient(90deg,var(--green),var(--green))' },
-    NEUTRAL: { zh: '中性', en: 'Neutral', color: 'var(--amber)', bg: 'var(--amber-d)', gradient: 'linear-gradient(90deg,var(--green),var(--amber))' },
-    RISK_OFF: { zh: 'Risk-Off', en: 'Risk-Off', color: 'var(--red)', bg: 'rgba(248,113,113,0.08)', gradient: 'linear-gradient(90deg,var(--amber),var(--red))' }
-  };
-
-  function renderRiskSpark(history) {
-    const s = document.getElementById('sp-r'); if (!s || !history?.length) return;
-    const data = history.slice(-13).map(d => d.bmri);
-    const w = 300, h = 80, p = 8;
-    const mn = Math.min(...data), mx = Math.max(...data), r = mx - mn || 1;
-    const pts = data.map((v,i)=>[p+i/(data.length-1)*(w-p*2),h-p-(v-mn)/r*(h-p*2)]);
-    const ln = pts.map(p=>p.join(',')).join(' '), la = pts[pts.length-1];
-    s.innerHTML = `<defs><linearGradient id="rg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fbbf24" stop-opacity=".15"/><stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/></linearGradient></defs><polygon fill="url(#rg)" points="${p},${h-p} ${ln} ${w-p},${h-p}"/><polyline fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="${ln}"/><circle cx="${la[0]}" cy="${la[1]}" r="3" fill="#fbbf24"/>`;
-  }
-
-  async function loadRiskSection() {
-    try {
-      const res = await fetch('./indicators/data/bmri.json');
-      if (!res.ok) return;
-      const data = await res.json();
-      const current = data?.['6m']?.current;
-      const history = data?.['6m']?.history;
-      if (!current) return;
-
-      const regime = regimeMap[current.regime] || regimeMap.NEUTRAL;
-      const value = Number(current.value);
-      document.getElementById('risk-main-value').textContent = Number.isFinite(value) ? value.toFixed(1) : '—';
-      document.getElementById('risk-main-value').style.color = regime.color;
-
-      const zoneEl = document.getElementById('risk-main-zone');
-      zoneEl.textContent = document.documentElement.lang === 'zh-CN' ? regime.zh : regime.en;
-      zoneEl.style.color = regime.color;
-      zoneEl.style.background = regime.bg;
-
-      const gaugeFill = document.getElementById('risk-gauge-fill');
-      const gaugeDot = document.getElementById('risk-gauge-dot');
-      gaugeFill.style.width = `${Math.max(0, Math.min(100, value))}%`;
-      gaugeFill.style.background = regime.gradient;
-      gaugeDot.style.background = regime.color;
-
-      document.getElementById('risk-rates').textContent = current.rates != null ? current.rates.toFixed(1) : '—';
-      document.getElementById('risk-liq').textContent = current.liq != null ? current.liq.toFixed(1) : '—';
-      document.getElementById('risk-risk').textContent = current.risk != null ? current.risk.toFixed(1) : '—';
-
-      renderRiskSpark(history);
-    } catch (e) {
-      console.error('Failed to load BMRI risk section data', e);
-    }
-  }
-
-  loadRiskSection();
-})();
 </script>
 <script src="./js/theme.js"></script>
 <script src="./js/lang.js"></script>

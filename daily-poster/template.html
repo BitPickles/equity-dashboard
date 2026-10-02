@@ -234,21 +234,6 @@ body {
 .btcd-bar-fill { height: 100%; border-radius: 5px; }
 .btcd-bar-val { font-family: 'JetBrains Mono'; font-size: 15px; font-weight: 600; color: #71717a; width: 56px; text-align: right; }
 
-/* === BMRI === */
-.card-bmri { background: linear-gradient(160deg, #fffbf0 0%, #fff 40%); }
-.bmri-row { display: flex; align-items: center; gap: 28px; }
-.bmri-left {}
-.bmri-num { font-family: 'JetBrains Mono'; font-size: 64px; font-weight: 800; color: #18181b; letter-spacing: -0.04em; line-height: 1; margin-bottom: 10px; }
-.bmri-gauge { width: 120px; height: 8px; background: #f0f0f2; border-radius: 4px; position: relative; overflow: visible; }
-.bmri-gauge-grad { position: absolute; inset: 0; border-radius: 4px; background: linear-gradient(90deg, #22c55e 0%, #eab308 50%, #ef4444 100%); opacity: 0.35; }
-.bmri-gauge-needle { position: absolute; top: -5px; width: 4px; height: 18px; background: #18181b; border-radius: 2px; }
-.bmri-gauge-labels { display: flex; justify-content: space-between; width: 120px; margin-top: 5px; }
-.bmri-gauge-label { font-size: 13px; color: #c4c4cc; font-weight: 500; }
-.bmri-factors { flex: 1; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; }
-.bmri-factor { background: rgba(0,0,0,0.02); border-radius: 10px; padding: 12px 10px; text-align: center; }
-.bmri-fv { font-family: 'JetBrains Mono'; font-size: 21px; font-weight: 700; color: #3f3f46; }
-.bmri-fn { font-size: 12px; color: #a1a1aa; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 2px; }
-
 /* === GOVERNANCE (full width) === */
 .card-gov { background: linear-gradient(160deg, #f5f3ff 0%, #fff 40%); flex-shrink: 0; }
 .gov-status-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
@@ -365,7 +350,7 @@ body {
     </div>
   </div>
 
-  <!-- AHR999 + BMRI (two columns) -->
+  <!-- AHR999 -->
   <div class="two-col">
     <div class="card card-ahr">
       <div class="card-label"><span class="card-dot" style="background:#3b82f6;"></span>AHR999</div>
@@ -406,26 +391,6 @@ body {
       </div>
     </div>
 
-    <div class="card card-bmri">
-      <div class="card-label"><span class="card-dot" style="background:#f59e0b;"></span>BMRI 宏观风险</div>
-      <div style="display:flex;align-items:center;justify-content:center;flex:1;">
-        <div class="bmri-num" style="font-size:56px;">45</div>
-      </div>
-      <div class="bmri-gauge" style="width:100%;margin-bottom:6px;">
-        <div class="bmri-gauge-grad"></div>
-        <div class="bmri-gauge-needle" style="left:45%;"></div>
-      </div>
-      <div class="bmri-gauge-labels" style="width:100%;">
-        <span class="bmri-gauge-label">Low</span>
-        <span class="bmri-gauge-label">High</span>
-      </div>
-      <div class="bmri-factors" style="grid-template-columns:1fr 1fr 1fr 1fr;margin-top:10px;">
-        <div class="bmri-factor"><div class="bmri-fv">4.32%</div><div class="bmri-fn">10Y</div></div>
-        <div class="bmri-factor"><div class="bmri-fv">21.8T</div><div class="bmri-fn">M2</div></div>
-        <div class="bmri-factor"><div class="bmri-fv">16.2</div><div class="bmri-fn">VIX</div></div>
-        <div class="bmri-factor"><div class="bmri-fv">104.3</div><div class="bmri-fn">DXY</div></div>
-      </div>
-    </div>
   </div>
 
   <!-- MVRV + BTC.D (two columns) -->

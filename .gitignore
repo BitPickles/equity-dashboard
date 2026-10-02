@@ -12,8 +12,8 @@ __pycache__/
 # 本地预览服务器
 .preview-server.cjs
 
-# 本地预览服务器
-.preview-server.cjs
+# 临时脚本/备份（本机 bash /tmp 不可用，统一放项目内 tmp/）
+tmp/
 
 # WorkBuddy 本地状态（不入仓库）
 .workbuddy/

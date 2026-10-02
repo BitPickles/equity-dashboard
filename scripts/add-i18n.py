@@ -29,7 +29,6 @@ TRANSLATIONS = {
     # Navigation
     "首页": "Home",
     "BTC 周期": "BTC Cycle",
-    "宏观风险": "Macro Risk",
     "切换主题": "Toggle Theme",
     
     # Hero
@@ -66,12 +65,10 @@ TRANSLATIONS = {
     "BTC主导": "BTC Dominant",
     "山寨季": "Alt Season",
     
-    # Macro Risk
+    # Risk Gauge（通用风险档位，hbm / equity / membership 共用）
     "中性": "Neutral",
     "低风险": "Low Risk",
     "高风险": "High Risk",
-    "10Y 美债": "10Y Treasury",
-    "全球 M2": "Global M2",
     
     # Stats
     "市场周期指标": "Cycle Indicators",
@@ -89,26 +86,8 @@ TRANSLATIONS = {
     "链上估值指标": "On-chain Valuation",
     "市场价值与实现价值比率": "Market Value to Realized Value Ratio",
     
-    # BMRI
-    "宏观风险指数": "Macro Risk Index",
-    "综合评分": "Composite Score",
-    "利率因子": "Rate Factor",
-    "流动性因子": "Liquidity Factor",
-    "风险因子": "Risk Factor",
-    "子指标": "Sub-indicators",
+    # 通用
     "版本": "Version",
-    "版本说明": "Version Notes",
-    "计算方法": "Methodology",
-    "权重": "Weight",
-    "得分": "Score",
-    "标准化": "Normalized",
-    "原始值": "Raw Value",
-    "美债利率": "Treasury Rate",
-    "全球流动性": "Global Liquidity",
-    "风险偏好": "Risk Appetite",
-    "美元指数": "Dollar Index",
-    "信用利差": "Credit Spread",
-    "波动率指数": "Volatility Index",
     
     # BTC.D
     "BTC 市值占比": "BTC Market Dominance",
@@ -208,7 +187,6 @@ files = [
     'index.html',
     'ahr999/index.html',
     'mvrv/index.html', 
-    'bmri/index.html',
     'btc-dominance/index.html',
     'equity/index.html',
     'equity/protocol.html',

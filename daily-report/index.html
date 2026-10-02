@@ -249,14 +249,6 @@
             <div class="ind-detail" id="detail-btcd"></div>
           </div>
 
-          <!-- BMRI -->
-          <div class="ind-card" id="card-bmri">
-            <div class="ind-name">BMRI</div>
-            <div class="ind-value mono" id="val-bmri">—</div>
-            <div class="ind-status" id="status-bmri">—</div>
-            <div class="ind-detail" id="detail-bmri"></div>
-          </div>
-
         </div>
 
         <!-- Cycle summary -->
@@ -315,15 +307,8 @@
       return { text: '山寨季', cls: 'red' };
     }
 
-    // BMRI zone
-    function bmriZone(v) {
-      if (v < 30) return { text: '宏观低风险', cls: 'green' };
-      if (v < 70) return { text: '中等风险', cls: 'amber' };
-      return { text: '宏观高风险', cls: 'red' };
-    }
-
     // Generate cycle text based on data
-    function generateCycleText(ahr999, mvrv, btcd, bmri, btcPrice, cost200d) {
+    function generateCycleText(ahr999, mvrv, btcd, btcPrice, cost200d) {
       const parts = [];
 
       // Price vs 200d cost
@@ -335,15 +320,6 @@
         parts.push('AHR999 与 MVRV 双双指向低估区域');
       } else if (ahr999 > 1.2 && mvrv > 2.5) {
         parts.push('AHR999 与 MVRV 同时偏高，注意风险');
-      }
-
-      // BMRI context
-      if (bmri < 30) {
-        parts.push('宏观环境偏友好，流动性条件支持风险资产');
-      } else if (bmri > 70) {
-        parts.push('宏观风险偏高，外部环境对加密市场构成压力');
-      } else {
-        parts.push('宏观面暂无明确方向，关注后续变量');
       }
 
       // BTC.D
@@ -360,21 +336,18 @@
 
     async function loadData() {
       try {
-        const [ahr999Data, mvrvData, btcdData, bmriData] = await Promise.all([
+        const [ahr999Data, mvrvData, btcdData] = await Promise.all([
           fetchJSON('ahr999.json'),
           fetchJSON('mvrv.json'),
           fetchJSON('btc-dominance.json'),
-          fetchJSON('bmri.json'),
         ]);
 
         const ahr = ahr999Data.history[ahr999Data.history.length - 1];
         const mvrv = mvrvData.history[mvrvData.history.length - 1];
         const btcd = btcdData.history[btcdData.history.length - 1];
-        const bmri6m = bmriData['6m'].history;
-        const bmri = bmri6m[bmri6m.length - 1];
 
         // Date - use most recent
-        const dates = [ahr.date, mvrv.date, btcd.date, bmri.date].sort();
+        const dates = [ahr.date, mvrv.date, btcd.date].sort();
         const latestDate = dates[dates.length - 1];
         document.getElementById('report-date').textContent = formatDate(latestDate);
 
@@ -421,20 +394,9 @@
         statusBtcd.classList.add(btcdZ.cls);
         document.getElementById('card-btcd').classList.add(btcdZ.cls);
 
-        // BMRI
-        const bmriVal = bmri.bmri;
-        const bmriZ = bmriZone(bmriVal);
-        document.getElementById('val-bmri').textContent = bmriVal.toFixed(1);
-        const statusBmri = document.getElementById('status-bmri');
-        statusBmri.textContent = bmriZ.text;
-        statusBmri.classList.add(bmriZ.cls);
-        document.getElementById('card-bmri').classList.add(bmriZ.cls);
-        document.getElementById('detail-bmri').textContent =
-          'Rates ' + bmri.rates.toFixed(1) + ' / Liq ' + bmri.liq.toFixed(1) + ' / Risk ' + bmri.risk.toFixed(1);
-
         // Cycle text
         document.getElementById('cycle-text').textContent =
-          generateCycleText(ahr999Val, mvrvVal, btcdVal, bmriVal, ahr.close, ahr.cost_200d);
+          generateCycleText(ahr999Val, mvrvVal, btcdVal, ahr.close, ahr.cost_200d);
 
         // Show content
         document.getElementById('loading').style.display = 'none';
