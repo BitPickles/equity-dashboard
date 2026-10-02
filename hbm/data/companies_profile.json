@@ -1,6 +1,6 @@
 {
   "schema_version": "0.2",
-  "generated_at": "2026-07-03",
+  "generated_at": "2026-10-01",
   "note": "人工/半自动从各公司年报与官方 IR 资料摘录，更新频率约一年一次。数据纪律：每个数字必须带 value + asof + source(+source_url) + tier；拿不到的项写 pending，前端渲染为「待补」，绝不编造。strengths 每条为可验证事实并带真实公开来源，禁止引用本项目演示 transcripts。",
   "companies": [
     {
@@ -24,13 +24,32 @@
         "unit_short": "$M",
         "total": 37378,
         "items": [
-          { "label": "DRAM", "value": 28578, "share_pct": 76.5 },
-          { "label": "NAND", "value": 8503, "share_pct": 22.7 },
-          { "label": "其他（主要为 NOR）", "value": 297, "share_pct": 0.8 }
+          {
+            "label": "DRAM",
+            "value": 28578,
+            "share_pct": 76.5
+          },
+          {
+            "label": "NAND",
+            "value": 8503,
+            "share_pct": 22.7
+          },
+          {
+            "label": "其他（主要为 NOR）",
+            "value": 297,
+            "share_pct": 0.8
+          }
         ],
         "share_note": "占比 = 各项 ÷ 总营收，由 10-K 原文金额自算"
       },
       "strengths": [
+        {
+          "text": "FY2026 营收 1331.9 亿美元、GAAP 净利 849.7 亿美元，均创历史新高；FY2026Q4 单季营收 542.3 亿美元、毛利率 86.8%",
+          "source": "Micron 8-K 附件 99.1 业绩新闻稿（SEC EDGAR）",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm",
+          "asof": "2026-09-30",
+          "tier": "S"
+        },
         {
           "text": "美国本土唯一的存储芯片（Memory）制造商；获美国《芯片法案》最高 61.65 亿美元直接拨款，用于爱达荷州与纽约州先进 DRAM 产能建设",
           "source": "美国商务部新闻稿（2024-12-10）",
@@ -53,7 +72,32 @@
           "tier": "S"
         }
       ],
-      "headline_metrics": []
+      "headline_metrics": [
+        {
+          "label": "FY2026 营收",
+          "value": "1331.9 亿美元",
+          "asof": "FY2026（止 2026-09-03，发布 2026-09-30）",
+          "source": "Micron 8-K 附件 99.1 业绩新闻稿（SEC EDGAR）",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm",
+          "tier": "S"
+        },
+        {
+          "label": "FY2026 GAAP 净利",
+          "value": "849.7 亿美元（摊薄 EPS 74.33 美元）",
+          "asof": "FY2026（止 2026-09-03，发布 2026-09-30）",
+          "source": "Micron 8-K 附件 99.1 业绩新闻稿（SEC EDGAR）",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm",
+          "tier": "S"
+        },
+        {
+          "label": "FY2026Q4 营收 / 毛利率",
+          "value": "542.3 亿美元 / 86.8%",
+          "asof": "FY2026Q4（止 2026-09-03）",
+          "source": "Micron 8-K 附件 99.1 业绩新闻稿（SEC EDGAR）",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm",
+          "tier": "S"
+        }
+      ]
     },
     {
       "ticker": "000660.KS",
@@ -77,13 +121,32 @@
         "total": 97.1467,
         "basis": "按产品（品目）拆分，合并（对外销售）口径，加总 = 100%",
         "items": [
-          { "label": "DRAM", "value": 74.9041, "share_pct": 77.1 },
-          { "label": "NAND Flash", "value": 20.6901, "share_pct": 21.3 },
-          { "label": "其他", "value": 1.5525, "share_pct": 1.6 }
+          {
+            "label": "DRAM",
+            "value": 74.9041,
+            "share_pct": 77.1
+          },
+          {
+            "label": "NAND Flash",
+            "value": 20.6901,
+            "share_pct": 21.3
+          },
+          {
+            "label": "其他",
+            "value": 1.5525,
+            "share_pct": 1.6
+          }
         ],
         "share_note": "占比 = 各项 ÷ 总营收，由 DART 年报注记 24 原文金额（百万韩元）自算"
       },
       "strengths": [
+        {
+          "text": "2026Q2 营收 79.32 万亿、营业利润 60.54 万亿韩元均创单季新高；HBM4 已于 Q2 量产出货，HBM4E 样品上半年交付",
+          "source": "SK hynix Newsroom 2Q26 业绩发布",
+          "source_url": "https://news.skhynix.com/en/q2-2026-business-results/",
+          "asof": "2026-07-29",
+          "tier": "A"
+        },
         {
           "text": "2025 年 HBM 收入同比增长一倍以上，是公司创纪录业绩的主要贡献（公司官方表述）",
           "source": "SK hynix Newsroom FY2025 业绩发布",
@@ -108,11 +171,27 @@
       ],
       "headline_metrics": [
         {
-          "label": "2025 营业利润",
-          "value": "47.2063 万亿韩元",
-          "asof": "FY2025（自然年，发布 2026-01-28）",
-          "source": "SK hynix Newsroom 官方业绩发布",
-          "source_url": "https://news.skhynix.com/sk-hynix-announces-fy25-financial-results/",
+          "label": "2026Q2 营收",
+          "value": "79.32 万亿韩元",
+          "asof": "2026Q2（发布 2026-07-29）",
+          "source": "SK hynix Newsroom 2Q26 业绩发布",
+          "source_url": "https://news.skhynix.com/en/q2-2026-business-results/",
+          "tier": "A"
+        },
+        {
+          "label": "2026Q2 营业利润",
+          "value": "60.54 万亿韩元（营业利润率 76%）",
+          "asof": "2026Q2（发布 2026-07-29）",
+          "source": "SK hynix Newsroom 2Q26 业绩发布",
+          "source_url": "https://news.skhynix.com/en/q2-2026-business-results/",
+          "tier": "A"
+        },
+        {
+          "label": "2026Q2 净利润",
+          "value": "93.92 万亿韩元（含 62.17 万亿铠侠股权一次性处置收益）",
+          "asof": "2026Q2（发布 2026-07-29）",
+          "source": "SK hynix Newsroom / Chosun",
+          "source_url": "https://news.skhynix.com/en/q2-2026-business-results/",
           "tier": "A"
         }
       ]
@@ -139,11 +218,31 @@
         "total": 333.6059,
         "basis": "按主要产品拆分，合并（对外销售、已消除内部交易）口径，加总 = 100%。非事业部口径：事业部（DX/DS 等）营收含事业部间内部销售，不适用饼图。",
         "items": [
-          { "label": "智能手机等", "value": 126.4744, "share_pct": 37.9 },
-          { "label": "Memory（存储）", "value": 104.0812, "share_pct": 31.2 },
-          { "label": "TV・显示器等", "value": 30.8609, "share_pct": 9.3 },
-          { "label": "显示面板", "value": 29.8417, "share_pct": 8.9 },
-          { "label": "其他（年报未单列，差额自算）", "value": 42.3478, "share_pct": 12.7 }
+          {
+            "label": "智能手机等",
+            "value": 126.4744,
+            "share_pct": 37.9
+          },
+          {
+            "label": "Memory（存储）",
+            "value": 104.0812,
+            "share_pct": 31.2
+          },
+          {
+            "label": "TV・显示器等",
+            "value": 30.8609,
+            "share_pct": 9.3
+          },
+          {
+            "label": "显示面板",
+            "value": 29.8417,
+            "share_pct": 8.9
+          },
+          {
+            "label": "其他（年报未单列，差额自算）",
+            "value": 42.3478,
+            "share_pct": 12.7
+          }
         ],
         "share_note": "占比 = 各项 ÷ 集团总营收，由 DART 年报注记 30「제품과 용역에 대한 공시」原文金额（百万韩元）自算；「其他」= 总营收 − 已单列产品之和，自算",
         "pending_items": [
@@ -155,6 +254,13 @@
         ]
       },
       "strengths": [
+        {
+          "text": "2026Q2 营收 171.5 万亿、营业利润 89.5 万亿韩元双双创单季新高；存储业务营收与营业利润创历史新高，HBM4E 已交付业界首批样品",
+          "source": "Samsung Newsroom 2Q26 业绩发布",
+          "source_url": "https://news.samsung.com/global/samsung-electronics-announces-second-quarter-2026-results",
+          "asof": "2026-07-30",
+          "tier": "A"
+        },
         {
           "text": "Memory 业务 2025Q4 单季营收与营业利润创历史最高（HBM、服务器 DDR5、企业级 SSD 等高附加值产品扩销）",
           "source": "Samsung Newsroom 4Q/FY2025 业绩发布",
@@ -184,7 +290,32 @@
           "tier": "A"
         }
       ],
-      "headline_metrics": []
+      "headline_metrics": [
+        {
+          "label": "2026Q2 营收",
+          "value": "171.5 万亿韩元",
+          "asof": "2026Q2（发布 2026-07-30）",
+          "source": "Samsung Newsroom 2Q26 业绩发布",
+          "source_url": "https://news.samsung.com/global/samsung-electronics-announces-second-quarter-2026-results",
+          "tier": "A"
+        },
+        {
+          "label": "2026Q2 营业利润",
+          "value": "89.5 万亿韩元（营业利润率 52.2%）",
+          "asof": "2026Q2（发布 2026-07-30）",
+          "source": "Samsung Newsroom 2Q26 业绩发布",
+          "source_url": "https://news.samsung.com/global/samsung-electronics-announces-second-quarter-2026-results",
+          "tier": "A"
+        },
+        {
+          "label": "DS 半导体部门 2026Q2",
+          "value": "营收 127.5 万亿、营业利润 89.2 万亿韩元（创纪录）",
+          "asof": "2026Q2（发布 2026-07-30）",
+          "source": "Samsung Newsroom 2Q26 业绩发布",
+          "source_url": "https://news.samsung.com/global/samsung-electronics-announces-second-quarter-2026-results",
+          "tier": "A"
+        }
+      ]
     }
   ]
 }

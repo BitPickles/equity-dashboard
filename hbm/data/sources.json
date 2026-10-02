@@ -1,6 +1,6 @@
 {
  "schema_version": "0.6",
- "generated_at": "2026-08-10T10:01:52+00:00",
+ "generated_at": "2026-10-01T00:00:00+00:00",
  "note": "由 build/fetch_data.py build_sources() 生成。估值/盈利/周期数据为真实抓取；仅“电话会文稿 / AI 摘要”行为演示样稿（D 档）。",
  "tiers": [
   {
@@ -46,63 +46,92 @@
  ],
  "source_rows": [
   {
+   "metric": "MU FY2026Q4（营收/毛利/营业利润/净利/存货/权益/capex，新闻稿）",
+   "src": "SEC EDGAR 8-K 附件 99.1 业绩新闻稿（10-K 未出，季度末股数沿用 Q3）",
+   "date": "2026-09-30",
+   "tier": "S",
+   "method": "⚙️"
+  },
+  {
+   "metric": "SK hynix / 三星 2026Q2（营收/营业利润/净利/权益，官方 IR + 半期报表）",
+   "src": "SK hynix Newsroom / Samsung Newsroom 业绩发布 + Samsung 半期资产负债表 PDF（DART 精确值待补）",
+   "date": "2026-07-30",
+   "tier": "A",
+   "method": "⚙️"
+  },
+  {
    "metric": "P/E · P/B 日频（分母全程 · 三家：MU 1994→ / 韩股 2001→）",
    "src": "SEC EDGAR / DART 财报分母（季度层）+ 更早年度史料层，自算（分子 Yahoo 日收盘）",
-   "date": "2026-08-10",
+   "date": "2026-08-01",
    "tier": "A",
    "method": "⚙️"
   },
   {
    "metric": "MU 季度长序列（营收/毛利/营业利润/净利/COGS/存货/权益/capex，FY2009→）",
    "src": "SEC EDGAR companyconcept（10-Q/10-K/8-K XBRL）",
-   "date": "2026-08-10",
+   "date": "2026-08-01",
    "tier": "S",
    "method": "⚙️"
   },
   {
    "metric": "SK Hynix / 三星 季度长序列（2015Q4→，流量项 2016Q1→）",
    "src": "DART OpenAPI fnlttSinglAcntAll（연결 CFS）",
-   "date": "2026-08-10",
+   "date": "2026-08-01",
    "tier": "S",
    "method": "⚙️"
   },
   {
    "metric": "MU 股数",
    "src": "SEC dei:EntityCommonStockSharesOutstanding（封面截至日）",
-   "date": "2026-08-10",
+   "date": "2026-08-01",
    "tier": "S",
    "method": "⚙️"
   },
   {
    "metric": "韩股普通股股数",
    "src": "DART stockTotqySttus（报告期末口径，避开优先股）",
-   "date": "2026-08-10",
+   "date": "2026-08-01",
    "tier": "S",
    "method": "⚙️"
   },
   {
    "metric": "季度 P/E · P/B 长序列 + 历史区间统计",
    "src": "自算：季末收盘 × 股数 ÷ 归母权益 / TTM归母净利",
-   "date": "2026-08-10",
+   "date": "2026-08-01",
    "tier": "A",
    "method": "⚙️"
   },
   {
    "metric": "股价（全部上市历史 · 日频：MU 1984→ / 韩股 2000→；月频已废弃）",
    "src": "Yahoo Finance 行情（auto_adjust=False 复权价）",
-   "date": "2026-08-10",
+   "date": "2026-08-01",
    "tier": "A",
    "method": "⚙️"
   },
   {
    "metric": "电话会文稿 / AI 摘要",
    "src": "演示样稿（真源未接入，一期后续）",
-   "date": "2026-08-10",
+   "date": "2026-08-01",
    "tier": "D",
    "method": "🤖"
   }
  ],
  "caliber_notes": [
+  {
+   "title": "MU FY2026Q4 capex 为净额口径",
+   "body": "Micron FY2026Q4 资本开支 107.7 亿美元为「investments in capital expenditures, net」（已扣政府补贴）新闻稿口径；历史季度 capex 序列为 SEC XBRL 毛额口径(PaymentsToAcquirePropertyPlantAndEquipment)。二者不可直接衔接，Q4 capex 仅作参照。",
+   "formula": null
+  },
+  {
+   "title": "MU 2026 为 53 周财年",
+   "body": "Micron FY2026 为 53 周财年，止于 2026-09-03（常规为 8 月末）；FY2026Q4 含约 14 周。同比与环比增速受周数影响，逐季对比时注意。",
+   "formula": null
+  },
+  {
+   "title": "SK hynix Q2 一次性收益扭曲 P/E",
+   "body": "SK hynix 2026Q2 净利润 93.92 万亿韩元中含约 62.17 万亿韩元出售铠侠(Kioxia)股权的一次性投资收益（税前利润 122.71 万亿），净利率高达 118%。该净利润不可作持续盈利能力，据此计算的 TTM P/E 被一次性压低（约 8 倍 vs 剔除后约 13 倍）。本站忠实展示原始净利润，仅作事实呈现。",
+   "formula": null
+  },
   {
    "title": "韩股比率为自算值",
    "body": "韩国交易所不提供官方 trailing 比率。本站自算：P/E = 市值 ÷ 归母净利（TTM）；P/B = 市值 ÷ 归母净资产。与数据商口径可能有差。",
@@ -183,5 +212,5 @@
   "两条独立数据管道对同一指标交叉校验，偏差超阈值构建即告警。",
   "本站仅呈现事实与来源，不构成投资建议。"
  ],
- "footer": "schema 0.6 · 估值/盈利/周期数据为真实抓取（SEC EDGAR / DART / Yahoo），电话会内容为演示样稿 · 生成 2026-08-10。"
+ "footer": "schema 0.6 · 估值/盈利/周期数据为真实抓取（SEC EDGAR / DART / Yahoo），电话会内容为演示样稿 · 更新 2026-10-01。"
 }
