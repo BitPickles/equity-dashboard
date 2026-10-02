@@ -1,6 +1,6 @@
 #!/bin/bash
 # 每日数据更新（Mac Mini cron 用）
-# 每日主链：同步 main → update-prices → update-aster → rebuild-daily → build-snapshot → sync → validate → push main
+# 每日主链：同步 main → update-prices → update-aster → rebuild-daily → build-snapshot → sync → 历史 → 指标 → validate → push main
 # 用法: bash scripts/daily-run.sh
 set -e
 cd "$(dirname "$0")/.."
@@ -38,6 +38,14 @@ $PY scripts/fetch-protocol-history.py --all || echo "⚠️ 通用日频历史�
 $PY scripts/fetch-bnb-history.py || echo "⚠️ BNB 日频历史刷新失败，保留上一版历史"
 $PY scripts/refresh-unavailable-history.py
 
+# 5.6 指标板块（shared/btc-price、shared/fred-macro、ahr999、marketcap、btc-dominance、mvrv）。
+#     数据源：CoinMarketCap（需 .env 的 CMC_API_KEY）+ FRED CSV + bitcoin-data.com。
+#     失败不阻断主流程：前端会继续显示上一版指标，不会出现空洞。
+#     ⚠️ BMRI 不在本步内：scripts/recalc-bmri.py 无法复现线上 bmri.json 序列（口径不同，
+#        详见 docs/skill/indicators/bmri.md）。BMRI 仍由原 openclaw operator 链路维护；
+#        在恢复该链路前，bmri.json 保持只读，不要用 recalc-bmri.py 覆盖线上文件。
+$PY scripts/fetch-indicators.py || echo "⚠️ 指标板块更新失败（网络/key），保留上一版指标数据"
+
 # 6. 校验（必须 0 errors，否则终止不推送）
 if ! $PY scripts/validate.py 2>&1 | tee /tmp/validate-out.txt | grep -q "0 errors"; then
   echo "❌ validate 失败，终止不推送"
@@ -47,7 +55,9 @@ fi
 
 # 7. 仅提交每日数据产物到 main（线上站点每日自动更新）。
 # 不使用 git add -A，避免把运行日志或人工中的非数据改动误发布。
-git add -A -- data
+# indicators/data 必须一并提交，否则指标板块（ahr999/mvrv/btc-dominance）会像
+# 2026-08-10 → 10-02 那样长期冻结在旧日期。
+git add -A -- data indicators/data
 if git diff --cached --quiet; then
   echo "无数据变更，跳过提交"
 else

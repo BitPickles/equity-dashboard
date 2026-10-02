@@ -166,6 +166,16 @@ function switchVersion(version) {
 - 版本切换时阈值线位置会变化
 - FRED 数据非实时，有 1-2 天延迟
 
+## ⚠️ 生成链路现状（2026-10-02 复核）
+
+**线上 `bmri.json` 在仓库内没有可复现的生成器。**
+
+- 线上序列实测：`1m` 4040 条（2015-07-20 ~ 2026-08-10，**日频日历网格** + 前向填充）；`6m` 675 条（**同一条序列**按每 6 天抽样，值完全一致）；两者 `thresholds` 均为 `{on: 30, off: 70}`。
+- ⚠️ 与上面「版本差异」表**不一致**：文档写的是 6M `on=20/off=80`、1M `on=25/off=75`（设计稿口径）。前端直接读 JSON 里的 `thresholds`，所以线上实际按 **30/70** 渲染。
+- `scripts/recalc-bmri.py` / `recalc-bmri-fast.py` 都**复现不出**线上序列：用 `shared/fred-macro.json` 复算，百分位法 MAE ≈ 15、minmax 法 MAE ≈ 11；再暴力遍历 64 种「方向（invert）」组合、窗口 180~1825 天，最优仍有 MAE ≈ 11 → 原生成器使用了这 6 条 FRED 序列**之外的输入**（很可能还有 M2 / CPI 等）。
+- 原生成器位于 **openclaw operator 链路**（`~/.openclaw/workspace-operator/`，走 FRED API key），**不在本仓库**。
+- **处置**：恢复该链路前，`bmri.json` 视为**只读**；**禁止**用 `recalc-bmri.py` 覆盖线上文件——那会把 2015 年以来的历史整体换成另一条序列（静默改写 11 年数据）。页面 `updated_at` 目前如实显示 2026-08-10。
+
 ## Bug 修复记录 (2026-02)
 
 ### 字段名匹配问题
