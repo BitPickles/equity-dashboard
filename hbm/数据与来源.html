@@ -148,14 +148,14 @@ const FALLBACK_SOURCES = {
     { icon:'🤖', label:'AI 生成' }
   ],
   source_rows: [
-    { metric:'trailing P/E（MU）',    src:'SEC EDGAR 10-Q/10-K + 市值',    date:'2026-06-25', tier:'S', method:'⚙️' },
-    { metric:'trailing P/E（韩股）',  src:'DART 报表 ÷ 市值，自算',         date:'2026-05-15', tier:'S', method:'✋' },
-    { metric:'P/B（三家）',           src:'财报净资产 ÷ 市值（韩股自算）',   date:'2026-06-25', tier:'S', method:'⚙️ / ✋' },
-    { metric:'营业利润率',            src:'财报利润表',                     date:'2026-06-25', tier:'S', method:'⚙️ / ✋' },
-    { metric:'DIO 库存天数',          src:'存货 ÷ 营业成本 × 365，自算',     date:'2026-06-25', tier:'S', method:'✋' },
+    { metric:'trailing P/E（MU）',    src:'SEC EDGAR 10-Q/10-K + 市值',    date:'2026-09-30', tier:'S', method:'⚙️' },
+    { metric:'trailing P/E（韩股）',  src:'DART 报表 ÷ 市值，自算',         date:'2026-07-30', tier:'S', method:'✋' },
+    { metric:'P/B（三家）',           src:'财报净资产 ÷ 市值（韩股自算）',   date:'2026-09-30', tier:'S', method:'⚙️ / ✋' },
+    { metric:'营业利润率',            src:'财报利润表',                     date:'2026-09-30', tier:'S', method:'⚙️ / ✋' },
+    { metric:'DIO 库存天数',          src:'存货 ÷ 营业成本 × 365，自算',     date:'2026-09-30', tier:'S', method:'✋' },
     { metric:'合约价 QoQ%',           src:'产业链数据，手动录入（存本机）',  date:'随录随存',   tier:'B', method:'✋' },
-    { metric:'电话会文稿（MU）',      src:'Micron IR · 8-K（SEC EDGAR）',    date:'2026-06-25', tier:'S', method:'⚙️' },
-    { metric:'电话会文稿（韩股）',    src:'公司 IR 官网',                    date:'2026-04-24', tier:'A', method:'🖥️' },
+    { metric:'电话会文稿（MU）',      src:'Micron IR · 8-K（SEC EDGAR）',    date:'2026-09-30', tier:'S', method:'⚙️' },
+    { metric:'电话会文稿（韩股）',    src:'公司 IR 官网',                    date:'2026-07-30', tier:'A', method:'🖥️' },
     { metric:'AI 摘要 / 翻译 / diff', src:'本站 AI 生成，以原文为准',        date:'随稿生成',   tier:'D', method:'🤖' }
   ],
   caliber_notes: [
@@ -173,7 +173,7 @@ const FALLBACK_SOURCES = {
     '缺数据不回填、不插值：图上断点 + "无数据"，列表标"该季未获取（原因）"。',
     '本站仅呈现事实与来源，不构成投资建议。'
   ],
-  footer: '数据 schema 0.6 · 演示数据（离线兜底数据） · 来源：SEC EDGAR / DART / 公司 IR，抓取 2026-06。'
+  footer: '数据 schema 0.6 · 演示数据（离线兜底数据） · 来源：SEC EDGAR / DART / 公司 IR，更新 2026-10-01。'
 };
 
 function esc(s) {
