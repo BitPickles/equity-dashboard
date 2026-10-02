@@ -42,7 +42,10 @@ skills/crypto3d-dashboard/
 ├── design-system.md   # 设计规范
 ├── page-template.md   # 页面结构模板
 ├── data-spec.md       # 数据格式规范
-└── components.md      # 通用组件
+├── components.md      # 通用组件
+├── daily-tweet.md     # 每日推文生成
+├── tev-data-layer.md  # TEV/美股化数据层
+└── indicator-retirement.md  # 指标/模块下线清单
 ```
 
 ## 快速参考
