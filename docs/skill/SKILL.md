@@ -45,7 +45,8 @@ skills/crypto3d-dashboard/
 ├── components.md      # 通用组件
 ├── daily-tweet.md     # 每日推文生成
 ├── tev-data-layer.md  # TEV/美股化数据层
-└── indicator-retirement.md  # 指标/模块下线清单
+├── indicator-retirement.md  # 指标/模块下线清单
+└── release-to-main.md  # 发布到主站手册（dev → main）
 ```
 
 ## 快速参考
