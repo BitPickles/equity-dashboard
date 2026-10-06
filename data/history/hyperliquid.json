@@ -2,16 +2,6 @@
   "protocol": "hyperliquid",
   "records": [
     {
-      "as_of": "2025-10-01",
-      "net_income": 791847701.04,
-      "daily_value": 3044612.0,
-      "pe": 9.305,
-      "ps": 9.305,
-      "shareholder_yield": 10.747,
-      "net_margin": 100.0,
-      "_period": "daily"
-    },
-    {
       "as_of": "2025-10-02",
       "net_income": 793372799.11,
       "daily_value": 3339384.0,
@@ -3529,6 +3519,14 @@
       "pe": 26.2575,
       "ps": 25.9949,
       "shareholder_yield": 3.8084,
+      "net_margin": 100.0
+    },
+    {
+      "as_of": "2026-10-06",
+      "net_income": 772987701,
+      "pe": 27.375,
+      "ps": 27.1013,
+      "shareholder_yield": 3.653,
       "net_margin": 100.0
     }
   ]
