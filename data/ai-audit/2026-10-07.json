@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-07",
+  "generated_at": "2026-10-07T10:26:17.156925+00:00",
+  "protocols": [
+    "aave",
+    "aster",
+    "bgb",
+    "bnb",
+    "compound",
+    "curve",
+    "dydx",
+    "eigenlayer",
+    "ethena",
+    "fluid",
+    "gmx",
+    "hype",
+    "hyperliquid",
+    "jito",
+    "justlend",
+    "kamino",
+    "layerzero",
+    "lido",
+    "maple",
+    "mnt",
+    "morpho",
+    "okb",
+    "pancakeswap",
+    "pendle",
+    "sky",
+    "spark",
+    "uniswap"
+  ],
+  "tasks": [
+    "cross-validation",
+    "data-plausibility",
+    "freshness",
+    "mechanism-change",
+    "regression"
+  ],
+  "results": {
+    "mechanism-change": {
+      "skipped": "no-llm"
+    },
+    "data-plausibility": {
+      "skipped": "no-llm"
+    },
+    "cross-validation": {
+      "skipped": "no-llm"
+    },
+    "freshness": {
+      "alerts": [
+        {
+          "protocol": "aster-onchain",
+          "issue": "链上采集末条 2026-07-04（95 天前）——链上无执行量或 Moralis 失效",
+          "severity": "low"
+        }
+      ],
+      "verdict": "alert",
+      "summary_zh": "新鲜度检查：1 项过期"
+    },
+    "regression": {
+      "regressed": [],
+      "verdict": "ok",
+      "summary_zh": "无 before 基线（首次运行），跳过回归检查"
+    }
+  },
+  "alerts": {
+    "alert": [
+      {
+        "task": "freshness",
+        "protocol": "aster-onchain",
+        "issue": "链上采集末条 2026-07-04（95 天前）——链上无执行量或 Moralis 失效",
+        "severity": "low"
+      }
+    ],
+    "review": [],
+    "ok": []
+  }
+}

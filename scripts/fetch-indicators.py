@@ -56,6 +56,29 @@ def http_text(url, timeout=60):
         return r.read().decode('utf-8')
 
 
+def daterange(d1, d2):
+    """[d1, d2] 闭区间的连续日期序列。"""
+    while d1 <= d2:
+        yield d1
+        d1 += timedelta(days=1)
+
+
+def find_gaps(dates, lookback_days=21):
+    """在末尾 lookback_days 天窗口内找缺失日期（返回 ['2026-10-03', ...]）。
+
+    2026-10 修复：增量追加只看「最后一条之后」，CMC 偶发缺日会永久跳号
+    （btc-price 缺 10-03 即此因）。此函数用于每次运行时回补近端缺口。
+    """
+    if not dates:
+        return []
+    have = set(dates)
+    last = max(dates)
+    window_start = date.fromisoformat(last) - timedelta(days=lookback_days)
+    gaps = [d.isoformat() for d in daterange(window_start, date.fromisoformat(last))
+            if d.isoformat() not in have]
+    return gaps
+
+
 def cmc_key():
     k = os.environ.get('CMC_API_KEY')
     if k:
@@ -92,12 +115,18 @@ def save(path, obj, compact=False, indent=2):
 
 # ---------------- 1) BTC 价格（shared/btc-price.json）----------------
 def fetch_btc_price_daily(start_date):
-    """CMC BTC 日频价格。返回 {date_str: price}。"""
+    """CMC BTC 日频价格。返回 {date_str: price}。
+
+    ⚠️ CMC 实测：quotes/historical 的 time_start 为排除语义（interval=1d 时
+    首条返回 time_start+1 日）。2026-10 前 last+1 直接作 time_start 导致
+    每日增量永远为空、停跑后追补也跳号（btc-price 永久缺 10-03 即此因）。
+    故此处统一 time_start - 1day，调用侧按 existing 去重。
+    """
     end = TODAY
-    count = (end - start_date).days + 10
+    count = (end - start_date).days + 12
     d = cmc('/cryptocurrency/quotes/historical',
             {'id': 1, 'interval': '1d', 'count': count, 'convert': 'USD',
-             'time_start': start_date.isoformat(), 'time_end': end.isoformat()})
+             'time_start': (start_date - timedelta(days=1)).isoformat(), 'time_end': end.isoformat()})
     out = {}
     for row in d.get('data', {}).get('quotes', []):
         dt = row['timestamp'][:10]
@@ -112,20 +141,30 @@ def update_btc_price():
     doc = json.load(open(fp, encoding='utf-8'))
     hist = doc['history']
     last = hist[-1]['date']
-    start = date.fromisoformat(last) + timedelta(days=1)
+    existing = {h['date'] for h in hist}
+    gaps = find_gaps([h['date'] for h in hist])
+    # 回补起点 = 近端缺口最早日（无缺口则 = last+1）
+    if gaps:
+        start = date.fromisoformat(min(gaps))
+        log(f'btc-price: 检测到缺口 {gaps}，从 {start} 回补')
+    else:
+        start = date.fromisoformat(last) + timedelta(days=1)
     if start > TODAY:
         log('btc-price: 已是最新'); return 0
     prices = fetch_btc_price_daily(start)
-    existing = {h['date'] for h in hist}
     added = []
     for ds in sorted(prices):
-        if ds > last and ds not in existing:
+        if ds not in existing:
             hist.append({'date': ds, 'price': prices[ds]})
             added.append(ds)
     if added:
+        hist.sort(key=lambda x: x['date'])
         doc['updated_at'] = added[-1]
         doc['source'] = doc.get('source') or 'glassnode/coingecko'
         save(fp, doc, indent=2)
+        still_missing = find_gaps([h['date'] for h in hist])
+        if still_missing:
+            log(f'  ⚠️ 回补后仍有缺口（上游缺数据）：{still_missing}')
     log(f'btc-price: +{len(added)} 条 → {added[-1] if added else last}')
     return len(added)
 
@@ -213,11 +252,25 @@ def update_ahr999():
     last = hist[-1]['date']
     bp = json.load(open(SHARED / 'btc-price.json', encoding='utf-8'))['history']
     closes = [(h['date'], h['price']) for h in bp]
-    vals = ahr999_values(closes, last)
-    added = [d for d in sorted(vals) if d > last]
+    # 回补窗口起点 = 本文件近端缺口最早日 vs btc-price 已有最早未算日，取更早者
+    bp_dates = {h['date'] for h in bp}
+    own_gaps = find_gaps([h['date'] for h in hist])
+    first_needed = min([date.fromisoformat(g) for g in own_gaps] +
+                       [d for d in (date.fromisoformat(x) for x in bp_dates if x > last)] or [TODAY])
+    vals = ahr999_values(closes, first_needed.isoformat())
+    added = [d for d in sorted(vals) if d > last or d in set(own_gaps)]
+    existing = {h['date'] for h in hist}
+    added = [d for d in added if d not in existing]
     for d in added:
-        hist.append(vals[d])
+        if d in existing:
+            continue
+        rec = vals[d]
+        if d in own_gaps:  # 缺口回补：插到正确位置
+            hist.append(rec)
+        else:
+            hist.append(rec)
     if added:
+        hist.sort(key=lambda x: x['date'])
         lastrec = vals[added[-1]]
         doc['updated_at'] = added[-1]
         doc['current'] = {
@@ -232,19 +285,19 @@ def update_ahr999():
 
 # ---------------- 4) marketcap + 5) btc-dominance（CMC）----------------
 def fetch_cmc_btc_mcap(start_date):
-    n = (TODAY - start_date).days + 10
+    n = (TODAY - start_date).days + 12
     d = cmc('/cryptocurrency/quotes/historical',
             {'id': 1, 'interval': '1d', 'count': n, 'convert': 'USD',
-             'time_start': start_date.isoformat(), 'time_end': TODAY.isoformat()})
+             'time_start': (start_date - timedelta(days=1)).isoformat(), 'time_end': TODAY.isoformat()})
     return {r['timestamp'][:10]: float(r['quote']['USD']['market_cap'])
             for r in d.get('data', {}).get('quotes', []) if r['quote']['USD'].get('market_cap')}
 
 
 def fetch_cmc_total_mcap(start_date):
-    n = (TODAY - start_date).days + 10
+    n = (TODAY - start_date).days + 12
     d = cmc('/global-metrics/quotes/historical',
             {'interval': '1d', 'count': n, 'convert': 'USD',
-             'time_start': start_date.isoformat(), 'time_end': TODAY.isoformat()})
+             'time_start': (start_date - timedelta(days=1)).isoformat(), 'time_end': TODAY.isoformat()})
     return {r['timestamp'][:10]: float(r['quote']['USD']['total_market_cap'])
             for r in d.get('data', {}).get('quotes', []) if r['quote']['USD'].get('total_market_cap')}
 
@@ -253,7 +306,13 @@ def update_marketcap():
     fp = DATA / 'marketcap.json'
     rows = json.load(open(fp, encoding='utf-8'))
     last = rows[-1]['date']
-    start = date.fromisoformat(last) + timedelta(days=1)
+    existing = {r['date'] for r in rows}
+    gaps = find_gaps([r['date'] for r in rows])
+    if gaps:
+        start = date.fromisoformat(min(gaps))
+        log(f'marketcap: 检测到缺口 {gaps}，从 {start} 回补')
+    else:
+        start = date.fromisoformat(last) + timedelta(days=1)
     if start > TODAY:
         log('marketcap: 已是最新'); return 0, {}
     btc_m = fetch_cmc_btc_mcap(start)
@@ -261,13 +320,16 @@ def update_marketcap():
     added = []
     dom = {}
     for ds in sorted(set(btc_m) & set(tot_m)):
-        if ds <= last:
-            continue
-        rows.append({'date': ds, 'total_mcap': round(tot_m[ds], 2), 'btc_mcap': round(btc_m[ds], 2)})
-        dom[ds] = round(btc_m[ds] / tot_m[ds] * 100, 4)
-        added.append(ds)
+        if ds not in existing:
+            rows.append({'date': ds, 'total_mcap': round(tot_m[ds], 2), 'btc_mcap': round(btc_m[ds], 2)})
+            dom[ds] = round(btc_m[ds] / tot_m[ds] * 100, 4)
+            added.append(ds)
     if added:
+        rows.sort(key=lambda x: x['date'])
         save(fp, rows, indent=None)
+        still_missing = find_gaps([r['date'] for r in rows])
+        if still_missing:
+            log(f'  ⚠️ 回补后仍有缺口（上游缺数据）：{still_missing}')
     log(f'marketcap: +{len(added)} 条 → {added[-1] if added else last}')
     return len(added), dom
 
@@ -277,13 +339,15 @@ def update_btc_dominance(dom):
     doc = json.load(open(fp, encoding='utf-8'))
     hist = doc['history']
     last = hist[-1]['date']
-    added = [d for d in sorted(dom) if d > last]
+    existing = {h['date'] for h in hist}
+    added = [d for d in sorted(dom) if d not in existing]
     for d in added:
         hist.append({'date': d, 'value': dom[d]})
     if added:
-        v = dom[added[-1]]
-        doc['updated_at'] = added[-1]
-        doc['current'] = {'value': v, 'zone': 'BALANCED' if 50 < v < 70 else ('HIGH' if v >= 70 else 'LOW'), 'date': added[-1]}
+        hist.sort(key=lambda x: x['date'])
+        v = dom[max(added)]
+        doc['updated_at'] = max(added)
+        doc['current'] = {'value': v, 'zone': 'BALANCED' if 50 < v < 70 else ('HIGH' if v >= 70 else 'LOW'), 'date': max(added)}
         save(fp, doc, compact=True)
     log(f'btc-dominance: +{len(added)} 条 → {added[-1] if added else last}')
     return len(added)
@@ -303,32 +367,97 @@ def update_mvrv():
     doc = json.load(open(fp, encoding='utf-8'))
     hist = doc['history']
     last = hist[-1]['date']
+    existing = {h['date'] for h in hist}
     feed = http_json('https://bitcoin-data.com/api/v1/mvrv')
     feed = {x['d']: round(float(x['mvrv']), 4) for x in feed if x.get('mvrv')}
-    added = [d for d in sorted(feed) if d > last]
+    added = [d for d in sorted(feed) if d > last or (d not in existing and d > (date.fromisoformat(last) - timedelta(days=21)).isoformat())]
     for d in added:
         hist.append({'date': d, 'mvrv': feed[d]})
     if added:
-        v = feed[added[-1]]
+        hist.sort(key=lambda x: x['date'])
+        v = feed[max(added)]
         st, st_en = mvrv_status(v)
-        doc['updated_at'] = added[-1]
-        doc['current'] = {'date': added[-1], 'value': v, 'status': st, 'status_en': st_en}
+        doc['updated_at'] = max(added)
+        doc['current'] = {'date': max(added), 'value': v, 'status': st, 'status_en': st_en}
         save(fp, doc, indent=2)
     log(f'mvrv: +{len(added)} 条 → {added[-1] if added else last}')
     return len(added)
+
+
+def freshness_summary():
+    """各指标文件末条日期 + 近端缺口探测（daily-run 据此判断是否告警）。"""
+    from datetime import datetime, timezone as _tz
+    checks = [
+        ('shared/btc-price.json', 2), ('ahr999.json', 2), ('marketcap.json', 2),
+        ('btc-dominance.json', 2), ('mvrv.json', 10),
+    ]
+    rows = []
+    for rel, tol in checks:
+        fp = DATA / rel
+        try:
+            doc = json.load(open(fp, encoding='utf-8'))
+            hist = doc.get('history') if isinstance(doc, dict) else doc
+            last = max(h['date'] for h in hist)
+            dates = [h['date'] for h in hist]
+            gaps = find_gaps(dates, lookback_days=14)
+            age = (TODAY - date.fromisoformat(last)).days
+            rows.append({'file': rel, 'last': last, 'age_days': age, 'tol_days': tol,
+                         'gaps_14d': gaps, 'stale': age > tol})
+        except Exception as e:
+            rows.append({'file': rel, 'error': str(e), 'stale': True})
+    # fred-macro：dict-of-dict 结构（series→{date:val}），取最活跃序列的最新日期（容差 10 天）
+    try:
+        fm = json.load(open(DATA / 'shared/fred-macro.json', encoding='utf-8'))['series']
+        last = max(max(fm[s].keys()) for s in ('DGS10', 'VIXCLS') if fm.get(s))
+        age = (TODAY - date.fromisoformat(last)).days
+        rows.append({'file': 'shared/fred-macro.json', 'last': last, 'age_days': age, 'tol_days': 10,
+                     'gaps_14d': [], 'stale': age > 10})
+    except Exception as e:
+        rows.append({'file': 'shared/fred-macro.json', 'error': str(e), 'stale': True})
+    return rows
 
 
 def main():
     log(f'=== 指标板块更新 {TODAY} ===')
     if DRY:
         log('（dry-run：不写文件）')
-    log('[1/6] btc-price'); update_btc_price()
-    log('[2/6] fred-macro'); update_fred_macro()
-    log('[3/6] ahr999'); update_ahr999()
-    log('[4/6] marketcap'); _, dom = update_marketcap()
-    log('[5/6] btc-dominance'); update_btc_dominance(dom)
-    log('[6/6] mvrv'); update_mvrv()
+    failed = []
+    log('[1/6] btc-price')
+    try: update_btc_price()
+    except Exception as e: log(f'  ❌ {e}'); failed.append('btc-price')
+    log('[2/6] fred-macro')
+    try: update_fred_macro()
+    except Exception as e: log(f'  ❌ {e}'); failed.append('fred-macro')
+    log('[3/6] ahr999')
+    try: update_ahr999()
+    except Exception as e: log(f'  ❌ {e}'); failed.append('ahr999')
+    log('[4/6] marketcap')
+    try: _, dom = update_marketcap()
+    except Exception as e: log(f'  ❌ {e}'); dom = {}; failed.append('marketcap')
+    log('[5/6] btc-dominance')
+    try: update_btc_dominance(dom)
+    except Exception as e: log(f'  ❌ {e}'); failed.append('btc-dominance')
+    log('[6/6] mvrv')
+    try: update_mvrv()
+    except Exception as e: log(f'  ❌ {e}'); failed.append('mvrv')
+
+    # 新鲜度汇总：任何 stale/缺口 都显式列出（validate 之外的指标侧防线）
+    rows = freshness_summary()
+    problems = []
+    for r in rows:
+        if r.get('error'):
+            problems.append(f"{r['file']}: 读取失败 {r['error']}")
+        elif r['stale']:
+            problems.append(f"{r['file']}: 末条 {r['last']} 距今 {r['age_days']} 天（容差 {r['tol_days']}）")
+        elif r['gaps_14d']:
+            log(f"  ⚠️ {r['file']}: 近 14 天缺口 {r['gaps_14d']}")
+    if problems:
+        log('=== ⚠️ 指标新鲜度问题 ===')
+        for p in problems:
+            log(f'  ⚠️ {p}')
     log('=== 完成 ===')
+    if failed:
+        sys.exit(1)
 
 
 if __name__ == '__main__':

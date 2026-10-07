@@ -153,7 +153,11 @@ def _load_official_feed(proto):
 
 
 def run_freshness_check():
-    """新鲜度：纯脚本检查，不消耗 GLM。遍历 snapshot + daily。"""
+    """新鲜度：纯脚本检查，不消耗 GLM。遍历 snapshot + daily + 指标文件。
+
+    2026-10-07 扩展：指标板块（indicators/data）曾在 08-10 → 10-02 静默冻结 53 天
+    无人发现，故纳入每日 AI 审计的新鲜度任务（分源容差：日频源 2 天 / 周频源 10 天）。
+    """
     alerts = []
     for f in sorted(SNAPSHOTS_DIR.glob("*.json")):
         snap = load_json(f)
@@ -167,8 +171,57 @@ def run_freshness_check():
                 alerts.append({"protocol": f.stem, "issue": f"snapshot 停更 {hours:.0f}h", "severity": "high"})
         except ValueError:
             alerts.append({"protocol": f.stem, "issue": "as_of 格式非法", "severity": "medium"})
+
+    # ── 指标板块新鲜度（indicators/data/*.json）──
+    IND_DIR = BASE_DIR / "indicators" / "data"
+    today = date.today()
+    # (文件, 容差天)  日频源容差 2 天（CMC 当日 UTC 结束后才有）；mvrv/FRED 上游本身滞后，容差 10 天
+    ind_checks = [
+        (IND_DIR / "shared" / "btc-price.json", 2),
+        (IND_DIR / "ahr999.json", 2),
+        (IND_DIR / "marketcap.json", 2),
+        (IND_DIR / "btc-dominance.json", 2),
+        (IND_DIR / "mvrv.json", 10),
+        (IND_DIR / "shared" / "fred-macro.json", 10, "series"),  # dict-of-dict 特殊结构
+    ]
+    for item in ind_checks:
+        fp, tol = item[0], item[1]
+        doc = load_json(fp)
+        if not doc:
+            alerts.append({"protocol": fp.name, "issue": f"{fp.relative_to(BASE_DIR)} 读取失败", "severity": "high"})
+            continue
+        try:
+            if len(item) > 2 and item[2] == "series":
+                # fred-macro：series→{sid:{date:val}}，取最活跃序列最新日期
+                series = doc.get("series", {})
+                last_date = max(
+                    (max(series[s].keys()) for s in ("DGS10", "VIXCLS") if series.get(s)),
+                    default=None,
+                )
+            else:
+                hist = doc.get("history") if isinstance(doc, dict) else doc
+                last_date = max(h["date"] for h in hist) if hist else None
+            if not last_date:
+                alerts.append({"protocol": fp.name, "issue": f"{fp.name} 无数据", "severity": "high"})
+                continue
+            age = (today - date.fromisoformat(last_date)).days
+            if age > tol:
+                alerts.append({"protocol": "indicators/" + fp.name,
+                               "issue": f"末条 {last_date}（{age} 天前，容差 {tol}）", "severity": "medium"})
+        except Exception as e:
+            alerts.append({"protocol": "indicators/" + fp.name, "issue": f"解析失败: {e}", "severity": "medium"})
+
+    # ── Aster 链上采集新鲜度（曾在 07-04 后静默停摆 3 个月无人发现）──
+    onchain = load_json(BASE_DIR / "data" / "aster-onchain.json")
+    if isinstance(onchain, list) and onchain:
+        last_oc = max(r.get("date", "") for r in onchain)
+        age_oc = (today - date.fromisoformat(last_oc)).days if last_oc else 999
+        if age_oc > 30:
+            alerts.append({"protocol": "aster-onchain",
+                           "issue": f"链上采集末条 {last_oc}（{age_oc} 天前）——链上无执行量或 Moralis 失效",
+                           "severity": "low"})
     return {"alerts": alerts, "verdict": "alert" if alerts else "ok",
-            "summary_zh": f"新鲜度检查：{len(alerts)} 个快照过期" if alerts else "全部快照新鲜"}
+            "summary_zh": f"新鲜度检查：{len(alerts)} 项过期" if alerts else "全部快照新鲜"}
 
 
 def run_regression_check(before_file=None):
