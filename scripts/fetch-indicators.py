@@ -159,7 +159,7 @@ def update_btc_price():
             added.append(ds)
     if added:
         hist.sort(key=lambda x: x['date'])
-        doc['updated_at'] = added[-1]
+        doc['updated_at'] = hist[-1]['date']  # 用全量末条（added 可能只是回补的旧缺口日）
         doc['source'] = doc.get('source') or 'glassnode/coingecko'
         save(fp, doc, indent=2)
         still_missing = find_gaps([h['date'] for h in hist])
@@ -271,10 +271,11 @@ def update_ahr999():
             hist.append(rec)
     if added:
         hist.sort(key=lambda x: x['date'])
-        lastrec = vals[added[-1]]
-        doc['updated_at'] = added[-1]
+        latest = hist[-1]['date']            # 用全量末条（added 可能只是回补的旧缺口日）
+        lastrec = vals[latest] if latest in vals else hist[-1]
+        doc['updated_at'] = latest
         doc['current'] = {
-            'date': added[-1], 'value': lastrec['ahr999'], 'price': lastrec['close'],
+            'date': latest, 'value': lastrec['ahr999'], 'price': lastrec['close'],
             'cost_200d': lastrec['cost_200d'], 'fitted_price': lastrec['fitted_price'],
             'status': ahr999_status(lastrec['ahr999']),
         }
