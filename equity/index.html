@@ -596,7 +596,7 @@
         // 没有实际股东回报时，派息率无意义（如 GMX 配置 27% 但实算 TEV=0），显示 —
         if (!tevYield) payoutDisplay = '—';
         const row = document.createElement('tr');
-        row.onclick = () => window.location.href = `protocol.html?id=${p.key}`;
+        row.onclick = () => window.location.href = `protocol?id=${p.key}`;
         // 股东回报率高亮：≥10% 橙色加粗 / 5-10% 绿 / <5% 灰 / 0% 显示 —
         const yieldCls = tevYield >= 10 ? 'yield-hot' : tevYield >= 5 ? 'yield-warm' : 'value-zero';
         const yieldDisplay = tevYield > 0 ? formatPercent(tevYield, precision) : '—';

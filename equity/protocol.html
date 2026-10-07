@@ -9,6 +9,19 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
   <title>Protocol — Crypto3D 估值仪表盘</title>
+  <meta name="description" content="DeFi 协议美股化财报页：收入、毛利、净利、股东回报与估值倍数，链上数据每日更新。">
+  <script>
+    // 动态 canonical：按 ?id= 参数生成协议详情页规范 URL（clean form，无 .html）
+    (function () {
+      var id = new URLSearchParams(location.search).get('id');
+      var link = document.createElement('link');
+      link.rel = 'canonical';
+      link.href = id
+        ? location.origin + '/equity/protocol?id=' + encodeURIComponent(id)
+        : location.origin + '/equity/';
+      document.head.appendChild(link);
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../indicators/css/common.css">
@@ -343,7 +356,7 @@
   </header>
 
   <main class="container">
-    <div class="breadcrumb"><a href="index.html" data-i18n="nav.dashboard">Dashboard</a> / <span id="breadcrumb-name">Loading...</span></div>
+    <div class="breadcrumb"><a href="." data-i18n="nav.dashboard">Dashboard</a> / <span id="breadcrumb-name">Loading...</span></div>
     <div id="loading" class="loading"><div class="loading-spinner"></div><div data-i18n="loading">加载中...</div></div>
 
     <div id="content" style="display: none;">
@@ -765,7 +778,7 @@
 
         const govSlug = encodeURIComponent(govName);
         document.getElementById('governance-more').innerHTML =
-          `<a class="gov-more-link" href="../governance/protocol.html?name=${govSlug}">查看全部治理提案 →</a>`;
+          `<a class="gov-more-link" href="../governance/protocol?name=${govSlug}">查看全部治理提案 →</a>`;
       } catch(e) {
         console.warn('Governance load failed:', e);
       }
@@ -924,7 +937,7 @@
         // v2.2: 销毁/回购/Tokenomics 区块已移除，历史数据统一走 loadHistoryDashboard
       } catch (e) {
         console.error('Failed:', e);
-        document.getElementById('loading').innerHTML = `<div style="color:var(--danger);">Failed to load protocol</div><div style="margin-top:8px;font-size:12px;">${e.message}</div><div style="margin-top:16px;"><a href="index.html" style="color:var(--blue);">← Back</a></div>`;
+        document.getElementById('loading').innerHTML = `<div style="color:var(--danger);">Failed to load protocol</div><div style="margin-top:8px;font-size:12px;">${e.message}</div><div style="margin-top:16px;"><a href="." style="color:var(--blue);">← Back</a></div>`;
       }
     }
 

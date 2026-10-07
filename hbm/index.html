@@ -318,9 +318,9 @@
       <div class="subtitle">MEMORY-CYCLE · MU / HYNIX / SAMSUNG</div>
     </div>
     <nav class="top-nav">
-      <a href="index.html" class="is-active">看板</a>
-      <a href="公司.html">公司</a>
-      <a href="电话会.html">电话会</a>
+      <a href="." class="is-active">看板</a>
+      <a href="公司">公司</a>
+      <a href="电话会">电话会</a>
     </nav>
   </header>
 
@@ -409,7 +409,7 @@
   </div>
 
   <footer class="pg">
-    <a href="数据与来源.html">关于数据与来源 →</a> · 不构成投资建议 · 数据生成 <span class="mono" id="genDate">—</span>
+    <a href="数据与来源">关于数据与来源 →</a> · 不构成投资建议 · 数据生成 <span class="mono" id="genDate">—</span>
   </footer>
 </div>
 
@@ -1472,7 +1472,7 @@ function renderCapexNote(m) {
     '<div class="cn-head"><span class="cn-title">各家扩产计划</span>'
     + '<span class="cn-sub">公司/官方披露的计划，非承诺，可能随市况调整</span></div>'
     + blocks
-    + '<a class="cn-go" href="公司.html">详见 公司页 →</a>';
+    + '<a class="cn-go" href="公司">详见 公司页 →</a>';
   el.hidden = false;
 }
 
@@ -1572,7 +1572,7 @@ function renderSrc(m) {
   const pills = o ? srcPillFor(m, m.short) + ' ' + srcPillFor(o, o.short) : srcPillFor(m, '');
   document.getElementById('srcRow').innerHTML = pills
     + '<span class="mono">抓取 ' + esc(state.generated) + '</span>'
-    + '<a href="数据与来源.html">详见 数据与来源 →</a>';
+    + '<a href="数据与来源">详见 数据与来源 →</a>';
 }
 
 /* —— 控制行：叠加对比控件（未叠加=select；已叠加=chip + ×） —— */
