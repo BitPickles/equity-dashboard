@@ -361,9 +361,9 @@
       <div class="updated-at" id="updated-at">加载中...</div>
       <div class="stats-row">
         <div class="mini-stat"><div class="label" data-zh="监控协议" data-en="Monitored">监控协议</div><div class="value" id="s-protocols">—</div></div>
-        <a class="mini-stat clickable-stat" href="proposals.html?filter=active"><div class="label" data-zh="进行中" data-en="Active" data-zh="进行中" data-en="Active">进行中</div><div class="value" style="color:#22c55e" id="s-active">—</div></a>
-        <a class="mini-stat clickable-stat" href="proposals.html?filter=passed"><div class="label" data-zh="已通过" data-en="Passed" data-zh="已通过" data-en="Passed">已通过</div><div class="value" id="s-passed">—</div></a>
-        <a class="mini-stat clickable-stat" href="proposals.html?filter=tev"><div class="label" data-zh="股东回报相关" data-en="Capital Return">股东回报相关</div><div class="value" style="color:#8b9cf7" id="s-tev">—</div></a>
+        <a class="mini-stat clickable-stat" href="proposals?filter=active"><div class="label" data-zh="进行中" data-en="Active" data-zh="进行中" data-en="Active">进行中</div><div class="value" style="color:#22c55e" id="s-active">—</div></a>
+        <a class="mini-stat clickable-stat" href="proposals?filter=passed"><div class="label" data-zh="已通过" data-en="Passed" data-zh="已通过" data-en="Passed">已通过</div><div class="value" id="s-passed">—</div></a>
+        <a class="mini-stat clickable-stat" href="proposals?filter=tev"><div class="label" data-zh="股东回报相关" data-en="Capital Return">股东回报相关</div><div class="value" style="color:#8b9cf7" id="s-tev">—</div></a>
       </div>
 
       <div class="main-layout">
@@ -381,7 +381,7 @@
             <div class="feed-title">
               <span class="fire">🔥</span> 股东回报治理动态 <span class="feed-count" id="feed-count">0</span>
             </div>
-            <a class="feed-toggle" href="proposals.html?filter=tev" data-zh="查看全部 →" data-en="View All →">查看全部 →</a>
+            <a class="feed-toggle" href="proposals?filter=tev" data-zh="查看全部 →" data-en="View All →">查看全部 →</a>
           </div>
           <div class="feed-list" id="feed-list"></div>
         </div>
@@ -568,7 +568,7 @@
 
       return `
         <a class="protocol-card"
-           href="protocol.html?name=${slug}">
+           href="protocol?name=${slug}">
           <div class="card-top">
             ${logo}
             <div class="card-identity">

@@ -152,7 +152,7 @@
 
   <!-- 顶栏 -->
   <header class="top">
-    <a href="index.html" class="crumb">← 看板</a>
+    <a href="." class="crumb">← 看板</a>
     <div class="title-wrap">
       <div class="title">公司</div>
       <div class="subtitle">COMPANIES</div>
@@ -177,7 +177,7 @@
   <section class="card" id="indRes"></section>
 
   <footer class="pg">
-    <a href="数据与来源.html">关于数据与来源 →</a> · 本站仅呈现事实与来源，不构成投资建议。
+    <a href="数据与来源">关于数据与来源 →</a> · 本站仅呈现事实与来源，不构成投资建议。
   </footer>
 
 </div>
@@ -367,7 +367,7 @@ function callHTML(co) {
         + `<span class="tier tier--xs" style="background:${dc}" title="${esc('信源档位 ' + dt + '：' + (TIER_DEFS[dt] || ''))}">${dt}</span>`
         + `</div>`
         + (sum ? `<p class="sum">${esc(sum)}</p>` : '')
-        + `<a class="go" href="电话会阅读页.html?id=${encodeURIComponent(latest.id)}">查看全文 →</a>`
+        + `<a class="go" href="电话会阅读页?id=${encodeURIComponent(latest.id)}">查看全文 →</a>`
         + `</div>`;
     } else {
       const withReason = list.find((a) => a.reason);
