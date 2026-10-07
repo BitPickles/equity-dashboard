@@ -12,13 +12,15 @@
   <meta name="description" content="DeFi 协议美股化财报页：收入、毛利、净利、股东回报与估值倍数，链上数据每日更新。">
   <script>
     // 动态 canonical：按 ?id= 参数生成协议详情页规范 URL（clean form，无 .html）
+    // 用 pathname 推导而非硬编码路径，生产/测试站（子路径部署）均正确
     (function () {
       var id = new URLSearchParams(location.search).get('id');
+      var path = location.pathname.replace(/\.html$/, '').replace(/index\.html$/, '');
       var link = document.createElement('link');
       link.rel = 'canonical';
       link.href = id
-        ? location.origin + '/equity/protocol?id=' + encodeURIComponent(id)
-        : location.origin + '/equity/';
+        ? location.origin + path + '?id=' + encodeURIComponent(id)
+        : location.origin + path.replace(/protocol\/?$/, '');
       document.head.appendChild(link);
     })();
   </script>
