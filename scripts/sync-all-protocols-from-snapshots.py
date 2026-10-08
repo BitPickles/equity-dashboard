@@ -30,6 +30,10 @@ BASE = Path(__file__).resolve().parent.parent
 ALL_FILE = BASE / "data" / "all-protocols.json"
 SNAP_DIR = BASE / "data" / "snapshots"
 
+if str(BASE) not in sys.path:
+    sys.path.insert(0, str(BASE))
+from scripts.lib.period_metrics import annualize_factor as _ann_factor  # noqa: E402
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -47,6 +51,15 @@ def main():
             continue
         snap = json.loads(sf.read_text(encoding="utf-8"))
         p = protocols[pid]
+
+        # ── 退役旧 sync-tev-data.js 遗留字段（Phase 3，幂等防御）────────────
+        # validation.period_source / period_caveat / period_fee_rate 由已停用的
+        # sync-tev-data.js 写入，描述的是死方法；前端不消费，逐周期口径已由
+        # holder_returns.by_period 单一接管。此处确保其不再残留。
+        _legacy_v = p.get("validation")
+        if isinstance(_legacy_v, dict):
+            for _lk in ("period_source", "period_caveat", "period_fee_rate"):
+                _legacy_v.pop(_lk, None)
 
         hr = snap.get("holder_returns", {}).get("summary", {})
         inc = snap.get("income_statement", {})
@@ -87,6 +100,46 @@ def main():
         if hr.get("shareholder_yield_percent") is not None:
             metrics["shareholder_yield_365d_ann"] = hr["shareholder_yield_percent"]
 
+        # ── 多周期（by_period，阶段2/3：全站唯一周期字段生产者）──────────
+        # 口径由 adapter 或 config.period_basis 定义一次（holder_returns.by_period），
+        # 此处只做机械派生，令前端 4 个周期 tab（读 metrics.*_{7,30,90}d_ann）与 365D 同源。
+        # Phase 3 起 by_period 为展示协议**必需**字段（validate 强制），镜像目录除外。
+        bp = snap.get("holder_returns", {}).get("by_period")
+        if isinstance(bp, dict):
+            _none = (bp.get("365d") or {}).get("source") == "none"  # 无同窗口源（D 类）
+            if _none:
+                p["period_status"] = "none"      # 前端据此对 7D/30D/90D 显示「—」（不回退 365d）
+            else:
+                p.pop("period_status", None)
+            _mcap = p.get("market_cap_usd")   # 用 update-prices 维护的最新市值年化
+            for n in (7, 30, 90, 365):
+                if _none:
+                    if n != 365:
+                        # 清空陈旧短周期值 → 前端 7D/30D/90D 显示「—」（365D 保留真实值）
+                        for _k in (f"shareholder_yield_{n}d_ann", f"total_yield_{n}d_ann",
+                                   f"buyback_yield_{n}d_ann", f"dividend_yield_{n}d_ann",
+                                   f"trailing_{n}d_shareholder_returns_usd"):
+                            metrics.pop(_k, None)
+                        p.pop(f"payout_ratio_{n}d", None)
+                    continue
+                blk = bp.get(f"{n}d") or {}
+                _ru = blk.get("shareholder_returns_usd")
+                _rev = blk.get("revenue_usd")
+                if _mcap and _rev:
+                    metrics[f"total_yield_{n}d_ann"] = round(_rev / _mcap * 100 * _ann_factor(n), 4)
+                if _ru is None or not _mcap:
+                    continue
+                metrics[f"shareholder_yield_{n}d_ann"] = round(_ru / _mcap * 100 * _ann_factor(n), 4)
+                _by = blk.get("destroy_usd")
+                if _by is not None:
+                    metrics[f"buyback_yield_{n}d_ann"] = round(_by / _mcap * 100 * _ann_factor(n), 4)
+                _dv = blk.get("yield_usd")
+                if _dv is not None:
+                    metrics[f"dividend_yield_{n}d_ann"] = round(_dv / _mcap * 100 * _ann_factor(n), 4)
+                metrics[f"trailing_{n}d_shareholder_returns_usd"] = round(_ru, 2)
+                if _rev:
+                    p[f"payout_ratio_{n}d"] = round(_ru / _rev, 4)
+
         for k, v in updates.items():
             if k in ("payout_ratio",):
                 if v is not None:
@@ -120,7 +173,7 @@ def main():
         return 0
 
     allp["generated_at"] = __import__("datetime").datetime.now(__import__("datetime").timezone.utc).isoformat()
-    ALL_FILE.write_text(json.dumps(allp, indent=2, ensure_ascii=False), encoding="utf-8")
+    ALL_FILE.write_text(json.dumps(allp, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"✅ 已从 {updated} 个 snapshot 同步 all-protocols.json")
     return 0
 

@@ -1,6 +1,6 @@
 {
   "protocol": "fluid",
-  "updated_at": "2026-10-08T00:13:50.000Z",
+  "updated_at": "2026-10-08T06:39:55.000Z",
   "data_sources": {
     "defillama": "fluid",
     "coingecko": "instadapp",
@@ -10,9 +10,9 @@
     "date": "2026-10-08",
     "price_usd": 1.17,
     "market_cap_usd": 91752826,
-    "daily_fees_usd": 114912,
-    "total30d_fees_usd": 3740443,
-    "total1y_fees_usd": 61040023
+    "daily_fees_usd": 118380,
+    "total30d_fees_usd": 3733067,
+    "total1y_fees_usd": 60864094
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": null,
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 91752826,
     "tev_yield": null,
     "return_yield_decimal": null,
-    "calculated_at": "2026-10-08T00:13:50.000Z"
+    "calculated_at": "2026-10-08T06:39:55.000Z"
   }
 }

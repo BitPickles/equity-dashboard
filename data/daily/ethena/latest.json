@@ -1,6 +1,6 @@
 {
   "protocol": "ethena",
-  "updated_at": "2026-10-08T00:13:46.000Z",
+  "updated_at": "2026-10-08T06:39:52.000Z",
   "data_sources": {
     "defillama": "ethena",
     "coingecko": "ethena",
@@ -10,9 +10,9 @@
     "date": "2026-10-08",
     "price_usd": 0.103722,
     "market_cap_usd": 853363511,
-    "daily_fees_usd": 9,
-    "total30d_fees_usd": 18338254,
-    "total1y_fees_usd": 257948657
+    "daily_fees_usd": 41952,
+    "total30d_fees_usd": 18380159,
+    "total1y_fees_usd": 257990582
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 0,
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 853363511,
     "tev_yield": null,
     "return_yield_decimal": 0.0,
-    "calculated_at": "2026-10-08T00:13:46.000Z"
+    "calculated_at": "2026-10-08T06:39:52.000Z"
   }
 }

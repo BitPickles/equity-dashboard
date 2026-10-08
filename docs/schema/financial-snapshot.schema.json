@@ -58,6 +58,16 @@
                 "type": { "type": "string", "enum": ["defillama", "chain", "official", "estimate"] },
                 "url": { "type": ["string", "null"] }
               }
+            },
+            "by_period": {
+              "type": "object",
+              "description": "各窗口收入合计（供各周期 Earning Yield / P/S）。Phase 3 起为展示协议必需字段（validate 强制），镜像目录（hyperliquid）豁免。",
+              "properties": {
+                "7d": { "$ref": "#/definitions/revenuePeriodBlock" },
+                "30d": { "$ref": "#/definitions/revenuePeriodBlock" },
+                "90d": { "$ref": "#/definitions/revenuePeriodBlock" },
+                "365d": { "$ref": "#/definitions/revenuePeriodBlock" }
+              }
             }
           }
         },
@@ -133,6 +143,16 @@
             "shareholder_returns_usd_365d": { "type": ["number", "null"] },
             "shareholder_yield_percent": { "type": ["number", "null"] }
           }
+        },
+        "by_period": {
+          "type": "object",
+          "description": "按窗口的股东回报：口径由 adapter 或 config.period_basis 定义一次，窗口只是同一口径的时间切片。四个 tab 与 365D 同源，结构上不可能漂移。Phase 3 起为展示协议必需字段（validate 强制），镜像目录（hyperliquid）豁免。",
+          "properties": {
+            "7d": { "$ref": "#/definitions/holderPeriodBlock" },
+            "30d": { "$ref": "#/definitions/holderPeriodBlock" },
+            "90d": { "$ref": "#/definitions/holderPeriodBlock" },
+            "365d": { "$ref": "#/definitions/holderPeriodBlock" }
+          }
         }
       }
     },
@@ -164,6 +184,32 @@
         "method": { "type": "string" },
         "status": { "type": "string", "enum": ["verified", "partial", "estimated"] },
         "last_checked": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+      }
+    }
+  },
+  "definitions": {
+    "holderPeriodBlock": {
+      "type": "object",
+      "description": "单窗口股东回报块（由 scripts/lib/period_metrics.py 生成）",
+      "required": ["source"],
+      "properties": {
+        "revenue_usd": { "type": ["number", "null"] },
+        "shareholder_returns_usd": { "type": ["number", "null"] },
+        "destroy_usd": { "type": ["number", "null"] },
+        "yield_usd": { "type": ["number", "null"] },
+        "shareholder_yield_percent": { "type": ["number", "null"] },
+        "buyback_yield_percent": { "type": ["number", "null"] },
+        "dividend_yield_percent": { "type": ["number", "null"] },
+        "payout_ratio": { "type": ["number", "null"] },
+        "status": { "type": "string", "enum": ["active", "paused", "none"] },
+        "source": { "type": "string", "enum": ["defillama", "chain", "official", "estimate", "none"] }
+      }
+    },
+    "revenuePeriodBlock": {
+      "type": "object",
+      "description": "单窗口收入合计块",
+      "properties": {
+        "total_usd": { "type": ["number", "null"] }
       }
     }
   }

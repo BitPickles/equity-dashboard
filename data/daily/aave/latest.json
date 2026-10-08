@@ -1,6 +1,6 @@
 {
   "protocol": "aave",
-  "updated_at": "2026-10-08T00:13:24.000Z",
+  "updated_at": "2026-10-08T06:39:31.000Z",
   "data_sources": {
     "defillama": "aave",
     "coingecko": "aave",
@@ -8,19 +8,19 @@
   },
   "latest_record": {
     "date": "2026-10-08",
-    "price_usd": 173.86,
-    "market_cap_usd": 2683692064,
-    "daily_fees_usd": 1542526,
-    "total30d_fees_usd": 37559267,
-    "total1y_fees_usd": 720050993
+    "price_usd": 172.23,
+    "market_cap_usd": 2658231410,
+    "daily_fees_usd": 1485429,
+    "total30d_fees_usd": 37842529,
+    "total1y_fees_usd": 718094504
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 26513626,
     "trailing_365d_shareholder_returns_usd": null,
     "annualized_returns_usd": 318163512,
-    "current_market_cap_usd": 2683692064,
+    "current_market_cap_usd": 2658231410,
     "tev_yield": null,
     "return_yield_decimal": 0.18099976781698965,
-    "calculated_at": "2026-10-08T00:13:24.000Z"
+    "calculated_at": "2026-10-08T06:39:31.000Z"
   }
 }

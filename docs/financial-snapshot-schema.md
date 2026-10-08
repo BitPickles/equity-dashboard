@@ -28,6 +28,10 @@
       "revenue_included": { ... },            // 计入科目（打新/质押/销毁/协议费）
       "revenue_excluded": { ... },            // 明确不计入的科目 + 理由
       "growth_yoy_percent": null,             // 收入同比
+      "by_period": {                          // ★多窗口收入（供各周期 Earning Yield / P/S）
+        "7d": { "total_usd": ... }, "30d": { "total_usd": ... },
+        "90d": { "total_usd": ... }, "365d": { "total_usd": ... }
+      },
       "source": { "type": "defillama|chain|official|estimate", "url": "..." }
     },
     "gross_profit": {                         // 毛利 = 收入 − LP 分润等直接成本
@@ -55,6 +59,13 @@
       "destroy_usd_365d": ..., "yield_usd_365d": ...,
       "destroy_yield_percent": ..., "yield_yield_percent": ...,
       "shareholder_returns_usd_365d": ..., "shareholder_yield_percent": ...
+    },
+    "by_period": {                            // ★7/30/90/365 四窗口同源（口径一次定义，窗口即切片）
+      "7d":   { "revenue_usd": ..., "shareholder_returns_usd": ..., "destroy_usd": ..., "yield_usd": ...,
+                "shareholder_yield_percent": ..., "buyback_yield_percent": ..., "dividend_yield_percent": ...,
+                "payout_ratio": ..., "status": "active|paused|none", "source": "defillama|chain|official|estimate|none" },
+      "30d": { ... }, "90d": { ... },
+      "365d": { ... }                         // 365d.shareholder_returns_usd 必须 == summary.shareholder_returns_usd_365d
     }
   },
   "balance_sheet": {                          // L1 市场数据 + 简化资产负债
@@ -114,6 +125,27 @@ yield_yield_percent    = yield_usd_365d    / market_cap_usd × 100
 
 > 平台币口径（方案 A，Boss 拍板）：`ps == pe`（收入 = 股东回报），tooltip 标注「收入 = 赋能口径」。
 
+### 4.1 多窗口派生（`by_period`，阶段 3 起为**必需**字段）
+
+**口径与窗口解耦**：口径（哪些价值流算股东回报）由各协议 adapter 定义一次；窗口只是时间切片。
+同一口径按 7/30/90/365 天聚合 → 与 365D 汇总**同源**，结构上不可能漂移。
+
+```
+by_period.<n>d.shareholder_yield_percent = shareholder_returns_usd / market_cap_usd × 100 × (365 / n)   (n≠365；n=365 因子=1)
+by_period.<n>d.buyback_yield_percent     = destroy_usd            / market_cap_usd × 100 × (365 / n)
+by_period.<n>d.dividend_yield_percent    = yield_usd              / market_cap_usd × 100 × (365 / n)
+by_period.<n>d.payout_ratio              = shareholder_returns_usd / revenue_usd         (revenue ≤ 0 → null)
+by_period.365d.shareholder_returns_usd   = summary.shareholder_returns_usd_365d          (强一致)
+```
+
+- 两条生成路径，**同源**（同一份 schema、同一套机械派生；`period_metrics.py` 为唯一实现）：
+  · **adapter 内联**：`build_by_period()` / `build_revenue_by_period()`（复杂口径，如 sky/aave/uniswap/bnb）；
+  · **config 驱动**：`derive_by_period()` 读 `config.period_basis ∈ zero | revenue_scaled | onchain | none`
+    （其余 22 协议，口径一次声明，`build-snapshot.py` 自动注入；`config.period_source/period_status` 标注来源/状态）。
+  两者互斥：adapter 已产出 `by_period` 时 `derive_by_period` 自动跳过。**禁止通用公式猜口径**。
+- 无日频源的 D 类协议（bgb/compound/ethena/hype/mnt/okb）：`source=none`，四窗口值为 `null` → 前端周期 tab 渲染 `—`。
+- 完整方案：`docs/multi-window-returns-refactor-plan.md`。
+
 ## 五、校验项（validate.py 按此执行）
 
 1. **结构校验**：对 `data/snapshots/*.json` 跑 JSON Schema（`docs/schema/financial-snapshot.schema.json`）。
@@ -121,6 +153,9 @@ yield_yield_percent    = yield_usd_365d    / market_cap_usd × 100
 3. **一致性**：snapshot 与 `data/all-protocols.json` 的 `shareholder_yield_percent`（旧 `shareholder_yield_percent`）数值一致。
 4. **新鲜度**：`as_of` 距今天数 > 26h → 告警（防僵尸数据）。
 5. **null 语义**：无数据必须为 `null`，出现编造的 `0`（且原数据源为空）→ 告警。
+6. **多周期自洽（§2.5/2.6，阶段 3 起对展示协议**必需**）**：`holder_returns.by_period` 四窗口齐全、每窗口带
+   `source`、`shareholder_yield_percent` 可复算、`365d.shareholder_returns_usd == summary`、`payout_ratio` 可复算；
+   `income_statement.revenue.by_period` 四窗口齐全。镜像目录（hyperliquid，不展示）豁免。
 
 ## 六、生成流程
 

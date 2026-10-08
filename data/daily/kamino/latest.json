@@ -1,6 +1,6 @@
 {
   "protocol": "kamino",
-  "updated_at": "2026-10-08T00:14:06.000Z",
+  "updated_at": "2026-10-08T06:40:10.000Z",
   "data_sources": {
     "defillama": "kamino",
     "coingecko": "kamino",
@@ -11,8 +11,8 @@
     "price_usd": 0.01798556,
     "market_cap_usd": 93704839,
     "daily_fees_usd": 163802,
-    "total30d_fees_usd": 5028417,
-    "total1y_fees_usd": 66558952
+    "total30d_fees_usd": 4877586,
+    "total1y_fees_usd": 66216861
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 0,
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 93704839,
     "tev_yield": null,
     "return_yield_decimal": 0,
-    "calculated_at": "2026-10-08T00:14:06.000Z"
+    "calculated_at": "2026-10-08T06:40:10.000Z"
   }
 }

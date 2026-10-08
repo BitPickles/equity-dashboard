@@ -31,6 +31,10 @@ SNAPSHOTS_DIR = DATA_DIR / "snapshots"
 ALL_PROTOCOLS_FILE = DATA_DIR / "all-protocols.json"
 SCHEMA_FILE = BASE_DIR / "docs" / "schema" / "financial-snapshot.schema.json"
 
+if str(BASE_DIR) not in sys.path:
+    sys.path.insert(0, str(BASE_DIR))
+from scripts.lib.period_metrics import derive_by_period  # noqa: E402
+
 # ── 派生计算 ──────────────────────────────────────────────────────────
 
 def derive_valuation(bs, income, returns):
@@ -257,9 +261,22 @@ def run_adapter(proto_dir, all_protocols, daily, pid):
             snap = mod.build_snapshot(proto_dir)
             if snap is None:
                 raise ValueError(f"adapter {pid} returned None")
+            _inject_period(snap, proto_dir, all_protocols, pid)
             return snap
         raise ValueError(f"adapter.py {pid} 缺少 build_snapshot(proto_dir) 函数")
-    return run_generic_adapter(proto_dir, all_protocols, daily)
+    snap = run_generic_adapter(proto_dir, all_protocols, daily)
+    _inject_period(snap, proto_dir, all_protocols, pid)
+    return snap
+
+
+def _inject_period(snap, proto_dir, all_protocols, pid):
+    """config 驱动的多周期派生（阶段2）：adapter 未自产 by_period 时按 config 注入。"""
+    config = _load_json(proto_dir / "config.json") or {}
+    ap = (all_protocols or {}).get("protocols", {}).get(pid, {})
+    try:
+        derive_by_period(snap, config, ap)
+    except Exception as e:  # noqa: BLE001
+        print(f"    ⚠️ {pid}: by_period 派生失败（{e}），跳过")
 
 
 # ── v2.2 历史序列累积（历史数据看板数据源） ──────────────────────────

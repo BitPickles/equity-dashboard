@@ -1,6 +1,6 @@
 {
   "protocol": "gmx",
-  "updated_at": "2026-10-08T00:13:53.000Z",
+  "updated_at": "2026-10-08T06:39:58.000Z",
   "data_sources": {
     "defillama": "gmx",
     "coingecko": "gmx",
@@ -10,9 +10,9 @@
     "date": "2026-10-08",
     "price_usd": 8.43,
     "market_cap_usd": 88146257,
-    "daily_fees_usd": 295066,
-    "total30d_fees_usd": 5459851,
-    "total1y_fees_usd": 47508094
+    "daily_fees_usd": 224219,
+    "total30d_fees_usd": 5551528,
+    "total1y_fees_usd": 47690959
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 767610.6,
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 88146257,
     "tev_yield": null,
     "return_yield_decimal": 0.13826,
-    "calculated_at": "2026-10-08T00:13:53.000Z"
+    "calculated_at": "2026-10-08T06:39:58.000Z"
   }
 }

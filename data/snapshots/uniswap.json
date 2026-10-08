@@ -18,6 +18,20 @@
         }
       },
       "growth_yoy_percent": null,
+      "by_period": {
+        "7d": {
+          "total_usd": 425060.0
+        },
+        "30d": {
+          "total_usd": 1435580.0
+        },
+        "90d": {
+          "total_usd": 4707740.0
+        },
+        "365d": {
+          "total_usd": 18365812.03
+        }
+      },
       "source": {
         "type": "chain",
         "url": "https://etherscan.io/address/0x000000000000000000000000000000000000dEaD"
@@ -52,28 +66,78 @@
         "mechanism": "Firepit 销毁 UNI（fee switch → TokenJar → 0xdead）",
         "type": "destroy",
         "usd_365d": 18365812.03,
-        "yield_percent": 0.3708,
+        "yield_percent": 0.343,
         "note": "销毁 = 回购性质 🟢：365d 0xdead 累计 4580003 UNI × 4.01 USD，排除一次性 100M UNI retroactive burn（2025-12-27）"
       }
     ],
     "summary": {
       "destroy_usd_365d": 18365812.03,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 0.3708,
+      "destroy_yield_percent": 0.343,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 18365812.03,
-      "shareholder_yield_percent": 0.3708
+      "shareholder_yield_percent": 0.343
+    },
+    "by_period": {
+      "7d": {
+        "revenue_usd": 425060.0,
+        "shareholder_returns_usd": 425060.0,
+        "destroy_usd": 425060.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.4139,
+        "buyback_yield_percent": 0.4139,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 1.0,
+        "status": "active",
+        "source": "chain"
+      },
+      "30d": {
+        "revenue_usd": 1435580.0,
+        "shareholder_returns_usd": 1435580.0,
+        "destroy_usd": 1435580.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.3262,
+        "buyback_yield_percent": 0.3262,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 1.0,
+        "status": "active",
+        "source": "chain"
+      },
+      "90d": {
+        "revenue_usd": 4707740.0,
+        "shareholder_returns_usd": 4707740.0,
+        "destroy_usd": 4707740.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.3565,
+        "buyback_yield_percent": 0.3565,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 1.0,
+        "status": "active",
+        "source": "chain"
+      },
+      "365d": {
+        "revenue_usd": 18365812.03,
+        "shareholder_returns_usd": 18365812.03,
+        "destroy_usd": 18365812.03,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.343,
+        "buyback_yield_percent": 0.343,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 1.0,
+        "status": "active",
+        "source": "chain"
+      }
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 4952443722,
+    "market_cap_usd": 5354810153,
     "tvl_usd": 3091182140.0588913,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 269.6556,
-    "ps": 269.6556,
+    "pe": 291.564,
+    "ps": 291.564,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 1.0

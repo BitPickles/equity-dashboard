@@ -273,5 +273,9 @@
     "inflation_rate_percent": 3.2,
     "treatment": "cost",
     "calculation_note": "日增发 4万→2.25 万 CAKE（farm 激励，有对价换收入 → 成本）；增发 $11.7M < 回购销毁 ~$18M → 净利为正（净通缩，连续 34 个月）"
-  }
+  },
+  "period_basis": "onchain",
+  "period_source": "chain",
+  "period_status": "active",
+  "period_window_field": "burn_{n}d_usd"
 }

@@ -241,5 +241,9 @@
       "data-plausibility",
       "freshness"
     ]
-  }
+  },
+  "period_basis": "revenue_scaled",
+  "period_source": "defillama",
+  "period_status": "active",
+  "period_destroy_ratio": 0.8333
 }

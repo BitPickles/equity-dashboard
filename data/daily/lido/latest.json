@@ -1,6 +1,6 @@
 {
   "protocol": "lido",
-  "updated_at": "2026-10-08T00:14:14.000Z",
+  "updated_at": "2026-10-08T06:40:16.000Z",
   "data_sources": {
     "defillama": "lido",
     "coingecko": "lido-dao",
@@ -10,9 +10,9 @@
     "date": "2026-10-08",
     "price_usd": 0.392971,
     "market_cap_usd": 327804649,
-    "daily_fees_usd": 1835378,
-    "total30d_fees_usd": 52090001,
-    "total1y_fees_usd": 617589218
+    "daily_fees_usd": 1703428,
+    "total30d_fees_usd": 52153613,
+    "total1y_fees_usd": 615449240
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 0,
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 327804649,
     "tev_yield": null,
     "return_yield_decimal": 0.0,
-    "calculated_at": "2026-10-08T00:14:14.000Z"
+    "calculated_at": "2026-10-08T06:40:16.000Z"
   }
 }

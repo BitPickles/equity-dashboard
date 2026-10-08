@@ -1,6 +1,6 @@
 {
   "protocol": "maple",
-  "updated_at": "2026-10-08T00:14:17.000Z",
+  "updated_at": "2026-10-08T06:40:19.000Z",
   "data_sources": {
     "defillama": "maple",
     "coingecko": "syrup",
@@ -10,9 +10,9 @@
     "date": "2026-10-08",
     "price_usd": 0.155485,
     "market_cap_usd": 193564405,
-    "daily_fees_usd": 113347,
-    "total30d_fees_usd": 9491432,
-    "total1y_fees_usd": 111781535
+    "daily_fees_usd": 1139004,
+    "total30d_fees_usd": 10630436,
+    "total1y_fees_usd": 112724246
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 343878,
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 193564405,
     "tev_yield": null,
     "return_yield_decimal": 0,
-    "calculated_at": "2026-10-08T00:14:17.000Z"
+    "calculated_at": "2026-10-08T06:40:19.000Z"
   }
 }

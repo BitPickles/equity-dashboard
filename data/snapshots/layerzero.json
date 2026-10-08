@@ -6,8 +6,8 @@
       "entity_type": "app",
       "revenue_included": {
         "protocol_fees_usd_365d": 0,
-        "stargate_fees_usd_365d": 3068511,
-        "total_usd_365d": 3068511
+        "stargate_fees_usd_365d": 3391193.0,
+        "total_usd_365d": 3391193.0
       },
       "revenue_excluded": {
         "protocol_fees": {
@@ -18,6 +18,20 @@
       "source": {
         "type": "chain",
         "url": "https://etherscan.io"
+      },
+      "by_period": {
+        "7d": {
+          "total_usd": 0.0
+        },
+        "30d": {
+          "total_usd": 0.0
+        },
+        "90d": {
+          "total_usd": 322682.0
+        },
+        "365d": {
+          "total_usd": 3391193.0
+        }
       }
     },
     "gross_profit": {
@@ -38,8 +52,8 @@
       "calculation_note": "净利 = 毛利 − 增发成本(0，稀释注记) − 运营成本(数据不可得)；归协议 ≈ $0.78M"
     },
     "margins": {
-      "gross_margin_percent": 25.5719,
-      "net_margin_percent": 25.5719,
+      "gross_margin_percent": 23.1387,
+      "net_margin_percent": 23.1387,
       "note": "派生计算：毛利极薄（supply-side 外包成本占比高）；gross = GP/Rev"
     }
   },
@@ -49,7 +63,7 @@
         "mechanism": "Stargate 收入回购 ZRO（100%）",
         "type": "buyback",
         "usd_365d": 784539.207,
-        "yield_percent": 0.0895,
+        "yield_percent": 0.087,
         "verified": "partial",
         "note": "2026-03 起 100% Stargate 收入回购 ZRO（累计 149.5 万 ZRO/$3.14M，链上可验证）；协议本体 fee switch 未开启 → 股东回报极低（0.3%）"
       }
@@ -57,27 +71,77 @@
     "summary": {
       "destroy_usd_365d": 784539.207,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 0.0895,
+      "destroy_yield_percent": 0.087,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 784539.207,
-      "shareholder_yield_percent": 0.0895
+      "shareholder_yield_percent": 0.087
+    },
+    "by_period": {
+      "7d": {
+        "revenue_usd": 0.0,
+        "shareholder_returns_usd": 0.0,
+        "destroy_usd": 0.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0,
+        "buyback_yield_percent": 0.0,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": null,
+        "status": "active",
+        "source": "defillama"
+      },
+      "30d": {
+        "revenue_usd": 0.0,
+        "shareholder_returns_usd": 0.0,
+        "destroy_usd": 0.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0,
+        "buyback_yield_percent": 0.0,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": null,
+        "status": "active",
+        "source": "defillama"
+      },
+      "90d": {
+        "revenue_usd": 322682.0,
+        "shareholder_returns_usd": 74651.22,
+        "destroy_usd": 74651.22,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0336,
+        "buyback_yield_percent": 0.0336,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.2313,
+        "status": "active",
+        "source": "defillama"
+      },
+      "365d": {
+        "revenue_usd": 3391193.0,
+        "shareholder_returns_usd": 784539.21,
+        "destroy_usd": 784539.21,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.087,
+        "buyback_yield_percent": 0.087,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.2313,
+        "status": "active",
+        "source": "defillama"
+      }
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 876997576,
+    "market_cap_usd": 901708493,
     "tvl_usd": 7500000000,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 1117.8505,
-    "ps": 285.8056,
+    "pe": 1149.3479,
+    "ps": 265.8971,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0.9998
   },
   "verification": {
-    "method": "收入 = Stargate 收入 365d $3,068,511（协议本体 0，fee switch OFF）；股东回报 = Stargate 回购 $784,539（100% Stargate 收入，累计 149.5 万 ZRO/$3.14M）；稀释注记：每月解锁 ~$48M（2027 年中前）；观察点：费用开关半年公投",
+    "method": "收入 = Stargate 收入 365d $3,391,193（协议本体 0，fee switch OFF）；股东回报 = Stargate 回购 $784,539（100% Stargate 收入，累计 149.5 万 ZRO/$3.14M）；稀释注记：每月解锁 ~$48M（2027 年中前）；观察点：费用开关半年公投",
     "status": "partial",
     "last_checked": "2026-10-08"
   }

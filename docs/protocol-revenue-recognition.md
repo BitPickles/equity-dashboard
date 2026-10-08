@@ -92,23 +92,26 @@
 
 ## 第 3 批：应用型 - 回购 / 销毁
 
-### 6. Aave 🔄 部分定稿（Boss 2026-08-02）
+### 6. Aave ✅ 已定稿（Boss 2026-10-08 修订）
 
 - **实体类型**：应用型（lending）
-- **收入口径（Boss 定稿）**：**收入 ≠ 所有协议费**——大部分收入给 LP 持有者（存钱的人），**扣除给 LP 的部分，算协议净利润**。⚠️ 框架铁律：**所有计算都是算净利润**（详见 PRD 3.3 净利润原则）
-- **数据源（Boss 定稿）**：**跟踪不到地址**，只能通过 Aave 每次的**官方报告 / 计划**获取（回购金额、周期）
-- **现状**：回购**之前多、现在少**（$30M/年，2026-03 治理；早期文档 $50M）→ 以最新官方披露为准；Safety Module 质押奖励归属**待定**（保留）
-- **待定**：Safety Module (Umbrella) 质押奖励算收益型 🟡 吗？
-- **data_pipeline**：官方（**AI 抓治理提案/月报，事件驱动**，ai-watch-governance.py）+ DefiLlama（dailyRevenue，日频，fetch-defillama.js）
+- **收入口径**：**收入 ≠ 所有协议费**——大部分给存款人/LP，**扣除后算协议净利**（框架铁律：一切用净利润）。数据 = DefiLlama dailyRevenue（已扣 LP）。
+- **股东回报口径（2026-10-08 定稿）**：
+  - **回购自 2026-04-19 起暂停 → 已实现股东回报 = 0**，展示为 `paused`。
+  - **不得**把年度预算（$30M/年，2026-03 由 $50M 下调；完整预算载荷链未锁定）当已实现回报。
+  - 回购性质 = treasury 累积（买入 AAVE → Ecosystem Reserve，非真 burn，治理可 redistribute）。
+  - ⚠️ **纠正**：DefiLlama `dailyHoldersRevenue` 定义为 "buy back AAVE tokens using Aave Treasury after 9 April 2025"（回购收币代理 `0x22740deB…1bFa`），**不是 Safety Module 奖励**；旧稿把它标成 SM 奖励并另加 $30M 固定回购 → **重复计算回购**。实测（2026-10-08）近 30/90 天 = 0，最后非零 2026-06-24。
+  - Safety Module / Umbrella 质押奖励归属：仍**待定**，当前不计入主数字。
+- **data_pipeline**：官方（AI 抓治理提案/月报，事件驱动）+ DefiLlama（dailyRevenue 日频 + holdersRevenue 回购收币代理）。
 
-### 7. Sky（MakerDAO） ✅ 已定稿（Boss 2026-08-02）
+### 7. Sky（MakerDAO）✅ 已定稿（Boss 2026-10-08 修订）
 
 - **实体类型**：应用型（cdp/稳定币）
-- **机制（SBE，2023-06 更新后）**：盈余先进 Surplus Buffer 国库（上限 5000 万 DAI）；超额部分 SBE 从 Uniswap 买入 MKR + 等量 DAI 组 LP 做市（LP 归协议，主动做市）；Elixir 机制在 MKR 低估时用 LP **真燃烧**
-- **计入股东回报**：**销毁 = 发股息（回购性质）**——Elixir 真燃烧计入 🟢
-- **不计入**：Surplus Buffer 留存（国库）；SBE 买 MKR 做市部分（LP 锁定，标注"回购做市"，非直接流向持币人）
-- **损益表要求**：**净利留存国库要讲清楚**——净利高但大量留存，财报页展示「留存 vs 分配」比例（对齐"净利 → 留存/股东回报"五段式）
-- **数据源**：DefiLlama dailyHoldersRevenue（现口径）+ 链上 SBE/Elixir 地址（M0/M1 细化）
+- **机制沿革**：2023-07 SBE 上线——盈余进 Surplus Buffer（≤5000 万 DAI），超额部分买 MKR + 配 DAI 组 LP 交协议代理（**非直接销毁**）；**2024-09 Sky 升级起改为「只买 SKY 交国库」**（库存受治理支配、可再分配）。2025-06-30 的 426,292,860.23 SKY 销毁 = **供应纠正**（非经营销毁）；2026-08 TMF 起有一条 ~4% 预算的「买 SKY 销毁」流。
+- **股东回报口径（2026-10-08 定稿）**：**维持 DefiLlama dailyHoldersRevenue**，但**如实标注为"混合代理"**——DefiLlama 源码（makerdao.ts）定义 = 买币（SKY 数量 × 当日市价）**＋** USDS 质押奖励。⚠️ **废止**旧稿"已剥离 farm / 等于真燃烧"的错误表述（与 DefiLlama 定义直接冲突）。
+- **不计入**：Surplus Buffer 留存；买币进国库未销毁部分（按铁律「只计流向流通持币人的价值流」）。
+- **损益表要求**：**净利留存国库要讲清楚**——展示「留存 vs 分配」比例（对齐"净利 → 留存/股东回报"五段式）。
+- **数据源**：DefiLlama dailyHoldersRevenue（股东回报，混合）+ dailyRevenue（协议净归属），每日由 `scripts/sync-holders-revenue.py` 刷新到 all-protocols.json；实际买币发生额见 https://info.sky.money/buyback 。
 
 ### 8. Uniswap ✅ 已定稿（Boss 2026-08-02）
 

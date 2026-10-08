@@ -1,6 +1,6 @@
 {
   "protocol": "justlend",
-  "updated_at": "2026-10-08T00:14:03.000Z",
+  "updated_at": "2026-10-08T06:40:07.000Z",
   "data_sources": {
     "defillama": "justlend",
     "coingecko": "just",
@@ -10,9 +10,9 @@
     "date": "2026-10-08",
     "price_usd": 0.105259,
     "market_cap_usd": 861962578,
-    "daily_fees_usd": 57592,
-    "total30d_fees_usd": 1549588,
-    "total1y_fees_usd": 13159261
+    "daily_fees_usd": 50754,
+    "total30d_fees_usd": 1541790,
+    "total1y_fees_usd": 13192848
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 0,
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 861962578,
     "tev_yield": null,
     "return_yield_decimal": 0,
-    "calculated_at": "2026-10-08T00:14:03.000Z"
+    "calculated_at": "2026-10-08T06:40:07.000Z"
   }
 }

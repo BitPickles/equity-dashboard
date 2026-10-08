@@ -1,6 +1,6 @@
 {
   "protocol": "pendle",
-  "updated_at": "2026-10-08T00:14:29.000Z",
+  "updated_at": "2026-10-08T06:40:35.000Z",
   "data_sources": {
     "defillama": "pendle",
     "coingecko": "pendle",
@@ -10,9 +10,9 @@
     "date": "2026-10-08",
     "price_usd": 2.35,
     "market_cap_usd": 407951313,
-    "daily_fees_usd": 15095,
-    "total30d_fees_usd": 585610,
-    "total1y_fees_usd": 17167439
+    "daily_fees_usd": 11754,
+    "total30d_fees_usd": 431996,
+    "total1y_fees_usd": 17077949
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 908300,
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 407951313,
     "tev_yield": null,
     "return_yield_decimal": 0,
-    "calculated_at": "2026-10-08T00:14:29.000Z"
+    "calculated_at": "2026-10-08T06:40:35.000Z"
   }
 }

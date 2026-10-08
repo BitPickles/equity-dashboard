@@ -1,6 +1,6 @@
 {
   "protocol": "uniswap",
-  "updated_at": "2026-10-08T00:14:39.000Z",
+  "updated_at": "2026-10-08T06:40:46.000Z",
   "data_sources": {
     "defillama": "uniswap",
     "coingecko": "uniswap",
@@ -8,19 +8,19 @@
   },
   "latest_record": {
     "date": "2026-10-08",
-    "price_usd": 7.91,
-    "market_cap_usd": 4950983677,
-    "daily_fees_usd": 2948198,
-    "total30d_fees_usd": 154324298,
-    "total1y_fees_usd": 968528517
+    "price_usd": 7.72,
+    "market_cap_usd": 4828067400,
+    "daily_fees_usd": 3523300,
+    "total30d_fees_usd": 150264011,
+    "total1y_fees_usd": 967203866
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 1996110,
     "trailing_365d_shareholder_returns_usd": 2952151,
     "annualized_returns_usd": 23953320,
-    "current_market_cap_usd": 4950983677,
+    "current_market_cap_usd": 4828067400,
     "tev_yield": null,
     "return_yield_decimal": 0,
-    "calculated_at": "2026-10-08T00:14:39.000Z"
+    "calculated_at": "2026-10-08T06:40:46.000Z"
   }
 }

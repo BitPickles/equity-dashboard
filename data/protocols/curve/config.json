@@ -343,5 +343,8 @@
     "inflation_rate_percent": 4.8,
     "treatment": "cost",
     "calculation_note": "CRV 年增发 ~1.155 亿（约 $26M/年）全流给 LP 挖矿（有对价换收入 → 作为成本从净利扣除，美股 SBC 类比）"
-  }
+  },
+  "period_basis": "revenue_scaled",
+  "period_source": "defillama",
+  "period_status": "active"
 }
