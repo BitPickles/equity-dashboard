@@ -97,8 +97,22 @@ def main():
         # 仅对已产出 by_period 的协议生效；其余协议保持原状（阶段2 批量迁移）。
         bp = snap.get("holder_returns", {}).get("by_period")
         if isinstance(bp, dict):
+            _none = (bp.get("365d") or {}).get("source") == "none"  # 无同窗口源（D 类）
+            if _none:
+                p["period_status"] = "none"      # 前端据此对 7D/30D/90D 显示「—」（不回退 365d）
+            else:
+                p.pop("period_status", None)
             _mcap = p.get("market_cap_usd")   # 用 update-prices 维护的最新市值年化
             for n in (7, 30, 90, 365):
+                if _none:
+                    if n != 365:
+                        # 清空陈旧短周期值 → 前端 7D/30D/90D 显示「—」（365D 保留真实值）
+                        for _k in (f"shareholder_yield_{n}d_ann", f"total_yield_{n}d_ann",
+                                   f"buyback_yield_{n}d_ann", f"dividend_yield_{n}d_ann",
+                                   f"trailing_{n}d_shareholder_returns_usd"):
+                            metrics.pop(_k, None)
+                        p.pop(f"payout_ratio_{n}d", None)
+                    continue
                 blk = bp.get(f"{n}d") or {}
                 _ru = blk.get("shareholder_returns_usd")
                 _rev = blk.get("revenue_usd")

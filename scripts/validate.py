@@ -184,6 +184,8 @@ def validate_snapshot(snap, all_protocols, report, proto):
                     continue
                 if blk.get("source") is None:
                     report.error(proto, f"by_period.{k} 缺 source")
+                if blk.get("source") == "none":
+                    continue   # 声明「无源」→ 值允许为空（前端显示「—」），不做数值自洽校验
                 ann = 365.0 / n if n != 365 else 1.0
                 ru = blk.get("shareholder_returns_usd")
                 exp_y = round(ru / mcap * 100 * ann, 4) if (ru is not None and mcap) else None

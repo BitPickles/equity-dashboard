@@ -835,12 +835,14 @@
           const ratioMap = { '7d': proto.payout_ratio_7d, '30d': proto.payout_ratio_30d, '90d': proto.payout_ratio_90d, '365d': proto.payout_ratio_365d != null ? proto.payout_ratio_365d : proto.payout_ratio };
           const divMap = { '7d': metrics.dividend_yield_7d_ann, '30d': metrics.dividend_yield_30d_ann, '90d': metrics.dividend_yield_90d_ann, '365d': proto.dividend_yield_percent };
           const buyMap = { '7d': metrics.buyback_yield_7d_ann, '30d': metrics.buyback_yield_30d_ann, '90d': metrics.buyback_yield_90d_ann, '365d': proto.buyback_yield_percent };
+          // 「无同窗口源」（D 类）协议：7D/30D/90D 不回退 365d，直接显示「—」
+          const noWin = proto.period_status === 'none' && period !== '365d';
           return {
-            tev:   tevMap[period]   != null ? tevMap[period]   : proto.shareholder_yield_percent,
-            earn:  earnMap[period]  != null ? earnMap[period]  : proto.total_yield_percent,
-            ratio: ratioMap[period] != null ? ratioMap[period] : proto.payout_ratio,
-            div:   divMap[period]   != null ? divMap[period]   : (proto.dividend_yield_percent || 0),
-            buy:   buyMap[period]   != null ? buyMap[period]   : (proto.buyback_yield_percent || 0),
+            tev:   noWin ? null : (tevMap[period]   != null ? tevMap[period]   : proto.shareholder_yield_percent),
+            earn:  noWin ? null : (earnMap[period]  != null ? earnMap[period]  : proto.total_yield_percent),
+            ratio: noWin ? null : (ratioMap[period] != null ? ratioMap[period] : proto.payout_ratio),
+            div:   noWin ? null : (divMap[period]   != null ? divMap[period]   : (proto.dividend_yield_percent || 0)),
+            buy:   noWin ? null : (buyMap[period]   != null ? buyMap[period]   : (proto.buyback_yield_percent || 0)),
           };
         }
         function formatPct(v, p) { return v == null ? '—' : v.toFixed(p) + '%'; }

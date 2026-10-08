@@ -6,9 +6,9 @@
       "entity_type": "platform_token",
       "revenue_included": {
         "burn_usd_365d": 0,
-        "staking_rewards_usd_365d": 144317913.84,
+        "staking_rewards_usd_365d": 148726287.94,
         "launchpad_launchpool_usd_365d": null,
-        "total_usd_365d": 144317913.84,
+        "total_usd_365d": 148726287.94,
         "note": "质押收益口径（Boss 2026-08-04 拍板）：OKB OKX Earn 质押 ~5.2% APY × 市值。持币人质押利息，非协议利润；回购销毁 2025-08 已终止不计入"
       },
       "revenue_excluded": {
@@ -20,11 +20,25 @@
       "source": {
         "type": "estimate",
         "url": null
+      },
+      "by_period": {
+        "7d": {
+          "total_usd": null
+        },
+        "30d": {
+          "total_usd": null
+        },
+        "90d": {
+          "total_usd": null
+        },
+        "365d": {
+          "total_usd": null
+        }
       }
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": 144317913.84,
+      "gross_profit_usd_365d": 148726287.94,
       "calculation_note": "平台币无 LP 成本模型，毛利 = 收入（质押收益赋能口径）"
     },
     "token_emission_cost": {
@@ -35,7 +49,7 @@
       "calculation_note": "OKB 供应永久锁定 21M（合约移除 mint/burn 功能），无增发"
     },
     "net_income": {
-      "net_income_usd_365d": 144317913.84,
+      "net_income_usd_365d": 148726287.94,
       "operating_cost_usd_365d": null,
       "calculation_note": "平台币：净利 = 收入 = 质押收益（赋能口径）；回购销毁 2025-08 终止，不计入"
     },
@@ -50,22 +64,72 @@
       {
         "mechanism": "OKB OKX Earn 质押收益（~5.2% APY）",
         "type": "yield",
-        "usd_365d": 144317913.84,
+        "usd_365d": 148726287.94,
         "yield_percent": 5.2,
         "note": "2026-08-04 补充：OKX Earn Flexible Staking ~5.2% APR（官方 2026-07），按 BNB asBNB 同口径计入；持币人质押利息，非协议利润。回购销毁已于 2025-08 终止（机制移除）"
       }
     ],
     "summary": {
       "destroy_usd_365d": null,
-      "yield_usd_365d": 144317913.84,
+      "yield_usd_365d": 148726287.94,
       "destroy_yield_percent": null,
       "yield_yield_percent": 5.2,
-      "shareholder_returns_usd_365d": 144317913.84,
+      "shareholder_returns_usd_365d": 148726287.94,
       "shareholder_yield_percent": 5.2
+    },
+    "by_period": {
+      "7d": {
+        "revenue_usd": null,
+        "shareholder_returns_usd": null,
+        "destroy_usd": null,
+        "yield_usd": null,
+        "shareholder_yield_percent": null,
+        "buyback_yield_percent": null,
+        "dividend_yield_percent": null,
+        "payout_ratio": null,
+        "status": "none",
+        "source": "none"
+      },
+      "30d": {
+        "revenue_usd": null,
+        "shareholder_returns_usd": null,
+        "destroy_usd": null,
+        "yield_usd": null,
+        "shareholder_yield_percent": null,
+        "buyback_yield_percent": null,
+        "dividend_yield_percent": null,
+        "payout_ratio": null,
+        "status": "none",
+        "source": "none"
+      },
+      "90d": {
+        "revenue_usd": null,
+        "shareholder_returns_usd": null,
+        "destroy_usd": null,
+        "yield_usd": null,
+        "shareholder_yield_percent": null,
+        "buyback_yield_percent": null,
+        "dividend_yield_percent": null,
+        "payout_ratio": null,
+        "status": "none",
+        "source": "none"
+      },
+      "365d": {
+        "revenue_usd": null,
+        "shareholder_returns_usd": null,
+        "destroy_usd": null,
+        "yield_usd": null,
+        "shareholder_yield_percent": null,
+        "buyback_yield_percent": null,
+        "dividend_yield_percent": null,
+        "payout_ratio": null,
+        "status": "none",
+        "source": "none"
+      }
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 2775344497,
+    "market_cap_usd": 2860120922,
     "tvl_usd": 0,
     "treasury_usd": null,
     "debt_usd": null

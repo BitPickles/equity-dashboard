@@ -17,6 +17,20 @@
       "source": {
         "type": "defillama",
         "url": "https://defillama.com/protocol/compound-v2"
+      },
+      "by_period": {
+        "7d": {
+          "total_usd": null
+        },
+        "30d": {
+          "total_usd": null
+        },
+        "90d": {
+          "total_usd": null
+        },
+        "365d": {
+          "total_usd": null
+        }
       }
     },
     "gross_profit": {
@@ -60,17 +74,67 @@
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 0,
       "shareholder_yield_percent": 0
+    },
+    "by_period": {
+      "7d": {
+        "revenue_usd": null,
+        "shareholder_returns_usd": null,
+        "destroy_usd": null,
+        "yield_usd": null,
+        "shareholder_yield_percent": null,
+        "buyback_yield_percent": null,
+        "dividend_yield_percent": null,
+        "payout_ratio": null,
+        "status": "none",
+        "source": "none"
+      },
+      "30d": {
+        "revenue_usd": null,
+        "shareholder_returns_usd": null,
+        "destroy_usd": null,
+        "yield_usd": null,
+        "shareholder_yield_percent": null,
+        "buyback_yield_percent": null,
+        "dividend_yield_percent": null,
+        "payout_ratio": null,
+        "status": "none",
+        "source": "none"
+      },
+      "90d": {
+        "revenue_usd": null,
+        "shareholder_returns_usd": null,
+        "destroy_usd": null,
+        "yield_usd": null,
+        "shareholder_yield_percent": null,
+        "buyback_yield_percent": null,
+        "dividend_yield_percent": null,
+        "payout_ratio": null,
+        "status": "none",
+        "source": "none"
+      },
+      "365d": {
+        "revenue_usd": null,
+        "shareholder_returns_usd": null,
+        "destroy_usd": null,
+        "yield_usd": null,
+        "shareholder_yield_percent": null,
+        "buyback_yield_percent": null,
+        "dividend_yield_percent": null,
+        "payout_ratio": null,
+        "status": "none",
+        "source": "none"
+      }
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 232915986,
+    "market_cap_usd": 243409244,
     "tvl_usd": 1419957846.641336,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": null,
-    "ps": 1074.9902,
+    "ps": 1123.4204,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null

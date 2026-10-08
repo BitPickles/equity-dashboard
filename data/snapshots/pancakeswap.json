@@ -21,6 +21,20 @@
       "source": {
         "type": "defillama",
         "url": "DefiLlama dailyHoldersRevenue（CAKE buyback&burn）+ daily/latest.json total1y_fees + docs.pancakeswap.finance/cake-tokenomics"
+      },
+      "by_period": {
+        "7d": {
+          "total_usd": 994789.06
+        },
+        "30d": {
+          "total_usd": 5418690.59
+        },
+        "90d": {
+          "total_usd": 16024655.84
+        },
+        "365d": {
+          "total_usd": 94063758.4
+        }
       }
     },
     "gross_profit": {
@@ -63,6 +77,56 @@
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 58789849,
       "shareholder_yield_percent": 7.7619
+    },
+    "by_period": {
+      "7d": {
+        "revenue_usd": 994789.06,
+        "shareholder_returns_usd": 399271,
+        "destroy_usd": 399271,
+        "yield_usd": 0,
+        "shareholder_yield_percent": 2.7487,
+        "buyback_yield_percent": 2.7487,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.4014,
+        "status": "active",
+        "source": "chain"
+      },
+      "30d": {
+        "revenue_usd": 5418690.59,
+        "shareholder_returns_usd": 1380342,
+        "destroy_usd": 1380342,
+        "yield_usd": 0,
+        "shareholder_yield_percent": 2.2173,
+        "buyback_yield_percent": 2.2173,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.2547,
+        "status": "active",
+        "source": "chain"
+      },
+      "90d": {
+        "revenue_usd": 16024655.84,
+        "shareholder_returns_usd": 5678619,
+        "destroy_usd": 5678619,
+        "yield_usd": 0,
+        "shareholder_yield_percent": 3.0406,
+        "buyback_yield_percent": 3.0406,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.3544,
+        "status": "active",
+        "source": "chain"
+      },
+      "365d": {
+        "revenue_usd": 94063758.4,
+        "shareholder_returns_usd": 58789849,
+        "destroy_usd": 58789849,
+        "yield_usd": 0,
+        "shareholder_yield_percent": 7.7619,
+        "buyback_yield_percent": 7.7619,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.625,
+        "status": "active",
+        "source": "chain"
+      }
     }
   },
   "balance_sheet": {

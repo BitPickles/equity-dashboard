@@ -17,6 +17,20 @@
       "source": {
         "type": "defillama",
         "url": "https://defillama.com/protocol/lido"
+      },
+      "by_period": {
+        "7d": {
+          "total_usd": 765620.0
+        },
+        "30d": {
+          "total_usd": 3228346.0
+        },
+        "90d": {
+          "total_usd": 8101984.0
+        },
+        "365d": {
+          "total_usd": 35577973.0
+        }
       }
     },
     "gross_profit": {
@@ -60,6 +74,56 @@
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 0,
       "shareholder_yield_percent": 0
+    },
+    "by_period": {
+      "7d": {
+        "revenue_usd": 765620.0,
+        "shareholder_returns_usd": 0.0,
+        "destroy_usd": 0.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0,
+        "buyback_yield_percent": 0.0,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.0,
+        "status": "none",
+        "source": "official"
+      },
+      "30d": {
+        "revenue_usd": 3228346.0,
+        "shareholder_returns_usd": 0.0,
+        "destroy_usd": 0.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0,
+        "buyback_yield_percent": 0.0,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.0,
+        "status": "none",
+        "source": "official"
+      },
+      "90d": {
+        "revenue_usd": 8101984.0,
+        "shareholder_returns_usd": 0.0,
+        "destroy_usd": 0.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0,
+        "buyback_yield_percent": 0.0,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.0,
+        "status": "none",
+        "source": "official"
+      },
+      "365d": {
+        "revenue_usd": 35577973.0,
+        "shareholder_returns_usd": 0.0,
+        "destroy_usd": 0.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0,
+        "buyback_yield_percent": 0.0,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.0,
+        "status": "none",
+        "source": "official"
+      }
     }
   },
   "balance_sheet": {

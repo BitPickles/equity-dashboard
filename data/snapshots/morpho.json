@@ -17,6 +17,20 @@
       "source": {
         "type": "defillama",
         "url": "https://defillama.com/protocol/morpho"
+      },
+      "by_period": {
+        "7d": {
+          "total_usd": 0.0
+        },
+        "30d": {
+          "total_usd": 0.0
+        },
+        "90d": {
+          "total_usd": 0.0
+        },
+        "365d": {
+          "total_usd": 0.0
+        }
       }
     },
     "gross_profit": {
@@ -60,10 +74,60 @@
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 0,
       "shareholder_yield_percent": 0
+    },
+    "by_period": {
+      "7d": {
+        "revenue_usd": 0.0,
+        "shareholder_returns_usd": 0.0,
+        "destroy_usd": 0.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0,
+        "buyback_yield_percent": 0.0,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": null,
+        "status": "none",
+        "source": "official"
+      },
+      "30d": {
+        "revenue_usd": 0.0,
+        "shareholder_returns_usd": 0.0,
+        "destroy_usd": 0.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0,
+        "buyback_yield_percent": 0.0,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": null,
+        "status": "none",
+        "source": "official"
+      },
+      "90d": {
+        "revenue_usd": 0.0,
+        "shareholder_returns_usd": 0.0,
+        "destroy_usd": 0.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0,
+        "buyback_yield_percent": 0.0,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": null,
+        "status": "none",
+        "source": "official"
+      },
+      "365d": {
+        "revenue_usd": 0.0,
+        "shareholder_returns_usd": 0.0,
+        "destroy_usd": 0.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0,
+        "buyback_yield_percent": 0.0,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": null,
+        "status": "none",
+        "source": "official"
+      }
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 1776983822,
+    "market_cap_usd": 1881996235,
     "tvl_usd": 6856802869.885637,
     "treasury_usd": null,
     "debt_usd": null

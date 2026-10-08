@@ -17,6 +17,20 @@
       "source": {
         "type": "defillama",
         "url": "https://defillama.com/protocol/fluid"
+      },
+      "by_period": {
+        "7d": {
+          "total_usd": 124499.0
+        },
+        "30d": {
+          "total_usd": 575658.63
+        },
+        "90d": {
+          "total_usd": 1561823.45
+        },
+        "365d": {
+          "total_usd": 9884054.84
+        }
       }
     },
     "gross_profit": {
@@ -60,6 +74,56 @@
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 9884054.84,
       "shareholder_yield_percent": 6.153
+    },
+    "by_period": {
+      "7d": {
+        "revenue_usd": 124499.0,
+        "shareholder_returns_usd": 124499.0,
+        "destroy_usd": 124499.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 4.0412,
+        "buyback_yield_percent": 4.0412,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 1.0,
+        "status": "active",
+        "source": "defillama"
+      },
+      "30d": {
+        "revenue_usd": 575658.63,
+        "shareholder_returns_usd": 575658.63,
+        "destroy_usd": 575658.63,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 4.36,
+        "buyback_yield_percent": 4.36,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 1.0,
+        "status": "active",
+        "source": "defillama"
+      },
+      "90d": {
+        "revenue_usd": 1561823.45,
+        "shareholder_returns_usd": 1561823.45,
+        "destroy_usd": 1561823.45,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 3.9431,
+        "buyback_yield_percent": 3.9431,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 1.0,
+        "status": "active",
+        "source": "defillama"
+      },
+      "365d": {
+        "revenue_usd": 9884054.84,
+        "shareholder_returns_usd": 9884054.84,
+        "destroy_usd": 9884054.84,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 6.153,
+        "buyback_yield_percent": 6.153,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 1.0,
+        "status": "active",
+        "source": "defillama"
+      }
     }
   },
   "balance_sheet": {

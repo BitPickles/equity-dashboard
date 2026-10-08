@@ -156,5 +156,8 @@
     "circulating_market_cap": 876997576,
     "circulating_supply": 399144421.90812886,
     "price_updated_at": "2026-10-08T00:05:03.881859+00:00"
-  }
+  },
+  "period_basis": "revenue_scaled",
+  "period_source": "defillama",
+  "period_status": "active"
 }

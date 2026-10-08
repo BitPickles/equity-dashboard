@@ -23,6 +23,20 @@
       "source": {
         "type": "official",
         "url": "DefiLlama dailyFees/dailyRevenue（daily/latest.json + all-protocols metrics）+ Ethena 官方治理/dashboard"
+      },
+      "by_period": {
+        "7d": {
+          "total_usd": null
+        },
+        "30d": {
+          "total_usd": null
+        },
+        "90d": {
+          "total_usd": null
+        },
+        "365d": {
+          "total_usd": null
+        }
       }
     },
     "gross_profit": {
@@ -65,6 +79,56 @@
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 0,
       "shareholder_yield_percent": 0
+    },
+    "by_period": {
+      "7d": {
+        "revenue_usd": null,
+        "shareholder_returns_usd": null,
+        "destroy_usd": null,
+        "yield_usd": null,
+        "shareholder_yield_percent": null,
+        "buyback_yield_percent": null,
+        "dividend_yield_percent": null,
+        "payout_ratio": null,
+        "status": "none",
+        "source": "none"
+      },
+      "30d": {
+        "revenue_usd": null,
+        "shareholder_returns_usd": null,
+        "destroy_usd": null,
+        "yield_usd": null,
+        "shareholder_yield_percent": null,
+        "buyback_yield_percent": null,
+        "dividend_yield_percent": null,
+        "payout_ratio": null,
+        "status": "none",
+        "source": "none"
+      },
+      "90d": {
+        "revenue_usd": null,
+        "shareholder_returns_usd": null,
+        "destroy_usd": null,
+        "yield_usd": null,
+        "shareholder_yield_percent": null,
+        "buyback_yield_percent": null,
+        "dividend_yield_percent": null,
+        "payout_ratio": null,
+        "status": "none",
+        "source": "none"
+      },
+      "365d": {
+        "revenue_usd": null,
+        "shareholder_returns_usd": null,
+        "destroy_usd": null,
+        "yield_usd": null,
+        "shareholder_yield_percent": null,
+        "buyback_yield_percent": null,
+        "dividend_yield_percent": null,
+        "payout_ratio": null,
+        "status": "none",
+        "source": "none"
+      }
     }
   },
   "balance_sheet": {

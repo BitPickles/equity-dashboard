@@ -184,6 +184,91 @@ def _rel(a, b):
     return abs(a - b) / max(abs(a), abs(b), 1e-9) * 100
 
 
+def scale_by_ratio(rev_usd_by_window, k):
+    """按协议自身 365d 派息率 k 折算各窗口股东回报（保留各窗口收入形状）。
+
+    适用：股东回报 = 协议收入 × 固定比例 的协议（fluid/pendle/aster/layerzero/maple）。
+    这是「口径不变、窗口切片」——不是把 365d 均摊，而是让每个窗口按其真实收入形状缩放。
+    """
+    out = {}
+    for n in WINDOWS:
+        v = (rev_usd_by_window or {}).get(n)
+        out[n] = round(v * k, 2) if (v is not None and k) else None
+    return out
+
+
+# 通用（config 驱动）周期口径：每个协议的"股东回报口径"独立，故由 config 显式声明。
+PERIOD_BASES = ("zero", "revenue_scaled", "onchain", "none")
+
+
+def derive_by_period(snap, config, ap):
+    """按 `config.period_basis` 通用派生 holder_returns.by_period / revenue.by_period。
+
+    - adapter 已产出 by_period（试点 4 协议）→ 跳过，返回 False。
+    - period_basis ∈ {zero, revenue_scaled, onchain, none}；未声明 → 不注入。
+      · zero           股东回报恒为 0（无回报机制/暂停 但**有**收入窗口的协议）
+      · revenue_scaled 股东回报 = 收入 × 协议自身 365d 派息率（口径不变、窗口切片）
+      · onchain        股东回报 = 链上逐窗口值（config.period_window_field，如 burn_{n}d_usd）
+      · none           无同窗口源 → 四窗口全部 None（前端显示「—」）
+    - 365d 块恒与 summary.shareholder_returns_usd_365d 对齐（validate §2.5 要求）。
+    """
+    hr = snap.setdefault("holder_returns", {})
+    if isinstance(hr.get("by_period"), dict):
+        return False
+    basis = (config.get("period_basis") or "").strip()
+    if basis not in PERIOD_BASES:
+        return False
+
+    mcap = (snap.get("balance_sheet") or {}).get("market_cap_usd")
+    inc_rev = (((snap.get("income_statement") or {}).get("revenue") or {}).get("revenue_included") or {})
+    rev365 = inc_rev.get("total_usd_365d")
+    ret365 = (hr.get("summary") or {}).get("shareholder_returns_usd_365d")
+    metrics = (ap or {}).get("metrics", {}) or {}
+    validation = (ap or {}).get("validation", {}) or {}
+
+    rev_w = {n: metrics.get(f"trailing_{n}d_revenue_usd") for n in WINDOWS}
+    if rev365 is not None:
+        rev_w[365] = rev365          # 365d 收入与快照口径对齐
+
+    src = config.get("period_source") or "defillama"
+    status = config.get("period_status") or "active"
+
+    if basis == "zero":
+        ret_w = {n: 0.0 for n in WINDOWS}
+        destroy_w = {n: 0.0 for n in WINDOWS}
+    elif basis == "revenue_scaled":
+        k = (ret365 / rev365) if (ret365 and rev365) else None
+        ret_w = scale_by_ratio(rev_w, k)
+        ret_w[365] = ret365
+        dr = config.get("period_destroy_ratio")   # 回购组占比（默认全部 → destroy=ret）
+        destroy_w = ({n: (round(ret_w[n] * dr, 2) if ret_w[n] is not None else None)
+                      for n in WINDOWS} if isinstance(dr, (int, float)) else None)
+    elif basis == "onchain":
+        field = config.get("period_window_field") or "burn_{n}d_usd"
+        ret_w = {n: validation.get(field.format(n=n)) for n in WINDOWS}
+        ret_w[365] = ret365
+        destroy_w = dict(ret_w)
+    else:  # none
+        src, status = "none", "none"
+        rev_w = {n: None for n in WINDOWS}
+        ret_w = {n: None for n in WINDOWS}
+        destroy_w = None
+
+    hr["by_period"] = build_by_period(
+        rev_usd_by_window=rev_w, ret_usd_by_window=ret_w,
+        destroy_usd_by_window=destroy_w, mcap=mcap,
+        basis="explicit", status=status, source=src)
+    if basis == "none":
+        for n in WINDOWS:  # build 会算出 0/None 混合 → 统一清空，保留四窗口结构（前端 →「—」）
+            hr["by_period"][f"{n}d"].update({
+                "revenue_usd": None, "shareholder_returns_usd": None, "destroy_usd": None,
+                "yield_usd": None, "shareholder_yield_percent": None,
+                "buyback_yield_percent": None, "dividend_yield_percent": None, "payout_ratio": None})
+    (snap.setdefault("income_statement", {}).setdefault("revenue", {}))["by_period"] = \
+        build_revenue_by_period(rev_usd_by_window=rev_w)
+    return True
+
+
 if __name__ == "__main__":
     # 自检：100 天日频序列，每天收入 1000、股东回报 300
     base = 1_700_000_000

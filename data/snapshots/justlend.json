@@ -17,6 +17,20 @@
       "source": {
         "type": "estimate",
         "url": "DefiLlama justlend slug interest spread（~$500k/年）+ 链上 burn-history.json（做账式核实）"
+      },
+      "by_period": {
+        "7d": {
+          "total_usd": 10873.0
+        },
+        "30d": {
+          "total_usd": 47714.0
+        },
+        "90d": {
+          "total_usd": 146979.0
+        },
+        "365d": {
+          "total_usd": 500000
+        }
       }
     },
     "gross_profit": {
@@ -59,17 +73,67 @@
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 0,
       "shareholder_yield_percent": 0
+    },
+    "by_period": {
+      "7d": {
+        "revenue_usd": 10873.0,
+        "shareholder_returns_usd": 0.0,
+        "destroy_usd": 0.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0,
+        "buyback_yield_percent": 0.0,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.0,
+        "status": "none",
+        "source": "official"
+      },
+      "30d": {
+        "revenue_usd": 47714.0,
+        "shareholder_returns_usd": 0.0,
+        "destroy_usd": 0.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0,
+        "buyback_yield_percent": 0.0,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.0,
+        "status": "none",
+        "source": "official"
+      },
+      "90d": {
+        "revenue_usd": 146979.0,
+        "shareholder_returns_usd": 0.0,
+        "destroy_usd": 0.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0,
+        "buyback_yield_percent": 0.0,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.0,
+        "status": "none",
+        "source": "official"
+      },
+      "365d": {
+        "revenue_usd": 500000,
+        "shareholder_returns_usd": 0.0,
+        "destroy_usd": 0.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0,
+        "buyback_yield_percent": 0.0,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.0,
+        "status": "none",
+        "source": "official"
+      }
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 1160475328,
+    "market_cap_usd": 1154538600,
     "tvl_usd": 3292346561.2761326,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": null,
-    "ps": 2320.9507,
+    "ps": 2309.0772,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null
