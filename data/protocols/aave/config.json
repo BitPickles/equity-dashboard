@@ -66,15 +66,15 @@
     }
   ],
   "market_data": {
-    "price_usd": 179.34,
+    "price_usd": 173.86,
     "market_cap_usd": 1736849395,
     "snapshot_date": "2026-02-14",
     "data_source": "CoinGecko",
     "tvl": 24631521067.11426,
     "tvl_updated": "2026-03-27T01:00:14.491Z",
-    "circulating_market_cap": 2768368469,
-    "circulating_supply": 15435514.140325097,
-    "price_updated_at": "2026-10-07T00:05:04.095690+00:00"
+    "circulating_market_cap": 2682739148,
+    "circulating_supply": 15435565.023988165,
+    "price_updated_at": "2026-10-08T00:05:03.881859+00:00"
   },
   "notes": "Aave 通过 Aavenomics（AIP-73）设立年度 AAVE 回购预算。回购页面自 2026-04-19 起 Paused → 已实现股东回报 = 0；预算 $30M/年不折算。DefiLlama holdersRevenue 为回购收币代理（非 Safety Module 奖励），仅历史参考。",
   "last_updated": "2026-10-08",
