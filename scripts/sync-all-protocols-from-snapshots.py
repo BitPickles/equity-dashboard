@@ -120,7 +120,7 @@ def main():
         return 0
 
     allp["generated_at"] = __import__("datetime").datetime.now(__import__("datetime").timezone.utc).isoformat()
-    ALL_FILE.write_text(json.dumps(allp, indent=2, ensure_ascii=False), encoding="utf-8")
+    ALL_FILE.write_text(json.dumps(allp, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"✅ 已从 {updated} 个 snapshot 同步 all-protocols.json")
     return 0
 

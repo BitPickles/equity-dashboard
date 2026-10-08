@@ -17,6 +17,20 @@ data/protocols/<id>/adapter.py 读的是 data/all-protocols.json 的
   validation.holders_{30,90,365}d_usd                  ← dailyHoldersRevenue（供适配器/校验）
 数据源不可得（平台币 / 无 DefiLlama fee 面板）的协议**跳过并保留原值**，不写 0。
 
+【2026-10-08 追加：按周期派生指标（opt-in）】
+主表/详情页有 7D/30D/90D/365D 周期切换，读取
+  metrics.shareholder_yield_{7,30,90}d_ann / total_yield_{7,30,90}d_ann /
+  dividend_yield_*_ann / buyback_yield_*_ann / trailing_*_shareholder_returns_usd /
+  payout_ratio_{7,30,90,365}d
+这些字段旧由 sync-tev-data.js 生成，脚本停用后**全站冻结在 08-02**。
+⚠️ 每个协议的"股东回报口径"独立（如 lido holdersRevenue≠0 但股东回报=0；
+curve/fluid 等 ≠ holdersRevenue 直接折算）——**禁止**用通用公式重算。
+因此改为 **opt-in**：仅当协议 config.json 声明
+  "period_return_basis": "defillama_holders_revenue" | "zero"
+时才写这些字段（其余协议保持原样不动）。
+  - defillama_holders_revenue：按 holdersRevenue 年化（适用于股东回报=holdersRevenue 的协议，如 sky）
+  - zero：全部周期股东回报 = 0（适用于回购暂停/无实际回报的协议，如 aave）
+
 用法:
   python3 scripts/sync-holders-revenue.py [--dry-run] [--protocol sky aave ...]
 """
@@ -65,16 +79,49 @@ def trailing_sums(chart):
     return out
 
 
-def get_slug(pid):
+def _load_config(pid):
     cfg = PROTO_DIR / pid / "config.json"
     if not cfg.exists():
-        return None
+        return {}
     try:
-        data = json.loads(cfg.read_text(encoding="utf-8"))
+        return json.loads(cfg.read_text(encoding="utf-8"))
     except Exception:  # noqa: BLE001
+        return {}
+
+
+def get_slug(cfg):
+    if not cfg:
         return None
-    slug = (data.get("token") or {}).get("defillama_id") or data.get("defillama_slug")
-    return slug or None
+    return (cfg.get("token") or {}).get("defillama_id") or cfg.get("defillama_slug") or None
+
+
+def _annualize_factor(n):
+    return (365.0 / n) if n != 365 else 1.0
+
+
+def apply_period_metrics(p, m, rev_sum, hol_sum, basis):
+    """按周期派生指标（仅 basis 已声明时调用）。basis ∈ {defillama_holders_revenue, zero}。"""
+    mcap = p.get("market_cap_usd") or m.get("current_market_cap_usd")
+    if not mcap:
+        return
+    for n in PERIODS:
+        rev_n = rev_sum.get(n)
+        ann = _annualize_factor(n)
+        # 收入收益率（Earning Yield）—— 所有 opt-in 协议一致
+        if rev_n and mcap:
+            m[f"total_yield_{n}d_ann"] = round(rev_n / mcap * 100 * ann, 4)
+        # 股东回报（按 basis）
+        available = basis == "zero" or (n in hol_sum)
+        if not available:
+            continue
+        hol_n = 0.0 if basis == "zero" else (hol_sum.get(n) or 0.0)
+        y = round(hol_n / mcap * 100 * ann, 4)
+        m[f"shareholder_yield_{n}d_ann"] = y
+        m[f"buyback_yield_{n}d_ann"] = y      # 现口径下股东回报均归"回购"组
+        m[f"dividend_yield_{n}d_ann"] = 0.0
+        m[f"trailing_{n}d_shareholder_returns_usd"] = round(hol_n, 2)
+        if rev_n:
+            p[f"payout_ratio_{n}d"] = round(hol_n / rev_n, 4)
 
 
 def main():
@@ -91,7 +138,8 @@ def main():
     for pid in targets:
         if pid not in protocols:
             continue
-        slug = get_slug(pid)
+        cfg = _load_config(pid)
+        slug = get_slug(cfg)
         if not slug:
             skipped += 1
             print(f"  - {pid:14} 无 DefiLlama slug，跳过（保留原值）")
@@ -120,15 +168,26 @@ def main():
         v = p.setdefault("validation", {})
         for n, val in rev_sum.items():
             m[f"trailing_{n}d_revenue_usd"] = round(val, 2)
-        for n in (30, 90, 365):
+        for n in (7, 30, 90, 365):
             if n in hol_sum:
                 m[f"trailing_{n}d_holders_revenue_usd"] = round(hol_sum[n], 2)
+        for n in (30, 90, 365):
+            if n in hol_sum:
                 v[f"holders_{n}d_usd"] = round(hol_sum[n], 2)
         m["revenue_source"] = "defillama_dailyRevenue"
         m["holders_revenue_source"] = "defillama_dailyHoldersRevenue"
+
+        # 按周期派生指标（opt-in）
+        basis = (cfg.get("period_return_basis") or "").strip()
+        period_note = ""
+        if basis in ("defillama_holders_revenue", "zero"):
+            apply_period_metrics(p, m, rev_sum, hol_sum, basis)
+            period_note = f"  [周期指标 basis={basis}]"
+
         updated += 1
         tag = "DRY " if args.dry_run else ""
-        print(f"  {tag}✓ {pid:14} rev365={rev_sum.get(365, 0):>15,.0f}  holders365={hol_sum.get(365, 0):>15,.0f}")
+        print(f"  {tag}✓ {pid:14} rev365={rev_sum.get(365, 0):>15,.0f}  "
+              f"holders365={hol_sum.get(365, 0):>15,.0f}{period_note}")
 
     print(f"\n同步完成：更新 {updated} / 跳过 {skipped} / 失败 {failed}")
     if args.dry_run:
