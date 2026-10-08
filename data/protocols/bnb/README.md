@@ -23,7 +23,7 @@ Shareholder Yield = Burn Yield + asBNB APY
 - 90d：近 90 天 BNB × 365/90 × 当前价
 - 365d：近 365 天 BNB 累计 × 当前价
 
-**asBNB APY**：固定 6.87%（Aster 官方披露，含 Staking + Launchpool/HODLer/Megadrop）
+**asBNB APY**：1.71%（Aster 官方页面 2026-10-08 核对；口径 = Staking + Launchpool，反映在 asBNB 净值。HODLer/Megadrop 需手动领取、不入净值，故不计入）
 
 **Earning Yield** = BEP-95 + asBNB APY（不含 Auto-Burn，因为 Auto-Burn 是公式销毁不是协议"收入"）
 
@@ -191,4 +191,5 @@ print('Dead balance:', int(r['result'],16)/1e18, 'BNB')
 
 - 2026-04-19: 初版 `update-bnb-tev.py` 上线；Dune 种子一次性导入 2025-03-14 → 2026-04-18 共 401 天 BEP-95 数据；发现并补录 35th Auto-Burn (2026-04-15)
 - 2026-04-19: Shareholder Yield 改为真实的按周期计算（之前所有周期共用同一值）
+- 2026-10-08: asBNB APY 由 6.87%（综合口径）修正为 1.71%（净值口径：Staking + Launchpool；HODLer/Megadrop 手动领取不计入）
 - 2026-03-01: 从 slisBNB 单一 proxy 改为 Burn + asBNB 双源

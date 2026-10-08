@@ -441,15 +441,15 @@
       "id": "bnb-asbnb-2025-07-10",
       "date": "2025-07-10",
       "type": "staking_reward",
-      "mechanism": "asBNB 综合收益 (Staking + Launchpool/HODLer/Megadrop)",
-      "amount_usd": 1377510918,
+      "mechanism": "asBNB 持有收益 (Staking + Launchpool)",
+      "amount_usd": 342873897,
       "period": "Q3 2025",
       "source": {
         "type": "proxy",
         "provider": "Aster asBNB",
         "url": "https://www.asterdex.com/en/earn/astoken?token=slisBNB"
       },
-      "notes": "asBNB 6.87% APY × marketCap / 4"
+      "notes": "asBNB 1.71% APY × marketCap / 4"
     },
     {
       "id": "bnb-burn-2025-07-18",
@@ -483,15 +483,15 @@
       "id": "bnb-asbnb-2025-10-27",
       "date": "2025-10-27",
       "type": "staking_reward",
-      "mechanism": "asBNB 综合收益 (Staking + Launchpool/HODLer/Megadrop)",
-      "amount_usd": 1377510918,
+      "mechanism": "asBNB 持有收益 (Staking + Launchpool)",
+      "amount_usd": 342873897,
       "period": "Q4 2025",
       "source": {
         "type": "proxy",
         "provider": "Aster asBNB",
         "url": "https://www.asterdex.com/en/earn/astoken?token=slisBNB"
       },
-      "notes": "asBNB 6.87% APY × marketCap / 4"
+      "notes": "asBNB 1.71% APY × marketCap / 4"
     },
     {
       "id": "bnb-burn-2026-01-15",
@@ -511,15 +511,15 @@
       "id": "bnb-asbnb-2026-01-15",
       "date": "2026-01-15",
       "type": "staking_reward",
-      "mechanism": "asBNB 综合收益 (Staking + Launchpool/HODLer/Megadrop)",
-      "amount_usd": 1377510918,
+      "mechanism": "asBNB 持有收益 (Staking + Launchpool)",
+      "amount_usd": 342873897,
       "period": "Q1 2026",
       "source": {
         "type": "proxy",
         "provider": "Aster asBNB",
         "url": "https://www.asterdex.com/en/earn/astoken?token=slisBNB"
       },
-      "notes": "asBNB 6.87% APY × marketCap / 4"
+      "notes": "asBNB 1.71% APY × marketCap / 4"
     },
     {
       "id": "bnb-burn-2026-04-15",
@@ -539,15 +539,15 @@
       "id": "bnb-asbnb-2026-04-15",
       "date": "2026-04-15",
       "type": "staking_reward",
-      "mechanism": "asBNB 综合收益 (Staking + Launchpool/HODLer/Megadrop)",
-      "amount_usd": 1377510918,
+      "mechanism": "asBNB 持有收益 (Staking + Launchpool)",
+      "amount_usd": 342873897,
       "period": "Q2 2026",
       "source": {
         "type": "proxy",
         "provider": "Aster asBNB",
         "url": "https://www.asterdex.com/en/earn/astoken?token=slisBNB"
       },
-      "notes": "asBNB 6.87% APY × marketCap / 4"
+      "notes": "asBNB 1.71% APY × marketCap / 4"
     }
   ]
 }

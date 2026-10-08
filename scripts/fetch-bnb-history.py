@@ -36,7 +36,7 @@ def fetch_bnb_history():
     total_365d = (inc.get("total_usd_365d") or burn_365d + staking_365d)
     # 平均日 burn（用历史数据估算，避免未来 burn 反推历史）
     burn_avg_daily = burn_365d / 365
-    staking_apy = (staking_365d / mcap * 100) if mcap > 0 else 6.87  # 当前 aBNB APY ~12.46%
+    staking_apy = (staking_365d / mcap * 100) if mcap > 0 else 1.71  # fallback；正常由 snapshot 倒推（2026-10-08 asBNB 净值口径 1.71%）
 
     # 季度 burn → map[date_str] = bnb
     burn_by_q = {}
