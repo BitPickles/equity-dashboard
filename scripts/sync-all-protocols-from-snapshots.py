@@ -30,6 +30,10 @@ BASE = Path(__file__).resolve().parent.parent
 ALL_FILE = BASE / "data" / "all-protocols.json"
 SNAP_DIR = BASE / "data" / "snapshots"
 
+if str(BASE) not in sys.path:
+    sys.path.insert(0, str(BASE))
+from scripts.lib.period_metrics import annualize_factor as _ann_factor  # noqa: E402
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -86,6 +90,32 @@ def main():
         metrics = p.setdefault("metrics", {})
         if hr.get("shareholder_yield_percent") is not None:
             metrics["shareholder_yield_365d_ann"] = hr["shareholder_yield_percent"]
+
+        # ── 多周期（by_period，阶段1 试点）─────────────────────────────
+        # 口径由 adapter 定义一次（holder_returns.by_period），此处只做机械派生，
+        # 令前端 4 个周期 tab（读 metrics.*_{7,30,90}d_ann）与 365D 同源。
+        # 仅对已产出 by_period 的协议生效；其余协议保持原状（阶段2 批量迁移）。
+        bp = snap.get("holder_returns", {}).get("by_period")
+        if isinstance(bp, dict):
+            _mcap = p.get("market_cap_usd")   # 用 update-prices 维护的最新市值年化
+            for n in (7, 30, 90, 365):
+                blk = bp.get(f"{n}d") or {}
+                _ru = blk.get("shareholder_returns_usd")
+                _rev = blk.get("revenue_usd")
+                if _mcap and _rev:
+                    metrics[f"total_yield_{n}d_ann"] = round(_rev / _mcap * 100 * _ann_factor(n), 4)
+                if _ru is None or not _mcap:
+                    continue
+                metrics[f"shareholder_yield_{n}d_ann"] = round(_ru / _mcap * 100 * _ann_factor(n), 4)
+                _by = blk.get("destroy_usd")
+                if _by is not None:
+                    metrics[f"buyback_yield_{n}d_ann"] = round(_by / _mcap * 100 * _ann_factor(n), 4)
+                _dv = blk.get("yield_usd")
+                if _dv is not None:
+                    metrics[f"dividend_yield_{n}d_ann"] = round(_dv / _mcap * 100 * _ann_factor(n), 4)
+                metrics[f"trailing_{n}d_shareholder_returns_usd"] = round(_ru, 2)
+                if _rev:
+                    p[f"payout_ratio_{n}d"] = round(_ru / _rev, 4)
 
         for k, v in updates.items():
             if k in ("payout_ratio",):

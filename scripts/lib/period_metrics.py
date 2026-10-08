@@ -63,8 +63,8 @@ def _yield_pct(usd, mcap, n):
 
 def build_by_period(rev_series=None, ret_series=None, mcap=None,
                     basis="holders_revenue", ret_usd_by_window=None,
-                    destroy_usd_by_window=None, status="active",
-                    source="defillama", asof=None):
+                    rev_usd_by_window=None, destroy_usd_by_window=None,
+                    status="active", source="defillama", asof=None):
     """产出 `holder_returns.by_period` 结构（四窗口齐全，值可为 None）。
 
     basis:
@@ -72,6 +72,11 @@ def build_by_period(rev_series=None, ret_series=None, mcap=None,
       zero            —— 全窗口股东回报 = 0（paused / none 协议）
       same_as_365d    —— 无日频源，四窗口同值（D 类，source 建议置 none）
       explicit        —— 直接喂 ret_usd_by_window（链上模板 B 类）
+    rev_series / rev_usd_by_window:
+      收入窗口数据二选一——adapter 若已有逐窗口收入合计（如 all-protocols.json 的
+      metrics.trailing_{n}d_revenue_usd），直接传 rev_usd_by_window 更省事（无需序列）。
+    ret_usd_by_window:
+      basis=explicit 时必填（链上/平台币模板）。
     destroy_usd_by_window:
       回购/销毁组（type destroy|buyback）各窗口值；缺省 → 全部计入 destroy，yield=0。
     """
@@ -81,6 +86,7 @@ def build_by_period(rev_series=None, ret_series=None, mcap=None,
         raise ValueError("basis=explicit 必须提供 ret_usd_by_window")
 
     explicit = ret_usd_by_window or {}
+    rev_explicit = rev_usd_by_window or {}
     destroy_explicit = destroy_usd_by_window or {}
 
     ret_365 = None
@@ -109,7 +115,8 @@ def build_by_period(rev_series=None, ret_series=None, mcap=None,
             destroy = ret          # 现口径下多数协议股东回报全归"回购/销毁"组
             yieldy = 0.0 if ret is not None else None
 
-        rev_usd = sum_window(rev_series, n, asof) if rev_series else None
+        rev_usd = rev_explicit.get(n) if rev_explicit else (
+            sum_window(rev_series, n, asof) if rev_series else None)
         payout = None
         if rev_usd and ret is not None:
             payout = round(ret / rev_usd, 4)
@@ -129,11 +136,16 @@ def build_by_period(rev_series=None, ret_series=None, mcap=None,
     return out
 
 
-def build_revenue_by_period(rev_series=None, asof=None):
-    """产出 `income_statement.revenue.by_period`（各窗口收入合计，供 Earning Yield / P/S）。"""
+def build_revenue_by_period(rev_series=None, rev_usd_by_window=None, asof=None):
+    """产出 `income_statement.revenue.by_period`（各窗口收入合计，供 Earning Yield / P/S）。
+
+    rev_series 与 rev_usd_by_window 二选一（后者用于已有逐窗口合计的 adapter）。
+    """
+    rev_explicit = rev_usd_by_window or {}
     out = {}
     for n in WINDOWS:
-        v = sum_window(rev_series, n, asof)
+        v = rev_explicit.get(n) if rev_explicit else (
+            sum_window(rev_series, n, asof) if rev_series else None)
         out[f"{n}d"] = {"total_usd": round(v, 2) if v is not None else None}
     return out
 

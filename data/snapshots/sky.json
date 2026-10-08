@@ -22,6 +22,20 @@
         }
       },
       "growth_yoy_percent": null,
+      "by_period": {
+        "7d": {
+          "total_usd": 2677428.0
+        },
+        "30d": {
+          "total_usd": 13023344.0
+        },
+        "90d": {
+          "total_usd": 40443527.0
+        },
+        "365d": {
+          "total_usd": 201440351.0
+        }
+      },
       "source": {
         "type": "defillama",
         "url": "https://api.llama.fi/summary/fees/sky?dataType=dailyHoldersRevenue"
@@ -76,6 +90,56 @@
       "shareholder_yield_percent": 2.8682,
       "status": "active",
       "basis_note": "股东回报 = DefiLlama holdersRevenue（买币 × 市价 + 质押奖励，混合代理）；非纯销毁，SBE 买币进国库可再分配"
+    },
+    "by_period": {
+      "7d": {
+        "revenue_usd": 2677428.0,
+        "shareholder_returns_usd": 1174099.0,
+        "destroy_usd": 1174099.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 2.9241,
+        "buyback_yield_percent": 2.9241,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.4385,
+        "status": "active",
+        "source": "defillama"
+      },
+      "30d": {
+        "revenue_usd": 13023344.0,
+        "shareholder_returns_usd": 5418624.0,
+        "destroy_usd": 5418624.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 3.1489,
+        "buyback_yield_percent": 3.1489,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.4161,
+        "status": "active",
+        "source": "defillama"
+      },
+      "90d": {
+        "revenue_usd": 40443527.0,
+        "shareholder_returns_usd": 9718008.0,
+        "destroy_usd": 9718008.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 1.8824,
+        "buyback_yield_percent": 1.8824,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.2403,
+        "status": "active",
+        "source": "defillama"
+      },
+      "365d": {
+        "revenue_usd": 201440351.0,
+        "shareholder_returns_usd": 60050420.0,
+        "destroy_usd": 60050420.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 2.8682,
+        "buyback_yield_percent": 2.8682,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.2981,
+        "status": "active",
+        "source": "defillama"
+      }
     }
   },
   "balance_sheet": {

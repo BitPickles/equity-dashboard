@@ -16,6 +16,20 @@
         }
       },
       "growth_yoy_percent": null,
+      "by_period": {
+        "7d": {
+          "total_usd": 226255844.93
+        },
+        "30d": {
+          "total_usd": 969667906.81
+        },
+        "90d": {
+          "total_usd": 2910494071.88
+        },
+        "365d": {
+          "total_usd": 11813868479.91
+        }
+      },
       "source": {
         "type": "chain",
         "url": "0xdead 链上 + StakeHub asBNB APY（本地 burn-history/bep95-history 缓存）"
@@ -72,6 +86,56 @@
       "yield_yield_percent": 6.87,
       "shareholder_returns_usd_365d": 11813868479.91,
       "shareholder_yield_percent": 11.3902
+    },
+    "by_period": {
+      "7d": {
+        "revenue_usd": 226255844.93,
+        "shareholder_returns_usd": 226255844.93,
+        "destroy_usd": 89601415.07,
+        "yield_usd": 136654429.86,
+        "shareholder_yield_percent": 11.3745,
+        "buyback_yield_percent": 4.5045,
+        "dividend_yield_percent": 6.87,
+        "payout_ratio": 1.0,
+        "status": "active",
+        "source": "chain"
+      },
+      "30d": {
+        "revenue_usd": 969667906.81,
+        "shareholder_returns_usd": 969667906.81,
+        "destroy_usd": 384006064.57,
+        "yield_usd": 585661842.24,
+        "shareholder_yield_percent": 11.3745,
+        "buyback_yield_percent": 4.5045,
+        "dividend_yield_percent": 6.87,
+        "payout_ratio": 1.0,
+        "status": "active",
+        "source": "chain"
+      },
+      "90d": {
+        "revenue_usd": 2910494071.88,
+        "shareholder_returns_usd": 2910494071.88,
+        "destroy_usd": 1153508545.17,
+        "yield_usd": 1756985526.71,
+        "shareholder_yield_percent": 11.3803,
+        "buyback_yield_percent": 4.5103,
+        "dividend_yield_percent": 6.87,
+        "payout_ratio": 1.0,
+        "status": "active",
+        "source": "chain"
+      },
+      "365d": {
+        "revenue_usd": 11813868479.91,
+        "shareholder_returns_usd": 11813868479.91,
+        "destroy_usd": 4688316066.03,
+        "yield_usd": 7125552413.88,
+        "shareholder_yield_percent": 11.3902,
+        "buyback_yield_percent": 4.5202,
+        "dividend_yield_percent": 6.87,
+        "payout_ratio": 1.0,
+        "status": "active",
+        "source": "chain"
+      }
     }
   },
   "balance_sheet": {

@@ -20,10 +20,17 @@ Aave 专属适配器 — data/protocols/aave/adapter.py
 - config.json → 机制声明（只读）
 """
 import json
+import sys
 from datetime import date, timedelta
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent  # tev-dashboard/
+
+if str(BASE_DIR) not in sys.path:
+    sys.path.insert(0, str(BASE_DIR))
+from scripts.lib.period_metrics import (  # noqa: E402
+    build_by_period, build_revenue_by_period, WINDOWS,
+)
 
 BUDGET_USD_ANNUAL = 30_000_000          # 2026-03 治理由 $50M 下调（预算，非已实现）
 BUDGET_PRIOR_USD = 50_000_000           # 早期文档口径
@@ -119,6 +126,13 @@ def build_snapshot(proto_dir):
         },
     }
 
+    # ── 多周期（by_period）：basis=zero —— 回购暂停 → 全窗口股东回报 = 0 ──
+    # 收入窗口仍如实给出（DefiLlama dailyRevenue），供各周期 P/S / Earning Yield
+    rev_by_w = {n: metrics.get(f"trailing_{n}d_revenue_usd") for n in WINDOWS}
+    holder_returns["by_period"] = build_by_period(
+        rev_usd_by_window=rev_by_w, mcap=mcap,
+        basis="zero", status="paused", source="defillama")
+
     # ── 毛利 / 增发 / 净利 ─────────────────────────────────────
     gp = {
         "lp_share_cost_usd_365d": None,
@@ -162,6 +176,7 @@ def build_snapshot(proto_dir):
                     "lp_interest": {"note": "给 LP（存款人）的利息占协议费大头，不计入协议收入；dailyRevenue 已是扣 LP 后的协议净额"},
                 },
                 "growth_yoy_percent": None,
+                "by_period": build_revenue_by_period(rev_usd_by_window=rev_by_w),
                 "source": {"type": "defillama", "url": "https://api.llama.fi/summary/fees/aave?dataType=dailyRevenue"},
             },
             "gross_profit": gp,

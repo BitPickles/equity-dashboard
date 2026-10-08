@@ -21,10 +21,17 @@ Sky (MakerDAO) 专属适配器 — data/protocols/sky/adapter.py
 - config.json → 机制声明（只读）
 """
 import json
+import sys
 from datetime import date
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent  # tev-dashboard/
+
+if str(BASE_DIR) not in sys.path:
+    sys.path.insert(0, str(BASE_DIR))
+from scripts.lib.period_metrics import (  # noqa: E402
+    build_by_period, build_revenue_by_period, WINDOWS,
+)
 
 # DefiLlama HoldersRevenue 的口径说明（源码 makerdao.ts 实测）
 DL_HOLDERS_DEF = ("DefiLlama holdersRevenue = SKY token buybacks（买币数量×当日市价）"
@@ -131,6 +138,15 @@ def build_snapshot(proto_dir):
         },
     }
 
+    # ── 多周期（by_period）：口径一次定义，7/30/90/365 为同一切片 ──
+    # 数据源 = all-protocols.json 的 trailing_*d_revenue_usd / _holders_revenue_usd
+    # （由 sync-holders-revenue.py 每日刷新；365d 与 summary 强一致）
+    rev_by_w = {n: metrics.get(f"trailing_{n}d_revenue_usd") for n in WINDOWS}
+    ret_by_w = {n: metrics.get(f"trailing_{n}d_holders_revenue_usd") for n in WINDOWS}
+    holder_returns["by_period"] = build_by_period(
+        rev_usd_by_window=rev_by_w, ret_usd_by_window=ret_by_w,
+        mcap=mcap, basis="explicit", status="active", source="defillama")
+
     # ── 派生估值（L4）──────────────────────────────────────────────
     pe = round(mcap / holders_365d, 4) if (mcap and holders_365d) else None
     ps = round(mcap / revenue_365d, 4) if (mcap and revenue_365d) else None
@@ -155,6 +171,7 @@ def build_snapshot(proto_dir):
                     "farm_staking": {"note": "Splitter farm 部分为协议支出；其中付给 stakers 的 USDS 已计入 DefiLlama holdersRevenue"},
                 },
                 "growth_yoy_percent": None,
+                "by_period": build_revenue_by_period(rev_usd_by_window=rev_by_w),
                 "source": {
                     "type": "defillama",
                     "url": "https://api.llama.fi/summary/fees/sky?dataType=dailyHoldersRevenue",

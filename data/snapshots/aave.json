@@ -14,6 +14,20 @@
         }
       },
       "growth_yoy_percent": null,
+      "by_period": {
+        "7d": {
+          "total_usd": 1196242.0
+        },
+        "30d": {
+          "total_usd": 4954642.0
+        },
+        "90d": {
+          "total_usd": 13516469.0
+        },
+        "365d": {
+          "total_usd": 92387330.0
+        }
+      },
       "source": {
         "type": "defillama",
         "url": "https://api.llama.fi/summary/fees/aave?dataType=dailyRevenue"
@@ -76,6 +90,56 @@
         "holders_revenue_30d_usd": 0.0,
         "last_nonzero_date": "2026-06-24",
         "note": "DefiLlama 回购收币代理（混合口径），仅供历史参考"
+      }
+    },
+    "by_period": {
+      "7d": {
+        "revenue_usd": 1196242.0,
+        "shareholder_returns_usd": 0.0,
+        "destroy_usd": 0.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0,
+        "buyback_yield_percent": 0.0,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.0,
+        "status": "paused",
+        "source": "defillama"
+      },
+      "30d": {
+        "revenue_usd": 4954642.0,
+        "shareholder_returns_usd": 0.0,
+        "destroy_usd": 0.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0,
+        "buyback_yield_percent": 0.0,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.0,
+        "status": "paused",
+        "source": "defillama"
+      },
+      "90d": {
+        "revenue_usd": 13516469.0,
+        "shareholder_returns_usd": 0.0,
+        "destroy_usd": 0.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0,
+        "buyback_yield_percent": 0.0,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.0,
+        "status": "paused",
+        "source": "defillama"
+      },
+      "365d": {
+        "revenue_usd": 92387330.0,
+        "shareholder_returns_usd": 0.0,
+        "destroy_usd": 0.0,
+        "yield_usd": 0.0,
+        "shareholder_yield_percent": 0.0,
+        "buyback_yield_percent": 0.0,
+        "dividend_yield_percent": 0.0,
+        "payout_ratio": 0.0,
+        "status": "paused",
+        "source": "defillama"
       }
     }
   },

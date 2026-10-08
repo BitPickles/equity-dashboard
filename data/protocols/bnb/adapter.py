@@ -18,10 +18,17 @@ BNB 专属适配器 — data/protocols/bnb/adapter.py
 """
 
 import json
+import sys
 from datetime import date, timedelta
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent  # tev-dashboard/
+
+if str(BASE_DIR) not in sys.path:
+    sys.path.insert(0, str(BASE_DIR))
+from scripts.lib.period_metrics import (  # noqa: E402
+    build_by_period, build_revenue_by_period, WINDOWS,
+)
 
 
 def _load(p):
@@ -124,6 +131,33 @@ def build_snapshot(proto_dir):
         },
     }
 
+    # ── 多周期（by_period）：平台币，收入 = 股东回报（赋能口径）──
+    # Auto-Burn 按 4 季均摊到 365 天（铁律：禁止集中到执行/公告日）；BEP-95 逐日序列；
+    # 质押按 aBNB APY 摊到 n 天。365d 与 summary 严格对齐。
+    def _bep95_window(n):
+        _cut = date.today() - timedelta(days=n - 1)
+        return sum(float(r.get("bnb") or 0)
+                   for r in (bep95.get("daily") or [])
+                   if r.get("date") and date.fromisoformat(r["date"]) >= _cut
+                   and float(r.get("bnb") or 0) < 1000)
+
+    burn_w, stake_w = {}, {}
+    for n in WINDOWS:
+        if n == 365:
+            ab = burn_4q_usd or 0.0                 # 4 季销毁（与 summary 同源）
+            bp = bep95_usd or 0.0
+        else:
+            ab = (burn_4q_bnb / 365.0 * n * price) if (burn_4q_bnb and price) else 0.0
+            bp = (_bep95_window(n) * price) if price else 0.0
+        burn_w[n] = round(ab + bp, 2)
+        _st = (apy / 100 * mcap * n / 365.0) if (apy and mcap) else 0.0
+        stake_w[n] = round(_st, 2)
+    ret_by_w = {n: round(burn_w[n] + stake_w[n], 2) for n in WINDOWS}
+    holder_returns["by_period"] = build_by_period(
+        rev_usd_by_window=ret_by_w, ret_usd_by_window=ret_by_w,
+        destroy_usd_by_window=burn_w, mcap=mcap,
+        basis="explicit", status="active", source="chain")
+
     # ── 派生估值（L4）──────────────────────────────────────────
     pe = round(mcap / total_rev, 4) if (mcap and total_rev) else None
     # 平台币口径（方案 A）：P/S = P/E = 1/股东回报率
@@ -150,6 +184,7 @@ def build_snapshot(proto_dir):
                     "fees": {"note": "gas 手续费不计入（BEP-95 销毁部分已含于 burn 科目）"}
                 },
                 "growth_yoy_percent": None,
+                "by_period": build_revenue_by_period(rev_usd_by_window=ret_by_w),
                 "source": {
                     "type": "chain",
                     "url": "0xdead 链上 + StakeHub asBNB APY（本地 burn-history/bep95-history 缓存）",
