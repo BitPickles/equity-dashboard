@@ -5,6 +5,8 @@ validate.py — Crypto3D 数据校验器（PRD v2.1 第 5.2 / 5.4 节）
 校验项（对齐 docs/financial-snapshot-schema.md 第五章）:
   1. 结构校验     data/snapshots/*.json 符合 financial-snapshot.schema.json
   2. 派生自洽     valuation/margins 重算比对（差异 > 0.5% 报错）
+  2.5 多周期自洽   holder_returns.by_period 四窗口齐全 + 365d 与 summary 一致 + yield 可复算
+                  （Phase 0 起可选：存在才校验；Phase 3 起将设为必需）
   3. 一致性       snapshot 与 all-protocols.json 的 shareholder_yield_percent 数值一致
   4. 新鲜度       as_of 距今 > 26h 告警（防僵尸数据）；data/daily latest.json 同理
   5. null 语义    无数据必须 null，编造的 0 告警
@@ -164,6 +166,43 @@ def validate_snapshot(snap, all_protocols, report, proto):
         actual = snap["holder_returns"]["summary"].get(k)
         if pct_diff(exp, actual) > 0.5:
             report.error(proto, f"holder_returns.summary.{k} 不自洽: 文件={actual} 重算={exp}")
+
+    # 2.5 by_period 多周期自洽（Phase 0 起"可选"：存在即强校验；Phase 3 起必需）
+    #     口径由 adapter 定义一次，窗口只是切片；此处只做机械一致性核验。
+    bp = snap["holder_returns"].get("by_period")
+    if bp is not None:
+        if not isinstance(bp, dict):
+            report.error(proto, "holder_returns.by_period 不是对象")
+        else:
+            mcap = snap["balance_sheet"].get("market_cap_usd")
+            s365 = snap["holder_returns"]["summary"].get("shareholder_returns_usd_365d")
+            for n in (7, 30, 90, 365):
+                k = f"{n}d"
+                blk = bp.get(k)
+                if not isinstance(blk, dict):
+                    report.error(proto, f"by_period 缺窗口 {k}")
+                    continue
+                if blk.get("source") is None:
+                    report.error(proto, f"by_period.{k} 缺 source")
+                ann = 365.0 / n if n != 365 else 1.0
+                ru = blk.get("shareholder_returns_usd")
+                exp_y = round(ru / mcap * 100 * ann, 4) if (ru is not None and mcap) else None
+                if pct_diff(exp_y, blk.get("shareholder_yield_percent")) > 0.5:
+                    report.error(proto, f"by_period.{k}.shareholder_yield_percent 不自洽: "
+                                        f"文件={blk.get('shareholder_yield_percent')} 重算={exp_y}")
+                if n == 365 and pct_diff(ru, s365) > 0.5:
+                    report.error(proto, f"by_period.365d.shareholder_returns_usd={ru} 与 summary={s365} 不一致")
+                rev = blk.get("revenue_usd")
+                exp_p = round(ru / rev, 4) if (rev and ru is not None) else None
+                if pct_diff(exp_p, blk.get("payout_ratio")) > 0.5:
+                    report.error(proto, f"by_period.{k}.payout_ratio 不自洽: "
+                                        f"文件={blk.get('payout_ratio')} 重算={exp_p}")
+    # 2.6 revenue.by_period（存在则核验四窗口齐全，值为 null 允许）
+    rbp = snap["income_statement"].get("revenue", {}).get("by_period")
+    if isinstance(rbp, dict):
+        for n in (7, 30, 90, 365):
+            if f"{n}d" not in rbp:
+                report.error(proto, f"revenue.by_period 缺窗口 {n}d")
 
     # 3. 一致性：snapshot yield 与 all-protocols.json 一致
     ap = (all_protocols or {}).get("protocols", {}).get(proto, {})
