@@ -61,7 +61,7 @@
             },
             "by_period": {
               "type": "object",
-              "description": "各窗口收入合计（供各周期 Earning Yield / P/S）。Phase 0 起可选，Phase 3 起必需。",
+              "description": "各窗口收入合计（供各周期 Earning Yield / P/S）。Phase 3 起为展示协议必需字段（validate 强制），镜像目录（hyperliquid）豁免。",
               "properties": {
                 "7d": { "$ref": "#/definitions/revenuePeriodBlock" },
                 "30d": { "$ref": "#/definitions/revenuePeriodBlock" },
@@ -146,7 +146,7 @@
         },
         "by_period": {
           "type": "object",
-          "description": "按窗口的股东回报：口径由 adapter 定义一次，窗口只是同一口径的时间切片。四个 tab 与 365D 同源，结构上不可能漂移。Phase 0 起可选，Phase 3 起必需。",
+          "description": "按窗口的股东回报：口径由 adapter 或 config.period_basis 定义一次，窗口只是同一口径的时间切片。四个 tab 与 365D 同源，结构上不可能漂移。Phase 3 起为展示协议必需字段（validate 强制），镜像目录（hyperliquid）豁免。",
           "properties": {
             "7d": { "$ref": "#/definitions/holderPeriodBlock" },
             "30d": { "$ref": "#/definitions/holderPeriodBlock" },

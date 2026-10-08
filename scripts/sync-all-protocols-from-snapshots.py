@@ -52,6 +52,15 @@ def main():
         snap = json.loads(sf.read_text(encoding="utf-8"))
         p = protocols[pid]
 
+        # ── 退役旧 sync-tev-data.js 遗留字段（Phase 3，幂等防御）────────────
+        # validation.period_source / period_caveat / period_fee_rate 由已停用的
+        # sync-tev-data.js 写入，描述的是死方法；前端不消费，逐周期口径已由
+        # holder_returns.by_period 单一接管。此处确保其不再残留。
+        _legacy_v = p.get("validation")
+        if isinstance(_legacy_v, dict):
+            for _lk in ("period_source", "period_caveat", "period_fee_rate"):
+                _legacy_v.pop(_lk, None)
+
         hr = snap.get("holder_returns", {}).get("summary", {})
         inc = snap.get("income_statement", {})
         val = snap.get("valuation", {})
@@ -91,10 +100,10 @@ def main():
         if hr.get("shareholder_yield_percent") is not None:
             metrics["shareholder_yield_365d_ann"] = hr["shareholder_yield_percent"]
 
-        # ── 多周期（by_period，阶段1 试点）─────────────────────────────
-        # 口径由 adapter 定义一次（holder_returns.by_period），此处只做机械派生，
-        # 令前端 4 个周期 tab（读 metrics.*_{7,30,90}d_ann）与 365D 同源。
-        # 仅对已产出 by_period 的协议生效；其余协议保持原状（阶段2 批量迁移）。
+        # ── 多周期（by_period，阶段2/3：全站唯一周期字段生产者）──────────
+        # 口径由 adapter 或 config.period_basis 定义一次（holder_returns.by_period），
+        # 此处只做机械派生，令前端 4 个周期 tab（读 metrics.*_{7,30,90}d_ann）与 365D 同源。
+        # Phase 3 起 by_period 为展示协议**必需**字段（validate 强制），镜像目录除外。
         bp = snap.get("holder_returns", {}).get("by_period")
         if isinstance(bp, dict):
             _none = (bp.get("365d") or {}).get("source") == "none"  # 无同窗口源（D 类）

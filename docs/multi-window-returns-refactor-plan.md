@@ -1,6 +1,6 @@
 # 多周期股东回报统一重构方案（7D / 30D / 90D / 365D 同源）
 
-> 状态：**待 Boss 评审**（2026-10-08 起草）
+> 状态：**阶段 0/1/2/3 均已实现（dev）**，validate 0/0 —— 待 Boss 验收后 cherry-pick `main`（2026-10-08）
 > 目标分支：`dev` →（Boss 批准后）cherry-pick `main`
 > 关联文档：`docs/tev-equity-upgrade-prd.md`、`docs/financial-snapshot-schema.md`、`docs/schema/financial-snapshot.schema.json`
 
@@ -183,7 +183,7 @@ holder_returns["by_period"] = build_by_period(
 | **0** | schema 新增字段 + 公共库 + validate 新规则（`by_period` 暂设为"可选"） | 无数据变化 | validate 仍 0 error |
 | **1** | 试点 **4 协议**：sky、aave、uniswap、bnb（覆盖 A/B/C 模板） | 4 份快照含 by_period | 四窗口与 365D 交叉核对 + 截图 |
 | **2** | 批量迁移剩余 22 协议（按模板分组，A 类最多） | 全站 by_period | validate 0 error + 抽样比对 |
-| **3** | `by_period` 转**必需**；删除遗留字段与 opt-in hack；`metrics.*_ann` 只由快照驱动 | 旧链彻底退役 | 全站 validate strict 通过 |
+| **3** ✅ | `by_period` 转**必需**；删除遗留字段与 opt-in hack；`metrics.*_ann` 只由快照驱动 | 旧链彻底退役 | 全站 validate strict 通过 |
 
 **发布纪律**：全程 dev；每阶段验证通过 → 汇报 → **Boss 批准** → cherry-pick main（禁 merge dev）。
 
@@ -201,12 +201,12 @@ holder_returns["by_period"] = build_by_period(
 
 ---
 
-## 11. 待 Boss 确认
+## 11. 待 Boss 确认 → 已定案
 
-1. **口径基线**：A 类 14 协议默认 `holders_revenue`，其中 `none/paused`（lido/morpho/jito… 及 aave）走 `zero` —— 是否同意？
-2. **D 类 6 协议**（bgb/compound/ethena/hype/mnt/okb）无日频源：四窗口**同值** vs **显式不可得（null）** —— 选哪个？
-3. **试点选型**：建议 sky / aave / uniswap / bnb（覆盖三模板）—— 是否认可？
-4. **是否同意阶段 0 先行**（schema+公共库+validate，无数据变化，风险最低）。
+1. **口径基线**：A 类默认 `revenue_scaled`（退回 `holders_revenue` 口径已由 adapter 内联接管）；`none/paused` 走 `zero` —— ✅ 已按此实现。
+2. **D 类 6 协议**：✅ 采用**显式不可得（`source=none` + 四窗口 `null`）** → 前端周期 tab 显示 `—`（Boss 2026-10-08 决定）。
+3. **试点选型**：✅ sky / aave / uniswap / bnb（阶段 1）。
+4. **阶段 0 先行**：✅ 已先行，零回归。
 
 ---
 
@@ -216,3 +216,27 @@ holder_returns["by_period"] = build_by_period(
 - 阶段 1：4 个 adapter 改造 + 验证 ≈ 1
 - 阶段 2：22 个 adapter（A 类 13 个几乎是同模板复制 + 参数）≈ 1.5
 - 阶段 3：清理 + 强制化 ≈ 0.5
+
+---
+
+## 12. 实现记录（2026-10-08，dev）
+
+| 阶段 | commit | 内容 |
+|---|---|---|
+| 0 | `d8a8b488` | schema 新增 `by_period` + `period_metrics.py` + validate §2.5/§2.6（可选） |
+| 1 | `8c6da3e9` | 试点 4 协议（sky/aave/uniswap/bnb）adapter 内联产出 `by_period` |
+| 2 | `588aa444` | 22 协议 **config 驱动**（`derive_by_period` 四类口径）+ 前端 `none` 组显示「—」；`309a173f` i18n/正则随手修复 |
+| 3 | （本提交） | `by_period` 转**必需**（validate strict，镜像豁免）+ 退役 opt-in/遗留字段 |
+
+**阶段 3 具体改动**
+1. **`validate.py` §2.5/§2.6**：`holder_returns.by_period` 与 `income_statement.revenue.by_period` 对**展示协议**（`all-protocols.protocols` 的 26 个 key）强制要求；镜像目录（`hyperliquid`）豁免（与 `sync-all`「跳过镜像」一致）。
+2. **`sync-holders-revenue.py`**：删除 P1 的 `apply_period_metrics()` + `_annualize_factor()` 及其调用（该函数输出每次都被 `sync-all` 覆盖，已成死代码）；仅保留日频序列刷新职责。
+3. **`aave/sky config.json`**：删除 `period_return_basis`（P1 opt-in 临时键）。二者 adapter 内联产出 `by_period`，不依赖该键。
+4. **`sync-all-protocols-from-snapshots.py`**：新增幂等 legacy-strip，移除 `validation.period_source/period_caveat/period_fee_rate`（旧 `sync-tev-data.js` 痕迹；前端不消费）。
+5. **单一生产者确定**：周期字段（`metrics.*_{n}d_ann` / `payout_ratio_*`）现仅由 `sync-all` 从 `snapshot.holder_returns.by_period` 派生 —— 旧链彻底退役。
+
+**验证**：全量重建 27 snapshot（0 fail）→ sync-all → history 三步 → validate **0 errors / 0 warnings**；反向测试 `tmp/test_p3_required.py` 证明「必需」规则生效且镜像豁免。
+
+**镜像目录**：`data/protocols/hyperliquid`（hype 的数据源，不展示，`data/snapshots/hyperliquid.json` 无 `by_period`）——与 `rebuild-daily.py::EXCLUDED_DIRS={"curve-dex","hyperliquid"}` 一致。
+
+**惰性文件**：`scripts/sync-tev-data.js`（+`.bak`/`.stub`）已无任何脚本/workflow 引用，旧链代码路径彻底退役；文件本体保留（可能被 Mac Mini 侧外部调用，不贸然删除）。如需清理，单独确认后删除。

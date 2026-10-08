@@ -67,8 +67,7 @@
         ],
         "holders_30d_usd": 0.0,
         "holders_90d_usd": 0.0,
-        "holders_365d_usd": 18869659.0,
-        "period_source": "回购状态（2026-04-19 起暂停）+ DefiLlama dailyRevenue（由 sync-holders-revenue.py 刷新）"
+        "holders_365d_usd": 18869659.0
       },
       "return_mechanisms": [
         {
@@ -200,9 +199,6 @@
           "2026-03-30 tokenomics 改革后新增 staking rewards（暂不计入 TEV）",
           "Moralis 免费 tier 可能滞后几天"
         ],
-        "period_source": "链上回购（aster-onchain.json）95 天年化，非 DefiLlama fees",
-        "period_fee_rate": 0.055631,
-        "period_caveat": "6-17 新机制官方钱包（0xa0ed...）链上执行量仅 25 ASTER 未显化，实际回购地址待官方披露；当前以 S4 链上 + 新钱包可验证数据年化",
         "annualization": "41,254,245 ASTER × $0.6061 = $25.00M（99天 2025-12-02~2026-07-04）→ 年化 $92.18M",
         "buy_365d_aster_annualized": 138997696
       },
@@ -363,10 +359,7 @@
       "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
       "entity_type": "platform_token",
-      "validation": {
-        "period_source": "年化均摊（平台币回购/质押为季度/年化事件，短周期=365d均摊）",
-        "period_caveat": "短周期为年化均摊值，非实际窗口（回购季度事件）"
-      },
+      "validation": {},
       "period_status": "none"
     },
     "bnb": {
@@ -1114,7 +1107,6 @@
         "onchain_total_usd": 4613558,
         "defillama_total_usd": 4637397,
         "diff_pct": 0.5,
-        "period_source": "DefiLlama dailyFees × 费率(6.7%)",
         "holders_30d_usd": 0.0,
         "holders_90d_usd": 0.0,
         "holders_365d_usd": 3375149.0
@@ -2097,10 +2089,7 @@
       "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
       "entity_type": "platform_token",
-      "validation": {
-        "period_source": "年化均摊（平台币回购/质押为季度/年化事件，短周期=365d均摊）",
-        "period_caveat": "短周期为年化均摊值，非实际窗口（回购季度事件）"
-      },
+      "validation": {},
       "period_status": "none"
     },
     "morpho": {
@@ -2290,10 +2279,7 @@
       "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
       "entity_type": "platform_token",
-      "validation": {
-        "period_source": "年化均摊（平台币回购/质押为季度/年化事件，短周期=365d均摊）",
-        "period_caveat": "短周期为年化均摊值，非实际窗口（回购季度事件）"
-      },
+      "validation": {},
       "period_status": "none"
     },
     "pancakeswap": {
@@ -2353,8 +2339,6 @@
         "burn_30d_usd": 1380342,
         "burn_90d_usd": 5678619,
         "burn_365d_usd": 58668956,
-        "period_source": "DefiLlama dailyFees × 费率(34.6%) × payout",
-        "period_caveat": "短周期为 DefiLlama fees 折算，与 365d 同口径",
         "holders_30d_usd": 3599213.13,
         "holders_90d_usd": 10783934.67,
         "holders_365d_usd": 49035480.76
@@ -2555,8 +2539,6 @@
       "growth_yoy_percent": null,
       "entity_type": "app",
       "validation": {
-        "period_source": "DefiLlama dailyFees × 费率(81.2%) × payout",
-        "period_caveat": "短周期为 DefiLlama fees 折算，与 365d 同口径",
         "holders_30d_usd": 314257.0,
         "holders_90d_usd": 1398503.0,
         "holders_365d_usd": 12820765.0
@@ -2622,8 +2604,6 @@
         "return_source": "DefiLlama dailyHoldersRevenue (slug=sky)",
         "earning_source": "DefiLlama dailyRevenue (slug=sky)",
         "note": "⚠️ 2026-10-08 纠正：dailyHoldersRevenue 含 staking rewards，非纯销毁/SBE 现金支出；SBE 买币自 2024-09 起进国库、可再分配（旧 burn_* 字段已作废移除）",
-        "period_source": "DefiLlama dailyHoldersRevenue（由 scripts/sync-holders-revenue.py 每日刷新）",
-        "period_caveat": "短周期与 365d 同口径（DefiLlama dailyHoldersRevenue，混合代理），按窗口年化",
         "holders_30d_usd": 5418624.0,
         "holders_90d_usd": 9718008.0,
         "holders_365d_usd": 60050420.0
@@ -2979,7 +2959,6 @@
       "validation": {
         "method": "Stargate 100% 收入回购（累计 149.5 万 ZRO / .14M）",
         "note": "协议本体 fee switch 关闭收入=0；每月解锁 ~8M 稀释注记；股东回报率 ≈0.3-2%",
-        "period_source": "DefiLlama dailyFees × 费率(123.0%)",
         "holders_30d_usd": 0.0,
         "holders_90d_usd": 322682.0,
         "holders_365d_usd": 3391193.0
