@@ -36,6 +36,9 @@ fi
 # 2. 刷新 daily 数据（防僵尸）
 $PY scripts/rebuild-daily.py
 
+# 2.25 补齐 BNB BEP-95 0xdead 余额差分日序列；必须在 BNB 快照重建之前执行。
+$PY scripts/fetch-bep95-daily.py || echo "⚠️ BEP-95 日序列更新失败，保留上一版数据"
+
 # 2.5 刷新 DefiLlama 收入/持有人收入合计到 all-protocols.json（2026-10-08 修复根因）。
 #     ⚠️ 教训：adapter.py 读的是 all-protocols.json 的 metrics.trailing_* / validation.holders_*，
 #     但 2026-08 起这些字段已无脚本重算（旧 sync-tev-data.js 停用）→ 适配器长期用
