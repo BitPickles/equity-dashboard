@@ -36,6 +36,13 @@ fi
 # 2. 刷新 daily 数据（防僵尸）
 $PY scripts/rebuild-daily.py
 
+# 2.5 刷新 DefiLlama 收入/持有人收入合计到 all-protocols.json（2026-10-08 修复根因）。
+#     ⚠️ 教训：adapter.py 读的是 all-protocols.json 的 metrics.trailing_* / validation.holders_*，
+#     但 2026-08 起这些字段已无脚本重算（旧 sync-tev-data.js 停用）→ 适配器长期用
+#     08-02 旧输入产出旧快照（"机制数据冻结在 08-02"）。本步骤必须在 build-snapshot 之前跑。
+#     失败不阻断主流程（保留旧值），但连续失败须排查网络。
+$PY scripts/sync-holders-revenue.py || echo "❌ sync-holders-revenue 失败（保留旧值）—— 连续多日须排查"
+
 # 3. 刷新 27 个财务 snapshot，避免 validate 因 snapshot 过期拒绝发布。
 #    适配器从已更新的 daily / 协议配置生成派生估值与历史序列。
 $PY scripts/build-snapshot.py

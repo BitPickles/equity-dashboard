@@ -2,30 +2,34 @@
 """
 Sky (MakerDAO) 专属适配器 — data/protocols/sky/adapter.py
 
-按判定书（docs/protocol-revenue-recognition.md ### 7. Sky）输出 Financial Snapshot：
+按判定书（docs/protocol-revenue-recognition.md §7 Sky）输出 Financial Snapshot：
 - 实体类型：app（cdp / 稳定币）
-- 机制（SBE）：盈余先进 Surplus Buffer 国库（上限 5000 万 DAI）；超额部分 SBE 从 Uniswap
-  买入 MKR + 等量 DAI 组 LP 做市（LP 归协议，主动做市）；Elixir 在 MKR 低估时用 LP 真燃烧。
-- 计入股东回报：Elixir 真燃烧（销毁 = 股息 🟢，type=destroy）
-- 不计入：Surplus Buffer 留存（国库）；SBE 买 MKR 做市部分（LP 锁定，标注「回购做市」）
-- 损益表：净利留存国库要讲清楚 → net_income 注明「留存 vs 分配」比例（payout_ratio ≈ 33.3%）
+- 收入 = DefiLlama dailyRevenue 365d（协议净归属，已扣 DSR/SSR 用户存款利息）
+- 股东回报口径（Boss 2026-10-08 定稿 D2）：
+    ★ 维持 DefiLlama dailyHoldersRevenue 作为股东回报，但**必须如实标注它是"混合代理"**
+    ★ DefiLlama 定义（源码 makerdao.ts）：HoldersRevenue = 买币（SKY 数量 × 当日市价）
+      **＋** USDS 质押奖励 —— 既不是纯现金支出，也不是纯销毁
+    ★ 删除旧稿"DefiLlama 已剥离 farm / 等于真燃烧"的错误表述（与 DefiLlama 定义直接冲突）
+    ★ SBE 买币自 2024-09 起改为"买 SKY 交国库"（可再分配），非销毁
+- 不计入：Surplus Buffer 留存；买币进国库后未销毁的部分（按铁律「只计流向流通持币人的价值流」）
+- 损益表：净利留存国库要讲清楚 → net_income 注明「留存 vs 分配」比例
 
-数据源（本地已验证缓存，2026-08-01 更新）：
-- all-protocols.json  → validation.burn_7d/30d/90d/365d_usd（DefiLlama dailyHoldersRevenue）
-  + metrics.trailing_365d_revenue_usd（DefiLlama dailyRevenue，协议净归属）
-- tev-records.json   → 股东回报月度历史（Smart Burn Engine / Splitter burn）
-- config.json        → 判定书/机制声明（只读）
-
-说明：SBE 链上数据分散（新 Flapper 地址未公开 + LP token burn 复杂），且 DefiLlama
-dailyHoldersRevenue 已精准对应 Splitter burn（SBE 真实支出，与 2026-03 治理公告吻合），
-故采用 DefiLlama（见 config analyst_notes 的权衡）。
+数据源：
+- data/all-protocols.json → metrics.trailing_365d_revenue_usd / trailing_365d_holders_revenue_usd
+  （由 scripts/sync-holders-revenue.py 每日从 DefiLlama 刷新，2026-10-08 修复根因）
+- tev-records.json → 股东回报月度历史
+- config.json → 机制声明（只读）
 """
-
 import json
 from datetime import date
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent  # tev-dashboard/
+
+# DefiLlama HoldersRevenue 的口径说明（源码 makerdao.ts 实测）
+DL_HOLDERS_DEF = ("DefiLlama holdersRevenue = SKY token buybacks（买币数量×当日市价）"
+                  " + staking rewards（USDS 付给 SKY stakers）—— 混合代理，非纯现金支出/非纯销毁")
+ACTUAL_BUYBACK_SOURCE = "https://info.sky.money/buyback"
 
 
 def _load(p):
@@ -35,6 +39,10 @@ def _load(p):
         return None
 
 
+def _fmt(x):
+    return f"${x:,.0f}" if x else "N/A"
+
+
 def build_snapshot(proto_dir):
     pid = Path(proto_dir).name
     config = _load(proto_dir / "config.json") or {}
@@ -42,29 +50,27 @@ def build_snapshot(proto_dir):
     all_protocols = _load(BASE_DIR / "data" / "all-protocols.json") or {}
     ap = all_protocols.get("protocols", {}).get(pid, {})
 
-    validation = ap.get("validation", {})
-    metrics = ap.get("metrics", {})
+    metrics = ap.get("metrics", {}) or {}
     mcap = ap.get("market_cap_usd")
     tvl = ap.get("tvl")
 
-    # ── 收入（L2）：DefiLlama 口径 ─────────────────────────────────
-    # dailyRevenue = 协议净归属（已扣 DSR/SSR 用户支出）→ 损益表顶线
-    # dailyHoldersRevenue = Splitter burn（SBE/Elixir 真燃烧实际支出）→ 分配部分
-    revenue_365d = metrics.get("trailing_365d_revenue_usd")  # 234,377,977
-    burn_365d = validation.get("burn_365d_usd")              # 77,998,812（分配）
-    retained_365d = round(revenue_365d - burn_365d, 2) if (revenue_365d and burn_365d) else None
-    dist_ratio = round(burn_365d / revenue_365d, 4) if (revenue_365d and burn_365d) else None
+    # ── 收入（L2）─────────────────────────────────────────────────
+    revenue_365d = metrics.get("trailing_365d_revenue_usd")            # DefiLlama dailyRevenue（净归属）
+    # 股东回报：DefiLlama holdersRevenue（买币 + 质押奖励，混合代理）
+    holders_365d = (metrics.get("trailing_365d_holders_revenue_usd")
+                    or metrics.get("trailing_365d_shareholder_returns_usd"))
+    retained_365d = round(revenue_365d - holders_365d, 2) if (revenue_365d and holders_365d) else None
+    dist_ratio = round(holders_365d / revenue_365d, 4) if (revenue_365d and holders_365d) else None
     retain_ratio = round(1 - dist_ratio, 4) if dist_ratio else None
 
     revenue_included = {
         "protocol_fees_usd_365d": revenue_365d,
-        "holders_revenue_usd_365d": burn_365d,      # dailyHoldersRevenue（SBE 真燃烧支出）
-        "retained_treasury_usd_365d": retained_365d,  # 留存：Surplus Buffer + SBE LP + farm
+        "holders_revenue_usd_365d": holders_365d,        # dailyHoldersRevenue（买币+质押奖励，混合）
+        "retained_treasury_usd_365d": retained_365d,      # 留存：Surplus Buffer + 未销毁的买币库存
         "total_usd_365d": revenue_365d,
     }
 
     # ── 毛利/增发/净利 ─────────────────────────────────────────────
-    # cdp 稳定币协议：dailyRevenue 已扣 DSR/SSR 存款利息，无 LP 分润成本
     gp = {
         "lp_share_cost_usd_365d": None,
         "gross_profit_usd_365d": revenue_365d,
@@ -75,55 +81,61 @@ def build_snapshot(proto_dir):
         "annual_emission_tokens": None,
         "inflation_rate_percent": None,
         "treatment": "dilution_note",
-        "calculation_note": "SKY staking farm 部分含新铸造 SKY（Splitter 分配），按协议支出/留存处理，不重复扣减净利（口径：净利 = 协议盈余）",
+        "calculation_note": "SKY staking farm 部分含新铸造 SKY，按协议支出/留存处理，不重复扣减净利（口径：净利 = 协议盈余）",
     }
     net_income = {
         "net_income_usd_365d": revenue_365d,
         "operating_cost_usd_365d": None,
         "calculation_note": (
-            f"协议盈余 {revenue_365d:,.0f} USD（DefiLlama dailyRevenue，已扣 DSR/SSR）；"
-            f"留存 vs 分配：留存 {retained_365d:,.0f} USD（{retain_ratio:.1%}，Surplus Buffer 国库 ≤5000 万 DAI + SBE 买 MKR 做市 LP 锁定 + farm 支出），"
-            f"分配 {burn_365d:,.0f} USD（{dist_ratio:.1%}，Elixir 真燃烧 = 销毁即股息 🟢）"
-        ),
+            f"协议盈余 {_fmt(revenue_365d)}（DefiLlama dailyRevenue，已扣 DSR/SSR）；"
+            f"留存 vs 分配：留存 {_fmt(retained_365d)}（{retain_ratio:.1%}，Surplus Buffer 国库 + 买币未销毁库存），"
+            f"分配 {_fmt(holders_365d)}（{dist_ratio:.1%}，DefiLlama holdersRevenue：买币 + 质押奖励，混合代理）"
+        ) if dist_ratio else "协议盈余口径待复算",
     }
 
-    # ── 股东回报（L3）：区分「销毁 / 留存」────────────────────────
-    destroy_yield = round(burn_365d / mcap * 100, 4) if (burn_365d and mcap) else None
+    # ── 股东回报（L3）────────────────────────────────────────────
+    holder_yield = round(holders_365d / mcap * 100, 4) if (holders_365d and mcap) else None
     by_mechanism = [
-        {"mechanism": "Elixir / SBE 真燃烧（Splitter burn → MKR LP 销毁）", "type": "destroy",
-         "usd_365d": round(burn_365d, 2) if burn_365d else None,
-         "yield_percent": destroy_yield,
-         "note": "销毁 = 股息 🟢 计入股东回报：DefiLlama dailyHoldersRevenue（= Splitter burn，SBE 真实支出，2026-03 后日均 ~$37.6k 与治理公告吻合）"},
-        {"mechanism": "Surplus Buffer 留存 + SBE 回购做市（LP 锁定）", "type": "buyback",
-         "usd_365d": None,  # 不计入股东回报，故不设数值（见 note）
-         "yield_percent": None,
-         "note": f"不计入股东回报：留存 {retained_365d:,.0f} USD（{retain_ratio:.1%}）—— Surplus Buffer 国库（≤5000 万 DAI）+ SBE 买 MKR 组 LP 做市（『回购做市』，LP 归协议锁定，非直接流向持币人）+ farm 支出"},
+        {
+            "mechanism": "SBE 回购 + 质押奖励（DefiLlama holdersRevenue 混合口径）",
+            "type": "buyback",   # 归入"回购/销毁组"（validate 重算口径 destroy|buyback）
+            "usd_365d": round(holders_365d, 2) if holders_365d else None,
+            "yield_percent": holder_yield,
+            "note": f"计入股东回报（Boss 2026-10-08 定稿）：{DL_HOLDERS_DEF}。"
+                    f"⚠️ SBE 买币自 2024-09 起为「买 SKY 交国库」（库存受治理支配、可再分配），"
+                    f"不等于销毁；只有实际 burn 才减少供应。实际买币发生额见 {ACTUAL_BUYBACK_SOURCE}",
+        },
+        {
+            "mechanism": "Surplus Buffer 留存 + 买币未销毁库存",
+            "type": "buyback",
+            "usd_365d": None,  # 不计入股东回报（未流向持币人）
+            "yield_percent": None,
+            "note": f"不计入股东回报：留存 {_fmt(retained_365d)}（{retain_ratio:.1%}）—— Surplus Buffer 国库 + "
+                    f"SBE 买币进国库（可再分配，非直接流向持币人）。按铁律「只计流向流通持币人的价值流」",
+        },
     ]
 
     holder_returns = {
         "by_mechanism": by_mechanism,
         "summary": {
-            "destroy_usd_365d": round(burn_365d, 2) if burn_365d else None,
+            # 归入"回购/销毁组"（validate 重算口径：type in destroy|buyback）
+            "destroy_usd_365d": round(holders_365d, 2) if holders_365d else None,
             "yield_usd_365d": None,
-            "destroy_yield_percent": destroy_yield,
+            "destroy_yield_percent": holder_yield,
             "yield_yield_percent": None,
-            "shareholder_returns_usd_365d": round(burn_365d, 2) if burn_365d else None,
-            "shareholder_yield_percent": destroy_yield,
+            "shareholder_returns_usd_365d": round(holders_365d, 2) if holders_365d else None,
+            "shareholder_yield_percent": holder_yield,
+            "status": "active",
+            "basis_note": "股东回报 = DefiLlama holdersRevenue（买币 × 市价 + 质押奖励，混合代理）；"
+                          "非纯销毁，SBE 买币进国库可再分配",
         },
     }
 
     # ── 派生估值（L4）──────────────────────────────────────────────
-    pe = round(mcap / burn_365d, 4) if (mcap and burn_365d) else None
+    pe = round(mcap / holders_365d, 4) if (mcap and holders_365d) else None
     ps = round(mcap / revenue_365d, 4) if (mcap and revenue_365d) else None
-    valuation = {
-        "pe": pe,
-        "ps": ps,
-        "pb": None,
-        "ev_revenue": None,
-        "payout_ratio": dist_ratio,  # 分配比例（留存 = 1 − payout）
-    }
+    valuation = {"pe": pe, "ps": ps, "pb": None, "ev_revenue": None, "payout_ratio": dist_ratio}
 
-    # ── margins ────────────────────────────────────────────────────
     margins = {
         "gross_margin_percent": round(revenue_365d / revenue_365d * 100, 4) if revenue_365d else None,
         "net_margin_percent": round(revenue_365d / revenue_365d * 100, 4) if revenue_365d else None,
@@ -138,9 +150,9 @@ def build_snapshot(proto_dir):
                 "entity_type": "app",
                 "revenue_included": revenue_included,
                 "revenue_excluded": {
-                    "surplus_buffer_retention": {"note": "Surplus Buffer 国库留存（上限 5000 万 DAI）不计入股东回报"},
-                    "sbe_market_making": {"note": "SBE 买 MKR + 等量 DAI 组 LP 做市（LP 归协议锁定，标注『回购做市』，非直接流向持币人）"},
-                    "farm_staking": {"note": "Splitter farm 部分（新铸造 SKY + USDS yield 给 SKY stakers）为协议支出，非市场回购"},
+                    "surplus_buffer_retention": {"note": "Surplus Buffer 国库留存不计入股东回报"},
+                    "sbe_buyback_to_treasury": {"note": "SBE 买 SKY 进国库（2024-09 起），可再分配，非销毁、非直接流向持币人"},
+                    "farm_staking": {"note": "Splitter farm 部分为协议支出；其中付给 stakers 的 USDS 已计入 DefiLlama holdersRevenue"},
                 },
                 "growth_yoy_percent": None,
                 "source": {
@@ -154,15 +166,12 @@ def build_snapshot(proto_dir):
             "margins": margins,
         },
         "holder_returns": holder_returns,
-        "balance_sheet": {
-            "market_cap_usd": mcap,
-            "tvl_usd": tvl,
-            "treasury_usd": None,
-            "debt_usd": None,
-        },
+        "balance_sheet": {"market_cap_usd": mcap, "tvl_usd": tvl, "treasury_usd": None, "debt_usd": None},
         "valuation": valuation,
         "verification": {
-            "method": "DefiLlama dailyHoldersRevenue 365d " + str(burn_365d) + " USD（Splitter burn/SBE 真燃烧）+ dailyRevenue 365d " + str(revenue_365d) + " USD；2026-03 治理减速后短周期 < 365d（日均 ~$37.6k）",
+            "method": f"DefiLlama dailyRevenue 365d {_fmt(revenue_365d)}；"
+                      f"holdersRevenue 365d {_fmt(holders_365d)}（买币 × 市价 + 质押奖励，混合代理）"
+                      f"；实际买币发生额另见 {ACTUAL_BUYBACK_SOURCE}",
             "status": "verified",
             "last_checked": date.today().isoformat(),
         },

@@ -1,12 +1,12 @@
 {
   "protocol": "pendle",
-  "as_of": "2026-10-07",
+  "as_of": "2026-10-08",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 18665264,
-        "total_usd_365d": 18665264
+        "protocol_fees_usd_365d": 16671938.0,
+        "total_usd_365d": 16671938.0
       },
       "revenue_excluded": {
         "lp_market_making": {
@@ -21,7 +21,7 @@
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": 18665264,
+      "gross_profit_usd_365d": 16671938.0,
       "calculation_note": "DefiLlama dailyRevenue 为协议净收入（YT 费 + Swap 费归协议），毛利 = 收入"
     },
     "token_emission_cost": {
@@ -32,7 +32,7 @@
       "calculation_note": "PENDLE 无持续大额增发（价值回馈以协议收入回购分发为主），不涉及增发成本"
     },
     "net_income": {
-      "net_income_usd_365d": 18665264,
+      "net_income_usd_365d": 16671938.0,
       "operating_cost_usd_365d": null,
       "calculation_note": "净利润 = 协议净收入；80% 回购分发 sPENDLE 计入股东回报，20% 留存 treasury"
     },
@@ -70,14 +70,14 @@
   },
   "valuation": {
     "pe": 22.1097,
-    "ps": 22.1097,
+    "ps": 24.7532,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": 1.0
+    "payout_ratio": 1.1196
   },
   "verification": {
-    "method": "净利 = DefiLlama dailyRevenue 365d $18,665,264；股东回报 = dailyHoldersRevenue 365d $18,665,264（80% 口径 🟢，sPENDLE 时代 2026-01-29 起，payout_ratio=0.8）；tev-records 365d 合计 $12,531,424 交叉核对",
+    "method": "净利 = DefiLlama dailyRevenue 365d $16,671,938；股东回报 = dailyHoldersRevenue 365d $18,665,264（80% 口径 🟢，sPENDLE 时代 2026-01-29 起，payout_ratio=0.8）；tev-records 365d 合计 $12,531,424 交叉核对",
     "status": "partial",
-    "last_checked": "2026-10-07"
+    "last_checked": "2026-10-08"
   }
 }

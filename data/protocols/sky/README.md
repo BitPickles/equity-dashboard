@@ -1,119 +1,116 @@
-# Sky (MakerDAO) TEV 数据维护说明
+# Sky (MakerDAO) 数据维护说明
 
-本文档说明 Sky（原 MakerDAO）协议的 TEV（Token Economic Value）数据如何计算、数据源、自动更新。
+本文档说明 Sky（原 MakerDAO）协议的**收入 / 净利 / 股东回报**数据如何计算、数据源、自动更新。
 
-> **品牌变化**：Maker 于 2024-08 重品牌为 Sky，MKR → SKY（1:24000 转换）。本 dashboard 继续用 MKR 作为 ticker 显示（历史连续性）；但 价值分配机制数据已对齐到 Sky 时代（Splitter/SBE）。
+> **品牌变化**：Maker 于 2024-08 重品牌为 Sky，MKR → SKY（1:24000 转换）。本 dashboard 已按 Sky 时代口径维护（Splitter / SBE / SKY stakers）。
 
----
-
-## 一、价值分配机制
-
-### Smart Burn Engine (SBE)
-
-Sky 协议盈余 → **Surplus Buffer** → **Splitter** 分流：
-
-```
-Splitter
-├── Burn 部分 → SBE（市场买 MKR + LP → LP token burn）  ← TEV
-└── Farm 部分 → SKY stakers（新铸造 SKY + USDS yield）  ← 不算 TEV
-```
-
-**为什么 Farm 部分不算 TEV**：
-- 新铸造 SKY 给 stakers 是**增发 + 分配**，不是市场回购
-- 经济上类似 inflation reward（支出性分配），对现有持有人是稀释
-- 真正对全体持有人的价值传递只有 SBE burn
-
-### SBE 如何 burn
-
-```
-Surplus DAI/USDS
-  → Flapper (Uniswap v2 MKR/DAI adapter)
-  → 市场买 MKR
-  → 和 DAI 组成 UniV2 LP
-  → LP token 发到 0xdead-style 地址（真销毁）
-```
-
-**LP token 销毁 = MKR 永久锁死在 Uniswap pool**（不是 transfer to 0xdead），这是和 Uniswap 的 A 口径的关键区别。
+> ⚠️ **2026-10-08 重大修订**：本文件旧版本（"SBE 把 LP token burn 到 0xdead = TEV"、"Farm 部分不算 TEV"）**已作废**。经 DefiLlama adapter 源码 + 实时序列核实，旧口径存在两处事实错误，本次全部更正。详见 §六。
 
 ---
 
-## 二、回报口径（2026-04-22 切换）
+## 一、价值分配机制（2026-10-08 核实版）
 
-**TEV = DefiLlama `dailyHoldersRevenue`（Sky slug）**
+Sky 协议盈余（Stability Fee 等，已扣 DSR/SSR 用户存款利息）→ **Surplus Buffer** → **Splitter** 分流：
 
-为什么：
-- 它精准反映 Splitter 的 burn 部分实际支出
-- 最近 30d 日均 $37.5k，和 2026-03 治理公告的 "$37,600/天" 完全吻合
-- 比之前的 `fixedTevUsd: $13.724M` 写死值更动态，能反映参数变化
+```
+协议盈余 (DefiLlama dailyRevenue)
+  = $201,440,351 (365d)
+        │
+        ├── Surplus Buffer 留存 ──────────────► 国库留存（70.2%，$141,389,931）
+        │                                         不计入股东回报
+        │
+        └── SBE (Smart Burn Engine) 回购支出 ──► 买入 SKY 交国库（29.8%，$60,050,420）
+                                                   计入股东回报（混合代理，见 §二）
+        └── SKY staking farm 部分 ─────────────► 付给 SKY stakers 的 USDS 奖励
+                                                   （已含在 DefiLlama holdersRevenue 内）
+```
 
-**Earning Yield = DefiLlama `dailyRevenue`**（协议归属总收入，已扣除 DSR/SSR 支出）
+### 🔑 关键更正（旧版错误）
 
-**动态 payout_ratio** = holdersRevenue / revenue ≈ 0.48（Splitter 当前 burn 比例）
+| 旧版说法 | 事实（2026-10-08 核实） |
+|---|---|
+| "SBE 市场买 MKR + LP → LP token burn（真销毁）" | **2024-09 起 SBE 是「买 SKY 交国库」**，库存受治理支配、**可再分配**，≠ 销毁。真正的 burn 事件只有 2025-06-30 一次 426,292,860.23 SKY 的**供应校正**（supply correction），不是经营性回购销毁。 |
+| "Farm 部分（付给 stakers）不算 TEV" | **错**。付给 SKY stakers 的 USDS 奖励**就是流向流通持币人的价值流**，应计入股东回报。DefiLlama `holdersRevenue` 也正是这么定义的（见 §二）。 |
+
+**依据**：DefiLlama dimension-adapters 源码 `fees/makerdao.ts`——
+```js
+addCGToken('sky', sky_buyback_24h, TokenBuyBack)      // SKY 回购
+addCGToken('usds', ..., StakingRewards)               // 付给 SKY stakers 的 USDS 奖励
+```
+即 Sky 的 `HoldersRevenue` = **SKY 回购 + SKY stakers 质押奖励**，是**混合口径**，不是"纯 burn"。
 
 ---
 
-## 三、各周期数字（2026-04-22 快照）
+## 二、回报口径（Boss 2026-10-08 定稿）
 
-| 周期 | HoldersRevenue | Revenue | Shareholder Yield | Earning Yield |
-|---|---|---|---|---|
-| 7d | $0.26M | $3.34M | 0.76% | 9.60% |
-| 30d | $1.13M | $14.25M | 0.75% | 9.55% |
-| 90d | $15.63M | $48.95M | 3.49% | 10.94% |
-| **365d** | $120.90M | $250.28M | **6.66%** | **13.79%** |
+**股东回报 = DefiLlama `dailyHoldersRevenue`（sky slug）** — 维持 DefiLlama 混合代理口径
 
-**短周期 TEV < 365d TEV** 反映 2026-03 治理减速——这不是"价值损失"，是"burn 速度调整"。
+- **含义**：SKY 回购（买币数量 × 当日市价）**+** 付给 SKY stakers 的 USDS 质押奖励
+- **性质**：**混合代理（mixed proxy）**——既非纯现金支出，也非纯销毁。前端与详情页必须显著标注，不得表述为"销毁"。
+- **收入（Earning）= DefiLlama `dailyRevenue`**：协议归属总收入（已扣 DSR/SSR）
+- **payout_ratio** = holdersRevenue / revenue ≈ **0.2981**（2026-10-08）
+
+### D3 决策：保留但重标注 + 单列实际买币额
+
+Boss 决策（2026-10-08）：
+- ✅ **保留** DefiLlama `holdersRevenue` 作为股东回报口径（因为它是唯一覆盖"回购 + 质押奖励"双流的数据）
+- ✅ **重标注**：全部文案明确写"混合代理，非纯销毁"；删除所有"真燃烧 / LP burn"表述
+- ✅ **单列实际买币发生额**：财报页另附 **实际 SBE 买币金额**（来源 https://info.sky.money/buyback），与混合口径金额并行展示，让用户看到"其中真正回购了多少"
+
+---
+
+## 三、当前数字（2026-10-08 快照）
+
+| 项目 | 数值 | 来源 |
+|---|---|---|
+| 协议收入 365d | **$201,440,351** | DefiLlama `dailyRevenue` |
+| 净利润 365d | **$201,440,351** | 协议盈余（CDP 无 LP 分润，毛利=净利） |
+| 股东回报 365d | **$60,050,420** | DefiLlama `dailyHoldersRevenue`（混合代理） |
+| 股东回报率 365d | **2.8682%** | 60,050,420 / 市值 |
+| payout_ratio | **0.2981** | 60,050,420 / 201,440,351 |
+| P/S | 10.3935 | 市值 / 收入 |
+| P/E | 34.8651 | 市值 / 净利 |
+| 留存 365d | $141,389,931（70.2%） | 收入 − 股东回报 |
 
 ---
 
 ## 四、数据源与自动化
 
-| 数据 | 来源 | 波动 | 维护 |
+| 数据 | 来源 | 频率 | 维护 |
 |---|---|---|---|
-| HoldersRevenue (TEV) | DefiLlama `sky` slug `dailyHoldersRevenue` | 每日 | sync-tev-data.js Sky 专属分支 |
-| Revenue (Earning) | DefiLlama `sky` slug `dailyRevenue` | 每日 | sync-tev-data.js |
-| 市值 / 价格 | CoinGecko `maker` / CMC `sky` | 每日 | sync-tev-data.js |
-| 链上 SBE 校验 | **未实现**（新 Flapper 地址未公开追踪）| — | 待做 |
+| 股东回报 (holdersRevenue) | DefiLlama `summary/fees/sky?dataType=dailyHoldersRevenue` | 每日 | `scripts/sync-holders-revenue.py`（daily-run.sh 步骤 2.5） |
+| 收入 (dailyRevenue) | DefiLlama `summary/fees/sky?dataType=dailyRevenue` | 每日 | 同上 |
+| 实际买币发生额 | https://info.sky.money/buyback | 手动核对 | 季度复核 |
+| 市值 / 价格 | CoinGecko id = `sky` | 每日 | update-prices.py（main 分支） |
+
+**根因修复（2026-10-08）**：旧版 adapter 读取的 `all-protocols.json` `metrics.trailing_*` 字段自 ~2026-08-02 起**不再被重算**（旧 `sync-tev-data.js` 停用），导致 snapshot 永久冻结在 08-02 数值。现由 `sync-holders-revenue.py` 在每日流水线中重算这些字段（步骤 2.5），adapter 再据此产出 snapshot。
 
 ---
 
 ## 五、为什么不做严格链上（像 Uniswap 那样）
 
-Uniswap 的 A 口径直查 0xdead 接收的 UNI——简单直接。
+- MKR/SKY @ 0xdead 历史上几乎为 0（无真 burn 到 0xdead）
+- SBE 自 2024-09 起是**买币进国库**，不是销毁——链上"销毁地址"路径不成立
+- 要做严格链上需追踪 SBE 收款地址的买入交易（info.sky.money/buyback 已公开），工作量大且 DefiLlama 已足够贴近
 
-Sky 不能这么做：
-- **MKR @ 0xdead 过去 365d 只有 0.0001 MKR**（几乎为 0）
-- **SKY @ 0xdead 只有 4.82 SKY**
-- 说明 SBE **不把 MKR burn 到 0xdead**，而是 burn LP token
-
-真正要追链上需要：
-1. 新 Flapper 合约地址（已迁移到哪个不公开）
-2. 追踪 LP token 的 transfer 到 burn 地址
-3. 核对 LP token 对应的 MKR + DAI 价值
-
-工作量大，且 DefiLlama 已经准确（和治理公告吻合 <1% 误差）。采用 DefiLlama 是合理权衡。
-
-如果未来 Boss 要求严格链上，需要：
-- 从 Sky forum 或 makerburn.com 找当前 active Flapper 地址
-- 写脚本追踪 Flapper 的 DAI/USDS 流出
+**权衡**：采用 DefiLlama 混合代理 + 前端重标注 + 单列实际买币额（D3）。若未来 Boss 要求严格链上回购追踪，再迁移到 SBE 地址逐笔解析。
 
 ---
 
 ## 六、历史口径变更
 
-- 2026-04-22: 从 `fixedTevUsd: $13.724M`（写死）改为动态 `dailyHoldersRevenue`；payout_ratio 从 0.7 静态改为动态计算（当前 ~0.483）
-- 2026-03: SBE 治理减速生效（$300k/天 → $37.6k/天，-87.5%）
-- 2024-08: Maker 重品牌为 Sky，MKR → SKY 1:24000 转换
+- **2026-10-08**：更正两处事实错误（SBE 非真 burn / 质押奖励应收录）；口径改为 DefiLlama 混合代理 + 重标注 + 单列实际买币额
+- 2026-04-22：从 `fixedTevUsd: $13.724M`（写死）改为动态 `dailyHoldersRevenue`
+- 2026-03：SBE 治理减速（$300k/天 → $37.6k/天）
+- 2024-09：SBE 由"销毁"改为"买 SKY 交国库"（可再分配）
+- 2024-08：Maker 重品牌为 Sky，MKR → SKY 1:24000
 
 ---
 
 ## 七、调试
 
 ```bash
-# 重跑 sky yield
-cd ~/.openclaw/workspace-engineer/tev-dashboard
-node scripts/sync-tev-data.js sky
-
-# 查 DefiLlama 口径（快速校验）
+# 查 DefiLlama 三口径（快速校验）
 for dt in dailyFees dailyRevenue dailyHoldersRevenue; do
   curl -s "https://api.llama.fi/summary/fees/sky?dataType=$dt" \
     | python3 -c "
@@ -124,14 +121,13 @@ for N in [7,30,90,365]:
 "
 done
 
-# 查当前主表数字
+# 查当前 snapshot
 python3 -c "
 import json
-d=json.load(open('data/all-protocols.json'))['protocols']['sky']
-print('TEV 365d:', d['shareholder_yield_percent'])
-print('Earning 365d:', d['total_yield_percent'])
-print('payout_ratio:', d['payout_ratio'])
-print('validation:', json.dumps(d.get('validation', {}), indent=2, ensure_ascii=False))
+d=json.load(open('data/snapshots/sky.json'))
+print('股东回报率:', d['holder_returns']['summary']['shareholder_yield_percent'])
+print('状态:', d['holder_returns']['summary']['status'])
+print('收入 365d:', d['income_statement']['revenue']['revenue_included']['total_usd_365d'])
 "
 ```
 
@@ -139,20 +135,14 @@ print('validation:', json.dumps(d.get('validation', {}), indent=2, ensure_ascii=
 
 ## 八、手动介入触发条件
 
-### 1. Splitter 参数再次调整
-
+### 1. Splitter / SBE 参数再次调整
 **症状**：`dailyHoldersRevenue` 7d/30d 日均突然跳变
+**处理**：查 forum.sky.money 治理投票，更新 config.json 的 analyst_notes。
 
-**处理**：查 forum.sky.money 的最新治理投票，更新 analyst_notes 的"历史口径变更"段。
-
-### 2. MKR → SKY 完全转换完成
-
-**症状**：MKR 流通量归零或治理投票弃用 MKR
-
-**处理**：改 `config.json` 的 ticker 从 MKR → SKY，检查 CoinGecko/CMC slug 是否需调整。
+### 2. SBE 恢复"真销毁"（治理变更）
+**症状**：治理公告宣布 SBE 重新销毁而非进国库
+**处理**：把股东回报口径从"混合代理"升级为"含销毁"，前端文案相应调整。
 
 ### 3. DefiLlama 口径变化
-
-**症状**：`dailyHoldersRevenue` 和链上 SBE 实际支出（链上可观察到 Flapper 调用）偏差扩大
-
-**处理**：核对 DefiLlama 方法学变更，如偏差持续 >10%，考虑迁移到链上 Flapper 追踪。
+**症状**：`dailyHoldersRevenue` 与 info.sky.money/buyback 实际买币额偏差扩大
+**处理**：核对 DefiLlama 方法学变更；若偏差持续 >10%，考虑迁移到 SBE 地址链上追踪。

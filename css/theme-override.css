@@ -767,6 +767,13 @@ a.yt-banner-btn:hover,
   letter-spacing: 0.04em;
 }
 
+/* 暂停状态（如 AAVE 回购 2026-04-19 起暂停）—— 琥珀色提示 */
+.mechanism-status.status-paused,
+.mechanism-status.status-PAUSED {
+  background: rgba(245, 158, 11, 0.15) !important;
+  color: #f59e0b !important;
+}
+
 .tev-value {
   font-size: clamp(28px, 4vw, 40px) !important;
   letter-spacing: -0.04em !important;

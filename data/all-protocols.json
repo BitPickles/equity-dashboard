@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-07T00:14:46.454697+00:00",
+  "generated_at": "2026-10-08T06:41:53.568531+00:00",
   "protocols": {
     "aave": {
       "name": "Aave",
@@ -11,23 +11,23 @@
         "zh": "治理提案 AIP-1 明确年回购预算，链上可追踪",
         "en": "AIP-1 governance proposal with fixed annual buyback budget, on-chain trackable"
       },
-      "return_status": "active",
-      "shareholder_yield_percent": 1.0837,
+      "return_status": "paused",
+      "shareholder_yield_percent": 0,
       "market_cap_usd": 2768368469,
       "tvl": 24631521067.11426,
-      "payout_ratio": 0.2598,
-      "total_yield_percent": 4.1707,
-      "payout_ratio_note": "回购 ($50M/年) + Safety Module 质押奖励",
+      "payout_ratio": 0,
+      "total_yield_percent": 3.3372,
+      "payout_ratio_note": "回购预算 $30M/年（2026-04-19 起暂停，已实现=0）",
       "metrics": {
         "current_market_cap_usd": 2768368469,
-        "trailing_365d_revenue_usd": 115460247,
-        "trailing_30d_revenue_usd": 3825124,
+        "trailing_365d_revenue_usd": 92387330.0,
+        "trailing_30d_revenue_usd": 4954642.0,
         "trailing_365d_shareholder_returns_usd": 30000000,
         "trailing_30d_shareholder_returns_usd": 2500000,
-        "trailing_365d_holders_revenue_usd": 42212267,
-        "trailing_30d_holders_revenue_usd": 6155965,
-        "trailing_7d_revenue_usd": 939246,
-        "trailing_90d_revenue_usd": 15130849,
+        "trailing_365d_holders_revenue_usd": 18869659.0,
+        "trailing_30d_holders_revenue_usd": 0.0,
+        "trailing_7d_revenue_usd": 1196242.0,
+        "trailing_90d_revenue_usd": 13516469.0,
         "shareholder_yield_7d_ann": 1.67,
         "shareholder_yield_30d_ann": 1.67,
         "shareholder_yield_90d_ann": 1.83,
@@ -40,8 +40,11 @@
         "buyback_yield_30d_ann": 1.67,
         "dividend_yield_90d_ann": 0.16,
         "buyback_yield_90d_ann": 1.67,
-        "shareholder_yield_365d_ann": 1.0837,
-        "current_price_usd": 179.34
+        "shareholder_yield_365d_ann": 0,
+        "current_price_usd": 179.34,
+        "trailing_90d_holders_revenue_usd": 0.0,
+        "revenue_source": "defillama_dailyRevenue",
+        "holders_revenue_source": "defillama_dailyHoldersRevenue"
       },
       "payout_ratio_7d": 0.614,
       "payout_ratio_30d": 0.6448,
@@ -59,27 +62,29 @@
           "Safety Module 分发是脉冲式（每 1-2 周一次大包），短周期窗口可能为 0",
           "最近 50+ 天 SM = $0，可能 Umbrella 新合约 DefiLlama 追踪滞后，或真的暂停分发",
           "链上 AAVE @ 0xdead 365d = 0.0001 AAVE（没有真销毁，符合 treasury buyback 模式）"
-        ]
+        ],
+        "holders_30d_usd": 0.0,
+        "holders_90d_usd": 0.0,
+        "holders_365d_usd": 18869659.0
       },
       "return_mechanisms": [
         {
           "type": "buyback",
-          "name": "AAVE Buyback Program",
-          "description": "Aave DAO 每年拨出 $50M 预算用于回购 AAVE",
-          "status": "active",
+          "name": "AAVE 回购计划（2026-04-19 起暂停）",
+          "description": "年度预算 $30M/年（2026-03 治理由 $50M 下调，完整预算载荷链未锁定）；回购页面自 2026-04-19 起 Paused，**已实现 = 0**。买入 AAVE → Ecosystem Reserve（treasury 累积，非真 burn，治理可 redistribute）",
+          "status": "paused",
           "start_date": "2024-07-25",
-          "annual_budget_usd": 50000000,
+          "annual_budget_usd": 30000000,
           "source": {
             "type": "governance",
-            "title": "Aavenomics Update - Part 1",
-            "url": "https://governance.aave.com/t/arfc-aavenomics-implementation-part-one/18937",
-            "proposal_id": "AIP-73"
+            "title": "Aavenomics Implementation - Part One (AIP-73)",
+            "url": "https://governance.aave.com/t/arfc-aavenomics-implementation-part-one/18937"
           }
         },
         {
           "type": "staking_reward",
-          "name": "Safety Module (Umbrella)",
-          "description": "质押 AAVE 到 Safety Module 获得协议收入分成作为风险补偿",
+          "name": "Safety Module / Umbrella 质押奖励",
+          "description": "质押 AAVE 到 Safety Module / Umbrella 获得风险补偿；归属待定（当前未计入股东回报主数字）。旧 stkAAVE 合约 0x4da2…70f5，Umbrella（2025-06-05 上线）已替代",
           "status": "active",
           "contract": "0x4da27a545c0c5B758a6BA100e3a049001de870f5",
           "start_date": "2020-09-01"
@@ -87,45 +92,45 @@
       ],
       "return_summary": {
         "fee_switch": "ON",
-        "fee_switch_details": "$50M 年度回购预算",
-        "buybacks": "ACTIVE",
+        "fee_switch_details": "回购预算 $30M/年（2026-03 治理）——但自 2026-04-19 起暂停，已实现 = 0",
+        "buybacks": "PAUSED",
         "dividends": "NONE",
         "burns": "NONE",
-        "primary_value_accrual": "回购 ($50M/年) + Safety Module 质押奖励"
+        "primary_value_accrual": "回购（暂停中）—— 暂停期无实际买盘；历史回购为 treasury 累积（非销毁）"
       },
       "analyst_notes": "【2026-04-22 更新 - 双源 TEV + 各周期独立】\n\n## TEV 机制（双源组合）\n\nAave 的 TEV 由两个独立机制组成，各周期独立累加：\n\n### 1. 年度 Buyback（$30M/年，2026-03 治理）\n\n- **来源**：AIP-73 \"Aavenomics Update Part 1\" 设立年度 AAVE 回购预算\n- **2026-03 治理**：从 $50M 下调至 $30M（99.37% 通过，需核实具体 AIP 号）\n- **执行**：TokenLogic / Aave Finance Committee 用 DAO 财库 USDC/GHO 市场买入 AAVE\n- **⚠️ 关键 caveats**：\n  - 买到的 AAVE 进入 **Ecosystem Reserve** (`0x25F2...6491`) 和 AFC multisig\n  - **不是真 burn，是 treasury accumulation**，类似 Hyperliquid AF\n  - 治理可 redistribute（一部分会用于 Umbrella stakers 激励 / contributor grants）\n  - 链上验证：过去 365d AAVE → 0xdead = 0.0001 AAVE（确认不 burn）\n\n### 2. Safety Module (Umbrella) holders revenue\n\n- **来源**：协议 reserve factor 收入 + liquidation fees 分成\n- **数据源**：DefiLlama `dailyHoldersRevenue`（近 365d 合计 $40.29M）\n- **特点**：**脉冲式分发**——每 1-2 周一次大包（$200k~$6M），其他天为 0\n- **Umbrella 迁移**：2025 年中 Umbrella 合约替代旧 stkAAVE (`0x4da2...70f5`)\n- **⚠️ 最近 50+ 天 SM = $0**：可能是 Umbrella 新合约 DefiLlama 追踪滞后，或真的暂停分发（需进一步核实）\n\n## TEV 公式（各周期独立）\n\n```\nTEV_Nd = $30M (固定 Buyback) + (DefiLlama holdersRevenue 近 N 天累加 × 365/N)\n      ÷ marketCap × 年化\n```\n\n- 7/30/90d：holdersRevenue 按窗口累加后年化\n- 365d：holdersRevenue 365d 直接累计（不需年化）\n\n## 方案 A 选择的代价\n\n短周期（7d/30d）窗口碰巧没抓到 SM 分发大包 → TEV 显示只剩 $30M buyback，yield 降至 1.67%。\n\n这**反映的是\"Safety Module 分发周期\"而非\"价值下降\"**。用户需理解：\n- Aave 的 SM 分发不是每天——是治理节奏\n- 最近 50 天没分发，可能正常（迁移期）也可能异常\n\n长周期（365d）能稳定反映全年实际分发总额，更接近\"稳态 TEV\"。\n\n## 当前数字（2026-04-22 快照）\n\n| 周期 | Buyback | SM | Total TEV | Yield | Earning Yield | 分配率 |\n|------|---------|-----|-----------|-------|---------------|--------|\n| 7d   | $30M    | $0  | $30M      | 1.67% | 8.65%         | 19%    |\n| 30d  | $30M    | $0  | $30M      | 1.67% | 5.18%         | 32%    |\n| 90d  | $30M    | $27.4M 年化 | $57M | 3.19% | 5.63%   | 57%    |\n| 365d | $30M    | $40.29M | $70M    | 3.91% | 6.91%         | 57%    |\n\n## 数据源\n\n- DefiLlama: `https://api.llama.fi/summary/fees/aave?dataType=dailyHoldersRevenue`（SM）\n- DefiLlama: `https://api.llama.fi/summary/fees/aave?dataType=dailyRevenue`（协议 reserve factor）\n- 官方 Buyback 仪表盘：https://aave.tokenlogic.xyz（手动核对用）\n- Buyback 执行合约：待核实（可能是 AFC Safe）\n\n## 历史口径变更\n\n- 2026-04-22: 从单一 fixedTevUsd $30M 改为双源组合（Buyback + SM holdersRevenue 按周期）；明确 buyback 是 treasury-accumulated 非 burn；加 caveats；payout_ratio 按周期独立\n- 2026-03: 治理把 buyback 从 $50M → $30M\n- 2024-07-25: AIP-73 启动 Aavenomics buyback\n- 2020-09-01: Safety Module 上线（老 stkAAVE）",
       "notes": "Aave 在 2024 年通过 Aavenomics 升级开启了代币回购机制。TEV 来源：Safety Module 质押奖励 + 年度回购。",
       "last_updated": "2026-10-07",
       "dividend_yield_percent": null,
-      "buyback_yield_percent": 1.0837,
+      "buyback_yield_percent": 0,
       "style": "cash_cow",
       "financial_snapshot": {
         "entity_type": "app",
-        "revenue_usd_365d": 115460247,
+        "revenue_usd_365d": 92387330.0,
         "revenue_included": {
           "protocol_fees_usd_365d": 115460247,
           "total_usd_365d": 115460247
         },
-        "gross_profit_usd_365d": 115460247,
+        "gross_profit_usd_365d": 92387330.0,
         "lp_share_cost_usd_365d": 73247980,
         "emission_cost_usd_365d": null,
         "emission_treatment": "none",
-        "net_income_usd_365d": 115460247,
+        "net_income_usd_365d": 92387330.0,
         "gross_margin_percent": 100.0,
         "net_margin_percent": 100.0,
         "growth_yoy_percent": null,
-        "pe": 92.2789,
-        "ps": 23.9768,
+        "pe": null,
+        "ps": 29.9648,
         "pb": null,
         "ev_revenue": null,
-        "payout_ratio": 0.2598,
-        "shareholder_returns_usd_365d": 30000000,
+        "payout_ratio": 0,
+        "shareholder_returns_usd_365d": 0.0,
         "verification_status": "verified",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
-      "revenue_usd_365d": 115460247,
-      "gross_profit_usd_365d": 115460247,
-      "net_income_usd_365d": 115460247,
+      "revenue_usd_365d": 92387330.0,
+      "gross_profit_usd_365d": 92387330.0,
+      "net_income_usd_365d": 92387330.0,
       "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
       "entity_type": "app"
@@ -251,7 +256,7 @@
         "payout_ratio": 0.99,
         "shareholder_returns_usd_365d": 91262763.16,
         "verification_status": "verified",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
       "revenue_usd_365d": 92184609.25,
       "gross_profit_usd_365d": 92184609.25,
@@ -349,7 +354,7 @@
         "payout_ratio": 1.0,
         "shareholder_returns_usd_365d": 27700000,
         "verification_status": "estimated",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
       "revenue_usd_365d": 27700000,
       "gross_profit_usd_365d": 27700000,
@@ -373,11 +378,11 @@
         "en": "Auto-Burn fully verifiable on-chain (0xdead + BEP-95), asBNB from on-chain StakeHub contract"
       },
       "return_status": "active",
-      "shareholder_yield_percent": 11.3906,
+      "shareholder_yield_percent": 11.3902,
       "market_cap_usd": 103719831352,
       "tvl": 5387604237.313377,
       "payout_ratio": 1.0,
-      "total_yield_percent": 11.3906,
+      "total_yield_percent": 11.3902,
       "validation": {
         "method": "Auto-Burn（短周期=近4季USD累加；365d=近4季BNB×当前价）+ BEP-95（按窗口从日时间序列计算）+ asBNB APY (Aster)",
         "burn_apy_percent": 4.42,
@@ -435,7 +440,7 @@
         "buyback_yield_30d_ann": 20.28,
         "dividend_yield_90d_ann": 6.87,
         "buyback_yield_90d_ann": 10.66,
-        "shareholder_yield_365d_ann": 11.3906,
+        "shareholder_yield_365d_ann": 11.3902,
         "current_market_cap_usd": 103719831352,
         "current_price_usd": 778.91
       },
@@ -499,37 +504,37 @@
       "analyst_notes": "【2026-04-19 更新 - BEP-95 时间序列】\n\n## BNB TEV 计算方法\n\n采用 **Auto-Burn + BEP-95 + asBNB** 三源组合，每项按下表规则取值：\n\n| 展示周期 | Auto-Burn | BEP-95 | asBNB |\n|---------|-----------|--------|-------|\n| 7d  | 近 4 季 USD 历史累加 | 近 7 天 BNB × 52 × 当前价 | 6.87% |\n| 30d | 近 4 季 USD 历史累加 | 近 30 天 BNB × 365/30 × 当前价 | 6.87% |\n| 90d | 近 4 季 USD 历史累加 | 近 90 天 BNB × 365/90 × 当前价 | 6.87% |\n| 365d | 近 4 季 BNB × 当前价（重估） | 近 365 天 BNB × 当前价（无年化） | 6.87% |\n\nTEV Yield = (Auto-Burn USD + BEP-95 USD) ÷ 市值 + asBNB APY\n\n### BEP-95 数据源（2026-04-19 升级）\n\n- **种子**：Dune Analytics `bnb.traces` query（dead address 入金 < 10万 BNB 的部分，排除 Auto-Burn 大额）\n- **初始范围**：2025-03-14 → 2026-04-18（401 天）\n- **增量更新**：`scripts/fetch-bep95-daily.py`（TODO，待做）每日从 BSC RPC 拉新日数据 append\n- **存储**：`data/protocols/bnb/bep95-history.json`\n\n### Auto-Burn 双口径\n\n- **短周期（7/30/90d）** = 近 4 季 burn 的 `usd_value` 直接累加（每次 burn 公告时的历史 USD 值）\n  → 相当于官方披露的『过去一年累计销毁金额』，burn 发生时锁定\n- **365d** = 近 4 季 burn `bnb_burned` 合计 × 当前价\n  → 按当前市价重估的『过去一年年化』\n- 两者差异 = BNB 价格相对历史均价的变动\n\n### 为什么 BEP-95 各周期不同？\n\n BEP-95 是每区块持续销毁（链上 gas fee 的一部分）。7 天、30 天、90 天内的销毁量反映的是**不同时间段的链上活跃度**。高活跃期（如 10 月 ALT 季）日销毁可达 500+ BNB，平时 40-60 BNB。通过时间序列能真实反映。\n\n### 历史口径变更\n\n- 2026-04-19 (v4): BEP-95 升级为日时间序列（Dune seed + 日累积），各周期真正波动\n- 2026-04-19 (v3): 短周期 Auto-Burn 改为 USD 历史累加\n- 2026-04-19 (v2): 尝试『上次 burn × 4』作为短周期年化（Boss 否决）\n- 2026-04-19 (v1): 所有周期同值（Boss 否决）\n- 2026-03-01: 从 slisBNB 单一 proxy 改为 Burn + asBNB 双源",
       "last_updated": "2026-10-07",
       "dividend_yield_percent": 6.87,
-      "buyback_yield_percent": 4.5206,
+      "buyback_yield_percent": 4.5202,
       "style": "cash_cow",
       "financial_snapshot": {
         "entity_type": "platform_token",
-        "revenue_usd_365d": 11814361374.28,
+        "revenue_usd_365d": 11813868479.91,
         "revenue_included": {
           "burn_usd_365d": 4297800679.14,
           "staking_rewards_usd_365d": 5283891276.03,
           "launchpad_launchpool_usd_365d": null,
           "total_usd_365d": 9581691955.17
         },
-        "gross_profit_usd_365d": 11814361374.28,
+        "gross_profit_usd_365d": 11813868479.91,
         "lp_share_cost_usd_365d": null,
         "emission_cost_usd_365d": null,
         "emission_treatment": "none",
-        "net_income_usd_365d": 11814361374.28,
+        "net_income_usd_365d": 11813868479.91,
         "gross_margin_percent": 100.0,
         "net_margin_percent": 100.0,
         "growth_yoy_percent": null,
-        "pe": 8.7791,
-        "ps": 8.7791,
+        "pe": 8.7795,
+        "ps": 8.7795,
         "pb": null,
         "ev_revenue": null,
         "payout_ratio": 1.0,
-        "shareholder_returns_usd_365d": 11814361374.28,
+        "shareholder_returns_usd_365d": 11813868479.91,
         "verification_status": "verified",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
-      "revenue_usd_365d": 11814361374.28,
-      "gross_profit_usd_365d": 11814361374.28,
-      "net_income_usd_365d": 11814361374.28,
+      "revenue_usd_365d": 11813868479.91,
+      "gross_profit_usd_365d": 11813868479.91,
+      "net_income_usd_365d": 11813868479.91,
       "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
       "entity_type": "platform_token"
@@ -611,7 +616,7 @@
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
       "revenue_usd_365d": 216668,
       "gross_profit_usd_365d": 216668,
@@ -638,15 +643,15 @@
       "total_yield_percent": 2.7546,
       "payout_ratio_note": "DAO 收入分配：约 90% -> veCRV, 10% -> Treasury（FeeAllocator），scrvUSD 流向比例动态 5%-50%（FeeSplitter）",
       "metrics": {
-        "trailing_365d_revenue_usd": 15335813,
-        "trailing_365d_holders_revenue_usd": 13304425,
-        "trailing_30d_revenue_usd": 4716138,
-        "trailing_30d_holders_revenue_usd": 691740,
+        "trailing_365d_revenue_usd": 26982064.0,
+        "trailing_365d_holders_revenue_usd": 26506359.0,
+        "trailing_30d_revenue_usd": 1672276.0,
+        "trailing_30d_holders_revenue_usd": 1638452.0,
         "current_market_cap_usd": 566534316,
         "trailing_365d_shareholder_returns_usd": 15335813,
         "trailing_30d_shareholder_returns_usd": 721543.5833333334,
-        "trailing_7d_revenue_usd": 200990,
-        "trailing_90d_revenue_usd": 8227226,
+        "trailing_7d_revenue_usd": 364562.0,
+        "trailing_90d_revenue_usd": 3716914.0,
         "shareholder_yield_7d_ann": 3.31,
         "shareholder_yield_30d_ann": 18.11,
         "shareholder_yield_90d_ann": 10.53,
@@ -660,7 +665,10 @@
         "dividend_yield_90d_ann": 10.53,
         "buyback_yield_90d_ann": 0,
         "shareholder_yield_365d_ann": 2.7546,
-        "current_price_usd": 0.360417
+        "current_price_usd": 0.360417,
+        "trailing_90d_holders_revenue_usd": 3578993.0,
+        "revenue_source": "defillama_dailyRevenue",
+        "holders_revenue_source": "defillama_dailyHoldersRevenue"
       },
       "validation": {
         "method": "Community Fund Treasury crvUSD inflow × 9 (FeeAllocator 90/10)",
@@ -677,7 +685,10 @@
           "老 3CRV FeeDistributor 0xA464... 已基本停转, 现在 crvUSD 主导",
           "yield_nominal = TEV / CRV 全市值（裸 CRV 持有人不参与, 此值低估 veCRV 真实 yield）",
           "yield_vecrv_only = TEV / veCRV TVL（更接近实际锁仓持有人收益, 但 veCRV 无市价, 用 CRV × 锁仓量估算）"
-        ]
+        ],
+        "holders_30d_usd": 1638452.0,
+        "holders_90d_usd": 3578993.0,
+        "holders_365d_usd": 26506359.0
       },
       "return_mechanisms": [
         {
@@ -737,7 +748,7 @@
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 15605589,
         "verification_status": "verified",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
       "revenue_usd_365d": 15605589,
       "gross_profit_usd_365d": 15605589,
@@ -760,17 +771,17 @@
       "shareholder_yield_percent": 1.3636,
       "market_cap_usd": 121227297,
       "tvl": 158666696.85028014,
-      "payout_ratio": 0.1941,
-      "total_yield_percent": 7.0266,
+      "payout_ratio": 0.3069,
+      "total_yield_percent": 4.4432,
       "payout_ratio_note": "回购 - 75% 净协议费用用于 DYDX 回购",
       "metrics": {
         "current_market_cap_usd": 121227297,
-        "trailing_365d_revenue_usd": 8518106,
-        "trailing_30d_revenue_usd": 281440,
+        "trailing_365d_revenue_usd": 5386363.0,
+        "trailing_30d_revenue_usd": 279826.0,
         "trailing_365d_shareholder_returns_usd": 8518106,
         "trailing_30d_shareholder_returns_usd": 709842.1666666666,
-        "trailing_7d_revenue_usd": 35124,
-        "trailing_90d_revenue_usd": 658158,
+        "trailing_7d_revenue_usd": 48670.0,
+        "trailing_90d_revenue_usd": 767835.0,
         "shareholder_yield_7d_ann": 1.92,
         "shareholder_yield_30d_ann": 3.59,
         "shareholder_yield_90d_ann": 2.8,
@@ -784,7 +795,12 @@
         "dividend_yield_90d_ann": 2.8,
         "buyback_yield_90d_ann": 0,
         "shareholder_yield_365d_ann": 1.3636,
-        "current_price_usd": 0.143268
+        "current_price_usd": 0.143268,
+        "trailing_30d_holders_revenue_usd": 279826.0,
+        "trailing_90d_holders_revenue_usd": 767835.0,
+        "trailing_365d_holders_revenue_usd": 5386363.0,
+        "revenue_source": "defillama_dailyRevenue",
+        "holders_revenue_source": "defillama_dailyHoldersRevenue"
       },
       "return_mechanisms": [
         {
@@ -822,34 +838,39 @@
       "style": "cash_cow",
       "financial_snapshot": {
         "entity_type": "app",
-        "revenue_usd_365d": 8518106,
+        "revenue_usd_365d": 5386363.0,
         "revenue_included": {
           "protocol_fees_usd_365d": 8518106,
           "total_usd_365d": 8518106
         },
-        "gross_profit_usd_365d": 8518106,
+        "gross_profit_usd_365d": 5386363.0,
         "lp_share_cost_usd_365d": 0,
         "emission_cost_usd_365d": null,
         "emission_treatment": "none",
-        "net_income_usd_365d": 8518106,
+        "net_income_usd_365d": 5386363.0,
         "gross_margin_percent": 100.0,
         "net_margin_percent": 100.0,
         "growth_yoy_percent": null,
         "pe": 73.3333,
-        "ps": 14.2317,
+        "ps": 22.5063,
         "pb": null,
         "ev_revenue": null,
-        "payout_ratio": 0.1941,
+        "payout_ratio": 0.3069,
         "shareholder_returns_usd_365d": 1653099.5,
         "verification_status": "partial",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
-      "revenue_usd_365d": 8518106,
-      "gross_profit_usd_365d": 8518106,
-      "net_income_usd_365d": 8518106,
+      "revenue_usd_365d": 5386363.0,
+      "gross_profit_usd_365d": 5386363.0,
+      "net_income_usd_365d": 5386363.0,
       "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
-      "entity_type": "app"
+      "entity_type": "app",
+      "validation": {
+        "holders_30d_usd": 279826.0,
+        "holders_90d_usd": 767835.0,
+        "holders_365d_usd": 5386363.0
+      }
     },
     "eigenlayer": {
       "name": "EigenLayer",
@@ -870,12 +891,12 @@
       "payout_ratio_note": "纯治理代币 - EIGEN 目前仅用于治理，无收入分配机制",
       "metrics": {
         "current_market_cap_usd": 244806545,
-        "trailing_365d_revenue_usd": 0,
-        "trailing_30d_revenue_usd": 0,
+        "trailing_365d_revenue_usd": 0.0,
+        "trailing_30d_revenue_usd": 0.0,
         "trailing_365d_shareholder_returns_usd": 0,
         "trailing_30d_shareholder_returns_usd": 0,
-        "trailing_7d_revenue_usd": 0,
-        "trailing_90d_revenue_usd": 0,
+        "trailing_7d_revenue_usd": 0.0,
+        "trailing_90d_revenue_usd": 0.0,
         "shareholder_yield_7d_ann": 0,
         "shareholder_yield_30d_ann": 0,
         "shareholder_yield_90d_ann": 0,
@@ -889,7 +910,12 @@
         "dividend_yield_90d_ann": 0,
         "buyback_yield_90d_ann": 0,
         "shareholder_yield_365d_ann": 0,
-        "current_price_usd": 0.252614
+        "current_price_usd": 0.252614,
+        "trailing_30d_holders_revenue_usd": 0.0,
+        "trailing_90d_holders_revenue_usd": 0.0,
+        "trailing_365d_holders_revenue_usd": 0.0,
+        "revenue_source": "defillama_dailyRevenue",
+        "holders_revenue_source": "defillama_dailyHoldersRevenue"
       },
       "return_mechanisms": [],
       "return_summary": {
@@ -908,16 +934,16 @@
       "style": "growth",
       "financial_snapshot": {
         "entity_type": "app",
-        "revenue_usd_365d": 0,
+        "revenue_usd_365d": 0.0,
         "revenue_included": {
           "protocol_fees_usd_365d": null,
           "total_usd_365d": null
         },
-        "gross_profit_usd_365d": 0,
+        "gross_profit_usd_365d": 0.0,
         "lp_share_cost_usd_365d": null,
         "emission_cost_usd_365d": null,
         "emission_treatment": "none",
-        "net_income_usd_365d": 0,
+        "net_income_usd_365d": 0.0,
         "gross_margin_percent": null,
         "net_margin_percent": null,
         "growth_yoy_percent": null,
@@ -928,14 +954,19 @@
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
-      "revenue_usd_365d": 0,
-      "gross_profit_usd_365d": 0,
-      "net_income_usd_365d": 0,
+      "revenue_usd_365d": 0.0,
+      "gross_profit_usd_365d": 0.0,
+      "net_income_usd_365d": 0.0,
       "net_margin_percent": null,
       "growth_yoy_percent": null,
-      "entity_type": "app"
+      "entity_type": "app",
+      "validation": {
+        "holders_30d_usd": 0.0,
+        "holders_90d_usd": 0.0,
+        "holders_365d_usd": 0.0
+      }
     },
     "ethena": {
       "name": "Ethena",
@@ -952,7 +983,7 @@
       "market_cap_usd": 3217565380,
       "tvl": 6677560266.30153,
       "payout_ratio": 0,
-      "total_yield_percent": 8.0169,
+      "total_yield_percent": 8.0182,
       "payout_ratio_note": "无持续 TEV — 回购是一次性资本运作，非经营利润分红",
       "metrics": {
         "current_market_cap_usd": 3217565380,
@@ -1023,7 +1054,7 @@
       "style": "growth",
       "financial_snapshot": {
         "entity_type": "app",
-        "revenue_usd_365d": 257948670,
+        "revenue_usd_365d": 257990582,
         "revenue_included": {
           "protocol_fees_usd_365d": 8996865.049999999,
           "total_usd_365d": 8996865.049999999
@@ -1033,19 +1064,19 @@
         "emission_cost_usd_365d": null,
         "emission_treatment": "none",
         "net_income_usd_365d": 600000,
-        "gross_margin_percent": 3.4879,
+        "gross_margin_percent": 3.4873,
         "net_margin_percent": 0.2326,
         "growth_yoy_percent": null,
         "pe": null,
-        "ps": 12.4737,
+        "ps": 12.4716,
         "pb": null,
         "ev_revenue": null,
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
-      "revenue_usd_365d": 257948670,
+      "revenue_usd_365d": 257990582,
       "gross_profit_usd_365d": 8996865.049999999,
       "net_income_usd_365d": 600000,
       "net_margin_percent": 0.2326,
@@ -1063,26 +1094,29 @@
         "en": "Dual wallets fully on-chain trackable (Etherscan), cross-validated with DefiLlama <0.1% diff"
       },
       "return_status": "active",
-      "shareholder_yield_percent": 2.954,
+      "shareholder_yield_percent": 6.153,
       "market_cap_usd": 160638099,
       "tvl": 858549305.8980845,
       "payout_ratio": 1.0,
-      "total_yield_percent": 2.954,
+      "total_yield_percent": 6.153,
       "validation": {
         "onchain_total_usd": 4613558,
         "defillama_total_usd": 4637397,
         "diff_pct": 0.5,
-        "period_source": "DefiLlama dailyFees × 费率(6.7%)"
+        "period_source": "DefiLlama dailyFees × 费率(6.7%)",
+        "holders_30d_usd": 0.0,
+        "holders_90d_usd": 0.0,
+        "holders_365d_usd": 3375149.0
       },
       "payout_ratio_note": "回购 - Treasury 用 35% Revenue 回购 FLUID，Q4 2025 启动",
       "metrics": {
         "current_market_cap_usd": 160638099,
-        "trailing_365d_revenue_usd": 4745308,
-        "trailing_30d_revenue_usd": 230941,
+        "trailing_365d_revenue_usd": 9884054.84,
+        "trailing_30d_revenue_usd": 575658.63,
         "trailing_365d_shareholder_returns_usd": 4745308,
         "trailing_30d_shareholder_returns_usd": 395442.3333333333,
-        "trailing_7d_revenue_usd": 51101,
-        "trailing_90d_revenue_usd": 704263,
+        "trailing_7d_revenue_usd": 124499.0,
+        "trailing_90d_revenue_usd": 1561823.45,
         "shareholder_yield_7d_ann": 2.826,
         "shareholder_yield_30d_ann": 2.98,
         "shareholder_yield_90d_ann": 3.0293,
@@ -1095,8 +1129,13 @@
         "buyback_yield_30d_ann": 0,
         "dividend_yield_90d_ann": 0,
         "buyback_yield_90d_ann": 0,
-        "shareholder_yield_365d_ann": 2.954,
-        "current_price_usd": 1.92
+        "shareholder_yield_365d_ann": 6.153,
+        "current_price_usd": 1.92,
+        "trailing_30d_holders_revenue_usd": 0.0,
+        "trailing_90d_holders_revenue_usd": 0.0,
+        "trailing_365d_holders_revenue_usd": 3375149.0,
+        "revenue_source": "defillama_dailyRevenue",
+        "holders_revenue_source": "defillama_dailyHoldersRevenue"
       },
       "return_mechanisms": [
         {
@@ -1124,35 +1163,35 @@
       "analyst_notes": "【2026-04-27 链上调研 medium-high confidence】\n\n## 机制\n- 2025-10 起 Fluid 35% 协议收入 → Treasury 回购 FLUID\n- 来源: 官方 blog《FLUID Reserve: Buybacks & Growth Strategy》\n- Reserve 钱包: 0x3e6FeBd2b195e1Ef3e8e3F4AABB6772aada32353 + 0x9Afb8C1798B93a8E04a18553eE65bAFa41a012F1\n- 终极用途: 未公开 (储备/burn/分配)\n\n## 数据\n- DefiLlama dailyHoldersRevenue 365d $4.75M\n- 链上 Etherscan 实测 1.25M FLUID inflow (差 <0.5%)\n- 流通市值 ~$132M\n- yield ≈ 3.4%\n\n## 警示\n- 35% 比例无链上治理投票\n- 回购后终极用途模糊\n- Reserve 钱包占 0.11% supply, 未来可能用作 inflation 分配\n\n## 关键地址\n- FLUID: 0x6f40d4A6237C257fff2dB00FA0510DeEECd303eb\n- Reserve Wallet 1: 0x3e6FeBd2b195e1Ef3e8e3F4AABB6772aada32353\n- Reserve Wallet 2: 0x9Afb8C1798B93a8E04a18553eE65bAFa41a012F1\n\n## 历史\n- 2026-04-27: 链上调研 medium-high confidence\n- 2025-10: 35% buyback 启动\n",
       "last_updated": "2026-10-07",
       "dividend_yield_percent": null,
-      "buyback_yield_percent": 2.954,
+      "buyback_yield_percent": 6.153,
       "style": "cash_cow",
       "financial_snapshot": {
         "entity_type": "app",
-        "revenue_usd_365d": 4745308,
+        "revenue_usd_365d": 9884054.84,
         "revenue_included": {
           "protocol_fees_usd_365d": 4745308,
           "total_usd_365d": 4745308
         },
-        "gross_profit_usd_365d": 4745308,
+        "gross_profit_usd_365d": 9884054.84,
         "lp_share_cost_usd_365d": 0,
         "emission_cost_usd_365d": null,
         "emission_treatment": "none",
-        "net_income_usd_365d": 4745308,
+        "net_income_usd_365d": 9884054.84,
         "gross_margin_percent": 100.0,
         "net_margin_percent": 100.0,
         "growth_yoy_percent": null,
-        "pe": 33.852,
-        "ps": 33.852,
+        "pe": 16.2522,
+        "ps": 16.2522,
         "pb": null,
         "ev_revenue": null,
         "payout_ratio": 1.0,
-        "shareholder_returns_usd_365d": 4745308,
+        "shareholder_returns_usd_365d": 9884054.84,
         "verification_status": "partial",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
-      "revenue_usd_365d": 4745308,
-      "gross_profit_usd_365d": 4745308,
-      "net_income_usd_365d": 4745308,
+      "revenue_usd_365d": 9884054.84,
+      "gross_profit_usd_365d": 9884054.84,
+      "net_income_usd_365d": 9884054.84,
       "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
       "entity_type": "app"
@@ -1172,16 +1211,16 @@
       "market_cap_usd": 91662642,
       "tvl": 256520219.69048157,
       "payout_ratio": 0.27,
-      "total_yield_percent": 13.8287,
+      "total_yield_percent": 16.5535,
       "payout_ratio_note": "回购分红 - 质押 GMX 获得回购分配的 GMX",
       "metrics": {
         "current_market_cap_usd": 91662642,
-        "trailing_365d_revenue_usd": 12675745,
-        "trailing_30d_revenue_usd": 600334,
+        "trailing_365d_revenue_usd": 15173401.0,
+        "trailing_30d_revenue_usd": 1492585.0,
         "trailing_365d_shareholder_returns_usd": 0,
         "trailing_30d_shareholder_returns_usd": 0,
-        "trailing_7d_revenue_usd": 135839,
-        "trailing_90d_revenue_usd": 2098400,
+        "trailing_7d_revenue_usd": 452303.0,
+        "trailing_90d_revenue_usd": 4271016.0,
         "shareholder_yield_7d_ann": 0,
         "shareholder_yield_30d_ann": 0,
         "shareholder_yield_90d_ann": 0,
@@ -1195,7 +1234,12 @@
         "dividend_yield_90d_ann": 0,
         "buyback_yield_90d_ann": 0,
         "shareholder_yield_365d_ann": 0,
-        "current_price_usd": 8.75
+        "current_price_usd": 8.75,
+        "trailing_30d_holders_revenue_usd": 309097.0,
+        "trailing_90d_holders_revenue_usd": 1202613.0,
+        "trailing_365d_holders_revenue_usd": 7259366.0,
+        "revenue_source": "defillama_dailyRevenue",
+        "holders_revenue_source": "defillama_dailyHoldersRevenue"
       },
       "return_mechanisms": [
         {
@@ -1234,34 +1278,39 @@
       "style": "growth",
       "financial_snapshot": {
         "entity_type": "app",
-        "revenue_usd_365d": 12675745,
+        "revenue_usd_365d": 15173401.0,
         "revenue_included": {
           "protocol_fees_usd_365d": 12675745,
           "total_usd_365d": 12675745
         },
-        "gross_profit_usd_365d": 12675745,
+        "gross_profit_usd_365d": 15173401.0,
         "lp_share_cost_usd_365d": null,
         "emission_cost_usd_365d": null,
         "emission_treatment": "none",
-        "net_income_usd_365d": 12675745,
+        "net_income_usd_365d": 15173401.0,
         "gross_margin_percent": 100.0,
         "net_margin_percent": 100.0,
         "growth_yoy_percent": null,
         "pe": null,
-        "ps": 7.2313,
+        "ps": 6.041,
         "pb": null,
         "ev_revenue": null,
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
-      "revenue_usd_365d": 12675745,
-      "gross_profit_usd_365d": 12675745,
-      "net_income_usd_365d": 12675745,
+      "revenue_usd_365d": 15173401.0,
+      "gross_profit_usd_365d": 15173401.0,
+      "net_income_usd_365d": 15173401.0,
       "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
-      "entity_type": "app"
+      "entity_type": "app",
+      "validation": {
+        "holders_30d_usd": 309097.0,
+        "holders_90d_usd": 1202613.0,
+        "holders_365d_usd": 7259366.0
+      }
     },
     "hype": {
       "name": "Hyperliquid",
@@ -1353,7 +1402,7 @@
         "payout_ratio": 0.99,
         "shareholder_returns_usd_365d": 765257823.99,
         "verification_status": "verified",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
       "revenue_usd_365d": 772987701,
       "gross_profit_usd_365d": 772987701,
@@ -1377,16 +1426,16 @@
       "market_cap_usd": 288942041,
       "tvl": 1092767451.87587,
       "payout_ratio": 0,
-      "total_yield_percent": 4.7634,
+      "total_yield_percent": 3.1058,
       "payout_ratio_note": "治理代币 - MEV 收益流向 JitoSOL，JTO 用于治理",
       "metrics": {
-        "trailing_365d_revenue_usd": 13763565,
-        "trailing_30d_revenue_usd": 336579,
+        "trailing_365d_revenue_usd": 8973879.0,
+        "trailing_30d_revenue_usd": 651764.0,
         "current_market_cap_usd": 288942041,
         "trailing_365d_shareholder_returns_usd": 0,
         "trailing_30d_shareholder_returns_usd": 0,
-        "trailing_7d_revenue_usd": 81242,
-        "trailing_90d_revenue_usd": 1169476,
+        "trailing_7d_revenue_usd": 162643.0,
+        "trailing_90d_revenue_usd": 1545900.0,
         "shareholder_yield_7d_ann": 0,
         "shareholder_yield_30d_ann": 0,
         "shareholder_yield_90d_ann": 0,
@@ -1400,7 +1449,12 @@
         "dividend_yield_90d_ann": 0,
         "buyback_yield_90d_ann": 0,
         "shareholder_yield_365d_ann": 0,
-        "current_price_usd": 0.545942
+        "current_price_usd": 0.545942,
+        "trailing_30d_holders_revenue_usd": 0.0,
+        "trailing_90d_holders_revenue_usd": 0.0,
+        "trailing_365d_holders_revenue_usd": 0.0,
+        "revenue_source": "defillama_dailyRevenue",
+        "holders_revenue_source": "defillama_dailyHoldersRevenue"
       },
       "return_mechanisms": [
         {
@@ -1431,34 +1485,39 @@
       "style": "growth",
       "financial_snapshot": {
         "entity_type": "app",
-        "revenue_usd_365d": 13763565,
+        "revenue_usd_365d": 8973879.0,
         "revenue_included": {
           "protocol_fees_usd_365d": 13763565,
           "total_usd_365d": 13763565
         },
-        "gross_profit_usd_365d": 13763565,
+        "gross_profit_usd_365d": 8973879.0,
         "lp_share_cost_usd_365d": null,
         "emission_cost_usd_365d": null,
         "emission_treatment": "none",
-        "net_income_usd_365d": 13763565,
+        "net_income_usd_365d": 8973879.0,
         "gross_margin_percent": 100.0,
         "net_margin_percent": 100.0,
         "growth_yoy_percent": null,
         "pe": null,
-        "ps": 20.9933,
+        "ps": 32.1981,
         "pb": null,
         "ev_revenue": null,
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
-      "revenue_usd_365d": 13763565,
-      "gross_profit_usd_365d": 13763565,
-      "net_income_usd_365d": 13763565,
+      "revenue_usd_365d": 8973879.0,
+      "gross_profit_usd_365d": 8973879.0,
+      "net_income_usd_365d": 8973879.0,
       "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
-      "entity_type": "app"
+      "entity_type": "app",
+      "validation": {
+        "holders_30d_usd": 0.0,
+        "holders_90d_usd": 0.0,
+        "holders_365d_usd": 0.0
+      }
     },
     "justlend": {
       "name": "JustLend",
@@ -1479,10 +1538,10 @@
       "payout_ratio_note": "未确认 — 声称有 staking 分红但透明度极低",
       "metrics": {
         "current_market_cap_usd": 1154538600,
-        "trailing_7d_revenue_usd": 0,
-        "trailing_30d_revenue_usd": 0,
-        "trailing_90d_revenue_usd": 0,
-        "trailing_365d_revenue_usd": 0,
+        "trailing_7d_revenue_usd": 10873.0,
+        "trailing_30d_revenue_usd": 47714.0,
+        "trailing_90d_revenue_usd": 146979.0,
+        "trailing_365d_revenue_usd": 522983.0,
         "trailing_365d_shareholder_returns_usd": 149440.19999999998,
         "trailing_30d_shareholder_returns_usd": 12453.349999999999,
         "shareholder_yield_7d_ann": 0,
@@ -1498,7 +1557,12 @@
         "dividend_yield_90d_ann": 0,
         "buyback_yield_90d_ann": 0,
         "shareholder_yield_365d_ann": 0,
-        "current_price_usd": 0.140969
+        "current_price_usd": 0.140969,
+        "trailing_30d_holders_revenue_usd": 0.0,
+        "trailing_90d_holders_revenue_usd": 0.0,
+        "trailing_365d_holders_revenue_usd": 0.0,
+        "revenue_source": "defillama_dailyRevenue",
+        "holders_revenue_source": "defillama_dailyHoldersRevenue"
       },
       "validation": {
         "method": "TEV 归零（pocket-to-pocket 做账销毁，非真市场 buyback）",
@@ -1516,7 +1580,10 @@
           "DefiLlama justlend slug 只报 ~$500k/年 revenue（interest spread），侧面佐证协议真实对外分发收入很少",
           "如果未来发现 executor 真正从市场买 JST（看到 USDT/USDD 流出换取 JST 的链上证据），可重新评估"
         ],
-        "return_zero_reason": "burn JST 源头是孙宇晨生态金库（TFTWNgDB... 持 HTX/WIN/TUSD 等），非协议收入买入，不构成真 TEV"
+        "return_zero_reason": "burn JST 源头是孙宇晨生态金库（TFTWNgDB... 持 HTX/WIN/TUSD 等），非协议收入买入，不构成真 TEV",
+        "holders_30d_usd": 0.0,
+        "holders_90d_usd": 0.0,
+        "holders_365d_usd": 0.0
       },
       "return_mechanisms": [
         {
@@ -1569,7 +1636,7 @@
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
       "revenue_usd_365d": 500000,
       "gross_profit_usd_365d": 500000,
@@ -1593,16 +1660,16 @@
       "market_cap_usd": 222982886,
       "tvl": 2058177618.5805178,
       "payout_ratio": 0,
-      "total_yield_percent": 5.4186,
+      "total_yield_percent": 4.4481,
       "payout_ratio_note": "无 TEV — KMNO staking 仅提供 farming 奖励加成（boost），非协议收入分配。Season 奖励来自代币国库排放（激励），不是 fee distribution",
       "metrics": {
-        "trailing_365d_revenue_usd": 12082624,
-        "trailing_30d_revenue_usd": 632635,
+        "trailing_365d_revenue_usd": 9918392.0,
+        "trailing_30d_revenue_usd": 652620.0,
         "current_market_cap_usd": 222982886,
         "trailing_365d_shareholder_returns_usd": 0,
         "trailing_30d_shareholder_returns_usd": 0,
-        "trailing_7d_revenue_usd": 124389,
-        "trailing_90d_revenue_usd": 2079175,
+        "trailing_7d_revenue_usd": 161082.0,
+        "trailing_90d_revenue_usd": 1807483.0,
         "shareholder_yield_7d_ann": 0,
         "shareholder_yield_30d_ann": 0,
         "shareholder_yield_90d_ann": 0,
@@ -1616,7 +1683,12 @@
         "dividend_yield_90d_ann": 0,
         "buyback_yield_90d_ann": 0,
         "shareholder_yield_365d_ann": 0,
-        "current_price_usd": 0.03914249
+        "current_price_usd": 0.03914249,
+        "trailing_30d_holders_revenue_usd": 0.0,
+        "trailing_90d_holders_revenue_usd": 0.0,
+        "trailing_365d_holders_revenue_usd": 0.0,
+        "revenue_source": "defillama_dailyRevenue",
+        "holders_revenue_source": "defillama_dailyHoldersRevenue"
       },
       "return_mechanisms": [],
       "return_summary": {
@@ -1635,34 +1707,39 @@
       "style": "growth",
       "financial_snapshot": {
         "entity_type": "app",
-        "revenue_usd_365d": 12082624,
+        "revenue_usd_365d": 9918392.0,
         "revenue_included": {
           "protocol_fees_usd_365d": 12082624,
           "total_usd_365d": 12082624
         },
-        "gross_profit_usd_365d": 12082624,
+        "gross_profit_usd_365d": 9918392.0,
         "lp_share_cost_usd_365d": null,
         "emission_cost_usd_365d": null,
         "emission_treatment": "none",
-        "net_income_usd_365d": 12082624,
+        "net_income_usd_365d": 9918392.0,
         "gross_margin_percent": 100.0,
         "net_margin_percent": 100.0,
         "growth_yoy_percent": null,
         "pe": null,
-        "ps": 18.4548,
+        "ps": 22.4818,
         "pb": null,
         "ev_revenue": null,
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
-      "revenue_usd_365d": 12082624,
-      "gross_profit_usd_365d": 12082624,
-      "net_income_usd_365d": 12082624,
+      "revenue_usd_365d": 9918392.0,
+      "gross_profit_usd_365d": 9918392.0,
+      "net_income_usd_365d": 9918392.0,
       "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
-      "entity_type": "app"
+      "entity_type": "app",
+      "validation": {
+        "holders_30d_usd": 0.0,
+        "holders_90d_usd": 0.0,
+        "holders_365d_usd": 0.0
+      }
     },
     "lido": {
       "name": "Lido",
@@ -1679,16 +1756,16 @@
       "market_cap_usd": 392041434,
       "tvl": 18986133323.106007,
       "payout_ratio": 0,
-      "total_yield_percent": 9.9275,
+      "total_yield_percent": 9.0751,
       "payout_ratio_note": "无 - LDO 仅为治理代币，不分享协议收入",
       "metrics": {
-        "trailing_365d_revenue_usd": 38920031,
-        "trailing_30d_revenue_usd": 2130595,
+        "trailing_365d_revenue_usd": 35577973.0,
+        "trailing_30d_revenue_usd": 3228346.0,
         "current_market_cap_usd": 392041434,
         "trailing_365d_shareholder_returns_usd": 0,
         "trailing_30d_shareholder_returns_usd": 0,
-        "trailing_7d_revenue_usd": 523871,
-        "trailing_90d_revenue_usd": 6754343,
+        "trailing_7d_revenue_usd": 765620.0,
+        "trailing_90d_revenue_usd": 8101984.0,
         "shareholder_yield_7d_ann": 0,
         "shareholder_yield_30d_ann": 0,
         "shareholder_yield_90d_ann": 0,
@@ -1702,7 +1779,12 @@
         "dividend_yield_90d_ann": 0,
         "buyback_yield_90d_ann": 0,
         "shareholder_yield_365d_ann": 0,
-        "current_price_usd": 0.472559
+        "current_price_usd": 0.472559,
+        "trailing_30d_holders_revenue_usd": 2252874.0,
+        "trailing_90d_holders_revenue_usd": 3031366.0,
+        "trailing_365d_holders_revenue_usd": 7061751.0,
+        "revenue_source": "defillama_dailyRevenue",
+        "holders_revenue_source": "defillama_dailyHoldersRevenue"
       },
       "return_mechanisms": [],
       "return_summary": {
@@ -1721,34 +1803,39 @@
       "style": "growth",
       "financial_snapshot": {
         "entity_type": "app",
-        "revenue_usd_365d": 38920031,
+        "revenue_usd_365d": 35577973.0,
         "revenue_included": {
           "protocol_fees_usd_365d": 38920031,
           "total_usd_365d": 38920031
         },
-        "gross_profit_usd_365d": 38920031,
+        "gross_profit_usd_365d": 35577973.0,
         "lp_share_cost_usd_365d": null,
         "emission_cost_usd_365d": null,
         "emission_treatment": "none",
-        "net_income_usd_365d": 38920031,
+        "net_income_usd_365d": 35577973.0,
         "gross_margin_percent": 100.0,
         "net_margin_percent": 100.0,
         "growth_yoy_percent": null,
         "pe": null,
-        "ps": 10.073,
+        "ps": 11.0192,
         "pb": null,
         "ev_revenue": null,
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
-      "revenue_usd_365d": 38920031,
-      "gross_profit_usd_365d": 38920031,
-      "net_income_usd_365d": 38920031,
+      "revenue_usd_365d": 35577973.0,
+      "gross_profit_usd_365d": 35577973.0,
+      "net_income_usd_365d": 35577973.0,
       "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
-      "entity_type": "app"
+      "entity_type": "app",
+      "validation": {
+        "holders_30d_usd": 2252874.0,
+        "holders_90d_usd": 3031366.0,
+        "holders_365d_usd": 7061751.0
+      }
     },
     "maple": {
       "name": "Maple Finance",
@@ -1769,12 +1856,12 @@
       "payout_ratio_note": "回购分配 - 25% 协议收入回购 SYRUP",
       "metrics": {
         "current_market_cap_usd": 292955443,
-        "trailing_365d_revenue_usd": 2602180,
-        "trailing_30d_revenue_usd": 251460,
+        "trailing_365d_revenue_usd": 14441298.01,
+        "trailing_30d_revenue_usd": 1599604.0,
         "trailing_365d_shareholder_returns_usd": 2602180,
         "trailing_30d_shareholder_returns_usd": 216848.33333333334,
-        "trailing_7d_revenue_usd": 39242,
-        "trailing_90d_revenue_usd": 697704,
+        "trailing_7d_revenue_usd": 234273.0,
+        "trailing_90d_revenue_usd": 3744130.0,
         "shareholder_yield_7d_ann": 1.12,
         "shareholder_yield_30d_ann": 1.68,
         "shareholder_yield_90d_ann": 1.55,
@@ -1788,7 +1875,12 @@
         "dividend_yield_90d_ann": 0,
         "buyback_yield_90d_ann": 1.55,
         "shareholder_yield_365d_ann": 0.5284,
-        "current_price_usd": 0.250987
+        "current_price_usd": 0.250987,
+        "trailing_30d_holders_revenue_usd": 159961.0,
+        "trailing_90d_holders_revenue_usd": 374418.0,
+        "trailing_365d_holders_revenue_usd": 3009659.0,
+        "revenue_source": "defillama_dailyRevenue",
+        "holders_revenue_source": "defillama_dailyHoldersRevenue"
       },
       "return_mechanisms": [
         {
@@ -1843,14 +1935,19 @@
         "payout_ratio": 0.1,
         "shareholder_returns_usd_365d": 1548000.0,
         "verification_status": "partial",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
       "revenue_usd_365d": 15480000,
       "gross_profit_usd_365d": 15480000,
       "net_income_usd_365d": 15480000,
       "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
-      "entity_type": "app"
+      "entity_type": "app",
+      "validation": {
+        "holders_30d_usd": 159961.0,
+        "holders_90d_usd": 374418.0,
+        "holders_365d_usd": 3009659.0
+      }
     },
     "mnt": {
       "name": "Mantle",
@@ -1941,7 +2038,7 @@
         "payout_ratio": 1.0,
         "shareholder_returns_usd_365d": 97702032.45,
         "verification_status": "estimated",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
       "revenue_usd_365d": 97702032.45,
       "gross_profit_usd_365d": 97702032.45,
@@ -1973,12 +2070,12 @@
       "payout_ratio_note": "纯治理代币 - MORPHO 目前仅用于治理投票",
       "metrics": {
         "current_market_cap_usd": 1881996235,
-        "trailing_365d_revenue_usd": 0,
-        "trailing_30d_revenue_usd": 0,
+        "trailing_365d_revenue_usd": 0.0,
+        "trailing_30d_revenue_usd": 0.0,
         "trailing_365d_shareholder_returns_usd": 0,
         "trailing_30d_shareholder_returns_usd": 0,
-        "trailing_7d_revenue_usd": 0,
-        "trailing_90d_revenue_usd": 0,
+        "trailing_7d_revenue_usd": 0.0,
+        "trailing_90d_revenue_usd": 0.0,
         "shareholder_yield_7d_ann": 0,
         "shareholder_yield_30d_ann": 0,
         "shareholder_yield_90d_ann": 0,
@@ -1992,7 +2089,12 @@
         "dividend_yield_90d_ann": 0,
         "buyback_yield_90d_ann": 0,
         "shareholder_yield_365d_ann": 0,
-        "current_price_usd": 2.69
+        "current_price_usd": 2.69,
+        "trailing_30d_holders_revenue_usd": 0.0,
+        "trailing_90d_holders_revenue_usd": 0.0,
+        "trailing_365d_holders_revenue_usd": 0.0,
+        "revenue_source": "defillama_dailyRevenue",
+        "holders_revenue_source": "defillama_dailyHoldersRevenue"
       },
       "return_mechanisms": [],
       "return_summary": {
@@ -2011,16 +2113,16 @@
       "style": "growth",
       "financial_snapshot": {
         "entity_type": "app",
-        "revenue_usd_365d": 0,
+        "revenue_usd_365d": 0.0,
         "revenue_included": {
           "protocol_fees_usd_365d": null,
           "total_usd_365d": null
         },
-        "gross_profit_usd_365d": 0,
+        "gross_profit_usd_365d": 0.0,
         "lp_share_cost_usd_365d": null,
         "emission_cost_usd_365d": null,
         "emission_treatment": "none",
-        "net_income_usd_365d": 0,
+        "net_income_usd_365d": 0.0,
         "gross_margin_percent": null,
         "net_margin_percent": null,
         "growth_yoy_percent": null,
@@ -2031,14 +2133,19 @@
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
-      "revenue_usd_365d": 0,
-      "gross_profit_usd_365d": 0,
-      "net_income_usd_365d": 0,
+      "revenue_usd_365d": 0.0,
+      "gross_profit_usd_365d": 0.0,
+      "net_income_usd_365d": 0.0,
       "net_margin_percent": null,
       "growth_yoy_percent": null,
-      "entity_type": "app"
+      "entity_type": "app",
+      "validation": {
+        "holders_30d_usd": 0.0,
+        "holders_90d_usd": 0.0,
+        "holders_365d_usd": 0.0
+      }
     },
     "okb": {
       "name": "OKB",
@@ -2131,7 +2238,7 @@
         "payout_ratio": 1.0,
         "shareholder_returns_usd_365d": 148726287.94,
         "verification_status": "verified",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
       "revenue_usd_365d": 148726287.94,
       "gross_profit_usd_365d": 148726287.94,
@@ -2163,12 +2270,12 @@
       "payout_ratio_note": "回购销毁 - 协议收入 15% 用于 CAKE 回购销毁（veCAKE 分红已结束）",
       "metrics": {
         "current_market_cap_usd": 757417932,
-        "trailing_365d_revenue_usd": 58668956,
-        "trailing_30d_revenue_usd": 2904216,
+        "trailing_365d_revenue_usd": 75222117.23,
+        "trailing_30d_revenue_usd": 5418690.59,
         "trailing_365d_shareholder_returns_usd": 58668956,
         "trailing_30d_shareholder_returns_usd": 8326244.666666667,
-        "trailing_7d_revenue_usd": 1407160,
-        "trailing_90d_revenue_usd": 9257818,
+        "trailing_7d_revenue_usd": 994789.06,
+        "trailing_90d_revenue_usd": 16024655.84,
         "shareholder_yield_7d_ann": 11.5911,
         "shareholder_yield_30d_ann": 5.582,
         "shareholder_yield_90d_ann": 5.9313,
@@ -2182,7 +2289,12 @@
         "dividend_yield_90d_ann": 0,
         "buyback_yield_90d_ann": 5.08,
         "shareholder_yield_365d_ann": 7.7619,
-        "current_price_usd": 2.38
+        "current_price_usd": 2.38,
+        "trailing_30d_holders_revenue_usd": 3599213.13,
+        "trailing_90d_holders_revenue_usd": 10783934.67,
+        "trailing_365d_holders_revenue_usd": 49035480.76,
+        "revenue_source": "defillama_dailyRevenue",
+        "holders_revenue_source": "defillama_dailyHoldersRevenue"
       },
       "validation": {
         "method": "DefiLlama dailyHoldersRevenue (CAKE buyback&burn, gross)",
@@ -2192,7 +2304,10 @@
         "burn_90d_usd": 5678619,
         "burn_365d_usd": 58668956,
         "period_source": "DefiLlama dailyFees × 费率(34.6%) × payout",
-        "period_caveat": "短周期为 DefiLlama fees 折算，与 365d 同口径"
+        "period_caveat": "短周期为 DefiLlama fees 折算，与 365d 同口径",
+        "holders_30d_usd": 3599213.13,
+        "holders_90d_usd": 10783934.67,
+        "holders_365d_usd": 49035480.76
       },
       "return_mechanisms": [
         {
@@ -2260,7 +2375,7 @@
         "payout_ratio": 0.7138,
         "shareholder_returns_usd_365d": 58789849,
         "verification_status": "verified",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
       "revenue_usd_365d": 94063758.4,
       "gross_profit_usd_365d": 94063758.4,
@@ -2283,17 +2398,17 @@
       "shareholder_yield_percent": 4.5229,
       "market_cap_usd": 412683060,
       "tvl": 2092670655.1775405,
-      "payout_ratio": 1.0,
-      "total_yield_percent": 4.5229,
+      "payout_ratio": 1.1196,
+      "total_yield_percent": 4.0399,
       "payout_ratio_note": "回购+分红 - 80% 协议收入转化为 PENDLE 回购，分配给 sPENDLE 持有者",
       "metrics": {
         "current_market_cap_usd": 412683060,
-        "trailing_365d_revenue_usd": 18665264,
-        "trailing_30d_revenue_usd": 461668,
+        "trailing_365d_revenue_usd": 16671938.0,
+        "trailing_30d_revenue_usd": 427894.0,
         "trailing_365d_shareholder_returns_usd": 18665264,
         "trailing_30d_shareholder_returns_usd": 1555438.6666666667,
-        "trailing_7d_revenue_usd": 72755,
-        "trailing_90d_revenue_usd": 2117956,
+        "trailing_7d_revenue_usd": 104449.0,
+        "trailing_90d_revenue_usd": 1856165.0,
         "shareholder_yield_7d_ann": 1.5979,
         "shareholder_yield_30d_ann": 2.3659,
         "shareholder_yield_90d_ann": 3.618,
@@ -2307,7 +2422,12 @@
         "dividend_yield_90d_ann": 3.59,
         "buyback_yield_90d_ann": 0,
         "shareholder_yield_365d_ann": 4.5229,
-        "current_price_usd": 2.38
+        "current_price_usd": 2.38,
+        "trailing_30d_holders_revenue_usd": 314257.0,
+        "trailing_90d_holders_revenue_usd": 1398503.0,
+        "trailing_365d_holders_revenue_usd": 12820765.0,
+        "revenue_source": "defillama_dailyRevenue",
+        "holders_revenue_source": "defillama_dailyHoldersRevenue"
       },
       "return_mechanisms": [
         {
@@ -2347,37 +2467,40 @@
       "style": "cash_cow",
       "financial_snapshot": {
         "entity_type": "app",
-        "revenue_usd_365d": 18665264,
+        "revenue_usd_365d": 16671938.0,
         "revenue_included": {
           "protocol_fees_usd_365d": 18665264,
           "total_usd_365d": 18665264
         },
-        "gross_profit_usd_365d": 18665264,
+        "gross_profit_usd_365d": 16671938.0,
         "lp_share_cost_usd_365d": 0,
         "emission_cost_usd_365d": null,
         "emission_treatment": "none",
-        "net_income_usd_365d": 18665264,
+        "net_income_usd_365d": 16671938.0,
         "gross_margin_percent": 100.0,
         "net_margin_percent": 100.0,
         "growth_yoy_percent": null,
         "pe": 22.1097,
-        "ps": 22.1097,
+        "ps": 24.7532,
         "pb": null,
         "ev_revenue": null,
-        "payout_ratio": 1.0,
+        "payout_ratio": 1.1196,
         "shareholder_returns_usd_365d": 18665264,
         "verification_status": "partial",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
-      "revenue_usd_365d": 18665264,
-      "gross_profit_usd_365d": 18665264,
-      "net_income_usd_365d": 18665264,
+      "revenue_usd_365d": 16671938.0,
+      "gross_profit_usd_365d": 16671938.0,
+      "net_income_usd_365d": 16671938.0,
       "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
       "entity_type": "app",
       "validation": {
         "period_source": "DefiLlama dailyFees × 费率(81.2%) × payout",
-        "period_caveat": "短周期为 DefiLlama fees 折算，与 365d 同口径"
+        "period_caveat": "短周期为 DefiLlama fees 折算，与 365d 同口径",
+        "holders_30d_usd": 314257.0,
+        "holders_90d_usd": 1398503.0,
+        "holders_365d_usd": 12820765.0
       }
     },
     "sky": {
@@ -2391,22 +2514,22 @@
         "en": "Smart Burn Engine contract on-chain trackable + DefiLlama validated"
       },
       "return_status": "active",
-      "shareholder_yield_percent": 3.7255,
+      "shareholder_yield_percent": 2.8682,
       "market_cap_usd": 2093665152.4505067,
       "tvl": 6773732996.1381645,
-      "payout_ratio": 0.3328,
-      "total_yield_percent": 11.1946,
-      "payout_ratio_note": "回购 - Smart Burn Engine 使用协议盈余回购 MKR 并添加流动性",
+      "payout_ratio": 0.2981,
+      "total_yield_percent": 9.6214,
+      "payout_ratio_note": "回购（SBE 买 SKY，2024-09 起进国库、可再分配）+ 质押奖励（DefiLlama holdersRevenue 混合口径）",
       "metrics": {
         "current_market_cap_usd": 2093665152.4505067,
-        "trailing_365d_revenue_usd": 234377977,
-        "trailing_30d_revenue_usd": 16090943,
+        "trailing_365d_revenue_usd": 201440351.0,
+        "trailing_30d_revenue_usd": 13023344.0,
         "trailing_365d_shareholder_returns_usd": 13724000,
         "trailing_30d_shareholder_returns_usd": 1143666.6666666667,
-        "trailing_365d_holders_revenue_usd": 135679512,
-        "trailing_30d_holders_revenue_usd": 5565701,
-        "trailing_7d_revenue_usd": 3656763,
-        "trailing_90d_revenue_usd": 51739101,
+        "trailing_365d_holders_revenue_usd": 60050420.0,
+        "trailing_30d_holders_revenue_usd": 5418624.0,
+        "trailing_7d_revenue_usd": 2677428.0,
+        "trailing_90d_revenue_usd": 40443527.0,
         "shareholder_yield_7d_ann": 4.8011,
         "shareholder_yield_30d_ann": 4.9295,
         "shareholder_yield_90d_ann": 5.2835,
@@ -2419,8 +2542,11 @@
         "buyback_yield_30d_ann": 0.75,
         "dividend_yield_90d_ann": 0,
         "buyback_yield_90d_ann": 0.75,
-        "shareholder_yield_365d_ann": 3.7255,
-        "current_price_usd": 0.08936452731904793
+        "shareholder_yield_365d_ann": 2.8682,
+        "current_price_usd": 0.08936452731904793,
+        "trailing_90d_holders_revenue_usd": 9718008.0,
+        "revenue_source": "defillama_dailyRevenue",
+        "holders_revenue_source": "defillama_dailyHoldersRevenue"
       },
       "validation": {
         "method": "DefiLlama dailyHoldersRevenue = Splitter burn (SBE 真实支出) / dailyRevenue = 协议总归属",
@@ -2433,7 +2559,10 @@
         "burn_daily_avg_30d_usd": 37292,
         "note": "2026-03 Splitter burn 参数大幅下调（日均从 ~$300k 降至 ~$37.6k，-87.5%）。365d 窗口包含下调前高峰，所以短周期 < 365d。",
         "period_source": "DefiLlama dailyFees × 费率(57.2%) × payout",
-        "period_caveat": "短周期为 DefiLlama fees 折算，与 365d 同口径"
+        "period_caveat": "短周期为 DefiLlama fees 折算，与 365d 同口径",
+        "holders_30d_usd": 5418624.0,
+        "holders_90d_usd": 9718008.0,
+        "holders_365d_usd": 60050420.0
       },
       "payout_ratio_7d": 0.0797,
       "payout_ratio_30d": 0.0809,
@@ -2441,66 +2570,58 @@
       "payout_ratio_365d": 0.3328,
       "return_mechanisms": [
         {
-          "type": "holders_revenue",
-          "name": "Smart Burn + 质押收益",
-          "description": "DSR 收入通过 Splitter 分配：burn 部分回购销毁 MKR，farm 部分分配给 SKY stakers",
-          "status": "active"
-        },
-        {
-          "type": "buyback_burn",
-          "name": "Smart Burn Engine (SBE)",
-          "description": "协议盈余用于回购 MKR 并添加流动性（Smart Burn Engine）",
+          "type": "buyback",
+          "name": "SBE 回购 + 质押奖励（DefiLlama holdersRevenue 混合口径）",
+          "description": "协议盈余经 Splitter 分配：SBE 买币（2024-09 起为「买 SKY 交国库」，库存可再分配、非销毁）+ 付给 SKY stakers 的 USDS 奖励。DefiLlama holdersRevenue = 买币数量×市价 + 质押奖励",
           "status": "active",
-          "ratio": 0.7,
-          "contract": "0x0000000000000000000000000000000000000000",
           "source": {
             "type": "governance",
-            "title": "Smart Burn Engine",
-            "url": "https://forum.makerdao.com/t/mip103-the-smart-burn-engine-and-tokenomics/19025"
+            "title": "Smart Burn Engine / Sky Buyback",
+            "url": "https://info.sky.money/buyback"
           }
         }
       ],
       "return_summary": {
         "fee_switch": "ON",
-        "fee_switch_details": "协议盈余通过 Smart Burn Engine 回购 MKR 并添加流动性",
+        "fee_switch_details": "协议盈余经 Splitter：SBE 买币 + 质押奖励（DefiLlama holdersRevenue 混合口径）",
         "buybacks": "ACTIVE",
         "dividends": "NONE",
         "burns": "NONE",
-        "primary_value_accrual": "回购 - Smart Burn Engine 使用协议盈余回购 MKR 并添加流动性"
+        "primary_value_accrual": "回购（SBE 买 SKY，2024-09 起进国库、可再分配）+ 质押奖励；非销毁"
       },
       "analyst_notes": "【2026-04-22 更新 - 切换到 DefiLlama dailyHoldersRevenue 口径】\n\n## TEV 机制（Smart Burn Engine / SBE）\n\nSky 协议盈余（来自 stability fees / SSR spread / liquidation penalties / PSM fees 等）流入 **Surplus Buffer**，然后通过 **Splitter** 分配：\n\n- **Burn 部分** → Smart Burn Engine (SBE) → **市场买 MKR + LP 化 → LP token burn**（真销毁，不可被治理动用）\n- **Farm 部分** → SKY stakers（新铸造 SKY + USDS yield，**不算 TEV**——这是协议支出，不是市场回购）\n\n## TEV 口径\n\n**TEV = DefiLlama `dailyHoldersRevenue`（= Splitter 的 burn 部分实际金额）**\n\n为什么信任这个数据源：\n- 它精准等于 SBE 实际支出\n- 最近 30d 日均 $37.5k，和 2026-03 治理公告的 \"$37,600/天\" **完全吻合**（误差 <1%）\n- 比 fixedTevUsd 硬编码更动态，能反映 Splitter 参数变化\n\n**Earning Yield** = DefiLlama `dailyRevenue`（协议归属总收入，扣除 DSR/SSR 用户支出）。\n\n差值（Earning - TEV）= Splitter 的 farm 部分 + 其他非 burn 用途。\n\n## 2026-03 治理减速\n\nSplitter burn 参数在 2026-02/03 大幅下调：\n- 近 90d 日均 $174k/天\n- 近 30d 日均 **$37.5k/天**（-78%）\n- 治理动机：SSR 加息后协议盈余压缩，减少 burn 节流\n- **短周期 TEV Yield < 365d**：不是\"价值损失\"，是\"burn 速度放缓\"\n\n## 合约参考\n\n- **Old FlapperUniV2**: `0xc4269cC7acDEdC3794b221aA4D9205F564e27f0d`（2020 编译，过去 365d 无活动，已被新版替代；新合约地址未公开追踪，但 DefiLlama 已覆盖真实数据）\n- MKR: `0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2`\n- SKY: `0x56072C95FAA701256059aa122697B133aDEd9279`（MKR → SKY 1:24000 转换）\n\n## 链上验证（2026-04-22 核实）\n\n- MKR @ 0xdead 过去 365d: 0.0001（几乎 0 —— SBE 不 burn MKR token 本身）\n- SKY @ 0xdead 过去 365d: 4.82 SKY（微不足道）\n- **SBE 实际销毁的是 LP token，不是 MKR 本身**，所以 0xdead 余额不反映真实 burn\n\n## 数据源优先级（按 CLAUDE.md）\n\n虽然\"链上 > DefiLlama\"是原则，但 Sky 的 SBE 链上数据分散（新 Flapper 地址未知 + LP token burn 复杂），且 **DefiLlama `dailyHoldersRevenue` 已经精准对应真实 SBE 支出**（和治理公告吻合）——所以采用 DefiLlama 是合理权衡。\n\n## MKR vs SKY\n\n- **市值 / ticker**：用 SKY（活跃的现行 token）\n- **burn 目标**：SBE 仍 burn MKR（经 LP 机制间接）\n- Dashboard 保持 MKR 作为 ticker 显示（历史连续性）\n\n## 历史口径变更\n\n- 2026-04-22: 从 `fixedTevUsd: $13.724M`（写死值）改为 DefiLlama `dailyHoldersRevenue` 动态拉取；移除\"payout_ratio: 0.7\"的静态假设，改为动态计算（当前约 0.483）\n- 2026-03: SBE 治理减速生效\n- 2026-02-14: 初版配置",
       "notes": "MakerDAO (现 Sky) 是最早实现代币回购销毁的 DeFi 协议之一。Smart Burn Engine 机制确保协议盈余持续回馈给 MKR 持有者。",
       "last_updated": "2026-10-07",
       "dividend_yield_percent": null,
-      "buyback_yield_percent": 3.7255,
+      "buyback_yield_percent": 2.8682,
       "style": "cash_cow",
       "financial_snapshot": {
         "entity_type": "app",
-        "revenue_usd_365d": 234377977,
+        "revenue_usd_365d": 201440351.0,
         "revenue_included": {
           "protocol_fees_usd_365d": 234377977,
           "total_usd_365d": 234377977
         },
-        "gross_profit_usd_365d": 234377977,
+        "gross_profit_usd_365d": 201440351.0,
         "lp_share_cost_usd_365d": 98698465,
         "emission_cost_usd_365d": null,
         "emission_treatment": "none",
-        "net_income_usd_365d": 234377977,
+        "net_income_usd_365d": 201440351.0,
         "gross_margin_percent": 100.0,
         "net_margin_percent": 100.0,
         "growth_yoy_percent": null,
-        "pe": 26.8423,
-        "ps": 8.9329,
+        "pe": 34.8651,
+        "ps": 10.3935,
         "pb": null,
         "ev_revenue": null,
-        "payout_ratio": 0.3328,
-        "shareholder_returns_usd_365d": 77998812,
+        "payout_ratio": 0.2981,
+        "shareholder_returns_usd_365d": 60050420.0,
         "verification_status": "verified",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
-      "revenue_usd_365d": 234377977,
-      "gross_profit_usd_365d": 234377977,
-      "net_income_usd_365d": 234377977,
+      "revenue_usd_365d": 201440351.0,
+      "gross_profit_usd_365d": 201440351.0,
+      "net_income_usd_365d": 201440351.0,
       "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
       "entity_type": "app"
@@ -2520,16 +2641,16 @@
       "market_cap_usd": 82831397,
       "tvl": 5328898278.33737,
       "payout_ratio": 0,
-      "total_yield_percent": 26.735,
+      "total_yield_percent": 12.1984,
       "payout_ratio_note": "治理代币 - SPK 用于 Spark SubDAO 治理，收入目前流向 Sky 主 DAO",
       "metrics": {
-        "trailing_365d_revenue_usd": 22144959,
-        "trailing_30d_revenue_usd": 263810,
+        "trailing_365d_revenue_usd": 10104137.0,
+        "trailing_30d_revenue_usd": 1005587.0,
         "current_market_cap_usd": 82831397,
         "trailing_365d_shareholder_returns_usd": 0,
         "trailing_30d_shareholder_returns_usd": 0,
-        "trailing_7d_revenue_usd": -39283,
-        "trailing_90d_revenue_usd": 1331719,
+        "trailing_7d_revenue_usd": 198574.0,
+        "trailing_90d_revenue_usd": 2474091.0,
         "shareholder_yield_7d_ann": 0,
         "shareholder_yield_30d_ann": 0,
         "shareholder_yield_90d_ann": 0,
@@ -2543,7 +2664,12 @@
         "dividend_yield_90d_ann": 0,
         "buyback_yield_90d_ann": 0,
         "shareholder_yield_365d_ann": 0,
-        "current_price_usd": 0.02419779
+        "current_price_usd": 0.02419779,
+        "trailing_30d_holders_revenue_usd": 707943.0,
+        "trailing_90d_holders_revenue_usd": 1861052.0,
+        "trailing_365d_holders_revenue_usd": 3831980.0,
+        "revenue_source": "defillama_dailyRevenue",
+        "holders_revenue_source": "defillama_dailyHoldersRevenue"
       },
       "return_mechanisms": [
         {
@@ -2570,34 +2696,39 @@
       "style": "growth",
       "financial_snapshot": {
         "entity_type": "app",
-        "revenue_usd_365d": 22144959,
+        "revenue_usd_365d": 10104137.0,
         "revenue_included": {
           "protocol_fees_usd_365d": 22144959,
           "total_usd_365d": 22144959
         },
-        "gross_profit_usd_365d": 22144959,
+        "gross_profit_usd_365d": 10104137.0,
         "lp_share_cost_usd_365d": null,
         "emission_cost_usd_365d": null,
         "emission_treatment": "none",
-        "net_income_usd_365d": 22144959,
+        "net_income_usd_365d": 10104137.0,
         "gross_margin_percent": 100.0,
         "net_margin_percent": 100.0,
         "growth_yoy_percent": null,
         "pe": null,
-        "ps": 3.7404,
+        "ps": 8.1978,
         "pb": null,
         "ev_revenue": null,
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
-      "revenue_usd_365d": 22144959,
-      "gross_profit_usd_365d": 22144959,
-      "net_income_usd_365d": 22144959,
+      "revenue_usd_365d": 10104137.0,
+      "gross_profit_usd_365d": 10104137.0,
+      "net_income_usd_365d": 10104137.0,
       "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
-      "entity_type": "app"
+      "entity_type": "app",
+      "validation": {
+        "holders_30d_usd": 707943.0,
+        "holders_90d_usd": 1861052.0,
+        "holders_365d_usd": 3831980.0
+      }
     },
     "uniswap": {
       "name": "Uniswap",
@@ -2617,16 +2748,16 @@
       "total_yield_percent": 0.343,
       "payout_ratio_note": "协议费 + Unichain Sequencer 收入 → Firepit 销毁 UNI",
       "metrics": {
-        "trailing_7d_revenue_usd": 425339,
-        "trailing_30d_revenue_usd": 1436522,
-        "trailing_90d_revenue_usd": 4710831,
+        "trailing_7d_revenue_usd": 1561847.0,
+        "trailing_30d_revenue_usd": 11591787.0,
+        "trailing_90d_revenue_usd": 29865478.0,
         "shareholder_yield_7d_ann": 0.87,
         "shareholder_yield_30d_ann": 0.69,
         "shareholder_yield_90d_ann": 0.75,
         "total_yield_7d_ann": 0.87,
         "total_yield_30d_ann": 0.69,
         "total_yield_90d_ann": 0.75,
-        "trailing_365d_revenue_usd": 18377870,
+        "trailing_365d_revenue_usd": 54628930.0,
         "dividend_yield_7d_ann": 0,
         "buyback_yield_7d_ann": 0.87,
         "dividend_yield_30d_ann": 0,
@@ -2635,7 +2766,12 @@
         "buyback_yield_90d_ann": 0.75,
         "shareholder_yield_365d_ann": 0.343,
         "current_market_cap_usd": 5354810153,
-        "current_price_usd": 8.57
+        "current_price_usd": 8.57,
+        "trailing_30d_holders_revenue_usd": 11591787.0,
+        "trailing_90d_holders_revenue_usd": 29865478.0,
+        "trailing_365d_holders_revenue_usd": 54628930.0,
+        "revenue_source": "defillama_dailyRevenue",
+        "holders_revenue_source": "defillama_dailyHoldersRevenue"
       },
       "validation": {
         "method": "A 口径：365d UNI 转入 0xdead（链上）减去 >=10M UNI 一次性事件",
@@ -2650,7 +2786,10 @@
         "data_range": {
           "start": "2025-06-07",
           "end": "2026-08-01"
-        }
+        },
+        "holders_30d_usd": 11591787.0,
+        "holders_90d_usd": 29865478.0,
+        "holders_365d_usd": 54628930.0
       },
       "return_mechanisms": [
         {
@@ -2728,7 +2867,7 @@
         "payout_ratio": 1.0,
         "shareholder_returns_usd_365d": 18365812.03,
         "verification_status": "verified",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
       "revenue_usd_365d": 18365812.03,
       "gross_profit_usd_365d": 18365812.03,
@@ -2752,19 +2891,22 @@
       "market_cap_usd": 901708493,
       "tvl": 7500000000,
       "payout_ratio": 0.9998,
-      "total_yield_percent": 0.3403,
+      "total_yield_percent": 0.3761,
       "validation": {
         "method": "Stargate 100% 收入回购（累计 149.5 万 ZRO / .14M）",
         "note": "协议本体 fee switch 关闭收入=0；每月解锁 ~8M 稀释注记；股东回报率 ≈0.3-2%",
-        "period_source": "DefiLlama dailyFees × 费率(123.0%)"
+        "period_source": "DefiLlama dailyFees × 费率(123.0%)",
+        "holders_30d_usd": 0.0,
+        "holders_90d_usd": 322682.0,
+        "holders_365d_usd": 3391193.0
       },
       "payout_ratio_note": "协议本体收入 = 0（fee switch 关闭）；股东回报仅 Stargate 回购（小额）",
       "metrics": {
-        "trailing_365d_revenue_usd": 3068511,
-        "trailing_30d_revenue_usd": 148954,
+        "trailing_365d_revenue_usd": 3391193.0,
+        "trailing_30d_revenue_usd": 0.0,
         "current_market_cap_usd": 901708493,
-        "trailing_7d_revenue_usd": 42391,
-        "trailing_90d_revenue_usd": 404408,
+        "trailing_7d_revenue_usd": 0.0,
+        "trailing_90d_revenue_usd": 322682.0,
         "trailing_365d_shareholder_returns_usd": 784539.207,
         "trailing_30d_shareholder_returns_usd": 65378.267250000004,
         "shareholder_yield_7d_ann": 0.806,
@@ -2780,7 +2922,12 @@
         "dividend_yield_90d_ann": 0,
         "buyback_yield_90d_ann": 0,
         "shareholder_yield_365d_ann": 0.087,
-        "current_price_usd": 2.26
+        "current_price_usd": 2.26,
+        "trailing_30d_holders_revenue_usd": 0.0,
+        "trailing_90d_holders_revenue_usd": 322682.0,
+        "trailing_365d_holders_revenue_usd": 3391193.0,
+        "revenue_source": "defillama_dailyRevenue",
+        "holders_revenue_source": "defillama_dailyHoldersRevenue"
       },
       "return_summary": {
         "fee_switch": "OFF",
@@ -2822,7 +2969,7 @@
       ],
       "financial_snapshot": {
         "entity_type": "app",
-        "revenue_usd_365d": 3068511,
+        "revenue_usd_365d": 3391193.0,
         "revenue_included": {
           "protocol_fees_usd_365d": 3068511,
           "total_usd_365d": 3068511
@@ -2832,22 +2979,22 @@
         "emission_cost_usd_365d": null,
         "emission_treatment": "none",
         "net_income_usd_365d": 784677.36,
-        "gross_margin_percent": 25.5719,
-        "net_margin_percent": 25.5719,
+        "gross_margin_percent": 23.1387,
+        "net_margin_percent": 23.1387,
         "growth_yoy_percent": null,
         "pe": 1149.3479,
-        "ps": 293.8586,
+        "ps": 265.8971,
         "pb": null,
         "ev_revenue": null,
         "payout_ratio": 0.9998,
         "shareholder_returns_usd_365d": 784539.207,
         "verification_status": "partial",
-        "as_of": "2026-10-07"
+        "as_of": "2026-10-08"
       },
-      "revenue_usd_365d": 3068511,
+      "revenue_usd_365d": 3391193.0,
       "gross_profit_usd_365d": 784677.36,
       "net_income_usd_365d": 784677.36,
-      "net_margin_percent": 25.5719,
+      "net_margin_percent": 23.1387,
       "growth_yoy_percent": null,
       "entity_type": "app"
     }

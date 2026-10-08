@@ -1,12 +1,12 @@
 {
   "protocol": "dydx",
-  "as_of": "2026-10-07",
+  "as_of": "2026-10-08",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "net_fees_usd_365d": 8518106,
-        "total_usd_365d": 8518106
+        "net_fees_usd_365d": 5386363.0,
+        "total_usd_365d": 5386363.0
       },
       "revenue_excluded": {
         "affiliate_rebate": {
@@ -24,7 +24,7 @@
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": 8518106,
+      "gross_profit_usd_365d": 5386363.0,
       "calculation_note": "永续应用无 LP 分润成本 → 毛利 = 收入；affiliate 30-50% 分成 / Surge 50% rebate 等前置补贴归交易者（含 affiliate/rebate 前、外部不可精确复算）"
     },
     "token_emission_cost": {
@@ -35,7 +35,7 @@
       "calculation_note": "DYDX 无挖矿增发成本模型（判定书未按增发成本处理，仅通胀解锁，不作成本扣除）"
     },
     "net_income": {
-      "net_income_usd_365d": 8518106,
+      "net_income_usd_365d": 5386363.0,
       "operating_cost_usd_365d": null,
       "calculation_note": "净利 = 收入（净协议费毛口径）；真实净协议费含 affiliate/rebate 前不可精确复算，实际低于此值"
     },
@@ -79,14 +79,14 @@
   },
   "valuation": {
     "pe": 73.3333,
-    "ps": 14.2317,
+    "ps": 22.5063,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": 0.1941
+    "payout_ratio": 0.3069
   },
   "verification": {
-    "method": "DefiLlama dailyRevenue 365d=8518106 · 回购额按判定书 P/F~88x 反推（mcap/88）· 提案 #313 比例（75% 回购/15% 质押）",
+    "method": "DefiLlama dailyRevenue 365d=5386363.0 · 回购额按判定书 P/F~88x 反推（mcap/88）· 提案 #313 比例（75% 回购/15% 质押）",
     "status": "partial",
-    "last_checked": "2026-10-07"
+    "last_checked": "2026-10-08"
   }
 }

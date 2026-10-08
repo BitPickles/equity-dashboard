@@ -1,12 +1,12 @@
 {
   "protocol": "jito",
-  "as_of": "2026-10-07",
+  "as_of": "2026-10-08",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 13763565,
-        "total_usd_365d": 13763565
+        "protocol_fees_usd_365d": 8973879.0,
+        "total_usd_365d": 8973879.0
       },
       "revenue_excluded": {
         "mev_to_jitosol": {
@@ -21,7 +21,7 @@
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": 13763565,
+      "gross_profit_usd_365d": 8973879.0,
       "calculation_note": "DefiLlama dailyRevenue 为协议净收入口径（MEV 分润给 JitoSOL 部分已扣），毛利 = 收入"
     },
     "token_emission_cost": {
@@ -32,7 +32,7 @@
       "calculation_note": "JTO 供应上限 10 亿（流通 4.3 亿，持续 unlock 为无对价稀释），无对价收入模型，不涉及增发成本扣减"
     },
     "net_income": {
-      "net_income_usd_365d": 13763565,
+      "net_income_usd_365d": 8973879.0,
       "operating_cost_usd_365d": null,
       "calculation_note": "净利 = 收入 − 增发(0) − 运营成本(数据不可得)；净利留存 Jito Foundation/支出，股东回报 = 0（治理代币）"
     },
@@ -70,14 +70,14 @@
   },
   "valuation": {
     "pe": null,
-    "ps": 20.9933,
+    "ps": 32.1981,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null
   },
   "verification": {
-    "method": "净利 = DefiLlama dailyRevenue 365d $13,763,565（协议净收入）；JTO 治理代币不回购（MEV 归 JitoSOL）；净利留存 Foundation；JTO staking 收入分成 planned",
+    "method": "净利 = DefiLlama dailyRevenue 365d $8,973,879（协议净收入）；JTO 治理代币不回购（MEV 归 JitoSOL）；净利留存 Foundation；JTO staking 收入分成 planned",
     "status": "estimated",
-    "last_checked": "2026-10-07"
+    "last_checked": "2026-10-08"
   }
 }

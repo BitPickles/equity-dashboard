@@ -1,12 +1,12 @@
 {
   "protocol": "aave",
-  "as_of": "2026-10-07",
+  "as_of": "2026-10-08",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 115460247,
-        "total_usd_365d": 115460247
+        "protocol_fees_usd_365d": 92387330.0,
+        "total_usd_365d": 92387330.0
       },
       "revenue_excluded": {
         "lp_interest": {
@@ -21,8 +21,8 @@
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": 115460247,
-      "calculation_note": "DefiLlama dailyRevenue 为协议净收入（已扣除给 LP 的部分），毛利 = 净收入"
+      "gross_profit_usd_365d": 92387330.0,
+      "calculation_note": "DefiLlama dailyRevenue 为协议净收入（已扣除给 LP/存款人的部分），毛利 = 净收入"
     },
     "token_emission_cost": {
       "usd_365d": null,
@@ -32,9 +32,9 @@
       "calculation_note": "AAVE 总供应固定 16M（无持续增发），不涉及增发成本"
     },
     "net_income": {
-      "net_income_usd_365d": 115460247,
+      "net_income_usd_365d": 92387330.0,
       "operating_cost_usd_365d": null,
-      "calculation_note": "净利润 = 协议净收入（dailyRevenue，已扣 LP）；回购 $30M/年由 DAO 财库支出，不影响协议损益"
+      "calculation_note": "净利润 = 协议净收入（dailyRevenue，已扣 LP）；回购若执行由 DAO 财库支出，不影响协议损益"
     },
     "margins": {
       "gross_margin_percent": 100.0,
@@ -45,29 +45,38 @@
   "holder_returns": {
     "by_mechanism": [
       {
-        "mechanism": "AAVE 年度回购（$30M/年，2026-03 治理）",
+        "mechanism": "AAVE 回购计划（预算 $30M/年，2026-04-19 起暂停）",
         "type": "buyback",
-        "usd_365d": 30000000,
-        "yield_percent": 1.0837,
+        "usd_365d": 0,
+        "yield_percent": 0,
+        "status": "paused",
         "verified": "verified",
-        "note": "AIP-73 年度回购预算，2026-03 治理从 $50M 下调至 $30M；DAO 财库市场买入 AAVE → Ecosystem Reserve（treasury 积累，非真 burn，治理可 redistribute；链上 0xdead 365d ≈ 0）"
+        "note": "预算 $30M/年（2026-03 治理由 $50M 下调，完整预算载荷链未锁定）。回购页面自 2026-04-19 起 Paused，**已实现股东回报 = 0**（预算 ≠ 执行）。DAO 财库买入 AAVE → Ecosystem Reserve（treasury 累积，非真 burn，治理可 redistribute）。"
       },
       {
-        "mechanism": "Safety Module (Umbrella) 质押奖励",
-        "type": "yield",
+        "mechanism": "回购收币代理（DefiLlama holdersRevenue，混合口径）",
+        "type": "buyback",
         "usd_365d": null,
         "yield_percent": null,
         "verified": "partial",
-        "note": "归属待定（保留）：DefiLlama dailyHoldersRevenue 365d ≈ $27,438,501，是否计入收益型 🟡 待定，暂不计入股东回报主数字"
+        "note": "DefiLlama holdersRevenue = \"buy back AAVE tokens using Aave Treasury after 9 April 2025\"（回购收币代理，混合口径），不是 Safety Module 奖励；收币地址 0x22740deBa78d5a0c24C58C740e3715ec29de1bFa。近 30/90 天 = 0，最后非零 2026-06-24；365d ≈ $18,869,659 仅作历史参考，不计入当前股东回报。"
       }
     ],
     "summary": {
-      "destroy_usd_365d": 30000000,
+      "destroy_usd_365d": 0,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 1.0837,
+      "destroy_yield_percent": 0,
       "yield_yield_percent": null,
-      "shareholder_returns_usd_365d": 30000000,
-      "shareholder_yield_percent": 1.0837
+      "shareholder_returns_usd_365d": 0.0,
+      "shareholder_yield_percent": 0,
+      "status": "paused",
+      "basis_note": "回购 2026-04-19 起暂停 → 已实现股东回报 = 0；预算 $30M/年不折算为收益率",
+      "historical_reference": {
+        "holders_revenue_365d_usd": 18869659.0,
+        "holders_revenue_30d_usd": 0.0,
+        "last_nonzero_date": "2026-06-24",
+        "note": "DefiLlama 回购收币代理（混合口径），仅供历史参考"
+      }
     }
   },
   "balance_sheet": {
@@ -77,15 +86,15 @@
     "debt_usd": null
   },
   "valuation": {
-    "pe": 92.2789,
-    "ps": 23.9768,
+    "pe": null,
+    "ps": 29.9648,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": 0.2598
+    "payout_ratio": 0
   },
   "verification": {
-    "method": "净利 = DefiLlama dailyRevenue 365d $115,460,247；股东回报 = 官方披露回购 $30,000,000/年（2026-03 治理）；SM 质押奖励 $27,438,501/365d 待定保留（tev-records 365d 合计 $19,976,547 交叉核对）",
+    "method": "净利 = DefiLlama dailyRevenue 365d $92,387,330；股东回报 = 0（回购 2026-04-19 起暂停，预算 $30M 不计入）（tev-records 365d 合计 $19,976,547 交叉核对，历史参考）",
     "status": "verified",
-    "last_checked": "2026-10-07"
+    "last_checked": "2026-10-08"
   }
 }
