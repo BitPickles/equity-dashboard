@@ -1,6 +1,6 @@
 {
   "protocol": "uniswap",
-  "as_of": "2026-10-08",
+  "as_of": "2026-10-09",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -66,17 +66,17 @@
         "mechanism": "Firepit 销毁 UNI（fee switch → TokenJar → 0xdead）",
         "type": "destroy",
         "usd_365d": 18365812.03,
-        "yield_percent": 0.343,
+        "yield_percent": 0.4107,
         "note": "销毁 = 回购性质 🟢：365d 0xdead 累计 4580003 UNI × 4.01 USD，排除一次性 100M UNI retroactive burn（2025-12-27）"
       }
     ],
     "summary": {
       "destroy_usd_365d": 18365812.03,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 0.343,
+      "destroy_yield_percent": 0.4107,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 18365812.03,
-      "shareholder_yield_percent": 0.343
+      "shareholder_yield_percent": 0.4107
     },
     "by_period": {
       "7d": {
@@ -84,8 +84,8 @@
         "shareholder_returns_usd": 425060.0,
         "destroy_usd": 425060.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 0.4139,
-        "buyback_yield_percent": 0.4139,
+        "shareholder_yield_percent": 0.4956,
+        "buyback_yield_percent": 0.4956,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.0,
         "status": "active",
@@ -96,8 +96,8 @@
         "shareholder_returns_usd": 1435580.0,
         "destroy_usd": 1435580.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 0.3262,
-        "buyback_yield_percent": 0.3262,
+        "shareholder_yield_percent": 0.3905,
+        "buyback_yield_percent": 0.3905,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.0,
         "status": "active",
@@ -108,8 +108,8 @@
         "shareholder_returns_usd": 4707740.0,
         "destroy_usd": 4707740.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 0.3565,
-        "buyback_yield_percent": 0.3565,
+        "shareholder_yield_percent": 0.4269,
+        "buyback_yield_percent": 0.4269,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.0,
         "status": "active",
@@ -120,8 +120,8 @@
         "shareholder_returns_usd": 18365812.03,
         "destroy_usd": 18365812.03,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 0.343,
-        "buyback_yield_percent": 0.343,
+        "shareholder_yield_percent": 0.4107,
+        "buyback_yield_percent": 0.4107,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.0,
         "status": "active",
@@ -130,14 +130,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 5354810153,
+    "market_cap_usd": 4472359330,
     "tvl_usd": 3091182140.0588913,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 291.564,
-    "ps": 291.564,
+    "pe": 243.5155,
+    "ps": 243.5155,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 1.0
@@ -145,6 +145,6 @@
   "verification": {
     "method": "链上 365d UNI 转入 0xdead 累计 4580003 UNI（Etherscan logs，排除 >=10M 一次性事件）× 当前价 4.01 USD",
     "status": "verified",
-    "last_checked": "2026-10-08"
+    "last_checked": "2026-10-09"
   }
 }

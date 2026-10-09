@@ -1,6 +1,6 @@
 {
   "protocol": "ethena",
-  "as_of": "2026-10-08",
+  "as_of": "2026-10-09",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -132,14 +132,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 3217565380,
+    "market_cap_usd": 2772008072,
     "tvl_usd": 6677560266.30153,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": null,
-    "ps": 12.4716,
+    "ps": 10.7446,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null
@@ -147,6 +147,6 @@
   "verification": {
     "method": "近 12 月费用 $257,990,582（判定书 ~$310M），协议留存 $8,996,865（DefiLlama dailyRevenue 365d），净利 $600,000（判定书）；费用开关生效前 ENA 股东回报 = 0（2026Q3 观察点）",
     "status": "estimated",
-    "last_checked": "2026-10-08"
+    "last_checked": "2026-10-09"
   }
 }
