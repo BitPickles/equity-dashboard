@@ -1,12 +1,12 @@
 {
   "protocol": "kamino",
-  "as_of": "2026-10-09",
+  "as_of": "2026-10-10",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 9918392.0,
-        "total_usd_365d": 9918392.0
+        "protocol_fees_usd_365d": 9856995.0,
+        "total_usd_365d": 9856995.0
       },
       "revenue_excluded": {
         "staking_boost_rewards": {
@@ -20,22 +20,22 @@
       },
       "by_period": {
         "7d": {
-          "total_usd": 161082.0
+          "total_usd": 151809.0
         },
         "30d": {
-          "total_usd": 652620.0
+          "total_usd": 653307.0
         },
         "90d": {
-          "total_usd": 1807483.0
+          "total_usd": 1802202.0
         },
         "365d": {
-          "total_usd": 9918392.0
+          "total_usd": 9856995.0
         }
       }
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": 9918392.0,
+      "gross_profit_usd_365d": 9856995.0,
       "calculation_note": "DefiLlama dailyRevenue 为协议净收入口径（借贷 fees 给 LP 部分已在数据源扣减），毛利 = 收入"
     },
     "token_emission_cost": {
@@ -46,7 +46,7 @@
       "calculation_note": "KMNO 季度 100M 排放（Season 奖励，来自代币国库）为无对价稀释，按判定书不扣成本（不做增发成本）"
     },
     "net_income": {
-      "net_income_usd_365d": 9918392.0,
+      "net_income_usd_365d": 9856995.0,
       "operating_cost_usd_365d": null,
       "calculation_note": "净利 = 收入 − 增发(0，稀释注记) − 运营成本(数据不可得)；净利留存协议，股东回报 = 0（治理代币）"
     },
@@ -77,7 +77,7 @@
     },
     "by_period": {
       "7d": {
-        "revenue_usd": 161082.0,
+        "revenue_usd": 151809.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -89,7 +89,7 @@
         "source": "official"
       },
       "30d": {
-        "revenue_usd": 652620.0,
+        "revenue_usd": 653307.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -101,7 +101,7 @@
         "source": "official"
       },
       "90d": {
-        "revenue_usd": 1807483.0,
+        "revenue_usd": 1802202.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -113,7 +113,7 @@
         "source": "official"
       },
       "365d": {
-        "revenue_usd": 9918392.0,
+        "revenue_usd": 9856995.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -127,21 +127,21 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 207279078,
+    "market_cap_usd": 198688477,
     "tvl_usd": 2058177618.5805178,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": null,
-    "ps": 20.8985,
+    "ps": 20.1571,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null
   },
   "verification": {
-    "method": "净利 = DefiLlama dailyRevenue 365d $9,918,392（协议净收入）；KMNO 治理代币不回购（staking 为 farming boost 非分润）；净利留存协议",
+    "method": "净利 = DefiLlama dailyRevenue 365d $9,856,995（协议净收入）；KMNO 治理代币不回购（staking 为 farming boost 非分润）；净利留存协议",
     "status": "estimated",
-    "last_checked": "2026-10-09"
+    "last_checked": "2026-10-10"
   }
 }

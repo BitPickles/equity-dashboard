@@ -1,6 +1,6 @@
 {
   "protocol": "aster",
-  "as_of": "2026-10-09",
+  "as_of": "2026-10-10",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -63,7 +63,7 @@
         "mechanism": "TWAP 回购 ASTER → veASTER 质押者（99% 手续费）",
         "type": "yield",
         "usd_365d": 91262763.16,
-        "yield_percent": 4.7986,
+        "yield_percent": 4.7813,
         "note": "Spot 上币费（5 万 USDT/次）并入回购；1:1 储备销毁不计入（未流通币）；回购即分发=股息口径"
       }
     ],
@@ -71,9 +71,9 @@
       "destroy_usd_365d": null,
       "yield_usd_365d": 91262763.16,
       "destroy_yield_percent": null,
-      "yield_yield_percent": 4.7986,
+      "yield_yield_percent": 4.7813,
       "shareholder_returns_usd_365d": 91262763.16,
-      "shareholder_yield_percent": 4.7986
+      "shareholder_yield_percent": 4.7813
     },
     "by_period": {
       "7d": {
@@ -81,8 +81,8 @@
         "shareholder_returns_usd": 1599484.64,
         "destroy_usd": 1599484.64,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 4.3853,
-        "buyback_yield_percent": 4.3853,
+        "shareholder_yield_percent": 4.3695,
+        "buyback_yield_percent": 4.3695,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.99,
         "status": "active",
@@ -93,8 +93,8 @@
         "shareholder_returns_usd": 6854934.16,
         "destroy_usd": 6854934.16,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 4.3853,
-        "buyback_yield_percent": 4.3853,
+        "shareholder_yield_percent": 4.3695,
+        "buyback_yield_percent": 4.3695,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.99,
         "status": "active",
@@ -105,8 +105,8 @@
         "shareholder_returns_usd": 20564802.48,
         "destroy_usd": 20564802.48,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 4.3853,
-        "buyback_yield_percent": 4.3853,
+        "shareholder_yield_percent": 4.3695,
+        "buyback_yield_percent": 4.3695,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.99,
         "status": "active",
@@ -117,8 +117,8 @@
         "shareholder_returns_usd": 91262763.16,
         "destroy_usd": 91262763.16,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 4.7986,
-        "buyback_yield_percent": 4.7986,
+        "shareholder_yield_percent": 4.7813,
+        "buyback_yield_percent": 4.7813,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.99,
         "status": "active",
@@ -127,14 +127,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 1901846238,
+    "market_cap_usd": 1908725410,
     "tvl_usd": 820487118.1176946,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 20.8392,
-    "ps": 20.6308,
+    "pe": 20.9146,
+    "ps": 20.7055,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0.99
@@ -142,6 +142,6 @@
   "verification": {
     "method": "DefiLlama dailyRevenue 365d $92184609.25 × payout_ratio 0.99 = 回购/分配 $91262763.16；链上回购 wallet 365d 36177482 ASTER（缓存 95 天，2025-12-23→2026-03-27）",
     "status": "verified",
-    "last_checked": "2026-10-09"
+    "last_checked": "2026-10-10"
   }
 }

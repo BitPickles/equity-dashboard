@@ -1,12 +1,12 @@
 {
   "protocol": "spark",
-  "as_of": "2026-10-09",
+  "as_of": "2026-10-10",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 10104137.0,
-        "total_usd_365d": 10104137.0
+        "protocol_fees_usd_365d": 10080123.0,
+        "total_usd_365d": 10080123.0
       },
       "revenue_excluded": {
         "flow_to_sky_dao": {
@@ -20,22 +20,22 @@
       },
       "by_period": {
         "7d": {
-          "total_usd": 198574.0
+          "total_usd": 208165.0
         },
         "30d": {
-          "total_usd": 1005587.0
+          "total_usd": 1031502.0
         },
         "90d": {
-          "total_usd": 2474091.0
+          "total_usd": 2472472.0
         },
         "365d": {
-          "total_usd": 10104137.0
+          "total_usd": 10080123.0
         }
       }
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": 10104137.0,
+      "gross_profit_usd_365d": 10080123.0,
       "calculation_note": "DefiLlama dailyRevenue 为协议净收入口径（LP 分润已在数据源扣减），毛利 = 收入"
     },
     "token_emission_cost": {
@@ -46,7 +46,7 @@
       "calculation_note": "SPK 为 Sky SubDAO 代币（2024-Q3 启动），存在排放但无对价收入模型，不涉及增发成本扣减"
     },
     "net_income": {
-      "net_income_usd_365d": 10104137.0,
+      "net_income_usd_365d": 10080123.0,
       "operating_cost_usd_365d": null,
       "calculation_note": "净利 = 收入 − 增发(0) − 运营成本(数据不可得)；Spark 收入流向 Sky 主 DAO，SPK 本身股东回报 = 0（治理代币）"
     },
@@ -77,7 +77,7 @@
     },
     "by_period": {
       "7d": {
-        "revenue_usd": 198574.0,
+        "revenue_usd": 208165.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -89,7 +89,7 @@
         "source": "official"
       },
       "30d": {
-        "revenue_usd": 1005587.0,
+        "revenue_usd": 1031502.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -101,7 +101,7 @@
         "source": "official"
       },
       "90d": {
-        "revenue_usd": 2474091.0,
+        "revenue_usd": 2472472.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -113,7 +113,7 @@
         "source": "official"
       },
       "365d": {
-        "revenue_usd": 10104137.0,
+        "revenue_usd": 10080123.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -127,21 +127,21 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 71838874,
+    "market_cap_usd": 72773333,
     "tvl_usd": 5328898278.33737,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": null,
-    "ps": 7.1098,
+    "ps": 7.2195,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null
   },
   "verification": {
-    "method": "净利 = DefiLlama dailyRevenue 365d $10,104,137（协议净收入）；SPK 治理代币不回购——收入流向 Sky 主 DAO 回购 SKY；SPK 股东回报 = 0",
+    "method": "净利 = DefiLlama dailyRevenue 365d $10,080,123（协议净收入）；SPK 治理代币不回购——收入流向 Sky 主 DAO 回购 SKY；SPK 股东回报 = 0",
     "status": "estimated",
-    "last_checked": "2026-10-09"
+    "last_checked": "2026-10-10"
   }
 }

@@ -1,12 +1,12 @@
 {
   "protocol": "lido",
-  "as_of": "2026-10-09",
+  "as_of": "2026-10-10",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 35577973.0,
-        "total_usd_365d": 35577973.0
+        "protocol_fees_usd_365d": 35533242.0,
+        "total_usd_365d": 35533242.0
       },
       "revenue_excluded": {
         "steth_rewards": {
@@ -20,22 +20,22 @@
       },
       "by_period": {
         "7d": {
-          "total_usd": 765620.0
+          "total_usd": 758737.0
         },
         "30d": {
-          "total_usd": 3228346.0
+          "total_usd": 3229801.0
         },
         "90d": {
-          "total_usd": 8101984.0
+          "total_usd": 8135495.0
         },
         "365d": {
-          "total_usd": 35577973.0
+          "total_usd": 35533242.0
         }
       }
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": 35577973.0,
+      "gross_profit_usd_365d": 35533242.0,
       "calculation_note": "DefiLlama dailyRevenue 为协议净收入（staking fee 中 DAO 归属部分），毛利 = 收入"
     },
     "token_emission_cost": {
@@ -46,7 +46,7 @@
       "calculation_note": "LDO 供应持续增发（治理可增发）但无对价收入模型，不涉及增发成本扣减"
     },
     "net_income": {
-      "net_income_usd_365d": 35577973.0,
+      "net_income_usd_365d": 35533242.0,
       "operating_cost_usd_365d": null,
       "calculation_note": "净利 = 收入 − 增发(0) − 运营成本(数据不可得)；净利留存 Lido DAO Treasury，股东回报 = 0（治理代币）"
     },
@@ -77,7 +77,7 @@
     },
     "by_period": {
       "7d": {
-        "revenue_usd": 765620.0,
+        "revenue_usd": 758737.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -89,7 +89,7 @@
         "source": "official"
       },
       "30d": {
-        "revenue_usd": 3228346.0,
+        "revenue_usd": 3229801.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -101,7 +101,7 @@
         "source": "official"
       },
       "90d": {
-        "revenue_usd": 8101984.0,
+        "revenue_usd": 8135495.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -113,7 +113,7 @@
         "source": "official"
       },
       "365d": {
-        "revenue_usd": 35577973.0,
+        "revenue_usd": 35533242.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -127,21 +127,21 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 337519608,
+    "market_cap_usd": 348588887,
     "tvl_usd": 18986133323.106007,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": null,
-    "ps": 9.4868,
+    "ps": 9.8102,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null
   },
   "verification": {
-    "method": "净利 = DefiLlama dailyRevenue 365d $35,577,973（协议净收入）；LDO 治理代币不回购（fee switch OFF）；净利留存 DAO 国库",
+    "method": "净利 = DefiLlama dailyRevenue 365d $35,533,242（协议净收入）；LDO 治理代币不回购（fee switch OFF）；净利留存 DAO 国库",
     "status": "estimated",
-    "last_checked": "2026-10-09"
+    "last_checked": "2026-10-10"
   }
 }

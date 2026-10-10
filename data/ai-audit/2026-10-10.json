@@ -1,0 +1,724 @@
+{
+  "date": "2026-10-10",
+  "generated_at": "2026-10-10T00:24:18.094432+00:00",
+  "protocols": [
+    "aave",
+    "aster",
+    "bgb",
+    "bnb",
+    "compound",
+    "curve",
+    "dydx",
+    "eigenlayer",
+    "ethena",
+    "fluid",
+    "gmx",
+    "hype",
+    "hyperliquid",
+    "jito",
+    "justlend",
+    "kamino",
+    "layerzero",
+    "lido",
+    "maple",
+    "mnt",
+    "morpho",
+    "okb",
+    "pancakeswap",
+    "pendle",
+    "sky",
+    "spark",
+    "uniswap"
+  ],
+  "tasks": [
+    "cross-validation",
+    "data-plausibility",
+    "freshness",
+    "mechanism-change",
+    "regression"
+  ],
+  "results": {
+    "mechanism-change": {
+      "aave": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "aster": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "bgb": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "bnb": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "compound": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "curve": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "dydx": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "eigenlayer": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "ethena": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "fluid": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "gmx": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "hype": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "hyperliquid": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "jito": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "justlend": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "kamino": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "layerzero": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "lido": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "maple": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "mnt": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "morpho": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "okb": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "pancakeswap": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "pendle": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "sky": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "spark": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "uniswap": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      }
+    },
+    "data-plausibility": {
+      "aave": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "aster": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "bgb": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "bnb": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "compound": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "curve": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "dydx": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "eigenlayer": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "ethena": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "fluid": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "gmx": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "hype": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "hyperliquid": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "jito": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "justlend": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "kamino": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "layerzero": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "lido": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "maple": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "mnt": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "morpho": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "okb": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "pancakeswap": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "pendle": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "sky": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "spark": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "uniswap": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      }
+    },
+    "cross-validation": {
+      "aave": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "aster": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "bgb": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "bnb": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "compound": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "curve": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "dydx": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "eigenlayer": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "ethena": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "fluid": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "gmx": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "hype": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "hyperliquid": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "jito": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "justlend": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "kamino": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "layerzero": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "lido": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "maple": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "mnt": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "morpho": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "okb": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "pancakeswap": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "pendle": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "sky": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "spark": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      },
+      "uniswap": {
+        "error": "GLM 调用失败: HTTP Error 401: Unauthorized"
+      }
+    },
+    "freshness": {
+      "alerts": [
+        {
+          "protocol": "aster-onchain",
+          "issue": "链上采集末条 2026-07-04（98 天前）——链上无执行量或 Moralis 失效",
+          "severity": "low"
+        }
+      ],
+      "verdict": "alert",
+      "summary_zh": "新鲜度检查：1 项过期"
+    },
+    "regression": {
+      "regressed": [],
+      "verdict": "ok",
+      "summary_zh": "无 before 基线（首次运行），跳过回归检查"
+    }
+  },
+  "alerts": {
+    "alert": [
+      {
+        "task": "mechanism-change",
+        "protocol": "aave",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "aster",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "bgb",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "bnb",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "compound",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "curve",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "dydx",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "eigenlayer",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "ethena",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "fluid",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "gmx",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "hype",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "hyperliquid",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "jito",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "justlend",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "kamino",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "layerzero",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "lido",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "maple",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "mnt",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "morpho",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "okb",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "pancakeswap",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "pendle",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "sky",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "spark",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "mechanism-change",
+        "protocol": "uniswap",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "aave",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "aster",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "bgb",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "bnb",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "compound",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "curve",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "dydx",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "eigenlayer",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "ethena",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "fluid",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "gmx",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "hype",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "hyperliquid",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "jito",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "justlend",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "kamino",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "layerzero",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "lido",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "maple",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "mnt",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "morpho",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "okb",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "pancakeswap",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "pendle",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "sky",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "spark",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "data-plausibility",
+        "protocol": "uniswap",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "aave",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "aster",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "bgb",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "bnb",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "compound",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "curve",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "dydx",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "eigenlayer",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "ethena",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "fluid",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "gmx",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "hype",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "hyperliquid",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "jito",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "justlend",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "kamino",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "layerzero",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "lido",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "maple",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "mnt",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "morpho",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "okb",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "pancakeswap",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "pendle",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "sky",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "spark",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "cross-validation",
+        "protocol": "uniswap",
+        "issue": "AI_ERR"
+      },
+      {
+        "task": "freshness",
+        "protocol": "aster-onchain",
+        "issue": "链上采集末条 2026-07-04（98 天前）——链上无执行量或 Moralis 失效",
+        "severity": "low"
+      }
+    ],
+    "review": [],
+    "ok": []
+  }
+}

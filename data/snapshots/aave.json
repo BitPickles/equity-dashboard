@@ -1,12 +1,12 @@
 {
   "protocol": "aave",
-  "as_of": "2026-10-09",
+  "as_of": "2026-10-10",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 92387330.0,
-        "total_usd_365d": 92387330.0
+        "protocol_fees_usd_365d": 92066410.0,
+        "total_usd_365d": 92066410.0
       },
       "revenue_excluded": {
         "lp_interest": {
@@ -16,16 +16,16 @@
       "growth_yoy_percent": null,
       "by_period": {
         "7d": {
-          "total_usd": 1196242.0
+          "total_usd": 1204667.0
         },
         "30d": {
-          "total_usd": 4954642.0
+          "total_usd": 4948618.0
         },
         "90d": {
-          "total_usd": 13516469.0
+          "total_usd": 13570879.0
         },
         "365d": {
-          "total_usd": 92387330.0
+          "total_usd": 92066410.0
         }
       },
       "source": {
@@ -35,7 +35,7 @@
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": 92387330.0,
+      "gross_profit_usd_365d": 92066410.0,
       "calculation_note": "DefiLlama dailyRevenue 为协议净收入（已扣除给 LP/存款人的部分），毛利 = 净收入"
     },
     "token_emission_cost": {
@@ -46,7 +46,7 @@
       "calculation_note": "AAVE 总供应固定 16M（无持续增发），不涉及增发成本"
     },
     "net_income": {
-      "net_income_usd_365d": 92387330.0,
+      "net_income_usd_365d": 92066410.0,
       "operating_cost_usd_365d": null,
       "calculation_note": "净利润 = 协议净收入（dailyRevenue，已扣 LP）；回购若执行由 DAO 财库支出，不影响协议损益"
     },
@@ -73,7 +73,7 @@
         "usd_365d": null,
         "yield_percent": null,
         "verified": "partial",
-        "note": "DefiLlama holdersRevenue = \"buy back AAVE tokens using Aave Treasury after 9 April 2025\"（回购收币代理，混合口径），不是 Safety Module 奖励；收币地址 0x22740deBa78d5a0c24C58C740e3715ec29de1bFa。近 30/90 天 = 0，最后非零 2026-06-24；365d ≈ $18,869,659 仅作历史参考，不计入当前股东回报。"
+        "note": "DefiLlama holdersRevenue = \"buy back AAVE tokens using Aave Treasury after 9 April 2025\"（回购收币代理，混合口径），不是 Safety Module 奖励；收币地址 0x22740deBa78d5a0c24C58C740e3715ec29de1bFa。近 30/90 天 = 0，最后非零 2026-06-24；365d ≈ $18,774,775 仅作历史参考，不计入当前股东回报。"
       }
     ],
     "summary": {
@@ -86,7 +86,7 @@
       "status": "paused",
       "basis_note": "回购 2026-04-19 起暂停 → 已实现股东回报 = 0；预算 $30M/年不折算为收益率",
       "historical_reference": {
-        "holders_revenue_365d_usd": 18869659.0,
+        "holders_revenue_365d_usd": 18774775.0,
         "holders_revenue_30d_usd": 0.0,
         "last_nonzero_date": "2026-06-24",
         "note": "DefiLlama 回购收币代理（混合口径），仅供历史参考"
@@ -94,7 +94,7 @@
     },
     "by_period": {
       "7d": {
-        "revenue_usd": 1196242.0,
+        "revenue_usd": 1204667.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -106,7 +106,7 @@
         "source": "defillama"
       },
       "30d": {
-        "revenue_usd": 4954642.0,
+        "revenue_usd": 4948618.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -118,7 +118,7 @@
         "source": "defillama"
       },
       "90d": {
-        "revenue_usd": 13516469.0,
+        "revenue_usd": 13570879.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -130,7 +130,7 @@
         "source": "defillama"
       },
       "365d": {
-        "revenue_usd": 92387330.0,
+        "revenue_usd": 92066410.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -144,21 +144,21 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 2562392713,
+    "market_cap_usd": 2582724485,
     "tvl_usd": 24631521067.11426,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": null,
-    "ps": 27.7353,
+    "ps": 28.0528,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0
   },
   "verification": {
-    "method": "净利 = DefiLlama dailyRevenue 365d $92,387,330；股东回报 = 0（回购 2026-04-19 起暂停，预算 $30M 不计入）（tev-records 365d 合计 $19,976,547 交叉核对，历史参考）",
+    "method": "净利 = DefiLlama dailyRevenue 365d $92,066,410；股东回报 = 0（回购 2026-04-19 起暂停，预算 $30M 不计入）（tev-records 365d 合计 $19,976,547 交叉核对，历史参考）",
     "status": "verified",
-    "last_checked": "2026-10-09"
+    "last_checked": "2026-10-10"
   }
 }

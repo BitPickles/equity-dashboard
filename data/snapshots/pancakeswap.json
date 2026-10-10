@@ -1,6 +1,6 @@
 {
   "protocol": "pancakeswap",
-  "as_of": "2026-10-09",
+  "as_of": "2026-10-10",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -11,7 +11,7 @@
       },
       "revenue_excluded": {
         "lp_share": {
-          "note": "总费用 $230,954,994 中 LP 分润 $136,891,236（~65%）不计入（收入按协议收入口径）"
+          "note": "总费用 $225,829,850 中 LP 分润 $131,766,092（~65%）不计入（收入按协议收入口径）"
         },
         "gas_fees": {
           "note": "链上 gas 手续费不计入（交易费口径已含 buyback 路由部分）"
@@ -24,13 +24,13 @@
       },
       "by_period": {
         "7d": {
-          "total_usd": 994789.06
+          "total_usd": 928571.93
         },
         "30d": {
-          "total_usd": 5418690.59
+          "total_usd": 5510483.23
         },
         "90d": {
-          "total_usd": 16024655.84
+          "total_usd": 16489106.79
         },
         "365d": {
           "total_usd": 94063758.4
@@ -38,9 +38,9 @@
       }
     },
     "gross_profit": {
-      "lp_share_cost_usd_365d": 136891235.6,
+      "lp_share_cost_usd_365d": 131766091.6,
       "gross_profit_usd_365d": 94063758.4,
-      "calculation_note": "收入 = 协议收入（总费用 $230,954,994 − LP 分润 $136,891,236）；回购销毁 $58,789,849 ≈ 总费用 22% / 协议收入 60-65%（payout_ratio 0.625）→ 毛利 = 协议收入"
+      "calculation_note": "收入 = 协议收入（总费用 $225,829,850 − LP 分润 $131,766,092）；回购销毁 $58,789,849 ≈ 总费用 22% / 协议收入 60-65%（payout_ratio 0.625）→ 毛利 = 协议收入"
     },
     "token_emission_cost": {
       "usd_365d": 11700000,
@@ -52,7 +52,7 @@
     "net_income": {
       "net_income_usd_365d": 82363758.4,
       "operating_cost_usd_365d": null,
-      "calculation_note": "净利 = 收入 − LP − 增发成本 = $94,063,758 − $136,891,236 − $11,700,000 = $82,363,758；增发按成本（farm 激励有对价换收入，美股 SBC 类比）；增发 $11,700,000 < 回购销毁 $58,789,849 → 净利为正（净通缩，连续 34 个月）"
+      "calculation_note": "净利 = 收入 − LP − 增发成本 = $94,063,758 − $131,766,092 − $11,700,000 = $82,363,758；增发按成本（farm 激励有对价换收入，美股 SBC 类比）；增发 $11,700,000 < 回购销毁 $58,789,849 → 净利为正（净通缩，连续 34 个月）"
     },
     "margins": {
       "gross_margin_percent": 100.0,
@@ -66,52 +66,52 @@
         "mechanism": "CAKE 回购销毁（Tokenomics 3.0）",
         "type": "destroy",
         "usd_365d": 58789849,
-        "yield_percent": 8.6089,
+        "yield_percent": 7.4933,
         "note": "现货 15-23%、永续 20%、CAKE.PAD 100% 等产品 fee 路由去回购销毁（DefiLlama dailyHoldersRevenue，gross 口径）；CAKE → 0x000...dEaD 链上可验证；≈ 总费用 22% / 协议收入 60-65% 🟢"
       }
     ],
     "summary": {
       "destroy_usd_365d": 58789849,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 8.6089,
+      "destroy_yield_percent": 7.4933,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 58789849,
-      "shareholder_yield_percent": 8.6089
+      "shareholder_yield_percent": 7.4933
     },
     "by_period": {
       "7d": {
-        "revenue_usd": 994789.06,
+        "revenue_usd": 928571.93,
         "shareholder_returns_usd": 399271,
         "destroy_usd": 399271,
         "yield_usd": 0,
-        "shareholder_yield_percent": 3.0486,
-        "buyback_yield_percent": 3.0486,
+        "shareholder_yield_percent": 2.6536,
+        "buyback_yield_percent": 2.6536,
         "dividend_yield_percent": 0.0,
-        "payout_ratio": 0.4014,
+        "payout_ratio": 0.43,
         "status": "active",
         "source": "chain"
       },
       "30d": {
-        "revenue_usd": 5418690.59,
+        "revenue_usd": 5510483.23,
         "shareholder_returns_usd": 1380342,
         "destroy_usd": 1380342,
         "yield_usd": 0,
-        "shareholder_yield_percent": 2.4593,
-        "buyback_yield_percent": 2.4593,
+        "shareholder_yield_percent": 2.1406,
+        "buyback_yield_percent": 2.1406,
         "dividend_yield_percent": 0.0,
-        "payout_ratio": 0.2547,
+        "payout_ratio": 0.2505,
         "status": "active",
         "source": "chain"
       },
       "90d": {
-        "revenue_usd": 16024655.84,
+        "revenue_usd": 16489106.79,
         "shareholder_returns_usd": 5678619,
         "destroy_usd": 5678619,
         "yield_usd": 0,
-        "shareholder_yield_percent": 3.3724,
-        "buyback_yield_percent": 3.3724,
+        "shareholder_yield_percent": 2.9354,
+        "buyback_yield_percent": 2.9354,
         "dividend_yield_percent": 0.0,
-        "payout_ratio": 0.3544,
+        "payout_ratio": 0.3444,
         "status": "active",
         "source": "chain"
       },
@@ -120,8 +120,8 @@
         "shareholder_returns_usd": 58789849,
         "destroy_usd": 58789849,
         "yield_usd": 0,
-        "shareholder_yield_percent": 8.6089,
-        "buyback_yield_percent": 8.6089,
+        "shareholder_yield_percent": 7.4933,
+        "buyback_yield_percent": 7.4933,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.625,
         "status": "active",
@@ -130,14 +130,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 682896844,
+    "market_cap_usd": 784565179,
     "tvl_usd": 2063271713.806489,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 11.6159,
-    "ps": 7.2599,
+    "pe": 13.3452,
+    "ps": 8.3408,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0.7138
@@ -145,6 +145,6 @@
   "verification": {
     "method": "回购销毁 365d $58,789,849（DefiLlama dailyHoldersRevenue，burn-history.json）× payout_ratio 0.625 反推协议收入 $94,063,758（判定书 60-65%，现货 15-23%/永续 20%/CAKE.PAD 100%）；增发成本 $11,700,000（config.token_emission_cost，treatment=cost）；净利 $82,363,758（正，净通缩）",
     "status": "verified",
-    "last_checked": "2026-10-09"
+    "last_checked": "2026-10-10"
   }
 }
