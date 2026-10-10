@@ -1,0 +1,43 @@
+{
+  "as_of": "2026-10-07T21:42:35+08:00",
+  "block": 26140879,
+  "total_supply": "16000000",
+  "vendor_circulating": "15435544.593",
+  "dao_identified": "888346.852960520593474673",
+  "dao_native": "647844.511231451399946290",
+  "dao_aave_deposit_claim": "240502.341729069193528383",
+  "stream_unclaimed": "74606.534912480814182124",
+  "stream_unvested": "72690.914668949621306004",
+  "stream_vested_due": "1915.620243531192876120",
+  "after_streams_accounting": "813740.318048039779292549",
+  "reward_controller": "25054.205038411137214001",
+  "schedulable_address_balance_before_other_commitments": "788686.113009628642078548",
+  "reserve_less_streams": "489840.416952750836450016",
+  "safe_native": "58343.354327808612100149",
+  "definition": "DAO includes identified native balances plus its aAAVE deposit claim. The claim overlaps pool underlying in custody pie and must not be added there. Unvested streams can be cancelled; not irrevocable token lock. Schedulable addresses exclude known streams and reward controller, but other commitments have not been fully enumerated.",
+  "vendor_noncirculating": "564455.407",
+  "chart": {
+    "id": "aave-dao-inventory",
+    "denominator": "888346.852960520593474673",
+    "rows": [
+      {
+        "label": "其余DAO库存",
+        "amount": "788686.113009628642078548",
+        "percent": 88.7813257154274
+      },
+      {
+        "label": "已批准分期拨款",
+        "amount": "74606.534912480814182124",
+        "percent": 8.398356414934746
+      },
+      {
+        "label": "奖励合约库存",
+        "amount": "25054.205038411137214001",
+        "percent": 2.820317869637861
+      }
+    ]
+  },
+  "reward_aave_per_day": 150,
+  "conditional_annual_rewards": 54750,
+  "revision_scope": "第一章结构与表达；保留冻结数据及后续章节"
+}

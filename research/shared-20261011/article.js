@@ -1,0 +1,1 @@
+document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#sources-"]');if(a){var d=document.querySelector(a.getAttribute('href'));if(d)d.open=true;}});if(location.hash){var d=document.getElementById(location.hash.slice(1));if(d){if(d.tagName==='DETAILS')d.open=true;requestAnimationFrame(function(){d.scrollIntoView();});}}

@@ -1,0 +1,23 @@
+window,denominator_kind,period_usd,days,annualized_usd,marketcap_multiple,totalvalue_multiple,applicability,source
+7d complete UTC,protocol revenue,1161903,7,60584942.14285715,43.72913354861313,45.32347317465812,conditional ratio,V07; not total DAO income
+7d complete UTC,holder receipt proxy,0,7,0.0,,,N/A: denominator <=0 or unknown,V08/S41; not verified purchase cash cost
+7d complete UTC,verified buyback cash cost,,7,,,,N/A: denominator <=0 or unknown,current paused; no verified recent execution; historical proxy not substituted
+30d complete UTC,protocol revenue,4921218,30,59874819.0,44.247766761516225,45.86101546294445,conditional ratio,V07; not total DAO income
+30d complete UTC,holder receipt proxy,0,30,0.0,,,N/A: denominator <=0 or unknown,V08/S41; not verified purchase cash cost
+30d complete UTC,verified buyback cash cost,,30,,,,N/A: denominator <=0 or unknown,current paused; no verified recent execution; historical proxy not substituted
+90d complete UTC,protocol revenue,13404272,90,54361769.777777776,48.73511360704453,50.51196845181608,conditional ratio,V07; not total DAO income
+90d complete UTC,holder receipt proxy,0,90,0.0,,,N/A: denominator <=0 or unknown,V08/S41; not verified purchase cash cost
+90d complete UTC,verified buyback cash cost,,90,,,,N/A: denominator <=0 or unknown,current paused; no verified recent execution; historical proxy not substituted
+365d complete UTC,protocol revenue,92982500,365,92982500.0,28.492748915118437,29.53157852284032,conditional ratio,V07; not total DAO income
+365d complete UTC,holder receipt proxy,19081096,365,19081096.0,138.845642095192,143.90787615134894,diagnostic only: not buyback-cost multiple,V08/S41; not verified purchase cash cost
+365d complete UTC,verified buyback cash cost,,365,,,,N/A: denominator <=0 or unknown,current paused; no verified recent execution; historical proxy not substituted
+2025 full year,DAO total income,152430000.0,365,152430000.0,17.380614222922,18.014301646657483,conditional ratio,"V30; display rounded, accrual and valuations; not shareholder earnings"
+2025 full year,provider net-income PE reference,43210000.0,365,43210000.0,61.31282170793798,63.54825271927795,conditional ratio,"V30; display rounded, accrual and valuations; not shareholder earnings"
+TTM Oct2025-Sep2026,DAO total income,128600000.0,365,128600000.0,20.601298802488337,21.352410575427683,conditional ratio,"V30; display rounded, accrual and valuations; not shareholder earnings"
+TTM Oct2025-Sep2026,provider net-income PE reference,8410000.0,365,8410000.0,315.0210494649227,326.5065398335315,conditional ratio,"V30; display rounded, accrual and valuations; not shareholder earnings"
+2026 Jan-Sep,DAO total income,81390000.0,273,108818131.86813188,24.346374822998346,25.234029962282058,conditional ratio,"V30; display rounded, accrual and valuations; not shareholder earnings"
+2026 Jan-Sep,provider net-income PE reference,-13510000.0,273,-18062820.512820512,,,N/A: denominator <=0 or unknown,"V30; display rounded, accrual and valuations; not shareholder earnings"
+2026 Q3,DAO total income,18900000.0,92,74983695.6521739,35.33204122519388,36.62022758570704,conditional ratio,"V30; display rounded, accrual and valuations; not shareholder earnings"
+2026 Q3,provider net-income PE reference,4040000.0,92,16028260.869565219,165.29098493964463,171.317401329174,conditional ratio,"V30; display rounded, accrual and valuations; not shareholder earnings"
+Sep2026 30 calendar days,DAO total income,6920000.0,30,84193333.33333333,31.467182983609156,32.614458785335344,conditional ratio,V31
+Sep2026 30 calendar days,provider net-income PE reference,1650000.0,30,20075000.0,131.9714583312578,136.78306351183065,conditional ratio,V31; one month not forecast
