@@ -198,6 +198,10 @@
 
     /* ── TEV CARD (Featured, large) ── */
     .tev-inner{display:grid;grid-template-columns:1fr 280px;gap:32px}
+    .tev-inner.single{grid-template-columns:1fr}
+    .tev-inner.single .tev-kpis{gap:72px}
+    .tev-inner.single .tev-kpi-v{font-size:34px}
+    .tev-inner.single .tev-desc{max-width:720px}
     @media(max-width:960px){.tev-inner{grid-template-columns:1fr}}
 
     .tev-eyebrow{font-size:11px;font-weight:600;color:var(--green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:16px;display:flex;align-items:center;gap:8px}
@@ -396,32 +400,6 @@
 })();
 </script>
 
-<!-- ═══════════════════ HBM 存储三巨头估值看板 ═══════════════════ -->
-<section class="sec" id="hbm" style="padding-top:8px;padding-bottom:8px;">
-  <a href="./hbm/" class="bento-card glow rv" style="display:block">
-    <div class="tev-inner">
-      <div>
-        <div class="tev-eyebrow" style="color:#f5822a">🧠 存储半导体 · Memory <span class="badge" style="background:rgba(245,130,42,0.12);color:#f5822a">NEW</span></div>
-        <h3 class="tev-title" data-zh="存储三巨头估值看板" data-en="Memory Giants Valuation Board">存储三巨头估值看板</h3>
-        <p class="tev-desc" data-zh="Micron · SK Hynix · Samsung 历史数据同框对比——股价 / P·E / P·B / 利润率 / DIO / capex 可切换、三家可对比、每个数字可溯源。只忠实展示历史，不做合成指标。" data-en="Micron · SK Hynix · Samsung side-by-side history — price / P·E / P·B / margins / DIO / capex, switchable and comparable, every number sourced. Facts only, no synthetic scores.">Micron · SK Hynix · Samsung 历史数据同框对比——股价 / P·E / P·B / 利润率 / DIO / capex 可切换、三家可对比、每个数字可溯源。只忠实展示历史，不做合成指标。</p>
-        <div class="tev-kpis">
-          <div><div class="tev-kpi-v mono" style="color:#f5822a">3</div><div class="tev-kpi-l" data-zh="存储原厂" data-en="Makers">存储原厂</div></div>
-          <div><div class="tev-kpi-v mono" style="color:#f5822a">40y</div><div class="tev-kpi-l" data-zh="股价回溯" data-en="Price History">股价回溯</div></div>
-          <div><div class="tev-kpi-v mono" style="color:#f5822a">11</div><div class="tev-kpi-l" data-zh="对比指标" data-en="Metrics">对比指标</div></div>
-        </div>
-        <div class="tev-tags"><span class="tev-tag">HBM</span><span class="tev-tag">DRAM</span><span class="tev-tag">NAND</span><span class="tev-tag" data-zh="存储周期" data-en="Memory Cycle">存储周期</span></div>
-      </div>
-      <div class="tev-table">
-        <div class="tev-table-head" data-zh="三家原厂" data-en="Three Makers">三家原厂</div>
-        <div class="tev-row"><span class="tev-rank" style="background:rgba(46,111,230,0.15);color:#2E6FE6">MU</span><span class="tev-proto">Micron</span><span class="tev-yield mono" style="color:var(--text-3)">US</span></div>
-        <div class="tev-row"><span class="tev-rank" style="background:rgba(245,130,42,0.15);color:#F5822A">SK</span><span class="tev-proto">SK Hynix</span><span class="tev-yield mono" style="color:var(--text-3)">KR</span></div>
-        <div class="tev-row"><span class="tev-rank" style="background:rgba(123,97,255,0.15);color:#7B61FF">SS</span><span class="tev-proto">Samsung</span><span class="tev-yield mono" style="color:var(--text-3)">KR</span></div>
-        <div class="tev-link" data-zh="进入看板 →" data-en="Open Board →">进入看板 →</div>
-      </div>
-    </div>
-  </a>
-</section>
-
 <!-- ═══════════════════ 区域1: 协议估值业务线 ═══════════════════ -->
 <section class="sec-alt" id="tev">
   <div class="sec">
@@ -433,38 +411,18 @@
 
     <!-- 股东回报率大卡片 -->
     <a href="./equity/" class="bento-card glow rv" style="display:block">
-      <div class="tev-inner">
+      <div class="tev-inner single">
         <div>
           <div class="tev-eyebrow">💰 股东回报率 · Shareholder Yield <span class="badge">Live</span></div>
           <h3 class="tev-title" data-zh="协议收益如何流向代币持有者？" data-en="How does protocol revenue flow to token holders?">协议收益如何流向代币持有者？</h3>
-          <p class="tev-desc" data-zh="追踪回购、销毁、分红等价值分配机制，量化代币价值捕获能力。" data-en="Track buybacks, burns, dividends and other mechanisms to quantify token value capture.">追踪回购、销毁、分红等价值分配机制，量化代币价值捕获能力。</p>
+          <p class="tev-desc" data-zh="追踪回购、销毁、分红等价值分配机制，并给出各协议的 P/E、P/S 与股东回报率。" data-en="Track buybacks, burns and dividends, with P/E, P/S and shareholder yield for each protocol.">追踪回购、销毁、分红等价值分配机制，并给出各协议的 P/E、P/S 与股东回报率。</p>
           <div class="tev-kpis">
             <div><div class="tev-kpi-v mono" id="kpi-total">26</div><div class="tev-kpi-l" data-zh="覆盖协议" data-en="Protocols">覆盖协议</div></div>
             <div><div class="tev-kpi-v mono" id="kpi-active">15</div><div class="tev-kpi-l" data-zh="有股东回报" data-en="Returning Capital">有股东回报</div></div>
-            <div><div class="tev-kpi-v mono" id="kpi-governance">17</div><div class="tev-kpi-l" data-zh="治理监控" data-en="Governance">治理监控</div></div>
+            <div><div class="tev-kpi-v mono" id="kpi-pe">—</div><div class="tev-kpi-l" data-zh="中位 P/E" data-en="Median P/E">中位 P/E</div></div>
           </div>
           <div class="tev-tags"><span class="tev-tag">DeFi</span><span class="tev-tag">Perps</span><span class="tev-tag">Lending</span><span class="tev-tag">Staking</span></div>
-        </div>
-        <div class="tev-table">
-          <div class="tev-table-head">Top Shareholder Yield</div>
-          <div id="tev-ranking-list"><div class="tev-row" style="color:var(--text-3)">Loading...</div></div>
-          <script>
-          (function(){
-            fetch('./data/all-protocols.json').then(r=>r.json()).then(function(d){
-              var protos=d.protocols,list=[];
-              var mechMap={buyback:'回购',burn:'销毁',dividend:'分红',staking_reward:'质押',distribution:'分配',mixed:'混合'};
-              for(var k in protos){var p=protos[k];var y=p.shareholder_yield_percent||0;if(y>0)list.push({name:p.name,yield:y,cat:p.category||''})}
-              list.sort(function(a,b){return b.yield-a.yield});
-              var html='';
-              for(var i=0;i<Math.min(list.length,5);i++){
-                var m=list[i];
-                html+='<div class="tev-row"><span class="tev-rank">'+(i+1)+'</span><span class="tev-proto">'+m.name+'</span><span class="tev-yield mono">'+m.yield.toFixed(1)+'%</span></div>';
-              }
-              document.getElementById('tev-ranking-list').innerHTML=html;
-            }).catch(function(){});
-          })();
-          </script>
-          <div class="tev-link" data-zh="查看完整排名 →" data-en="View Full Rankings →">查看完整排名 →</div>
+          <div class="tev-link" style="margin-top:18px" data-zh="查看完整估值 →" data-en="View Full Valuations →">查看完整估值 →</div>
         </div>
       </div>
     </a>
@@ -498,9 +456,6 @@
     </div>
   </div>
 </section>
-
-<!-- Research articles -->
-<section class="sec" id="research"><div class="sec-head"><div class="sec-eyebrow">Research</div><h2 class="sec-title" data-zh="研究文章" data-en="Research">研究文章</h2><p class="sec-desc" data-zh="拆解加密资产、交易工具与协议价值。" data-en="Research on crypto assets, trading instruments and protocol value.">拆解加密资产、交易工具与协议价值。</p></div><a class="research-card" href="./research/ai-year/"><div class="research-card-copy"><div class="research-meta"><span>AI 观察</span><time datetime="2026-10-11">2026.10.11</time></div><h3>AI 模型这一年</h3><p class="research-subtitle">ChatGPT 与 Claude 的迭代时间轴</p><p>从2025年10月到2026年10月，梳理主要模型升级与Kimi K3等代表，聊聊如何放下焦虑、用AI做项目。</p><span class="read-link">阅读全文 <span aria-hidden="true">→</span></span></div><div class="research-card-mark" aria-hidden="true"><span>AI</span><small>模型迭代 · 使用思考 · 做项目</small></div></a><a class="research-card" href="./research/bnc/"><div class="research-card-copy"><div class="research-meta"><span>财库公司</span><time datetime="2026-10-11">2026.10.11</time></div><h3>BNC：BNB 财库与每股资产</h3><p class="research-subtitle">资产折价、每股含币量与持续成本</p><p>衡量股票对应的BNB资产、回购与增发对每股含币量的影响，追踪费用、借款和管理合同风险，并与MSTR比较。</p><span class="read-link">阅读全文 <span aria-hidden="true">→</span></span></div><div class="research-card-mark" aria-hidden="true"><span>BNC</span><small>每美元资产 · 融资成本 · MSTR对比</small></div></a><a class="research-card" href="./research/sky/"><div class="research-card-copy"><div class="research-meta"><span>代币经济学</span><time datetime="2026-10-11">2026.10.11</time></div><h3>SKY：稳定币收入与代币价值捕获</h3><p class="research-subtitle">代币用途、收入分配与治理变化</p><p>讲清SKY能做什么、协议赚的钱如何分配，以及回购和奖励规则怎样变化，再看历史收入和当前PE。</p><span class="read-link">阅读全文 <span aria-hidden="true">→</span></span></div><div class="research-card-mark" aria-hidden="true"><span>SKY</span><small>代币权益 · 收入分配 · 治理与PE</small></div></a><a class="research-card" href="./research/aave/"><div class="research-card-copy"><div class="research-meta"><span>代币经济学</span><time datetime="2026-10-11">2026.10.11</time></div><h3>AAVE：借贷收入与代币价值捕获</h3><p class="research-subtitle">筹码流通、运营与坏账成本、代币赋能及PE</p><p>区分初始分配和当前流通，追踪服务商成本、坏账保障与rsETH救助资金，解释回购、质押奖励及报表PE。</p><span class="read-link">阅读全文 <span aria-hidden="true">→</span></span></div><div class="research-card-mark" aria-hidden="true"><span>AAVE</span><small>筹码 · 价值捕获 · 估值</small></div></a><a class="research-card" href="./research/options/"><div class="research-card-copy"><div class="research-meta"><span>期权基础</span><time datetime="2026-09-21">2026.09.21</time></div><h3>期权入门</h3><p class="research-subtitle">看懂 Put、Call 与卖方的选择</p><p>四种期权、IV 与 Delta、保证金规则，以及双币赢和段永平的实际操作。</p><span class="read-link">阅读全文 <span aria-hidden="true">→</span></span></div><div class="research-card-mark" aria-hidden="true"><span>期权</span><small>权利 · 义务 · 收益</small></div></a><a class="research-card" href="./research/uni/"><div class="research-card-copy"><div class="research-meta"><span>代币经济学</span><time datetime="2026-09-20">2026.09.20</time></div><h3>UNI 价值捕获研究</h3><p class="research-subtitle">从协议收入到代币销毁</p><p>发行与解锁、多链收费、Robinhood Chain 收入贡献，以及回购销毁的估值测算。</p><span class="read-link">阅读全文 <span aria-hidden="true">→</span></span></div><div class="research-card-mark" aria-hidden="true"><span>UNI</span><small>价值捕获 · 供给 · 估值</small></div></a><a class="research-all" href="./research/" data-zh="查看全部研究 →" data-en="All research →">查看全部研究 →</a></section>
 
 <!-- ═══════════════════ 区域2: BTC 周期指标 ═══════════════════ -->
 <section id="cycle" class="sec-tinted">
@@ -556,6 +511,35 @@
     </div>
   </div>
 </section>
+
+<!-- ═══════════════════ HBM 存储三巨头估值看板 ═══════════════════ -->
+<section class="sec" id="hbm" style="padding-top:8px;padding-bottom:8px;">
+  <a href="./hbm/" class="bento-card glow rv" style="display:block">
+    <div class="tev-inner">
+      <div>
+        <div class="tev-eyebrow" style="color:#f5822a">🧠 存储半导体 · Memory <span class="badge" style="background:rgba(245,130,42,0.12);color:#f5822a">NEW</span></div>
+        <h3 class="tev-title" data-zh="存储三巨头估值看板" data-en="Memory Giants Valuation Board">存储三巨头估值看板</h3>
+        <p class="tev-desc" data-zh="Micron · SK Hynix · Samsung 历史数据同框对比——股价 / P·E / P·B / 利润率 / DIO / capex 可切换、三家可对比、每个数字可溯源。只忠实展示历史，不做合成指标。" data-en="Micron · SK Hynix · Samsung side-by-side history — price / P·E / P·B / margins / DIO / capex, switchable and comparable, every number sourced. Facts only, no synthetic scores.">Micron · SK Hynix · Samsung 历史数据同框对比——股价 / P·E / P·B / 利润率 / DIO / capex 可切换、三家可对比、每个数字可溯源。只忠实展示历史，不做合成指标。</p>
+        <div class="tev-kpis">
+          <div><div class="tev-kpi-v mono" style="color:#f5822a">3</div><div class="tev-kpi-l" data-zh="存储原厂" data-en="Makers">存储原厂</div></div>
+          <div><div class="tev-kpi-v mono" style="color:#f5822a">40y</div><div class="tev-kpi-l" data-zh="股价回溯" data-en="Price History">股价回溯</div></div>
+          <div><div class="tev-kpi-v mono" style="color:#f5822a">11</div><div class="tev-kpi-l" data-zh="对比指标" data-en="Metrics">对比指标</div></div>
+        </div>
+        <div class="tev-tags"><span class="tev-tag">HBM</span><span class="tev-tag">DRAM</span><span class="tev-tag">NAND</span><span class="tev-tag" data-zh="存储周期" data-en="Memory Cycle">存储周期</span></div>
+      </div>
+      <div class="tev-table">
+        <div class="tev-table-head" data-zh="三家原厂" data-en="Three Makers">三家原厂</div>
+        <div class="tev-row"><span class="tev-rank" style="background:rgba(46,111,230,0.15);color:#2E6FE6">MU</span><span class="tev-proto">Micron</span><span class="tev-yield mono" style="color:var(--text-3)">US</span></div>
+        <div class="tev-row"><span class="tev-rank" style="background:rgba(245,130,42,0.15);color:#F5822A">SK</span><span class="tev-proto">SK Hynix</span><span class="tev-yield mono" style="color:var(--text-3)">KR</span></div>
+        <div class="tev-row"><span class="tev-rank" style="background:rgba(123,97,255,0.15);color:#7B61FF">SS</span><span class="tev-proto">Samsung</span><span class="tev-yield mono" style="color:var(--text-3)">KR</span></div>
+        <div class="tev-link" data-zh="进入看板 →" data-en="Open Board →">进入看板 →</div>
+      </div>
+    </div>
+  </a>
+</section>
+
+<!-- Research articles -->
+<section class="sec" id="research"><div class="sec-head"><div class="sec-eyebrow">Research</div><h2 class="sec-title" data-zh="研究文章" data-en="Research">研究文章</h2><p class="sec-desc" data-zh="拆解加密资产、交易工具与协议价值。" data-en="Research on crypto assets, trading instruments and protocol value.">拆解加密资产、交易工具与协议价值。</p></div><a class="research-card" href="./research/ai-year/"><div class="research-card-copy"><div class="research-meta"><span>AI 观察</span><time datetime="2026-10-11">2026.10.11</time></div><h3>AI 模型这一年</h3><p class="research-subtitle">ChatGPT 与 Claude 的迭代时间轴</p><p>从2025年10月到2026年10月，梳理主要模型升级与Kimi K3等代表，聊聊如何放下焦虑、用AI做项目。</p><span class="read-link">阅读全文 <span aria-hidden="true">→</span></span></div><div class="research-card-mark" aria-hidden="true"><span>AI</span><small>模型迭代 · 使用思考 · 做项目</small></div></a><a class="research-card" href="./research/bnc/"><div class="research-card-copy"><div class="research-meta"><span>财库公司</span><time datetime="2026-10-11">2026.10.11</time></div><h3>BNC：BNB 财库与每股资产</h3><p class="research-subtitle">资产折价、每股含币量与持续成本</p><p>衡量股票对应的BNB资产、回购与增发对每股含币量的影响，追踪费用、借款和管理合同风险，并与MSTR比较。</p><span class="read-link">阅读全文 <span aria-hidden="true">→</span></span></div><div class="research-card-mark" aria-hidden="true"><span>BNC</span><small>每美元资产 · 融资成本 · MSTR对比</small></div></a><a class="research-card" href="./research/sky/"><div class="research-card-copy"><div class="research-meta"><span>代币经济学</span><time datetime="2026-10-11">2026.10.11</time></div><h3>SKY：稳定币收入与代币价值捕获</h3><p class="research-subtitle">代币用途、收入分配与治理变化</p><p>讲清SKY能做什么、协议赚的钱如何分配，以及回购和奖励规则怎样变化，再看历史收入和当前PE。</p><span class="read-link">阅读全文 <span aria-hidden="true">→</span></span></div><div class="research-card-mark" aria-hidden="true"><span>SKY</span><small>代币权益 · 收入分配 · 治理与PE</small></div></a><a class="research-all" href="./research/" data-zh="查看全部研究 →" data-en="All research →">查看全部研究 →</a></section>
 
 <!-- ═══════════════════ STATS BAR (Stripe-inspired) ═══════════════════ -->
 <div class="stats-bar">
@@ -632,9 +616,9 @@ sp('sp-a',[0.554,0.571,0.565,0.568,0.591,0.579,0.576],'#60a5fa');
 sp('sp-m',[1.583,1.588,1.589,1.572,1.572,1.571,1.593],'#a78bfa');
 sp('sp-d',[58.63,58.98,59.06,58.9,59.17,58.94,59.01],'#38bdf8');
 </script>
-<script src="./js/theme.js?v=20261011"></script>
-<script src="./js/lang.js?v=20261011"></script>
-<script src="./js/homepage-data.js?v=20261011"></script>
+<script src="./js/theme.js?v=20261011b"></script>
+<script src="./js/lang.js?v=20261011b"></script>
+<script src="./js/homepage-data.js?v=20261011b"></script>
 </body>
 </html>
 <!-- cache-bust 1774095253 -->
