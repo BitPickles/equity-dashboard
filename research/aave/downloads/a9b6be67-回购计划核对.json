@@ -1,0 +1,49 @@
+{
+  "checked_at": "2026-10-11",
+  "research_snapshot": "2026-10-07",
+  "scope": "补充既有回购运行期间的预算与授权，不刷新行情或财务数据",
+  "initial_plan": {
+    "weekly_usd": 1000000,
+    "duration_months": 6,
+    "estimated_weeks": 26,
+    "estimated_total_usd": 26000000,
+    "total_is_calculated_estimate": true,
+    "source": "https://governance.aave.com/t/arfc-aavenomics-implementation-part-one/21248",
+    "destination": "买入AAVE进入生态储备，非销毁"
+  },
+  "first_authorization": {
+    "amount": 4000000,
+    "asset": "aEthUSDT",
+    "coverage": "约1个月",
+    "included_in_initial_plan": true,
+    "status": "AIP 286 已执行；额度授权，不等于实际成交金额",
+    "source": "https://app.aave.com/governance/v3/proposal/?proposalId=286",
+    "implementation": "https://raw.githubusercontent.com/bgd-labs/aave-proposals-v3/5bf5796951820701d82d50530c71fcf1edd0d091/src/20250403_AaveV3Ethereum_AAVEBuybacksAllocation/AaveV3Ethereum_AAVEBuybacksAllocation_20250403.sol",
+    "stored_page": "../evidence_v3/H22_AIP286_snapshot.txt"
+  },
+  "extension_proposal": {
+    "proposal_date": "2025-10-22",
+    "annual_budget_usd": 50000000,
+    "weekly_min_usd": 250000,
+    "weekly_max_usd": 1750000,
+    "source": "https://governance.aave.com/t/arfc-aave-buybacks-program-an-update/23290",
+    "status": "方向投票通过，作者2025-11-02确认；具体生效日未知",
+    "effective_start": null
+  },
+  "reduction_proposal": {
+    "proposal_date": "2026-03-04",
+    "previous_annual_usd": 50000000,
+    "proposed_annual_usd": 30000000,
+    "source": "https://governance.aave.com/t/arfc-buyback-program-budget-adjustment/24229",
+    "status": "2026-03-15方向投票通过；具体生效日未知",
+    "effective_start": null,
+    "stored_vote_evidence": "../evidence/S47_snapshot_proposals.json",
+    "stored_timeline_row": "T23 in ../价值捕获时间线_v3.csv"
+  },
+  "treatment": [
+    "运行期间沿用2025-04-09至2026-04-19；后续方案日期不替换运行期间",
+    "预算、授权不当作实际支出；实际回购统计仍在第三章",
+    "首批400万美元已含在首期计划内，不能重复相加",
+    "5,000万和3,000万美元均为年预算方案，不代表全年实际买足"
+  ]
+}

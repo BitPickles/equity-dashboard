@@ -1,0 +1,68 @@
+{
+  "source_input_unit": "USD thousands",
+  "display_unit": "USD millions",
+  "verified_on": "2026-10-09",
+  "sources": {
+    "BNC": "https://www.sec.gov/Archives/edgar/data/1482541/000148254126000051/bncww-20260731.htm",
+    "MSTR": "https://www.sec.gov/Archives/edgar/data/1050446/000105044626000044/mstr-20260630.htm",
+    "BNC_mnav": "https://www.ceaindustries.com/dashboard.html",
+    "MSTR_mnav": "https://www.strategy.com/notes",
+    "MSTR_snapshot": "https://www.sec.gov/Archives/edgar/data/1050446/000119312526352145/d169243dfwp.htm"
+  },
+  "BNC": {
+    "date": "2026-07-31",
+    "total": 327152,
+    "coin": 302297,
+    "cash": 7084,
+    "short": 0,
+    "other_asset": 17771,
+    "debt": 16798,
+    "warrant": 12049,
+    "other_liability": 8876,
+    "liabilities": 37723,
+    "preferred": 0,
+    "equity": 289429,
+    "coin_count": 515544
+  },
+  "MSTR": {
+    "date": "2026-06-30",
+    "total": 52562592,
+    "coin": 49672080,
+    "cash": 1711837,
+    "short": 736145,
+    "other_asset": 442530,
+    "debt": 6709928,
+    "warrant": 0,
+    "other_liability": 525681,
+    "liabilities": 7235609,
+    "preferred": 14440895,
+    "equity": 30886088,
+    "coin_count": 846000,
+    "convertible_debt": 6670114,
+    "other_secured_debt": 39814,
+    "preferred_liquidation": 15462056
+  },
+  "mnav": {
+    "BNC": {
+      "value": 0.7099663750386469,
+      "stock_price": 5.85,
+      "stock_price_date": "2026-10-06",
+      "basic_shares": 48773114,
+      "basic_shares_date": "2026-10-02",
+      "BNB_count": 515544,
+      "BNB_count_date": "2026-07-31",
+      "BNB_price": 779.53,
+      "BNB_price_date": "2026-10-06",
+      "marketcap_usd": 285322716.9,
+      "coin_value_usd": 401882014.32,
+      "status": "recomputed using official formula, conditional historical inputs"
+    },
+    "MSTR": {
+      "value": 1.06,
+      "stock_price": 97.33,
+      "net_bps_usd": 92.11,
+      "date": "2026-08-10",
+      "status": "company reported historical snapshot"
+    }
+  }
+}

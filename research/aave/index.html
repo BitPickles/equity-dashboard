@@ -1,0 +1,576 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AAVE：筹码流通、收入赋能与当前估值 | Crypto3D</title><meta name="description" content="区分初始分配和当前流通，追踪服务商成本、坏账保障与rsETH救助资金，解释回购、质押奖励及报表PE。"><link rel="icon" href="../shared-20261011/logo-3d-32.png"><script>try{if(localStorage.getItem('theme')!=='dark')document.documentElement.setAttribute('data-theme','light')}catch(e){document.documentElement.setAttribute('data-theme','light')}</script><link rel="stylesheet" href="../shared-20261011/research.css"><link rel="stylesheet" href="../shared-20261011/article.css"><link rel="stylesheet" href="../shared-20261011/enhancements.css?v=334dfd910e"><link rel="canonical" href="https://crypto3d.pro/research/aave/"><meta property="og:type" content="article"><meta property="og:site_name" content="Crypto3D"><meta property="og:locale" content="zh_CN"><meta property="og:title" content="AAVE：筹码流通、收入赋能与当前估值"><meta property="og:description" content="区分初始分配和当前流通，追踪服务商成本、坏账保障与rsETH救助资金，解释回购、质押奖励及报表PE。"><meta property="og:url" content="https://crypto3d.pro/research/aave/"><meta property="og:image" content="https://crypto3d.pro/logo-3d.jpg"><meta property="article:published_time" content="2026-10-11T00:00:00+08:00"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="AAVE：筹码流通、收入赋能与当前估值"><meta name="twitter:description" content="区分初始分配和当前流通，追踪服务商成本、坏账保障与rsETH救助资金，解释回购、质押奖励及报表PE。"><meta name="twitter:image" content="https://crypto3d.pro/logo-3d.jpg"></head><body><a class="skip-link" href="#content">跳至正文</a><header class="site-header"><div class="site-header-inner"><a class="site-brand" href=".."><img src="../shared-20261011/logo-3d.jpg" width="28" height="28" alt="">Crypto3D</a><nav class="site-nav" aria-label="网站导航"><a href="https://crypto3d.pro/equity/">协议估值</a><a href=".." aria-current="page">研究文章</a></nav><div class="hd-r"><button type="button" id="tt" aria-label="切换主题"></button></div></div></header><div class="layout"><aside aria-label="文章目录"><div class="label">AAVE / 价值捕获研究</div><a href="#section-1">代币筹码结构与流通量</a><a href="#section-2">历史赋能与收入到代币的路径</a><a href="#section-3">当前收支与PE</a><div class="downloads"><a href="downloads/1a5638f0-网页正文_当前.md" download>下载研究全文</a><a href="downloads/c0acff95-价值捕获时间线_v3.csv" download>完整机制时间线 CSV</a><a href="#sources">数据口径与来源</a></div></aside><main id="content"><nav aria-label="当前位置" class="breadcrumbs"><a href="..">首页</a><span>/</span><a href="..">研究文章</a><span>/</span><span>AAVE</span></nav><h1>AAVE：筹码流通、收入赋能与当前估值</h1><p class="snapshot">研究快照：2026年10月7日；费用与事故证据补查：10月9日。行情21:38:40、链上21:42:35、回购核查22:03（北京时间）；财务采用标明的完整期间。</p><p>价格、筹码及回购状态截至2026年10月7日；财务期间见各表。文字更新：10月11日。</p>
+<p>Aave是<a href="https://aave.com/docs/aave-v3/overview">去中心化借贷协议</a>：用户存币赚利息，或抵押资产借款，由智能合约执行。AAVE是其<a href="https://aave.com/docs/ecosystem/aave">治理代币</a>，持有人可参与协议决策。</p>
+<h2 id="section-1">一、代币筹码结构与流通量</h2>
+<h3>原始分配</h3>
+<p>2017年先发行LEND；2020年按100:1换成AAVE，并增加DAO生态储备。</p>
+<figure class="holdings-figure" data-chart-id="aave-lend-allocation"><div class="holdings-scope">分母 13 亿 LEND · 官方白皮书分配方案</div><div class="pie-layout"><svg class="holdings-pie" viewBox="0 0 320 320" role="group" aria-labelledby="aave-lend-allocation-title"><title id="aave-lend-allocation-title">2017年LEND出售与开发基金配额</title><path class="pie-sector" d="M 160 160 L 160.00000 24.00000 A 136 136 0 1 1 24.99159 143.60701 Z" fill="#a22665" data-category="出售配额（投资人）" data-percent="76.92307692307692" data-amount="1000000000" tabindex="0" role="img" aria-label="出售配额（投资人）：76.92%，10.00 亿 LEND"><title>出售配额（投资人）：76.92%，10.00 亿 LEND</title></path><text class="pie-percent" x="218.35" y="225.87" aria-hidden="true">76.92%</text><path class="pie-sector" d="M 160 160 L 24.99159 143.60701 A 136 136 0 0 1 160.00000 24.00000 Z" fill="#315e9e" data-category="开发基金（团队激励与招聘）" data-percent="23.076923076923077" data-amount="300000000" tabindex="0" role="img" aria-label="开发基金（团队激励与招聘）：23.08%，3.00 亿 LEND"><title>开发基金（团队激励与招聘）：23.08%，3.00 亿 LEND</title></path><text class="pie-percent" x="101.65" y="94.13" aria-hidden="true">23.08%</text></svg><ul class="pie-legend"><li><i class="pie-swatch" style="background:#a22665" aria-hidden="true"></i><div class="pie-category"><span>出售配额（投资人）</span><small>10.00 亿 LEND</small></div><strong>76.92%</strong></li><li><i class="pie-swatch" style="background:#315e9e" aria-hidden="true"></i><div class="pie-category"><span>开发基金（团队激励与招聘）</span><small>3.00 亿 LEND</small></div><strong>23.08%</strong></li></ul></div><figcaption>2017年LEND出售与开发基金配额</figcaption></figure><figure class="holdings-figure" data-chart-id="aave-initial-allocation"><div class="holdings-scope">分母 1,600 万 AAVE · 100 LEND兑换1 AAVE</div><div class="pie-layout"><svg class="holdings-pie" viewBox="0 0 320 320" role="group" aria-labelledby="aave-initial-allocation-title"><title id="aave-initial-allocation-title">2020年AAVE迁移与生态储备配额</title><path class="pie-sector" d="M 160 160 L 160.00000 24.00000 A 136 136 0 1 1 34.35238 107.95505 Z" fill="#a22665" data-category="LEND持有人迁移配额" data-percent="81.25" data-amount="13000000" tabindex="0" role="img" aria-label="LEND持有人迁移配额：81.25%，1300.00 万 AAVE"><title>LEND持有人迁移配额：81.25%，1300.00 万 AAVE</title></path><text class="pie-percent" x="208.89" y="233.17" aria-hidden="true">81.25%</text><path class="pie-sector" d="M 160 160 L 34.35238 107.95505 A 136 136 0 0 1 160.00000 24.00000 Z" fill="#315e9e" data-category="DAO生态储备（安全与生态激励）" data-percent="18.75" data-amount="3000000" tabindex="0" role="img" aria-label="DAO生态储备（安全与生态激励）：18.75%，300.00 万 AAVE"><title>DAO生态储备（安全与生态激励）：18.75%，300.00 万 AAVE</title></path><text class="pie-percent" x="111.11" y="86.83" aria-hidden="true">18.75%</text></svg><ul class="pie-legend"><li><i class="pie-swatch" style="background:#a22665" aria-hidden="true"></i><div class="pie-category"><span>LEND持有人迁移配额</span><small>1300.00 万 AAVE</small></div><strong>81.25%</strong></li><li><i class="pie-swatch" style="background:#315e9e" aria-hidden="true"></i><div class="pie-category"><span>DAO生态储备（安全与生态激励）</span><small>300.00 万 AAVE</small></div><strong>18.75%</strong></li></ul></div><figcaption>2020年AAVE迁移与生态储备配额</figcaption></figure><p><strong>早期团队的24个月锁定期按计划已结束，后续释放主要来自DAO库存、奖励和拨款。</strong></p>
+<details><summary>原始分配的说明与来源</summary><p>LEND出售配额10亿枚（含6,000万预售），开发基金3亿枚；白皮书未单列用户奖励配额。</p>
+<p>AAVE的1,300万枚迁移配额承接原LEND持有人，包含投资人与开发基金份额；新增300万枚归DAO。</p>
+<p>来源：<a href="https://github.com/ETHLend/Documentation/blob/master/ETHLendWhitePaper.md">LEND官方白皮书</a>、<a href="https://github.com/aave/aavenomics">Aavenomics</a>、<a href="https://aave.github.io/aip/AIP-1/">AIP 1</a>。</p>
+</details><h3>当前流通量</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="研究数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th align="right">AAVE总量</th>
+<th align="right">已计入流通</th>
+<th align="right">未计入流通</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right"><strong>1,600万枚</strong></td>
+<td align="right"><strong>1,543.55万枚 · 96.47%</strong></td>
+<td align="right"><strong>56.45万枚 · 3.53%</strong></td>
+</tr>
+</tbody></table></div>
+<p class="holdings-scope">流通量据CoinGecko。DAO持仓与未流通部分有重叠，不能相加。</p><h3>DAO手里还有多少</h3>
+<figure class="holdings-figure" data-chart-id="aave-dao-inventory"><div class="holdings-scope"><strong>DAO持有88.83万枚 · 占总量5.55%</strong></div><div class="pie-layout"><svg class="holdings-pie" viewBox="0 0 320 320" role="group" aria-labelledby="aave-dao-inventory-title"><title id="aave-dao-inventory-title">DAO库存及已安排用途</title><path class="pie-sector" d="M 160 160 L 160.00000 24.00000 A 136 136 0 1 1 71.87878 56.41114 Z" fill="#a22665" tabindex="0" role="img" aria-label="其余DAO库存：78.87万枚，88.78%"><title>其余DAO库存：78.87万枚，88.78%</title></path><text class="pie-percent" x="190.38" y="242.59" aria-hidden="true">88.78%</text><path class="pie-sector" d="M 160 160 L 71.87878 56.41114 A 136 136 0 0 1 136.02594 26.12975 Z" fill="#315e9e" tabindex="0" role="img" aria-label="已批准分期拨款：7.46万枚，8.40%"><title>已批准分期拨款：7.46万枚，8.40%</title></path><text class="pie-percent" x="122.43" y="80.42" aria-hidden="true">8.40%</text><path class="pie-sector" d="M 160 160 L 136.02594 26.12975 A 136 136 0 0 1 160.00000 24.00000 Z" fill="#aa7625" tabindex="0" role="img" aria-label="奖励合约库存：2.51万枚，2.82%"><title>奖励合约库存：2.51万枚，2.82%</title></path></svg><ul class="pie-legend"><li><i class="pie-swatch" style="background:#a22665" aria-hidden="true"></i><div class="pie-category"><span>其余DAO库存</span><small>78.87万枚 AAVE</small></div><strong>88.78%</strong></li><li><i class="pie-swatch" style="background:#315e9e" aria-hidden="true"></i><div class="pie-category"><span>已批准分期拨款</span><small>7.46万枚 AAVE</small></div><strong>8.40%</strong></li><li><i class="pie-swatch" style="background:#aa7625" aria-hidden="true"></i><div class="pie-category"><span>奖励合约库存</span><small>2.51万枚 AAVE</small></div><strong>2.82%</strong></li></ul></div><figcaption>比例以DAO持有的88.83万枚为分母<span>2026年10月7日</span></figcaption></figure><div class="table-wrap" tabindex="0" role="region" aria-label="研究数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>放在哪里</th>
+<th align="right">AAVE数量</th>
+<th>后续用途／进入市场的方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>生态储备</td>
+<td align="right"><strong>56.44万枚</strong></td>
+<td>支付质押奖励、服务商拨款和生态预算</td>
+</tr>
+<tr>
+<td>回购钱包存入借贷池</td>
+<td align="right"><strong>24.05万枚</strong></td>
+<td>可提款后按DAO安排使用</td>
+</tr>
+<tr>
+<td>DAO多签</td>
+<td align="right"><strong>5.83万枚</strong></td>
+<td>按多签及治理安排使用</td>
+</tr>
+<tr>
+<td>奖励合约</td>
+<td align="right"><strong>2.51万枚</strong></td>
+<td>向符合条件的用户发放</td>
+</tr>
+<tr>
+<td>合计</td>
+<td align="right"><strong>88.83万枚</strong></td>
+<td><strong>占总量5.55%</strong></td>
+</tr>
+</tbody></table></div>
+<p><strong>DAO库存发给服务商或用户后，可能进入市场，形成卖压。</strong></p>
+<p class="holdings-scope">库存动用受治理和提款条件约束，尚未扣尽全部预算；团队个人持仓未知。</p><h3>已安排的后续释放</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="研究数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>发给谁</th>
+<th align="right">尚未领取</th>
+<th>计划发放至</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Aave Labs</td>
+<td align="right"><strong>6.63万枚</strong></td>
+<td>2030-04-12</td>
+</tr>
+<tr>
+<td>LlamaRisk</td>
+<td align="right"><strong>0.33万枚</strong></td>
+<td>2027-05-27</td>
+</tr>
+<tr>
+<td>TokenLogic</td>
+<td align="right"><strong>0.50万枚</strong></td>
+<td>2027-06-27</td>
+</tr>
+<tr>
+<td>合计</td>
+<td align="right"><strong>7.46万枚</strong></td>
+<td>分期发放</td>
+</tr>
+</tbody></table></div>
+<p>其中<strong>7.27万枚尚未到领取时间</strong>，拨款可取消。另有stkAAVE奖励<strong>150枚／日</strong>，按现速一年约<strong>5.48万枚</strong>，速率可由治理调整。</p>
+<details><summary>地址、拨款与流通口径明细</summary><p>7.46万枚拨款已包含在生态储备中，其中约1,916枚已到领取时间、尚未领取。</p>
+<p>DAO持仓含原生AAVE约64.78万枚和存款约24.05万枚；存款底层只计一次。未识别地址可能包含个人、机构和合约。</p>
+<figure class="holdings-figure" data-chart-id="aave-current-holdings"><div class="holdings-scope">原生总量 1,600 万 AAVE · 同一区块分类</div><div class="pie-layout"><svg class="holdings-pie" viewBox="0 0 320 320" role="group" aria-labelledby="aave-current-holdings-title"><title id="aave-current-holdings-title">当前筹码所在位置</title><path class="pie-sector" d="M 160 160 L 160.00000 24.00000 A 136 136 0 1 1 106.92180 285.21463 Z" fill="#72808b" data-category="其他钱包及未识别地址" data-percent="56.38110524200603" data-amount="9020976.838720964" tabindex="0" role="img" aria-label="其他钱包及未识别地址：56.38%，902.10 万 AAVE"><title>其他钱包及未识别地址：56.38%，902.10 万 AAVE</title></path><text class="pie-percent" x="246.24" y="177.52" aria-hidden="true">56.38%</text><path class="pie-sector" d="M 160 160 L 106.92180 285.21463 A 136 136 0 0 1 24.16065 166.60846 Z" fill="#315e9e" data-category="交易所／托管地址（已识别）" data-percent="17.845230255954466" data-amount="2855236.840952715" tabindex="0" role="img" aria-label="交易所／托管地址（已识别）：17.85%，285.52 万 AAVE"><title>交易所／托管地址（已识别）：17.85%，285.52 万 AAVE</title></path><text class="pie-percent" x="87.83" y="210.36" aria-hidden="true">17.85%</text><path class="pie-sector" d="M 160 160 L 24.16065 166.60846 A 136 136 0 0 1 78.51046 51.11724 Z" fill="#aa7625" data-category="stkAAVE质押合约" data-percent="15.548177989119381" data-amount="2487708.478259101" tabindex="0" role="img" aria-label="stkAAVE质押合约：15.55%，248.77 万 AAVE"><title>stkAAVE质押合约：15.55%，248.77 万 AAVE</title></path><text class="pie-percent" x="80.38" y="122.53" aria-hidden="true">15.55%</text><path class="pie-sector" d="M 160 160 L 78.51046 51.11724 A 136 136 0 0 1 117.39047 30.84727 Z" fill="#65794d" data-category="借贷池AAVE底层" data-percent="5.15366944349713" data-amount="824587.1109595408" tabindex="0" role="img" aria-label="借贷池AAVE底层：5.15%，82.46 万 AAVE"><title>借贷池AAVE底层：5.15%，82.46 万 AAVE</title></path><path class="pie-sector" d="M 160 160 L 117.39047 30.84727 A 136 136 0 0 1 151.26615 24.28073 Z" fill="#795a96" data-category="DAO储备、奖励合约及多签" data-percent="4.049028195196572" data-amount="647844.5112314514" tabindex="0" role="img" aria-label="DAO储备、奖励合约及多签：4.05%，64.78 万 AAVE"><title>DAO储备、奖励合约及多签：4.05%，64.78 万 AAVE</title></path><path class="pie-sector" d="M 160 160 L 151.26615 24.28073 A 136 136 0 0 1 160.00000 24.00000 Z" fill="#497f97" data-category="跨链桥托管合约" data-percent="1.022788874226423" data-amount="163646.21987622767" tabindex="0" role="img" aria-label="跨链桥托管合约：1.02%，16.36 万 AAVE"><title>跨链桥托管合约：1.02%，16.36 万 AAVE</title></path></svg><ul class="pie-legend"><li><i class="pie-swatch" style="background:#72808b" aria-hidden="true"></i><div class="pie-category"><span>其他钱包及未识别地址</span><small>902.10 万 AAVE</small></div><strong>56.38%</strong></li><li><i class="pie-swatch" style="background:#315e9e" aria-hidden="true"></i><div class="pie-category"><span>交易所／托管地址（已识别）</span><small>285.52 万 AAVE</small></div><strong>17.85%</strong></li><li><i class="pie-swatch" style="background:#aa7625" aria-hidden="true"></i><div class="pie-category"><span>stkAAVE质押合约</span><small>248.77 万 AAVE</small></div><strong>15.55%</strong></li><li><i class="pie-swatch" style="background:#65794d" aria-hidden="true"></i><div class="pie-category"><span>借贷池AAVE底层</span><small>82.46 万 AAVE</small></div><strong>5.15%</strong></li><li><i class="pie-swatch" style="background:#795a96" aria-hidden="true"></i><div class="pie-category"><span>DAO储备、奖励合约及多签</span><small>64.78 万 AAVE</small></div><strong>4.05%</strong></li><li><i class="pie-swatch" style="background:#497f97" aria-hidden="true"></i><div class="pie-category"><span>跨链桥托管合约</span><small>16.36 万 AAVE</small></div><strong>1.02%</strong></li></ul></div><figcaption>当前筹码所在位置<span>2026-10-07 · 区块 26,140,879</span></figcaption></figure>
+<details><summary>主要合约与DAO地址的实际余额</summary><div class="table-wrap" tabindex="0" role="region" aria-label="研究数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>地址 / 合约</th>
+<th align="right">原生AAVE余额</th>
+<th>属于谁 / 余额口径</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://etherscan.io/address/0x25f2226b597e8f9514b3f68f00f494cf4f286491">生态储备</a></td>
+<td align="right">564,446.952</td>
+<td>DAO；含下述分期拨款</td>
+</tr>
+<tr>
+<td><a href="https://etherscan.io/address/0x22740deba78d5a0c24c58c740e3715ec29de1bfa">回购Safe</a></td>
+<td align="right">0</td>
+<td>另持有240,502.342枚aAAVE存款债权，底层位于V3池</td>
+</tr>
+<tr>
+<td><a href="https://etherscan.io/address/0xaaa973fe8a6202947e21d0a3a43d8e83abe35c23">Balancer Reclamm DAO多签</a></td>
+<td align="right">58,343.354</td>
+<td>DAO多签库存</td>
+</tr>
+<tr>
+<td><a href="https://etherscan.io/address/0xd784927ff2f95ba542bfc824c8a8a98f3495f6b5">奖励控制合约</a></td>
+<td align="right">25,054.205</td>
+<td>奖励库存；未把整个余额列作可自由调度</td>
+</tr>
+<tr>
+<td><a href="https://etherscan.io/address/0x464c71f6c2f760dda6093dcb91c24c39e5d6e18c">Ethereum Collector</a></td>
+<td align="right">0</td>
+<td>此行为AAVE余额，不代表国库其他资产为零</td>
+</tr>
+<tr>
+<td><a href="https://etherscan.io/address/0x4da27a545c0c5b758a6ba100e3a049001de870f5">stkAAVE质押合约</a></td>
+<td align="right">2,487,708.478</td>
+<td>质押者的币；按快照规则退出需冷却</td>
+</tr>
+<tr>
+<td><a href="https://etherscan.io/address/0xa700b4eb416be35b2911fd5dee80678ff64ff6c9">V3 aAAVE合约</a></td>
+<td align="right">820,095.059</td>
+<td>借贷池可用AAVE底层；含DAO存款的底层</td>
+</tr>
+<tr>
+<td><a href="https://etherscan.io/address/0xffc97d72e13e01096502cb8eb52dee56f74dad7b">V2 aAAVE合约</a></td>
+<td align="right">4,492.052</td>
+<td>V2池AAVE底层</td>
+</tr>
+<tr>
+<td><a href="https://etherscan.io/address/0x317625234562b1526ea2fac4030ea499c5291de4">LEND迁移合约</a></td>
+<td align="right">0</td>
+<td>已关闭</td>
+</tr>
+</tbody></table></div>
+<p>已识别合约与DAO多签合计约412.37万枚，未覆盖全部未标注合约。</p>
+</details><p>链上快照：Ethereum区块26,140,879，2026年10月7日21:42（北京时间）。拨款日期采用UTC。</p>
+<p>来源：V09、V24、V25、V33、<a href="downloads/9dfd5b29-筹码归属核对.md">余额与拨款核对</a>、<a href="downloads/94a30560-实际筹码_地址.csv">已识别地址CSV</a>、<a href="downloads/ed51498d-第一章图表数据.json">本章图表数据</a>。资金流允许取消的依据见<a href="https://eth.blockscout.com/address/0x10c74b37Ad4541E394c607d78062e6d22D9ad632?tab=contract">储备实现合约</a>。</p>
+</details><h2 id="section-2">二、历史赋能与收入到代币的路径</h2>
+<h3>代币权益的治理沿革</h3>
+<p class="holdings-scope">按运行期间排列；尚未结束的只列开始时间。状态截至2026年10月7日，日期采用UTC。</p><ol class="aave-rights-history" aria-label="AAVE代币权益的治理沿革">
+<li><div class="aave-rights-period"><span>2020年9月</span></div><div><strong>质押AAVE，领取库存奖励</strong><p>把AAVE存入质押合约后，领取DAO库存中的AAVE。发多少、发多久，由治理分期决定。 <a href="https://github.com/aave/aip/blob/main/content/aips/AIP-1.md">启动方案</a></p></div></li>
+<li><div class="aave-rights-period"><span>2021-01-10</span><span>至 2025-10-08</span></div><div><strong>质押者同时承担坏账风险</strong><p>当时质押本金可能被扣来补坏账，最高比例从30%逐步降到20%、10%，最后归零。这项担保已取消，库存奖励保留。 <a href="https://governance-v2.aave.com/governance/proposal/2/">启动提案</a> <a href="https://app.aave.com/governance/v3/proposal/?proposalId=385">取消担保</a></p></div></li>
+<li><div class="aave-rights-period"><span>2023-07-15</span><span>至 2025-07-03</span></div><div><strong>质押AAVE，借GHO可享利息折扣</strong><p>借入GHO的stkAAVE质押者曾享受利息优惠，后来在V3.4升级中取消。 <a href="https://governance-v2.aave.com/governance/proposal/268/">上线提案</a> <a href="https://app.aave.com/governance/v3/proposal/?proposalId=334">取消折扣</a></p></div></li>
+<li><div class="aave-rights-period"><span>2025-04-09</span><span>至 2026-04-19</span></div><div><strong>开始回购AAVE：每周100万美元，先执行6个月</strong><p>按约26周估算，首期计划约<b>2,600万美元</b>；首批授权<b>400万美元</b>，约覆盖1个月。DAO用协议收入买币，买来的AAVE进入生态储备，后续可用于奖励，不销毁。 <a href="https://governance.aave.com/t/arfc-aavenomics-implementation-part-one/21248">启动方案</a> <a href="https://app.aave.com/governance/v3/proposal/?proposalId=286">首批授权</a></p><p class="aave-rights-stage-note"><b>2025年10月续期方案：</b>每年<b>5,000万美元</b>，每周可在25万—175万美元之间调整。 <a href="https://governance.aave.com/t/arfc-aave-buybacks-program-an-update/23290">续期方案</a><br><b>2026年3月下调方案：</b>拟从每年5,000万降至<b>3,000万美元</b>，保留更多资金用于运营。 <a href="https://governance.aave.com/t/arfc-buyback-program-budget-adjustment/24229">调整方案</a></p></div></li>
+<li><div class="aave-rights-period"><span>2025-06-05</span></div><div><strong>Umbrella开始按资产提供坏账保障</strong><p>DAO先承担约定额度，超出的合格缺口由对应保障池承担。只覆盖已启用的资产与网络，AAVE原有的担保责任随后逐步退出。 <a href="https://app.aave.com/governance/v3/proposal/?proposalId=320">上线提案</a></p></div></li>
+<li><div class="aave-rights-period"><span>2026-03-24</span><span>至 2026-06-13</span></div><div><strong>每天的质押奖励从260枚降到220枚</strong><p>这是整个stkAAVE池每天分的AAVE。退出冷却期同时从7天缩短到2天。 <a href="https://app.aave.com/governance/v3/proposal/?proposalId=459">调整提案</a></p></div></li>
+<li><div class="aave-rights-period"><span>2026-04-19</span></div><div><strong>暂停回购，钱先留在国库</strong><p>rsETH事故后暂停买币，优先保留资金应对风险。TokenLogic于4月22日提出暂停议案，4月28日—5月1日投票通过，确认此前暂停。 <a href="https://governance.aave.com/t/arfc-pause-aave-buybacks/24686">暂停提案</a> <a href="https://snapshot.box/#/s:aavedao.eth/proposal/0x10a2af0110b1ad6f4afd7a3a052b2a119d102cc22949e80e9bbd5132587107c8">投票结果</a></p><p class="aave-rights-stage-note">截至10月7日仍未恢复。待rsETH情况更清楚后再评估，恢复安排通过资金更新披露，具体日期未知。</p></div></li>
+<li><div class="aave-rights-period"><span>2026-06-13</span></div><div><strong>每天的质押奖励再降到150枚</strong><p>stkAAVE全池每天分150枚AAVE，仍由DAO库存支付。个人按质押占比领取，后续还可通过治理调整。 <a href="https://app.aave.com/governance/v3/proposal/?proposalId=491">调整提案</a></p></div></li>
+</ol><p><strong>尚未确认落地：Anti-GHO收入分配。</strong> 2025年3月18日通过方向投票，拟用50%的GHO收入，按80%／20%分给stkAAVE／stkBPT；实际发放未知。</p>
+<details><summary>治理来源与完整记录</summary><p>回购金额为计划或授权，实际支出见第三章。首期2,600万美元按100万美元×约26周估算，400万美元首批授权已含在首期计划内。2025年10月、2026年3月两次后续方案均通过方向投票，具体生效日未知；不把提案日期当作开始执行日期。来源：<a href="downloads/a9b6be67-回购计划核对.json">回购预算核对</a>。</p>
+<p>来源：<a href="downloads/2e439e75-收入相关运行期间.csv">权益运行期间CSV</a>、<a href="downloads/c0acff95-价值捕获时间线_v3.csv">完整治理与权益时间线CSV</a>、<a href="#sources-v3">历史机制来源</a>。回购起止日期见<a href="https://governance.aave.com/t/aave-dao-funding-insights/24192">TokenLogic资金说明</a>及<a href="https://governance.aave.com/t/arfc-pause-aave-buybacks/24686">暂停提案</a>。</p>
+<p>来源：<a href="https://governance.aave.com/t/arfc-pause-aave-buybacks/24686">TokenLogic暂停提案</a>、<a href="https://snapshot.box/#/s:aavedao.eth/proposal/0x10a2af0110b1ad6f4afd7a3a052b2a119d102cc22949e80e9bbd5132587107c8">Snapshot投票结果</a>、<a href="downloads/a14a3559-暂停回购核查.md">本轮日期与投票核查</a>。</p>
+</details><h3>DAO收入与费用</h3>
+<p>DAO收入来自借贷分成、GHO、交易与清算，以及国库投资收益；普通存款人的利息已扣除。</p>
+<figure class="aave-map aave-v7"><div class="aave-map-heading"><strong>DAO收入扣除费用后的利润</strong><span>2026年第三季度 · 不计AAVE奖励</span></div><div class="aave-map-scroll" tabindex="0" role="region" aria-label="DAO收入扣除费用后的利润，窄屏可横向滑动"><svg viewBox="0 0 960 615" role="img" aria-labelledby="costs18-title costs18-desc"><title id="costs18-title">DAO收入扣除费用后的利润</title><desc id="costs18-desc">逐项扣除本次费用；AAVE奖励不计支出，服务商占本次费用69.30%。</desc><text x="24" y="32" class="aave-small">2026年7月1日—9月30日 · 不计AAVE奖励 · 单位：万美元</text><text x="24" y="104" class="aave-title">DAO收入</text><text x="936" y="104" class="aave-v7-value">1,890.21</text><rect x="260" y="80" width="560.000" height="34" class="aave-v7-total"/><path d="M820 114 V142" class="aave-v7-connector"/><text x="24" y="166" class="">服务商</text><text x="936" y="166" class="aave-v7-value">919.41</text><rect x="547.612" y="142" width="272.388" height="34" class="aave-v7-deduction"/><path d="M547.612 176 V204" class="aave-v7-connector"/><text x="24" y="228" class="">用户与市场激励</text><text x="936" y="228" class="aave-v7-value">134.41</text><rect x="507.792" y="204" width="39.819" height="34" class="aave-v7-deduction"/><path d="M507.792 238 V266" class="aave-v7-connector"/><text x="24" y="290" class="">Umbrella奖励</text><text x="936" y="290" class="aave-v7-value">82.37</text><rect x="483.390" y="266" width="24.402" height="34" class="aave-v7-deduction"/><path d="M483.390 300 V328" class="aave-v7-connector"/><text x="24" y="352" class="">GHO费用</text><text x="936" y="352" class="aave-v7-value">189.52</text><rect x="427.241" y="328" width="56.149" height="34" class="aave-v7-deduction"/><path d="M427.241 362 V390" class="aave-v7-connector"/><text x="24" y="414" class="">合作及其他</text><text x="936" y="414" class="aave-v7-value">1.10</text><rect x="426.916" y="390" width="0.325" height="34" class="aave-v7-deduction"/><path d="M426.916 424 V452" class="aave-v7-connector"/><text x="24" y="476" class="aave-title">本次利润</text><text x="936" y="476" class="aave-v7-value aave-v7-net-value">563.41</text><rect x="260" y="452" width="166.916" height="34" class="aave-v7-total"/><text x="24" y="545" class="aave-title">收入1,890.21 − 费用1,326.81 = 利润563.41</text><text x="24" y="582" class="aave-small">本次费用已剔除159.40万美元AAVE奖励；收入已排除普通存款人利息。</text></svg></div><figcaption>逐项扣除本次费用；AAVE奖励不计支出，服务商占本次费用69.30%。</figcaption></figure><div class="table-wrap" tabindex="0" role="region" aria-label="研究数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>本季费用（不计AAVE奖励）</th>
+<th align="right">金额（万美元）</th>
+<th>收款人 / 用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>服务商</td>
+<td align="right">919.41</td>
+<td>开发、安全、风控与财务团队</td>
+</tr>
+<tr>
+<td>用户与市场激励</td>
+<td align="right">134.41</td>
+<td>吸引存款、借款及流动性；已扣合作伙伴承担部分</td>
+</tr>
+<tr>
+<td>Umbrella奖励</td>
+<td align="right">82.37</td>
+<td>向保障池质押者支付奖励</td>
+</tr>
+<tr>
+<td>GHO相关费用</td>
+<td align="right">189.52</td>
+<td>sGHO费用176.56万、CEX相关12.35万、流动性约0.61万</td>
+</tr>
+<tr>
+<td>合作、网络与其他</td>
+<td align="right">1.10</td>
+<td>合作款、Gas与跨链发送等费用</td>
+</tr>
+</tbody></table></div>
+<h4>服务商费用</h4>
+<p>服务商费用是支付给开发、安全、风控和财务运营团队的报酬。</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="研究数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>服务商 / 费用项</th>
+<th align="right">第三季费用（万美元）</th>
+<th>工作内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Aave Labs</td>
+<td align="right">685.95</td>
+<td>协议与产品开发、维护、接入和增长</td>
+</tr>
+<tr>
+<td>TokenLogic</td>
+<td align="right">76.96</td>
+<td>国库管理、预算与报表、GHO及市场运营、增长</td>
+</tr>
+<tr>
+<td>Certora</td>
+<td align="right">66.24</td>
+<td>智能合约形式化验证与安全工作</td>
+</tr>
+<tr>
+<td>LlamaRisk</td>
+<td align="right">51.76</td>
+<td>抵押资产分析、参数管理与风险监测</td>
+</tr>
+<tr>
+<td>服务商KPI奖励</td>
+<td align="right">38.50</td>
+<td>按约定绩效奖励；此报表未进一步拆出机构归属</td>
+</tr>
+<tr>
+<td>合计</td>
+<td align="right">919.41</td>
+<td>占本次费用约69.30%</td>
+</tr>
+</tbody></table></div>
+<details><summary>费用口径与来源</summary><p>费用按合同期间计提，与当季提款可能不同；支付资产含GHO、aToken和AAVE。服务报酬继续计入费用。</p>
+<p>来源：<a href="https://aave.tokenlogic.xyz/financials/statements">TokenLogic报表与方法说明</a>、<a href="downloads/2b681cad-Q3_收支明细.csv">本季逐项数据</a>、<a href="https://governance.aave.com/t/arfc-governance-framework-v2/25348">2026年服务商职责</a>、<a href="https://governance.aave.com/t/arfc-tokenlogic-phase-ii-extension/24846">TokenLogic续约方案</a>。</p>
+</details><h3>坏账保障与国库承担</h3>
+<p>清算后仍有坏账，DAO先承担约定额度，再由对应的Umbrella保障池承担合格缺口。保障仅限指定资产和网络，其他损失需另筹资金。</p>
+<p>赔付和救助融资会挤占运营与回购资金。旧stkAAVE罚没比例已为0%，与Umbrella分开。来源：<a href="https://www.aave.com/docs/aave-v3/umbrella">Umbrella规则</a>、V33。</p>
+<h3>2026年两次事故与损失</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="研究数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>事件</th>
+<th>发生了什么</th>
+<th>资金来源与确认进度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3月10日wstETH误清算</td>
+<td>预言机参数错误，约34个账户被误清算；协议未产生坏账</td>
+<td>国库赔付授权513.19 WETH；扣回收与退款后，3月12日更新净成本为316.94 WETH，最终结算待核</td>
+</tr>
+<tr>
+<td>4月18日rsETH跨链攻击</td>
+<td>外部桥被攻击，受影响rsETH进入Aave抵押借款，造成资金缺口</td>
+<td>追回资产、生态捐款、DAO国库与融资共同补缺口。5月26日回填完成、市场恢复；DAO列报捐款3,924.38万美元，最终净损失待结算</td>
+</tr>
+</tbody></table></div>
+<figure class="aave-map aave-v7"><div class="aave-map-heading"><strong>rsETH恢复的资金来源、用途与偿还顺序</strong><span>资金关系 · 实线为已确认机制，虚线为条件路径</span></div><div class="aave-map-scroll" tabindex="0" role="region" aria-label="rsETH恢复的资金来源、用途与偿还顺序，窄屏可横向滑动"><svg viewBox="0 0 960 805" role="img" aria-labelledby="rescue-title rescue-desc"><title id="rescue-title">rsETH恢复的资金来源、用途与偿还顺序</title><desc id="rescue-desc">顶部区分追回资产、捐款与借款；虚线保留方案及到账条件。市场恢复结果已获官方确认，最终财务损失仍需对账。</desc><defs><marker id="arrow-rescue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="context-stroke"/></marker></defs><text x="24" y="30" class="aave-small">资金方案：2026年4月24日；恢复结果：官方5月31日复盘</text><text x="24" y="90" class="aave-stage">追回资产</text><text x="360" y="90" class="aave-stage">捐款与DAO承担</text><text x="690" y="90" class="aave-stage">临时贷款</text><rect x="24" y="110" width="292" height="180" rx="3" class="aave-panel "/><text x="42" y="150" class="aave-title">Kelp冻结 / 清算抵押品</text><text x="42" y="184" class="">Arbitrum冻结约30,766 ETH</text><text x="42" y="218" class="">Aave、Compound清算追回</text><text x="42" y="253" class="aave-small">金额与可动用时点分别确认</text><rect x="350" y="110" width="292" height="180" rx="3" class="aave-panel aave-dao"/><text x="368" y="150" class="aave-title">生态捐款 + DAO国库</text><text x="368" y="184" class="">DAO方案：25,000 ETH</text><text x="368" y="218" class="">报表捐款：3,924.38万美元</text><text x="368" y="253" class="aave-small">ETH预算与美元费用口径不同</text><rect x="676" y="110" width="260" height="180" rx="3" class="aave-panel aave-paused"/><text x="694" y="150" class="aave-title">Mantle等融资方</text><text x="694" y="184" class="">额度最高30,000 ETH</text><text x="694" y="218" class="">另拟短期过桥借款</text><text x="694" y="253" class="aave-small">实际提款 / 余额未核实</text><path d="M170 290 V355 H496" class="aave-edge aave-paused"/><path d="M496 290 V400" class="aave-edge " marker-end="url(#arrow-rescue)"/><path d="M806 290 V355 H496" class="aave-edge aave-paused"/><text x="24" y="331" class="aave-small">冻结及可追回资产有到账时间差</text><rect x="24" y="400" width="912" height="155" rx="3" class="aave-panel aave-dao"/><text x="44" y="439" class="aave-title">补足rsETH支撑资产 → 回填跨链适配器 → 恢复提款与市场</text><text x="44" y="479" class="">5月6日：八个攻击者仓位完成清算；Umbrella质押者未被罚没。</text><text x="44" y="515" class="">5月26日：第五批回填完成；官方称五批共116,131.72 rsETH。</text><path d="M480 555 V620" class="aave-edge " marker-end="url(#arrow-rescue)"/><rect x="24" y="620" width="912" height="150" rx="3" class="aave-panel "/><text x="44" y="662" class="aave-title">后续追回 / 新捐款：按方案优先偿还短期过桥，再偿还长期融资</text><text x="44" y="700" class="">补足用户与资产支撑之后，DAO捐款仍构成成本；贷款须另外核对本金和利息。</text><text x="44" y="737" class="aave-small">最终净损失与截至快照的贷款结清情况：尚缺完整结算披露。</text></svg></div><figcaption>顶部区分追回资产、捐款与借款；虚线保留方案及到账条件。市场恢复结果已获官方确认，最终财务损失仍需对账。</figcaption></figure><p><strong>rsETH救助未罚没Umbrella质押者。</strong> 资金方案包含DAO捐款、生态捐款和融资；过桥资金先补缺口，后续回收与捐款用于还债。</p>
+<details><summary>救助成本与核查说明</summary><p>25,000 ETH是捐款预算，3,924.38万美元是报表费用，两者不相加。最高30,000 ETH融资额度不等于实际提款；借款余额、后续回收及最终净损失仍待结算。</p>
+<p>rsETH回填汇总与逐批加总尚差1,000.29 rsETH，图中沿用官方汇总；筹款承诺与实际到账分开。</p>
+<p>来源：<a href="https://governance.aave.com/t/post-mortem-exchange-rate-misallignment-on-wsteth-core-and-prime-instances/24269">wstETH事故报告</a>、<a href="https://governance.aave.com/t/direct-to-aip-wsteth-capo-oracle-incident-user-reimbursement/24275">赔付与追回更新</a>、<a href="https://x.com/aave/status/2060901386611499378">rsETH官方复盘</a>。</p>
+<p>来源：<a href="https://governance.aave.com/t/arfc-rseth-incident-funding-update/24740">4月资金方案</a>、<a href="https://x.com/aave/status/2060901386611499378">5月31日官方复盘</a>、<a href="https://governance.aave.com/t/direct-to-aip-july-2026-funding-update/25277">7月国库资金更新</a>、<a href="https://aave.tokenlogic.xyz/financials/statements">TokenLogic报表</a>。</p>
+</details><h3>当前回购、库存奖励与持币权益</h3>
+<figure class="aave-map aave-v7"><div class="aave-map-heading"><strong>经营资金到AAVE回购、库存与受益人的关系</strong><span>资金关系 · 实线为已确认机制，虚线为条件路径</span></div><div class="aave-map-scroll" tabindex="0" role="region" aria-label="经营资金到AAVE回购、库存与受益人的关系，窄屏可横向滑动"><svg viewBox="0 0 960 775" role="img" aria-labelledby="capture7-title capture7-desc"><title id="capture7-title">经营资金到AAVE回购、库存与受益人的关系</title><desc id="capture7-desc">左侧美元收支与右侧AAVE库存分开。库存支付奖励可继续发生；回购是否恢复、全年实际净吸收，需要执行数据证明。</desc><defs><marker id="arrow-capture7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="context-stroke"/></marker></defs><text x="24" y="32" class="aave-stage">DAO可动用资金</text><text x="576" y="32" class="aave-stage">DAO持有的AAVE库存</text><rect x="24" y="60" width="414" height="195" rx="3" class="aave-panel "/><text x="44" y="99" class="aave-title">收入和既有国库资产</text><text x="44" y="139" class="">支付运营费用与已承诺预算</text><text x="44" y="177" class="">承担坏账、救助及可能的融资偿还</text><text x="44" y="219" class="aave-small">可自由使用现金：未完整核实</text><rect x="576" y="60" width="360" height="195" rx="3" class="aave-panel aave-dao"/><text x="596" y="99" class="aave-title">生态储备约56.44万枚</text><text x="596" y="139" class="">来源：原始储备 + 历史回购</text><text x="596" y="177" class="">3条资金流未领约7.46万枚</text><text x="596" y="219" class="aave-small">拨款承诺已包含在库存里</text><path d="M438 158 H576" class="aave-edge aave-paused" marker-end="url(#arrow-capture7)"/><text x="458" y="125" class="aave-label">市场回购</text><text x="456" y="195" class="aave-small">已暂停</text><path d="M750 255 V325 H645 V385" class="aave-edge " marker-end="url(#arrow-capture7)"/><path d="M750 325 H235 V385" class="aave-edge " marker-end="url(#arrow-capture7)"/><text x="24" y="300" class="aave-small">4月19日起暂停，按10月7日执行快照</text><rect x="24" y="385" width="414" height="135" rx="3" class="aave-panel "/><text x="44" y="424" class="aave-title">stkAAVE质押者</text><text x="44" y="464" class="">全池合计150 AAVE / 日</text><text x="44" y="499" class="aave-small">库存奖励；当前罚没0%，冷却2天</text><rect x="576" y="385" width="360" height="135" rx="3" class="aave-panel "/><text x="596" y="424" class="aave-title">服务商 / 生态项目</text><text x="596" y="464" class="">按治理拨款与合同领取</text><text x="596" y="499" class="aave-small">AAVE属于服务补偿或激励</text><path d="M235 520 V575 H645" class="aave-edge "/><path d="M750 520 V575 H645" class="aave-edge "/><path d="M645 575 V630" class="aave-edge " marker-end="url(#arrow-capture7)"/><rect x="24" y="630" width="912" height="112" rx="3" class="aave-panel "/><text x="44" y="670" class="aave-title">领到的AAVE可以再进入市场；净吸收 = 买入量 − DAO再分发量</text><text x="44" y="710" class="aave-small">普通持币权益：治理。当前无自动现金分红；回购入库继续计入总供应。</text></svg></div><figcaption>左侧美元收支与右侧AAVE库存分开。库存支付奖励可继续发生；回购是否恢复、全年实际净吸收，需要执行数据证明。</figcaption></figure><p>按150枚／日和快照质押量计算，stkAAVE年化币本位毛奖励率约2.20%，后续随质押量和治理调整。</p>
+<p>来源：V16、V18、V38、H42、H43、H53。</p>
+<h2 id="section-3">三、当前收支与PE</h2>
+<div class="aave-valuation-head"><div><span>AAVE价格</span><strong>$171.62</strong></div><div><span>流通市值</span><strong>$26.49亿</strong></div><div><span>PE（不计AAVE奖励）</span><strong>116.68倍</strong></div></div><p class="holdings-scope">行情：2026年10月7日，采用CoinGecko流通市值。来源：V09、V30。</p><h3>历史利润（不计AAVE奖励）</h3>
+<p class="holdings-scope">利润已扣存款人利息、运营和救助支出；AAVE发币奖励不计费用。</p><figure class="numeric-figure"><div class="numeric-scroll" tabindex="0" role="region" aria-label="年度利润（不计AAVE奖励）：2020—2025为全年，2026为1—9月，窄屏可横向滚动"><a class="chart-link" href="assets/6876b437-10_DAO年度利润_不计AAVE奖励.png" aria-label="查看原图：年度利润（不计AAVE奖励）：2020—2025为全年，2026为1—9月"><img src="assets/6876b437-10_DAO年度利润_不计AAVE奖励.png" alt="年度利润（不计AAVE奖励）：2020—2025为全年，2026为1—9月" decoding="async" loading="eager" width="2160" height="1152"></a></div><figcaption>年度利润（不计AAVE奖励）：2020—2025为全年，2026为1—9月<span><span class="numeric-mobile-hint">横向滑动看全图 · </span>点击查看原图</span></figcaption></figure>
+<details><summary>业务收入明细（未扣运营费用）</summary><p>单位：万美元。借贷等收入已扣普通存款人利息；GHO另外扣除报表单列的sGHO回报。</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="研究数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>期间</th>
+<th align="right">借贷与协议手续费</th>
+<th align="right">GHO收入</th>
+<th align="right">减：sGHO回报</th>
+<th align="right">业务收入（扣息后）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2020</td>
+<td align="right">55.10</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right"><strong>55.10</strong></td>
+</tr>
+<tr>
+<td>2021</td>
+<td align="right">1,442.30</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right"><strong>1,442.30</strong></td>
+</tr>
+<tr>
+<td>2022</td>
+<td align="right">2,168.47</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right"><strong>2,168.47</strong></td>
+</tr>
+<tr>
+<td>2023</td>
+<td align="right">2,179.80</td>
+<td align="right">9.07</td>
+<td align="right">0.00</td>
+<td align="right"><strong>2,188.86</strong></td>
+</tr>
+<tr>
+<td>2024</td>
+<td align="right">8,449.40</td>
+<td align="right">432.70</td>
+<td align="right">2.18</td>
+<td align="right"><strong>8,879.93</strong></td>
+</tr>
+<tr>
+<td>2025</td>
+<td align="right">12,746.47</td>
+<td align="right">1,601.27</td>
+<td align="right">3.05</td>
+<td align="right"><strong>14,344.68</strong></td>
+</tr>
+<tr>
+<td>2026年1—9月</td>
+<td align="right">6,542.35</td>
+<td align="right">801.90</td>
+<td align="right">261.30</td>
+<td align="right"><strong>7,082.95</strong></td>
+</tr>
+</tbody></table></div>
+<p>业务收入已扣利息，尚未扣运营费用；国库投资及其他收益另列。</p>
+<p>混合激励未完整拆分，按报表原分类保留。</p>
+<p>来源：<a href="https://aave.tokenlogic.xyz/financials/statements">TokenLogic报表与方法</a>、<a href="https://www.aave.com/docs/ecosystem/gho/sgho">GHO储蓄说明</a>、<a href="downloads/c4754af0-协议净收入_年度明细.csv">年度明细CSV</a>、<a href="downloads/4cd1f81e-协议净收入_核算.json">核算记录</a>。</p>
+</details><details><summary>逐季度利润（不计AAVE奖励）</summary><figure class="numeric-figure"><div class="numeric-scroll" tabindex="0" role="region" aria-label="季度利润：横向柱状图，保留亏损期间，窄屏可横向滚动"><a class="chart-link" href="assets/b8bec5cb-14_季度利润_横向_不计AAVE奖励.png" aria-label="查看原图：季度利润：横向柱状图，保留亏损期间"><img src="assets/b8bec5cb-14_季度利润_横向_不计AAVE奖励.png" alt="季度利润：横向柱状图，保留亏损期间" decoding="async" loading="eager" width="2160" height="1656"></a></div><figcaption>季度利润：横向柱状图，保留亏损期间<span><span class="numeric-mobile-hint">横向滑动看全图 · </span>点击查看原图</span></figcaption></figure>
+</details><details><summary>年度收支表</summary><p>单位：万美元。<strong>利润 = 业务收入 + 国库及其他收入 − 其他支出。</strong> sGHO已在收入扣除，费用不含AAVE奖励。</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="研究数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>期间</th>
+<th align="right">业务收入（扣息后）</th>
+<th align="right">国库及其他收入</th>
+<th align="right">其他支出</th>
+<th align="right">利润</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2020</td>
+<td align="right">55.10</td>
+<td align="right">8.44</td>
+<td align="right">0.00</td>
+<td align="right"><strong>63.53</strong></td>
+</tr>
+<tr>
+<td>2021</td>
+<td align="right">1,442.30</td>
+<td align="right">2,172.52</td>
+<td align="right">335.34</td>
+<td align="right"><strong>3,279.49</strong></td>
+</tr>
+<tr>
+<td>2022</td>
+<td align="right">2,168.47</td>
+<td align="right">−1,376.06</td>
+<td align="right">2,986.51</td>
+<td align="right"><strong>−2,194.10</strong></td>
+</tr>
+<tr>
+<td>2023</td>
+<td align="right">2,188.86</td>
+<td align="right">373.30</td>
+<td align="right">1,433.89</td>
+<td align="right"><strong>1,128.27</strong></td>
+</tr>
+<tr>
+<td>2024</td>
+<td align="right">8,879.93</td>
+<td align="right">726.72</td>
+<td align="right">3,883.79</td>
+<td align="right"><strong>5,722.86</strong></td>
+</tr>
+<tr>
+<td>2025</td>
+<td align="right">14,344.68</td>
+<td align="right">895.95</td>
+<td align="right">5,941.95</td>
+<td align="right"><strong>9,298.68</strong></td>
+</tr>
+<tr>
+<td>2026年1—9月</td>
+<td align="right">7,082.95</td>
+<td align="right">794.66</td>
+<td align="right">8,524.62</td>
+<td align="right"><strong>−647.01</strong></td>
+</tr>
+</tbody></table></div>
+<p>2022年受服务商支出和资产处置损失影响。2026年前三季包含rsETH救助；剔除该项，利润为3,277.37万美元。</p>
+</details><details><summary>奖励剔除范围与原报表对照</summary><p>剔除报表Staking项中已确认的AAVE奖励，含旧stkGHO。服务商报酬、非AAVE奖励及救助支出继续计费；混合激励未完整拆分，按原分类保留。</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="研究数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>期间</th>
+<th align="right">原报表利润</th>
+<th align="right">加回AAVE奖励</th>
+<th align="right">本次利润</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2020</td>
+<td align="right">−79.14</td>
+<td align="right">142.67</td>
+<td align="right">63.53</td>
+</tr>
+<tr>
+<td>2021</td>
+<td align="right">−9,279.57</td>
+<td align="right">12,559.05</td>
+<td align="right">3,279.49</td>
+</tr>
+<tr>
+<td>2022</td>
+<td align="right">−6,674.61</td>
+<td align="right">4,480.51</td>
+<td align="right">−2,194.10</td>
+</tr>
+<tr>
+<td>2023</td>
+<td align="right">−1,738.12</td>
+<td align="right">2,866.39</td>
+<td align="right">1,128.27</td>
+</tr>
+<tr>
+<td>2024</td>
+<td align="right">1,757.76</td>
+<td align="right">3,965.10</td>
+<td align="right">5,722.86</td>
+</tr>
+<tr>
+<td>2025</td>
+<td align="right">4,320.59</td>
+<td align="right">4,978.09</td>
+<td align="right">9,298.68</td>
+</tr>
+<tr>
+<td>2026年1—9月</td>
+<td align="right">−1,351.15</td>
+<td align="right">704.14</td>
+<td align="right">−647.01</td>
+</tr>
+</tbody></table></div>
+<p>2022年服务商费用约2,981.54万美元，国库资产处置损失约1,506.97万美元；剔除发币奖励后仍亏损。</p>
+<p>完整年度从2020年起；2026年仅统计1—9月。</p>
+<p>来源：<a href="https://aave.tokenlogic.xyz/financials/statements">TokenLogic完整报表与方法</a>、<a href="https://aave.tokenlogic.xyz/financials/expenses">奖励资产与费用分类</a>、<a href="downloads/29f7c851-不计AAVE奖励_年度收支.csv">年度明细CSV</a>、<a href="downloads/653c051f-不计AAVE奖励_核算.json">核算记录</a>。</p>
+</details><h3>最近12个月的质押奖励与回购</h3>
+<p><strong>奖励与回购总投入相当于流通市值的1.32%。</strong></p>
+<p class="holdings-scope">2025年10月—2026年9月；单位：万美元。</p><div class="table-wrap" tabindex="0" role="region" aria-label="研究数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>回馈方式</th>
+<th align="right">金额</th>
+<th>钱／币去了哪里</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AAVE质押奖励（stkAAVE）</td>
+<td align="right"><strong>1,154.39</strong></td>
+<td>按报表确认的奖励价值，发给AAVE质押者</td>
+</tr>
+<tr>
+<td>市场回购（官方月表披露）</td>
+<td align="right"><strong>2,349.06</strong></td>
+<td>买回约15.59万枚AAVE，进入DAO国库</td>
+</tr>
+<tr>
+<td>合计</td>
+<td align="right"><strong>3,503.45</strong></td>
+<td><strong>质押奖励价值 + 回购金额</strong></td>
+</tr>
+</tbody></table></div>
+<p class="holdings-scope">两项是总投入，可能包含买回后再发出的AAVE，不能当作现金分红或净回购。</p><details><summary>回馈金额的拆分与计算口径</summary><div class="table-wrap" tabindex="0" role="region" aria-label="研究数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>stkAAVE奖励期间</th>
+<th align="right">金额（万美元）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2025年第四季</td>
+<td align="right">523.77</td>
+</tr>
+<tr>
+<td>2026年第一季</td>
+<td align="right">305.62</td>
+</tr>
+<tr>
+<td>2026年第二季</td>
+<td align="right">165.60</td>
+</tr>
+<tr>
+<td>2026年第三季</td>
+<td align="right">159.40</td>
+</tr>
+<tr>
+<td>合计</td>
+<td align="right"><strong>1,154.39</strong></td>
+</tr>
+</tbody></table></div>
+<p>主表仅计stkAAVE奖励，采用报表当期应计美元值。若加上LP质押奖励275.63万美元，总投入为3,779.08万美元。</p>
+<p>回购采用2025年10月至2026年4月的官方月表；5—9月处于暂停期。看板顶部累计与月表合计存在差额，本文以月表为准，尚未逐笔独立核对。</p>
+<p>回购进入DAO库存，不再作为经营费用重复扣除。</p>
+<p>来源：<a href="https://aave.tokenlogic.xyz/financials/statements">官方季度报表</a>、<a href="https://aave.tokenlogic.xyz/financials/buyback">官方回购月表</a>、<a href="downloads/7dbf89ca-持币回馈核算.json">核算数据</a>、<a href="downloads/51b4828f-回购月度明细.csv">回购月度CSV</a>。</p>
+</details><h3>利润与PE（不计AAVE奖励）</h3>
+<p class="holdings-scope">单位：万美元；末行另剔除rsETH捐款。</p><div class="table-wrap" tabindex="0" role="region" aria-label="研究数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>期间</th>
+<th align="right">收入合计</th>
+<th align="right">费用（不计AAVE奖励）</th>
+<th align="right">利润</th>
+<th align="right">PE</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2025</td>
+<td align="right">15,243.68</td>
+<td align="right">5,945.00</td>
+<td align="right"><strong>9,298.68</strong></td>
+<td align="right">28.49倍</td>
+</tr>
+<tr>
+<td>最近12个月：2025-10—2026-09</td>
+<td align="right">12,859.89</td>
+<td align="right">10,589.37</td>
+<td align="right"><strong>2,270.52</strong></td>
+<td align="right">116.68倍</td>
+</tr>
+<tr>
+<td>2026年1—9月</td>
+<td align="right">8,138.91</td>
+<td align="right">8,785.92</td>
+<td align="right"><strong>−647.01</strong></td>
+<td align="right">亏损，不适用</td>
+</tr>
+<tr>
+<td>2026年第三季</td>
+<td align="right">1,890.21</td>
+<td align="right">1,326.81</td>
+<td align="right"><strong>563.41</strong></td>
+<td align="right">118.52倍，年化</td>
+</tr>
+<tr>
+<td>最近12个月，再剔除rsETH捐款</td>
+<td align="right">12,859.89</td>
+<td align="right">6,664.99</td>
+<td align="right"><strong>6,194.90</strong></td>
+<td align="right">42.77倍</td>
+</tr>
+</tbody></table></div>
+<p><strong>PE = AAVE流通市值 ÷ 一年利润。</strong> 不足一年按实际天数年化，亏损期间不列PE。</p>
+<details><summary>估值公式与原始报表口径</summary><p>最近12个月利润已加回1,430.02万美元AAVE奖励，保留3,924.38万美元rsETH捐款。收入含国库及其他收益，sGHO计入费用。</p>
+<p>估值采用报表应计利润，不代表可分配现金；救助借款与最终净损失仍待结算。</p>
+<p>采用包含DeFi United捐款的TokenLogic完整报表；Aave Insights总览未列该项。</p>
+<p>来源：<a href="https://aave.tokenlogic.xyz/financials/statements">完整报表</a>、<a href="downloads/9398999d-核查与口径.md">原始口径核查</a>、<a href="downloads/653c051f-不计AAVE奖励_核算.json">本次剔除与核算</a>。</p>
+</details><details>
+<summary>历史底稿与待核事项</summary><p>历史底稿（旧版本）：<a href="#sources-v2">数据与估值台账</a>、<a href="downloads/ccc957ff-01_研究报告_v3.md">完整研究</a>、<a href="downloads/d527513d-valuation_sensitivity.csv">估值测算CSV</a>。</p>
+<p>待核：完整DAO预算、未识别持仓、实际回购对价，以及救助借款与最终净损失。</p>
+</details><h2 id="sources">数据口径与来源</h2><p>本文采用2026年10月7日冻结数据，各指标的统计窗口分别标注。金额、收入、利润、回购及销毁遵循正文口径；未确认的事项保留为未知或待执行。</p><p><a href="downloads/1a5638f0-网页正文_当前.md" download>下载研究全文</a> · <a href="downloads/c0acff95-价值捕获时间线_v3.csv" download>下载完整机制时间线</a></p><details class="source-details" id="sources-v2"><summary>数据与估值来源</summary><div class="source-content"><p><a href="downloads/d3cfb7c9-02_来源与核查台账_v2.md" download>下载来源台账</a></p></div></details><details class="source-details" id="sources-v3"><summary>价值捕获沿革新增来源</summary><div class="source-content"><p><a href="downloads/0fc0899f-02_新增来源与核查台账_v3.md" download>下载来源台账</a></p></div></details><div class="related"><h3>继续阅读</h3><a href="../bnc">BNC 财库公司研究 <span aria-hidden="true">→</span></a><a href="../sky">SKY 价值捕获研究 <span aria-hidden="true">→</span></a></div></main></div><footer class="site-footer"><span>© 2026 Crypto3D</span><a href="..">研究文章</a><a href="https://crypto3d.pro/about">关于我们</a></footer><script src="../shared-20261011/theme.js"></script><script src="../shared-20261011/article.js"></script></body></html>

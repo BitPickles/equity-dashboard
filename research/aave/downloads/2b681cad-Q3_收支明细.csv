@@ -1,0 +1,45 @@
+statement_section,line_category,line_item,value_usd
+Expenses,GHO,GHO CEX,-123515
+Expenses,GHO,GHO Liquidity,-6085
+Expenses,GHO,sGHO,-1765646
+Expenses,Incentives,ACI Custodial Assets Drained,-52149.69361753977
+Expenses,Incentives,ACI Distributed Incentives,-362376.51720995427
+Expenses,Incentives,ALC GHO liquidity movement,-5606
+Expenses,Incentives,ALC GHO liquidity payment,-17233
+Expenses,Incentives,Aave Protocol Incentives,-4509928
+Expenses,Incentives,Less: Incentives Funded by Partner Funds,3821916.9275737884
+Expenses,Incentives,Merkl Campaign Fees,-2850
+Expenses,Incentives,Merkl Campaign Rewards (DAO-funded),-215824.80931216548
+Expenses,Insurance,Aave Umbrella,-823662.6375782958
+Expenses,Network Fees,CCIP router fee/send,-4
+Expenses,Network Fees,Gas Spend,-2199
+Expenses,Operations,Safe executor gas funding,-2
+Expenses,Partnerships,Partnership (Ahab),-8755
+Expenses,Service Providers,Aave Labs,-6859500.623361206
+Expenses,Service Providers,Certora,-662400
+Expenses,Service Providers,LlamaRisk,-517581.69844680233
+Expenses,Service Providers,Service Provider KPI,-385018.63839828904
+Expenses,Service Providers,TokenLogic,-769636.4929673503
+Expenses,Staking,Safety Module — stkAAVE,-3
+Expenses,Staking,stkAAVE Emissions,-1594034.5979924921
+Expenses,Treasury Borrowings,USDT Borrow Interest,-0.011981271897457471
+Gross Profit,-,-,18902110.409571268
+Net Income,-,-,4040015.616279687
+Revenue,GHO Earnings,Borrow Fees,1131884.2902551997
+Revenue,GHO Earnings,Facilitator Deposit Yield,475917.07763865683
+Revenue,GHO Earnings,GSM Interest,689538.3646177535
+Revenue,GHO Earnings,GSM Swap Fees,83763.75017476399
+Revenue,GHO Earnings,Less: Treasury Borrow Interest,-64834.28517921362
+Revenue,Other Income,ACI Settlement Accretion,740091.1264767373
+Revenue,Protocol Earnings,Borrow Fees,12969802.9490412
+Revenue,Protocol Earnings,Cowswap Swap Fees,1123451.1277591505
+Revenue,Protocol Earnings,Flashloan Fees,73257.32362298535
+Revenue,Protocol Earnings,Liquidation Fees,72372.20638602487
+Revenue,Protocol Earnings,SVR Liquidation Fees,124206.4053064057
+Revenue,Protocol Earnings,Velora Swap Fees,161.153364758214
+Revenue,Treasury Earnings,Custodial Asset Fair Value Movement,24359.10555926883
+Revenue,Treasury Earnings,DeFi Yield,31.619999999999997
+Revenue,Treasury Earnings,Loss on Derecognition of ACI Custodial Claim,-863748.7350181278
+Revenue,Treasury Earnings,Merkl Participant Rewards (ACI campaigns),2126.079284159226
+Revenue,Treasury Earnings,Realised Gain/(Loss) on Disposals,1977508.6278979192
+Revenue,Treasury Earnings,aToken Interest,342222.22238362365

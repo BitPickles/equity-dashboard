@@ -1,0 +1,93 @@
+address,category,label,label_source,aave
+0x25f2226b597e8f9514b3f68f00f494cf4f286491,DAO生态储备,Ecosystem Reserve,"V03,V20",564446.95186523165063214
+0x464c71f6c2f760dda6093dcb91c24c39e5d6e18c,DAO其他原生库存,Ethereum Collector,V14,0
+0x22740deba78d5a0c24c58c740e3715ec29de1bfa,DAO其他原生库存,Buyback Safe,S41/S26,0
+0xd784927ff2f95ba542bfc824c8a8a98f3495f6b5,DAO其他原生库存,Incentives Controller v2,official deployments; explorer label,25054.205038411137214001
+0x317625234562b1526ea2fac4030ea499c5291de4,迁移合约,LEND/AAVE Migrator,"V03,V04",0
+0x4da27a545c0c5b758a6ba100e3a049001de870f5,旧安全模块原生AAVE底层,stkAAVE backing,V11,2487708.478259101024411015
+0xa700b4eb416be35b2911fd5dee80678ff64ff6c9,借贷池原生AAVE底层,V3 aAAVE liquidity,V14,820095.059335913875104004
+0xffc97d72e13e01096502cb8eb52dee56f74dad7b,借贷池原生AAVE底层,V2 aAAVE liquidity,explorer verified Aave token,4492.051623627002045978
+0xf977814e90da44bfa03b6295a0616a897441acec,CEX/托管已标注下限,Binance: Hot Wallet 20 / HOT WALLET,V15 explorer labels; beneficial owners unknown,682011.478
+0x5a52e96bacdabb82fd05763e25335261b270efcb,CEX/托管已标注下限,Binance: Hot Wallet / HOT WALLET,V15 explorer labels; beneficial owners unknown,500000
+0x47ac0fb4f2d84898e4d9e7b4dab3c24507a6d503,CEX/托管已标注下限,Binance: Binance-Peg Tokens / Binance: Cold Wallet,V15 explorer labels; beneficial owners unknown,400000
+0xd2dd7b597fd2435b6db61ddf48544fd931e6869f,CEX/托管已标注下限,Kraken 246 / Exchange,V15 explorer labels; beneficial owners unknown,185074.530382235723485233
+0x073f564419b625a45d8aea3bb0de4d5647113ad7,CEX/托管已标注下限,OKX 219 / Exchange,V15 explorer labels; beneficial owners unknown,103495.27861010076
+0x98adef6f2ac8572ec48965509d69a8dd5e8bba9d,CEX/托管已标注下限,Exchange / Binance,V15 explorer labels; beneficial owners unknown,99457.59891929909851798
+0x28c6c06298d514db089934071355e5743bf21d60,CEX/托管已标注下限,Binance: Hot Wallet / HOT WALLET,V15 explorer labels; beneficial owners unknown,91133.185198304136308303
+0x7dafba1d69f6c01ae7567ffd7b046ca03b706f83,CEX/托管已标注下限,Kraken 245 / Exchange,V15 explorer labels; beneficial owners unknown,89254.77514643997317932
+0x40ec5b33f54e0e8a33a975908c5ba1c14e5bbbdf,桥托管原生AAVE,Polygon (Matic): ERC20 Bridge / Bridge,V15 explorer labels,71632.371502117357816971
+0xafcd96e580138cfa2332c632e66308eacd45c5da,CEX/托管已标注下限,Gemini: Deposit Address / Gemini_Deposit_0xafcd,V15 explorer labels; beneficial owners unknown,60570
+0xc882b111a75c0c657fc507c04fbfcd2cc984f071,CEX/托管已标注下限,Gate.io: Deposit Address / DEPOSIT ADDRESS,V15 explorer labels; beneficial owners unknown,55299.360013720452305478
+0xa3a7b6f88361f48403514059f1f16c8e78d60eec,桥托管原生AAVE,Arbitrum One: L1 ERC20 Gateway / Layer 2,V15 explorer labels,50347.476145920981450093
+0x7344bc430113271c36ae2bfd48780b7b16d600be,CEX/托管已标注下限,Exchange / Bithumb 404,V15 explorer labels; beneficial owners unknown,49707.197816301552900259
+0xb0a27099582833c0cb8c7a0565759ff145113d64,CEX/托管已标注下限,OKX 153 / Exchange,V15 explorer labels; beneficial owners unknown,42250.948124384451624
+0x77fb357f55bef5a70d30663955f8c9f35794df0e,CEX/托管已标注下限,eToro 4 / Exchange,V15 explorer labels; beneficial owners unknown,32702.185696569448578921
+0x76ec5a0d3632b2133d9f1980903305b62678fbd3,CEX/托管已标注下限,BtcTurk 14 / Exchange,V15 explorer labels; beneficial owners unknown,29688.281641467070709368
+0x3154cf16ccdb4c6d922629664174b904d80f2c35,桥托管原生AAVE,L1 Standard Bridge Proxy / Base: Base Bridge,V15 explorer labels,29401.593923447803868411
+0x841ed663f2636863d40be4ee76243377dff13a34,CEX/托管已标注下限,Robinhood 5 / Exchange,V15 explorer labels; beneficial owners unknown,24042.05756855448614293
+0x4a2d57d669f2194fa7b5df619cba9f33ccea26bd,CEX/托管已标注下限,Exchange / Bitstamp 51,V15 explorer labels; beneficial owners unknown,19017.085
+0xa023f08c70a23abc7edfc5b6b5e171d78dfc947e,CEX/托管已标注下限,Crypto.com 22 / Crypto.com,V15 explorer labels; beneficial owners unknown,18771.767135870966964546
+0xbd02c51150a4ab6ce97b9de2025644594f3e75b8,CEX/托管已标注下限,BitGo 1 / Exchange,V15 explorer labels; beneficial owners unknown,18458.422194108116743864
+0xcc282e2004428939ee5149a9e7872f0b4d5d5ec7,CEX/托管已标注下限,Kraken: Hot Wallet 3 / Exchange,V15 explorer labels; beneficial owners unknown,18022.274536926680758126
+0x18709e89bd403f470088abdacebe86cc60dda12e,CEX/托管已标注下限,Huobi: Recovery / Exchange,V15 explorer labels; beneficial owners unknown,17061.991167055740036346
+0x3cc936b795a188f0e246cbb2d74c5bd190aecf18,CEX/托管已标注下限,MEXC: Hot Wallet / DEPOSIT ADDRESS,V15 explorer labels; beneficial owners unknown,15711.814558851036944575
+0x77134cbc06cb00b66f4c7e623d5fdbf6777635ec,CEX/托管已标注下限,HOT WALLET / Exchange,V15 explorer labels; beneficial owners unknown,15656.88354038409935692
+0xa205fd7344656c72fdc645b72faf5a3de0b3e825,CEX/托管已标注下限,Copper: Hot Wallet / HOT WALLET,V15 explorer labels; beneficial owners unknown,14397.288389279231447224
+0x3a5cc8689d1b0cef2c317bc5c0ad6ce88b27d597,CEX/托管已标注下限,BitGo: MultiSig 2 / Luno: Hot Wallet,V15 explorer labels; beneficial owners unknown,14040.248539922175962197
+0x21a31ee1afc51d94c2efccaa2092ad1028285549,CEX/托管已标注下限,Binance: Hot Wallet / HOT WALLET,V15 explorer labels; beneficial owners unknown,13844.432217513542016708
+0x91d40e4818f4d4c57b4578d9eca6afc92ac8debe,CEX/托管已标注下限,Exchange / OKX 193,V15 explorer labels; beneficial owners unknown,13485.776437718052306723
+0xf4e6deea1b4da85c2d68db8d771d37ec1148b853,CEX/托管已标注下限,Coinhako 7 / Exchange,V15 explorer labels; beneficial owners unknown,13079.629790348549914807
+0xdfd5293d8e347dfe59e90efd55b2956a1343963d,CEX/托管已标注下限,Binance: Hot Wallet / DEPOSIT ADDRESS,V15 explorer labels; beneficial owners unknown,12835.181531989757891541
+0xee9fb7a615cb76b46d26be6ebc9114a627a81c5b,CEX/托管已标注下限,Bitstamp_0xee9f / Bitstamp,V15 explorer labels; beneficial owners unknown,12746.051
+0xb66410ae75317faf13dba869b6df7b30892d1e46,CEX/托管已标注下限,Bitstamp: Hot Wallet / HOT WALLET,V15 explorer labels; beneficial owners unknown,11864.2
+0xe3ecd65cf2ad2eba2aa2be1d0894753b2172abd1,CEX/托管已标注下限,Bitso: Deposit Address / Bitso 3,V15 explorer labels; beneficial owners unknown,10743.672866774999816883
+0x19184ab45c40c2920b0e0e31413b9434abd243ed,CEX/托管已标注下限,Binance: Hot Wallet / HOT WALLET,V15 explorer labels; beneficial owners unknown,10421.320366791512108
+0x93228d328c9c74c2bfe9f97638bbb5ef322f2bd5,CEX/托管已标注下限,Bybit: Wallet 4 / Exchange,V15 explorer labels; beneficial owners unknown,10292.984832267884064524
+0xa0d9cd90cab2af5a939241d50ff6f60cb221c0a6,CEX/托管已标注下限,Binance: Deposit Address / DEPOSIT ADDRESS,V15 explorer labels; beneficial owners unknown,0
+0x4a4aaa0155237881fbd5c34bfae16e985a7b068d,CEX/托管已标注下限,Exchange / OKX,V15 explorer labels; beneficial owners unknown,8689.606382142449
+0x9642b23ed1e01df1092b92641051881a322f5d4e,CEX/托管已标注下限,MEXC 21 / Exchange,V15 explorer labels; beneficial owners unknown,8502.534065516564909157
+0x8eb8a3b98659cce290402893d0123abb75e3ab28,桥托管原生AAVE,Avalanche: Bridge / Bridge,V15 explorer labels,7773.079782526215813318
+0x434587332cc35d33db75b93f4f27cc496c67a4db,CEX/托管已标注下限,eToro 5 / Exchange,V15 explorer labels; beneficial owners unknown,7650
+0x326d9f47ba49bbaac279172634827483af70a601,CEX/托管已标注下限,Bitkub: Deposit Address / Bitkub 8,V15 explorer labels; beneficial owners unknown,7549.966
+0x0529ea5885702715e83923c59746ae8734c553b7,CEX/托管已标注下限,Bitpanda 18 / Beacon Depositor,V15 explorer labels; beneficial owners unknown,7513.903618024191263701
+0x264bd8291fae1d75db2c5f573b07faa6715997b5,CEX/托管已标注下限,Exchange / Paxos,V15 explorer labels; beneficial owners unknown,7500.000000000000000013
+0x0d0707963952f2fba59dd06f2b425ace40b492fe,CEX/托管已标注下限,Gate.io: Hot Wallet / Gate Deposit,V15 explorer labels; beneficial owners unknown,7352.752988163394973955
+0x1887fa9edadeab7562b01cc3f4fa246ace2c3cdd,CEX/托管已标注下限,Robinhood 9 / Robinhood,V15 explorer labels; beneficial owners unknown,6081.420733022924594445
+0x377b8ce04761754e8ac153b47805a9cf6b190873,CEX/托管已标注下限,Upbit 59 / Exchange,V15 explorer labels; beneficial owners unknown,5602.524781144683615078
+0xee1bf4d7c53af2beafc7dc1dcea222a8c6d87ad9,CEX/托管已标注下限,Beacon Depositor / Exchange,V15 explorer labels; beneficial owners unknown,5401.626223814441708331
+0x0b0f7ebf967146566799229394171fc47f1a765a,CEX/托管已标注下限,Bitstamp: Hot Wallet / Beacon Depositor,V15 explorer labels; beneficial owners unknown,5368.866010225849850955
+0xb23360ccdd9ed1b15d45e5d3824bb409c8d7c460,CEX/托管已标注下限,Revolut: Hot Wallet / HOT WALLET,V15 explorer labels; beneficial owners unknown,4782.991865460427012172
+0x0b07f64abc342b68aec57c0936e4b6fd4452967e,CEX/托管已标注下限,BingX 21 / Exchange,V15 explorer labels; beneficial owners unknown,4753.758870495378577334
+0x5b71d5fd6bb118665582dd87922bf3b9de6c75f9,CEX/托管已标注下限,Crypto.com 21 / Crypto.com,V15 explorer labels; beneficial owners unknown,4751.247016604017065378
+0xab782bc7d4a2b306825de5a7730034f8f63ee1bc,CEX/托管已标注下限,Bitvavo: Hot 3 / Exchange,V15 explorer labels; beneficial owners unknown,4582.103394338947998941
+0x15abb66ba754f05cbc0165a64a11cded1543de48,CEX/托管已标注下限,Galaxy Digital: 0x15a...E48 / Exchange,V15 explorer labels; beneficial owners unknown,3828.60221438745
+0x33566c9d8be6cf0b23795e0d380e112be9d75836,CEX/托管已标注下限,Exchange / Galaxy Digital: OTC,V15 explorer labels; beneficial owners unknown,3781.360629240906766297
+0x916ed5586bb328e0ec1a428af060dc3d10919d84,CEX/托管已标注下限,CoinSpot / Exchange,V15 explorer labels; beneficial owners unknown,3761.031514757748524018
+0xf35a6bd6e0459a4b53a27862c51a2a7292b383d1,CEX/托管已标注下限,Coinspot / Cold Wallet,V15 explorer labels; beneficial owners unknown,3400.99432
+0x593aebee9117eea447279e5973f64c68d8e977a0,CEX/托管已标注下限,Bitstamp: Deposit Address / Bitstamp_Deposit_0x593a,V15 explorer labels; beneficial owners unknown,3243
+0x85dcd76d4fbd3aa0c85c27b9441222c19a14134b,CEX/托管已标注下限,OKX 226 / Exchange,V15 explorer labels; beneficial owners unknown,3225.981052188731794757
+0x446b86a33e2a438f569b15855189e3da28d027ba,CEX/托管已标注下限,KuCoin: Hot Wallet / HOT WALLET,V15 explorer labels; beneficial owners unknown,3000.35
+0x305bb7ff40fdf7f4fc3d8cee2f28b049ef97083c,CEX/托管已标注下限,Binance,V15 explorer labels; beneficial owners unknown,0
+0x7f604d597c15b2e2f60dc645844f68b1d781b752,CEX/托管已标注下限,Bitstamp 61 / Exchange,V15 explorer labels; beneficial owners unknown,2963.846298204832423536
+0xdd276dc5223d0120f9bf1776f38957cc8da23cb0,CEX/托管已标注下限,KuCoin 65 / Exchange,V15 explorer labels; beneficial owners unknown,2938.55
+0xaecfb1af29b96011ec9aa1ff98d8c49b49bb3ddc,CEX/托管已标注下限,BTC Markets: MultiSig 1 / Exchange,V15 explorer labels; beneficial owners unknown,2869.99
+0xceb69f6342ece283b2f5c9088ff249b5d0ae66ea,CEX/托管已标注下限,Coinbase / Exchange,V15 explorer labels; beneficial owners unknown,2866.385265985408691
+0xd803472c47a87d7b63e888de53f03b4191b846a8,桥托管原生AAVE,Snowbridge: AssetHub Sovereign / Bridge,V15 explorer labels,2751.354869360280066086
+0xfe99644d35926a7955f88eccfa52a13012fa984e,CEX/托管已标注下限,Copper 36 / Exchange,V15 explorer labels; beneficial owners unknown,2546.29687036
+0x1c4b70a3968436b9a0a9cf5205c787eb81bb558c,CEX/托管已标注下限,Gate.io: Hot Wallet / Gate 3,V15 explorer labels; beneficial owners unknown,2486.467086950000000008
+0xfc57a3c14fcb1d5aae0d83b669b7ba037d942b62,CEX/托管已标注下限,Binance Deposit / DEPOSIT ADDRESS,V15 explorer labels; beneficial owners unknown,0
+0x39f6a6c85d39d5abad8a398310c52e7c374f2ba3,CEX/托管已标注下限,WhiteBIT: Hot Wallet / HOT WALLET,V15 explorer labels; beneficial owners unknown,1944.771987861890160894
+0xf440139a62b2b939699c5b3e09f88e40464ab9bc,CEX/托管已标注下限,Bybit 35 / Exchange,V15 explorer labels; beneficial owners unknown,1808.778755091770999535
+0xe700bdf5e658d64b374351650134747f9d6ac4bf,CEX/托管已标注下限,Binance Deposit / DEPOSIT ADDRESS,V15 explorer labels; beneficial owners unknown,0
+0xb8e6d31e7b212b2b7250ee9c26c56cebbfbe6b23,CEX/托管已标注下限,KuCoin: Hot Wallet / DEPOSIT ADDRESS,V15 explorer labels; beneficial owners unknown,1787
+0x24eb3a39856723138796c5068a17ba4fb15cd25e,CEX/托管已标注下限,Exchange / Crypto.com 38,V15 explorer labels; beneficial owners unknown,1757.732264694152037449
+0xc564ee9f21ed8a2d8e7e76c085740d5e4c5fafbe,桥托管原生AAVE,Multichain: Fantom Bridge / Bridge,V15 explorer labels,1740.343652855041285782
+0xe695ee20438fbbf827b452d1b2d896e59db77b79,CEX/托管已标注下限,Binance,V15 explorer labels; beneficial owners unknown,0
+0xb755b50104136b7e2ef7795f726c9a41db8350ad,CEX/托管已标注下限,Binance Deposit / DEPOSIT ADDRESS,V15 explorer labels; beneficial owners unknown,7.120704974E-7
+0x58edf78281334335effa23101bbe3371b6a36a51,CEX/托管已标注下限,KuCoin: Hot Wallet / DEPOSIT ADDRESS,V15 explorer labels; beneficial owners unknown,1494.758533597730537461
+0x29065a4c1f2f20d1e263930088890d6f49fe715a,CEX/托管已标注下限,GnosisSafeProxy / Poloniex 10,V15 explorer labels; beneficial owners unknown,1477.615100395
+0xb334a61a6209f14b5fa5f1684a4ed7621f66e1ef,CEX/托管已标注下限,BtcTurk 17 / Exchange,V15 explorer labels; beneficial owners unknown,1443.469973887167800932
+0xa4e256592a916a552b507d484f4b381756ab28b7,CEX/托管已标注下限,Binance Deposit / DEPOSIT ADDRESS,V15 explorer labels; beneficial owners unknown,0
+0xf652e1d648e08bf89a05c4b77d4b16c66045e7ea,CEX/托管已标注下限,Binance Deposit / DEPOSIT ADDRESS,V15 explorer labels; beneficial owners unknown,0
+0x5f65f7b609678448494de4c87521cdf6cef1e932,CEX/托管已标注下限,Exchange Gateway 4 / Gemini: Hot Wallet,V15 explorer labels; beneficial owners unknown,1388.655912267059948641
+0xaaa973fe8a6202947e21d0a3a43d8e83abe35c23,DAO其他原生库存,Balancer Reclamm DAO Safe,V20,58343.354327808612100149

@@ -1,0 +1,264 @@
+#root{display:contents}
+.story-flow{display:flex;align-items:stretch;gap:10px;margin:24px 0;padding:18px;background:var(--panel);border:1px solid var(--line);border-radius:5px}
+.story-node{flex:1;min-width:0;padding:14px 12px;border:1px solid var(--line);border-top:3px solid var(--pink);background:var(--bg);overflow-wrap:anywhere}
+.story-node strong,.story-node span{display:block}.story-node strong{font-size:16px;line-height:1.5}.story-node span{font-size:14px;line-height:1.7;margin-top:7px}.story-arrow{align-self:center;font-size:25px;color:var(--muted);line-height:1}
+.story-node.is-pending,.story-event.is-pending{border-style:dashed}.story-node.is-stop{border-top-color:var(--muted)}
+.story-flow[role="list"]{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}.story-flow.is-pending{border-style:dashed}.story-flow.is-pending .story-node{border-style:dashed}
+.story-bands{display:flex;height:24px;margin:24px 0 -24px;overflow:hidden;border-radius:5px 5px 0 0;gap:1px}.story-bands i{display:block;height:100%;flex-shrink:1;background:var(--pink)}.story-bands .band-1{background:var(--blue)}.story-bands .band-2{background:#b88734}.story-bands .band-3{background:#658368}.story-bands .band-4{background:#79629c}.story-bands.pending{border:1px dashed var(--muted)}
+.allocation-key{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;margin:9px 0 23px}.allocation-key span{display:block}.allocation-strip{display:flex;height:14px;background:var(--line)}.allocation-strip i:first-child{background:var(--blue)}.allocation-strip i:last-child{background:var(--pink)}
+.numeric-scroll{max-width:100%;overflow-x:auto;background:#fff;overscroll-behavior-x:contain}.numeric-mobile-hint{display:none}
+@media(max-width:760px){.numeric-scroll .chart-link,.numeric-scroll img{width:760px;max-width:none;height:auto}.numeric-mobile-hint{display:block}.story-flow[role="list"]{grid-template-columns:1fr}}
+@media print{.numeric-scroll .chart-link,.numeric-scroll img{width:100%;max-width:100%}.numeric-mobile-hint{display:none!important}}
+.story-timeline{margin:24px 0;padding:0 0 0 22px;border-left:2px solid var(--pink)}
+.story-event{position:relative;padding:0 0 22px 12px}.story-event:last-child{padding-bottom:0}.story-event:before{content:'';position:absolute;left:-28px;top:7px;width:10px;height:10px;border:2px solid var(--pink);border-radius:50%;background:var(--bg)}
+.story-event time{display:block;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}.story-event strong{display:block;font-size:17px;margin:3px 0}.story-event span{display:block;font-size:15px;line-height:1.7}
+.holdings-figure{padding:20px;border:1px solid var(--line);border-radius:5px;background:var(--panel)}.holdings-scope{font-size:14px;color:var(--muted);margin-bottom:20px}.holdings-bars{list-style:none;padding:0;margin:0}.holdings-bars li{padding:0;margin:0 0 18px}.holding-label{display:flex;align-items:baseline;justify-content:space-between;gap:16px;font-size:15px}.holding-label strong{font-size:18px}.holding-track{height:13px;background:rgba(127,139,160,.12);margin:6px 0;overflow:hidden}.holding-mark{display:block;height:100%;background:var(--pink)}.holding-mark.custody{background:var(--blue)}.holding-mark.unknown{background:var(--muted)}.holdings-bars small{font-size:12px;color:var(--muted)}.chart-original summary{font-size:13px;color:var(--blue);cursor:pointer}.holdings-figure figcaption{border-top:1px solid var(--line);padding-top:12px;margin-top:15px}
+.pie-layout{display:grid;grid-template-columns:minmax(220px,320px) minmax(0,1fr);align-items:center;gap:24px;margin:8px 0 20px}.holdings-pie{display:block;width:100%;height:auto;max-width:320px;margin:auto;overflow:visible}.pie-sector{stroke:var(--panel);stroke-width:1.5;stroke-linejoin:round}.pie-sector:hover,.pie-sector:focus-visible{stroke:var(--ink);stroke-width:3;outline:none}.pie-percent{fill:#fff;font-size:17px;font-weight:650;text-anchor:middle;dominant-baseline:middle;pointer-events:none}.pie-legend{list-style:none!important;padding:0!important;margin:0!important}.pie-legend li{display:grid;grid-template-columns:12px minmax(0,1fr) auto;align-items:center;gap:10px;padding:9px 0;margin:0!important;border-bottom:1px solid var(--line);font-size:14px}.pie-legend li:last-child{border:0}.pie-swatch{width:12px;height:12px;border-radius:2px}.pie-category span,.pie-category small{display:block}.pie-category span{line-height:1.5;overflow-wrap:anywhere}.pie-category small{font-size:12px;color:var(--muted);margin-top:2px}.pie-legend strong{font-size:16px;white-space:nowrap;font-variant-numeric:tabular-nums}.initial-allocation{margin:18px 0;border-top:1px solid var(--line);padding-top:13px}.initial-allocation summary{cursor:pointer;color:var(--muted);font-size:14px}.initial-allocation .pie-layout{margin-top:12px}.holdings-figure figcaption span{white-space:normal;text-align:right}
+@media(max-width:760px){.pie-layout{grid-template-columns:1fr;gap:12px}.holdings-pie{max-width:280px}.pie-legend{width:100%}.holdings-figure figcaption span{text-align:left}}
+@media(max-width:600px){.story-flow{flex-direction:column;gap:8px;padding:14px}.story-node{padding:12px;flex:auto}.story-arrow{transform:rotate(90deg);font-size:23px}.holdings-figure{padding:15px}.holding-label{font-size:14px}.story-timeline{padding-left:17px}.story-event{padding-left:10px}.story-event:before{left:-23px}}
+@media(max-width:600px){.story-arrow.math-symbol{transform:none}}
+.snapshot{color:var(--muted);font-size:14px;line-height:1.8;margin:0 0 26px}
+figure img{height:auto}
+figure{margin:30px 0}figure img{margin:0}figcaption{font-size:13px;color:var(--muted);margin:10px 0 0;display:flex;justify-content:space-between;gap:18px}figcaption span{white-space:nowrap;font-size:12px}.chart-link{display:block}
+.diagram-scroll{max-width:100%;overflow-x:auto;background:#fff;overscroll-behavior-x:contain}.diagram-scroll:focus-visible{outline:3px solid var(--pink);outline-offset:3px}.diagram-mobile-hint{display:none}
+@media(max-width:980px){.relationship-figure .chart-link{width:1000px;max-width:none}.relationship-figure img{width:1000px;max-width:none;height:auto}.relationship-figure .diagram-mobile-hint{display:inline}.relationship-figure figcaption span{white-space:normal}}
+@media print{.relationship-figure .chart-link,.relationship-figure img{width:100%;max-width:100%}.diagram-mobile-hint{display:none!important}}
+.layout .table-wrap{max-width:100%}.table-wrap:focus-visible,summary:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+main pre{overflow-x:auto;padding:18px;border:1px solid var(--line);border-radius:5px;background:var(--panel)}pre code{white-space:pre;background:transparent}
+.source-details{margin:16px 0;border:1px solid var(--line);border-radius:8px;background:var(--panel)}.source-details summary{cursor:pointer;font-size:16px;font-weight:700;padding:18px 20px}.source-content{padding:0 22px 22px;font-size:14px;overflow-wrap:anywhere}.source-content h3{font-size:19px}.source-content a{word-break:break-all}
+.related{margin-top:48px;padding-top:18px;border-top:1px solid var(--line)}.related a{display:block;margin:14px 0;text-decoration:none}.related h3{font-size:18px}.related a span{padding-left:8px}
+@media(max-width:600px){.snapshot{font-size:13px}figcaption{display:block}figcaption span{display:block;margin-top:4px}.source-content{padding:0 15px 15px}.source-details summary{padding:16px 15px}}
+@media print{.snapshot{font-size:9pt}.source-details,.related,figcaption span{display:none}.chart-link img{max-width:100%}}
+@media(min-width:981px){.layout aside{max-height:calc(100vh - 125px);overflow-y:auto}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.timeline-guide{color:var(--muted);font-size:13px}
+.aave-rights{border:1px solid var(--line);border-radius:5px;background:var(--panel);margin:22px 0;overflow:hidden}
+.aave-rights table{table-layout:fixed;font-size:15px}.aave-rights th:first-child{width:27%}.aave-rights td{overflow-wrap:anywhere;padding:13px 14px}.aave-rights .timeline-date{font-weight:600;font-variant-numeric:tabular-nums}
+@media(max-width:600px){.aave-rights table,.aave-rights tbody{display:block}.aave-rights thead{display:none}.aave-rights tr{display:block;border-bottom:1px solid var(--line);padding:13px 14px}.aave-rights tr:last-child{border:0}.aave-rights td{display:block;padding:0;border:0;width:auto}.aave-rights .timeline-date{margin-bottom:5px;color:var(--muted);font-size:14px}}
+/* BNC: custody and financing figures */
+main .bnc-custody,main .bnc-transfers,main .bnc-collateral,main .bnc-running-costs{padding:26px 28px;border-top:2px solid var(--ink);border-bottom:1px solid var(--line);background:var(--panel);margin:30px 0}
+main .bnc-visual-heading{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:24px}
+main .bnc-visual-heading>strong{font-size:18px;font-weight:650;color:var(--ink)}
+main .bnc-visual-heading>span{font-size:12px;color:var(--muted);text-align:right}
+main .bnc-custody-layout{display:grid;grid-template-columns:240px minmax(0,1fr);align-items:center;gap:38px}
+main .bnc-custody-pie{display:block;width:100%;height:auto;max-width:240px;margin:auto}
+main .bnc-custody-key{display:grid;grid-template-columns:1fr;gap:20px}
+main .bnc-key-label{color:var(--accent);font-size:14px;display:block}
+main .bnc-custody-key>div:last-child .bnc-key-label{color:var(--pink)}
+main .bnc-custody-key strong{display:block;font-size:30px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.6;letter-spacing:-.6px}
+main .bnc-custody-key small,main .bnc-thresholds small{font-size:12px;font-weight:400;margin-left:5px;letter-spacing:0;color:var(--muted)}
+main .bnc-custody-key p{font-size:13px;color:var(--muted);margin:0}
+main .bnc-counterparties{display:flex;justify-content:space-between;gap:20px;margin:5px 0 12px}
+main .bnc-counterparties>div:last-child{text-align:right}
+main .bnc-counterparties strong{display:block;font-size:23px;font-weight:650;line-height:1.5}
+main .bnc-counterparties span{display:block;font-size:12px;color:var(--muted)}
+main .bnc-transfer{--transfer-color:var(--pink);text-align:center;padding:13px 0 10px}
+main .bnc-transfer>span{display:block;color:var(--transfer-color);font-size:15px;font-weight:600}
+main .bnc-transfer>i{display:block;height:2px;position:relative;margin:10px 8px 9px;background:var(--transfer-color)}
+main .bnc-transfer>i:before{content:'';position:absolute;width:6px;height:6px;border-radius:50%;background:var(--transfer-color);left:-1px;top:-2px}
+main .bnc-transfer>i:after{content:'';position:absolute;right:-1px;top:-4px;border-left:8px solid var(--transfer-color);border-top:5px solid transparent;border-bottom:5px solid transparent}
+main .bnc-transfer>small{font-size:12px;color:var(--muted);line-height:1.7;display:block}
+main .bnc-to-borrower{--transfer-color:var(--accent)}
+main .bnc-to-borrower>i:before{left:auto;right:-1px}
+main .bnc-to-borrower>i:after{right:auto;left:-1px;border-left:0;border-right:8px solid var(--transfer-color)}
+main .bnc-repayment{--transfer-color:var(--muted)}
+main .bnc-thresholds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+main .bnc-thresholds>div{border-top:3px solid var(--accent);padding-top:13px}
+main .bnc-thresholds>div:nth-child(2){border-color:var(--muted)}
+main .bnc-thresholds>div:nth-child(3){border-color:var(--pink)}
+main .bnc-thresholds span{display:block;color:var(--muted);font-size:13px}
+main .bnc-thresholds strong{display:block;font-size:30px;line-height:1.65;font-weight:600;font-variant-numeric:tabular-nums}
+main .bnc-thresholds p{margin:0;font-size:14px;line-height:1.65}
+main .bnc-cost-row{margin:22px 0}
+main .bnc-cost-row>div:first-child{display:flex;justify-content:space-between;align-items:baseline;gap:15px;font-size:14px}
+main .bnc-cost-row strong{font-size:23px;font-variant-numeric:tabular-nums;font-weight:600}
+main .bnc-cost-track{height:12px;margin-top:8px;background:var(--bg)}
+main .bnc-cost-track>i{display:block;height:100%;background:var(--accent)}
+main .bnc-management .bnc-cost-track>i{background:var(--pink)}
+main .bnc-custody figcaption,main .bnc-transfers figcaption,main .bnc-collateral figcaption,main .bnc-running-costs figcaption{display:block;border-top:1px solid var(--line);padding-top:14px;margin-top:22px;font-size:12px;line-height:1.8;color:var(--muted)}
+@media(max-width:600px){main .bnc-custody,main .bnc-transfers,main .bnc-collateral,main .bnc-running-costs{padding:20px 16px}main .bnc-visual-heading{display:block;margin-bottom:20px}main .bnc-visual-heading>strong{font-size:17px;display:block}main .bnc-visual-heading>span{display:block;text-align:left;margin-top:4px}main .bnc-custody-layout{grid-template-columns:1fr;gap:18px}main .bnc-custody-pie{max-width:220px}main .bnc-custody-key{grid-template-columns:1fr 1fr;gap:10px}main .bnc-custody-key>div:last-child{text-align:right}main .bnc-custody-key strong{font-size:25px}main .bnc-key-label{font-size:11px}main .bnc-thresholds{gap:12px}main .bnc-thresholds strong{font-size:26px}main .bnc-thresholds small{display:block;margin:0;line-height:1.6}main .bnc-thresholds span{font-size:11px}main .bnc-thresholds p{font-size:12px;margin-top:8px}main .bnc-counterparties strong{font-size:20px}main .bnc-transfer>small{font-size:11px}}
+
+/* AAVE: complete branching relationships; chart typography follows the site theme. */
+.aave-map{padding:24px 20px;border-top:2px solid var(--ink);border-bottom:1px solid var(--line);background:var(--panel)}
+.aave-map-heading{display:flex;gap:18px;justify-content:space-between;align-items:baseline;margin-bottom:14px}.aave-map-heading strong{font-size:18px}.aave-map-heading span{font-size:12px;color:var(--muted)}
+.aave-map-scroll{overflow-x:auto;overscroll-behavior-x:contain;max-width:100%}.aave-map-scroll:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+.aave-map svg{display:block;width:100%;height:auto;font-family:inherit;color:var(--ink)}.aave-map text{fill:var(--ink);font-size:21px}.aave-map .aave-title{font-size:23px;font-weight:650}.aave-map .aave-stage{font-size:20px;font-weight:650;fill:var(--muted)}.aave-map .aave-small{font-size:17px;fill:var(--muted)}.aave-map .aave-label{font-size:18px;fill:var(--accent)}.aave-map .aave-amount{font-size:29px;font-weight:650;fill:var(--pink)}.aave-map .aave-number{font-size:28px;font-weight:650}
+.aave-panel{fill:var(--bg);stroke:var(--line);stroke-width:1}.aave-panel.aave-dao{stroke:var(--pink);stroke-width:1.4}.aave-panel.aave-depositor{stroke:var(--accent);stroke-width:1.4}.aave-panel.aave-paused{stroke:var(--muted);stroke-dasharray:7 5}.aave-edge{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-linejoin:round}.aave-edge.aave-paused{stroke:var(--muted);stroke-dasharray:7 5}.aave-edge.aave-governance{stroke:var(--muted);stroke-width:1.5}
+.aave-map figcaption{display:block;font-size:12px;line-height:1.8;border-top:1px solid var(--line);padding-top:12px}
+.aave-valuation-head{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;padding:23px 0;border-top:2px solid var(--ink);border-bottom:1px solid var(--line);margin:25px 0}.aave-valuation-head span{display:block;font-size:13px;color:var(--muted)}.aave-valuation-head strong{display:block;font-size:29px;font-weight:650;font-variant-numeric:tabular-nums}.aave-valuation-head div:last-child strong{color:var(--pink)}
+@media(max-width:760px){.aave-map svg{width:900px;max-width:none}.aave-map-heading{display:block}.aave-map-heading span{display:block;margin-top:6px}.aave-map figcaption:before{content:'横向滑动查看完整关系图 · ';color:var(--accent)}.aave-valuation-head{gap:10px}.aave-valuation-head strong{font-size:20px;white-space:nowrap}.aave-valuation-head span{font-size:11px}}
+@media print{.aave-map svg{width:100%;max-width:100%}.aave-map figcaption:before{content:none}}
+
+/* AAVE: sequential expense deductions and the cash/inventory relationship. */
+.aave-v7 .aave-v7-value{font-size:22px;font-weight:650;text-anchor:end;font-variant-numeric:tabular-nums}
+.aave-v7 .aave-v7-net-value{fill:var(--pink)}
+.aave-v7-total{fill:var(--pink)}.aave-v7-deduction{fill:var(--accent);opacity:.8}
+.aave-v7-connector{stroke:var(--muted);stroke-width:1.3;stroke-dasharray:3 4;fill:none}
+
+
+/* BNC: plain-language PIPE, cash history, and official KPI definitions. */
+main .bnc-pipe-exchange,main .bnc-capital-routes,main .bnc-cash-history,main .bnc-metric-formulas{padding:26px 28px;border-top:2px solid var(--ink);border-bottom:1px solid var(--line);background:var(--panel);margin:30px 0;min-width:0;max-width:100%;box-sizing:border-box}
+main .bnc-pipe-exchange figcaption,main .bnc-capital-routes figcaption,main .bnc-cash-history figcaption,main .bnc-metric-formulas figcaption{display:block;border-top:1px solid var(--line);padding-top:14px;margin-top:22px;font-size:12px;line-height:1.8;color:var(--muted)}
+main .bnc-payment-row{display:flex;align-items:baseline;gap:20px;border-top:1px solid var(--line);padding-top:18px;margin-top:20px;font-size:14px}
+main .bnc-payment-row>strong{white-space:nowrap}main .bnc-payment-row>span{color:var(--muted)}
+main .bnc-cash-equation{display:grid;grid-template-columns:1fr 16px 1fr 16px 1fr;gap:8px;align-items:center;margin:22px 0}main .bnc-cash-equation span{display:block;font-size:12px;color:var(--muted)}main .bnc-cash-equation strong{display:block;font-size:24px;font-weight:650;font-variant-numeric:tabular-nums;line-height:1.7}main .bnc-cash-equation div:last-child strong{color:var(--accent)}main .bnc-cash-equation b{color:var(--muted);font-weight:400}
+main .bnc-capital-route{display:grid;grid-template-columns:1.3fr 24px 1.1fr 24px 1fr;align-items:center;gap:8px;padding:18px 0;font-size:14px}main .bnc-capital-route+div{border-top:1px solid var(--line)}main .bnc-capital-route i{font-style:normal;color:var(--accent)}main .bnc-capital-route strong{font-weight:600;color:var(--accent)}
+main .bnc-cash-plot-scroll{overflow-x:auto;max-width:100%;overscroll-behavior-x:contain}main .bnc-cash-history svg{display:block;width:100%;min-width:620px;height:auto;font-family:inherit}main .bnc-axis-unit,main .bnc-axis-label{fill:var(--muted);font-size:15px}main .bnc-grid-line{stroke:var(--line);stroke-width:1}main .bnc-cash-line{fill:none;stroke:var(--accent);stroke-width:3}main .bnc-accounting-break{stroke:var(--muted);stroke-dasharray:7 5}main .bnc-cash-point{fill:var(--accent);stroke:var(--panel);stroke-width:2}main .bnc-point-value{fill:var(--ink);font-size:18px;font-weight:650;font-variant-numeric:tabular-nums}main .bnc-cash-plot-scroll:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+main .bnc-metric-formulas>div:not(:first-child){border-top:1px solid var(--line);padding:18px 0}main .bnc-metric-formulas>div>strong{font-size:15px}main .bnc-metric-formulas p{font-size:19px;line-height:1.8;margin:8px 0;color:var(--accent)}main .bnc-metric-formulas>div>span{font-size:12px;color:var(--muted);line-height:1.8}
+@media(max-width:600px){main .bnc-pipe-exchange,main .bnc-capital-routes,main .bnc-cash-history,main .bnc-metric-formulas{padding:20px 16px}main .bnc-payment-row{display:block}main .bnc-payment-row>span{display:block;margin-top:5px}main .bnc-cash-equation{gap:4px;grid-template-columns:1fr 9px 1fr 9px 1fr}main .bnc-cash-equation strong{font-size:16px}main .bnc-cash-equation span{font-size:10px}main .bnc-capital-route{gap:5px;font-size:12px;grid-template-columns:1.2fr 15px 1fr 15px .8fr}main .bnc-metric-formulas p{font-size:16px}main .bnc-cash-history figcaption:before{content:'横向滑动查看完整曲线 · ';color:var(--accent)}}
+@media print{main .bnc-cash-history svg{min-width:0}main .bnc-cash-history figcaption:before{content:none}}
+
+/* SKY: custody proportions and their functions share one figure. */
+main .sky-holdings-explained .pie-layout{grid-template-columns:minmax(180px,235px) minmax(0,1fr);gap:18px}
+main .sky-holdings-explained .pie-legend li{align-items:start;gap:4px 9px;padding:8px 0}
+main .sky-holdings-explained .pie-swatch{margin-top:4px}
+main .sky-holdings-explained .pie-category span{display:inline;font-size:13px;font-weight:650}
+main .sky-holdings-explained .pie-category small{display:inline;font-size:10.5px;margin-left:8px}
+main .sky-holdings-explained .pie-legend strong{font-size:14px}
+main .sky-holdings-explained .pie-explanation{grid-column:2 / -1}
+main .sky-holdings-explained .pie-explanation p{margin:1px 0;font-size:12px;line-height:1.6;color:var(--muted)}
+main .sky-holdings-explained .pie-explanation b{color:var(--ink);font-size:11px;font-weight:600}
+main .sky-holdings-explained .holdings-pie{align-self:start;margin-top:18px}
+main .sky-money-map{padding:20px;border:1px solid var(--line);border-radius:5px;background:var(--panel)}
+main .sky-money-route{display:grid;grid-template-columns:145px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+main .sky-money-route>strong{font-size:14px;color:var(--ink)}
+main .sky-money-route b{display:block;font-size:14px;line-height:1.75;color:var(--ink)}
+main .sky-money-route span{display:block;font-size:12px;line-height:1.8;color:var(--muted);margin-top:5px}
+main .sky-money-credit{border-left:3px solid var(--pink);padding-left:12px}
+main .sky-money-return{padding:16px 0 0}
+main .sky-money-return strong{display:block;font-size:14px;color:var(--pink)}
+main .sky-money-return span{display:block;font-size:14px;line-height:1.8;margin-top:5px}
+main .sky-money-return small{display:block;font-size:12px;line-height:1.8;color:var(--muted);margin-top:5px}
+main .sky-money-map figcaption{border-top:1px solid var(--line);padding-top:12px;margin-top:16px}
+main .sky-money-map figcaption span{white-space:normal}
+@media(max-width:760px){main .sky-holdings-explained .pie-layout{grid-template-columns:1fr;gap:12px}main .sky-holdings-explained .holdings-pie{max-width:230px}}
+@media(max-width:600px){main .sky-money-map{padding:15px}main .sky-money-route{grid-template-columns:1fr;gap:5px;padding:14px 0}main .sky-money-credit{padding-left:10px}main .sky-money-map figcaption{display:block}main .sky-money-map figcaption span{display:block;margin-top:5px}}
+
+/* BNC report mainline; user-approved structure, 2026-10-09. */
+main .bnc-main-chart{padding:26px 28px;margin:30px 0;background:var(--panel);border-top:2px solid var(--ink);border-bottom:1px solid var(--line);max-width:100%;min-width:0;box-sizing:border-box}
+main .bnc-main-chart figcaption{font-size:12px;line-height:1.8;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:22px;display:block}
+main .bnc-main-scroll{overflow-x:auto;max-width:100%;overscroll-behavior-x:contain}main .bnc-main-scroll:focus-visible{outline:2px solid var(--accent);outline-offset:3px}main .bnc-main-scroll svg{display:block;width:100%;height:auto;font-family:inherit}
+main .bnc-company-map svg{min-width:850px}main .bnc-share-history svg{min-width:780px}
+main .bnc-map-node{fill:var(--bg);stroke:var(--line);stroke-width:1}main .bnc-map-parent{stroke:var(--accent);stroke-width:2}main .bnc-map-investor{stroke:var(--pink)}main .bnc-map-title{fill:var(--ink);font-size:22px;font-weight:650}main .bnc-map-small{fill:var(--muted);font-size:18px}main .bnc-map-edge{fill:none;stroke:var(--muted);stroke-width:1.5;stroke-linejoin:round}main .bnc-edge-money{stroke:var(--pink);stroke-width:2}main .bnc-edge-service{stroke:var(--accent);stroke-dasharray:6 4}main .bnc-edge-label{font-size:16px;fill:var(--muted)}main .bnc-label-money{fill:var(--pink)}main .bnc-label-service{fill:var(--accent)}main .bnc-marker-ownership{fill:var(--muted)}main .bnc-marker-money{fill:var(--pink)}main .bnc-marker-service{fill:var(--accent)}
+main .bnc-dollar-row{margin:22px 0}main .bnc-dollar-row>div:first-child{display:flex;justify-content:space-between;gap:18px;align-items:baseline;font-size:15px}main .bnc-dollar-row strong{font-size:32px;font-weight:650;font-variant-numeric:tabular-nums}main .bnc-dollar-row small{font-size:12px;font-weight:400;margin-left:5px;color:var(--muted)}main .bnc-dollar-track{height:14px;margin-top:7px;background:var(--bg)}main .bnc-dollar-track i{display:block;height:100%;background:var(--muted)}main .bnc-dollar-row.gross .bnc-dollar-track i{background:var(--accent)}main .bnc-dollar-row.net .bnc-dollar-track i{background:var(--pink)}main .bnc-dollar-row.gross strong{color:var(--accent)}main .bnc-dollar-row.net strong{color:var(--pink)}main .bnc-dollar-scale{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+main .bnc-history-line{fill:none;stroke-width:2}main .bnc-history-basic{stroke:var(--muted);fill:var(--muted)}main .bnc-history-near{stroke:var(--pink);fill:var(--pink)}main .bnc-history-line.bnc-history-near{stroke-width:3.5;fill:none}main .bnc-history-line.bnc-history-basic{fill:none}main .bnc-history-conditional{stroke-dasharray:7 5}main .bnc-history-value{font-size:18px;stroke:none;font-variant-numeric:tabular-nums;font-weight:600}
+main .bnc-dollar-history svg{min-width:760px}
+main .bnc-comparison-map svg{min-width:820px}main .bnc-beta-comparison svg{min-width:780px}main .bnc-comp-title{fill:var(--ink);font-size:18px;font-weight:650}main .bnc-comp-flow{fill:none;stroke:var(--muted);stroke-width:1.5;marker-end:url(#bnc-comp-arrow)}main .bnc-comp-reserve{fill:var(--panel);stroke:var(--line);stroke-width:1.5}
+main .bnc-evidence{margin:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0}main .bnc-evidence>summary{font-size:15px;line-height:1.7;font-weight:600;cursor:pointer;color:var(--accent)}main .bnc-evidence[open]>summary{margin-bottom:20px}main .bnc-evidence>figure{margin-top:20px}
+main .bnc-issuance-pair{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin:20px 0}main .bnc-issuance-pair>div{border-top:3px solid var(--accent);padding-top:15px}main .bnc-issuance-pair>div:last-child{border-color:var(--pink)}main .bnc-issuance-pair span{font-size:15px;color:var(--muted);display:block}main .bnc-issuance-pair p{font-size:14px;line-height:1.8;margin:10px 0}main .bnc-issuance-pair strong{font-size:23px;font-weight:650;line-height:1.7;display:block;font-variant-numeric:tabular-nums}main .bnc-issuance-pair b{display:block;font-size:15px;color:var(--accent);margin-top:12px}main .bnc-issuance-pair>div:last-child b{color:var(--pink)}main .bnc-issuance-pair small{display:block;color:var(--muted);font-size:12px;line-height:1.8;margin-top:10px}
+main .bnc-example-base{font-size:14px;line-height:1.8;color:var(--muted);margin:18px 0}main .bnc-atm-result{border-top:1px solid var(--line);padding-top:18px;display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}main .bnc-atm-result span{font-size:14px}main .bnc-atm-result strong{font-size:24px;font-weight:650}main .bnc-atm-result b{color:var(--pink);font-size:23px}
+main .bnc-net-ledger{font-variant-numeric:tabular-nums}main .bnc-net-ledger>div{display:flex;justify-content:space-between;gap:20px;padding:12px 0;font-size:15px}main .bnc-net-ledger strong{font-size:22px;font-weight:600;white-space:nowrap}main .bnc-ledger-total{border-top:1px solid var(--line);color:var(--pink)}main .bnc-return-factors{display:grid;grid-template-columns:1fr 14px 1fr 14px 1fr;gap:14px;align-items:center}main .bnc-return-factors span{display:block;font-size:12px;color:var(--muted);line-height:1.8}main .bnc-return-factors strong{font-size:18px;font-weight:600;line-height:1.8;display:block}main .bnc-return-factors i{font-style:normal;color:var(--accent)}
+@media(max-width:600px){main .bnc-main-chart{padding:20px 16px}main .bnc-dollar-row strong{font-size:29px}main .bnc-dollar-row>div:first-child{font-size:13px}main .bnc-issuance-pair{grid-template-columns:1fr;gap:22px}main .bnc-issuance-pair strong{font-size:22px}main .bnc-atm-result strong{font-size:21px}main .bnc-net-ledger>div{font-size:13px;gap:8px}main .bnc-net-ledger strong{font-size:19px}main .bnc-return-factors{grid-template-columns:1fr;gap:10px}main .bnc-return-factors i{font-size:18px}main .bnc-return-factors strong{font-size:17px}main .bnc-company-map figcaption:before,main .bnc-share-history figcaption:before{content:'横向滑动查看完整图 · ';color:var(--accent)}}
+@media print{main .bnc-main-scroll svg{min-width:0}main .bnc-evidence{break-inside:avoid}main .bnc-company-map figcaption:before,main .bnc-share-history figcaption:before{content:none}}
+
+/* SKY: three-part investor narrative and branching cash distribution. */
+.layout aside a.sky-v9-subnav{font-size:12px;line-height:1.7;margin:0;padding:6px 0 6px 12px;border-left:1px solid var(--line)}
+main .sky-v9-nav{display:flex;flex-wrap:wrap;gap:8px 20px;padding:16px 0;margin:12px 0 28px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:13px}
+main .sky-v9-detail{margin:24px 0;padding:14px 18px;border:1px solid var(--line);background:var(--panel);border-radius:5px}main .sky-v9-detail summary{font-size:14px;cursor:pointer;font-weight:600}main .sky-v9-detail[open] summary{margin-bottom:18px}
+main h3[id^="sky-"]{scroll-margin-top:110px}
+main .sky-v9-income{padding:22px;border-top:2px solid var(--ink);border-bottom:1px solid var(--line);background:var(--panel);margin:28px 0}main .sky-v9-income>*{display:block;font-size:14px;padding:10px 0}main .sky-v9-income span{color:var(--muted);border-bottom:1px solid var(--line)}main .sky-v9-income b{color:var(--accent)}
+main .sky-v9-distribution{padding:24px 20px;background:var(--panel);border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}main .sky-v9-budget-root{text-align:center;padding:0 0 23px;border-bottom:1px solid var(--line)}main .sky-v9-budget-root span,main .sky-v9-budget-root small{display:block;font-size:12px;color:var(--muted)}main .sky-v9-budget-root strong{display:block;font-size:30px;font-weight:650;line-height:1.8;font-variant-numeric:tabular-nums}
+main .sky-v9-branches{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;padding-top:25px;position:relative}main .sky-v9-branch{border-top:3px solid var(--muted);position:relative;padding:12px 0 0;min-width:0}main .sky-v9-branch:before{content:'↓';position:absolute;top:-33px;left:50%;font-size:20px;color:var(--muted)}main .sky-v9-branch h4{font-size:14px;margin:0 0 16px;line-height:1.8}main .sky-v9-branch>div{margin:10px 0;padding-bottom:10px;border-bottom:1px solid var(--line)}main .sky-v9-branch b{display:block;font-size:12px;font-weight:500}main .sky-v9-branch strong{display:block;font-size:20px;line-height:1.8;font-weight:650;font-variant-numeric:tabular-nums}main .sky-v9-branch p{font-size:12px;line-height:1.8;color:var(--muted);margin:10px 0 0}main .sky-v9-rewards{border-color:var(--accent)}main .sky-v9-rewards h4,main .sky-v9-rewards:before{color:var(--accent)}main .sky-v9-burn{border-color:var(--pink)}main .sky-v9-burn h4,main .sky-v9-burn:before{color:var(--pink)}main .sky-v9-distribution figcaption{display:block;font-size:12px;line-height:1.8;border-top:1px solid var(--line);padding-top:14px;margin-top:22px}
+main .sky-v9-loss{background:var(--panel);padding:20px;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}main .sky-v9-loss>div{display:grid;grid-template-columns:30px 145px minmax(0,1fr);gap:14px;align-items:start;padding:17px 0;border-bottom:1px solid var(--line);position:relative}main .sky-v9-loss i{font-style:normal;color:var(--accent);font-size:21px;font-weight:650}main .sky-v9-loss strong{font-size:14px}main .sky-v9-loss span{font-size:13px;line-height:1.8;color:var(--muted)}main .sky-v9-loss>div:nth-child(4) i,main .sky-v9-loss>div:nth-child(5) i{color:var(--pink)}main .sky-v9-loss figcaption{display:block;font-size:12px;line-height:1.8}
+main .sky-v9-equation{display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:24px 20px;background:var(--panel);border-top:2px solid var(--ink);border-bottom:1px solid var(--line);margin:26px 0;font-size:14px}main .sky-v9-equation b{color:var(--muted)}main .sky-v9-equation strong{color:var(--pink);font-size:26px;font-weight:650}
+@media(max-width:600px){main .sky-v9-distribution{padding:20px 15px}main .sky-v9-branches{grid-template-columns:1fr;gap:24px}main .sky-v9-branch:before{left:8px}main .sky-v9-branch>div{display:flex;align-items:baseline;justify-content:space-between;gap:10px}main .sky-v9-budget-root strong{font-size:27px}main .sky-v9-loss{padding:16px}main .sky-v9-loss>div{grid-template-columns:25px minmax(0,1fr);gap:6px 10px}main .sky-v9-loss span{grid-column:2}main .sky-v9-nav{gap:10px 18px}main .sky-v9-equation{gap:10px;font-size:13px}}
+/* BNC: compact asset comparison, with amounts and shares kept together. */
+main .bnc-assets-comparison{scroll-margin-top:88px;padding:22px 24px;margin:24px 0;max-width:800px}
+main .bnc-asset-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+main .bnc-asset-heading>strong{font-size:18px;font-weight:650;line-height:1.5}
+main .bnc-asset-heading>span{font-size:12px;line-height:1.6;color:var(--muted)}
+main .bnc-assets-comparison .table-wrap{margin:0;border:0;border-radius:0;background:transparent;overflow-x:visible}
+main .bnc-assets-comparison table{table-layout:fixed;width:100%;margin:0;font-size:14px;line-height:1.5;font-variant-numeric:tabular-nums}
+main .bnc-assets-comparison table thead{background:transparent}
+main .bnc-assets-comparison table th,main .bnc-assets-comparison table td{box-sizing:border-box;min-width:0;width:36%;padding:13px 14px;vertical-align:middle;border-bottom:1px solid var(--line)}
+main .bnc-assets-comparison table th:first-child{width:28%;padding-left:0;text-align:left;font-size:14px;font-weight:500}
+main .bnc-assets-comparison table th:last-child,main .bnc-assets-comparison table td:last-child{padding-right:0}
+main .bnc-assets-comparison table thead th{padding-top:0;padding-bottom:12px;font-size:16px;font-weight:650;text-align:right}
+main .bnc-assets-comparison table thead th:first-child{font-size:12px;color:var(--muted)}
+main .bnc-assets-comparison table small{display:block;font-size:11px;line-height:1.6;color:var(--muted);font-weight:400;white-space:nowrap}
+main .bnc-assets-comparison table thead small{margin-top:4px;font-size:12px}
+main .bnc-assets-comparison table td{text-align:right}
+main .bnc-asset-value{display:flex;align-items:baseline;justify-content:flex-end;gap:12px;white-space:nowrap}
+main .bnc-asset-value strong{font-size:16px;font-weight:600}
+main .bnc-asset-value>span{width:58px;font-size:13px;color:var(--muted)}
+main .bnc-assets-comparison table .bnc-asset-total strong{font-size:23px;color:var(--ink);font-weight:650}
+main .bnc-assets-comparison table .bnc-asset-total th{font-weight:600}
+main .bnc-assets-comparison table .bnc-asset-crypto strong,main .bnc-assets-comparison table .bnc-asset-crypto .bnc-asset-value>span{color:var(--accent)}
+main .bnc-assets-comparison table .bnc-asset-crypto small{margin-top:4px}
+main .bnc-asset-missing{color:var(--muted);font-size:13px}
+main .bnc-asset-label-break{display:inline}
+main .bnc-assets-comparison table .bnc-asset-business th,main .bnc-assets-comparison table .bnc-asset-business td{font-size:12px;color:var(--muted);border-bottom:0;padding-bottom:0}
+main .bnc-assets-comparison figcaption{display:block;font-size:12px;line-height:1.8;margin-top:18px;padding-top:12px}
+@media(max-width:700px){main .bnc-asset-value{display:block}main .bnc-asset-value>span{display:block;width:auto;margin-top:2px}}
+@media(max-width:600px){main .bnc-assets-comparison{padding:18px 14px}main .bnc-asset-heading{display:block;margin-bottom:18px}main .bnc-asset-heading>strong{display:block;font-size:16px}main .bnc-asset-heading>span{display:block;font-size:11px;margin-top:7px}main .bnc-assets-comparison table th,main .bnc-assets-comparison table td{padding:11px 7px;width:36%}main .bnc-assets-comparison table th:first-child{width:28%;font-size:12px}main .bnc-assets-comparison table thead th{font-size:15px}main .bnc-assets-comparison table thead small{font-size:10px}main .bnc-asset-value strong{font-size:15px}main .bnc-asset-value>span{font-size:12px}main .bnc-assets-comparison table .bnc-asset-total strong{font-size:18px}main .bnc-assets-comparison table small{font-size:10px}main .bnc-asset-label-break{display:block}main .bnc-assets-comparison table .bnc-asset-business th,main .bnc-assets-comparison table .bnc-asset-business td{font-size:11px}main .bnc-assets-comparison figcaption{font-size:11px}}
+
+
+
+
+main .bnc-asset-caption{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+/* SKY token-rights chronology and dated PE, 2026-10-10. */
+main .sky-v18-note{font-size:12px;color:var(--muted);line-height:1.9}
+main .sky-v18-timeline{list-style:none;margin:28px 0;padding:0}
+main .sky-v18-timeline>li{display:grid;grid-template-columns:152px minmax(0,1fr);gap:24px;position:relative;margin:0;padding:0 0 24px}
+main .sky-v18-timeline>li:before{content:"";position:absolute;left:164px;top:8px;bottom:-8px;border-left:1px solid var(--line)}
+main .sky-v18-timeline>li:after{content:"";position:absolute;left:160px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--panel)}
+main .sky-v18-timeline>li:last-child:before{display:none}
+main .sky-v18-timeline>li:last-child:after{background:var(--pink)}
+main .sky-v18-time{font-size:12px;line-height:1.85;font-variant-numeric:tabular-nums;color:var(--muted);padding-right:5px}
+main .sky-v18-time>span{display:block;white-space:nowrap}
+main .sky-v18-timeline strong{display:block;font-size:15px;line-height:1.8}
+main .sky-v18-timeline p{font-size:13px;line-height:1.95;margin:5px 0 0}
+main .sky-v18-timeline p a{white-space:nowrap;font-size:11px}
+main .sky-v18-pe{border-top:2px solid var(--ink);border-bottom:1px solid var(--line);padding:24px;background:var(--panel)}
+main .sky-v18-pe-head{display:flex;align-items:center;justify-content:space-between;gap:24px}
+main .sky-v18-pe-head>div>span{font-size:13px;color:var(--muted)}
+main .sky-v18-pe-head strong{display:block;font-size:52px;font-weight:650;letter-spacing:-2px;line-height:1.5;font-variant-numeric:tabular-nums;color:var(--accent)}
+main .sky-v18-pe-head strong span{font-size:16px;margin-left:8px;letter-spacing:0}
+main .sky-v18-pe-head p{font-size:13px;line-height:2.1;margin:0}
+main .sky-v18-pe-comparison{display:flex;justify-content:space-between;gap:10px 20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:16px;margin-top:16px;font-size:12px;line-height:1.9}
+main .sky-v18-pe figcaption{display:block;font-size:11px;line-height:1.9;margin-top:18px;padding:0;color:var(--muted)}
+main .sky-v18-annual small{font-size:11px;font-weight:400;color:var(--muted)}
+@media(max-width:600px){main .sky-v18-annual table{min-width:0;width:100%;table-layout:fixed}main .sky-v18-annual th,main .sky-v18-annual td{font-size:12px;padding:12px 7px;white-space:normal;overflow-wrap:normal}main .sky-v18-annual th:first-child,main .sky-v18-annual td:first-child{width:28%}}
+@media(max-width:600px){main .sky-v18-timeline>li{grid-template-columns:1fr;gap:4px;padding:0 0 24px 22px}main .sky-v18-timeline>li:before{left:4px;top:8px}main .sky-v18-timeline>li:after{left:0;top:6px}main .sky-v18-time{font-size:12px}main .sky-v18-timeline p{font-size:13px}main .sky-v18-pe{padding:18px}main .sky-v18-pe-head{display:block}main .sky-v18-pe-head strong{font-size:44px}main .sky-v18-pe-head p{margin-top:10px}main .sky-v18-pe-comparison{display:block}main .sky-v18-pe-comparison>span{display:block}}
+
+/* BNC holdings as a share of the coin supply, separate from asset weights. */
+main .bnc-assets-comparison table .bnc-asset-supply th,main .bnc-assets-comparison table .bnc-asset-supply td{border-top:1px solid var(--ink);border-bottom:0;padding-top:15px;padding-bottom:0}
+main .bnc-assets-comparison table .bnc-asset-supply th{font-weight:600}
+main .bnc-assets-comparison table .bnc-asset-supply strong{font-size:20px;color:var(--accent);font-weight:650}
+main .bnc-assets-comparison table .bnc-asset-supply small{margin-top:4px}
+main .bnc-assets-comparison table .bnc-asset-business th,main .bnc-assets-comparison table .bnc-asset-business td{padding-bottom:14px}
+@media(max-width:600px){main .bnc-assets-comparison table .bnc-asset-supply strong{font-size:18px}main .bnc-assets-comparison table .bnc-asset-supply th{font-size:12px}}
+/* SKY annual income: grouped bars, with a visibly incomplete 2026 period. */
+main .sky-annual-chart{margin:24px 0;padding:0;background:transparent}
+main .sky-annual-chart-key{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;font-size:12px;line-height:1.8;color:var(--muted)}
+main .sky-annual-chart-key>div{display:flex;gap:10px 18px;flex-wrap:wrap}
+main .sky-annual-chart-key i{display:inline-block;width:12px;height:12px;margin-right:6px;vertical-align:-1px}
+main .sky-annual-gross{background:var(--accent)}main .sky-annual-net{background:var(--pink)}
+main .sky-annual-stage{width:100%;height:350px;min-width:0}
+main .sky-annual-chart svg{overflow:visible}
+main .sky-annual-chart figcaption{display:block;margin-top:16px;font-size:12px;line-height:1.9;color:var(--muted)}
+main .sky-annual-tooltip{background:var(--panel);border:1px solid var(--line);padding:12px 14px;font-size:12px;line-height:1.9;color:var(--ink);box-shadow:0 3px 14px #0001}
+main .sky-annual-tooltip strong{display:block;margin-bottom:6px;font-size:13px}
+main .sky-annual-tooltip>div{display:flex;gap:20px;justify-content:space-between}
+main .sky-annual-tooltip b{font-variant-numeric:tabular-nums;white-space:nowrap}
+main .sky-annual-chart .recharts-surface:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+@media(max-width:600px){main .sky-annual-chart-key{display:block}main .sky-annual-chart-key>div{margin-top:7px;gap:6px 14px}main .sky-annual-stage{height:300px}main .sky-annual-tooltip{font-size:11px;padding:9px}main .sky-annual-tooltip>div{gap:12px}}
+
+/* SKY v20: income and executed spending within the existing timeline. */
+main .sky-v18-timeline p.sky-v20-metrics{margin-top:9px;padding-top:8px;border-top:1px dashed var(--line);color:var(--text);font-size:12px;line-height:1.95}
+
+
+/* AAVE governance periods: same reading format as the SKY chronology. */
+main .aave-rights-history{list-style:none;margin:28px 0;padding:0}
+main .aave-rights-history>li{display:grid;grid-template-columns:152px minmax(0,1fr);gap:24px;position:relative;margin:0;padding:0 0 24px}
+main .aave-rights-history>li:before{content:"";position:absolute;left:164px;top:8px;bottom:-8px;border-left:1px solid var(--line)}
+main .aave-rights-history>li:after{content:"";position:absolute;left:160px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--panel)}
+main .aave-rights-history>li:last-child:before{display:none}
+main .aave-rights-history>li:last-child:after{background:var(--pink)}
+main .aave-rights-period{font-size:12px;line-height:1.85;font-variant-numeric:tabular-nums;color:var(--muted);padding-right:5px}
+main .aave-rights-period>span{display:block;white-space:nowrap}
+main .aave-rights-history strong{display:block;font-size:15px;line-height:1.8}
+main .aave-rights-history p{font-size:13px;line-height:1.95;margin:5px 0 0}
+main .aave-rights-history p a{white-space:nowrap;font-size:11px}
+main .aave-rights-history p.aave-rights-stage-note{margin-top:9px;padding-top:8px;border-top:1px dashed var(--line);font-size:12px;line-height:1.95}
+@media(max-width:600px){main .aave-rights-history>li{grid-template-columns:1fr;gap:4px;padding:0 0 24px 22px}main .aave-rights-history>li:before{left:4px;top:8px}main .aave-rights-history>li:after{left:0;top:6px}main .aave-rights-period{font-size:12px}main .aave-rights-history p{font-size:13px}}

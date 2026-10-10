@@ -1,0 +1,127 @@
+{
+  "start": "2025-10-01",
+  "end": "2026-09-30",
+  "staking_usd": "11543914.4102419294",
+  "staking_rows": [
+    {
+      "block_period": {
+        "value": "2025-10-01"
+      },
+      "statement": "Income Statement",
+      "statement_section": "Expenses",
+      "line_category": "Staking",
+      "line_item": "stkAAVE Emissions",
+      "value_usd": -5237654.702709948
+    },
+    {
+      "block_period": {
+        "value": "2026-01-01"
+      },
+      "statement": "Income Statement",
+      "statement_section": "Expenses",
+      "line_category": "Staking",
+      "line_item": "stkAAVE Emissions",
+      "value_usd": -3056205.5896756407
+    },
+    {
+      "block_period": {
+        "value": "2026-04-01"
+      },
+      "statement": "Income Statement",
+      "statement_section": "Expenses",
+      "line_category": "Staking",
+      "line_item": "stkAAVE Emissions",
+      "value_usd": -1656016.5198638486
+    },
+    {
+      "block_period": {
+        "value": "2026-07-01"
+      },
+      "statement": "Income Statement",
+      "statement_section": "Expenses",
+      "line_category": "Staking",
+      "line_item": "Safety Module — stkAAVE",
+      "value_usd": -3
+    },
+    {
+      "block_period": {
+        "value": "2026-07-01"
+      },
+      "statement": "Income Statement",
+      "statement_section": "Expenses",
+      "line_category": "Staking",
+      "line_item": "stkAAVE Emissions",
+      "value_usd": -1594034.5979924921
+    }
+  ],
+  "excluded_stkbpt_usd": "2756277.648203749",
+  "excluded_stkbpt_rows": [
+    {
+      "block_period": {
+        "value": "2025-10-01"
+      },
+      "statement": "Income Statement",
+      "statement_section": "Expenses",
+      "line_category": "Staking",
+      "line_item": "stkAAVEwstETHBPTv2 Emissions",
+      "value_usd": -2021136.813896575
+    },
+    {
+      "block_period": {
+        "value": "2026-01-01"
+      },
+      "statement": "Income Statement",
+      "statement_section": "Expenses",
+      "line_category": "Staking",
+      "line_item": "stkAAVEwstETHBPTv2 Emissions",
+      "value_usd": -735140.834307174
+    }
+  ],
+  "including_stkbpt_gross_usd": "37790768.0584456784",
+  "buyback_monthly_usd": "23490576",
+  "buyback_aave": "155873.48",
+  "buyback_rows": [
+    {
+      "month": "Oct 2025",
+      "aave": "15533.9",
+      "usd": "3815448"
+    },
+    {
+      "month": "Nov 2025",
+      "aave": "21281.69",
+      "usd": "3912812"
+    },
+    {
+      "month": "Dec 2025",
+      "aave": "21048.65",
+      "usd": "3642468"
+    },
+    {
+      "month": "Jan 2026",
+      "aave": "24368.56",
+      "usd": "3903994"
+    },
+    {
+      "month": "Feb 2026",
+      "aave": "33657.39",
+      "usd": "4017976"
+    },
+    {
+      "month": "Mar 2026",
+      "aave": "23741.5",
+      "usd": "2627884"
+    },
+    {
+      "month": "Apr 2026",
+      "aave": "16241.79",
+      "usd": "1569994"
+    }
+  ],
+  "gross_total_usd": "35034490.4102419294",
+  "marketcap_usd": "2649327026",
+  "gross_return_yield_pct": 1.3223920666048394,
+  "capitalization_to_gross_returns": 75.62053836026396,
+  "buyback_status": "月度披露口径；顶部累计与月表存在差额，非独立逐笔审计",
+  "live_staking_usd": "11543914.4102419302",
+  "live_staking_matches_frozen_to_cent": true
+}

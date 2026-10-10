@@ -1,0 +1,1373 @@
+{
+  "metric": "DAO income minus expenses excluding identified native-AAVE Safety Module rewards",
+  "source_url": "https://aave.tokenlogic.xyz/api/data/financial-statements?granularity=quarter",
+  "method_url": "https://aave.tokenlogic.xyz/financials/statements",
+  "source_sha256": "ba668ee2f71e18c525f1c45c12b15fe7f2cb082fbf2ee6a7bb915321f37a8181",
+  "source_file": "R12_statements_quarter.json",
+  "checked_date": "2026-10-10",
+  "snapshot": "Original report financial snapshot retained",
+  "currency": "USD",
+  "excluded_line_items": [
+    "Safety Module — stkAAVE",
+    "stkAAVE Emissions",
+    "stkAAVEwstETHBPTv2 Emissions",
+    "stkABPT Emissions",
+    "stkGHO Emissions"
+  ],
+  "scope_notes": [
+    "Remove all identified Safety Module AAVE reward expenses, including stkAAVE, stkABPT, stkAAVEwstETHBPTv2 and legacy stkGHO.",
+    "Do not confuse the staked asset with the reward asset: legacy stkGHO rewards are AAVE.",
+    "Retain ETH, stablecoin and aToken funded outlays, service compensation, rescue donation and treasury investment PnL.",
+    "Mixed Incentives category is not treated as all native-AAVE; no full token-level allocation is available from quarterly rows. No unverified native-AAVE amount is set to zero.",
+    "Adjusted profit is not an audited or cash-flow measure."
+  ],
+  "formula": "Adjusted expense = reported expense - identified AAVE reward expense; adjusted profit = reported profit + identified AAVE reward expense; adjusted PE = frozen circulating market capitalization / adjusted annual or annualized profit.",
+  "market_cap": "2649327026",
+  "annual_rows": [
+    {
+      "label": "2020",
+      "start": "2020-01-01",
+      "end_exclusive": "2021-01-01",
+      "days": 365,
+      "dao_income": "635330.216355185025497",
+      "reported_expense": "1426725.6286268826",
+      "reported_profit": "-791395.41227169744",
+      "excluded_aave_rewards": "1426725.6286268826",
+      "adjusted_expense": "0E-10",
+      "adjusted_profit": "635330.21635518516",
+      "pe": "4170.000037459068166679317641",
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2020-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-1426725.6286268826"
+        }
+      ]
+    },
+    {
+      "label": "2021",
+      "start": "2021-01-01",
+      "end_exclusive": "2022-01-01",
+      "days": 365,
+      "dao_income": "36148235.955022429772477",
+      "reported_expense": "128943907.388208033",
+      "reported_profit": "-92795671.433185602",
+      "excluded_aave_rewards": "125590534.968208033",
+      "adjusted_expense": "3353372.420000000",
+      "adjusted_profit": "32794863.535022431",
+      "pe": "80.78481629206108284498927334",
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2021-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-15908249.926671436"
+        },
+        {
+          "block_period": {
+            "value": "2021-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkABPT Emissions",
+          "value_usd": "-10900916.501366742"
+        },
+        {
+          "block_period": {
+            "value": "2021-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-18853855.834308848"
+        },
+        {
+          "block_period": {
+            "value": "2021-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkABPT Emissions",
+          "value_usd": "-18853855.834308848"
+        },
+        {
+          "block_period": {
+            "value": "2021-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-16847552.142209873"
+        },
+        {
+          "block_period": {
+            "value": "2021-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkABPT Emissions",
+          "value_usd": "-16847552.142209873"
+        },
+        {
+          "block_period": {
+            "value": "2021-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-13689276.293566208"
+        },
+        {
+          "block_period": {
+            "value": "2021-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkABPT Emissions",
+          "value_usd": "-13689276.293566205"
+        }
+      ]
+    },
+    {
+      "label": "2022",
+      "start": "2022-01-01",
+      "end_exclusive": "2023-01-01",
+      "days": 365,
+      "dao_income": "7924076.396902426908282380930",
+      "reported_expense": "74670198.5826849151525",
+      "reported_profit": "-66746122.185782491",
+      "excluded_aave_rewards": "44805138.3767703658",
+      "adjusted_expense": "29865060.2059145493525",
+      "adjusted_profit": "-21940983.8090121252",
+      "pe": null,
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2022-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-8383804.876297481"
+        },
+        {
+          "block_period": {
+            "value": "2022-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkABPT Emissions",
+          "value_usd": "-8383804.876297482"
+        },
+        {
+          "block_period": {
+            "value": "2022-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-6190482.29625449"
+        },
+        {
+          "block_period": {
+            "value": "2022-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkABPT Emissions",
+          "value_usd": "-6190482.29625449"
+        },
+        {
+          "block_period": {
+            "value": "2022-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-4373540.562105296"
+        },
+        {
+          "block_period": {
+            "value": "2022-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkABPT Emissions",
+          "value_usd": "-4373540.562105296"
+        },
+        {
+          "block_period": {
+            "value": "2022-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-3454741.4537279154"
+        },
+        {
+          "block_period": {
+            "value": "2022-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkABPT Emissions",
+          "value_usd": "-3454741.4537279154"
+        }
+      ]
+    },
+    {
+      "label": "2023",
+      "start": "2023-01-01",
+      "end_exclusive": "2024-01-01",
+      "days": 365,
+      "dao_income": "25621639.09600761962793914362",
+      "reported_expense": "43002847.328664448955471047",
+      "reported_profit": "-17381208.2326568304",
+      "excluded_aave_rewards": "28663929.9634536148",
+      "adjusted_expense": "14338917.365210834155471047",
+      "adjusted_profit": "11282721.7307967844",
+      "pe": "234.8127596525333126502546506",
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2023-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-3819990.3501465954"
+        },
+        {
+          "block_period": {
+            "value": "2023-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkABPT Emissions",
+          "value_usd": "-3819990.350146596"
+        },
+        {
+          "block_period": {
+            "value": "2023-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-3331293.361032501"
+        },
+        {
+          "block_period": {
+            "value": "2023-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkABPT Emissions",
+          "value_usd": "-3331293.3610325004"
+        },
+        {
+          "block_period": {
+            "value": "2023-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-3260247.139248949"
+        },
+        {
+          "block_period": {
+            "value": "2023-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkABPT Emissions",
+          "value_usd": "-3260247.139248949"
+        },
+        {
+          "block_period": {
+            "value": "2023-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-3920434.131298762"
+        },
+        {
+          "block_period": {
+            "value": "2023-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkABPT Emissions",
+          "value_usd": "-3920434.131298762"
+        }
+      ]
+    },
+    {
+      "label": "2024",
+      "start": "2024-01-01",
+      "end_exclusive": "2025-01-01",
+      "days": 365,
+      "dao_income": "96088248.72362316003422921556",
+      "reported_expense": "78510654.238693054879984",
+      "reported_profit": "17577594.4849301123",
+      "excluded_aave_rewards": "39650999.59529415755",
+      "adjusted_expense": "38859654.643398897329984",
+      "adjusted_profit": "57228594.08022426985",
+      "pe": "46.29376395803322702386395025",
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2024-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-3635136.4412991037"
+        },
+        {
+          "block_period": {
+            "value": "2024-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVEwstETHBPTv2 Emissions",
+          "value_usd": "-2150268.5702541918"
+        },
+        {
+          "block_period": {
+            "value": "2024-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkABPT Emissions",
+          "value_usd": "-1484867.871044912"
+        },
+        {
+          "block_period": {
+            "value": "2024-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkGHO Emissions",
+          "value_usd": "-464940.93952933775"
+        },
+        {
+          "block_period": {
+            "value": "2024-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-3110952.6246619606"
+        },
+        {
+          "block_period": {
+            "value": "2024-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVEwstETHBPTv2 Emissions",
+          "value_usd": "-3110952.624661961"
+        },
+        {
+          "block_period": {
+            "value": "2024-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkGHO Emissions",
+          "value_usd": "-798739.8715659834"
+        },
+        {
+          "block_period": {
+            "value": "2024-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-3920048.2093792064"
+        },
+        {
+          "block_period": {
+            "value": "2024-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVEwstETHBPTv2 Emissions",
+          "value_usd": "-3920048.2093792064"
+        },
+        {
+          "block_period": {
+            "value": "2024-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkGHO Emissions",
+          "value_usd": "-1088902.2803831128"
+        },
+        {
+          "block_period": {
+            "value": "2024-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-7057358.774788436"
+        },
+        {
+          "block_period": {
+            "value": "2024-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVEwstETHBPTv2 Emissions",
+          "value_usd": "-7057358.774788436"
+        },
+        {
+          "block_period": {
+            "value": "2024-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkGHO Emissions",
+          "value_usd": "-1851424.4035583097"
+        }
+      ]
+    },
+    {
+      "label": "2025",
+      "start": "2025-01-01",
+      "end_exclusive": "2026-01-01",
+      "days": 365,
+      "dao_income": "152436837.638151493738234938",
+      "reported_expense": "109230897.643034289021790",
+      "reported_profit": "43205939.995117207",
+      "excluded_aave_rewards": "49780890.205852444",
+      "adjusted_expense": "59450007.437181845021790",
+      "adjusted_profit": "92986830.200969651",
+      "pe": "28.49142206777119781958718268",
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2025-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-8086138.38264651"
+        },
+        {
+          "block_period": {
+            "value": "2025-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVEwstETHBPTv2 Emissions",
+          "value_usd": "-7215292.55460822"
+        },
+        {
+          "block_period": {
+            "value": "2025-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkGHO Emissions",
+          "value_usd": "-2246149.550735141"
+        },
+        {
+          "block_period": {
+            "value": "2025-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-6695941.369837426"
+        },
+        {
+          "block_period": {
+            "value": "2025-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVEwstETHBPTv2 Emissions",
+          "value_usd": "-5005447.87403004"
+        },
+        {
+          "block_period": {
+            "value": "2025-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkGHO Emissions",
+          "value_usd": "-1125679.461589953"
+        },
+        {
+          "block_period": {
+            "value": "2025-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-7851244.004239147"
+        },
+        {
+          "block_period": {
+            "value": "2025-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVEwstETHBPTv2 Emissions",
+          "value_usd": "-4296205.491559484"
+        },
+        {
+          "block_period": {
+            "value": "2025-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-5237654.702709948"
+        },
+        {
+          "block_period": {
+            "value": "2025-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVEwstETHBPTv2 Emissions",
+          "value_usd": "-2021136.813896575"
+        }
+      ]
+    },
+    {
+      "label": "2026年1—9月",
+      "start": "2026-01-01",
+      "end_exclusive": "2026-10-01",
+      "days": 273,
+      "dao_income": "81389108.59994439570629786528",
+      "reported_expense": "94900595.557779038529511571",
+      "reported_profit": "-13511486.957834657",
+      "excluded_aave_rewards": "7041400.5418391554",
+      "adjusted_expense": "87859195.015939883129511571",
+      "adjusted_profit": "-6470086.4159955016",
+      "pe": null,
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2026-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-3056205.5896756407"
+        },
+        {
+          "block_period": {
+            "value": "2026-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVEwstETHBPTv2 Emissions",
+          "value_usd": "-735140.834307174"
+        },
+        {
+          "block_period": {
+            "value": "2026-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-1656016.5198638486"
+        },
+        {
+          "block_period": {
+            "value": "2026-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "Safety Module — stkAAVE",
+          "value_usd": -3
+        },
+        {
+          "block_period": {
+            "value": "2026-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-1594034.5979924921"
+        }
+      ]
+    }
+  ],
+  "quarterly_rows": [
+    {
+      "label": "2023Q1",
+      "start": "2023-01-01",
+      "end_exclusive": "2023-04-01",
+      "days": 365,
+      "dao_income": "4866396.55220537936739685",
+      "reported_expense": "11925509.213173278264272",
+      "reported_profit": "-7059112.6609679",
+      "excluded_aave_rewards": "7639980.7002931914",
+      "adjusted_expense": "4285528.512880086864272",
+      "adjusted_profit": "580868.0393252914",
+      "pe": "4560.979166761063094871811875",
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2023-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-3819990.3501465954"
+        },
+        {
+          "block_period": {
+            "value": "2023-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkABPT Emissions",
+          "value_usd": "-3819990.350146596"
+        }
+      ]
+    },
+    {
+      "label": "2023Q2",
+      "start": "2023-04-01",
+      "end_exclusive": "2023-07-01",
+      "days": 365,
+      "dao_income": "2898038.9002411889947655",
+      "reported_expense": "10051390.235469755726782047",
+      "reported_profit": "-7153351.335228566",
+      "excluded_aave_rewards": "6662586.7220650014",
+      "adjusted_expense": "3388803.513404754326782047",
+      "adjusted_profit": "-490764.6131635646",
+      "pe": null,
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2023-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-3331293.361032501"
+        },
+        {
+          "block_period": {
+            "value": "2023-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkABPT Emissions",
+          "value_usd": "-3331293.3610325004"
+        }
+      ]
+    },
+    {
+      "label": "2023Q3",
+      "start": "2023-07-01",
+      "end_exclusive": "2023-10-01",
+      "days": 365,
+      "dao_income": "7651716.504337500600850894917",
+      "reported_expense": "8999003.23284981438376",
+      "reported_profit": "-1347286.7285123137",
+      "excluded_aave_rewards": "6520494.278497898",
+      "adjusted_expense": "2478508.95435191638376",
+      "adjusted_profit": "5173207.5499855843",
+      "pe": "512.1246345523837788209979704",
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2023-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-3260247.139248949"
+        },
+        {
+          "block_period": {
+            "value": "2023-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkABPT Emissions",
+          "value_usd": "-3260247.139248949"
+        }
+      ]
+    },
+    {
+      "label": "2023Q4",
+      "start": "2023-10-01",
+      "end_exclusive": "2024-01-01",
+      "days": 365,
+      "dao_income": "10205487.1392235506649258987",
+      "reported_expense": "12026944.647171600580657",
+      "reported_profit": "-1821457.5079480507",
+      "excluded_aave_rewards": "7840868.262597524",
+      "adjusted_expense": "4186076.384574076580657",
+      "adjusted_profit": "6019410.7546494733",
+      "pe": "440.1306263995399224156723311",
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2023-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-3920434.131298762"
+        },
+        {
+          "block_period": {
+            "value": "2023-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkABPT Emissions",
+          "value_usd": "-3920434.131298762"
+        }
+      ]
+    },
+    {
+      "label": "2024Q1",
+      "start": "2024-01-01",
+      "end_exclusive": "2024-04-01",
+      "days": 365,
+      "dao_income": "15377554.276643999644775",
+      "reported_expense": "11674382.860017767483684",
+      "reported_profit": "3703171.416626232",
+      "excluded_aave_rewards": "7735213.82212754525",
+      "adjusted_expense": "3939169.037890222233684",
+      "adjusted_profit": "11438385.23875377725",
+      "pe": "231.6172231220153110306050075",
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2024-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-3635136.4412991037"
+        },
+        {
+          "block_period": {
+            "value": "2024-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVEwstETHBPTv2 Emissions",
+          "value_usd": "-2150268.5702541918"
+        },
+        {
+          "block_period": {
+            "value": "2024-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkABPT Emissions",
+          "value_usd": "-1484867.871044912"
+        },
+        {
+          "block_period": {
+            "value": "2024-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkGHO Emissions",
+          "value_usd": "-464940.93952933775"
+        }
+      ]
+    },
+    {
+      "label": "2024Q2",
+      "start": "2024-04-01",
+      "end_exclusive": "2024-07-01",
+      "days": 365,
+      "dao_income": "21236495.727401454908755",
+      "reported_expense": "16954819.661574414895",
+      "reported_profit": "4281676.065827041",
+      "excluded_aave_rewards": "7020645.1208899050",
+      "adjusted_expense": "9934174.540684509895",
+      "adjusted_profit": "11302321.1867169460",
+      "pe": "234.4055687528701473857500018",
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2024-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-3110952.6246619606"
+        },
+        {
+          "block_period": {
+            "value": "2024-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVEwstETHBPTv2 Emissions",
+          "value_usd": "-3110952.624661961"
+        },
+        {
+          "block_period": {
+            "value": "2024-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkGHO Emissions",
+          "value_usd": "-798739.8715659834"
+        }
+      ]
+    },
+    {
+      "label": "2024Q3",
+      "start": "2024-07-01",
+      "end_exclusive": "2024-10-01",
+      "days": 365,
+      "dao_income": "19830538.07868225707883116",
+      "reported_expense": "21227369.239649367533",
+      "reported_profit": "-1396831.1609671107",
+      "excluded_aave_rewards": "8928998.6991415256",
+      "adjusted_expense": "12298370.540507841933",
+      "adjusted_profit": "7532167.5381744149",
+      "pe": "351.7350102175398761511734186",
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2024-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-3920048.2093792064"
+        },
+        {
+          "block_period": {
+            "value": "2024-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVEwstETHBPTv2 Emissions",
+          "value_usd": "-3920048.2093792064"
+        },
+        {
+          "block_period": {
+            "value": "2024-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkGHO Emissions",
+          "value_usd": "-1088902.2803831128"
+        }
+      ]
+    },
+    {
+      "label": "2024Q4",
+      "start": "2024-10-01",
+      "end_exclusive": "2025-01-01",
+      "days": 365,
+      "dao_income": "39643660.64089544840186805556",
+      "reported_expense": "28654082.4774515049683",
+      "reported_profit": "10989578.16344395",
+      "excluded_aave_rewards": "15966141.9531351817",
+      "adjusted_expense": "12687940.5243163232683",
+      "adjusted_profit": "26955720.1165791317",
+      "pe": "98.28440919189281224028285164",
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2024-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-7057358.774788436"
+        },
+        {
+          "block_period": {
+            "value": "2024-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVEwstETHBPTv2 Emissions",
+          "value_usd": "-7057358.774788436"
+        },
+        {
+          "block_period": {
+            "value": "2024-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkGHO Emissions",
+          "value_usd": "-1851424.4035583097"
+        }
+      ]
+    },
+    {
+      "label": "2025Q1",
+      "start": "2025-01-01",
+      "end_exclusive": "2025-04-01",
+      "days": 365,
+      "dao_income": "31554719.834450184516154595",
+      "reported_expense": "28996599.184531335816",
+      "reported_profit": "2558120.649918846",
+      "excluded_aave_rewards": "17547580.487989871",
+      "adjusted_expense": "11449018.696541464816",
+      "adjusted_profit": "20105701.137908717",
+      "pe": "131.7699396717267744459523874",
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2025-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-8086138.38264651"
+        },
+        {
+          "block_period": {
+            "value": "2025-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVEwstETHBPTv2 Emissions",
+          "value_usd": "-7215292.55460822"
+        },
+        {
+          "block_period": {
+            "value": "2025-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkGHO Emissions",
+          "value_usd": "-2246149.550735141"
+        }
+      ]
+    },
+    {
+      "label": "2025Q2",
+      "start": "2025-04-01",
+      "end_exclusive": "2025-07-01",
+      "days": 365,
+      "dao_income": "25157951.87929066538068",
+      "reported_expense": "28809388.404823965938337",
+      "reported_profit": "-3651436.525533298",
+      "excluded_aave_rewards": "12827068.705457419",
+      "adjusted_expense": "15982319.699366546938337",
+      "adjusted_profit": "9175632.179924121",
+      "pe": "288.7350946561056385160603332",
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2025-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-6695941.369837426"
+        },
+        {
+          "block_period": {
+            "value": "2025-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVEwstETHBPTv2 Emissions",
+          "value_usd": "-5005447.87403004"
+        },
+        {
+          "block_period": {
+            "value": "2025-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkGHO Emissions",
+          "value_usd": "-1125679.461589953"
+        }
+      ]
+    },
+    {
+      "label": "2025Q3",
+      "start": "2025-07-01",
+      "end_exclusive": "2025-10-01",
+      "days": 365,
+      "dao_income": "48514355.013694784519400343",
+      "reported_expense": "26131605.663823384798913",
+      "reported_profit": "22382749.349871404",
+      "excluded_aave_rewards": "12147449.495798631",
+      "adjusted_expense": "13984156.168024753798913",
+      "adjusted_profit": "34530198.845670035",
+      "pe": "76.72492816623951337561820252",
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2025-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-7851244.004239147"
+        },
+        {
+          "block_period": {
+            "value": "2025-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVEwstETHBPTv2 Emissions",
+          "value_usd": "-4296205.491559484"
+        }
+      ]
+    },
+    {
+      "label": "2025Q4",
+      "start": "2025-10-01",
+      "end_exclusive": "2026-01-01",
+      "days": 365,
+      "dao_income": "47209810.910715859322",
+      "reported_expense": "25293304.38985560246854",
+      "reported_profit": "21916506.520860255",
+      "excluded_aave_rewards": "7258791.516606523",
+      "adjusted_expense": "18034512.87324907946854",
+      "adjusted_profit": "29175298.037466778",
+      "pe": "90.80719664278140098457825338",
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2025-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-5237654.702709948"
+        },
+        {
+          "block_period": {
+            "value": "2025-10-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVEwstETHBPTv2 Emissions",
+          "value_usd": "-2021136.813896575"
+        }
+      ]
+    },
+    {
+      "label": "2026Q1",
+      "start": "2026-01-01",
+      "end_exclusive": "2026-04-01",
+      "days": 365,
+      "dao_income": "37916734.6036028906323512",
+      "reported_expense": "18923283.3174649467317343",
+      "reported_profit": "18993451.286137946",
+      "excluded_aave_rewards": "3791346.4239828147",
+      "adjusted_expense": "15131936.8934821320317343",
+      "adjusted_profit": "22784797.7101207607",
+      "pe": "116.2760828384795178786411629",
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2026-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-3056205.5896756407"
+        },
+        {
+          "block_period": {
+            "value": "2026-01-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVEwstETHBPTv2 Emissions",
+          "value_usd": "-735140.834307174"
+        }
+      ]
+    },
+    {
+      "label": "2026Q2",
+      "start": "2026-04-01",
+      "end_exclusive": "2026-07-01",
+      "days": 365,
+      "dao_income": "24570263.58677023963394966528",
+      "reported_expense": "61115217.4470225132103198",
+      "reported_profit": "-36544953.86025229",
+      "excluded_aave_rewards": "1656016.5198638486",
+      "adjusted_expense": "59459200.9271586646103198",
+      "adjusted_profit": "-34888937.3403884414",
+      "pe": null,
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2026-04-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-1656016.5198638486"
+        }
+      ]
+    },
+    {
+      "label": "2026Q3",
+      "start": "2026-07-01",
+      "end_exclusive": "2026-10-01",
+      "days": 365,
+      "dao_income": "18902110.409571265439997",
+      "reported_expense": "14862094.793291578587457471",
+      "reported_profit": "4040015.616279687",
+      "excluded_aave_rewards": "1594037.5979924921",
+      "adjusted_expense": "13268057.195299086487457471",
+      "adjusted_profit": "5634053.2142721791",
+      "pe": "470.2346472853197223836274960",
+      "reward_rows": [
+        {
+          "block_period": {
+            "value": "2026-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "Safety Module — stkAAVE",
+          "value_usd": -3
+        },
+        {
+          "block_period": {
+            "value": "2026-07-01"
+          },
+          "statement": "Income Statement",
+          "statement_section": "Expenses",
+          "line_category": "Staking",
+          "line_item": "stkAAVE Emissions",
+          "value_usd": "-1594034.5979924921"
+        }
+      ]
+    }
+  ],
+  "ttm": {
+    "label": "最近12个月",
+    "start": "2025-10-01",
+    "end_exclusive": "2026-10-01",
+    "days": 365,
+    "dao_income": "128598919.5106602550282978653",
+    "reported_expense": "120193899.947634640998051571",
+    "reported_profit": "8405019.563025598",
+    "excluded_aave_rewards": "14300192.0584456784",
+    "adjusted_expense": "105893707.889188962598051571",
+    "adjusted_profit": "22705211.6214712764",
+    "pe": "116.6836526418742137054000652",
+    "reward_rows": [
+      {
+        "block_period": {
+          "value": "2025-10-01"
+        },
+        "statement": "Income Statement",
+        "statement_section": "Expenses",
+        "line_category": "Staking",
+        "line_item": "stkAAVE Emissions",
+        "value_usd": "-5237654.702709948"
+      },
+      {
+        "block_period": {
+          "value": "2025-10-01"
+        },
+        "statement": "Income Statement",
+        "statement_section": "Expenses",
+        "line_category": "Staking",
+        "line_item": "stkAAVEwstETHBPTv2 Emissions",
+        "value_usd": "-2021136.813896575"
+      },
+      {
+        "block_period": {
+          "value": "2026-01-01"
+        },
+        "statement": "Income Statement",
+        "statement_section": "Expenses",
+        "line_category": "Staking",
+        "line_item": "stkAAVE Emissions",
+        "value_usd": "-3056205.5896756407"
+      },
+      {
+        "block_period": {
+          "value": "2026-01-01"
+        },
+        "statement": "Income Statement",
+        "statement_section": "Expenses",
+        "line_category": "Staking",
+        "line_item": "stkAAVEwstETHBPTv2 Emissions",
+        "value_usd": "-735140.834307174"
+      },
+      {
+        "block_period": {
+          "value": "2026-04-01"
+        },
+        "statement": "Income Statement",
+        "statement_section": "Expenses",
+        "line_category": "Staking",
+        "line_item": "stkAAVE Emissions",
+        "value_usd": "-1656016.5198638486"
+      },
+      {
+        "block_period": {
+          "value": "2026-07-01"
+        },
+        "statement": "Income Statement",
+        "statement_section": "Expenses",
+        "line_category": "Staking",
+        "line_item": "Safety Module — stkAAVE",
+        "value_usd": -3
+      },
+      {
+        "block_period": {
+          "value": "2026-07-01"
+        },
+        "statement": "Income Statement",
+        "statement_section": "Expenses",
+        "line_category": "Staking",
+        "line_item": "stkAAVE Emissions",
+        "value_usd": "-1594034.5979924921"
+      }
+    ]
+  },
+  "q3": {
+    "label": "2026年第三季",
+    "start": "2026-07-01",
+    "end_exclusive": "2026-10-01",
+    "days": 92,
+    "dao_income": "18902110.409571265439997",
+    "reported_expense": "14862094.793291578587457471",
+    "reported_profit": "4040015.616279687",
+    "excluded_aave_rewards": "1594037.5979924921",
+    "adjusted_expense": "13268057.195299086487457471",
+    "adjusted_profit": "5634053.2142721791",
+    "pe": "118.5248973979436012583389853",
+    "reward_rows": [
+      {
+        "block_period": {
+          "value": "2026-07-01"
+        },
+        "statement": "Income Statement",
+        "statement_section": "Expenses",
+        "line_category": "Staking",
+        "line_item": "Safety Module — stkAAVE",
+        "value_usd": -3
+      },
+      {
+        "block_period": {
+          "value": "2026-07-01"
+        },
+        "statement": "Income Statement",
+        "statement_section": "Expenses",
+        "line_category": "Staking",
+        "line_item": "stkAAVE Emissions",
+        "value_usd": "-1594034.5979924921"
+      }
+    ]
+  },
+  "rsETH_donation": "39243759",
+  "ttm_ex_rescue_profit": "61948970.6214712764",
+  "ttm_ex_rescue_pe": "42.76628004342905708569967281"
+}

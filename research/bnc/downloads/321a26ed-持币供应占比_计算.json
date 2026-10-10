@@ -1,0 +1,27 @@
+{
+  "scope": "report statement snapshots; not current holdings",
+  "BNC": {
+    "holdings": 515544,
+    "holdingsDate": "2026-07-31",
+    "supply": 133166127.91,
+    "supplyDate": "2026-07-15T10:35:00Z",
+    "supplyType": "remaining total supply after burns, official snapshot",
+    "approximate": true,
+    "percentage": 0.38714349368814654,
+    "source": "https://www.bnbchain.org/en/blog/36th-bnb-burn",
+    "limitation": "Uses the July 15 supply snapshot as a proxy for the July 31 position; subsequent real-time burn is not reconstructed."
+  },
+  "MSTR": {
+    "holdings": 846000,
+    "holdingsDate": "2026-06-30",
+    "supply": 20050440.625,
+    "supplyDate": "2026-06-30T23:58:45.000Z",
+    "supplyType": "issued BTC based on theoretical block rewards",
+    "approximate": true,
+    "percentage": 4.219358645640736,
+    "maxSupply": 21000000,
+    "maxSupplyPercentage": 4.0285714285714285,
+    "source": "https://api.blockchain.info/charts/total-bitcoins?timespan=5days&start=2026-06-29&format=json&sampled=false",
+    "limitation": "Not adjusted for lost or unspendable BTC; company reports approximately 846000 BTC."
+  }
+}

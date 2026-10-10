@@ -1,0 +1,152 @@
+{
+  "generated_date": "2026-10-09",
+  "market_cutoff": "2026-10-06",
+  "price_rows": 233,
+  "method": "OLS with intercept, same UTC endpoints, daily returns. HAC lag5 normal-approx 95% intervals; log return checks retained. Price returns, not an audited investor total return series. USDT approximates USD. BNC/BND prices reused from Oct7 freeze, MSTR/BTC historical prices acquired Oct9 for identical past window.",
+  "results": [
+    {
+      "start": "2025-10-31",
+      "end": "2026-10-06",
+      "n": 232,
+      "stock": "bnc_usd",
+      "coin": "bnb_usdt",
+      "return_type": "simple",
+      "beta": 1.0133639591522023,
+      "beta_ci95": [
+        0.6558472603586933,
+        1.3708806579457113
+      ],
+      "corr": 0.42318752882198185,
+      "r_squared": 0.17908768455045573,
+      "vol_ratio": 2.394597879510018,
+      "stock_daily_sd": 0.07006514943238284,
+      "coin_daily_sd": 0.02925967237836173
+    },
+    {
+      "start": "2025-10-31",
+      "end": "2026-10-06",
+      "n": 232,
+      "stock": "bnc_usd",
+      "coin": "bnb_usdt",
+      "return_type": "log",
+      "beta": 0.9977298074726304,
+      "beta_ci95": [
+        0.6636805065454026,
+        1.3317791083998582
+      ],
+      "corr": 0.43944194187632096,
+      "r_squared": 0.19310922028003186,
+      "vol_ratio": 2.2704473842722943,
+      "stock_daily_sd": 0.06711474314523179,
+      "coin_daily_sd": 0.029560140265810594
+    },
+    {
+      "start": "2025-10-31",
+      "end": "2026-10-06",
+      "n": 232,
+      "stock": "mstr_usd",
+      "coin": "btc_usdt",
+      "return_type": "simple",
+      "beta": 1.559500647930166,
+      "beta_ci95": [
+        1.4015925703121468,
+        1.7174087255481854
+      ],
+      "corr": 0.8517517985072462,
+      "r_squared": 0.7254811262603286,
+      "vol_ratio": 1.8309332022113702,
+      "stock_daily_sd": 0.052102162368071026,
+      "coin_daily_sd": 0.028456615623739256
+    },
+    {
+      "start": "2025-10-31",
+      "end": "2026-10-06",
+      "n": 232,
+      "stock": "mstr_usd",
+      "coin": "btc_usdt",
+      "return_type": "log",
+      "beta": 1.5376346195476098,
+      "beta_ci95": [
+        1.3944585735329027,
+        1.680810665562317
+      ],
+      "corr": 0.8554835690228045,
+      "r_squared": 0.7318521368679956,
+      "vol_ratio": 1.7973865018868895,
+      "stock_daily_sd": 0.05126925631673394,
+      "coin_daily_sd": 0.0285243358970993
+    },
+    {
+      "start": "2026-07-31",
+      "end": "2026-10-06",
+      "n": 46,
+      "stock": "bnc_usd",
+      "coin": "bnb_usdt",
+      "return_type": "simple",
+      "beta": 2.3576981598643227,
+      "beta_ci95": [
+        0.9140165927489392,
+        3.8013797269797065
+      ],
+      "corr": 0.5098081026213693,
+      "r_squared": 0.25990430149840066,
+      "vol_ratio": 4.6246776929227575,
+      "stock_daily_sd": 0.09830238387696365,
+      "coin_daily_sd": 0.02125605077893274
+    },
+    {
+      "start": "2026-07-31",
+      "end": "2026-10-06",
+      "n": 46,
+      "stock": "bnc_usd",
+      "coin": "bnb_usdt",
+      "return_type": "log",
+      "beta": 2.196724282192764,
+      "beta_ci95": [
+        0.9717644962580874,
+        3.4216840681274405
+      ],
+      "corr": 0.5252129722767719,
+      "r_squared": 0.27584866624780113,
+      "vol_ratio": 4.182540032608247,
+      "stock_daily_sd": 0.08779742077092359,
+      "coin_daily_sd": 0.02099141193782497
+    },
+    {
+      "start": "2026-07-31",
+      "end": "2026-10-06",
+      "n": 46,
+      "stock": "mstr_usd",
+      "coin": "btc_usdt",
+      "return_type": "simple",
+      "beta": 1.978378066647487,
+      "beta_ci95": [
+        1.5280536546441978,
+        2.4287024786507763
+      ],
+      "corr": 0.873589052806475,
+      "r_squared": 0.7631578331833142,
+      "vol_ratio": 2.264655286477994,
+      "stock_daily_sd": 0.05563489901810315,
+      "coin_daily_sd": 0.024566608150164388
+    },
+    {
+      "start": "2026-07-31",
+      "end": "2026-10-06",
+      "n": 46,
+      "stock": "mstr_usd",
+      "coin": "btc_usdt",
+      "return_type": "log",
+      "beta": 1.9417402302018345,
+      "beta_ci95": [
+        1.5207544932304422,
+        2.362725967173227
+      ],
+      "corr": 0.8755464161382651,
+      "r_squared": 0.7665815268125601,
+      "vol_ratio": 2.217746762948542,
+      "stock_daily_sd": 0.05346116246675424,
+      "coin_daily_sd": 0.0241060716939911
+    }
+  ]
+}
