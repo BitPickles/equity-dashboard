@@ -21,6 +21,13 @@
     var el=document.querySelector(sel);
     if(el)el.textContent=val;
   }
+  function getLangCode(){return (window.CryptoLang&&CryptoLang.get())||localStorage.getItem('lang')||'zh';}
+  // 写入 data-zh/data-en 并按当前语言设值（保证语言切换时同步）
+  function setI18n(el,zh,en){
+    if(!el)return;
+    el.setAttribute('data-zh',zh);el.setAttribute('data-en',en);
+    el.textContent=getLangCode()==='en'?en:zh;
+  }
 
   // Load global market data from CoinGecko
   fetch('https://api.coingecko.com/api/v3/global').then(function(r){return r.json()}).then(function(d){
@@ -38,7 +45,12 @@
   // Load BTC price from CoinGecko simple/price
   fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true').then(function(r){return r.json()}).then(function(d){
     var btc=d.bitcoin||{};
-    if(btc.usd)setText('.hero-price','$'+Math.round(btc.usd).toLocaleString());
+    if(btc.usd){
+      setText('.hero-price','$'+Math.round(btc.usd).toLocaleString());
+      var hp=document.querySelector('.hero-price');if(hp)hp.classList.add('cg-loaded'); // 阻止 ahr999 旧价回冲
+      window.__heroLive={price:btc.usd};   // 追加为 Hero 图表末点，与显示价一致
+      if(window.renderHero)renderHero();
+    }
     var chg=btc.usd_24h_change;
     var heroChg=document.querySelector('.hero-change');
     if(heroChg&&chg!==undefined&&chg!==null){
@@ -59,9 +71,9 @@
     // Update zone
     var zoneEl=document.querySelector('a[href="./ahr999/"] .ind-zone');
     if(zoneEl&&val){
-      if(val<0.45){zoneEl.textContent='抄底区';zoneEl.className='ind-zone g';}
-      else if(val<1.2){zoneEl.textContent='定投区';zoneEl.className='ind-zone y';}
-      else{zoneEl.textContent='过热区';zoneEl.className='ind-zone r';}
+      if(val<0.45){setI18n(zoneEl,'抄底区','Buy Zone');zoneEl.className='ind-zone g';}
+      else if(val<1.2){setI18n(zoneEl,'定投区','DCA Zone');zoneEl.className='ind-zone y';}
+      else{setI18n(zoneEl,'过热区','Overheated');zoneEl.className='ind-zone r';}
     }
     // Update sparkline data
     if(hist.length>7){
@@ -74,6 +86,11 @@
     if(chgEl&&chg!==null){
       chgEl.textContent=(chg>=0?'+':'')+fmt(chg,1)+'%';
       chgEl.className='ind-chg '+(chg>=0?'up':'down')+' mono';
+    }
+    // Hero chart series — 真实 BTC 日线收盘价（近 180 天），复用本文件已拉取的 ahr999.json
+    if(hist.length>2){
+      var series=hist.slice(-180).filter(function(x){return x.close}).map(function(x){return {date:x.date,price:x.close}});
+      if(series.length>2){window.__heroSeries=series;if(window.renderHero)renderHero();}
     }
     // Hero price fallback (if CoinGecko fails)
     if(price&&!document.querySelector('.hero-price.cg-loaded')){
@@ -90,9 +107,9 @@
     if(indEl&&val)indEl.textContent=fmt(val,2);
     var zoneEl=document.querySelector('a[href="./mvrv/"] .ind-zone');
     if(zoneEl&&val){
-      if(val<1){zoneEl.textContent='低估区';zoneEl.className='ind-zone g';}
-      else if(val<2.5){zoneEl.textContent='合理区';zoneEl.className='ind-zone y';}
-      else{zoneEl.textContent='过热区';zoneEl.className='ind-zone r';}
+      if(val<1){setI18n(zoneEl,'低估区','Undervalued');zoneEl.className='ind-zone g';}
+      else if(val<2.5){setI18n(zoneEl,'合理区','Fair Zone');zoneEl.className='ind-zone y';}
+      else{setI18n(zoneEl,'过热区','Overheated');zoneEl.className='ind-zone r';}
     }
     if(hist.length>7){
       var last7=hist.slice(-7).map(function(x){return x.mvrv});
@@ -117,9 +134,9 @@
     setText('.hero-meta-item:nth-child(3) .hero-meta-val',fmt(val,1)+'%');
     var zoneEl=document.querySelector('a[href="./btc-dominance/"] .ind-zone');
     if(zoneEl&&val){
-      if(val>65){zoneEl.textContent='BTC主导';zoneEl.className='ind-zone y';}
-      else if(val>50){zoneEl.textContent='平衡';zoneEl.className='ind-zone b';}
-      else{zoneEl.textContent='山寨季';zoneEl.className='ind-zone g';}
+      if(val>65){setI18n(zoneEl,'BTC主导','BTC-Led');zoneEl.className='ind-zone y';}
+      else if(val>50){setI18n(zoneEl,'平衡','Balanced');zoneEl.className='ind-zone b';}
+      else{setI18n(zoneEl,'山寨季','Altcoin Season');zoneEl.className='ind-zone g';}
     }
     if(hist.length>7){
       var last7=hist.slice(-7).map(function(x){return x.dominance||x.value});
@@ -153,10 +170,25 @@
     var gEl=document.getElementById('kpi-governance');if(gEl)gEl.textContent=govProtos.size;
     var gEl2=document.getElementById('stat-governance');if(gEl2)gEl2.textContent=govProtos.size;
     if(!proposals.length)return;
-    // Get 2 most recent TEV-related or active proposals
+    function ts(p){var c=p.created;if(typeof c==='number')return c;var d=new Date(c);return isNaN(d)?0:d.getTime()/1000;}
+    function fmtMD(v){
+      if(v===undefined||v===null||v==='')return'';
+      var d=(typeof v==='number')?new Date(v*1000):new Date(v);
+      if(isNaN(d.getTime()))return'';
+      return(d.getMonth()+1)+'月'+d.getDate()+'日';
+    }
+    // 剥离「协议：/标题：/摘要：」等抓取前缀，尽量取「标题」行
+    function cleanTitle(p,isEn){
+      if(isEn)return String(p.title||p.summary_en||'').replace(/\s+/g,' ').trim();
+      var s=String(p.summary_zh||'').replace(/\s+/g,' ').trim();
+      var m=s.match(/标题[:：]\s*(.+?)(?:\s*摘要[:：]|$)/);
+      if(m&&m[1])s=m[1].trim();else s=s.replace(/^(协议|标题|摘要)[:：]\s*/,'').trim();
+      return s||String(p.title||'').trim();
+    }
+    // 最近 3 条「进行中 或 股东回报相关」提案
     var active=proposals.filter(function(p){return p.status==='active'||p.tev_related});
     if(!active.length)active=proposals;
-    active.sort(function(a,b){return(b.created||0)-(a.created||0)});
+    active=active.slice().sort(function(a,b){return ts(b)-ts(a)});
     function renderGovCards(lang){
       var cards=document.querySelectorAll('.gov-card');
       var isEn=lang==='en';
@@ -166,17 +198,24 @@
         var protoEl=c.querySelector('.gov-card-proto');
         var statusEl=c.querySelector('.gov-card-status');
         if(titleEl){
-          var title=isEn?(p.summary_en||p.title||''):(p.summary_zh||p.title||'');
-          title=title.replace(/[>#*\-\n\r]+/g,' ').replace(/\s+/g,' ').trim();
-          titleEl.textContent=title.substring(0,40);
+          var t=cleanTitle(p,isEn);
+          titleEl.textContent=t.length>46?t.slice(0,46)+'…':t;
         }
         var statusActive=isEn?'Voting':'投票中';
         var statusEnded=isEn?'Ended':'已结束';
-        if(protoEl)protoEl.textContent=p.protocol+' · '+(p.status==='active'?statusActive:statusEnded);
+        if(protoEl)protoEl.textContent=(p.protocol||'')+' · '+(p.status==='active'?statusActive:statusEnded);
         if(statusEl){
-          if(p.tev_related){statusEl.textContent=isEn?'TEV Related':'TEV 相关';statusEl.className='gov-card-status tev';}
-          else if(p.status==='active'){statusEl.textContent=statusActive;statusEl.className='gov-card-status active';}
+          if(p.tev_related){statusEl.textContent=isEn?'Capital Return':'股东回报相关';statusEl.className='gov-card-status tev';}
+          else if(p.status==='active'){statusEl.innerHTML='<div class="pulse-dot"></div>'+(isEn?'Voting':'投票中');statusEl.className='gov-card-status active';}
           else{statusEl.textContent=statusEnded;statusEl.className='gov-card-status passed';}
+        }
+        // 底部日期按提案真实 created/end 动态生成（原为陈旧硬编码）
+        var metaEl=c.querySelector('.gov-card-meta');
+        if(metaEl){
+          var createdD=fmtMD(p.created),endD=fmtMD(p.end),mhtml='';
+          if(createdD)mhtml+='<dl><dt>'+(isEn?'Submitted':'提交')+'</dt><dd class="mono">'+createdD+'</dd></dl>';
+          if(endD)mhtml+='<dl><dt>'+((p.status==='active')?(isEn?'Vote Ends':'投票截止'):(isEn?'Closed':'结束'))+'</dt><dd class="mono">'+endD+'</dd></dl>';
+          metaEl.innerHTML=mhtml;
         }
         c.href='./governance/';
       }
