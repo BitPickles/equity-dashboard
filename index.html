@@ -250,18 +250,28 @@
     .bento-card:hover .ind-act{gap:8px}
     .ind-act svg{width:12px;height:12px}
 
-    /* ── WIDE STATS BAR (Stripe-inspired) ── */
-    .stats-bar{padding:48px 0;position:relative;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-    .stats-bar-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(52,211,153,0.04),rgba(96,165,250,0.04),rgba(167,139,250,0.03));opacity:var(--glow-opacity)}
-    [data-theme="light"] .stats-bar{background:#e6e8ef;border-color:rgba(0,0,0,0.08)}
-    .stats-bar-inner{max-width:1280px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-around;gap:40px;position:relative;z-index:1;flex-wrap:wrap}
-    .stat-item{text-align:center}
-    .stat-num{font-size:52px;font-weight:900;letter-spacing:-0.04em;line-height:1}
-    .stat-label{font-size:13px;color:var(--text-2);margin-top:8px;font-weight:500}
+    /* ── FOLLOW / SUBSCRIBE BAR ── */
+    .follow-bar{padding:56px 0;position:relative;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .follow-bar-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(52,211,153,0.06),rgba(96,165,250,0.05),rgba(167,139,250,0.04));opacity:var(--glow-opacity)}
+    [data-theme="light"] .follow-bar{background:#e6e8ef;border-color:rgba(0,0,0,0.08)}
+    .follow-inner{max-width:1280px;margin:0 auto;padding:0 32px;position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
+    .follow-copy{max-width:600px}
+    .follow-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+    .follow-title{font-size:28px;font-weight:800;letter-spacing:-0.02em;line-height:1.2;margin-bottom:8px;color:var(--text-1)}
+    .follow-desc{font-size:15px;color:var(--text-2);line-height:1.65}
+    .follow-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .follow-btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:11px;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;border:1px solid transparent;transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease}
+    .follow-btn svg{width:17px;height:17px;flex-shrink:0}
+    .follow-btn.primary{background:var(--green);color:var(--bg-0)}
+    .follow-btn.primary:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(52,211,153,0.35)}
+    .follow-btn.ghost{background:transparent;border-color:var(--border-h);color:var(--text-1)}
+    .follow-btn.ghost:hover{border-color:var(--text-3);background:var(--bg-2);transform:translateY(-1px)}
     @media(max-width:768px){
-      .stats-bar{padding:40px 0}
-      .stats-bar-inner{gap:24px}
-      .stat-num{font-size:36px}
+      .follow-bar{padding:44px 0}
+      .follow-inner{padding:0 20px;flex-direction:column;align-items:flex-start;gap:24px}
+      .follow-title{font-size:23px}
+      .follow-actions{width:100%}
+      .follow-btn{flex:1;justify-content:center}
     }
 
     /* ── GOVERNANCE SECTION (Linear tab-switch inspired) ── */
@@ -541,14 +551,25 @@
 <!-- Research articles -->
 <section class="sec" id="research"><div class="sec-head"><div class="sec-eyebrow">Research</div><h2 class="sec-title" data-zh="研究文章" data-en="Research">研究文章</h2><p class="sec-desc" data-zh="拆解加密资产、交易工具与协议价值。" data-en="Research on crypto assets, trading instruments and protocol value.">拆解加密资产、交易工具与协议价值。</p></div><a class="research-card" href="./research/ai-year/"><div class="research-card-copy"><div class="research-meta"><span>AI 观察</span><time datetime="2026-10-11">2026.10.11</time></div><h3>AI 模型这一年</h3><p class="research-subtitle">ChatGPT 与 Claude 的迭代时间轴</p><p>从2025年10月到2026年10月，梳理主要模型升级与Kimi K3等代表，聊聊如何放下焦虑、用AI做项目。</p><span class="read-link">阅读全文 <span aria-hidden="true">→</span></span></div><div class="research-card-mark" aria-hidden="true"><span>AI</span><small>模型迭代 · 使用思考 · 做项目</small></div></a><a class="research-card" href="./research/bnc/"><div class="research-card-copy"><div class="research-meta"><span>财库公司</span><time datetime="2026-10-11">2026.10.11</time></div><h3>BNC：BNB 财库与每股资产</h3><p class="research-subtitle">资产折价、每股含币量与持续成本</p><p>衡量股票对应的BNB资产、回购与增发对每股含币量的影响，追踪费用、借款和管理合同风险，并与MSTR比较。</p><span class="read-link">阅读全文 <span aria-hidden="true">→</span></span></div><div class="research-card-mark" aria-hidden="true"><span>BNC</span><small>每美元资产 · 融资成本 · MSTR对比</small></div></a><a class="research-card" href="./research/sky/"><div class="research-card-copy"><div class="research-meta"><span>代币经济学</span><time datetime="2026-10-11">2026.10.11</time></div><h3>SKY：稳定币收入与代币价值捕获</h3><p class="research-subtitle">代币用途、收入分配与治理变化</p><p>讲清SKY能做什么、协议赚的钱如何分配，以及回购和奖励规则怎样变化，再看历史收入和当前PE。</p><span class="read-link">阅读全文 <span aria-hidden="true">→</span></span></div><div class="research-card-mark" aria-hidden="true"><span>SKY</span><small>代币权益 · 收入分配 · 治理与PE</small></div></a><a class="research-all" href="./research/" data-zh="查看全部研究 →" data-en="All research →">查看全部研究 →</a></section>
 
-<!-- ═══════════════════ STATS BAR (Stripe-inspired) ═══════════════════ -->
-<div class="stats-bar">
-  <div class="stats-bar-bg"></div>
-  <div class="stats-bar-inner">
-    <div class="stat-item"><div class="stat-num mono" style="color:var(--green)" id="stat-total">26</div><div class="stat-label" data-zh="覆盖协议" data-en="Protocols">覆盖协议</div></div>
-    <div class="stat-item"><div class="stat-num mono">3</div><div class="stat-label" data-zh="市场周期指标" data-en="Cycle Indicators">市场周期指标</div></div>
-    <div class="stat-item"><div class="stat-num mono" style="color:var(--blue)" id="stat-governance">17</div><div class="stat-label" data-zh="治理监控" data-en="Governance">治理监控</div></div>
-    <div class="stat-item"><div class="stat-num mono" style="color:var(--amber)">100%</div><div class="stat-label" data-zh="链上数据驱动" data-en="On-chain Data Driven">链上数据驱动</div></div>
+<!-- ═══════════════════ FOLLOW / SUBSCRIBE BAR ═══════════════════ -->
+<div class="follow-bar">
+  <div class="follow-bar-bg"></div>
+  <div class="follow-inner">
+    <div class="follow-copy">
+      <div class="follow-eyebrow" data-zh="关注我们" data-en="Follow Us">关注我们</div>
+      <h2 class="follow-title" data-zh="订阅 3D 加密频道" data-en="Subscribe to 3D Crypto">订阅 3D 加密频道</h2>
+      <p class="follow-desc" data-zh="DeFi 深度分析、链上套利实战与低风险机会，每周更新。新内容上线第一时间同步。" data-en="DeFi research, on-chain arbitrage and low-risk opportunities, updated weekly. New drops land here first.">DeFi 深度分析、链上套利实战与低风险机会，每周更新。新内容上线第一时间同步。</p>
+    </div>
+    <div class="follow-actions">
+      <a class="follow-btn primary" href="https://www.youtube.com/@Crypto36D?sub_confirmation=1" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+        <span data-zh="立即订阅" data-en="Subscribe">立即订阅</span>
+      </a>
+      <a class="follow-btn ghost" href="https://x.com/22333D" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <span>X · @22333D</span>
+      </a>
+    </div>
   </div>
 </div>
 
@@ -616,9 +637,9 @@ sp('sp-a',[0.554,0.571,0.565,0.568,0.591,0.579,0.576],'#60a5fa');
 sp('sp-m',[1.583,1.588,1.589,1.572,1.572,1.571,1.593],'#a78bfa');
 sp('sp-d',[58.63,58.98,59.06,58.9,59.17,58.94,59.01],'#38bdf8');
 </script>
-<script src="./js/theme.js?v=20261011b"></script>
-<script src="./js/lang.js?v=20261011b"></script>
-<script src="./js/homepage-data.js?v=20261011b"></script>
+<script src="./js/theme.js?v=20261013"></script>
+<script src="./js/lang.js?v=20261013"></script>
+<script src="./js/homepage-data.js?v=20261013"></script>
 </body>
 </html>
 <!-- cache-bust 1774095253 -->

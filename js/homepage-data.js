@@ -156,7 +156,6 @@
     var totalProtos=Object.keys(protos).length;
     for(var k in protos){var p=protos[k];var y=p.shareholder_yield_percent||0;if(y>0)list.push(y)}
     var el1=document.getElementById('kpi-total');if(el1)el1.textContent=totalProtos;
-    var el1b=document.getElementById('stat-total');if(el1b)el1b.textContent=totalProtos;
     var el2=document.getElementById('kpi-active');if(el2)el2.textContent=list.length;
     // 中位 P/E（仅统计有正 PE 的协议）
     var pes=[];
@@ -172,10 +171,6 @@
   // Load governance data for governance cards
   fetch('./data/governance.json').then(function(r){return r.json()}).then(function(d){
     var proposals=d.proposals||[];
-    // Update governance protocol count
-    var govProtos=new Set();
-    proposals.forEach(function(p){if(p.protocol)govProtos.add(p.protocol)});
-    var gEl2=document.getElementById('stat-governance');if(gEl2)gEl2.textContent=govProtos.size;
     if(!proposals.length)return;
     function ts(p){var c=p.created;if(typeof c==='number')return c;var d=new Date(c);return isNaN(d)?0:d.getTime()/1000;}
     function fmtMD(v){
