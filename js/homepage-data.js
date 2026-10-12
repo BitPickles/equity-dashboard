@@ -158,6 +158,14 @@
     var el1=document.getElementById('kpi-total');if(el1)el1.textContent=totalProtos;
     var el1b=document.getElementById('stat-total');if(el1b)el1b.textContent=totalProtos;
     var el2=document.getElementById('kpi-active');if(el2)el2.textContent=list.length;
+    // 中位 P/E（仅统计有正 PE 的协议）
+    var pes=[];
+    for(var kk in protos){var fs=protos[kk].financial_snapshot||{};var pe=fs.pe;if(typeof pe==='number'&&pe>0)pes.push(pe)}
+    if(pes.length){
+      pes.sort(function(a,b){return a-b});
+      var mid=(pes.length%2)?pes[(pes.length-1)/2]:(pes[pes.length/2-1]+pes[pes.length/2])/2;
+      var el3=document.getElementById('kpi-pe');if(el3)el3.textContent=mid.toFixed(1);
+    }
     // governance count updated from governance.json below
   }).catch(function(){});
 
@@ -167,7 +175,6 @@
     // Update governance protocol count
     var govProtos=new Set();
     proposals.forEach(function(p){if(p.protocol)govProtos.add(p.protocol)});
-    var gEl=document.getElementById('kpi-governance');if(gEl)gEl.textContent=govProtos.size;
     var gEl2=document.getElementById('stat-governance');if(gEl2)gEl2.textContent=govProtos.size;
     if(!proposals.length)return;
     function ts(p){var c=p.created;if(typeof c==='number')return c;var d=new Date(c);return isNaN(d)?0:d.getTime()/1000;}
