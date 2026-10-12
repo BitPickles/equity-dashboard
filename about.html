@@ -12,138 +12,166 @@
   <link rel="apple-touch-icon" sizes="180x180" href="./logo-3d-180.png">
   <script>(function(){var t=localStorage.getItem('theme');if(t!=='dark')document.documentElement.setAttribute('data-theme','light')})()</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/legal.css">
-  <style>
-    .lang-toggle-btn{background:transparent;border:1px solid var(--border);color:var(--text-2);font-size:12px;font-weight:600;padding:4px 10px;border-radius:6px;cursor:pointer;transition:all .15s;font-family:inherit;margin-left:8px}
-    .lang-toggle-btn:hover{border-color:var(--border-h);color:var(--text-1)}
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/legal.css?v=20261013a">
 </head>
 <body>
 
 <header>
   <div class="hd">
     <a href="./" class="logo"><img src="./logo-3d.jpg" alt="" class="logo-img">Crypto3D</a>
-    <nav class="hd-nav">
-      <a href="./" data-zh="首页" data-en="Home">首页</a>
-      <a href="./equity/" data-zh="协议估值" data-en="Valuation">协议估值</a>
-      <a href="./about" data-zh="关于" data-en="About">关于</a>
-      <button id="lang-toggle" class="lang-toggle-btn">EN</button>
-    </nav>
+    <div class="hd-r">
+      <nav class="hd-nav">
+        <a href="./" data-zh="首页" data-en="Home">首页</a>
+        <a href="./equity/" class="nav-3rd" data-zh="协议估值" data-en="Valuation">协议估值</a>
+        <a href="./hbm/" class="nav-2nd" data-zh="存储看板" data-en="Memory">存储看板</a>
+        <a href="./research/" class="nav-2nd" data-zh="研究文章" data-en="Research">研究文章</a>
+        <a href="./about" aria-current="page" data-zh="关于" data-en="About">关于</a>
+      </nav>
+    </div>
   </div>
 </header>
 
-<main class="legal">
-  <h1 data-zh="关于 Crypto3D" data-en="About Crypto3D">关于 Crypto3D</h1>
-  <p class="meta" data-zh="最后更新：2026-04-26" data-en="Last updated: 2026-04-26">最后更新：2026-04-26</p>
+<div class="legal-hero">
+  <div class="legal-hero-bg"></div>
+  <div class="legal-hero-in">
+    <div class="legal-eyebrow" data-zh="关于本站" data-en="About the Site">关于本站</div>
+    <h1 data-zh="关于 Crypto3D" data-en="About Crypto3D">关于 Crypto3D</h1>
+    <p class="legal-lead" data-zh="Crypto3D 是一个面向长期投资者的公开数据看板：把散落在链上、官方治理文档与第三方接口里的公开数据，整理成可核对的估值工具。本页说明我们的定位、数据来源与更新方式。" data-en="Crypto3D is a public data dashboard for long-term investors. It turns public data scattered across blockchains, official governance documents, and third-party APIs into verifiable valuation tools. This page explains our positioning, data sources, and update cadence.">Crypto3D 是一个面向长期投资者的公开数据看板：把散落在链上、官方治理文档与第三方接口里的公开数据，整理成可核对的估值工具。本页说明我们的定位、数据来源与更新方式。</p>
+    <div class="legal-chips">
+      <div class="chip"><span class="cdot"></span><span data-zh="最后更新 2026-10-13" data-en="Updated 2026-10-13">最后更新 2026-10-13</span></div>
+      <div class="chip"><span data-zh="中文 / English" data-en="Chinese / English">中文 / English</span></div>
+      <div class="chip"><span data-zh="每日自动更新" data-en="Auto-updated daily">每日自动更新</span></div>
+    </div>
+  </div>
+</div>
 
-  <section>
-    <h2 data-zh="我们的定位" data-en="Our Positioning">我们的定位</h2>
-    <p><strong data-zh="为长期投资者提供价值判断工具。" data-en="Value-judgment tools for long-term crypto investors.">为长期投资者提供价值判断工具。</strong></p>
-    <p data-zh="Crypto3D 把零散在区块浏览器、官方治理文档、第三方聚合接口里的公开数据，按研究者视角聚合、计算、展示——帮助你在长周期里判断哪些协议真正在为持币者创造价值。"
-       data-en="Crypto3D aggregates public data scattered across block explorers, official governance documents, and third-party APIs. We process and present it from a researcher's perspective — helping you, on a long-term horizon, identify which protocols actually create value for token holders.">Crypto3D 把零散在区块浏览器、官方治理文档、第三方聚合接口里的公开数据，按研究者视角聚合、计算、展示——帮助你在长周期里判断哪些协议真正在为持币者创造价值。</p>
-    <p data-zh="主要栏目：" data-en="Main sections:">主要栏目：</p>
-    <ul>
-      <li data-zh="BTC 周期指标——AHR999、MVRV Z-Score 等主流量化择时指标的长期对照" data-en="BTC Cycle Indicators — long-term comparison of mainstream quantitative timing indicators including AHR999, MVRV Z-Score"><strong>BTC 周期指标</strong>——AHR999、MVRV Z-Score 等主流量化择时指标的长期对照</li>
-      <li data-zh="协议估值——用美股口径衡量主流 DeFi 协议：股东回报率（股息+回购）、市销率 P/S、派息率，可横向对比科技股" data-en="Protocol Valuation — major DeFi protocols measured with US-equity metrics: Shareholder Yield (dividend + buyback), P/S ratio, and Payout Ratio, comparable to tech stocks"><strong>协议估值</strong>——用美股口径衡量主流 DeFi 协议：股东回报率（股息+回购）、市销率 P/S、派息率，可横向对比科技股</li>
-      <li data-zh="BTC 市值占比（BTC.D）——反映资金在 BTC 与山寨币之间的轮动" data-en="BTC Dominance (BTC.D) — capital rotation between BTC and altcoins"><strong>BTC 市值占比</strong>——反映资金在 BTC 与山寨币之间的轮动</li>
-      <li data-zh="治理聚合——主流协议的治理提案与官方动向" data-en="Governance Aggregation — proposals and official announcements from major protocols"><strong>治理聚合</strong>——主流协议的治理提案与官方动向</li>
-    </ul>
-  </section>
+<main class="legal-wrap">
+  <aside class="legal-toc">
+    <div class="toc-title" data-zh="本页目录" data-en="On this page">本页目录</div>
+    <nav class="toc-nav" aria-label="目录"></nav>
+  </aside>
 
-  <section>
-    <h2 data-zh="我们不是什么" data-en="What We Are Not">我们不是什么</h2>
-    <ul>
-      <li data-zh="不是交易所（不撮合交易）" data-en="Not an exchange (we do not match trades)">不是交易所（不撮合交易）</li>
-      <li data-zh="不是钱包（不会请求连接 MetaMask / WalletConnect 等）" data-en="Not a wallet (we never request connection to MetaMask / WalletConnect or any similar)">不是钱包（不会请求连接 MetaMask / WalletConnect 等）</li>
-      <li data-zh="不是投资顾问（数据只供研究，不构成建议）" data-en="Not an investment advisor (data is for research only and does not constitute advice)">不是投资顾问（数据只供研究，不构成建议）</li>
-      <li data-zh="不托管任何用户资产" data-en="We do not custody any user assets">不托管任何用户资产</li>
-      <li data-zh="没有账号系统、不要求注册、不收集 PII" data-en="No account system, no registration required, no personally identifiable information collected">没有账号系统、不要求注册、不收集 PII</li>
-    </ul>
-    <p><span data-zh="详见 " data-en="See: ">详见 </span><a href="./privacy" data-zh="隐私政策" data-en="Privacy Policy">隐私政策</a><span data-zh="、" data-en=", ">、</span><a href="./terms" data-zh="使用条款" data-en="Terms of Use">使用条款</a><span data-zh="、" data-en=", ">、</span><a href="./disclaimer" data-zh="风险披露" data-en="Risk Disclosure">风险披露</a><span data-zh="。" data-en=".">。</span></p>
-  </section>
+  <article class="legal-content">
+    <section>
+      <h2 data-zh="我们的定位" data-en="Our Positioning">我们的定位</h2>
+      <p><strong data-zh="为长期投资者提供价值判断工具。" data-en="Value-judgment tools for long-term crypto investors.">为长期投资者提供价值判断工具。</strong></p>
+      <p data-zh="Crypto3D 把零散在区块浏览器、官方治理文档、第三方聚合接口里的公开数据，按研究者视角聚合、计算、展示——帮助你在长周期里判断哪些协议真正在为持币者创造价值。"
+         data-en="Crypto3D aggregates public data scattered across block explorers, official governance documents, and third-party APIs. We process and present it from a researcher's perspective — helping you, on a long-term horizon, identify which protocols actually create value for token holders.">Crypto3D 把零散在区块浏览器、官方治理文档、第三方聚合接口里的公开数据，按研究者视角聚合、计算、展示——帮助你在长周期里判断哪些协议真正在为持币者创造价值。</p>
+      <p data-zh="主要栏目：" data-en="Main sections:">主要栏目：</p>
+      <ul>
+        <li data-zh="协议估值——用美股口径衡量主流 DeFi 协议：股东回报率（股息 + 回购）、市销率 P/S、派息率，可横向对比科技股" data-en="Protocol Valuation — major DeFi protocols measured with US-equity metrics: Shareholder Yield (dividend + buyback), P/S ratio, and Payout Ratio, comparable to tech stocks"><strong>协议估值</strong>——用美股口径衡量主流 DeFi 协议：股东回报率（股息 + 回购）、市销率 P/S、派息率，可横向对比科技股</li>
+        <li data-zh="BTC 周期——AHR999、MVRV Z-Score、BTC 市值占比等主流量化指标的长期对照，反映市场所处位置与资金轮动" data-en="BTC Cycle — long-term comparison of mainstream quantitative indicators including AHR999, MVRV Z-Score, and BTC Dominance, reflecting market position and capital rotation"><strong>BTC 周期</strong>——AHR999、MVRV Z-Score、BTC 市值占比等主流量化指标的长期对照，反映市场所处位置与资金轮动</li>
+        <li data-zh="存储看板——存储三巨头（Micron / SK Hynix / Samsung）的估值与周期位置，作为 AI 算力产业链的观测窗口" data-en="Memory Dashboard — valuation and cycle position of the memory trio (Micron / SK Hynix / Samsung), a window onto the AI compute supply chain"><strong>存储看板</strong>——存储三巨头（Micron / SK Hynix / Samsung）的估值与周期位置，作为 AI 算力产业链的观测窗口</li>
+        <li data-zh="研究文章——对具体协议与资产的拆解：代币经济学、价值捕获与估值方法" data-en="Research — deep dives into specific protocols and assets: tokenomics, value capture, and valuation methods"><strong>研究文章</strong>——对具体协议与资产的拆解：代币经济学、价值捕获与估值方法</li>
+        <li data-zh="治理聚合——主流协议的治理提案与官方动向" data-en="Governance — proposals and official announcements from major protocols"><strong>治理聚合</strong>——主流协议的治理提案与官方动向</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2 data-zh="数据从哪来" data-en="Where Our Data Comes From">数据从哪来</h2>
-    <p data-zh="我们严格遵循数据优先级：" data-en="We follow a strict data-source priority:">我们严格遵循数据优先级：</p>
-    <div class="callout"><strong data-zh="链上原始数据 > 官方治理文档 > 估算 > 第三方聚合" data-en="On-chain raw data &gt; Official governance &gt; Estimates &gt; Third-party aggregation">链上原始数据 &gt; 官方治理文档 &gt; 估算 &gt; 第三方聚合</strong></div>
-    <p data-zh="具体来源：" data-en="Specific sources:">具体来源：</p>
-    <ul>
-      <li data-zh="链上事件——Etherscan / BSCScan / TronScan 等区块浏览器 API，以及各公链的公共 RPC 节点" data-en="On-chain events — block-explorer APIs such as Etherscan / BSCScan / TronScan, plus public RPC nodes for each chain"><strong>链上事件</strong>——Etherscan / BSCScan / TronScan 等区块浏览器 API，以及各公链的公共 RPC 节点</li>
-      <li data-zh="官方治理——Snapshot / Tally / 各协议 Forum 的提案与投票" data-en="Official governance — proposals and votes from Snapshot / Tally / individual protocol forums"><strong>官方治理</strong>——Snapshot / Tally / 各协议 Forum 的提案与投票</li>
-      <li data-zh="聚合口径——DefiLlama（TVL、dailyRevenue、dailyHoldersRevenue）、CoinGecko（价格、市值）" data-en="Aggregated views — DefiLlama (TVL, dailyRevenue, dailyHoldersRevenue) and CoinGecko (price, market cap)"><strong>聚合口径</strong>——DefiLlama（TVL、dailyRevenue、dailyHoldersRevenue）、CoinGecko（价格、市值）</li>
-      <li data-zh="宏观指标——FRED（美联储经济数据）" data-en="Macro indicators — FRED (Federal Reserve Economic Data)"><strong>宏观指标</strong>——FRED（美联储经济数据）</li>
-    </ul>
-    <p data-zh="每个协议的数据链路、计算公式、逐步推导过程都会在详情页的 Deep Analysis 板块公开展示，欢迎核对。"
-       data-en="The data pipeline, formulas, and step-by-step derivation for every protocol are publicly displayed in the &quot;Deep Analysis&quot; section of each detail page — we welcome verification.">每个协议的数据链路、计算公式、逐步推导过程都会在<strong>详情页的「Deep Analysis」板块</strong>公开展示，欢迎核对。</p>
-  </section>
+    <section>
+      <h2 data-zh="我们不是什么" data-en="What We Are Not">我们不是什么</h2>
+      <ul>
+        <li data-zh="不是交易所（不撮合交易）" data-en="Not an exchange (we do not match trades)">不是交易所（不撮合交易）</li>
+        <li data-zh="不是钱包（不会请求连接 MetaMask / WalletConnect 等）" data-en="Not a wallet (we never request connection to MetaMask / WalletConnect or any similar)">不是钱包（不会请求连接 MetaMask / WalletConnect 等）</li>
+        <li data-zh="不是投资顾问（数据只供研究，不构成建议）" data-en="Not an investment advisor (data is for research only and does not constitute advice)">不是投资顾问（数据只供研究，不构成建议）</li>
+        <li data-zh="不托管任何用户资产" data-en="We do not custody any user assets">不托管任何用户资产</li>
+        <li data-zh="没有账号系统、不要求注册、不收集 PII" data-en="No account system, no registration required, no personally identifiable information collected">没有账号系统、不要求注册、不收集 PII</li>
+      </ul>
+      <p><span data-zh="详见 " data-en="See: ">详见 </span><a href="./privacy" data-zh="隐私政策" data-en="Privacy Policy">隐私政策</a><span data-zh="、" data-en=", ">、</span><a href="./terms" data-zh="使用条款" data-en="Terms of Use">使用条款</a><span data-zh="、" data-en=", ">、</span><a href="./disclaimer" data-zh="风险披露" data-en="Risk Disclosure">风险披露</a><span data-zh="。" data-en=".">。</span></p>
+    </section>
 
-  <section>
-    <h2 data-zh="股东回报率是什么" data-en="What Is Shareholder Yield">股东回报率是什么</h2>
-    <p data-zh="我们采用美股成熟的估值口径，不再自创概念。股东回报率（Shareholder Yield）= 股息率 + 回购率，衡量每年通过分红和回购真正返还给 token 持有人的价值占市值的比例——等同于把协议当成一家上市公司来看。"
-       data-en="We adopt mature US-equity valuation metrics instead of inventing our own concept. Shareholder Yield = dividend yield + buyback yield — the share of market cap returned to token holders each year via dividends and buybacks, exactly as you would value a listed company.">我们采用美股成熟的估值口径，不再自创概念。<strong>股东回报率（Shareholder Yield）= 股息率 + 回购率</strong>，衡量每年通过分红和回购真正返还给 token 持有人的价值占市值的比例——等同于把协议当成一家上市公司来看。</p>
-    <p data-zh="配合市销率（P/S = 市值 ÷ 年化收入）和派息率（Payout Ratio，返还 ÷ 收入），可以把成熟分红型协议看作「现金牛」、把高增长低返还的协议看作「成长股」，与美股科技股横向对比。"
-       data-en="Combined with the P/S ratio (market cap ÷ annualized revenue) and Payout Ratio (capital returned ÷ revenue), mature distributing protocols read as &quot;cash cows&quot; while high-growth, low-return ones read as &quot;growth stocks&quot; — directly comparable to US tech equities.">配合<strong>市销率（P/S = 市值 ÷ 年化收入）</strong>和<strong>派息率（Payout Ratio，返还 ÷ 收入）</strong>，可以把成熟分红型协议看作「现金牛」、把高增长低返还的协议看作「成长股」，与美股科技股横向对比。</p>
-    <p data-zh="不同协议的返还机制差异极大，我们不套通用公式："
-       data-en="Capital-return mechanisms vary significantly across protocols. We do not apply a generic formula:">不同协议的返还机制差异极大，我们不套通用公式：</p>
-    <ul>
-      <li data-zh="BNB——Auto-Burn（按市值与价格公式季度销毁）+ BEP-95（每块销毁部分 gas fee）"
-          data-en="BNB — Auto-Burn (quarterly burn by market-cap formula) + BEP-95 (per-block partial gas-fee burn)">BNB——Auto-Burn（按市值与价格公式季度销毁） + BEP-95（每块销毁部分 gas fee）</li>
-      <li data-zh="Uniswap——由 UNI 直接销毁到 0xdead 的链上事件（A 口径）"
-          data-en="Uniswap — on-chain UNI burn events sent directly to 0xdead (Method A)">Uniswap——由 UNI 直接销毁到 <code>0xdead</code> 的链上事件（A 口径）</li>
-      <li data-zh="Hyperliquid——Assistance Fund 链上回购并销毁"
-          data-en="Hyperliquid — Assistance Fund on-chain buyback and burn">Hyperliquid——Assistance Fund 链上回购并销毁</li>
-      <li data-zh="JustLend——链上核实后发现为做账式销毁（pocket-to-pocket）而归零"
-          data-en="JustLend — zeroed out after on-chain verification revealed pocket-to-pocket cosmetic burns">JustLend——链上核实后发现为<strong>做账式销毁</strong>（pocket-to-pocket）而归零</li>
-    </ul>
-    <p data-zh="对于名义上在 buyback&burn 但源头与销毁地址同属于项目方关联钱包的情形，我们会在详情页 Caveats 明确标注，不计入股东回报。"
-       data-en="When a nominal &quot;buyback &amp; burn&quot; turns out to have its source wallet and burn address both belonging to project-affiliated entities, we explicitly flag it in the Caveats section of the detail page and exclude it from shareholder returns.">对于<strong>名义上在 buyback&amp;burn 但源头与销毁地址同属于项目方关联钱包</strong>的情形，我们会在详情页 Caveats 明确标注，不计入股东回报。</p>
-  </section>
+    <section>
+      <h2 data-zh="数据从哪来" data-en="Where Our Data Comes From">数据从哪来</h2>
+      <p data-zh="我们严格遵循数据优先级：" data-en="We follow a strict data-source priority:">我们严格遵循数据优先级：</p>
+      <div class="callout"><strong data-zh="链上原始数据 &gt; 官方治理文档 &gt; 估算 &gt; 第三方聚合" data-en="On-chain raw data &gt; Official governance &gt; Estimates &gt; Third-party aggregation">链上原始数据 &gt; 官方治理文档 &gt; 估算 &gt; 第三方聚合</strong></div>
+      <p data-zh="具体来源：" data-en="Specific sources:">具体来源：</p>
+      <ul>
+        <li data-zh="链上事件——Etherscan / BSCScan / TronScan 等区块浏览器 API，以及各公链的公共 RPC 节点" data-en="On-chain events — block-explorer APIs such as Etherscan / BSCScan / TronScan, plus public RPC nodes for each chain"><strong>链上事件</strong>——Etherscan / BSCScan / TronScan 等区块浏览器 API，以及各公链的公共 RPC 节点</li>
+        <li data-zh="官方治理——Snapshot / Tally / 各协议 Forum 的提案与投票" data-en="Official governance — proposals and votes from Snapshot / Tally / individual protocol forums"><strong>官方治理</strong>——Snapshot / Tally / 各协议 Forum 的提案与投票</li>
+        <li data-zh="聚合口径——DefiLlama（TVL、dailyRevenue、dailyHoldersRevenue）、CoinGecko（价格、市值）" data-en="Aggregated views — DefiLlama (TVL, dailyRevenue, dailyHoldersRevenue) and CoinGecko (price, market cap)"><strong>聚合口径</strong>——DefiLlama（TVL、dailyRevenue、dailyHoldersRevenue）、CoinGecko（价格、市值）</li>
+        <li data-zh="宏观指标——FRED（美联储经济数据）" data-en="Macro indicators — FRED (Federal Reserve Economic Data)"><strong>宏观指标</strong>——FRED（美联储经济数据）</li>
+      </ul>
+      <p data-zh="每个协议的数据链路、计算公式、逐步推导过程都会在详情页的分析板块公开展示，欢迎核对。"
+         data-en="The data pipeline, formulas, and step-by-step derivation for every protocol are publicly displayed in the analysis section of each detail page — we welcome verification.">每个协议的数据链路、计算公式、逐步推导过程都会在详情页的<strong>分析板块</strong>公开展示，欢迎核对。</p>
+    </section>
 
-  <section>
-    <h2 data-zh="更新频率" data-en="Update Frequency">更新频率</h2>
-    <p data-zh="本站数据自动更新：" data-en="Site data updates automatically:">本站数据自动更新：</p>
-    <ul>
-      <li data-zh="每天 09:03 / 21:03（北京时间）运行数据同步"
-          data-en="Daily at 09:03 / 21:03 Beijing time (UTC+8)">每天 <strong>09:03 / 21:03</strong>（北京时间）运行数据同步</li>
-      <li data-zh="每次更新都会自动校验所有已优化协议的 tev-records 新鲜度（超过 26h 即告警）"
-          data-en="Each run validates the freshness of every optimized protocol's tev-records (alerts trigger past 26h)">每次更新都会自动校验所有已优化协议的 <code>tev-records</code> 新鲜度（超过 26h 即告警）</li>
-    </ul>
-  </section>
+    <section>
+      <h2 data-zh="股东回报率是什么" data-en="What Is Shareholder Yield">股东回报率是什么</h2>
+      <p data-zh="我们采用美股成熟的估值口径，不自创概念。股东回报率（Shareholder Yield）= 股息率 + 回购率，衡量每年通过分红和回购真正返还给代币持有人的价值占市值的比例——等同于把协议当成一家上市公司来看。"
+         data-en="We adopt mature US-equity valuation metrics rather than inventing our own concept. Shareholder Yield = dividend yield + buyback yield — the share of market cap returned to token holders each year via dividends and buybacks, exactly as you would value a listed company.">我们采用美股成熟的估值口径，不自创概念。<strong>股东回报率（Shareholder Yield）= 股息率 + 回购率</strong>，衡量每年通过分红和回购真正返还给代币持有人的价值占市值的比例——等同于把协议当成一家上市公司来看。</p>
+      <p data-zh="配合市销率（P/S = 市值 ÷ 年化收入）和派息率（Payout Ratio，返还 ÷ 收入），可以把成熟分红型协议看作「现金牛」、把高增长低返还的协议看作「成长股」，与美股科技股横向对比。"
+         data-en="Combined with the P/S ratio (market cap ÷ annualized revenue) and Payout Ratio (capital returned ÷ revenue), mature distributing protocols read as &quot;cash cows&quot; while high-growth, low-return ones read as &quot;growth stocks&quot; — directly comparable to US tech equities.">配合<strong>市销率（P/S = 市值 ÷ 年化收入）</strong>和<strong>派息率（Payout Ratio，返还 ÷ 收入）</strong>，可以把成熟分红型协议看作「现金牛」、把高增长低返还的协议看作「成长股」，与美股科技股横向对比。</p>
+      <p data-zh="不同协议的返还机制差异极大，我们不套通用公式："
+         data-en="Capital-return mechanisms vary significantly across protocols. We do not apply a generic formula:">不同协议的返还机制差异极大，我们不套通用公式：</p>
+      <ul>
+        <li data-zh="BNB——Auto-Burn（按市值与价格公式季度销毁）+ BEP-95（每块销毁部分 gas fee）"
+            data-en="BNB — Auto-Burn (quarterly burn by market-cap formula) + BEP-95 (per-block partial gas-fee burn)">BNB——Auto-Burn（按市值与价格公式季度销毁） + BEP-95（每块销毁部分 gas fee）</li>
+        <li data-zh="Uniswap——由 UNI 直接销毁到 0xdead 的链上事件"
+            data-en="Uniswap — on-chain UNI burn events sent directly to 0xdead">Uniswap——由 UNI 直接销毁到 <code>0xdead</code> 的链上事件</li>
+        <li data-zh="Hyperliquid——Assistance Fund 链上回购并销毁"
+            data-en="Hyperliquid — Assistance Fund on-chain buyback and burn">Hyperliquid——Assistance Fund 链上回购并销毁</li>
+        <li data-zh="JustLend——链上核实后发现为做账式销毁（pocket-to-pocket）而归零"
+            data-en="JustLend — zeroed out after on-chain verification revealed pocket-to-pocket cosmetic burns">JustLend——链上核实后发现为<strong>做账式销毁</strong>（pocket-to-pocket）而归零</li>
+      </ul>
+      <p data-zh="对于名义上在 buyback &amp; burn、但回购源头与销毁地址同属于项目方关联钱包的情形，我们会在详情页的注意事项中明确标注，不计入股东回报。"
+         data-en="When a nominal &quot;buyback &amp; burn&quot; turns out to have its source wallet and burn address both belonging to project-affiliated entities, we explicitly flag it in the caveats section of the detail page and exclude it from shareholder returns.">对于<strong>名义上在 buyback&amp;burn、但回购源头与销毁地址同属于项目方关联钱包</strong>的情形，我们会在详情页的注意事项中明确标注，不计入股东回报。</p>
+    </section>
 
-  <section id="contact">
-    <h2 data-zh="联系方式" data-en="Contact">联系方式</h2>
-    <p data-zh="如果你有数据纠错、口径建议、合作沟通需求，可以通过以下任一渠道联系：" data-en="If you have data corrections, methodology suggestions, or partnership inquiries, you can reach us via any of the following channels:">如果你有数据纠错、口径建议、合作沟通需求，可以通过以下任一渠道联系：</p>
-    <ul>
-      <li>
-        <span data-zh="通用邮箱：" data-en="General: ">通用邮箱：</span><a href="mailto:contact@crypto3d.pro">contact@crypto3d.pro</a>
-        <span data-zh="（推荐，所有问题都可发这里）" data-en=" (recommended for all inquiries)">（推荐，所有问题都可发这里）</span>
-      </li>
-      <li>
-        <span data-zh="数据纠错：" data-en="Data corrections: ">数据纠错：</span><a href="mailto:data-correction@crypto3d.pro">data-correction@crypto3d.pro</a>
-      </li>
-      <li>
-        <span data-zh="法务/合规：" data-en="Legal / compliance: ">法务/合规：</span><a href="mailto:legal@crypto3d.pro">legal@crypto3d.pro</a>
-      </li>
-      <li>
-        <span data-zh="Twitter：" data-en="Twitter: ">Twitter：</span><a href="https://x.com/22333D" target="_blank" rel="noopener">@22333D</a>
-      </li>
-      <li>
-        <span data-zh="YouTube：" data-en="YouTube: ">YouTube：</span><a href="https://www.youtube.com/@Crypto36D" target="_blank" rel="noopener">@Crypto36D</a>
-      </li>
-    </ul>
-  </section>
+    <section>
+      <h2 data-zh="更新频率" data-en="Update Frequency">更新频率</h2>
+      <p data-zh="本站数据自动更新：" data-en="Site data updates automatically:">本站数据自动更新：</p>
+      <ul>
+        <li data-zh="每天 09:03 / 21:03（北京时间）运行数据同步"
+            data-en="Daily at 09:03 / 21:03 Beijing time (UTC+8)">每天 <strong>09:03 / 21:03</strong>（北京时间）运行数据同步</li>
+        <li data-zh="每次更新都会自动校验各协议数据的更新新鲜度（超过 26 小时即告警）"
+            data-en="Each run validates the freshness of every protocol's data (alerts trigger past 26 hours)">每次更新都会自动校验各协议数据的<strong>更新新鲜度</strong>（超过 26 小时即告警）</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2 data-zh="开源与透明" data-en="Open Source &amp; Transparency">开源与透明</h2>
-    <p data-zh="本站页面不含任何 Web3 交易组件、无广告联盟脚本、无追踪像素。核心数据脚本以可审计的方式维护，计算过程在详情页公开展示。"
-       data-en="No Web3 transaction components, no ad-network scripts, and no tracking pixels are present on this site. Core data scripts are maintained in an auditable manner, and calculation pipelines are publicly displayed on detail pages.">本站页面不含任何 Web3 交易组件、无广告联盟脚本、无追踪像素。核心数据脚本以可审计的方式维护，计算过程在详情页公开展示。</p>
-  </section>
+    <section id="contact">
+      <h2 data-zh="联系方式" data-en="Contact">联系方式</h2>
+      <p data-zh="如果你有数据纠错、口径建议、合作沟通需求，可以通过以下任一渠道联系：" data-en="If you have data corrections, methodology suggestions, or partnership inquiries, you can reach us via any of the following channels:">如果你有数据纠错、口径建议、合作沟通需求，可以通过以下任一渠道联系：</p>
+      <ul>
+        <li>
+          <span data-zh="通用邮箱：" data-en="General: ">通用邮箱：</span><a href="mailto:contact@crypto3d.pro">contact@crypto3d.pro</a>
+          <span data-zh="（推荐，所有问题都可发这里）" data-en=" (recommended for all inquiries)">（推荐，所有问题都可发这里）</span>
+        </li>
+        <li>
+          <span data-zh="数据纠错：" data-en="Data corrections: ">数据纠错：</span><a href="mailto:data-correction@crypto3d.pro">data-correction@crypto3d.pro</a>
+        </li>
+        <li>
+          <span data-zh="法务 / 合规：" data-en="Legal / compliance: ">法务 / 合规：</span><a href="mailto:legal@crypto3d.pro">legal@crypto3d.pro</a>
+        </li>
+        <li>
+          <span data-zh="X（原 Twitter）：" data-en="X (formerly Twitter): ">X（原 Twitter）：</span><a href="https://x.com/22333D" target="_blank" rel="noopener">@22333D</a>
+        </li>
+        <li>
+          <span data-zh="YouTube：" data-en="YouTube: ">YouTube：</span><a href="https://www.youtube.com/@Crypto36D" target="_blank" rel="noopener">@Crypto36D</a>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 data-zh="开源与透明" data-en="Open Source &amp; Transparency">开源与透明</h2>
+      <p data-zh="本站页面不含任何 Web3 交易组件、无广告联盟脚本、无追踪像素。核心数据脚本以可审计的方式维护，计算过程在详情页公开展示。"
+         data-en="No Web3 transaction components, no ad-network scripts, and no tracking pixels are present on this site. Core data scripts are maintained in an auditable manner, and calculation pipelines are publicly displayed on detail pages.">本站页面不含任何 Web3 交易组件、无广告联盟脚本、无追踪像素。核心数据脚本以可审计的方式维护，计算过程在详情页公开展示。</p>
+    </section>
+
+    <div class="legal-related">
+      <div class="rel-title" data-zh="相关文件" data-en="Related">相关文件</div>
+      <div class="rel-grid">
+        <a href="./privacy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span data-zh="隐私政策" data-en="Privacy Policy">隐私政策</span></a>
+        <a href="./terms"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><span data-zh="使用条款" data-en="Terms of Use">使用条款</span></a>
+        <a href="./disclaimer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg><span data-zh="风险披露" data-en="Risk Disclosure">风险披露</span></a>
+        <a href="mailto:contact@crypto3d.pro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span data-zh="联系我们" data-en="Contact us">联系我们</span></a>
+      </div>
+    </div>
+  </article>
 </main>
 
 <footer>
   <div class="ft">
-    <span>© 2026 Crypto3D</span>
+    <span>© <span id="ft-year">2026</span> Crypto3D</span>
     <div class="ft-links">
       <a href="./about" data-zh="关于我们" data-en="About">关于我们</a>
       <a href="./privacy" data-zh="隐私政策" data-en="Privacy Policy">隐私政策</a>
@@ -154,6 +182,8 @@
   </div>
 </footer>
 
-<script src="./js/lang.js"></script>
+<script src="./js/theme.js?v=20261013"></script>
+<script src="./js/lang.js?v=20261013"></script>
+<script src="./js/legal.js?v=20261013"></script>
 </body>
 </html>
