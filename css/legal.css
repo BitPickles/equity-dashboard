@@ -17,8 +17,6 @@
   --accent-d: rgba(96,165,250,0.10);
   --brand: #34d399;
   --brand-d: rgba(52,211,153,0.10);
-  --amber: #fbbf24;
-  --amber-d: rgba(251,191,36,0.12);
   --card: rgba(255,255,255,0.02);
   --header-bg: rgba(5,5,7,0.82);
   --glow: 1;
@@ -37,8 +35,6 @@
   --accent-d: rgba(37,99,235,0.07);
   --brand: #059669;
   --brand-d: rgba(5,150,105,0.07);
-  --amber: #d97706;
-  --amber-d: rgba(217,119,6,0.10);
   --card: #ffffff;
   --header-bg: rgba(250,250,250,0.85);
   --glow: 0;
@@ -115,10 +111,9 @@ header{position:sticky;top:0;z-index:50;background:var(--header-bg);backdrop-fil
 .legal-content strong{color:var(--text-1);font-weight:600}
 .legal-content code{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:0.87em;background:var(--bg-2);border:1px solid var(--border);padding:1.5px 6px;border-radius:5px;color:var(--text-1)}
 
-/* Callout */
-.legal-content .callout{position:relative;background:var(--bg-2);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:10px;padding:16px 20px 16px 48px;margin:16px 0;font-size:14.5px;line-height:1.7;color:var(--text-2)}
-.legal-content .callout::before{content:"!";position:absolute;left:17px;top:15px;width:19px;height:19px;border-radius:50%;background:var(--amber-d);color:var(--amber);font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;line-height:1}
-.legal-content .callout strong{color:var(--text-1)}
+/* 强调段落：文档式左引线（无边框 / 无底色 / 无图标），克制正式 */
+.legal-content .callout{margin:24px 0;padding:1px 0 1px 22px;border-left:2px solid var(--accent);font-size:15px;line-height:1.78;color:var(--text-2)}
+.legal-content .callout strong{color:var(--text-1);font-weight:600}
 
 /* 相关文件 / 快捷跳转 */
 .legal-related{margin-top:8px;padding-top:26px;border-top:1px solid var(--border)}
