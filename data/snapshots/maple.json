@@ -1,6 +1,6 @@
 {
   "protocol": "maple",
-  "as_of": "2026-10-12",
+  "as_of": "2026-10-13",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -23,10 +23,10 @@
           "total_usd": 297042.0
         },
         "30d": {
-          "total_usd": 1443483.0
+          "total_usd": 1423292.0
         },
         "90d": {
-          "total_usd": 3697281.0
+          "total_usd": 3642744.0
         },
         "365d": {
           "total_usd": 15480000
@@ -62,17 +62,17 @@
         "mechanism": "MIP-021 阶梯回购（SSF）",
         "type": "buyback",
         "usd_365d": 1548000.0,
-        "yield_percent": 0.5478,
+        "yield_percent": 0.5528,
         "note": "月收入 $1,290,000 < $1.5M → 10% 档；MIP-021（2026-07-17 通过 99.97%）回购规则化，首次执行 2026-08；MIP-019/020 固定 25% 已于 2026-Q2 结束；SSF 国库地址未公开、burn vs reserve 比例未披露 → partial"
       }
     ],
     "summary": {
       "destroy_usd_365d": 1548000.0,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 0.5478,
+      "destroy_yield_percent": 0.5528,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 1548000.0,
-      "shareholder_yield_percent": 0.5478
+      "shareholder_yield_percent": 0.5528
     },
     "by_period": {
       "7d": {
@@ -80,32 +80,32 @@
         "shareholder_returns_usd": 29704.2,
         "destroy_usd": 29704.2,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 0.5481,
-        "buyback_yield_percent": 0.5481,
+        "shareholder_yield_percent": 0.5531,
+        "buyback_yield_percent": 0.5531,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.1,
         "status": "active",
         "source": "defillama"
       },
       "30d": {
-        "revenue_usd": 1443483.0,
-        "shareholder_returns_usd": 144348.3,
-        "destroy_usd": 144348.3,
+        "revenue_usd": 1423292.0,
+        "shareholder_returns_usd": 142329.2,
+        "destroy_usd": 142329.2,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 0.6215,
-        "buyback_yield_percent": 0.6215,
+        "shareholder_yield_percent": 0.6184,
+        "buyback_yield_percent": 0.6184,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.1,
         "status": "active",
         "source": "defillama"
       },
       "90d": {
-        "revenue_usd": 3697281.0,
-        "shareholder_returns_usd": 369728.1,
-        "destroy_usd": 369728.1,
+        "revenue_usd": 3642744.0,
+        "shareholder_returns_usd": 364274.4,
+        "destroy_usd": 364274.4,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 0.5306,
-        "buyback_yield_percent": 0.5306,
+        "shareholder_yield_percent": 0.5275,
+        "buyback_yield_percent": 0.5275,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.1,
         "status": "active",
@@ -116,8 +116,8 @@
         "shareholder_returns_usd": 1548000.0,
         "destroy_usd": 1548000.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 0.5478,
-        "buyback_yield_percent": 0.5478,
+        "shareholder_yield_percent": 0.5528,
+        "buyback_yield_percent": 0.5528,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.1,
         "status": "active",
@@ -126,14 +126,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 282601059,
+    "market_cap_usd": 280041350,
     "tvl_usd": 2109989088.5761566,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 182.5588,
-    "ps": 18.2559,
+    "pe": 180.9053,
+    "ps": 18.0905,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0.1
@@ -141,6 +141,6 @@
   "verification": {
     "method": "月收入 $1,290,000（判定书/官方仪表盘）×12 = 年化收入 $15,480,000；MIP-021 月收入 $1,290,000 < $1.5M → 10% 档 → 回购 $1,548,000（净利 × 10%）；留存 90%",
     "status": "partial",
-    "last_checked": "2026-10-12"
+    "last_checked": "2026-10-13"
   }
 }
