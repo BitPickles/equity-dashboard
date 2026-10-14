@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-12",
+  "updated_at": "2026-10-14",
   "source": "extracted from mvrv.json (original source: glassnode/coingecko)",
   "history": [
     {
@@ -23721,6 +23721,14 @@
     {
       "date": "2026-10-12",
       "price": 83673.01
+    },
+    {
+      "date": "2026-10-13",
+      "price": 81754.48
+    },
+    {
+      "date": "2026-10-14",
+      "price": 83092.65
     }
   ]
 }
