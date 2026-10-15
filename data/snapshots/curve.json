@@ -1,6 +1,6 @@
 {
   "protocol": "curve",
-  "as_of": "2026-10-14",
+  "as_of": "2026-10-15",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -24,13 +24,13 @@
       },
       "by_period": {
         "7d": {
-          "total_usd": 849935.0
+          "total_usd": 392371.0
         },
         "30d": {
-          "total_usd": 2032096.0
+          "total_usd": 1723833.0
         },
         "90d": {
-          "total_usd": 4184184.0
+          "total_usd": 3737197.0
         },
         "365d": {
           "total_usd": 15605589
@@ -66,7 +66,7 @@
         "mechanism": "veCRV 分红（FeeAllocator 90% admin fee）",
         "type": "yield",
         "usd_365d": 15605589,
-        "yield_percent": 2.9173,
+        "yield_percent": 2.9968,
         "note": "90% admin fee 兑换 crvUSD 分给 veCRV 锁仓持有人（裸 CRV 不参与）；名义 yield = 股东回报 / CRV 全市值，实际锁仓持有人更高（veCRV-only 口径）"
       }
     ],
@@ -74,42 +74,42 @@
       "destroy_usd_365d": null,
       "yield_usd_365d": 15605589,
       "destroy_yield_percent": null,
-      "yield_yield_percent": 2.9173,
+      "yield_yield_percent": 2.9968,
       "shareholder_returns_usd_365d": 15605589,
-      "shareholder_yield_percent": 2.9173
+      "shareholder_yield_percent": 2.9968
     },
     "by_period": {
       "7d": {
-        "revenue_usd": 849935.0,
-        "shareholder_returns_usd": 849935.0,
-        "destroy_usd": 849935.0,
+        "revenue_usd": 392371.0,
+        "shareholder_returns_usd": 392371.0,
+        "destroy_usd": 392371.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 8.2848,
-        "buyback_yield_percent": 8.2848,
+        "shareholder_yield_percent": 3.9289,
+        "buyback_yield_percent": 3.9289,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.0,
         "status": "active",
         "source": "defillama"
       },
       "30d": {
-        "revenue_usd": 2032096.0,
-        "shareholder_returns_usd": 2032096.0,
-        "destroy_usd": 2032096.0,
+        "revenue_usd": 1723833.0,
+        "shareholder_returns_usd": 1723833.0,
+        "destroy_usd": 1723833.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 4.6219,
-        "buyback_yield_percent": 4.6219,
+        "shareholder_yield_percent": 4.0276,
+        "buyback_yield_percent": 4.0276,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.0,
         "status": "active",
         "source": "defillama"
       },
       "90d": {
-        "revenue_usd": 4184184.0,
-        "shareholder_returns_usd": 4184184.0,
-        "destroy_usd": 4184184.0,
+        "revenue_usd": 3737197.0,
+        "shareholder_returns_usd": 3737197.0,
+        "destroy_usd": 3737197.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 3.1722,
-        "buyback_yield_percent": 3.1722,
+        "shareholder_yield_percent": 2.9106,
+        "buyback_yield_percent": 2.9106,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.0,
         "status": "active",
@@ -120,8 +120,8 @@
         "shareholder_returns_usd": 15605589,
         "destroy_usd": 15605589,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 2.9173,
-        "buyback_yield_percent": 2.9173,
+        "shareholder_yield_percent": 2.9968,
+        "buyback_yield_percent": 2.9968,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.0,
         "status": "active",
@@ -130,14 +130,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 534933392,
+    "market_cap_usd": 520739873,
     "tvl_usd": 1808019756.5740514,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 34.2783,
-    "ps": 34.2783,
+    "pe": 33.3688,
+    "ps": 33.3688,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null
@@ -145,6 +145,6 @@
   "verification": {
     "method": "FeeAllocator 90/10：Community Fund Treasury crvUSD inflow × 9 反推 veCRV TEV 365d=15605589 · 增发成本 26000000（config.token_emission_cost）",
     "status": "verified",
-    "last_checked": "2026-10-14"
+    "last_checked": "2026-10-15"
   }
 }
