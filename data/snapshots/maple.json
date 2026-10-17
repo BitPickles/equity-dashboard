@@ -1,6 +1,6 @@
 {
   "protocol": "maple",
-  "as_of": "2026-10-16",
+  "as_of": "2026-10-17",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -20,13 +20,13 @@
       },
       "by_period": {
         "7d": {
-          "total_usd": 276355.0
+          "total_usd": 234741.0
         },
         "30d": {
-          "total_usd": 1312095.0
+          "total_usd": 1307108.0
         },
         "90d": {
-          "total_usd": 3675083.0
+          "total_usd": 3597027.0
         },
         "365d": {
           "total_usd": 15480000
@@ -62,50 +62,50 @@
         "mechanism": "MIP-021 阶梯回购（SSF）",
         "type": "buyback",
         "usd_365d": 1548000.0,
-        "yield_percent": 0.6328,
+        "yield_percent": 0.6467,
         "note": "月收入 $1,290,000 < $1.5M → 10% 档；MIP-021（2026-07-17 通过 99.97%）回购规则化，首次执行 2026-08；MIP-019/020 固定 25% 已于 2026-Q2 结束；SSF 国库地址未公开、burn vs reserve 比例未披露 → partial"
       }
     ],
     "summary": {
       "destroy_usd_365d": 1548000.0,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 0.6328,
+      "destroy_yield_percent": 0.6467,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 1548000.0,
-      "shareholder_yield_percent": 0.6328
+      "shareholder_yield_percent": 0.6467
     },
     "by_period": {
       "7d": {
-        "revenue_usd": 276355.0,
-        "shareholder_returns_usd": 27635.5,
-        "destroy_usd": 27635.5,
+        "revenue_usd": 234741.0,
+        "shareholder_returns_usd": 23474.1,
+        "destroy_usd": 23474.1,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 0.589,
-        "buyback_yield_percent": 0.589,
+        "shareholder_yield_percent": 0.5113,
+        "buyback_yield_percent": 0.5113,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.1,
         "status": "active",
         "source": "defillama"
       },
       "30d": {
-        "revenue_usd": 1312095.0,
-        "shareholder_returns_usd": 131209.5,
-        "destroy_usd": 131209.5,
+        "revenue_usd": 1307108.0,
+        "shareholder_returns_usd": 130710.8,
+        "destroy_usd": 130710.8,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 0.6525,
-        "buyback_yield_percent": 0.6525,
+        "shareholder_yield_percent": 0.6643,
+        "buyback_yield_percent": 0.6643,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.1,
         "status": "active",
         "source": "defillama"
       },
       "90d": {
-        "revenue_usd": 3675083.0,
-        "shareholder_returns_usd": 367508.3,
-        "destroy_usd": 367508.3,
+        "revenue_usd": 3597027.0,
+        "shareholder_returns_usd": 359702.7,
+        "destroy_usd": 359702.7,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 0.6092,
-        "buyback_yield_percent": 0.6092,
+        "shareholder_yield_percent": 0.6094,
+        "buyback_yield_percent": 0.6094,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.1,
         "status": "active",
@@ -116,8 +116,8 @@
         "shareholder_returns_usd": 1548000.0,
         "destroy_usd": 1548000.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 0.6328,
-        "buyback_yield_percent": 0.6328,
+        "shareholder_yield_percent": 0.6467,
+        "buyback_yield_percent": 0.6467,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.1,
         "status": "active",
@@ -126,14 +126,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 244637973,
+    "market_cap_usd": 239385007,
     "tvl_usd": 2109989088.5761566,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 158.0349,
-    "ps": 15.8035,
+    "pe": 154.6415,
+    "ps": 15.4641,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0.1
@@ -141,6 +141,6 @@
   "verification": {
     "method": "月收入 $1,290,000（判定书/官方仪表盘）×12 = 年化收入 $15,480,000；MIP-021 月收入 $1,290,000 < $1.5M → 10% 档 → 回购 $1,548,000（净利 × 10%）；留存 90%",
     "status": "partial",
-    "last_checked": "2026-10-16"
+    "last_checked": "2026-10-17"
   }
 }
