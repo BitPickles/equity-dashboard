@@ -1,14 +1,14 @@
 {
   "protocol": "bnb",
-  "as_of": "2026-10-17",
+  "as_of": "2026-10-18",
   "income_statement": {
     "revenue": {
       "entity_type": "platform_token",
       "revenue_included": {
-        "burn_usd_365d": 4337509101.1,
-        "staking_rewards_usd_365d": 1640028213.59,
+        "burn_usd_365d": 4317405435.19,
+        "staking_rewards_usd_365d": 1632341446.71,
         "launchpad_launchpool_usd_365d": null,
-        "total_usd_365d": 5977537314.69
+        "total_usd_365d": 5949746881.9
       },
       "revenue_excluded": {
         "fees": {
@@ -18,16 +18,16 @@
       "growth_yoy_percent": null,
       "by_period": {
         "7d": {
-          "total_usd": 114576562.5
+          "total_usd": 114053823.76
         },
         "30d": {
-          "total_usd": 491607874.2
+          "total_usd": 489298242.6
         },
         "90d": {
-          "total_usd": 1475054621.06
+          "total_usd": 1468220191.52
         },
         "365d": {
-          "total_usd": 5977537314.69
+          "total_usd": 5949746881.9
         }
       },
       "source": {
@@ -37,7 +37,7 @@
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": 5977537314.69,
+      "gross_profit_usd_365d": 5949746881.9,
       "calculation_note": "平台币无 LP 分润成本，毛利 = 收入（赋能总额）"
     },
     "token_emission_cost": {
@@ -48,7 +48,7 @@
       "calculation_note": "BNB 无代币增发（总供应递减：Auto-Burn 目标 100M），不涉及增发成本"
     },
     "net_income": {
-      "net_income_usd_365d": 5977537314.69,
+      "net_income_usd_365d": 5949746881.9,
       "operating_cost_usd_365d": null,
       "calculation_note": "平台币：净利 = 收入 = 股东回报（赋能口径，无成本模型）"
     },
@@ -63,74 +63,74 @@
       {
         "mechanism": "Auto-Burn（季度）",
         "type": "destroy",
-        "usd_365d": 4319978253.07,
-        "yield_percent": 4.5043
+        "usd_365d": 4300004179.42,
+        "yield_percent": 4.5046
       },
       {
         "mechanism": "BEP-95 实时销毁",
         "type": "destroy",
-        "usd_365d": 17530848.03,
-        "yield_percent": 0.0183
+        "usd_365d": 17401255.77,
+        "yield_percent": 0.0182
       },
       {
         "mechanism": "aBNB 打新+质押",
         "type": "yield",
-        "usd_365d": 1640028213.59,
+        "usd_365d": 1632341446.71,
         "yield_percent": 1.71
       }
     ],
     "summary": {
-      "destroy_usd_365d": 4337509101.1,
-      "yield_usd_365d": 1640028213.59,
-      "destroy_yield_percent": 4.5226,
+      "destroy_usd_365d": 4317405435.19,
+      "yield_usd_365d": 1632341446.71,
+      "destroy_yield_percent": 4.5228,
       "yield_yield_percent": 1.71,
-      "shareholder_returns_usd_365d": 5977537314.69,
-      "shareholder_yield_percent": 6.2326
+      "shareholder_returns_usd_365d": 5949746881.9,
+      "shareholder_yield_percent": 6.2328
     },
     "by_period": {
       "7d": {
-        "revenue_usd": 114576562.5,
-        "shareholder_returns_usd": 114576562.5,
-        "destroy_usd": 83123966.62,
-        "yield_usd": 31452595.88,
-        "shareholder_yield_percent": 6.2292,
-        "buyback_yield_percent": 4.5192,
+        "revenue_usd": 114053823.76,
+        "shareholder_returns_usd": 114053823.76,
+        "destroy_usd": 82748645.33,
+        "yield_usd": 31305178.43,
+        "shareholder_yield_percent": 6.23,
+        "buyback_yield_percent": 4.52,
         "dividend_yield_percent": 1.71,
         "payout_ratio": 1.0,
         "status": "active",
         "source": "chain"
       },
       "30d": {
-        "revenue_usd": 491607874.2,
-        "shareholder_returns_usd": 491607874.2,
-        "destroy_usd": 356811034.73,
-        "yield_usd": 134796839.47,
-        "shareholder_yield_percent": 6.2364,
-        "buyback_yield_percent": 4.5264,
+        "revenue_usd": 489298242.6,
+        "shareholder_returns_usd": 489298242.6,
+        "destroy_usd": 355133192.19,
+        "yield_usd": 134165050.41,
+        "shareholder_yield_percent": 6.2363,
+        "buyback_yield_percent": 4.5263,
         "dividend_yield_percent": 1.71,
         "payout_ratio": 1.0,
         "status": "active",
         "source": "chain"
       },
       "90d": {
-        "revenue_usd": 1475054621.06,
-        "shareholder_returns_usd": 1475054621.06,
-        "destroy_usd": 1070664102.64,
-        "yield_usd": 404390518.42,
-        "shareholder_yield_percent": 6.2374,
-        "buyback_yield_percent": 4.5274,
+        "revenue_usd": 1468220191.52,
+        "shareholder_returns_usd": 1468220191.52,
+        "destroy_usd": 1065725040.28,
+        "yield_usd": 402495151.24,
+        "shareholder_yield_percent": 6.2377,
+        "buyback_yield_percent": 4.5277,
         "dividend_yield_percent": 1.71,
         "payout_ratio": 1.0,
         "status": "active",
         "source": "chain"
       },
       "365d": {
-        "revenue_usd": 5977537314.69,
-        "shareholder_returns_usd": 5977537314.69,
-        "destroy_usd": 4337509101.1,
-        "yield_usd": 1640028213.59,
-        "shareholder_yield_percent": 6.2326,
-        "buyback_yield_percent": 4.5226,
+        "revenue_usd": 5949746881.9,
+        "shareholder_returns_usd": 5949746881.9,
+        "destroy_usd": 4317405435.19,
+        "yield_usd": 1632341446.71,
+        "shareholder_yield_percent": 6.2328,
+        "buyback_yield_percent": 4.5228,
         "dividend_yield_percent": 1.71,
         "payout_ratio": 1.0,
         "status": "active",
@@ -139,21 +139,21 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 95908082666,
+    "market_cap_usd": 95458564135,
     "tvl_usd": 5387604237.313377,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 16.0447,
-    "ps": 16.0447,
+    "pe": 16.0441,
+    "ps": 16.0441,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 1.0
   },
   "verification": {
-    "method": "Auto-Burn 近4季 5998220.315 BNB + BEP-95 日序列 583 天（剔除季度大额销毁）+ asBNB APY 1.71%",
+    "method": "Auto-Burn 近4季 5998220.315 BNB + BEP-95 日序列 584 天（剔除季度大额销毁）+ asBNB APY 1.71%",
     "status": "verified",
-    "last_checked": "2026-10-17"
+    "last_checked": "2026-10-18"
   }
 }
