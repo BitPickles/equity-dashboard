@@ -1,12 +1,12 @@
 {
   "protocol": "dydx",
-  "as_of": "2026-10-21",
+  "as_of": "2026-10-22",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "net_fees_usd_365d": 4810094.0,
-        "total_usd_365d": 4810094.0
+        "net_fees_usd_365d": 4768065.0,
+        "total_usd_365d": 4768065.0
       },
       "revenue_excluded": {
         "affiliate_rebate": {
@@ -23,22 +23,22 @@
       },
       "by_period": {
         "7d": {
-          "total_usd": 52275.0
+          "total_usd": 47620.0
         },
         "30d": {
-          "total_usd": 279214.0
+          "total_usd": 285380.0
         },
         "90d": {
-          "total_usd": 750854.0
+          "total_usd": 751800.0
         },
         "365d": {
-          "total_usd": 4810094.0
+          "total_usd": 4768065.0
         }
       }
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": 4810094.0,
+      "gross_profit_usd_365d": 4768065.0,
       "calculation_note": "永续应用无 LP 分润成本 → 毛利 = 收入；affiliate 30-50% 分成 / Surge 50% rebate 等前置补贴归交易者（含 affiliate/rebate 前、外部不可精确复算）"
     },
     "token_emission_cost": {
@@ -49,7 +49,7 @@
       "calculation_note": "DYDX 无挖矿增发成本模型（判定书未按增发成本处理，仅通胀解锁，不作成本扣除）"
     },
     "net_income": {
-      "net_income_usd_365d": 4810094.0,
+      "net_income_usd_365d": 4768065.0,
       "operating_cost_usd_365d": null,
       "calculation_note": "净利 = 收入（净协议费毛口径）；真实净协议费含 affiliate/rebate 前不可精确复算，实际低于此值"
     },
@@ -64,93 +64,93 @@
       {
         "mechanism": "净协议费回购（提案 #313，75%）",
         "type": "buyback",
-        "usd_365d": 1136596.85,
+        "usd_365d": 1163023.86,
         "yield_percent": 1.1364,
         "note": "回购(质押非销毁)：市价买入 DYDX 后质押于 Treasury 专用账户（dydx1zc0jd76...），非销毁勿计销毁；链上无公开 tracker，按判定书 P/F~88x 反推（外部不可精确复算）"
       },
       {
         "mechanism": "质押分红（USDC，Cosmos x/distribution）",
         "type": "yield",
-        "usd_365d": 227319.37,
+        "usd_365d": 232604.77,
         "yield_percent": 0.2273,
         "note": "提案 #313 15% 净协议费以 USDC 分给 staker；DYDX 通胀 staking 奖励 ~0.01% APY 极低"
       }
     ],
     "summary": {
-      "destroy_usd_365d": 1136596.85,
-      "yield_usd_365d": 227319.37,
+      "destroy_usd_365d": 1163023.86,
+      "yield_usd_365d": 232604.77,
       "destroy_yield_percent": 1.1364,
       "yield_yield_percent": 0.2273,
-      "shareholder_returns_usd_365d": 1363916.22,
+      "shareholder_returns_usd_365d": 1395628.63,
       "shareholder_yield_percent": 1.3636
     },
     "by_period": {
       "7d": {
-        "revenue_usd": 52275.0,
-        "shareholder_returns_usd": 14822.73,
-        "destroy_usd": 12351.78,
-        "yield_usd": 2470.95,
-        "shareholder_yield_percent": 0.7727,
-        "buyback_yield_percent": 0.6439,
-        "dividend_yield_percent": 0.1288,
-        "payout_ratio": 0.2836,
+        "revenue_usd": 47620.0,
+        "shareholder_returns_usd": 13938.53,
+        "destroy_usd": 11614.98,
+        "yield_usd": 2323.55,
+        "shareholder_yield_percent": 0.7101,
+        "buyback_yield_percent": 0.5918,
+        "dividend_yield_percent": 0.1184,
+        "payout_ratio": 0.2927,
         "status": "active",
         "source": "defillama"
       },
       "30d": {
-        "revenue_usd": 279214.0,
-        "shareholder_returns_usd": 79171.95,
-        "destroy_usd": 65973.99,
-        "yield_usd": 13197.96,
-        "shareholder_yield_percent": 0.9631,
-        "buyback_yield_percent": 0.8025,
-        "dividend_yield_percent": 0.1605,
-        "payout_ratio": 0.2836,
+        "revenue_usd": 285380.0,
+        "shareholder_returns_usd": 83531.68,
+        "destroy_usd": 69606.95,
+        "yield_usd": 13924.73,
+        "shareholder_yield_percent": 0.993,
+        "buyback_yield_percent": 0.8275,
+        "dividend_yield_percent": 0.1655,
+        "payout_ratio": 0.2927,
         "status": "active",
         "source": "defillama"
       },
       "90d": {
-        "revenue_usd": 750854.0,
-        "shareholder_returns_usd": 212906.85,
-        "destroy_usd": 177415.28,
-        "yield_usd": 35491.57,
-        "shareholder_yield_percent": 0.8633,
-        "buyback_yield_percent": 0.7194,
-        "dividend_yield_percent": 0.1439,
-        "payout_ratio": 0.2836,
+        "revenue_usd": 751800.0,
+        "shareholder_returns_usd": 220054.38,
+        "destroy_usd": 183371.31,
+        "yield_usd": 36683.07,
+        "shareholder_yield_percent": 0.872,
+        "buyback_yield_percent": 0.7266,
+        "dividend_yield_percent": 0.1454,
+        "payout_ratio": 0.2927,
         "status": "active",
         "source": "defillama"
       },
       "365d": {
-        "revenue_usd": 4810094.0,
-        "shareholder_returns_usd": 1363916.22,
-        "destroy_usd": 1136551.39,
-        "yield_usd": 227364.83,
+        "revenue_usd": 4768065.0,
+        "shareholder_returns_usd": 1395628.63,
+        "destroy_usd": 1162977.34,
+        "yield_usd": 232651.29,
         "shareholder_yield_percent": 1.3636,
         "buyback_yield_percent": 1.1363,
         "dividend_yield_percent": 0.2273,
-        "payout_ratio": 0.2836,
+        "payout_ratio": 0.2927,
         "status": "active",
         "source": "defillama"
       }
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 100020523,
+    "market_cap_usd": 102346100,
     "tvl_usd": 158666696.85028014,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": 73.3333,
-    "ps": 20.7939,
+    "ps": 21.4649,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": 0.2836
+    "payout_ratio": 0.2927
   },
   "verification": {
-    "method": "DefiLlama dailyRevenue 365d=4810094.0 · 回购额按判定书 P/F~88x 反推（mcap/88）· 提案 #313 比例（75% 回购/15% 质押）",
+    "method": "DefiLlama dailyRevenue 365d=4768065.0 · 回购额按判定书 P/F~88x 反推（mcap/88）· 提案 #313 比例（75% 回购/15% 质押）",
     "status": "partial",
-    "last_checked": "2026-10-21"
+    "last_checked": "2026-10-22"
   }
 }
