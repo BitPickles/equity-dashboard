@@ -1,12 +1,12 @@
 {
   "protocol": "fluid",
-  "as_of": "2026-10-22",
+  "as_of": "2026-10-23",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 9982230.84,
-        "total_usd_365d": 9982230.84
+        "protocol_fees_usd_365d": 9928765.84,
+        "total_usd_365d": 9928765.84
       },
       "revenue_excluded": {
         "lending_fees_to_lp": {
@@ -20,22 +20,22 @@
       },
       "by_period": {
         "7d": {
-          "total_usd": 148376.0
+          "total_usd": 125663.0
         },
         "30d": {
-          "total_usd": 727598.0
+          "total_usd": 707909.0
         },
         "90d": {
-          "total_usd": 2012812.78
+          "total_usd": 1997831.22
         },
         "365d": {
-          "total_usd": 9982230.84
+          "total_usd": 9928765.84
         }
       }
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": 9982230.84,
+      "gross_profit_usd_365d": 9928765.84,
       "calculation_note": "DefiLlama dailyHoldersRevenue 为协议净收入口径（LP 分润已扣），毛利 = 收入"
     },
     "token_emission_cost": {
@@ -46,7 +46,7 @@
       "calculation_note": "FLUID 无持续增发成本模型（供应 10 亿，回购进 reserve 钱包）"
     },
     "net_income": {
-      "net_income_usd_365d": 9982230.84,
+      "net_income_usd_365d": 9928765.84,
       "operating_cost_usd_365d": null,
       "calculation_note": "净利 = 收入 − 增发(0) − 运营成本(数据不可得)；35% 用于回购（= 净利口径），其余留存/支出"
     },
@@ -61,64 +61,64 @@
       {
         "mechanism": "Fluid Reserve Buyback（35% 收入回购）",
         "type": "buyback",
-        "usd_365d": 9982230.84,
-        "yield_percent": 4.8615,
+        "usd_365d": 9928765.84,
+        "yield_percent": 5.2252,
         "verified": "partial",
         "note": "2025-10 起 35% 收入 → Treasury 回购 FLUID（reserve 钱包 0x3e6F.../0x9Afb...，链上可追踪）；回购后终极用途未公开（储备/burn/分配待定）；35% 比例无链上治理投票"
       }
     ],
     "summary": {
-      "destroy_usd_365d": 9982230.84,
+      "destroy_usd_365d": 9928765.84,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 4.8615,
+      "destroy_yield_percent": 5.2252,
       "yield_yield_percent": null,
-      "shareholder_returns_usd_365d": 9982230.84,
-      "shareholder_yield_percent": 4.8615
+      "shareholder_returns_usd_365d": 9928765.84,
+      "shareholder_yield_percent": 5.2252
     },
     "by_period": {
       "7d": {
-        "revenue_usd": 148376.0,
-        "shareholder_returns_usd": 148376.0,
-        "destroy_usd": 148376.0,
+        "revenue_usd": 125663.0,
+        "shareholder_returns_usd": 125663.0,
+        "destroy_usd": 125663.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 3.7679,
-        "buyback_yield_percent": 3.7679,
+        "shareholder_yield_percent": 3.4483,
+        "buyback_yield_percent": 3.4483,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.0,
         "status": "active",
         "source": "defillama"
       },
       "30d": {
-        "revenue_usd": 727598.0,
-        "shareholder_returns_usd": 727598.0,
-        "destroy_usd": 727598.0,
+        "revenue_usd": 707909.0,
+        "shareholder_returns_usd": 707909.0,
+        "destroy_usd": 707909.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 4.3113,
-        "buyback_yield_percent": 4.3113,
+        "shareholder_yield_percent": 4.5327,
+        "buyback_yield_percent": 4.5327,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.0,
         "status": "active",
         "source": "defillama"
       },
       "90d": {
-        "revenue_usd": 2012812.78,
-        "shareholder_returns_usd": 2012812.78,
-        "destroy_usd": 2012812.78,
+        "revenue_usd": 1997831.22,
+        "shareholder_returns_usd": 1997831.22,
+        "destroy_usd": 1997831.22,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 3.9755,
-        "buyback_yield_percent": 3.9755,
+        "shareholder_yield_percent": 4.264,
+        "buyback_yield_percent": 4.264,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.0,
         "status": "active",
         "source": "defillama"
       },
       "365d": {
-        "revenue_usd": 9982230.84,
-        "shareholder_returns_usd": 9982230.84,
-        "destroy_usd": 9982230.84,
+        "revenue_usd": 9928765.84,
+        "shareholder_returns_usd": 9928765.84,
+        "destroy_usd": 9928765.84,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 4.8615,
-        "buyback_yield_percent": 4.8615,
+        "shareholder_yield_percent": 5.2252,
+        "buyback_yield_percent": 5.2252,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.0,
         "status": "active",
@@ -127,21 +127,21 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 205333292,
+    "market_cap_usd": 190016425,
     "tvl_usd": 858549305.8980845,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 20.5699,
-    "ps": 20.5699,
+    "pe": 19.138,
+    "ps": 19.138,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 1.0
   },
   "verification": {
-    "method": "股东回报 = DefiLlama dailyHoldersRevenue 365d $9,982,231（= 35% 收入回购）；链上 reserve 钱包实测 $4,613,558（tev-records，差 <0.5%）",
+    "method": "股东回报 = DefiLlama dailyHoldersRevenue 365d $9,928,766（= 35% 收入回购）；链上 reserve 钱包实测 $4,613,558（tev-records，差 <0.5%）",
     "status": "partial",
-    "last_checked": "2026-10-22"
+    "last_checked": "2026-10-23"
   }
 }
