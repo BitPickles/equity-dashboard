@@ -1,12 +1,12 @@
 {
   "protocol": "gmx",
-  "as_of": "2026-10-24",
+  "as_of": "2026-10-25",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 18753955.0,
-        "total_usd_365d": 18753955.0
+        "protocol_fees_usd_365d": 18848418.0,
+        "total_usd_365d": 18848418.0
       },
       "revenue_excluded": {
         "staking_dividends": {
@@ -20,22 +20,22 @@
       },
       "by_period": {
         "7d": {
-          "total_usd": 754333.0
+          "total_usd": 816079.0
         },
         "30d": {
-          "total_usd": 4820848.0
+          "total_usd": 4872718.0
         },
         "90d": {
-          "total_usd": 7609096.0
+          "total_usd": 7670559.0
         },
         "365d": {
-          "total_usd": 18753955.0
+          "total_usd": 18848418.0
         }
       }
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": 18753955.0,
+      "gross_profit_usd_365d": 18848418.0,
       "calculation_note": "DefiLlama dailyRevenue（V2 交易费）为协议净收入，LP 分润已在数据源扣减；毛利 = 收入"
     },
     "token_emission_cost": {
@@ -46,7 +46,7 @@
       "calculation_note": "GMX 供应固定（~1000 万枚，无持续增发），不涉及增发成本"
     },
     "net_income": {
-      "net_income_usd_365d": 18753955.0,
+      "net_income_usd_365d": 18848418.0,
       "operating_cost_usd_365d": null,
       "calculation_note": "净利 = 27% 协议费（全额留存国库，回购-留存模式）；股东回报 = 0，标注「锁定至 $90」"
     },
@@ -77,7 +77,7 @@
     },
     "by_period": {
       "7d": {
-        "revenue_usd": 754333.0,
+        "revenue_usd": 816079.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -89,7 +89,7 @@
         "source": "official"
       },
       "30d": {
-        "revenue_usd": 4820848.0,
+        "revenue_usd": 4872718.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -101,7 +101,7 @@
         "source": "official"
       },
       "90d": {
-        "revenue_usd": 7609096.0,
+        "revenue_usd": 7670559.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -113,7 +113,7 @@
         "source": "official"
       },
       "365d": {
-        "revenue_usd": 18753955.0,
+        "revenue_usd": 18848418.0,
         "shareholder_returns_usd": 0.0,
         "destroy_usd": 0.0,
         "yield_usd": 0.0,
@@ -127,21 +127,21 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 88120008,
+    "market_cap_usd": 89520955,
     "tvl_usd": 256520219.69048157,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
     "pe": null,
-    "ps": 4.6987,
+    "ps": 4.7495,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null
   },
   "verification": {
-    "method": "净利 = DefiLlama V2 交易费 dailyRevenue 365d $18,753,955；27% 协议费全额留存国库（提案 #5042，2026-03-04 Restore Price Discovery）；股东回报 = 0，锁定至 $90；tev-records 365d $5,968,617（含暂停前历史，仅参考）",
+    "method": "净利 = DefiLlama V2 交易费 dailyRevenue 365d $18,848,418；27% 协议费全额留存国库（提案 #5042，2026-03-04 Restore Price Discovery）；股东回报 = 0，锁定至 $90；tev-records 365d $5,968,617（含暂停前历史，仅参考）",
     "status": "partial",
-    "last_checked": "2026-10-24"
+    "last_checked": "2026-10-25"
   }
 }

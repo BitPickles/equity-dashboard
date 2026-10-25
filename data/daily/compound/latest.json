@@ -1,18 +1,18 @@
 {
   "protocol": "compound",
-  "updated_at": "2026-10-24T00:13:34.000Z",
+  "updated_at": "2026-10-25T00:16:36.000Z",
   "data_sources": {
     "defillama": "compound-v3",
     "coingecko": "compound-governance-token",
     "note": "M0 僵尸数据重建 2026-08-02：数据来自 DefiLlama summary/fees + CoinGecko；TEV 机制字段保留原值（由专属 adapter 维护）"
   },
   "latest_record": {
-    "date": "2026-10-24",
+    "date": "2026-10-25",
     "price_usd": 23.67,
     "market_cap_usd": 237221742,
-    "daily_fees_usd": 86060,
-    "total30d_fees_usd": 2544709,
-    "total1y_fees_usd": 25760972
+    "daily_fees_usd": 68778,
+    "total30d_fees_usd": 2554011,
+    "total1y_fees_usd": 25678821
   },
   "metrics": {
     "trailing_30d_shareholder_returns_usd": 0,
@@ -21,6 +21,6 @@
     "current_market_cap_usd": 237221742,
     "tev_yield": null,
     "return_yield_decimal": 0.0,
-    "calculated_at": "2026-10-24T00:13:34.000Z"
+    "calculated_at": "2026-10-25T00:16:36.000Z"
   }
 }
