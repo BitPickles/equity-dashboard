@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anthropic S-1 解读｜六章深挖 | Crypto3D</title>
+<meta name="description" content="Anthropic 递交 S-1：现金流、收入、算力、股权、融资与愿景六章；数字分正式披露与推算，不构成买卖建议。">
+<link rel="icon" href="../shared-20261011/logo-3d-32.png">
+<script>try{if(localStorage.getItem('theme')!=='dark')document.documentElement.setAttribute('data-theme','light')}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
+<link rel="stylesheet" href="../shared-20261011/research.css">
+<link rel="stylesheet" href="../shared-20261011/article.css">
+<link rel="stylesheet" href="../shared-20261011/enhancements.css">
+<link rel="canonical" href="https://crypto3d.pro/research/anthropic-s1/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Crypto3D">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="Anthropic S-1 解读｜六章深挖">
+<meta property="og:description" content="Anthropic 递交 S-1：现金流、收入、算力、股权、融资与愿景六章；数字分正式披露与推算，不构成买卖建议。">
+<meta property="og:url" content="https://crypto3d.pro/research/anthropic-s1/">
+<meta property="og:image" content="https://crypto3d.pro/research/anthropic-s1/assets/post-money-path.png">
+<meta property="article:published_time" content="2026-10-27T00:00:00+08:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Anthropic S-1 解读｜六章深挖">
+<meta name="twitter:description" content="Anthropic 递交 S-1：现金流、收入、算力、股权、融资与愿景六章；数字分正式披露与推算，不构成买卖建议。">
+<meta name="twitter:image" content="https://crypto3d.pro/research/anthropic-s1/assets/post-money-path.png">
+
+<style>
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0 22px}
+.metric{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:16px 14px}
+.metric .v{font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-.3px}
+.metric .l{margin-top:6px;font-size:13px;color:var(--muted)}
+.metric .d{margin-top:4px;font-size:12px;color:var(--muted);opacity:.9}
+.metric.success .v{color:#4ade80}
+.metric.danger .v{color:#f87171}
+.metric.warn .v{color:#fbbf24}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.4px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted);margin-left:6px;vertical-align:middle}
+.tag.ok{color:#4ade80;border-color:color-mix(in srgb,#4ade80 40%,var(--line))}
+.tag.warn{color:#fbbf24;border-color:color-mix(in srgb,#fbbf24 40%,var(--line))}
+.tag.media{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 40%,var(--line))}
+.tag.calc{color:var(--pink);border-color:color-mix(in srgb,var(--pink) 40%,var(--line))}
+.callout{margin:18px 0;padding:14px 16px;border-left:3px solid var(--pink);background:var(--panel);border-radius:0 10px 10px 0;font-size:15px}
+.callout.warn{border-left-color:#fbbf24}
+.props{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0}
+.prop{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--panel)}
+.prop dt{font-size:12px;color:var(--muted);margin:0 0 4px}
+.prop dd{margin:0;font-size:15px;font-weight:600}
+.proscons{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.proscons > div{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--panel)}
+.proscons h4{margin:0 0 10px;font-size:15px}
+.proscons ul{margin:0;padding-left:18px}
+.chart-figure{margin:22px 0}
+.chart-figure figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.chart-figure img{margin:0;border:1px solid var(--line);border-radius:8px}
+.eq{margin:14px 0;padding:12px 14px;border:1px dashed var(--line);border-radius:10px;background:var(--panel);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px}
+@media(max-width:900px){.metrics{grid-template-columns:1fr 1fr}.props,.proscons{grid-template-columns:1fr}}
+@media(max-width:560px){.metrics{grid-template-columns:1fr}}
+</style>
+
+</head>
+<body>
+<a class="skip-link" href="#content">跳至正文</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="../"><img src="../shared-20261011/logo-3d.jpg" width="28" height="28" alt="">Crypto3D</a>
+    <nav class="site-nav" aria-label="网站导航">
+      <a href="https://crypto3d.pro/equity/">协议估值</a>
+      <a href="../" aria-current="page">研究文章</a>
+    </nav>
+    <div class="hd-r"><button type="button" id="tt" aria-label="切换主题"></button></div>
+  </div>
+</header>
+<div class="layout">
+<aside aria-label="文章目录">
+  <div class="label">ANTHROPIC / S-1 解读</div>
+  <a href="#cover">封面结论</a>
+  <a href="#preface">这是什么 / 读前须知</a>
+  <a href="#cashflow">一、现金流与流动性</a>
+  <a href="#revenue">二、收入与可持续性</a>
+  <a href="#compute">三、云与算力承诺</a>
+  <a href="#equity">四、股权与控制权</a>
+  <a href="#financing">五、多轮融资</a>
+  <a href="#vision">六、愿景与规划</a>
+  <div class="downloads">
+    <a href="#takeaway">来源与免责</a>
+  </div>
+</aside>
+<main id="content">
+<nav aria-label="当前位置" class="breadcrumbs">
+  <a href="../">首页</a><span>/</span><a href="../">研究文章</a><span>/</span><span>Anthropic S-1</span>
+</nav>
+
+
+<h1>Anthropic S-1 解读｜六章深挖</h1>
+<p class="snapshot">整理自 Anthropic, PBC Form S-1（SEC 提交日 2026-10-26，美国时间）及公司公告。金额单位：M＝百万美元，B＝十亿美元。标签：<span class="tag ok">正式披露</span> <span class="tag calc">自行计算</span> <span class="tag media">媒体</span> <span class="tag warn">空白</span> <span class="tag warn">$2T＝用户假设</span></p>
+
+<p>Anthropic 递交 S-1：现金流、收入、算力、股权、融资与愿景六章；数字分正式披露与推算，不构成买卖建议。</p>
+
+<h2 id="cover">封面结论</h2>
+<p>关键数字快照（正式披露口径）：</p>
+<div class="metrics">
+  <div class="metric"><div class="v">约 16.3B</div><div class="l">H1'26 收入</div><div class="d">正式披露 16.286B</div></div>
+  <div class="metric success"><div class="v">+3.9B</div><div class="l">H1'26 经营现金流</div><div class="d">正式披露 +3.929B</div></div>
+  <div class="metric danger"><div class="v">−80.7B</div><div class="l">GAAP 净亏</div><div class="d">主因非现金公允 −72.4B</div></div>
+  <div class="metric"><div class="v">约 131.7B</div><div class="l">现金+短投</div><div class="d">截至 2026-06-30</div></div>
+</div>
+<ul>
+  <li>发行价 / 股数：提交稿仍空白 <span class="tag warn">空白</span></li>
+  <li>$2T 是用户假设，不是 S-1 正式披露，也不是本页结论 <span class="tag warn">$2T＝用户假设</span></li>
+</ul>
+<div class="callout warn"><strong>$2T＝假设非披露。</strong>讨论中的「2T」市值仅为用户假设，勿与正式披露数字并列。</div>
+
+<h2 id="preface">这是什么 / 读前须知</h2>
+<p>2026年10月26日（美国时间），Anthropic, PBC 向 SEC 提交 Form S-1。</p>
+<ul>
+  <li>拟发 Class A 普通股，申请纳斯达克全球精选代码 ANT <span class="tag ok">正式披露</span></li>
+  <li>PBC＝Public Benefit Corporation（公益公司），章程兼顾公共利益</li>
+  <li>发行价、股数、注册号提交稿仍空白；注册声明尚未生效 <span class="tag warn">空白</span></li>
+</ul>
+<p>读数标签（本页统一）：</p>
+<ul>
+  <li><strong>正式披露</strong>＝S-1 原文；<strong>自行计算</strong>＝用披露数推算（标公式）</li>
+  <li><strong>媒体</strong>＝S-1 无对应合计，不拿来填空；<strong>空白</strong>＝提交稿未填</li>
+  <li>金额一律 M（百万美元）/ B（十亿美元）；$2T＝用户假设，非披露</li>
+  <li>本页不是招股书，也不构成买卖建议</li>
+</ul>
+<dl class="props">
+  <div class="prop"><dt>发行人</dt><dd>Anthropic, PBC（公益公司）</dd></div>
+  <div class="prop"><dt>提交日</dt><dd>2026-10-26（SEC 封面）</dd></div>
+  <div class="prop"><dt>拟上市 / 代码</dt><dd>Nasdaq Global Select / ANT</dd></div>
+  <div class="prop"><dt>主承销</dt><dd>Goldman Sachs；Morgan Stanley</dd></div>
+  <div class="prop"><dt>累计已募资（截至2026-06-30）</dt><dd>约 141.1B <span class="tag ok">正式披露</span></dd></div>
+  <div class="prop"><dt>现金+短投（截至2026-06-30）</dt><dd>131.651B <span class="tag ok">正式披露</span></dd></div>
+</dl>
+
+<h2 id="cashflow">一、现金流与流动性</h2>
+<p><strong>本章要点</strong></p>
+<ul>
+  <li>经营现金流 +3.929B（正式披露，H1'26 首次转正）</li>
+  <li>GAAP 净亏损 −80.748B，其中公允变动 −72.388B（非现金，正式披露）</li>
+  <li>现金+短投 131.651B（截至 2026-06-30，正式披露）</li>
+</ul>
+<figure class="chart-figure" role="img" aria-label="经营现金流路径（十亿美元，正式披露）">
+<svg viewBox="0 0 700 280" width="100%" style="color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;display:block">
+<line x1="52" y1="120.72727272727272" x2="680" y2="120.72727272727272" stroke="currentColor" stroke-opacity=".35" stroke-dasharray="4 4"/><text x="44" y="124.72727272727272" text-anchor="end" fill="currentColor" font-size="11" opacity=".6">0</text>
+<path d="M 52.0 150.9 L 209.0 226.3 L 366.0 169.6 L 523.0 148.8 L 680.0 47.9" fill="none" stroke="#8aafff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="52.0" cy="150.9" r="4.5" fill="#8aafff"/><text x="52.0" y="140.9" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">−1.627B</text><circle cx="209.0" cy="226.3" r="4.5" fill="#8aafff"/><text x="209.0" y="216.3" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">−5.692B</text><circle cx="366.0" cy="169.6" r="4.5" fill="#8aafff"/><text x="366.0" y="159.6" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">−2.637B</text><circle cx="523.0" cy="148.8" r="4.5" fill="#8aafff"/><text x="523.0" y="138.8" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">−1.513B</text><circle cx="680.0" cy="47.9" r="4.5" fill="#8aafff"/><text x="680.0" y="37.9" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">+3.929B</text><text x="52.0" y="266" text-anchor="middle" fill="currentColor" font-size="12" opacity=".75">FY23</text><text x="209.0" y="266" text-anchor="middle" fill="currentColor" font-size="12" opacity=".75">FY24</text><text x="366.0" y="266" text-anchor="middle" fill="currentColor" font-size="12" opacity=".75">FY25</text><text x="523.0" y="266" text-anchor="middle" fill="currentColor" font-size="12" opacity=".75">H1'25</text><text x="680.0" y="266" text-anchor="middle" fill="currentColor" font-size="12" opacity=".75">H1'26</text>
+</svg>
+<figcaption>经营现金流路径（十亿美元，正式披露）</figcaption>
+</figure>
+<p>H1'26 从经营亏损到 GAAP 净亏的路径（正式披露）。</p>
+<figure class="chart-figure" role="img" aria-label="H1'26 经营亏损到 GAAP 净亏瀑布路径（十亿美元）">
+<svg viewBox="0 0 700 380" width="100%" style="color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;display:block">
+<line x1="18" y1="58.206896551724135" x2="682" y2="58.206896551724135" stroke="currentColor" stroke-opacity=".4" stroke-dasharray="4 4"/>
+<text x="18" y="52.206896551724135" fill="currentColor" font-size="11" opacity=".7">0</text>
+<rect x="18.0" y="58.206896551724135" width="108.8" height="3" rx="4" fill="#f87171" fill-opacity=".88"/>
+<text x="72.4" y="50.206896551724135" text-anchor="middle" fill="currentColor" font-size="12" font-weight="600">−0.693B</text>
+<text x="72.4" y="342" text-anchor="middle" fill="currentColor" font-size="12">经营亏损</text>
+<line x1="126.8" y1="60.35758620689655" x2="156.8" y2="60.35758620689655" stroke="currentColor" stroke-opacity=".55" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="156.8" y="56.90965517241379" width="108.8" height="3.4479310344827567" rx="4" fill="#4ade80" fill-opacity=".88"/>
+<text x="211.2" y="48.90965517241379" text-anchor="middle" fill="currentColor" font-size="12" font-weight="600">+1.111B</text>
+<text x="211.2" y="342" text-anchor="middle" fill="currentColor" font-size="12">+利息</text>
+<line x1="265.6" y1="56.90965517241379" x2="295.6" y2="56.90965517241379" stroke="currentColor" stroke-opacity=".55" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="295.6" y="56.90965517241379" width="108.8" height="224.65241379310345" rx="4" fill="#f87171" fill-opacity=".88"/>
+<text x="350.0" y="48.90965517241379" text-anchor="middle" fill="currentColor" font-size="12" font-weight="600">−72.388B</text>
+<text x="350.0" y="342" text-anchor="middle" fill="currentColor" font-size="12">−公允变动</text>
+<line x1="404.4" y1="281.56206896551726" x2="434.4" y2="281.56206896551726" stroke="currentColor" stroke-opacity=".55" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="434.4" y="281.56206896551726" width="108.8" height="27.176896551724155" rx="4" fill="#f87171" fill-opacity=".88"/>
+<text x="488.8" y="271.56206896551726" text-anchor="middle" fill="currentColor" font-size="12" font-weight="600">−8.757B</text>
+<text x="488.8" y="342" text-anchor="middle" fill="currentColor" font-size="12">−其他</text>
+<line x1="543.2" y1="308.7389655172414" x2="573.2" y2="308.7389655172414" stroke="currentColor" stroke-opacity=".55" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="573.2" y="58.206896551724135" width="108.8" height="250.5972413793104" rx="4" fill="#f87171" fill-opacity="1"/>
+<text x="627.6" y="50.206896551724135" text-anchor="middle" fill="currentColor" font-size="12" font-weight="600">−80.748B</text>
+<text x="627.6" y="342" text-anchor="middle" fill="currentColor" font-size="12">GAAP净亏</text>
+</svg>
+<figcaption>H1'26 经营亏损 → GAAP 净亏（十亿美元，正式披露；中间柱按累计水平衔接）</figcaption>
+</figure>
+</figure>
+<div class="metrics">
+  <div class="metric danger"><div class="v">80.748B</div><div class="l">H1'26 GAAP 净亏损</div><div class="d">正式披露</div></div>
+  <div class="metric success"><div class="v">3.929B</div><div class="l">H1'26 经营现金流</div><div class="d">正式披露 · 为正</div></div>
+</div>
+
+<h3>展开细读：现金流细项</h3>
+<p>经营现金流 OCF（Operating Cash Flow）：卖货回款减日常开支后，生意本身进出的现金。正式披露；H1'26 首次转正为 +3.929B。</p>
+<p>融资现金流：股权/债项等筹资净流入。H1'26 主因可赎回可转优先股发行净额 110.432B。</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="融资现金流表"><table>
+<thead><tr><th>期间</th><th align="right">融资现金流</th><th>口径</th></tr></thead>
+<tbody>
+<tr><td>H1'26</td><td align="right"><strong>110.774B</strong></td><td>正式披露</td></tr>
+<tr><td>FY25</td><td align="right">19.96B</td><td>正式披露</td></tr>
+<tr><td>FY24</td><td align="right">7.248B</td><td>正式披露</td></tr>
+<tr><td>FY23</td><td align="right">2.32B</td><td>正式披露</td></tr>
+</tbody></table></div>
+<p>ICF＝Investing Cash Flow（投资现金流）：买设备或短投，不是向投资人融资。H1'26 净流出 17.181B（正式披露）：</p>
+<ul>
+  <li>购买短期投资约 18.972B</li>
+  <li>短期投资到期/出售回笼约 2.61B</li>
+  <li>购置不动产与设备约 0.482B</li>
+</ul>
+<p>现金及受限现金期末 H1'26：114.918B（正式披露）。</p>
+<figure class="chart-figure" role="img" aria-label="GAAP 净亏损路径（十亿美元，正式披露）">
+<svg viewBox="0 0 700 280" width="100%" style="color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;display:block">
+
+<path d="M 52.0 31.7 L 209.0 47.9 L 366.0 128.7 L 523.0 59.1 L 680.0 221.8" fill="none" stroke="#8aafff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="52.0" cy="31.7" r="4.5" fill="#8aafff"/><text x="52.0" y="21.7" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">−1.531B</text><circle cx="209.0" cy="47.9" r="4.5" fill="#8aafff"/><text x="209.0" y="37.9" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">−8.309B</text><circle cx="366.0" cy="128.7" r="4.5" fill="#8aafff"/><text x="366.0" y="118.7" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">−41.965B</text><circle cx="523.0" cy="59.1" r="4.5" fill="#8aafff"/><text x="523.0" y="49.1" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">−12.969B</text><circle cx="680.0" cy="221.8" r="4.5" fill="#8aafff"/><text x="680.0" y="211.8" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">−80.748B</text><text x="52.0" y="266" text-anchor="middle" fill="currentColor" font-size="12" opacity=".75">FY23</text><text x="209.0" y="266" text-anchor="middle" fill="currentColor" font-size="12" opacity=".75">FY24</text><text x="366.0" y="266" text-anchor="middle" fill="currentColor" font-size="12" opacity=".75">FY25</text><text x="523.0" y="266" text-anchor="middle" fill="currentColor" font-size="12" opacity=".75">H1'25</text><text x="680.0" y="266" text-anchor="middle" fill="currentColor" font-size="12" opacity=".75">H1'26</text>
+</svg>
+<figcaption>GAAP 净亏损路径（十亿美元，正式披露）</figcaption>
+</figure>
+<p>其中可转债/衍生负债/SAFE 公允价值变动（正式披露，非现金）：估值上涨时该项亏损往往同步放大。H1'26 −72.388B。</p>
+<p>瀑布路径（十亿美元，正式披露）：经营亏损 −0.693 → +利息 1.111 → −公允变动 72.388 → −其他 8.757 → GAAP 净亏 −80.748。</p>
+
+<h3>1.2 现金 + 短投</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="现金与资产"><table>
+<thead><tr><th>项目</th><th align="right">金额</th><th>口径</th></tr></thead>
+<tbody>
+<tr><td>现金及现金等价物</td><td align="right">112.4B</td><td>正式披露</td></tr>
+<tr><td>短期投资</td><td align="right">19.3B</td><td>正式披露</td></tr>
+<tr><td>现金+短投合计</td><td align="right"><strong>131.651B</strong></td><td>正式披露</td></tr>
+<tr><td>总资产</td><td align="right">147.358B</td><td>正式披露</td></tr>
+<tr><td>其他资产</td><td align="right">约 15.7B</td><td>自行计算：147.358−131.651</td></tr>
+</tbody></table></div>
+<p>截至 2026-06-30，现金与短投占资产绝大部分。</p>
+
+<h3>1.3 自由现金流 FCF（自行计算）</h3>
+<p>FCF＝Free Cash Flow：OCF 扣掉资本开支后还剩多少现金。招股书未写成正式 KPI。</p>
+<ul>
+  <li>口径：OCF − CapEx（购置不动产与设备）</li>
+  <li>短投买卖不算进狭义 FCF</li>
+</ul>
+<div class="eq">(1) FCF_H1'26（自行计算） = 3.929B − 0.482B = 3.447B</div>
+<div class="table-wrap" tabindex="0" role="region" aria-label="FCF 计算"><table>
+<thead><tr><th>期间</th><th align="right">OCF</th><th align="right">CapEx</th><th align="right">FCF</th></tr></thead>
+<tbody>
+<tr><td>H1'26</td><td align="right">3.929B</td><td align="right">0.482B</td><td align="right"><strong>+3.447B</strong></td></tr>
+<tr><td>FY2025</td><td align="right">−2.637B</td><td align="right">131M</td><td align="right">−2.768B</td></tr>
+<tr><td>H1'25</td><td align="right">−1.513B</td><td align="right">18M</td><td align="right">−1.531B</td></tr>
+</tbody></table></div>
+<p>上表 FCF 均为自行计算（OCF、CapEx 来自正式披露）。</p>
+
+<h2 id="revenue">二、收入与可持续性（含单位经济）</h2>
+<p><strong>本章要点</strong></p>
+<ul>
+  <li>收入从 FY23 的 41M 升至 Q2'26 单季 11.555B；H1'26 为 16.286B <span class="tag ok">正式披露</span></li>
+  <li>H1'26 粗毛利率约 85% <span class="tag calc">自行计算</span>；Q2'26 单季经营利润约 1.0B</li>
+  <li>NRR 约 900%；$10万+ TTM 客户逾 11,900（截至 2026-09-30） <span class="tag ok">正式披露</span></li>
+</ul>
+<p>期间口径：FY＝自然年；H1＝至 6 月 30 日六个月；单季＝三个月。叙述提到 2026 年三季度，但 Q3 收入提交稿空白——不加媒体数。</p>
+
+<h3>2.1 收入路径（正式披露）</h3>
+<figure class="chart-figure" role="img" aria-label="季度收入路径（正式披露）">
+<svg viewBox="0 0 700 280" width="100%" style="color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;display:block">
+
+<path d="M 52.0 225.6 L 177.6 218.6 L 303.2 208.5 L 428.8 197.3 L 554.4 151.6 L 680.0 35.6" fill="none" stroke="#8aafff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="52.0" cy="225.6" r="4.5" fill="#8aafff"/><text x="52.0" y="215.6" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">376M</text><circle cx="177.6" cy="218.6" r="4.5" fill="#8aafff"/><text x="177.6" y="208.6" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">787M</text><circle cx="303.2" cy="208.5" r="4.5" fill="#8aafff"/><text x="303.2" y="198.5" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">1.382B</text><circle cx="428.8" cy="197.3" r="4.5" fill="#8aafff"/><text x="428.8" y="187.3" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">2.040B</text><circle cx="554.4" cy="151.6" r="4.5" fill="#8aafff"/><text x="554.4" y="141.6" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">4.731B</text><circle cx="680.0" cy="35.6" r="4.5" fill="#8aafff"/><text x="680.0" y="25.6" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">11.555B</text><text x="52.0" y="266" text-anchor="middle" fill="currentColor" font-size="12" opacity=".75">Q1'25</text><text x="177.6" y="266" text-anchor="middle" fill="currentColor" font-size="12" opacity=".75">Q2'25</text><text x="303.2" y="266" text-anchor="middle" fill="currentColor" font-size="12" opacity=".75">Q3'25</text><text x="428.8" y="266" text-anchor="middle" fill="currentColor" font-size="12" opacity=".75">Q4'25</text><text x="554.4" y="266" text-anchor="middle" fill="currentColor" font-size="12" opacity=".75">Q1'26</text><text x="680.0" y="266" text-anchor="middle" fill="currentColor" font-size="12" opacity=".75">Q2'26</text>
+</svg>
+<figcaption>季度收入路径（正式披露）</figcaption>
+</figure>
+<ul>
+  <li>H1'26 较 H1'25 约 +1,300% <span class="tag ok">正式披露</span></li>
+  <li>Q2'26 单季经营利润约 1.0B</li>
+  <li>Q2'26 的 11.555B ×4 ≈ 46.22B「季化年跑速」<span class="tag calc">自行计算</span>（非指引，不能代替空白 Q3）</li>
+</ul>
+<div class="metrics">
+  <div class="metric"><div class="v">41M</div><div class="l">FY2023</div><div class="d">正式披露</div></div>
+  <div class="metric"><div class="v">4.585B</div><div class="l">FY2025</div><div class="d">正式披露</div></div>
+  <div class="metric"><div class="v">16.286B</div><div class="l">H1'26</div><div class="d">正式披露</div></div>
+  <div class="metric warn"><div class="v">空白</div><div class="l">Q3'26</div><div class="d">提交稿未填</div></div>
+</div>
+
+<h3>2.2 用量 vs 订阅、地区</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="用量与订阅"><table>
+<thead><tr><th>期间</th><th align="right">用量（M$）</th><th align="right">订阅（M$）</th><th align="right">合计</th></tr></thead>
+<tbody>
+<tr><td>FY23</td><td align="right">39</td><td align="right">2</td><td align="right">41M</td></tr>
+<tr><td>FY24</td><td align="right">288</td><td align="right">98</td><td align="right">386M</td></tr>
+<tr><td>FY25</td><td align="right">3,796</td><td align="right">789</td><td align="right">4.585B</td></tr>
+<tr><td>H1'25</td><td align="right">983</td><td align="right">180</td><td align="right">1.163B</td></tr>
+<tr><td>H1'26</td><td align="right">13,064</td><td align="right">3,222</td><td align="right"><strong>16.286B</strong></td></tr>
+</tbody></table></div>
+<p>金额单位统一为百万美元（正式披露）。用量仍是大头，订阅占比抬到约两成（H1'26 用量约 80%、订阅约 20%）。</p>
+<p>地区（账单地址，正式披露）：H1'26 美国 11.763B、国际 4.523B（国际约 28%，自行计算）。</p>
+
+<h3>2.3 NRR / RPO / CSP / 集中度</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="客户规模"><table>
+<thead><tr><th>时点</th><th align="right">$10万+ TTM 客户</th><th>口径</th></tr></thead>
+<tbody>
+<tr><td>2026-09-30</td><td align="right"><strong>逾 11,900</strong></td><td>正式披露</td></tr>
+<tr><td>2025-09-30</td><td align="right">逾 950</td><td>正式披露 · 一年前</td></tr>
+<tr><td>2025末约</td><td align="right">约 1,500</td><td>媒体近似</td></tr>
+<tr><td>2024末约</td><td align="right">约 200</td><td>媒体近似</td></tr>
+<tr><td>2023末约</td><td align="right">约 20</td><td>媒体近似</td></tr>
+</tbody></table></div>
+<ul>
+  <li>前九个月前五大约 25%、无单一客户大于 10% <span class="tag ok">正式披露</span>（截至 2026-09-30）</li>
+  <li>H1'26 经云市场开票约 48% <span class="tag ok">正式披露</span></li>
+  <li>CSP＝Cloud Service Provider：客户经 AWS/GCP/Azure 下单、由云厂商开票代收</li>
+</ul>
+<dl class="props">
+  <div class="prop"><dt>$10万+ TTM 客户</dt><dd>逾 11,900（2026-09-30；一年前逾 950）</dd></div>
+  <div class="prop"><dt>$100万+ TTM 客户</dt><dd>逾 1,900（2026-09-30）</dd></div>
+  <div class="prop"><dt>$1,000万+ TTM 客户</dt><dd>约 250（2026-09-30）</dd></div>
+  <div class="prop"><dt>前五大收入占比</dt><dd>约 25%（前九个月；无单一&gt;10%）</dd></div>
+  <div class="prop"><dt>NRR（净收入留存）</dt><dd>约 900%（截至 2026-09-30）</dd></div>
+  <div class="prop"><dt>RPO（剩余履约义务）</dt><dd>10.8B（2026-06-30）；约 75% 预计 12 个月内确认</dd></div>
+  <div class="prop"><dt>递延收入余额</dt><dd>1.65B（2026-06-30）</dd></div>
+  <div class="prop"><dt>CSP 渠道占比</dt><dd>H1'26 约 48%（FY25 约 47%）</dd></div>
+</dl>
+<p>前五大绝对额口径提醒：占比属「前九个月」；Q3'26 收入空白 → 前九个月总收入无完整正式数。算不出正式的「前五大合计 XX.XB」。示意：若误用 H1'26 的 16.286B×25%≈4.07B（自行计算，口径不完全匹配）。</p>
+
+<h3>2.4 COGS 与粗毛利率</h3>
+<p>收入与 Cost of revenue 正式披露；粗毛利与粗毛利率自行计算。H1'26 粗毛利率约 85%（账上 COGS 口径）。</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="粗毛利率对照"><table>
+<thead><tr><th>口径</th><th align="right">粗毛利率</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>S-1 COGS 粗毛利</td><td align="right"><strong>约 85%</strong></td><td>自行计算：13.906B÷16.286B</td></tr>
+<tr><td>若算力全作成本</td><td align="right">约 45%</td><td>自行计算：(16.286−8.945)÷16.286</td></tr>
+</tbody></table></div>
+<ul>
+  <li>若把「Compute and infrastructure」8.945B 全当成本 → 约 45%（自行计算）</li>
+  <li>8.945B 含研发/训练/内部用量，不能直接当 COGS</li>
+  <li>渠道分成费率 S-1 未单列完整，不另画第三档</li>
+  <li>Opus 5.5 较 Opus 5 降本约 40%（正式披露）；公司称会刺激更多用量</li>
+</ul>
+<div class="eq">(2) 粗毛利率（自行计算）＝（收入 − Cost of revenue）÷ 收入</div>
+
+<h3>2.5 可持续性 Pros / Cons</h3>
+<div class="proscons">
+  <div>
+    <h4>支撑可持续性的披露事实</h4>
+    <ul>
+      <li>H1'26 收入同比约 +1,300%；Q2'26 单季约 11.6B 且经营利润已转正</li>
+      <li>NRR 约 900%；$10万+ TTM 客户逾 11,900；RPO 10.8B</li>
+      <li>H1'26 粗毛利率约 85%（自行计算）；经营现金流净流入约 3.9B</li>
+      <li>现金+短投约 131.7B（截至 2026-06-30）</li>
+    </ul>
+  </div>
+  <div>
+    <h4>威胁可持续性的披露事实</h4>
+    <ul>
+      <li>前五大约占前九个月收入 25%；大客户可减支；合同多为短锁定</li>
+      <li>近一半收入经 CSP 市场；AWS/GCP/Azure 既是渠道也是算力对手方与战略投资者</li>
+      <li>对 Google/Amazon/Microsoft 等有数十至百十亿级、多数不可取消最低采购</li>
+      <li>前沿竞争激烈；算力承诺与人才成本难立刻下调</li>
+      <li>Q3'26 收入在 S-1 仍空白</li>
+    </ul>
+  </div>
+</div>
+
+<h2 id="compute">三、云与算力承诺</h2>
+<p><strong>本章要点</strong></p>
+<ul>
+  <li>Google / Amazon / Microsoft＝至少最低采购，多数不可取消 <span class="tag ok">正式披露</span></li>
+  <li>SpaceX.AI＝合计最高约 120.5B 上限；初始期后任一方可 90 天通知取消 <span class="tag ok">正式披露</span></li>
+  <li>三大云最低承诺自行加总约 269.4B <span class="tag calc">自行计算</span>（未含 SpaceX.AI）</li>
+</ul>
+<figure class="chart-figure" role="img" aria-label="云与算力承诺规模（十亿美元）">
+<svg viewBox="0 0 700 200" width="100%" style="color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;display:block">
+<text x="128" y="34" text-anchor="end" fill="currentColor" font-size="13">SpaceX.AI 上限</text>
+<rect x="140" y="20" width="450.0" height="22" rx="4" fill="#8aafff" fill-opacity="0.90"/>
+<text x="598.0" y="36" fill="currentColor" font-size="13" font-weight="600">约 120.5B</text>
+<text x="140" y="54" fill="currentColor" font-size="11" opacity=".55">正式披露 · 上限且可取消性不同</text><text x="128" y="76" text-anchor="end" fill="currentColor" font-size="13">Google 至少</text>
+<rect x="140" y="62" width="427.6" height="22" rx="4" fill="#8aafff" fill-opacity="0.87"/>
+<text x="575.6" y="78" fill="currentColor" font-size="13" font-weight="600">至少 114.5B</text>
+<text x="140" y="96" fill="currentColor" font-size="11" opacity=".55">正式披露</text><text x="128" y="118" text-anchor="end" fill="currentColor" font-size="13">Amazon 至少</text>
+<rect x="140" y="104" width="410.8" height="22" rx="4" fill="#8aafff" fill-opacity="0.85"/>
+<text x="558.8" y="120" fill="currentColor" font-size="13" font-weight="600">至少 110B</text>
+<text x="140" y="138" fill="currentColor" font-size="11" opacity=".55">正式披露</text><text x="128" y="160" text-anchor="end" fill="currentColor" font-size="13">Microsoft 至少</text>
+<rect x="140" y="146" width="167.7" height="22" rx="4" fill="#8aafff" fill-opacity="0.55"/>
+<text x="315.7" y="162" fill="currentColor" font-size="13" font-weight="600">至少 44.9B</text>
+<text x="140" y="180" fill="currentColor" font-size="11" opacity=".55">正式披露</text>
+</svg>
+<figcaption>云与算力承诺规模（十亿美元）</figcaption>
+</figure>
+<p>短付则 true-up（补齐最低承诺差额，正式披露）。</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="算力承诺明细"><table>
+<thead><tr><th>对手方</th><th>承诺</th><th>期间 / 条件</th><th>口径</th></tr></thead>
+<tbody>
+<tr><td>Google</td><td>至少约 114.5B</td><td>2026-04 至 2033-07；多数不可取消；短付则 true-up</td><td>正式披露</td></tr>
+<tr><td>Amazon</td><td>至少 110B</td><td>2026-05 至 2036-04；多数不可取消；短付则 true-up</td><td>正式披露</td></tr>
+<tr><td>Microsoft</td><td>至少 44.9B</td><td>2026-11 至 2033-05；多数不可取消；未交付档位可按档取消</td><td>正式披露</td></tr>
+<tr><td>SpaceX.AI（原 X.AI）</td><td>合计最高约 120.5B</td><td>延至约 2029；满载后约 3.1B/月。初始期至 2027-01 / 2027-03 后，任一方 90 天通知可取消</td><td>正式披露</td></tr>
+</tbody></table></div>
+<p>自行加总数量级（非正式合计）：Google 114.5B + Amazon 110B + Microsoft 44.9B = 269.4B「最低云支出」下限感；未含 SpaceX.AI 上限、AMD 潜在超 20B 等。</p>
+<div class="callout warn"><strong>承诺总包（提交稿）</strong>：「超过 $ 」「2030 前约 $」「未来 12 个月约 $」均为空白。媒体更大总包，S-1 无对应合计——标空白，不以媒体填空。</div>
+
+<h2 id="equity">四、股权与控制权</h2>
+<p><strong>本章要点</strong></p>
+<ul>
+  <li>Founder LLC 一般表决权约 50.1%（无经济利益的一股）+ LTBT 选董事 <span class="tag ok">正式披露</span></li>
+  <li>Class A 有经济利益，对董事会多数与一般表决无控制力 <span class="tag ok">正式披露</span></li>
+  <li>主要股东表百分比多为空白；Amazon≈12%、Google≈14.99% 仅为协议上限（非正式精确持股）</li>
+</ul>
+
+<h3>4.1 主要股东：有出处 vs 上限/推算/预留</h3>
+<div class="callout warn">下表不是精确持股结构。主要股东表百分比栏多为空白；勿把上限、推算、预留当成已确认精确 %。</div>
+<p>有正式出处：</p>
+<ul>
+  <li>Founder LLC 一般表决权约 50.1%（正式披露；无经济利益的一股）</li>
+  <li>公益基金经济利益 5%（正式披露）</li>
+  <li>Class A 公众股：有经济利益；对董事会多数与一般表决无控制力（正式披露）</li>
+</ul>
+<div class="table-wrap" tabindex="0" role="region" aria-label="股东上限与推算"><table>
+<thead><tr><th>主体</th><th>表述</th><th>标签</th></tr></thead>
+<tbody>
+<tr><td>Amazon</td><td>约 12% 协议转换上限；S-1 仅写转换后超过 5%，非已确认精确%</td><td>上限</td></tr>
+<tr><td>Google</td><td>约 14.99% 协议上限；S-1 仅写转换后超过 5%，非已确认精确%</td><td>上限</td></tr>
+<tr><td>七位创始人合计</td><td>经济利益约 10%（自行计算）；控制权另见 Founder LLC 表决权</td><td>推算</td></tr>
+<tr><td>员工计划预留</td><td>约 22.8%（预留÷全面稀释；预留≠已实持）</td><td>预留</td></tr>
+<tr><td>Microsoft</td><td>主要股东表百分比空白</td><td>空白</td></tr>
+</tbody></table></div>
+<p>控制权在 Founder LLC 约 50.1% 表决权 + LTBT 选董事；Class A 无控制力。累计融资约 141.1B 带来稀释，但不改变上述表决结构（正式披露）。</p>
+
+<h3>4.2 媒体近似值（非 S-1 精确披露）</h3>
+<p>媒体称 Google「去年」持股约 14%；招股书主要股东表未给出 Amazon、Alphabet 等机构的精确持股百分比。此类标媒体，不作正式披露填空。</p>
+
+<h3>4.3 控制权（简要）</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="控制权"><table>
+<thead><tr><th>机制</th><th>说明</th><th>口径</th></tr></thead>
+<tbody>
+<tr><td>Founder LLC 表决权</td><td>七位联合创始人通过无经济利益的一股，合计掌握一般事项约 50.1% 表决权</td><td>正式披露</td></tr>
+<tr><td>LTBT 选董事</td><td>通过另一股选出董事会多数席位</td><td>正式披露</td></tr>
+<tr><td>公众股份（Class A）</td><td>有经济利益；对董事会多数与一般表决没有控制力。因 Nasdaq 规则属受控公司</td><td>正式披露</td></tr>
+<tr><td>公益基金增发</td><td>股价较上一里程碑每涨 50% 时，董事会可酌情再发最多约 2%（起步为 IPO 发行价）</td><td>正式披露</td></tr>
+<tr><td>创始人慈善承诺</td><td>联合创始人各承诺个人所持股权的 80% 用于慈善（自愿、可撤销表述）</td><td>正式披露</td></tr>
+</tbody></table></div>
+
+<h2 id="financing">五、多轮融资</h2>
+<p><strong>本章要点</strong></p>
+<ul>
+  <li>投后从 C 约 4.4B 到 H 965B（约 219×；公告/公开口径）</li>
+  <li>累计已募约 141.1B（截至 2026-06-30） <span class="tag ok">正式披露</span></li>
+  <li>H 轮融资 65B、投后 965B（公告口径）；备用 NPA/信贷约 77B 均未提款 <span class="tag ok">正式披露</span></li>
+</ul>
+
+<h3>5.1 投后估值路径</h3>
+<p>投后估值路径（正式/公告口径）</p>
+<figure class="chart-figure">
+  <img src="assets/post-money-path.png" width="2160" height="1152" alt="C 至 H 轮投后估值路径（十亿美元）">
+  <figcaption>C 轮 → H 轮约 219 倍；G → H 仅隔约 3 个月。柱间倍数为自行计算。</figcaption>
+</figure>
+<ul>
+  <li>C 取区间中约 4.4B；D 取约 14B；E–H 为公告口径</li>
+  <li>A/B 证据较弱，图从 C 起</li>
+  <li>post-money＝投后估值（本轮钱打进公司后的公司估值）</li>
+</ul>
+
+<h3>5.2 融资金额</h3>
+<figure class="chart-figure" role="img" aria-label="各轮融资金额（十亿美元）">
+<svg viewBox="0 0 700 284" width="100%" style="color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;display:block">
+<text x="128" y="34" text-anchor="end" fill="currentColor" font-size="13">H 轮</text>
+<rect x="140" y="20" width="450.0" height="22" rx="4" fill="#8aafff" fill-opacity="0.90"/>
+<text x="598.0" y="36" fill="currentColor" font-size="13" font-weight="600">65B</text>
+<text x="140" y="54" fill="currentColor" font-size="11" opacity=".55">公告口径</text><text x="128" y="76" text-anchor="end" fill="currentColor" font-size="13">G 轮</text>
+<rect x="140" y="62" width="207.7" height="22" rx="4" fill="#8aafff" fill-opacity="0.60"/>
+<text x="355.7" y="78" fill="currentColor" font-size="13" font-weight="600">30B</text>
+<text x="140" y="96" fill="currentColor" font-size="11" opacity=".55">公告口径</text><text x="128" y="118" text-anchor="end" fill="currentColor" font-size="13">F 轮</text>
+<rect x="140" y="104" width="90.0" height="22" rx="4" fill="#8aafff" fill-opacity="0.46"/>
+<text x="238.0" y="120" fill="currentColor" font-size="13" font-weight="600">13B</text>
+<text x="140" y="138" fill="currentColor" font-size="11" opacity=".55">公告口径</text><text x="128" y="160" text-anchor="end" fill="currentColor" font-size="13">E 轮</text>
+<rect x="140" y="146" width="24.2" height="22" rx="4" fill="#8aafff" fill-opacity="0.38"/>
+<text x="172.2" y="162" fill="currentColor" font-size="13" font-weight="600">3.5B</text>
+<text x="140" y="180" fill="currentColor" font-size="11" opacity=".55">公告口径</text><text x="128" y="202" text-anchor="end" fill="currentColor" font-size="13">D 轮</text>
+<rect x="140" y="188" width="8.3" height="22" rx="4" fill="#8aafff" fill-opacity="0.36"/>
+<text x="156.3" y="204" fill="currentColor" font-size="13" font-weight="600">约 1.2B</text>
+<text x="140" y="222" fill="currentColor" font-size="11" opacity=".55">公开报道</text><text x="128" y="244" text-anchor="end" fill="currentColor" font-size="13">C 轮</text>
+<rect x="140" y="230" width="4.0" height="22" rx="4" fill="#8aafff" fill-opacity="0.35"/>
+<text x="152.0" y="246" fill="currentColor" font-size="13" font-weight="600">约 0.45B</text>
+<text x="140" y="264" fill="currentColor" font-size="11" opacity=".55">公开报道</text>
+</svg>
+<figcaption>各轮融资金额（十亿美元）</figcaption>
+</figure>
+
+<h3>5.3 各轮明细</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="各轮融资明细"><table>
+<thead><tr><th>轮次</th><th>投后 / 融资</th><th>口径</th></tr></thead>
+<tbody>
+<tr><td>Series A · Jaan Tallinn 等</td><td>投后约 0.845B · 融资 0.124B</td><td>公开报道</td></tr>
+<tr><td>Series B · SBF / FTX 等</td><td>投后约 4.0B · 融资 0.58B</td><td>公开报道</td></tr>
+<tr><td>Series C · Spark Capital（Google 等参与）</td><td>投后约 4.1–4.6B · 融资约 0.45B</td><td>公开报道</td></tr>
+<tr><td>Series D · Menlo Ventures 等</td><td>投后约 13–15B · 融资约 1.2B</td><td>公开报道</td></tr>
+<tr><td>Series E · Lightspeed</td><td>投后 61.5B · 融资 3.5B</td><td>公告口径</td></tr>
+<tr><td>Series F · ICONIQ（Fidelity、Lightspeed）</td><td>投后 183B · 融资 13B</td><td>公告口径</td></tr>
+<tr><td>Series G · GIC、Coatue</td><td>投后 380B · 融资 30B（S-1 另有 G-1+G-2 ≈ 45.2B，含后续认购）</td><td>公告口径</td></tr>
+<tr><td>Series H · Altimeter、Dragoneer、Greenoaks、Sequoia</td><td>投后 965B · 融资 65B</td><td>公告口径</td></tr>
+</tbody></table></div>
+<ul>
+  <li>E–H 以公司公告为主（证据较高）</li>
+  <li>A–D 投后估值 S-1 未写成正式 post-money，上列为公开报道/数据库，勿与 E–H 混为同级</li>
+  <li>G 轮公告 30B / 380B；S-1 另有 G-1+G-2 ≈ 45.2B——冲突仅对照</li>
+</ul>
+
+<h3>5.4 估值倍数 P/S</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="P/S 倍数"><table>
+<thead><tr><th>基准</th><th align="right">约 P/S</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>假设 IPO 2.0T</td><td align="right">约 43x</td><td>自行计算 · 2T 为用户假设</td></tr>
+<tr><td>假设 IPO 1.5T</td><td align="right">约 32x</td><td>自行计算</td></tr>
+<tr><td>假设 IPO 1.0T</td><td align="right">约 22x</td><td>自行计算</td></tr>
+<tr><td>H 轮 965B</td><td align="right"><strong>约 20.9x</strong></td><td>自行计算：965÷46.22</td></tr>
+</tbody></table></div>
+<ul>
+  <li>季化年跑速＝Q2'26 收入 11.555B×4≈46.22B（非指引）</li>
+  <li>2T＝用户假设；他处若见约 51x，多半用更早年化；本页用最新季化</li>
+</ul>
+
+<h3>5.5 备用额度 NPA</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="NPA 额度"><table>
+<thead><tr><th>额度</th><th align="right">金额</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>Broadcom NPA</td><td align="right">最高约 42B</td><td>未提款备用</td></tr>
+<tr><td>Google NPA</td><td align="right">剩余约 20B</td><td>未提款备用</td></tr>
+<tr><td>Amazon NPA</td><td align="right">剩余约 15B</td><td>未提款备用</td></tr>
+<tr><td>循环信贷</td><td align="right">15B</td><td>已签约额度</td></tr>
+</tbody></table></div>
+<ul>
+  <li>上表四项合计约 77B；截至 2026-06-30 均未提款</li>
+  <li>已到账累计约 141.1B 不含这些备用额度</li>
+  <li>Amazon Notes（2023/2024）本金约 6.203B；IPO 时在约 12% 上限内转 Class N（已发行、仍在外）</li>
+</ul>
+
+<h2 id="vision">六、愿景与规划</h2>
+<p><strong>本章要点</strong></p>
+<ul>
+  <li>公司押注 Powerful AI 将在数年内广泛可用，并给出五项能力特征 <span class="tag ok">正式披露</span></li>
+  <li>closing the loop：2026-09 codebase 贡献 &gt;90% 由 Claude 写成；人均日均代码量 &gt;45× <span class="tag ok">正式披露</span></li>
+  <li>增长战略覆盖人才、算力、能力与安全、采纳与新市场 <span class="tag ok">正式披露</span>（不构成买卖建议）</li>
+</ul>
+
+<h3>6.1 Powerful AI：定义与时间表</h3>
+<p>公司相信 Powerful AI（高度能力与影响力的前沿 AI）将在数年内广泛可用，并给出五项特征 <span class="tag ok">正式披露</span>：</p>
+<ul>
+  <li>认知能力达到或超过多数专业与科学领域顶尖人类专家</li>
+  <li>能驾驭人类虚拟工作界面（文本/音频/视频/直接操控电脑）</li>
+  <li>可自主完成持续数小时、数天乃至数周的复杂任务，并在需要时寻求澄清与反馈</li>
+  <li>可跨多个实例协调，并与人类及其他 AI 协作</li>
+  <li>可通过数字连接控制实验室设备、机器人系统等，与物理世界接口</li>
+</ul>
+<p>若导向人类最难问题且风险被负责任管理，公司称潜在收益「非凡」，包括：把数十年科学进步压缩到数年；加速药物发现、疾病检测与个性化疗法；以及教育、能源与发展中国家能力扩展等 <span class="tag ok">正式披露</span>。</p>
+
+<h3>6.2 「数据中心里的天才之国」与 Virtual Collaborators</h3>
+<p>公司描述目标形态：数百万 Virtual Collaborators 并行运行——各自独立处理无关问题，或无缝协作完成共同目标；结果被称作「a country of geniuses in a data center」，面向每个组织与经济部门可用 <span class="tag ok">正式披露</span>。</p>
+<ul>
+  <li>Virtual Collaborators＝能以专业水准与人类并肩完成复杂、多步工作的 AI</li>
+  <li>今日最清晰形态：Claude Code（规划/编写/测试/调试至可投产代码）</li>
+  <li>轨迹：开放式任务可持续数小时至数周，并以「出色同事」的判断与主动性自主执行</li>
+</ul>
+
+<h3>6.3 Closing the loop：Claude 写自身迭代</h3>
+<p>「closing the loop」＝递归开发循环：每一代 Claude 协助构建下一代（跑实验、生成/处理训练数据、自动化评测与安全审计、编写与审查代码） <span class="tag ok">正式披露</span>。</p>
+<div class="metrics" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+  <div class="metric"><div class="v">&gt;90%</div><div class="l">2026-09 代码贡献</div><div class="d">正式披露：当月 codebase 贡献由 Claude 写成</div></div>
+  <div class="metric"><div class="v">&gt;45×</div><div class="l">人均日均代码量</div><div class="d">正式披露：相对 FY2024 日均</div></div>
+</div>
+<ul>
+  <li>直接表现之一：加速产出 compute multipliers（算法侧算力倍率）</li>
+  <li>更强模型 → 更快发现效率改进 → 再训练更强、部署更省</li>
+  <li>公司称这是前沿 AI 最重要的结构性优势之一</li>
+</ul>
+
+<h3>6.4 算力：既是引擎也是约束</h3>
+<p>公司把算力当作单一可互换资源池，按边际产出在训练、服务客户与内部 Claude 用量之间动态调配 <span class="tag ok">正式披露</span>。同时风险因素明确：算力关键投入受限、供应商容量与电力等约束，可能限制训练、服务客户与竞争地位。</p>
+<ul>
+  <li>多芯片架构：AWS Trainium、Google TPU、NVIDIA GPU、AMD GPU</li>
+  <li>承诺总包与近端到期金额在提交稿仍为空白（见第三章）</li>
+  <li>增长战略写明：在现有承诺之外继续锁定算力、扩展自有数据中心足迹、提升多芯片效率与算法效率</li>
+</ul>
+
+<h3>6.5 科学与生命科学落地（S-1 有写的部分）</h3>
+<p>生命科学与实体世界扩展，仅整理 S-1 已写明的表述 <span class="tag ok">正式披露</span>；推文中若另有「分子机器 / 基因编辑」等说法且未见于 S-1，本页不采信为正式披露。</p>
+<ul>
+  <li>药物发现与开发：客户、生物技术伙伴及公司自有研究者已在使用 Claude</li>
+  <li>公司自述：招聘行业专家、建设分子生物实验室（molecular biology lab）、收购 Coefficient Bio，并与行业领袖合作</li>
+  <li>Model Hardware Standard（研究预览）：使 AI 代理可操作显微镜、液体处理设备与现成机械臂等实验室/制造设备</li>
+  <li>增长战略「进入新市场」：从医疗与生命科学延伸到机器人与体力工作</li>
+</ul>
+<div class="callout warn">口径提醒：本章只汇总 S-1 叙述中的愿景与规划；社交媒体摘要可能混入非 S-1 措辞。分子机器、基因编辑等若仅见于推文而未出现在 S-1，标为「推文/媒体，非 S-1」，本页正式披露段不写入。</div>
+
+<h3>6.6 增长战略要点</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="增长战略"><table>
+<thead><tr><th>方向</th><th>要点</th><th>口径</th></tr></thead>
+<tbody>
+<tr><td>人才与文化</td><td>继续投资低自我、高影响、使命对齐的文化，以维持人才密度</td><td>正式披露</td></tr>
+<tr><td>算力</td><td>追加算力承诺、扩展数据中心、多芯片效率与算法效率</td><td>正式披露</td></tr>
+<tr><td>Claude 智力 / 能力 / 安全</td><td>能力与安全同步推进，扩展可靠可用边界与专业领域应用</td><td>正式披露</td></tr>
+<tr><td>可及性与采纳</td><td>自有平台/应用 + AWS/GCP/Azure；加深直销与 Applied AI、品牌与国际化</td><td>正式披露</td></tr>
+<tr><td>新市场与战略交易</td><td>生命科学/机器人等新域；选择性收购、投资与生态伙伴（含 SI/咨询/数据平台）</td><td>正式披露</td></tr>
+</tbody></table></div>
+
+<h2 id="takeaway">来源与免责</h2>
+<div class="callout">H1'26 收入 16.286B、经营现金流 +3.929B、现金+短投 131.651B；前五大约占前九个月收入 25%，CSP 渠道约 48%；Google/Amazon/Microsoft 最低采购自行加总约 269.4B（多数不可取消）；Class A 有经济利益，控制权在 LTBT 与 Founder LLC。发行规模与近端承诺合计提交稿仍空白。以上整理不构成投资建议。</div>
+<ul>
+  <li><a href="https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm">Anthropic, PBC — Form S-1（SEC）</a> · 2026-10-26</li>
+  <li><a href="https://www.anthropic.com/news/s1-sec">Anthropic 公司公告：files S-1</a> · 2026-10-26</li>
+</ul>
+<p>免责声明：公开文件的中文整理与解释，不构成要约、招揽、投资建议、法律或税务意见。以 SEC 英文原文及生效后招股说明书为准。</p>
+
+</main>
+</div>
+<footer class="site-footer">
+  <span>© 2026 Crypto3D</span>
+  <a href="../">研究文章</a>
+  <a href="https://crypto3d.pro/about">关于我们</a>
+</footer>
+<script src="../shared-20261011/theme.js"></script>
+<script src="../shared-20261011/article.js"></script>
+</body>
+</html>
