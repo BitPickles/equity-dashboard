@@ -1,14 +1,14 @@
 {
   "protocol": "sky",
-  "as_of": "2026-10-26",
+  "as_of": "2026-10-27",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
       "revenue_included": {
-        "protocol_fees_usd_365d": 195428787.0,
-        "holders_revenue_usd_365d": 56606116.0,
-        "retained_treasury_usd_365d": 138822671.0,
-        "total_usd_365d": 195428787.0
+        "protocol_fees_usd_365d": 195072393.0,
+        "holders_revenue_usd_365d": 56393286.0,
+        "retained_treasury_usd_365d": 138679107.0,
+        "total_usd_365d": 195072393.0
       },
       "revenue_excluded": {
         "surplus_buffer_retention": {
@@ -24,16 +24,16 @@
       "growth_yoy_percent": null,
       "by_period": {
         "7d": {
-          "total_usd": 2652184.0
+          "total_usd": 2649576.0
         },
         "30d": {
-          "total_usd": 12942220.0
+          "total_usd": 12932949.0
         },
         "90d": {
-          "total_usd": 40113621.0
+          "total_usd": 40095781.0
         },
         "365d": {
-          "total_usd": 195428787.0
+          "total_usd": 195072393.0
         }
       },
       "source": {
@@ -43,7 +43,7 @@
     },
     "gross_profit": {
       "lp_share_cost_usd_365d": null,
-      "gross_profit_usd_365d": 195428787.0,
+      "gross_profit_usd_365d": 195072393.0,
       "calculation_note": "cdp 稳定币协议：dailyRevenue 已扣 DSR/SSR 用户存款利息，无 LP 分润成本，毛利 = 协议盈余"
     },
     "token_emission_cost": {
@@ -54,9 +54,9 @@
       "calculation_note": "SKY staking farm 部分含新铸造 SKY，按协议支出/留存处理，不重复扣减净利（口径：净利 = 协议盈余）"
     },
     "net_income": {
-      "net_income_usd_365d": 195428787.0,
+      "net_income_usd_365d": 195072393.0,
       "operating_cost_usd_365d": null,
-      "calculation_note": "协议盈余 $195,428,787（DefiLlama dailyRevenue，已扣 DSR/SSR）；留存 vs 分配：留存 $138,822,671（71.0%，Surplus Buffer 国库 + 买币未销毁库存），分配 $56,606,116（29.0%，DefiLlama holdersRevenue：买币 + 质押奖励，混合代理）"
+      "calculation_note": "协议盈余 $195,072,393（DefiLlama dailyRevenue，已扣 DSR/SSR）；留存 vs 分配：留存 $138,679,107（71.1%，Surplus Buffer 国库 + 买币未销毁库存），分配 $56,393,286（28.9%，DefiLlama holdersRevenue：买币 + 质押奖励，混合代理）"
     },
     "margins": {
       "gross_margin_percent": 100.0,
@@ -69,8 +69,8 @@
       {
         "mechanism": "SBE 回购 + 质押奖励（DefiLlama holdersRevenue 混合口径）",
         "type": "buyback",
-        "usd_365d": 56606116.0,
-        "yield_percent": 3.5263,
+        "usd_365d": 56393286.0,
+        "yield_percent": 3.555,
         "note": "计入股东回报（Boss 2026-10-08 定稿）：DefiLlama holdersRevenue = SKY token buybacks（买币数量×当日市价） + staking rewards（USDS 付给 SKY stakers）—— 混合代理，非纯现金支出/非纯销毁。⚠️ SBE 买币自 2024-09 起为「买 SKY 交国库」（库存受治理支配、可再分配），不等于销毁；只有实际 burn 才减少供应。实际买币发生额见 https://info.sky.money/buyback"
       },
       {
@@ -78,86 +78,86 @@
         "type": "buyback",
         "usd_365d": null,
         "yield_percent": null,
-        "note": "不计入股东回报：留存 $138,822,671（71.0%）—— Surplus Buffer 国库 + SBE 买币进国库（可再分配，非直接流向持币人）。按铁律「只计流向流通持币人的价值流」"
+        "note": "不计入股东回报：留存 $138,679,107（71.1%）—— Surplus Buffer 国库 + SBE 买币进国库（可再分配，非直接流向持币人）。按铁律「只计流向流通持币人的价值流」"
       }
     ],
     "summary": {
-      "destroy_usd_365d": 56606116.0,
+      "destroy_usd_365d": 56393286.0,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 3.5263,
+      "destroy_yield_percent": 3.555,
       "yield_yield_percent": null,
-      "shareholder_returns_usd_365d": 56606116.0,
-      "shareholder_yield_percent": 3.5263,
+      "shareholder_returns_usd_365d": 56393286.0,
+      "shareholder_yield_percent": 3.555,
       "status": "active",
       "basis_note": "股东回报 = DefiLlama holdersRevenue（买币 × 市价 + 质押奖励，混合代理）；非纯销毁，SBE 买币进国库可再分配"
     },
     "by_period": {
       "7d": {
-        "revenue_usd": 2652184.0,
-        "shareholder_returns_usd": 1101635.0,
-        "destroy_usd": 1101635.0,
+        "revenue_usd": 2649576.0,
+        "shareholder_returns_usd": 1096579.0,
+        "destroy_usd": 1096579.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 3.5784,
-        "buyback_yield_percent": 3.5784,
+        "shareholder_yield_percent": 3.6045,
+        "buyback_yield_percent": 3.6045,
         "dividend_yield_percent": 0.0,
-        "payout_ratio": 0.4154,
+        "payout_ratio": 0.4139,
         "status": "active",
         "source": "defillama"
       },
       "30d": {
-        "revenue_usd": 12942220.0,
-        "shareholder_returns_usd": 5533354.0,
-        "destroy_usd": 5533354.0,
+        "revenue_usd": 12932949.0,
+        "shareholder_returns_usd": 5520506.0,
+        "destroy_usd": 5520506.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 4.1939,
-        "buyback_yield_percent": 4.1939,
+        "shareholder_yield_percent": 4.2341,
+        "buyback_yield_percent": 4.2341,
         "dividend_yield_percent": 0.0,
-        "payout_ratio": 0.4275,
+        "payout_ratio": 0.4269,
         "status": "active",
         "source": "defillama"
       },
       "90d": {
-        "revenue_usd": 40113621.0,
-        "shareholder_returns_usd": 12255947.0,
-        "destroy_usd": 12255947.0,
+        "revenue_usd": 40095781.0,
+        "shareholder_returns_usd": 12399984.0,
+        "destroy_usd": 12399984.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 3.0964,
-        "buyback_yield_percent": 3.0964,
+        "shareholder_yield_percent": 3.1702,
+        "buyback_yield_percent": 3.1702,
         "dividend_yield_percent": 0.0,
-        "payout_ratio": 0.3055,
+        "payout_ratio": 0.3093,
         "status": "active",
         "source": "defillama"
       },
       "365d": {
-        "revenue_usd": 195428787.0,
-        "shareholder_returns_usd": 56606116.0,
-        "destroy_usd": 56606116.0,
+        "revenue_usd": 195072393.0,
+        "shareholder_returns_usd": 56393286.0,
+        "destroy_usd": 56393286.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 3.5263,
-        "buyback_yield_percent": 3.5263,
+        "shareholder_yield_percent": 3.555,
+        "buyback_yield_percent": 3.555,
         "dividend_yield_percent": 0.0,
-        "payout_ratio": 0.2897,
+        "payout_ratio": 0.2891,
         "status": "active",
         "source": "defillama"
       }
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 1605264779.6744218,
+    "market_cap_usd": 1586298443.3116593,
     "tvl_usd": 6773732996.1381645,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 28.3585,
-    "ps": 8.2141,
+    "pe": 28.1292,
+    "ps": 8.1318,
     "pb": null,
     "ev_revenue": null,
-    "payout_ratio": 0.2897
+    "payout_ratio": 0.2891
   },
   "verification": {
-    "method": "DefiLlama dailyRevenue 365d $195,428,787；holdersRevenue 365d $56,606,116（买币 × 市价 + 质押奖励，混合代理）；实际买币发生额另见 https://info.sky.money/buyback",
+    "method": "DefiLlama dailyRevenue 365d $195,072,393；holdersRevenue 365d $56,393,286（买币 × 市价 + 质押奖励，混合代理）；实际买币发生额另见 https://info.sky.money/buyback",
     "status": "verified",
-    "last_checked": "2026-10-26"
+    "last_checked": "2026-10-27"
   }
 }
