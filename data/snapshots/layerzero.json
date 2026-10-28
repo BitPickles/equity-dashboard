@@ -1,6 +1,6 @@
 {
   "protocol": "layerzero",
-  "as_of": "2026-10-27",
+  "as_of": "2026-10-28",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -63,7 +63,7 @@
         "mechanism": "Stargate 收入回购 ZRO（100%）",
         "type": "buyback",
         "usd_365d": 784539.21,
-        "yield_percent": 0.1202,
+        "yield_percent": 0.1171,
         "verified": "partial",
         "note": "2026-03 起 100% Stargate 收入回购 ZRO（累计 149.5 万 ZRO/$3.14M，链上可验证）；协议本体 fee switch 未开启 → 股东回报极低（0.3%）"
       }
@@ -71,10 +71,10 @@
     "summary": {
       "destroy_usd_365d": 784539.21,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 0.1202,
+      "destroy_yield_percent": 0.1171,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 784539.21,
-      "shareholder_yield_percent": 0.1202
+      "shareholder_yield_percent": 0.1171
     },
     "by_period": {
       "7d": {
@@ -106,8 +106,8 @@
         "shareholder_returns_usd": 74651.22,
         "destroy_usd": 74651.22,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 0.0464,
-        "buyback_yield_percent": 0.0464,
+        "shareholder_yield_percent": 0.0452,
+        "buyback_yield_percent": 0.0452,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.2313,
         "status": "active",
@@ -118,8 +118,8 @@
         "shareholder_returns_usd": 784539.21,
         "destroy_usd": 784539.21,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 0.1202,
-        "buyback_yield_percent": 0.1202,
+        "shareholder_yield_percent": 0.1171,
+        "buyback_yield_percent": 0.1171,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.2313,
         "status": "active",
@@ -128,14 +128,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 652811591,
+    "market_cap_usd": 669942041,
     "tvl_usd": 7500000000,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 832.0956,
-    "ps": 192.502,
+    "pe": 853.9306,
+    "ps": 197.5535,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0.9998
@@ -143,6 +143,6 @@
   "verification": {
     "method": "收入 = Stargate 收入 365d $3,391,193（协议本体 0，fee switch OFF）；股东回报 = Stargate 回购 $784,539（100% Stargate 收入，累计 149.5 万 ZRO/$3.14M）；稀释注记：每月解锁 ~$48M（2027 年中前）；观察点：费用开关半年公投",
     "status": "partial",
-    "last_checked": "2026-10-27"
+    "last_checked": "2026-10-28"
   }
 }
