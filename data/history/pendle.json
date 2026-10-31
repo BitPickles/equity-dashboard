@@ -2,17 +2,6 @@
   "protocol": "pendle",
   "records": [
     {
-      "as_of": "2025-10-31",
-      "net_income": 38471767.0,
-      "daily_value": 42486.0,
-      "pe": 7.896,
-      "ps": 7.896,
-      "shareholder_yield": 12.6653,
-      "net_margin": 100.0,
-      "_period": "daily",
-      "daily_value_status": "estimated"
-    },
-    {
       "as_of": "2025-11-01",
       "net_income": 38443400.0,
       "daily_value": 17001.0,
@@ -4015,6 +4004,14 @@
       "shareholder_yield": 6.1448,
       "net_margin": 100.0,
       "_period": "snapshot"
+    },
+    {
+      "as_of": "2026-10-31",
+      "net_income": 13556172.0,
+      "pe": 16.2739,
+      "ps": 22.4073,
+      "shareholder_yield": 6.1448,
+      "net_margin": 100.0
     }
   ]
 }

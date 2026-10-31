@@ -2,17 +2,6 @@
   "protocol": "pancakeswap",
   "records": [
     {
-      "as_of": "2025-10-31",
-      "net_income": 147000663.05,
-      "daily_value": 408231.5,
-      "pe": 4.501,
-      "ps": 4.501,
-      "shareholder_yield": 22.2148,
-      "net_margin": 87.5616,
-      "_period": "daily",
-      "daily_value_status": "estimated"
-    },
-    {
       "as_of": "2025-11-01",
       "net_income": 147161524.19,
       "daily_value": 314907.64,
@@ -4015,6 +4004,14 @@
       "shareholder_yield": 8.8844,
       "net_margin": 87.5616,
       "_period": "snapshot"
+    },
+    {
+      "as_of": "2026-10-31",
+      "net_income": 82363758.4,
+      "pe": 11.2557,
+      "ps": 7.0348,
+      "shareholder_yield": 8.8844,
+      "net_margin": 87.5616
     }
   ]
 }

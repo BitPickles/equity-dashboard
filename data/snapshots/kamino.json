@@ -1,6 +1,6 @@
 {
   "protocol": "kamino",
-  "as_of": "2026-10-30",
+  "as_of": "2026-10-31",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -142,6 +142,6 @@
   "verification": {
     "method": "净利 = DefiLlama dailyRevenue 365d $9,331,408（协议净收入）；KMNO 治理代币不回购（staking 为 farming boost 非分润）；净利留存协议",
     "status": "estimated",
-    "last_checked": "2026-10-30"
+    "last_checked": "2026-10-31"
   }
 }

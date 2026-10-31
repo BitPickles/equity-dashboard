@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T00:16:00.660650+00:00",
+  "generated_at": "2026-10-31T00:11:13.575300+00:00",
   "protocols": {
     "aave": {
       "name": "Aave",
@@ -128,7 +128,7 @@
         "payout_ratio": 0,
         "shareholder_returns_usd_365d": 0.0,
         "verification_status": "verified",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 90490632.43,
       "gross_profit_usd_365d": 90490632.43,
@@ -261,7 +261,7 @@
         "payout_ratio": 0.99,
         "shareholder_returns_usd_365d": 91262763.16,
         "verification_status": "verified",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 92184609.25,
       "gross_profit_usd_365d": 92184609.25,
@@ -351,7 +351,7 @@
         "payout_ratio": 1.0,
         "shareholder_returns_usd_365d": 27700000,
         "verification_status": "estimated",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 27700000,
       "gross_profit_usd_365d": 27700000,
@@ -373,11 +373,11 @@
         "en": "Auto-Burn fully verifiable on-chain (0xdead + BEP-95), asBNB from on-chain StakeHub contract"
       },
       "return_status": "active",
-      "shareholder_yield_percent": 6.2878,
+      "shareholder_yield_percent": 6.2877,
       "market_cap_usd": 91713652824,
       "tvl": 5387604237.313377,
       "payout_ratio": 1.0,
-      "total_yield_percent": 6.2878,
+      "total_yield_percent": 6.2877,
       "validation": {
         "method": "Auto-Burn（短周期=近4季USD累加；365d=近4季BNB×当前价）+ BEP-95（按窗口从日时间序列计算）+ asBNB APY (Aster)",
         "burn_apy_percent": 4.42,
@@ -424,27 +424,27 @@
         "trailing_30d_revenue_usd": 842118,
         "trailing_90d_revenue_usd": 3364197,
         "shareholder_yield_7d_ann": 6.2705,
-        "shareholder_yield_30d_ann": 6.2824,
-        "shareholder_yield_90d_ann": 6.292,
+        "shareholder_yield_30d_ann": 6.2816,
+        "shareholder_yield_90d_ann": 6.2916,
         "total_yield_7d_ann": 6.2705,
-        "total_yield_30d_ann": 6.2824,
-        "total_yield_90d_ann": 6.292,
+        "total_yield_30d_ann": 6.2816,
+        "total_yield_90d_ann": 6.2916,
         "dividend_yield_7d_ann": 1.71,
         "buyback_yield_7d_ann": 4.5605,
         "dividend_yield_30d_ann": 1.71,
-        "buyback_yield_30d_ann": 4.5724,
+        "buyback_yield_30d_ann": 4.5716,
         "dividend_yield_90d_ann": 1.71,
-        "buyback_yield_90d_ann": 4.582,
-        "shareholder_yield_365d_ann": 6.2878,
+        "buyback_yield_90d_ann": 4.5816,
+        "shareholder_yield_365d_ann": 6.2877,
         "current_market_cap_usd": 91713652824,
         "current_price_usd": 697.3,
         "trailing_7d_shareholder_returns_usd": 110290513.49,
-        "trailing_30d_shareholder_returns_usd": 473577388.79,
-        "trailing_90d_shareholder_returns_usd": 1422888445.83,
-        "total_yield_365d_ann": 6.2878,
-        "buyback_yield_365d_ann": 4.5778,
+        "trailing_30d_shareholder_returns_usd": 473511630.42,
+        "trailing_90d_shareholder_returns_usd": 1422807844.92,
+        "total_yield_365d_ann": 6.2877,
+        "buyback_yield_365d_ann": 4.5777,
         "dividend_yield_365d_ann": 1.71,
-        "trailing_365d_shareholder_returns_usd": 5766765762.68
+        "trailing_365d_shareholder_returns_usd": 5766705118.55
       },
       "display_precision": 3,
       "return_mechanisms": [
@@ -506,37 +506,37 @@
       "analyst_notes": "【2026-10-08 更新 - asBNB 口径修正（6.87%→1.71%，净值口径）+ 2026-04-19 BEP-95 时间序列】\n\n## BNB TEV 计算方法\n\n采用 **Auto-Burn + BEP-95 + asBNB** 三源组合，每项按下表规则取值：\n\n| 展示周期 | Auto-Burn | BEP-95 | asBNB |\n|---------|-----------|--------|-------|\n| 7d  | 近 4 季 USD 历史累加 | 近 7 天 BNB × 52 × 当前价 | 1.71% |\n| 30d | 近 4 季 USD 历史累加 | 近 30 天 BNB × 365/30 × 当前价 | 1.71% |\n| 90d | 近 4 季 USD 历史累加 | 近 90 天 BNB × 365/90 × 当前价 | 1.71% |\n| 365d | 近 4 季 BNB × 当前价（重估） | 近 365 天 BNB × 当前价（无年化） | 1.71% |\n\nTEV Yield = (Auto-Burn USD + BEP-95 USD) ÷ 市值 + asBNB APY\n\n### BEP-95 数据源（2026-04-19 升级）\n\n- **种子**：Dune Analytics `bnb.traces` query（dead address 入金 < 10万 BNB 的部分，排除 Auto-Burn 大额）\n- **初始范围**：2025-03-14 → 2026-04-18（401 天）\n- **增量更新**：`scripts/fetch-bep95-daily.py`（TODO，待做）每日从 BSC RPC 拉新日数据 append\n- **存储**：`data/protocols/bnb/bep95-history.json`\n\n### Auto-Burn 双口径\n\n- **短周期（7/30/90d）** = 近 4 季 burn 的 `usd_value` 直接累加（每次 burn 公告时的历史 USD 值）\n  → 相当于官方披露的『过去一年累计销毁金额』，burn 发生时锁定\n- **365d** = 近 4 季 burn `bnb_burned` 合计 × 当前价\n  → 按当前市价重估的『过去一年年化』\n- 两者差异 = BNB 价格相对历史均价的变动\n\n### 为什么 BEP-95 各周期不同？\n\n BEP-95 是每区块持续销毁（链上 gas fee 的一部分）。7 天、30 天、90 天内的销毁量反映的是**不同时间段的链上活跃度**。高活跃期（如 10 月 ALT 季）日销毁可达 500+ BNB，平时 40-60 BNB。通过时间序列能真实反映。\n\n### 历史口径变更\n\n- 2026-04-19 (v4): BEP-95 升级为日时间序列（Dune seed + 日累积），各周期真正波动\n- 2026-04-19 (v3): 短周期 Auto-Burn 改为 USD 历史累加\n- 2026-04-19 (v2): 尝试『上次 burn × 4』作为短周期年化（Boss 否决）\n- 2026-04-19 (v1): 所有周期同值（Boss 否决）\n- 2026-10-08: asBNB APY 6.87% → 1.71%（Aster 页面现值）；口径修正为『净值口径』——仅 Staking + Launchpool（反映在净值），HODLer/Megadrop 手动领取不计入\n- 2026-03-01: 从 slisBNB 单一 proxy 改为 Burn + asBNB 双源",
       "last_updated": "2026-10-30",
       "dividend_yield_percent": 1.71,
-      "buyback_yield_percent": 4.5778,
+      "buyback_yield_percent": 4.5777,
       "style": "cash_cow",
       "financial_snapshot": {
         "entity_type": "platform_token",
-        "revenue_usd_365d": 5766765762.68,
+        "revenue_usd_365d": 5766705118.55,
         "revenue_included": {
           "burn_usd_365d": 4297800679.14,
           "staking_rewards_usd_365d": 5283891276.03,
           "launchpad_launchpool_usd_365d": null,
           "total_usd_365d": 9581691955.17
         },
-        "gross_profit_usd_365d": 5766765762.68,
+        "gross_profit_usd_365d": 5766705118.55,
         "lp_share_cost_usd_365d": null,
         "emission_cost_usd_365d": null,
         "emission_treatment": "none",
-        "net_income_usd_365d": 5766765762.68,
+        "net_income_usd_365d": 5766705118.55,
         "gross_margin_percent": 100.0,
         "net_margin_percent": 100.0,
         "growth_yoy_percent": null,
-        "pe": 15.9038,
-        "ps": 15.9038,
+        "pe": 15.904,
+        "ps": 15.904,
         "pb": null,
         "ev_revenue": null,
         "payout_ratio": 1.0,
-        "shareholder_returns_usd_365d": 5766765762.68,
+        "shareholder_returns_usd_365d": 5766705118.55,
         "verification_status": "verified",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
-      "revenue_usd_365d": 5766765762.68,
-      "gross_profit_usd_365d": 5766765762.68,
-      "net_income_usd_365d": 5766765762.68,
+      "revenue_usd_365d": 5766705118.55,
+      "gross_profit_usd_365d": 5766705118.55,
+      "net_income_usd_365d": 5766705118.55,
       "net_margin_percent": 100.0,
       "growth_yoy_percent": null,
       "entity_type": "platform_token",
@@ -609,7 +609,7 @@
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 216668,
       "gross_profit_usd_365d": 216668,
@@ -748,7 +748,7 @@
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 15605589,
         "verification_status": "verified",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 15605589,
       "gross_profit_usd_365d": 15605589,
@@ -868,7 +868,7 @@
         "payout_ratio": 0.2775,
         "shareholder_returns_usd_365d": 1229807.5,
         "verification_status": "partial",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 4431526.0,
       "gross_profit_usd_365d": 4431526.0,
@@ -973,7 +973,7 @@
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 0.0,
       "gross_profit_usd_365d": 0.0,
@@ -1002,7 +1002,7 @@
       "market_cap_usd": 2330137258,
       "tvl": 6677560266.30153,
       "payout_ratio": 0,
-      "total_yield_percent": 10.3758,
+      "total_yield_percent": null,
       "payout_ratio_note": "无持续 TEV — 回购是一次性资本运作，非经营利润分红",
       "metrics": {
         "current_market_cap_usd": 2330137258,
@@ -1060,7 +1060,7 @@
       "style": "growth",
       "financial_snapshot": {
         "entity_type": "app",
-        "revenue_usd_365d": 241771476,
+        "revenue_usd_365d": null,
         "revenue_included": {
           "protocol_fees_usd_365d": 8996865.049999999,
           "total_usd_365d": 8996865.049999999
@@ -1070,22 +1070,22 @@
         "emission_cost_usd_365d": null,
         "emission_treatment": "none",
         "net_income_usd_365d": 600000,
-        "gross_margin_percent": 3.7212,
-        "net_margin_percent": 0.2482,
+        "gross_margin_percent": null,
+        "net_margin_percent": null,
         "growth_yoy_percent": null,
         "pe": null,
-        "ps": 9.6378,
+        "ps": null,
         "pb": null,
         "ev_revenue": null,
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
-      "revenue_usd_365d": 241771476,
+      "revenue_usd_365d": null,
       "gross_profit_usd_365d": 8996865.049999999,
       "net_income_usd_365d": 600000,
-      "net_margin_percent": 0.2482,
+      "net_margin_percent": null,
       "growth_yoy_percent": null,
       "entity_type": "app",
       "period_status": "none"
@@ -1199,7 +1199,7 @@
         "payout_ratio": 1.0,
         "shareholder_returns_usd_365d": 9043997.84,
         "verification_status": "partial",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 9043997.84,
       "gross_profit_usd_365d": 9043997.84,
@@ -1320,7 +1320,7 @@
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 19145099.0,
       "gross_profit_usd_365d": 19145099.0,
@@ -1416,7 +1416,7 @@
         "payout_ratio": 0.99,
         "shareholder_returns_usd_365d": 765257823.99,
         "verification_status": "verified",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 772987701,
       "gross_profit_usd_365d": 772987701,
@@ -1526,7 +1526,7 @@
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 8414687.0,
       "gross_profit_usd_365d": 8414687.0,
@@ -1667,7 +1667,7 @@
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 500000,
       "gross_profit_usd_365d": 500000,
@@ -1768,7 +1768,7 @@
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 9331408.0,
       "gross_profit_usd_365d": 9331408.0,
@@ -1874,7 +1874,7 @@
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 34676572.0,
       "gross_profit_usd_365d": 34676572.0,
@@ -1996,7 +1996,7 @@
         "payout_ratio": 0.1,
         "shareholder_returns_usd_365d": 1548000.0,
         "verification_status": "partial",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 15480000,
       "gross_profit_usd_365d": 15480000,
@@ -2091,7 +2091,7 @@
         "payout_ratio": 1.0,
         "shareholder_returns_usd_365d": 77552329.3,
         "verification_status": "estimated",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 77552329.3,
       "gross_profit_usd_365d": 77552329.3,
@@ -2189,7 +2189,7 @@
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 0.0,
       "gross_profit_usd_365d": 0.0,
@@ -2282,7 +2282,7 @@
         "payout_ratio": 1.0,
         "shareholder_returns_usd_365d": 119683232.08,
         "verification_status": "verified",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 119683232.08,
       "gross_profit_usd_365d": 119683232.08,
@@ -2421,7 +2421,7 @@
         "payout_ratio": 0.7138,
         "shareholder_returns_usd_365d": 58789849,
         "verification_status": "verified",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 94063758.4,
       "gross_profit_usd_365d": 94063758.4,
@@ -2543,7 +2543,7 @@
         "payout_ratio": 1.3769,
         "shareholder_returns_usd_365d": 18665264,
         "verification_status": "partial",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 13556172.0,
       "gross_profit_usd_365d": 13556172.0,
@@ -2674,7 +2674,7 @@
         "payout_ratio": 0.2876,
         "shareholder_returns_usd_365d": 55766359.0,
         "verification_status": "verified",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 193886878.0,
       "gross_profit_usd_365d": 193886878.0,
@@ -2779,7 +2779,7 @@
         "payout_ratio": null,
         "shareholder_returns_usd_365d": 0,
         "verification_status": "estimated",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 9032063.0,
       "gross_profit_usd_365d": 9032063.0,
@@ -2942,7 +2942,7 @@
         "payout_ratio": 1.0,
         "shareholder_returns_usd_365d": 18365812.03,
         "verification_status": "verified",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 18365812.03,
       "gross_profit_usd_365d": 18365812.03,
@@ -3073,7 +3073,7 @@
         "payout_ratio": 0.9998,
         "shareholder_returns_usd_365d": 784539.21,
         "verification_status": "partial",
-        "as_of": "2026-10-30"
+        "as_of": "2026-10-31"
       },
       "revenue_usd_365d": 3391193.0,
       "gross_profit_usd_365d": 784677.36,

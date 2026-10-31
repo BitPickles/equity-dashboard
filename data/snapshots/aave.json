@@ -1,6 +1,6 @@
 {
   "protocol": "aave",
-  "as_of": "2026-10-30",
+  "as_of": "2026-10-31",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -159,6 +159,6 @@
   "verification": {
     "method": "净利 = DefiLlama dailyRevenue 365d $90,490,632；股东回报 = 0（回购 2026-04-19 起暂停，预算 $30M 不计入）（tev-records 365d 合计 $19,976,547 交叉核对，历史参考）",
     "status": "verified",
-    "last_checked": "2026-10-30"
+    "last_checked": "2026-10-31"
   }
 }

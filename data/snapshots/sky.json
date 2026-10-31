@@ -1,6 +1,6 @@
 {
   "protocol": "sky",
-  "as_of": "2026-10-30",
+  "as_of": "2026-10-31",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -158,6 +158,6 @@
   "verification": {
     "method": "DefiLlama dailyRevenue 365d $193,886,878；holdersRevenue 365d $55,766,359（买币 × 市价 + 质押奖励，混合代理）；实际买币发生额另见 https://info.sky.money/buyback",
     "status": "verified",
-    "last_checked": "2026-10-30"
+    "last_checked": "2026-10-31"
   }
 }
