@@ -358,10 +358,10 @@
   </div>
 </section>
 
-<!-- ═══════════════════ 每日数据入口（2026-07-05 暂时隐藏，恢复删掉 hidden 即可）═══════════════════ -->
-<section class="sec" hidden style="padding-top:0;padding-bottom:0;margin-top:-8px;margin-bottom:8px;">
+<!-- 每日数据入口。2026-07-05 起曾 hidden；2026-11-01 恢复。日期来自 manifest 里最新一份真实短评，不把旧稿显示成今天。 -->
+<section class="sec" style="padding-top:0;padding-bottom:0;margin-top:-8px;margin-bottom:8px;">
   <a href="./daily-poster/output/" class="bento-card glow rv" style="display:block;padding:24px 28px;">
-    <div class="sec-eyebrow" style="color:var(--blue);margin-bottom:10px"><div class="dot" style="background:var(--blue)"></div>Daily Brief</div>
+    <div class="sec-eyebrow" style="color:var(--blue);margin-bottom:10px"><div class="dot" style="background:var(--blue)"></div>Daily Brief <span id="dailyAsOf" style="margin-left:8px;font-weight:600;"></span></div>
     <div id="dailyTitle" style="font-size:20px;font-weight:800;color:var(--text-1);line-height:1.35;margin-bottom:10px;" data-zh="加载中..." data-en="Loading...">加载中...</div>
     <div id="dailyBody" style="font-size:14px;color:var(--text-3);line-height:1.65;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:12px;"></div>
     <div style="display:flex;align-items:center;justify-content:space-between">
@@ -376,7 +376,6 @@
 
 <script>
 (function(){
-  var today = new Date().toISOString().slice(0,10);
   function load(date) {
     return fetch('./daily-poster/output/' + date + '-comment.json')
       .then(function(r){ if(!r.ok) throw ''; return r.json(); });
@@ -386,17 +385,32 @@
     var bodyEl = document.getElementById('dailyBody');
     if(d.title) { titleEl.textContent = d.title; titleEl.setAttribute('data-zh', d.title); titleEl.setAttribute('data-en', d.title_en || d.title); }
     if(d.body) { bodyEl.textContent = d.body; bodyEl.setAttribute('data-zh', d.body); bodyEl.setAttribute('data-en', d.body_en || d.body); }
-    // Re-apply current lang
     var lang = localStorage.getItem('lang') || 'zh';
     if(lang === 'en') { titleEl.textContent = d.title_en || d.title; bodyEl.textContent = d.body_en || d.body; }
+    var asOf = document.getElementById('dailyAsOf');
+    if(asOf && d.date) {
+      var zh = '数据日期 ' + d.date;
+      var en = 'As of ' + d.date;
+      asOf.setAttribute('data-zh', zh);
+      asOf.setAttribute('data-en', en);
+      asOf.textContent = lang === 'en' ? en : zh;
+    }
   }
-  load(today).then(show).catch(function(){
-    var d = new Date(); d.setDate(d.getDate()-1);
-    load(d.toISOString().slice(0,10)).then(show).catch(function(){
-      document.getElementById('dailyTitle').textContent = '每日市场短评 + 新闻雷达';
-      document.getElementById('dailyBody').textContent = '结合链上指标与全球新闻，每日更新市场观察。';
+  function fallback() {
+    var today = new Date().toISOString().slice(0,10);
+    load(today).then(show).catch(function(){
+      var d = new Date(); d.setDate(d.getDate()-1);
+      load(d.toISOString().slice(0,10)).then(show).catch(function(){
+        document.getElementById('dailyTitle').textContent = '每日市场短评 + 新闻雷达';
+        document.getElementById('dailyBody').textContent = '结合链上指标与全球新闻，每日更新市场观察。';
+      });
     });
-  });
+  }
+  fetch('./daily-poster/output/manifest.json')
+    .then(function(r){ if(!r.ok) throw ''; return r.json(); })
+    .then(function(m){ return load(m.latest_comment || m.latest_poster); })
+    .then(show)
+    .catch(fallback);
 })();
 </script>
 
@@ -432,6 +446,7 @@
       <div class="sec-head rv" style="margin-bottom:20px">
         <div class="sec-eyebrow" style="color:var(--purple)"><div class="dot" style="background:var(--purple)"></div>Governance</div>
         <h3 class="sec-title" style="font-size:24px" data-zh="治理动态" data-en="Governance Feed">治理动态</h3>
+        <p class="sec-desc" id="govUpdated" style="margin-top:6px"></p>
       </div>
       <div class="gov-grid rv">
         <a href="./governance/" class="gov-card">
@@ -618,7 +633,7 @@ sp('sp-d',[58.63,58.98,59.06,58.9,59.17,58.94,59.01],'#38bdf8');
 </script>
 <script src="./js/theme.js?v=20261011b"></script>
 <script src="./js/lang.js?v=20261011b"></script>
-<script src="./js/homepage-data.js?v=20261011b"></script>
+<script src="./js/homepage-data.js?v=20261101a"></script>
 </body>
 </html>
 <!-- cache-bust 1774095253 -->

@@ -97,4 +97,9 @@
   <url><loc>https://crypto3d.pro/research/sky/</loc><lastmod>2026-10-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://crypto3d.pro/research/aave/</loc><lastmod>2026-10-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://crypto3d.pro/research/ai-year/</loc><lastmod>2026-10-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://crypto3d.pro/research/anthropic-s1/</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- 治理与存储看板（页本身 200，此前 sitemap 漏收） -->
+  <url><loc>https://crypto3d.pro/governance/</loc><lastmod>2026-10-08</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://crypto3d.pro/hbm/</loc><lastmod>2026-10-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>

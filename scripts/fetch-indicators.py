@@ -371,6 +371,7 @@ def update_mvrv():
     existing = {h['date'] for h in hist}
     feed = http_json('https://bitcoin-data.com/api/v1/mvrv')
     feed = {x['d']: round(float(x['mvrv']), 4) for x in feed if x.get('mvrv')}
+    upstream_last = max(feed) if feed else None
     added = [d for d in sorted(feed) if d > last or (d not in existing and d > (date.fromisoformat(last) - timedelta(days=21)).isoformat())]
     for d in added:
         hist.append({'date': d, 'mvrv': feed[d]})
@@ -381,7 +382,11 @@ def update_mvrv():
         doc['updated_at'] = max(added)
         doc['current'] = {'date': max(added), 'value': v, 'status': st, 'status_en': st_en}
         save(fp, doc, indent=2)
-    log(f'mvrv: +{len(added)} 条 → {added[-1] if added else last}')
+    shown = added[-1] if added else last
+    log(f'mvrv: +{len(added)} 条 → {shown}（上游最新 {upstream_last}）')
+    # 上游窗口只有近 4 年，但最新日期必须落进本地。写不进去就失败，避免再静默停在旧末日。
+    if upstream_last and upstream_last > shown:
+        raise RuntimeError(f'上游最新 {upstream_last} 未能写入（本地末条 {shown}）')
     return len(added)
 
 
@@ -390,7 +395,8 @@ def freshness_summary():
     from datetime import datetime, timezone as _tz
     checks = [
         ('shared/btc-price.json', 2), ('ahr999.json', 2), ('marketcap.json', 2),
-        ('btc-dominance.json', 2), ('mvrv.json', 10),
+        # MVRV 上游常态滞后约 7 天。容差 10 天时，2026-11-01 末条仍停在 10-23（已 9 天）不会告警。
+        ('btc-dominance.json', 2), ('mvrv.json', 8),
     ]
     rows = []
     for rel, tol in checks:

@@ -18,10 +18,11 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parents[1]
 SOURCES_FILE = SCRIPT_DIR / "sources.json"
 CACHE_FILE = SCRIPT_DIR / "summaries_cache.json"
-OUTPUT_FILE = Path("/Users/aibot/.openclaw/workspace-engineer/tev-dashboard/data/news.json")
-ENV_FILE = Path("/Users/aibot/.openclaw/.env")
+# 写到本仓库 data/news.json。旧路径写死 /Users/aibot/.../tev-dashboard，换机器或换目录后文件落在仓外，daily-run 提交不到。
+OUTPUT_FILE = REPO_ROOT / "data" / "news.json"
 TZ = dt.timezone(dt.timedelta(hours=8))
 LOOKBACK_HOURS = 24
 MAX_SELECTED = 25
@@ -40,15 +41,17 @@ def now_utc() -> dt.datetime:
 
 def load_env_key(key: str) -> str:
     if os.environ.get(key):
-        return os.environ[key]
-    if not ENV_FILE.exists():
-        return ""
-    for line in ENV_FILE.read_text().splitlines():
-        if not line or line.lstrip().startswith("#") or "=" not in line:
+        return os.environ[key].strip()
+    # 环境变量 → 仓库 .env → ~/.openclaw/.env（Mac Mini 密钥习惯位置）
+    for env_file in (REPO_ROOT / ".env", Path.home() / ".openclaw" / ".env"):
+        if not env_file.exists():
             continue
-        k, v = line.split("=", 1)
-        if k.strip() == key:
-            return v.strip().strip('"').strip("'")
+        for line in env_file.read_text().splitlines():
+            if not line or line.lstrip().startswith("#") or "=" not in line:
+                continue
+            k, v = line.split("=", 1)
+            if k.strip() == key:
+                return v.strip().strip('"').strip("'")
     return ""
 
 
@@ -654,16 +657,9 @@ def collect_all() -> List[Dict[str, Any]]:
 
 
 def git_push_dev() -> None:
-    repo = OUTPUT_FILE.parents[1]
-    subprocess.run(['git', '-C', str(repo), 'status', '-sb'], check=False)
-    subprocess.run(['git', '-C', str(repo), 'add', str(OUTPUT_FILE)], check=True)
-    # commit only if changed
-    diff = subprocess.run(['git', '-C', str(repo), 'diff', '--cached', '--quiet'], check=False)
-    if diff.returncode == 0:
-        print('[INFO] No changes in news.json; skip commit/push')
-        return
-    subprocess.run(['git', '-C', str(repo), 'commit', '-m', 'add news radar output'], check=True)
-    subprocess.run(['git', '-C', str(repo), 'push', 'origin', 'dev'], check=True)
+    # 保留函数名以免外部调用直接崩。正式发布只走 scripts/daily-run.sh（main 上提交 data/）。
+    # 这里不再 push dev：那条旧路径和当前「数据走 main」的发布规则相反。
+    print('[INFO] news.json 已写入。提交与推送交给 daily-run.sh，本脚本不 push。')
 
 
 def main() -> int:

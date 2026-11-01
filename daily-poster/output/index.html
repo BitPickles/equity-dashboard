@@ -408,40 +408,49 @@ body {
 
 <script>
 // === Date & Poster ===
+// manifest.json 指向磁盘上最后一份真实海报。今天/昨天都没有文件时不再把 src 停在 404 上。
 (function() {
   var today = new Date().toISOString().slice(0, 10);
-  document.getElementById('topDate').textContent = today;
-  document.title = 'Crypto3D 每日数据 · ' + today;
-
   var img = document.getElementById('posterImg');
   var dl = document.getElementById('posterDl');
-  var pngUrl = today + '.png';
 
-  img.src = pngUrl;
-  img.onerror = function() {
-    var d = new Date(); d.setDate(d.getDate() - 1);
-    var y = d.toISOString().slice(0, 10);
-    img.src = y + '.png';
-    pngUrl = y + '.png';
+  function applyPoster(dateStr) {
+    var pngUrl = dateStr + '.png';
+    var label = dateStr === today ? dateStr : (dateStr + ' · 最新');
+    document.getElementById('topDate').textContent = label;
+    document.title = 'Crypto3D 每日数据 · ' + dateStr;
+    img.alt = 'Crypto3D Daily ' + dateStr;
+    img.onerror = function() {
+      img.onerror = null;
+      img.alt = '海报文件缺失（' + dateStr + '）';
+    };
+    img.src = pngUrl;
     dl.href = pngUrl;
-    dl.download = 'crypto3d-daily-' + y + '.png';
-  };
-  dl.href = pngUrl;
-  dl.download = 'crypto3d-daily-' + today + '.png';
+    dl.download = 'crypto3d-daily-' + dateStr + '.png';
+  }
+
+  fetch('manifest.json').then(function(r) {
+    if (!r.ok) throw new Error('no manifest');
+    return r.json();
+  }).then(function(m) {
+    if (!m.latest_poster) throw new Error('empty');
+    applyPoster(m.latest_poster);
+  }).catch(function() {
+    applyPoster(today);
+    img.onerror = function() {
+      var d = new Date(); d.setDate(d.getDate() - 1);
+      applyPoster(d.toISOString().slice(0, 10));
+      img.onerror = function() { img.onerror = null; img.alt = '海报文件缺失'; };
+    };
+  });
 })();
 
 // === AI Comment ===
 (function() {
-  var today = new Date().toISOString().slice(0, 10);
-  var url = today + '-comment.json';
-  fetch(url).then(function(r) {
-    if (!r.ok) throw new Error('not found');
-    return r.json();
-  }).then(function(d) {
+  function renderComment(d, fallbackDate) {
     var card = document.getElementById('commentCard');
     card.style.display = '';
-    document.getElementById('commentDate').textContent = d.date || today;
-    // Store both versions for potential lang switch
+    document.getElementById('commentDate').textContent = d.date || fallbackDate || '';
     var titleEl = document.getElementById('commentTitle');
     var bodyEl = document.getElementById('commentBody');
     titleEl.textContent = d.title || '';
@@ -450,20 +459,25 @@ body {
     bodyEl.textContent = d.body || '';
     bodyEl.setAttribute('data-zh', d.body || '');
     bodyEl.setAttribute('data-en', d.body_en || d.body || '');
-  }).catch(function() {
-    // Try yesterday
-    var d = new Date(); d.setDate(d.getDate() - 1);
-    var y = d.toISOString().slice(0, 10);
-    fetch(y + '-comment.json').then(function(r) {
+  }
+  function loadComment(dateStr) {
+    return fetch(dateStr + '-comment.json').then(function(r) {
       if (!r.ok) throw new Error('not found');
       return r.json();
-    }).then(function(d) {
-      var card = document.getElementById('commentCard');
-      card.style.display = '';
-      document.getElementById('commentDate').textContent = d.date || y;
-      document.getElementById('commentTitle').textContent = d.title || '';
-      document.getElementById('commentBody').textContent = d.body || '';
-    }).catch(function() {});
+    }).then(function(d) { renderComment(d, dateStr); });
+  }
+  fetch('manifest.json').then(function(r) {
+    if (!r.ok) throw new Error('no manifest');
+    return r.json();
+  }).then(function(m) {
+    if (!m.latest_comment) throw new Error('empty');
+    return loadComment(m.latest_comment);
+  }).catch(function() {
+    var today = new Date().toISOString().slice(0, 10);
+    loadComment(today).catch(function() {
+      var d = new Date(); d.setDate(d.getDate() - 1);
+      loadComment(d.toISOString().slice(0, 10)).catch(function() {});
+    });
   });
 })();
 
@@ -490,7 +504,8 @@ body {
     var dates = Object.keys(byDate).sort().reverse(); // newest date first
     var today = new Date().toISOString().slice(0, 10);
     var todayCount = (byDate[today] || []).length;
-    meta.textContent = todayCount + ' 条今日 · 共 ' + news.length + ' 条';
+    var updated = (d.updated_at || '').slice(0, 10);
+    meta.textContent = todayCount + ' 条今日 · 共 ' + news.length + ' 条' + (updated ? ' · 新闻源更新于 ' + updated : '');
 
     if (!news.length) {
       list.innerHTML = '<div class="feed-loading">暂无新闻数据</div>';

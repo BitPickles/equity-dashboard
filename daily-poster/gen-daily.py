@@ -11,6 +11,7 @@
 """
 import asyncio
 import json
+import os
 import re
 import sys
 from datetime import datetime, timezone, timedelta
@@ -19,7 +20,9 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).resolve().parent
 TEMPLATE = SCRIPT_DIR / "template.html"
 LOGO_PATH = SCRIPT_DIR / "logo-3d.jpg"
-TEV_DIR = Path.home() / ".openclaw" / "workspace-engineer" / "tev-dashboard"
+# 生成器就在本仓库。原先写死 ~/.openclaw/workspace-engineer/tev-dashboard，
+# Mac Mini 的 ~/tev-dashboard 对不上时会读到另一份过期数据。
+TEV_DIR = SCRIPT_DIR.parent
 INDICATORS = TEV_DIR / "indicators" / "data"
 OUTPUT_DIR = SCRIPT_DIR / "output"
 OUTPUT_DIR.mkdir(exist_ok=True)
@@ -569,17 +572,40 @@ async def screenshot(html_path, png_path):
 
 
 def load_env_key(key):
-    """Load key from ~/.openclaw/.env"""
-    env_file = Path.home() / ".openclaw" / ".env"
-    if not env_file.exists():
-        return ""
-    for line in env_file.read_text().splitlines():
-        if not line or line.lstrip().startswith("#") or "=" not in line:
+    """环境变量优先，其次仓库 .env，再次 ~/.openclaw/.env。"""
+    if os.environ.get(key):
+        return os.environ[key].strip()
+    for env_file in (TEV_DIR / ".env", Path.home() / ".openclaw" / ".env"):
+        if not env_file.exists():
             continue
-        k, v = line.split("=", 1)
-        if k.strip() == key:
-            return v.strip().strip('"').strip("'")
+        for line in env_file.read_text().splitlines():
+            if not line or line.lstrip().startswith("#") or "=" not in line:
+                continue
+            k, v = line.split("=", 1)
+            if k.strip() == key:
+                return v.strip().strip('"').strip("'")
     return ""
+
+
+def write_manifest():
+    """记录磁盘上真实存在的最新海报/短评，供首页和海报页回退，避免今天、昨天 404 时裂图。"""
+    def days(pattern):
+        found = []
+        for p in OUTPUT_DIR.glob(pattern):
+            day = p.stem[:10]
+            if len(day) == 10 and day[4] == "-" and day[7] == "-":
+                found.append(day)
+        return sorted(set(found))
+
+    posters = days("????-??-??.png")
+    comments = days("????-??-??-comment.json")
+    manifest = {
+        "latest_poster": posters[-1] if posters else None,
+        "latest_comment": comments[-1] if comments else None,
+    }
+    (OUTPUT_DIR / "manifest.json").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"  → manifest {manifest}")
 
 
 COMMENTS_ARCHIVE = OUTPUT_DIR / "comments.json"
@@ -1112,8 +1138,16 @@ async def main():
         print(f"  → archive ({len(load_comment_history(100))} total)")
 
     print("\n[4/5] Taking screenshot...")
-    await screenshot(html_path, png_path)
+    try:
+        await screenshot(html_path, png_path)
+    except Exception:
+        # 截图失败时丢掉这次的 HTML，避免 daily-run 提交一张没有 PNG 的日期页。
+        if html_path.exists() and not png_path.exists():
+            html_path.unlink()
+        write_manifest()
+        raise
     print(f"  → {png_path}")
+    write_manifest()
 
     # Also copy to output.png for quick access
     latest_path = SCRIPT_DIR / "output.png"

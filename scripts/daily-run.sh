@@ -1,6 +1,6 @@
 #!/bin/bash
 # 每日数据更新（Mac Mini cron 用）
-# 每日主链：同步 main → update-prices → update-aster → rebuild-daily → build-snapshot → sync → 历史 → 指标 → validate → push main
+# 每日主链：同步 main → update-prices → update-aster → rebuild-daily → build-snapshot → sync → 历史 → 指标 → 新闻/海报（有条件）→ validate → push main
 # 用法: bash scripts/daily-run.sh
 set -e
 cd "$(dirname "$0")/.."
@@ -66,6 +66,32 @@ $PY scripts/refresh-unavailable-history.py
 #     此处若见 ⚠️ 指标新鲜度问题 / ❌ 说明静默冻结复发，需人工排查（CMC key / 网络）。
 $PY scripts/fetch-indicators.py || echo "❌ fetch-indicators 非零退出（见上方 freshness 汇总），保留上一版指标数据 —— 连续多日出现须排查"
 
+# 5.65 新闻雷达 → data/news.json。
+#      2026-04-09 之后停更：脚本不在本主链里，而且输出路径曾写死到另一台机器的 checkout，
+#      即便跑了也不会进本次提交。需要 ZHIPUAI_API_KEY（环境变量、仓库 .env 或 ~/.openclaw/.env）。
+#      失败不阻断。无 key 时明确跳过，不伪造 news.json。
+if [ -n "$ZHIPUAI_API_KEY" ] || grep -q "^ZHIPUAI_API_KEY=..*" .env 2>/dev/null || grep -q "^ZHIPUAI_API_KEY=..*" "$HOME/.openclaw/.env" 2>/dev/null; then
+  $PY scripts/news-radar/news-radar.py || echo "❌ news-radar 失败（不阻断；检查 ZHIPUAI_API_KEY / 新闻源）"
+else
+  echo "⚠️ news-radar 跳过：未配置 ZHIPUAI_API_KEY（data/news.json 不会更新）"
+fi
+
+# 5.66 每日海报 → daily-poster/output/。
+#      生成器原先不在本主链，产物也不在 git add 范围；独立任务停跑后海报停在 2026-08-10。
+#      现读本仓库 indicators/data 与 data/。截图需要本机 playwright；AI 短评另需 ZHIPUAI_API_KEY
+#      （无 key 仍会出海报，只是没有新短评）。未安装 playwright 时跳过，避免写出没有 PNG 的半成品。
+if $PY -c "import playwright" 2>/dev/null; then
+  $PY daily-poster/gen-daily.py || echo "❌ gen-daily 失败（不阻断；检查 playwright chromium 与 ZHIPUAI_API_KEY）"
+else
+  echo "⚠️ gen-daily 跳过：未安装 playwright。恢复：pip install playwright && playwright install chromium"
+fi
+
+# 治理 data/governance.json 不由本脚本采集。
+# 采集器在仓库外：~/.openclaw/workspace-engineer/governance-monitor/governance-monitor.py
+# Mac Mini LaunchAgent：com.crypto3d.governance-monitor（09:05 / 21:05）。
+# 2026-08-10 之后该任务停跑，文件停在当天。恢复时让它把 governance.json 写进本仓库工作区，
+# 步骤 7 会随 data/ 提交到 main。若它仍只 push 另一个 checkout 的 dev，正式站不会更新。
+
 # 5.7 每日 AI 审计（PRD 5.5.3，2026-10-07 落地）。
 #     freshness/regression 纯脚本必跑；LLM 任务（机制变更/合理性/交叉验证）需 GLM_API_KEY，
 #     未配置时自动 --no-llm（结果落 data/ai-audit/<date>.json，alert 级打日志）。
@@ -86,7 +112,7 @@ fi
 # 不使用 git add -A，避免把运行日志或人工中的非数据改动误发布。
 # indicators/data 必须一并提交，否则指标板块（ahr999/mvrv/btc-dominance）会像
 # 2026-08-10 → 10-02 那样长期冻结在旧日期。
-git add -A -- data indicators/data
+git add -A -- data indicators/data daily-poster/output daily-poster/output.png daily-poster/comment.json
 if git diff --cached --quiet; then
   echo "无数据变更，跳过提交"
 else
