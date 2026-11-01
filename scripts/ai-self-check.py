@@ -175,13 +175,14 @@ def run_freshness_check():
     # ── 指标板块新鲜度（indicators/data/*.json）──
     IND_DIR = BASE_DIR / "indicators" / "data"
     today = date.today()
-    # (文件, 容差天)  日频源容差 2 天（CMC 当日 UTC 结束后才有）；mvrv/FRED 上游本身滞后，容差 10 天
+    # (文件, 容差天)  日频源容差 2 天（CMC 当日 UTC 结束后才有）。
+    # MVRV 上游常态滞后约 7 天，容差 8 天：再停更 1 天就会告警（10 天容差曾漏报 9 天停更）。
     ind_checks = [
         (IND_DIR / "shared" / "btc-price.json", 2),
         (IND_DIR / "ahr999.json", 2),
         (IND_DIR / "marketcap.json", 2),
         (IND_DIR / "btc-dominance.json", 2),
-        (IND_DIR / "mvrv.json", 10),
+        (IND_DIR / "mvrv.json", 8),
         (IND_DIR / "shared" / "fred-macro.json", 10, "series"),  # dict-of-dict 特殊结构
     ]
     for item in ind_checks:
@@ -220,6 +221,38 @@ def run_freshness_check():
             alerts.append({"protocol": "aster-onchain",
                            "issue": f"链上采集末条 {last_oc}（{age_oc} 天前）——链上无执行量或 Moralis 失效",
                            "severity": "low"})
+
+    # 治理 / 新闻 / 海报不在指标脚本里，停更时原先没有任何告警。
+    def _day_age(value):
+        if not value:
+            return None
+        try:
+            return (today - date.fromisoformat(str(value)[:10])).days
+        except ValueError:
+            return None
+
+    side_feeds = [
+        (BASE_DIR / "data" / "governance.json", "updated_at", 2,
+         "治理采集器不在本仓库、也不在 daily-run 内（Mac Mini LaunchAgent com.crypto3d.governance-monitor）"),
+        (BASE_DIR / "data" / "news.json", "updated_at", 2,
+         "新闻雷达未跑或缺少 ZHIPUAI_API_KEY"),
+    ]
+    for fp, field, tol, why in side_feeds:
+        doc = load_json(fp)
+        age = _day_age((doc or {}).get(field) if isinstance(doc, dict) else None)
+        if age is None or age > tol:
+            shown = (doc or {}).get(field) if isinstance(doc, dict) else None
+            alerts.append({"protocol": str(fp.relative_to(BASE_DIR)),
+                           "issue": f"updated_at {shown}（{age if age is not None else '无法解析'} 天前，容差 {tol}）。{why}",
+                           "severity": "medium"})
+    manifest = load_json(BASE_DIR / "daily-poster" / "output" / "manifest.json")
+    poster_day = (manifest or {}).get("latest_poster") if isinstance(manifest, dict) else None
+    poster_age = _day_age(poster_day)
+    if poster_age is None or poster_age > 2:
+        alerts.append({"protocol": "daily-poster/output",
+                       "issue": f"最新海报 {poster_day}（{poster_age if poster_age is not None else '无 manifest'} 天前，容差 2）。"
+                                "gen-daily 需本机 playwright；短评另需 ZHIPUAI_API_KEY",
+                       "severity": "medium"})
     return {"alerts": alerts, "verdict": "alert" if alerts else "ok",
             "summary_zh": f"新鲜度检查：{len(alerts)} 项过期" if alerts else "全部快照新鲜"}
 

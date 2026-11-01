@@ -176,6 +176,8 @@
     var govProtos=new Set();
     proposals.forEach(function(p){if(p.protocol)govProtos.add(p.protocol)});
     var gEl2=document.getElementById('stat-governance');if(gEl2)gEl2.textContent=govProtos.size;
+    var upd=d.updated_at?String(d.updated_at).slice(0,10):'';
+    if(upd) setI18n(document.getElementById('govUpdated'),'数据更新于 '+upd,'Updated '+upd);
     if(!proposals.length)return;
     function ts(p){var c=p.created;if(typeof c==='number')return c;var d=new Date(c);return isNaN(d)?0:d.getTime()/1000;}
     function fmtMD(v){
