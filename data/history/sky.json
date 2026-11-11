@@ -2,17 +2,6 @@
   "protocol": "sky",
   "records": [
     {
-      "as_of": "2025-11-09",
-      "net_income": 245901908.0,
-      "daily_value": 750476.0,
-      "pe": 6.273,
-      "ps": 6.273,
-      "shareholder_yield": 15.9421,
-      "net_margin": 100.0,
-      "_period": "daily",
-      "daily_value_status": "estimated"
-    },
-    {
       "as_of": "2025-11-10",
       "net_income": 246112173.0,
       "daily_value": 780045.0,
@@ -3983,6 +3972,14 @@
     },
     {
       "as_of": "2026-11-10",
+      "net_income": 193886878.0,
+      "pe": 27.6595,
+      "ps": 7.9555,
+      "shareholder_yield": 3.6154,
+      "net_margin": 100.0
+    },
+    {
+      "as_of": "2026-11-11",
       "net_income": 193886878.0,
       "pe": 27.6595,
       "ps": 7.9555,
