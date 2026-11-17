@@ -2,17 +2,6 @@
   "protocol": "gmx",
   "records": [
     {
-      "as_of": "2025-11-15",
-      "net_income": 32676965.0,
-      "daily_value": 1595.0,
-      "pe": 2.593,
-      "ps": 2.593,
-      "shareholder_yield": 38.5715,
-      "net_margin": 100.0,
-      "_period": "daily",
-      "daily_value_status": "estimated"
-    },
-    {
       "as_of": "2025-11-16",
       "net_income": 32595589.0,
       "daily_value": 7180.0,
@@ -3965,6 +3954,14 @@
     },
     {
       "as_of": "2026-11-16",
+      "net_income": 19145099.0,
+      "pe": null,
+      "ps": 4.425,
+      "shareholder_yield": 0,
+      "net_margin": 100.0
+    },
+    {
+      "as_of": "2026-11-17",
       "net_income": 19145099.0,
       "pe": null,
       "ps": 4.425,
