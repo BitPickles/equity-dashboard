@@ -2,17 +2,6 @@
   "protocol": "maple",
   "records": [
     {
-      "as_of": "2025-11-15",
-      "net_income": 12233541.75,
-      "daily_value": 74595.21,
-      "pe": 14.32,
-      "ps": 14.32,
-      "shareholder_yield": 6.9835,
-      "net_margin": 100.0,
-      "_period": "daily",
-      "daily_value_status": "estimated"
-    },
-    {
       "as_of": "2025-11-16",
       "net_income": 12235672.75,
       "daily_value": 5178.21,
@@ -3962,6 +3951,14 @@
     },
     {
       "as_of": "2026-11-17",
+      "net_income": 15480000,
+      "pe": 113.1648,
+      "ps": 11.3165,
+      "shareholder_yield": 0.8837,
+      "net_margin": 100.0
+    },
+    {
+      "as_of": "2026-11-18",
       "net_income": 15480000,
       "pe": 113.1648,
       "ps": 11.3165,
