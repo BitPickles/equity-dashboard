@@ -2,17 +2,6 @@
   "protocol": "ethena",
   "records": [
     {
-      "as_of": "2025-11-17",
-      "net_income": 17230924.49,
-      "daily_value": -1753.14,
-      "pe": 135.23,
-      "ps": 135.23,
-      "shareholder_yield": 0.7395,
-      "net_margin": 0.2482,
-      "_period": "daily",
-      "daily_value_status": "estimated"
-    },
-    {
       "as_of": "2025-11-18",
       "net_income": 17158039.49,
       "daily_value": -1029.14,
@@ -3959,6 +3948,14 @@
     },
     {
       "as_of": "2026-11-18",
+      "net_income": 600000,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": 0,
+      "net_margin": null
+    },
+    {
+      "as_of": "2026-11-19",
       "net_income": 600000,
       "pe": null,
       "ps": null,

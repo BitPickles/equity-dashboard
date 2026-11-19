@@ -2,17 +2,6 @@
   "protocol": "dydx",
   "records": [
     {
-      "as_of": "2025-11-11",
-      "net_income": 20770120.0,
-      "daily_value": 20219.91,
-      "pe": 4.342,
-      "ps": 4.342,
-      "shareholder_yield": 23.0303,
-      "net_margin": 100.0,
-      "_period": "daily",
-      "daily_value_status": "estimated"
-    },
-    {
       "as_of": "2025-11-12",
       "net_income": 20729238.0,
       "daily_value": 27589.91,
@@ -3959,6 +3948,14 @@
     },
     {
       "as_of": "2026-11-18",
+      "net_income": 4431526.0,
+      "pe": 73.3333,
+      "ps": 20.351,
+      "shareholder_yield": 1.3636,
+      "net_margin": 100.0
+    },
+    {
+      "as_of": "2026-11-19",
       "net_income": 4431526.0,
       "pe": 73.3333,
       "ps": 20.351,

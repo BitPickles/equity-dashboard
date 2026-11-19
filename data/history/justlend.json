@@ -2,17 +2,6 @@
   "protocol": "justlend",
   "records": [
     {
-      "as_of": "2025-11-17",
-      "net_income": 371958.0,
-      "daily_value": 1089.61,
-      "pe": 3052.069,
-      "ps": 3052.069,
-      "shareholder_yield": 0.0328,
-      "net_margin": 100.0,
-      "_period": "daily",
-      "daily_value_status": "estimated"
-    },
-    {
       "as_of": "2025-11-18",
       "net_income": 372280.0,
       "daily_value": 985.61,
@@ -3959,6 +3948,14 @@
     },
     {
       "as_of": "2026-11-18",
+      "net_income": 500000,
+      "pe": null,
+      "ps": 2270.4829,
+      "shareholder_yield": 0,
+      "net_margin": 100.0
+    },
+    {
+      "as_of": "2026-11-19",
       "net_income": 500000,
       "pe": null,
       "ps": 2270.4829,
