@@ -2,17 +2,6 @@
   "protocol": "curve",
   "records": [
     {
-      "as_of": "2025-11-18",
-      "net_income": 4533254.0,
-      "daily_value": -75499.24,
-      "pe": 106.578,
-      "ps": 106.578,
-      "shareholder_yield": 0.9383,
-      "net_margin": -66.607,
-      "_period": "daily",
-      "daily_value_status": "estimated"
-    },
-    {
       "as_of": "2025-11-19",
       "net_income": 4810003.0,
       "daily_value": 220183.76,
@@ -3956,6 +3945,14 @@
     },
     {
       "as_of": "2026-11-19",
+      "net_income": -10394411,
+      "pe": 30.9599,
+      "ps": 30.9599,
+      "shareholder_yield": 3.23,
+      "net_margin": -66.607
+    },
+    {
+      "as_of": "2026-11-21",
       "net_income": -10394411,
       "pe": 30.9599,
       "ps": 30.9599,
