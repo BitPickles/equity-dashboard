@@ -24,7 +24,7 @@ import csv
 import io
 import urllib.request
 import urllib.parse
-from datetime import datetime, date, timedelta
+from datetime import datetime, date, timedelta, timezone
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -35,6 +35,22 @@ DRY = '--dry-run' in sys.argv
 
 # BTC 创世区块日（AHR999 币龄估值起点）
 GENESIS = date(2009, 1, 3)
+# 3D 拟合（scripts/add-fitted-v2.py）。ahr999_3d = (价/200日成本) * (价/fitted_v2)
+FIT_V2_A = 5.5189
+FIT_V2_B = -15.8993
+
+
+def fitted_price_v2(date_str):
+    age = (date.fromisoformat(date_str) - GENESIS).days
+    if age <= 0:
+        return None
+    return round(10 ** (FIT_V2_A * math.log10(age) + FIT_V2_B), 2)
+
+
+def ahr999_3d_of(close, cost, fitted):
+    if not close or not cost or not fitted:
+        return None
+    return round((close / cost) * (close / fitted), 4)
 # FRED 宏观序列（原为 BMRI 输入，现作为原始数据保留）
 FRED_SERIES = ['DGS10', 'DFII10', 'WALCL', 'DTWEXBGS', 'VIXCLS', 'BAMLH0A0HYM2']
 
@@ -81,14 +97,23 @@ def find_gaps(dates, lookback_days=21):
 
 def cmc_key():
     k = os.environ.get('CMC_API_KEY')
-    if k:
+    if k and k.strip():
         return k.strip()
     env = REPO / '.env'
     if env.exists():
         for line in env.read_text(encoding='utf-8').splitlines():
             if line.startswith('CMC_API_KEY'):
-                return line.split('=', 1)[1].strip().strip('"').strip("'")
+                val = line.split('=', 1)[1].strip().strip('"').strip("'")
+                if val:
+                    return val
     raise SystemExit('❌ 未找到 CMC_API_KEY（.env 或环境变量）')
+
+
+def has_cmc_key():
+    try:
+        return bool(cmc_key())
+    except SystemExit:
+        return False
 
 
 CMC_BASE = 'https://pro-api.coinmarketcap.com/v1'
@@ -114,7 +139,7 @@ def save(path, obj, compact=False, indent=2):
 
 
 # ---------------- 1) BTC 价格（shared/btc-price.json）----------------
-def fetch_btc_price_daily(start_date):
+def fetch_btc_price_cmc(start_date):
     """CMC BTC 日频价格。返回 {date_str: price}。
 
     ⚠️ CMC 实测：quotes/historical 的 time_start 为排除语义（interval=1d 时
@@ -134,6 +159,35 @@ def fetch_btc_price_daily(start_date):
         if u.get('price') is not None:
             out[dt] = round(float(u['price']), 2)
     return out
+
+
+def fetch_btc_price_coingecko(start_date):
+    """CoinGecko 公开日线。只收 UTC 零点整点，丢掉当天未收盘的尾点。不改写已有日期。"""
+    days = min(365, max(2, (TODAY - start_date).days + 5))
+    url = (f'https://api.coingecko.com/api/v3/coins/bitcoin/market_chart'
+           f'?vs_currency=usd&days={days}&interval=daily')
+    data = http_json(url, headers={'User-Agent': 'crypto3d/1.0', 'Accept': 'application/json'})
+    out = {}
+    for ts, px in data.get('prices') or []:
+        dt = datetime.fromtimestamp(ts / 1000, timezone.utc)
+        if dt.hour != 0 or dt.minute != 0:
+            continue
+        d = dt.date()
+        if d >= TODAY or d < start_date:
+            continue
+        out[d.isoformat()] = round(float(px), 2)
+    return out
+
+
+def fetch_btc_price_daily(start_date):
+    if has_cmc_key():
+        try:
+            return fetch_btc_price_cmc(start_date)
+        except Exception as e:
+            log(f'  ⚠️ CMC BTC 价格失败，改用 CoinGecko 公开日线: {e}')
+    else:
+        log('  ⚠️ 无 CMC_API_KEY，BTC 日价改用 CoinGecko 公开日线（不补写历史、不外推当天）')
+    return fetch_btc_price_coingecko(start_date)
 
 
 def update_btc_price():
@@ -265,22 +319,44 @@ def update_ahr999():
         if d in existing:
             continue
         rec = vals[d]
-        if d in own_gaps:  # 缺口回补：插到正确位置
-            hist.append(rec)
-        else:
-            hist.append(rec)
-    if added:
+        fv = fitted_price_v2(d)
+        rec['fitted_price_v2'] = fv
+        rec['ahr999_3d'] = ahr999_3d_of(rec['close'], rec['cost_200d'], fv)
+        hist.append(rec)
+    # 默认图用 ahr999_3d。2026-03-28 之后的行只有九神版，图会停在错误的旧日期。
+    # 用已有收盘价和 200 日成本套同一公式补字段，不外推没有价格的日期。
+    filled = 0
+    for rec in hist:
+        if rec.get('ahr999_3d') is not None and rec.get('fitted_price_v2') is not None:
+            continue
+        fv = fitted_price_v2(rec['date'])
+        if fv is None or not rec.get('close') or not rec.get('cost_200d'):
+            continue
+        rec['fitted_price_v2'] = fv
+        rec['ahr999_3d'] = ahr999_3d_of(rec['close'], rec['cost_200d'], fv)
+        filled += 1
+    if added or filled:
         hist.sort(key=lambda x: x['date'])
-        latest = hist[-1]['date']            # 用全量末条（added 可能只是回补的旧缺口日）
-        lastrec = vals[latest] if latest in vals else hist[-1]
+        latest = hist[-1]['date']
+        lastrec = vals.get(latest) or hist[-1]
+        fv = lastrec.get('fitted_price_v2') or fitted_price_v2(latest)
         doc['updated_at'] = latest
         doc['current'] = {
-            'date': latest, 'value': lastrec['ahr999'], 'price': lastrec['close'],
-            'cost_200d': lastrec['cost_200d'], 'fitted_price': lastrec['fitted_price'],
-            'status': ahr999_status(lastrec['ahr999']),
+            'date': latest,
+            'value': lastrec.get('ahr999', hist[-1].get('ahr999')),
+            'price': lastrec.get('close', hist[-1].get('close')),
+            'cost_200d': lastrec.get('cost_200d', hist[-1].get('cost_200d')),
+            'fitted_price': lastrec.get('fitted_price', hist[-1].get('fitted_price')),
+            'fitted_price_v2': fv,
+            'ahr999_3d': lastrec.get('ahr999_3d') or ahr999_3d_of(
+                lastrec.get('close', hist[-1].get('close')),
+                lastrec.get('cost_200d', hist[-1].get('cost_200d')),
+                fv,
+            ),
+            'status': ahr999_status(lastrec.get('ahr999', hist[-1].get('ahr999'))),
         }
         save(fp, doc, indent=2)
-    log(f'ahr999: +{len(added)} 条 → {added[-1] if added else last}')
+    log(f'ahr999: +{len(added)} 条，3D 字段补 {filled} 条 → {added[-1] if added else last}')
     return len(added)
 
 
@@ -304,6 +380,9 @@ def fetch_cmc_total_mcap(start_date):
 
 
 def update_marketcap():
+    if not has_cmc_key():
+        log('  ⚠️ 无 CMC_API_KEY，跳过市值与 BTC.D 日历史（不阻断 BTC 价格 / AHR999 / MVRV）')
+        return 0, {}
     fp = DATA / 'marketcap.json'
     rows = json.load(open(fp, encoding='utf-8'))
     last = rows[-1]['date']
@@ -442,7 +521,11 @@ def main():
     try: _, dom = update_marketcap()
     except Exception as e: log(f'  ❌ {e}'); dom = {}; failed.append('marketcap')
     log('[5/6] btc-dominance')
-    try: update_btc_dominance(dom)
+    try:
+        n_dom = update_btc_dominance(dom)
+        if not n_dom and not dom:
+            log('  ⚠️ BTC.D 日历史未前进：CMC 历史总市值需要 CMC_API_KEY。'
+                '公开接口只有当日快照，写入单点会在图上连出跨缺口直线，因此保持上一版。')
     except Exception as e: log(f'  ❌ {e}'); failed.append('btc-dominance')
     log('[6/6] mvrv')
     try: update_mvrv()

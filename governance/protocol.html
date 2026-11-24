@@ -119,7 +119,10 @@
 
     function renderProposal(p) {
       const sc = p.status === 'active' ? 'active' : 'passed';
-      const statusText = p.status === 'active' ? '进行中' : '已通过';
+      const voteSrc = /Snapshot|Polling|Cosmos/i.test(String(p.source || ''));
+      const endMs = typeof p.end === 'number' ? p.end * 1000 : Date.parse(p.end);
+      const voting = p.status === 'active' && voteSrc && endMs && endMs > Date.now();
+      const statusText = voting ? '投票中' : (p.status === 'active' ? '讨论中' : (p.status === 'passed' ? '已通过' : '已关闭'));
       return `
         <div class="proposal-card ${p.return_related ? 'tev-related' : ''}">
           <div class="proposal-header">

@@ -2,72 +2,6 @@
   "protocol": "eigenlayer",
   "records": [
     {
-      "as_of": "2025-11-19",
-      "net_income": 0.0,
-      "daily_value": 0.0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": null,
-      "_period": "daily",
-      "daily_value_status": "estimated"
-    },
-    {
-      "as_of": "2025-11-20",
-      "net_income": 0.0,
-      "daily_value": 0.0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": null,
-      "_period": "daily",
-      "daily_value_status": "estimated"
-    },
-    {
-      "as_of": "2025-11-21",
-      "net_income": 0.0,
-      "daily_value": 0.0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": null,
-      "_period": "daily",
-      "daily_value_status": "estimated"
-    },
-    {
-      "as_of": "2025-11-22",
-      "net_income": 0.0,
-      "daily_value": 0.0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": null,
-      "_period": "daily",
-      "daily_value_status": "estimated"
-    },
-    {
-      "as_of": "2025-11-23",
-      "net_income": 0.0,
-      "daily_value": 0.0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": null,
-      "_period": "daily",
-      "daily_value_status": "estimated"
-    },
-    {
-      "as_of": "2025-11-24",
-      "net_income": 0.0,
-      "daily_value": 0.0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": null,
-      "_period": "daily",
-      "daily_value_status": "estimated"
-    },
-    {
       "as_of": "2025-11-25",
       "net_income": 0.0,
       "daily_value": 0.0,
@@ -3799,165 +3733,288 @@
     {
       "as_of": "2026-10-30",
       "net_income": 0.0,
-      "daily_value": null,
-      "daily_value_status": "pending",
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
+      "shareholder_yield": null,
       "net_margin": null,
-      "_period": "snapshot"
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-10-31",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-11-01",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
+    },
+    {
+      "as_of": "2026-11-02",
+      "net_income": 0.0,
+      "daily_value": 0.0,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-11-03",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-11-04",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-11-05",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-11-06",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-11-07",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-11-08",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
+    },
+    {
+      "as_of": "2026-11-09",
+      "net_income": 0.0,
+      "daily_value": 0.0,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-11-10",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-11-11",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-11-12",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-11-13",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-11-14",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-11-15",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-11-16",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-11-17",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-11-18",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-11-19",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
+    },
+    {
+      "as_of": "2026-11-20",
+      "net_income": 0.0,
+      "daily_value": 0.0,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     },
     {
       "as_of": "2026-11-21",
       "net_income": 0.0,
+      "daily_value": 0.0,
       "pe": null,
       "ps": null,
-      "shareholder_yield": 0,
-      "net_margin": null
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
+    },
+    {
+      "as_of": "2026-11-22",
+      "net_income": 0.0,
+      "daily_value": 0.0,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
+    },
+    {
+      "as_of": "2026-11-23",
+      "net_income": 0.0,
+      "daily_value": 0.0,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
+    },
+    {
+      "as_of": "2026-11-24",
+      "net_income": 0.0,
+      "daily_value": 0.0,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": null,
+      "net_margin": null,
+      "_period": "daily",
+      "daily_value_status": "estimated"
     }
   ]
 }

@@ -23,9 +23,6 @@
 /web                       /tev                   301
 /web/                      /tev                   301
 /web/*                     /tev/:splat            301
-/daily-poster/output/comments.html  /daily-poster/output/  301
-/daily-poster/output/comments.json  /daily-poster/output/  301
-
 # 旧路径 → 新路径 (301 永久重定向)
 /indicators/ahr999.html    /ahr999                301
 /indicators/mvrv.html      /mvrv                  301

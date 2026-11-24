@@ -115,9 +115,12 @@ def main():
             print(f"  [DRY] {pid}: cg_id={cid}")
             continue
         try:
-            if pid in CMC_SLUGS:
-                # CMC 兜底（sky/spark）——无 429 重试逻辑（CMC 配额独立）
+            if pid in CMC_SLUGS and os_environ_get():
+                # CMC 兜底（sky）——无 429 重试逻辑（CMC 配额独立）
                 info = fetch_cmc(CMC_SLUGS[pid])
+            elif pid in CMC_SLUGS:
+                print(f"    ⚠ {pid} 无 CMC_API_KEY，改用 CoinGecko id={cid}")
+                info = fetch(cid)
             else:
                 for attempt in range(3):  # 429 限流重试 3 次
                     try:
@@ -142,6 +145,8 @@ def main():
                     "circulating_supply": info["circulating_supply"],
                     "price_updated_at": now,
                 })
+                # last_updated 只表示行情日期，不表示估值快照日期
+                cfg["last_updated"] = now[:10]
                 cfg_path.write_text(json.dumps(cfg, indent=2, ensure_ascii=False), encoding="utf-8")
             # ② all-protocols.json
             if pid in allp.get("protocols", {}):
@@ -168,9 +173,14 @@ def main():
             fail += 1
         time.sleep(6.0)  # 免费层实测 ~10 req/min（429 后 6s 保险）
 
-    if not args.dry_run:
+    if not args.dry_run and ok:
         allp["generated_at"] = now
+        # 行情日期：至少有一个协议的价格写成功。与 financial_snapshot.as_of、generated_at 分开。
+        dates = [p.get("last_updated") for p in allp.get("protocols", {}).values() if p.get("last_updated")]
+        allp["market_data_as_of"] = max(dates) if dates else now[:10]
         allp_path.write_text(json.dumps(allp, indent=2, ensure_ascii=False), encoding="utf-8")
+    elif not args.dry_run:
+        print("  ⚠️ 全部协议价格失败，不改写 all-protocols.json（避免只刷新 generated_at）")
 
     print(f"\n完成: {ok} ok, {fail} fail | 时间 {now[:16]}")
     return 1 if fail else 0

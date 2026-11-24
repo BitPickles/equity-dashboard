@@ -1,6 +1,6 @@
 {
   "protocol": "mnt",
-  "updated_at": "2026-11-21T00:09:31.000Z",
+  "updated_at": "2026-11-24T11:13:41.139307+00:00",
   "data_sources": {
     "defillama": "无（平台币/静态，专属脚本维护）",
     "coingecko": "mantle",
@@ -18,9 +18,9 @@
     "trailing_30d_shareholder_returns_usd": 0,
     "trailing_365d_shareholder_returns_usd": null,
     "annualized_returns_usd": 0,
-    "current_market_cap_usd": 1331416209,
+    "current_market_cap_usd": 1272506468,
     "tev_yield": null,
     "return_yield_decimal": 0,
-    "calculated_at": "2026-11-21T00:09:31.000Z"
+    "calculated_at": "2026-11-24T11:13:41.139307+00:00"
   }
 }

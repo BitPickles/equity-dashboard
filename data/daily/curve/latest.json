@@ -1,6 +1,6 @@
 {
   "protocol": "curve",
-  "updated_at": "2026-11-21T00:09:13.000Z",
+  "updated_at": "2026-11-24T11:13:41.139307+00:00",
   "data_sources": {
     "defillama": "curve-dex",
     "coingecko": "curve-dao-token",
@@ -18,9 +18,9 @@
     "trailing_30d_shareholder_returns_usd": 970876,
     "trailing_365d_shareholder_returns_usd": null,
     "annualized_returns_usd": 11650512,
-    "current_market_cap_usd": 567204846,
+    "current_market_cap_usd": 280055395,
     "tev_yield": null,
     "return_yield_decimal": 0.0328,
-    "calculated_at": "2026-11-21T00:09:13.000Z"
+    "calculated_at": "2026-11-24T11:13:41.139307+00:00"
   }
 }

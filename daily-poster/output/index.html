@@ -505,7 +505,8 @@ body {
     var today = new Date().toISOString().slice(0, 10);
     var todayCount = (byDate[today] || []).length;
     var updated = (d.updated_at || '').slice(0, 10);
-    meta.textContent = todayCount + ' 条今日 · 共 ' + news.length + ' 条' + (updated ? ' · 新闻源更新于 ' + updated : '');
+    var translated = d.translation === 'source' ? ' · 原文未翻译' : '';
+    meta.textContent = todayCount + ' 条今日 · 共 ' + news.length + ' 条' + (updated ? ' · 新闻源更新于 ' + updated : '') + translated;
 
     if (!news.length) {
       list.innerHTML = '<div class="feed-loading">暂无新闻数据</div>';

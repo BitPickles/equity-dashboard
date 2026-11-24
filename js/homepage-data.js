@@ -210,13 +210,17 @@
           var t=cleanTitle(p,isEn);
           titleEl.textContent=t.length>46?t.slice(0,46)+'…':t;
         }
-        var statusActive=isEn?'Voting':'投票中';
-        var statusEnded=isEn?'Ended':'已结束';
-        if(protoEl)protoEl.textContent=(p.protocol||'')+' · '+(p.status==='active'?statusActive:statusEnded);
+        var voteSrc=/Snapshot|Polling|Cosmos/i.test(String(p.source||''));
+        var endMs=typeof p.end==='number'?p.end*1000:Date.parse(p.end);
+        var voting=p.status==='active' && voteSrc && endMs && endMs>Date.now();
+        var discussing=p.status==='active' && !voting;
+        var statusLabel=voting?(isEn?'Voting':'投票中'):(discussing?(isEn?'Discussion':'讨论中'):(isEn?'Ended':'已结束'));
+        if(protoEl)protoEl.textContent=(p.protocol||'')+' · '+statusLabel;
         if(statusEl){
-          if(p.tev_related){statusEl.textContent=isEn?'Capital Return':'股东回报相关';statusEl.className='gov-card-status tev';}
-          else if(p.status==='active'){statusEl.innerHTML='<div class="pulse-dot"></div>'+(isEn?'Voting':'投票中');statusEl.className='gov-card-status active';}
-          else{statusEl.textContent=statusEnded;statusEl.className='gov-card-status passed';}
+          if(p.tev_related && !voting){statusEl.textContent=isEn?'Capital Return':'股东回报相关';statusEl.className='gov-card-status tev';}
+          else if(voting){statusEl.innerHTML='<div class="pulse-dot"></div>'+(isEn?'Voting':'投票中');statusEl.className='gov-card-status active';}
+          else if(discussing){statusEl.textContent=isEn?'Discussion':'讨论中';statusEl.className='gov-card-status tev';}
+          else{statusEl.textContent=isEn?'Ended':'已结束';statusEl.className='gov-card-status passed';}
         }
         // 底部日期按提案真实 created/end 动态生成（原为陈旧硬编码）
         var metaEl=c.querySelector('.gov-card-meta');

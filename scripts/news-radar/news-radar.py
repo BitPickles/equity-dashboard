@@ -390,6 +390,24 @@ def llm_call(model: str, prompt: str, max_tokens: int, timeout: int) -> str:
     raise RuntimeError(last_err)
 
 
+def select_top_heuristic(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """无翻译密钥时按采集分排序。标题和摘要保留原文，不编中文。"""
+    ranked = sorted(items, key=lambda x: (x.get('_score', 0), x.get('published_at', now_utc())), reverse=True)
+    out = []
+    for item in ranked:
+        if len(out) >= MAX_SELECTED:
+            break
+        base = dict(item)
+        base['importance'] = min(10, max(4, int(item.get('_score', 50)) // 15))
+        base['category'] = category_hint(base.get('title_en', '') + ' ' + base.get('summary_en', ''))
+        base['title_zh'] = base.get('title_en', '')
+        base['summary_zh'] = (base.get('summary_en') or '')[:400]
+        base['translation'] = 'source'
+        base['id'] = stable_id(base)
+        out.append(base)
+    return out
+
+
 def select_top_items(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     bundled = []
     for i, item in enumerate(items, start=1):
@@ -629,6 +647,7 @@ def normalize_output(items: List[Dict[str, Any]]) -> Dict[str, Any]:
             'source': item['source'],
             'source_url': item.get('source_url', ''),
             'published_at': published.astimezone(dt.timezone.utc).isoformat().replace('+00:00', 'Z'),
+            'translation': item.get('translation', 'zh'),
         })
     return {
         'updated_at': dt.datetime.now(TZ).isoformat(),
@@ -663,6 +682,7 @@ def git_push_dev() -> None:
 
 
 def main() -> int:
+    no_llm = '--no-llm' in sys.argv
     start = time.time()
     raw = collect_all()
     print(f"[INFO] Raw collected: {len(raw)}")
@@ -671,10 +691,17 @@ def main() -> int:
     if not coarse:
         print('[ERROR] No news collected after filtering')
         return 1
-    selected = select_top_items(coarse[:60])
-    print(f"[INFO] Selected by GLM-4-flash: {len(selected)}")
-    enriched = summarize_items(selected)
-    output = normalize_output(enriched)
+    if no_llm or not load_env_key('ZHIPUAI_API_KEY'):
+        print('[WARN] 无 ZHIPUAI_API_KEY 或指定 --no-llm：保留原文，不生成中文摘要')
+        enriched = select_top_heuristic(coarse)
+        output = normalize_output(enriched)
+        output['translation'] = 'source'
+    else:
+        selected = select_top_items(coarse[:60])
+        print(f"[INFO] Selected by GLM-4-flash: {len(selected)}")
+        enriched = summarize_items(selected)
+        output = normalize_output(enriched)
+        output['translation'] = 'zh'
     write_output(output)
     elapsed = time.time() - start
     print(f"[INFO] Wrote {OUTPUT_FILE} with {output['count']} items in {elapsed:.1f}s")
