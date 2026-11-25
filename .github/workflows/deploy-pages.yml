@@ -79,9 +79,7 @@ jobs:
             --exclude 'equity/simple-test.html' \
             --exclude 'equity/test-proto.html' \
             --exclude 'equity/test-tevratio.html' \
-            --exclude 'equity/test_fetch.html' \
-            --exclude 'daily-poster/output/comments.html' \
-            --exclude 'daily-poster/output/comments.json'
+            --exclude 'equity/test_fetch.html'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
