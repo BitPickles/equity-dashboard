@@ -1,6 +1,6 @@
 {
   "protocol": "aave",
-  "updated_at": "2026-11-25T00:09:06.000Z",
+  "updated_at": "2026-11-25T09:22:34.990345+00:00",
   "data_sources": {
     "defillama": "aave",
     "coingecko": "aave",
@@ -18,9 +18,9 @@
     "trailing_30d_shareholder_returns_usd": 26513626,
     "trailing_365d_shareholder_returns_usd": null,
     "annualized_returns_usd": 318163512,
-    "current_market_cap_usd": 1835373195,
+    "current_market_cap_usd": 1418884893,
     "tev_yield": null,
     "return_yield_decimal": 0.18099976781698965,
-    "calculated_at": "2026-11-25T00:09:06.000Z"
+    "calculated_at": "2026-11-25T09:22:34.990345+00:00"
   }
 }

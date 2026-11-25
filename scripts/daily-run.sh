@@ -66,14 +66,13 @@ $PY scripts/refresh-unavailable-history.py
 #     此处若见 ⚠️ 指标新鲜度问题 / ❌ 说明静默冻结复发，需人工排查（CMC key / 网络）。
 $PY scripts/fetch-indicators.py || echo "❌ fetch-indicators 非零退出（见上方 freshness 汇总），保留上一版指标数据 —— 连续多日出现须排查"
 
-# 5.65 新闻雷达 → data/news.json。
-#      2026-04-09 之后停更：脚本不在本主链里，而且输出路径曾写死到另一台机器的 checkout，
-#      即便跑了也不会进本次提交。需要 ZHIPUAI_API_KEY（环境变量、仓库 .env 或 ~/.openclaw/.env）。
-#      失败不阻断。无 key 时明确跳过，不伪造 news.json。
+# 5.65 新闻雷达 → data/news.json。失败不阻断。
+#      有 ZHIPUAI_API_KEY 时生成中文标题摘要；没有则 --no-llm，只写入公开 RSS 原文。
 if [ -n "$ZHIPUAI_API_KEY" ] || grep -q "^ZHIPUAI_API_KEY=..*" .env 2>/dev/null || grep -q "^ZHIPUAI_API_KEY=..*" "$HOME/.openclaw/.env" 2>/dev/null; then
   $PY scripts/news-radar/news-radar.py || echo "❌ news-radar 失败（不阻断；检查 ZHIPUAI_API_KEY / 新闻源）"
 else
-  echo "⚠️ news-radar 跳过：未配置 ZHIPUAI_API_KEY（data/news.json 不会更新）"
+  echo "⚠️ 无 ZHIPUAI_API_KEY，新闻雷达以原文降级运行"
+  $PY scripts/news-radar/news-radar.py --no-llm || echo "❌ news-radar --no-llm 失败（不阻断）"
 fi
 
 # 5.66 每日海报 → daily-poster/output/。
@@ -86,11 +85,9 @@ else
   echo "⚠️ gen-daily 跳过：未安装 playwright。恢复：pip install playwright && playwright install chromium"
 fi
 
-# 治理 data/governance.json 不由本脚本采集。
-# 采集器在仓库外：~/.openclaw/workspace-engineer/governance-monitor/governance-monitor.py
-# Mac Mini LaunchAgent：com.crypto3d.governance-monitor（09:05 / 21:05）。
-# 2026-08-10 之后该任务停跑，文件停在当天。恢复时让它把 governance.json 写进本仓库工作区，
-# 步骤 7 会随 data/ 提交到 main。若它仍只 push 另一个 checkout 的 dev，正式站不会更新。
+# 5.67 治理状态。公开 Snapshot / GitHub / Discourse，不需要密钥，失败不阻断。
+#      中文解读仍依赖仓库外的 governance-monitor（ZHIPUAI_API_KEY）。这里只核对状态并补原文标题。
+$PY scripts/update-governance-status.py || echo "❌ update-governance-status 失败（不阻断；保留上一版 governance.json）"
 
 # 5.7 每日 AI 审计（PRD 5.5.3，2026-10-07 落地）。
 #     freshness/regression 纯脚本必跑；LLM 任务（机制变更/合理性/交叉验证）需 GLM_API_KEY，

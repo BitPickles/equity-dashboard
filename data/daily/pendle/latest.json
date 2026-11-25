@@ -1,6 +1,6 @@
 {
   "protocol": "pendle",
-  "updated_at": "2026-11-25T00:09:36.000Z",
+  "updated_at": "2026-11-25T09:22:34.990345+00:00",
   "data_sources": {
     "defillama": "pendle",
     "coingecko": "pendle",
@@ -18,9 +18,9 @@
     "trailing_30d_shareholder_returns_usd": 908300,
     "trailing_365d_shareholder_returns_usd": 28613969,
     "annualized_returns_usd": 10899600,
-    "current_market_cap_usd": 359886831,
+    "current_market_cap_usd": 210950709,
     "tev_yield": null,
     "return_yield_decimal": 0,
-    "calculated_at": "2026-11-25T00:09:36.000Z"
+    "calculated_at": "2026-11-25T09:22:34.990345+00:00"
   }
 }

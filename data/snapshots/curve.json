@@ -66,7 +66,7 @@
         "mechanism": "veCRV 分红（FeeAllocator 90% admin fee）",
         "type": "yield",
         "usd_365d": 15605589,
-        "yield_percent": 3.23,
+        "yield_percent": 5.6939,
         "note": "90% admin fee 兑换 crvUSD 分给 veCRV 锁仓持有人（裸 CRV 不参与）；名义 yield = 股东回报 / CRV 全市值，实际锁仓持有人更高（veCRV-only 口径）"
       }
     ],
@@ -74,9 +74,9 @@
       "destroy_usd_365d": null,
       "yield_usd_365d": 15605589,
       "destroy_yield_percent": null,
-      "yield_yield_percent": 3.23,
+      "yield_yield_percent": 5.6939,
       "shareholder_returns_usd_365d": 15605589,
-      "shareholder_yield_percent": 3.23
+      "shareholder_yield_percent": 5.6939
     },
     "by_period": {
       "7d": {
@@ -84,8 +84,8 @@
         "shareholder_returns_usd": 655715.0,
         "destroy_usd": 655715.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 7.0767,
-        "buyback_yield_percent": 7.0767,
+        "shareholder_yield_percent": 12.4751,
+        "buyback_yield_percent": 12.4751,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.0,
         "status": "active",
@@ -96,8 +96,8 @@
         "shareholder_returns_usd": 1824106.0,
         "destroy_usd": 1824106.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 4.5935,
-        "buyback_yield_percent": 4.5935,
+        "shareholder_yield_percent": 8.0976,
+        "buyback_yield_percent": 8.0976,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.0,
         "status": "active",
@@ -108,8 +108,8 @@
         "shareholder_returns_usd": 4325419.0,
         "destroy_usd": 4325419.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 3.6308,
-        "buyback_yield_percent": 3.6308,
+        "shareholder_yield_percent": 6.4005,
+        "buyback_yield_percent": 6.4005,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.0,
         "status": "active",
@@ -120,8 +120,8 @@
         "shareholder_returns_usd": 15605589,
         "destroy_usd": 15605589,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 3.23,
-        "buyback_yield_percent": 3.23,
+        "shareholder_yield_percent": 5.6939,
+        "buyback_yield_percent": 5.6939,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.0,
         "status": "active",
@@ -130,14 +130,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 483146809,
+    "market_cap_usd": 274073737,
     "tvl_usd": 1808019756.5740514,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 30.9599,
-    "ps": 30.9599,
+    "pe": 17.5625,
+    "ps": 17.5625,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": null

@@ -2,7 +2,7 @@
   "id": "fluid",
   "name": "Fluid",
   "ticker": "FLUID",
-  "icon": "../equity/logos/fluid.png",
+  "icon": "/equity/logos/fluid.png",
   "category": "lending",
   "description": "Lending + DEX 一体化协议，由 Instadapp 团队推出，建立在统一的 Liquidity Layer 上",
   "website": "https://fluid.io",
@@ -82,7 +82,7 @@
     }
   ],
   "analyst_notes": "【2026-04-27 链上调研 medium-high confidence】\n\n## 机制\n- 2025-10 起 Fluid 35% 协议收入 → Treasury 回购 FLUID\n- 来源: 官方 blog《FLUID Reserve: Buybacks & Growth Strategy》\n- Reserve 钱包: 0x3e6FeBd2b195e1Ef3e8e3F4AABB6772aada32353 + 0x9Afb8C1798B93a8E04a18553eE65bAFa41a012F1\n- 终极用途: 未公开 (储备/burn/分配)\n\n## 数据\n- DefiLlama dailyHoldersRevenue 365d $4.75M\n- 链上 Etherscan 实测 1.25M FLUID inflow (差 <0.5%)\n- 流通市值 ~$132M\n- yield ≈ 3.4%\n\n## 警示\n- 35% 比例无链上治理投票\n- 回购后终极用途模糊\n- Reserve 钱包占 0.11% supply, 未来可能用作 inflation 分配\n\n## 关键地址\n- FLUID: 0x6f40d4A6237C257fff2dB00FA0510DeEECd303eb\n- Reserve Wallet 1: 0x3e6FeBd2b195e1Ef3e8e3F4AABB6772aada32353\n- Reserve Wallet 2: 0x9Afb8C1798B93a8E04a18553eE65bAFa41a012F1\n\n## 历史\n- 2026-04-27: 链上调研 medium-high confidence\n- 2025-10: 35% buyback 启动\n",
-  "last_updated": "2026-08-02",
+  "last_updated": "2026-11-25",
   "data_confidence": "high",
   "data_source_note": "链上追踪 (FLUID 流入储备钱包)",
   "return_data": {
@@ -145,10 +145,10 @@
   "market_data": {
     "tvl": 858549305.8980845,
     "tvl_updated": "2026-03-27T01:00:50.616Z",
-    "price_usd": 1.81,
-    "circulating_market_cap": 151739881,
+    "price_usd": 1.42,
+    "circulating_market_cap": 118889376,
     "circulating_supply": 83696996.82034639,
-    "price_updated_at": "2026-10-30T00:05:05.138644+00:00"
+    "price_updated_at": "2026-11-25T09:22:34.990345+00:00"
   },
   "payout_ratio": 0.35,
   "total_yield_percent": 5.15,

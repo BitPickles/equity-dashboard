@@ -1,6 +1,6 @@
 {
   "protocol": "morpho",
-  "updated_at": "2026-11-25T00:09:31.000Z",
+  "updated_at": "2026-11-25T09:22:34.990345+00:00",
   "data_sources": {
     "defillama": "morpho",
     "coingecko": "morpho",
@@ -18,9 +18,9 @@
     "trailing_30d_shareholder_returns_usd": 0,
     "trailing_365d_shareholder_returns_usd": null,
     "annualized_returns_usd": 0,
-    "current_market_cap_usd": 1789799385,
+    "current_market_cap_usd": 1086884742,
     "tev_yield": null,
     "return_yield_decimal": 0.0,
-    "calculated_at": "2026-11-25T00:09:31.000Z"
+    "calculated_at": "2026-11-25T09:22:34.990345+00:00"
   }
 }

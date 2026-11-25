@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>历史短评 · Crypto3D</title>
+<link rel="icon" href="../../favicon.ico">
+<style>
+  body { margin: 0; font-family: Inter, "Noto Sans SC", sans-serif; background: #f4f4f5; color: #18181b; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 28px 20px 64px; }
+  a { color: #2563eb; text-decoration: none; }
+  h1 { font-size: 28px; margin: 12px 0 8px; }
+  .meta { color: #71717a; font-size: 14px; margin-bottom: 20px; }
+  .card { background: #fff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 18px 18px 14px; margin: 0 0 12px; }
+  .date { font-size: 12px; color: #71717a; font-variant-numeric: tabular-nums; }
+  .title { font-size: 18px; font-weight: 800; margin: 6px 0 8px; line-height: 1.35; }
+  .body { font-size: 14px; line-height: 1.65; color: #3f3f46; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a href="./">← 每日数据</a>
+  <h1>历史短评</h1>
+  <p class="meta" id="meta">加载中…</p>
+  <div id="list"></div>
+</div>
+<script>
+fetch('comments.json').then(function(r) {
+  if (!r.ok) throw new Error('comments.json ' + r.status);
+  return r.json();
+}).then(function(d) {
+  var items = (d.comments || []).slice().sort(function(a, b) {
+    return String(b.date || '').localeCompare(String(a.date || ''));
+  });
+  document.getElementById('meta').textContent = items.length
+    ? ('共 ' + items.length + ' 条 · 最新 ' + (items[0].date || '—') + ' · 此处只列出已生成的短评，不补写缺失日期')
+    : '还没有短评';
+  document.getElementById('list').innerHTML = items.map(function(c) {
+    return '<article class="card"><div class="date">' + (c.date || '') + '</div><h2 class="title">'
+      + escapeHtml(c.title || '') + '</h2><div class="body">' + escapeHtml(c.body || '') + '</div></article>';
+  }).join('');
+}).catch(function(e) {
+  document.getElementById('meta').textContent = '短评加载失败：' + e.message;
+});
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, function(ch) {
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[ch];
+  });
+}
+</script>
+</body>
+</html>

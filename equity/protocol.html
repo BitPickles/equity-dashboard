@@ -929,7 +929,10 @@
         } else {
           document.getElementById('protocol-notes').innerHTML = '<p style="color:var(--text-tertiary);font-size:13px;" data-zh="暂无分析师备注" data-en="No analyst notes yet">暂无分析师备注</p>';
         }
-        document.getElementById('last-updated').textContent = cfg.last_updated || '—';
+        const priceDate = (cfg.market_data && cfg.market_data.price_updated_at || '').slice(0, 10) || cfg.last_updated || '—';
+        const snapDate = (allTable && allTable.financial_snapshot && allTable.financial_snapshot.as_of) || '—';
+        document.getElementById('last-updated').textContent =
+          (currentLang === 'zh' ? '行情 ' : 'Prices ') + priceDate + (currentLang === 'zh' ? ' · 快照 ' : ' · Snapshot ') + snapDate;
         document.getElementById('loading').style.display = 'none';
         document.getElementById('content').style.display = 'block';
         loadHistoryDashboard(pid);

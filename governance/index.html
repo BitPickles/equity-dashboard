@@ -435,8 +435,11 @@
         const tevInfo = returnId ? tevProtocols[returnId] : null;
         const icon = tevInfo?.icon;
         const ticker = tevInfo?.ticker || '';
-        const sc = p.status === 'active' ? 'active' : p.status === 'passed' ? 'passed' : 'closed';
-        const sl = p.status === 'active' ? '进行中' : p.status === 'passed' ? '已通过' : '已关闭';
+        const voteSrc = /Snapshot|Polling|Cosmos/i.test(String(p.source || ''));
+        const endMs = typeof p.end === 'number' ? p.end * 1000 : Date.parse(p.end);
+        const voting = p.status === 'active' && voteSrc && endMs && endMs > Date.now();
+        const sc = voting ? 'active' : p.status === 'passed' ? 'passed' : (p.status === 'active' ? 'active' : 'closed');
+        const sl = voting ? '投票中' : (p.status === 'active' ? '讨论中' : (p.status === 'passed' ? '已通过' : '已关闭'));
         const keywords = (p.tev_keywords || []);
         const fullAnalysis = p.analysis_zh || '';
 

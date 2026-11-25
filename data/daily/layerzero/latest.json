@@ -1,6 +1,6 @@
 {
   "protocol": "layerzero",
-  "updated_at": "2026-11-25T00:09:26.000Z",
+  "updated_at": "2026-11-25T09:22:34.990345+00:00",
   "data_sources": {
     "defillama": "layerzero-v2",
     "coingecko": "layerzero",
@@ -18,9 +18,9 @@
     "trailing_30d_shareholder_returns_usd": null,
     "trailing_365d_shareholder_returns_usd": null,
     "annualized_returns_usd": null,
-    "current_market_cap_usd": 372781867,
+    "current_market_cap_usd": 399323403,
     "tev_yield": null,
     "return_yield_decimal": null,
-    "calculated_at": "2026-11-25T00:09:26.000Z"
+    "calculated_at": "2026-11-25T09:22:34.990345+00:00"
   }
 }

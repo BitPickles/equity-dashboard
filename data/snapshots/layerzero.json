@@ -63,7 +63,7 @@
         "mechanism": "Stargate 收入回购 ZRO（100%）",
         "type": "buyback",
         "usd_365d": 784539.21,
-        "yield_percent": 0.129,
+        "yield_percent": 0.1965,
         "verified": "partial",
         "note": "2026-03 起 100% Stargate 收入回购 ZRO（累计 149.5 万 ZRO/$3.14M，链上可验证）；协议本体 fee switch 未开启 → 股东回报极低（0.3%）"
       }
@@ -71,10 +71,10 @@
     "summary": {
       "destroy_usd_365d": 784539.21,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 0.129,
+      "destroy_yield_percent": 0.1965,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 784539.21,
-      "shareholder_yield_percent": 0.129
+      "shareholder_yield_percent": 0.1965
     },
     "by_period": {
       "7d": {
@@ -106,8 +106,8 @@
         "shareholder_returns_usd": 74651.22,
         "destroy_usd": 74651.22,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 0.0498,
-        "buyback_yield_percent": 0.0498,
+        "shareholder_yield_percent": 0.0758,
+        "buyback_yield_percent": 0.0758,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.2313,
         "status": "active",
@@ -118,8 +118,8 @@
         "shareholder_returns_usd": 784539.21,
         "destroy_usd": 784539.21,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 0.129,
-        "buyback_yield_percent": 0.129,
+        "shareholder_yield_percent": 0.1965,
+        "buyback_yield_percent": 0.1965,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.2313,
         "status": "active",
@@ -128,14 +128,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 607956814,
+    "market_cap_usd": 399323403,
     "tvl_usd": 7500000000,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 774.9222,
-    "ps": 179.2752,
+    "pe": 508.991,
+    "ps": 117.7531,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0.9998

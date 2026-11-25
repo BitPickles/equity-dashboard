@@ -1,12 +1,14 @@
 {
-  "updated_at": "2026-10-30",
+  "updated_at": "2026-11-24",
   "current": {
-    "date": "2026-10-30",
-    "value": 0.4569,
-    "price": 77791.38,
-    "cost_200d": 72626.44,
-    "fitted_price": 182357.38,
-    "status": "定投区"
+    "date": "2026-11-24",
+    "value": 0.2802,
+    "price": 61227.55,
+    "cost_200d": 71738.53,
+    "fitted_price": 186485.95,
+    "fitted_price_v2": 143315.15,
+    "ahr999_3d": 0.3646,
+    "status": "抄底区"
   },
   "history": [
     {
@@ -49784,1288 +49786,1881 @@
       "close": 66932,
       "ahr999": 0.3274,
       "cost_200d": 91309.84,
-      "fitted_price": 149876.02
+      "fitted_price": 149876.02,
+      "fitted_price_v2": 116572.68,
+      "ahr999_3d": 0.4209
     },
     {
       "date": "2026-03-30",
       "close": 66464,
       "ahr999": 0.3233,
       "cost_200d": 91069.16,
-      "fitted_price": 150015.14
+      "fitted_price": 150015.14,
+      "fitted_price_v2": 116674.93,
+      "ahr999_3d": 0.4157
     },
     {
       "date": "2026-03-31",
       "close": 67575,
       "ahr999": 0.3348,
       "cost_200d": 90827.0,
-      "fitted_price": 150154.36
+      "fitted_price": 150154.36,
+      "fitted_price_v2": 116777.26,
+      "ahr999_3d": 0.4305
     },
     {
       "date": "2026-04-01",
       "close": 66731,
       "ahr999": 0.3271,
       "cost_200d": 90575.35,
-      "fitted_price": 150293.7
+      "fitted_price": 150293.7,
+      "fitted_price_v2": 116879.66,
+      "ahr999_3d": 0.4206
     },
     {
       "date": "2026-04-02",
       "close": 68913,
       "ahr999": 0.3494,
       "cost_200d": 90347.73,
-      "fitted_price": 150433.14
+      "fitted_price": 150433.14,
+      "fitted_price_v2": 116982.13,
+      "ahr999_3d": 0.4493
     },
     {
       "date": "2026-04-04",
       "close": 66855,
       "ahr999": 0.33,
       "cost_200d": 89858.48,
-      "fitted_price": 150712.34
+      "fitted_price": 150712.34,
+      "fitted_price_v2": 117187.3,
+      "ahr999_3d": 0.4245
     },
     {
       "date": "2026-04-05",
       "close": 67358,
       "ahr999": 0.3356,
       "cost_200d": 89611.9,
-      "fitted_price": 150852.1
+      "fitted_price": 150852.1,
+      "fitted_price_v2": 117290.0,
+      "ahr999_3d": 0.4317
     },
     {
       "date": "2026-04-06",
       "close": 67284,
       "ahr999": 0.3355,
       "cost_200d": 89365.77,
-      "fitted_price": 150991.97
+      "fitted_price": 150991.97,
+      "fitted_price_v2": 117392.77,
+      "ahr999_3d": 0.4315
     },
     {
       "date": "2026-04-07",
       "close": 69935,
       "ahr999": 0.3631,
       "cost_200d": 89138.19,
-      "fitted_price": 151131.95
+      "fitted_price": 151131.95,
+      "fitted_price_v2": 117495.61,
+      "ahr999_3d": 0.467
     },
     {
       "date": "2026-04-08",
       "close": 68143,
       "ahr999": 0.3453,
       "cost_200d": 88895.3,
-      "fitted_price": 151272.03
+      "fitted_price": 151272.03,
+      "fitted_price_v2": 117598.52,
+      "ahr999_3d": 0.4442
     },
     {
       "date": "2026-04-09",
       "close": 71301,
       "ahr999": 0.3786,
       "cost_200d": 88692.39,
-      "fitted_price": 151412.22
+      "fitted_price": 151412.22,
+      "fitted_price_v2": 117701.51,
+      "ahr999_3d": 0.487
     },
     {
       "date": "2026-04-10",
       "close": 72154,
       "ahr999": 0.3883,
       "cost_200d": 88475.54,
-      "fitted_price": 151552.52
+      "fitted_price": 151552.52,
+      "fitted_price_v2": 117804.58,
+      "ahr999_3d": 0.4995
     },
     {
       "date": "2026-04-11",
       "close": 72847,
       "ahr999": 0.3972,
       "cost_200d": 88079.28,
-      "fitted_price": 151692.93
+      "fitted_price": 151692.93,
+      "fitted_price_v2": 117907.71,
+      "ahr999_3d": 0.511
     },
     {
       "date": "2026-04-12",
       "close": 73111,
       "ahr999": 0.4006,
       "cost_200d": 87879.42,
-      "fitted_price": 151833.44
+      "fitted_price": 151833.44,
+      "fitted_price_v2": 118010.93,
+      "ahr999_3d": 0.5154
     },
     {
       "date": "2026-04-13",
       "close": 71195,
       "ahr999": 0.3804,
       "cost_200d": 87678.65,
-      "fitted_price": 151974.06
+      "fitted_price": 151974.06,
+      "fitted_price_v2": 118114.21,
+      "ahr999_3d": 0.4894
     },
     {
       "date": "2026-04-14",
       "close": 74067,
       "ahr999": 0.4121,
       "cost_200d": 87517.06,
-      "fitted_price": 152114.8
+      "fitted_price": 152114.8,
+      "fitted_price_v2": 118217.57,
+      "ahr999_3d": 0.5302
     },
     {
       "date": "2026-04-15",
       "close": 74565,
       "ahr999": 0.4181,
       "cost_200d": 87342.24,
-      "fitted_price": 152255.63
+      "fitted_price": 152255.63,
+      "fitted_price_v2": 118321.0,
+      "ahr999_3d": 0.538
     },
     {
       "date": "2026-04-16",
       "close": 74723,
       "ahr999": 0.4204,
       "cost_200d": 87156.43,
-      "fitted_price": 152396.58
+      "fitted_price": 152396.58,
+      "fitted_price_v2": 118424.51,
+      "ahr999_3d": 0.541
     },
     {
       "date": "2026-04-17",
       "close": 74951,
       "ahr999": 0.4235,
       "cost_200d": 86961.77,
-      "fitted_price": 152537.64
+      "fitted_price": 152537.64,
+      "fitted_price_v2": 118528.09,
+      "ahr999_3d": 0.545
     },
     {
       "date": "2026-04-18",
       "close": 77159,
       "ahr999": 0.4493,
       "cost_200d": 86788.27,
-      "fitted_price": 152678.8
+      "fitted_price": 152678.8,
+      "fitted_price_v2": 118631.75,
+      "ahr999_3d": 0.5782
     },
     {
       "date": "2026-04-19",
       "close": 75771,
       "ahr999": 0.434,
       "cost_200d": 86567.54,
-      "fitted_price": 152820.07
+      "fitted_price": 152820.07,
+      "fitted_price_v2": 118735.48,
+      "ahr999_3d": 0.5586
     },
     {
       "date": "2026-04-20",
       "close": 74347,
       "ahr999": 0.4186,
       "cost_200d": 86326.6,
-      "fitted_price": 152961.45
+      "fitted_price": 152961.45,
+      "fitted_price_v2": 118839.28,
+      "ahr999_3d": 0.5388
     },
     {
       "date": "2026-04-21",
       "close": 76069,
       "ahr999": 0.4389,
       "cost_200d": 86103.32,
-      "fitted_price": 153102.94
+      "fitted_price": 153102.94,
+      "fitted_price_v2": 118943.16,
+      "ahr999_3d": 0.565
     },
     {
       "date": "2026-04-22",
       "close": 76340,
       "ahr999": 0.4428,
       "cost_200d": 85874.7,
-      "fitted_price": 153244.53
+      "fitted_price": 153244.53,
+      "fitted_price_v2": 119047.11,
+      "ahr999_3d": 0.5701
     },
     {
       "date": "2026-04-23",
       "close": 78398,
       "ahr999": 0.4678,
       "cost_200d": 85658.26,
-      "fitted_price": 153386.24
+      "fitted_price": 153386.24,
+      "fitted_price_v2": 119151.14,
+      "ahr999_3d": 0.6022
     },
     {
       "date": "2026-04-24",
       "close": 78347,
       "ahr999": 0.468,
       "cost_200d": 85425.3,
-      "fitted_price": 153528.05
+      "fitted_price": 153528.05,
+      "fitted_price_v2": 119255.24,
+      "ahr999_3d": 0.6025
     },
     {
       "date": "2026-04-25",
       "close": 77492,
       "ahr999": 0.4586,
       "cost_200d": 85200.83,
-      "fitted_price": 153669.97
+      "fitted_price": 153669.97,
+      "fitted_price_v2": 119359.42,
+      "ahr999_3d": 0.5905
     },
     {
       "date": "2026-04-26",
       "close": 77513,
       "ahr999": 0.4597,
       "cost_200d": 84972.26,
-      "fitted_price": 153812.0
+      "fitted_price": 153812.0,
+      "fitted_price_v2": 119463.67,
+      "ahr999_3d": 0.5919
     },
     {
       "date": "2026-04-27",
       "close": 78054,
       "ahr999": 0.4657,
       "cost_200d": 84974.96,
-      "fitted_price": 153954.14
+      "fitted_price": 153954.14,
+      "fitted_price_v2": 119568.0,
+      "ahr999_3d": 0.5996
     },
     {
       "date": "2026-04-28",
       "close": 77357,
       "ahr999": 0.4592,
       "cost_200d": 84576.97,
-      "fitted_price": 154096.39
+      "fitted_price": 154096.39,
+      "fitted_price_v2": 119672.4,
+      "ahr999_3d": 0.5912
     },
     {
       "date": "2026-04-29",
       "close": 76480,
       "ahr999": 0.4493,
       "cost_200d": 84400.1,
-      "fitted_price": 154238.75
+      "fitted_price": 154238.75,
+      "fitted_price_v2": 119776.87,
+      "ahr999_3d": 0.5786
     },
     {
       "date": "2026-04-30",
       "close": 76263,
       "ahr999": 0.4474,
       "cost_200d": 84202.03,
-      "fitted_price": 154381.22
+      "fitted_price": 154381.22,
+      "fitted_price_v2": 119881.42,
+      "ahr999_3d": 0.5762
     },
     {
       "date": "2026-05-01",
       "close": 76429,
       "ahr999": 0.45,
       "cost_200d": 84008.08,
-      "fitted_price": 154523.79
+      "fitted_price": 154523.79,
+      "fitted_price_v2": 119986.04,
+      "ahr999_3d": 0.5795
     },
     {
       "date": "2026-05-02",
       "close": 78294,
       "ahr999": 0.4727,
       "cost_200d": 83842.49,
-      "fitted_price": 154666.48
+      "fitted_price": 154666.48,
+      "fitted_price_v2": 120090.74,
+      "ahr999_3d": 0.6088
     },
     {
       "date": "2026-05-03",
       "close": 78436,
       "ahr999": 0.4749,
       "cost_200d": 83682.76,
-      "fitted_price": 154809.27
+      "fitted_price": 154809.27,
+      "fitted_price_v2": 120195.51,
+      "ahr999_3d": 0.6117
     },
     {
       "date": "2026-05-04",
       "close": 78483,
       "ahr999": 0.4759,
       "cost_200d": 83535.46,
-      "fitted_price": 154952.17
+      "fitted_price": 154952.17,
+      "fitted_price_v2": 120300.36,
+      "ahr999_3d": 0.6129
     },
     {
       "date": "2026-05-05",
       "close": 80107,
       "ahr999": 0.496,
       "cost_200d": 83410.49,
-      "fitted_price": 155095.18
+      "fitted_price": 155095.18,
+      "fitted_price_v2": 120405.29,
+      "ahr999_3d": 0.639
     },
     {
       "date": "2026-05-06",
       "close": 81011,
       "ahr999": 0.5076,
       "cost_200d": 83284.1,
-      "fitted_price": 155238.3
+      "fitted_price": 155238.3,
+      "fitted_price_v2": 120510.28,
+      "ahr999_3d": 0.6539
     },
     {
       "date": "2026-05-07",
       "close": 81018,
       "ahr999": 0.5081,
       "cost_200d": 83148.13,
-      "fitted_price": 155381.54
+      "fitted_price": 155381.54,
+      "fitted_price_v2": 120615.36,
+      "ahr999_3d": 0.6545
     },
     {
       "date": "2026-05-08",
       "close": 79873,
       "ahr999": 0.4943,
       "cost_200d": 82989.38,
-      "fitted_price": 155524.88
+      "fitted_price": 155524.88,
+      "fitted_price_v2": 120720.5,
+      "ahr999_3d": 0.6368
     },
     {
       "date": "2026-05-09",
       "close": 80219,
       "ahr999": 0.499,
       "cost_200d": 82849.62,
-      "fitted_price": 155668.33
+      "fitted_price": 155668.33,
+      "fitted_price_v2": 120825.73,
+      "ahr999_3d": 0.6428
     },
     {
       "date": "2026-05-10",
       "close": 80622,
       "ahr999": 0.5043,
       "cost_200d": 82716.81,
-      "fitted_price": 155811.89
+      "fitted_price": 155811.89,
+      "fitted_price_v2": 120931.02,
+      "ahr999_3d": 0.6498
     },
     {
       "date": "2026-05-11",
       "close": 81390,
       "ahr999": 0.5144,
       "cost_200d": 82581.09,
-      "fitted_price": 155955.56
+      "fitted_price": 155955.56,
+      "fitted_price_v2": 121036.4,
+      "ahr999_3d": 0.6627
     },
     {
       "date": "2026-05-12",
       "close": 81576,
       "ahr999": 0.5171,
       "cost_200d": 82435.84,
-      "fitted_price": 156099.33
+      "fitted_price": 156099.33,
+      "fitted_price_v2": 121141.85,
+      "ahr999_3d": 0.6664
     },
     {
       "date": "2026-05-13",
       "close": 80682,
       "ahr999": 0.5064,
       "cost_200d": 82275.62,
-      "fitted_price": 156243.22
+      "fitted_price": 156243.22,
+      "fitted_price_v2": 121247.37,
+      "ahr999_3d": 0.6525
     },
     {
       "date": "2026-05-14",
       "close": 79582,
       "ahr999": 0.4933,
       "cost_200d": 82094.17,
-      "fitted_price": 156387.22
+      "fitted_price": 156387.22,
+      "fitted_price_v2": 121352.97,
+      "ahr999_3d": 0.6357
     },
     {
       "date": "2026-05-15",
       "close": 81548,
       "ahr999": 0.5185,
       "cost_200d": 81938.32,
-      "fitted_price": 156531.33
+      "fitted_price": 156531.33,
+      "fitted_price_v2": 121458.64,
+      "ahr999_3d": 0.6682
     },
     {
       "date": "2026-05-16",
       "close": 79067,
       "ahr999": 0.4881,
       "cost_200d": 81756.49,
-      "fitted_price": 156675.55
+      "fitted_price": 156675.55,
+      "fitted_price_v2": 121564.39,
+      "ahr999_3d": 0.629
     },
     {
       "date": "2026-05-17",
       "close": 77863,
       "ahr999": 0.4738,
       "cost_200d": 81590.91,
-      "fitted_price": 156819.88
+      "fitted_price": 156819.88,
+      "fitted_price_v2": 121670.22,
+      "ahr999_3d": 0.6107
     },
     {
       "date": "2026-05-18",
       "close": 77145,
       "ahr999": 0.4656,
       "cost_200d": 81433.3,
-      "fitted_price": 156964.32
+      "fitted_price": 156964.32,
+      "fitted_price_v2": 121776.12,
+      "ahr999_3d": 0.6001
     },
     {
       "date": "2026-05-19",
       "close": 77025,
       "ahr999": 0.4647,
       "cost_200d": 81269.6,
-      "fitted_price": 157108.87
+      "fitted_price": 157108.87,
+      "fitted_price_v2": 121882.09,
+      "ahr999_3d": 0.599
     },
     {
       "date": "2026-05-20",
       "close": 76690,
       "ahr999": 0.4612,
       "cost_200d": 81101.86,
-      "fitted_price": 157253.53
+      "fitted_price": 157253.53,
+      "fitted_price_v2": 121988.14,
+      "ahr999_3d": 0.5945
     },
     {
       "date": "2026-05-21",
       "close": 77899,
       "ahr999": 0.4763,
       "cost_200d": 80942.02,
-      "fitted_price": 157398.3
+      "fitted_price": 157398.3,
+      "fitted_price_v2": 122094.27,
+      "ahr999_3d": 0.614
     },
     {
       "date": "2026-05-22",
       "close": 77287,
       "ahr999": 0.4693,
       "cost_200d": 80794.04,
-      "fitted_price": 157543.18
+      "fitted_price": 157543.18,
+      "fitted_price_v2": 122200.47,
+      "ahr999_3d": 0.605
     },
     {
       "date": "2026-05-23",
       "close": 75336,
       "ahr999": 0.4463,
       "cost_200d": 80653.67,
-      "fitted_price": 157688.17
+      "fitted_price": 157688.17,
+      "fitted_price_v2": 122306.75,
+      "ahr999_3d": 0.5753
     },
     {
       "date": "2026-05-24",
       "close": 76766,
       "ahr999": 0.4637,
       "cost_200d": 80524.62,
-      "fitted_price": 157833.27
+      "fitted_price": 157833.27,
+      "fitted_price_v2": 122413.1,
+      "ahr999_3d": 0.5978
     },
     {
       "date": "2026-05-25",
       "close": 77038,
       "ahr999": 0.4672,
       "cost_200d": 80404.07,
-      "fitted_price": 157978.48
+      "fitted_price": 157978.48,
+      "fitted_price_v2": 122519.53,
+      "ahr999_3d": 0.6025
     },
     {
       "date": "2026-05-26",
       "close": 76666,
       "ahr999": 0.4631,
       "cost_200d": 80271.85,
-      "fitted_price": 158123.81
+      "fitted_price": 158123.81,
+      "fitted_price_v2": 122626.04,
+      "ahr999_3d": 0.5971
     },
     {
       "date": "2026-05-27",
       "close": 75847,
       "ahr999": 0.4536,
       "cost_200d": 80135.49,
-      "fitted_price": 158269.24
+      "fitted_price": 158269.24,
+      "fitted_price_v2": 122732.62,
+      "ahr999_3d": 0.5849
     },
     {
       "date": "2026-05-28",
       "close": 74449,
       "ahr999": 0.4375,
       "cost_200d": 79976.65,
-      "fitted_price": 158414.78
+      "fitted_price": 158414.78,
+      "fitted_price_v2": 122839.28,
+      "ahr999_3d": 0.5642
     },
     {
       "date": "2026-05-29",
       "close": 73674,
       "ahr999": 0.4289,
       "cost_200d": 79810.94,
-      "fitted_price": 158560.44
+      "fitted_price": 158560.44,
+      "fitted_price_v2": 122946.01,
+      "ahr999_3d": 0.5532
     },
     {
       "date": "2026-05-30",
       "close": 73413,
       "ahr999": 0.4263,
       "cost_200d": 79661.66,
-      "fitted_price": 158706.21
+      "fitted_price": 158706.21,
+      "fitted_price_v2": 123052.82,
+      "ahr999_3d": 0.5498
     },
     {
       "date": "2026-05-31",
       "close": 73966,
       "ahr999": 0.4331,
       "cost_200d": 79525.7,
-      "fitted_price": 158852.08
+      "fitted_price": 158852.08,
+      "fitted_price_v2": 123159.7,
+      "ahr999_3d": 0.5586
     },
     {
       "date": "2026-06-01",
       "close": 73756,
       "ahr999": 0.4309,
       "cost_200d": 79393.95,
-      "fitted_price": 158998.07
+      "fitted_price": 158998.07,
+      "fitted_price_v2": 123266.66,
+      "ahr999_3d": 0.5559
     },
     {
       "date": "2026-06-02",
       "close": 71204,
       "ahr999": 0.4019,
       "cost_200d": 79265.69,
-      "fitted_price": 159144.17
+      "fitted_price": 159144.17,
+      "fitted_price_v2": 123373.7,
+      "ahr999_3d": 0.5184
     },
     {
       "date": "2026-06-03",
       "close": 66773,
       "ahr999": 0.3539,
       "cost_200d": 79099.23,
-      "fitted_price": 159290.38
+      "fitted_price": 159290.38,
+      "fitted_price_v2": 123480.81,
+      "ahr999_3d": 0.4565
     },
     {
       "date": "2026-06-04",
       "close": 63289,
       "ahr999": 0.3183,
       "cost_200d": 78929.87,
-      "fitted_price": 159436.7
+      "fitted_price": 159436.7,
+      "fitted_price_v2": 123588.0,
+      "ahr999_3d": 0.4106
     },
     {
       "date": "2026-06-13",
       "close": 63580,
       "ahr999": 0.3233,
       "cost_200d": 77767.49,
-      "fitted_price": 160758.63
+      "fitted_price": 160758.63,
+      "fitted_price_v2": 124556.13,
+      "ahr999_3d": 0.4173
     },
     {
       "date": "2026-06-14",
       "close": 64530,
       "ahr999": 0.3333,
       "cost_200d": 77641.71,
-      "fitted_price": 160906.06
+      "fitted_price": 160906.06,
+      "fitted_price_v2": 124664.08,
+      "ahr999_3d": 0.4302
     },
     {
       "date": "2026-07-05",
       "close": 62933,
       "ahr999": 0.3232,
       "cost_200d": 74713.68,
-      "fitted_price": 164028.27
+      "fitted_price": 164028.27,
+      "fitted_price_v2": 126948.84,
+      "ahr999_3d": 0.4176
     },
     {
       "date": "2026-07-06",
       "close": 63660,
       "ahr999": 0.3309,
       "cost_200d": 74607.81,
-      "fitted_price": 164178.19
+      "fitted_price": 164178.19,
+      "fitted_price_v2": 127058.49,
+      "ahr999_3d": 0.4275
     },
     {
       "date": "2026-07-07",
       "close": 64071,
       "ahr999": 0.3354,
       "cost_200d": 74489.58,
-      "fitted_price": 164328.23
+      "fitted_price": 164328.23,
+      "fitted_price_v2": 127168.22,
+      "ahr999_3d": 0.4334
     },
     {
       "date": "2026-07-08",
       "close": 63562,
       "ahr999": 0.3303,
       "cost_200d": 74362.03,
-      "fitted_price": 164478.37
+      "fitted_price": 164478.37,
+      "fitted_price_v2": 127278.02,
+      "ahr999_3d": 0.4269
     },
     {
       "date": "2026-07-09",
       "close": 62111,
       "ahr999": 0.3157,
       "cost_200d": 74223.37,
-      "fitted_price": 164628.64
+      "fitted_price": 164628.64,
+      "fitted_price_v2": 127387.9,
+      "ahr999_3d": 0.408
     },
     {
       "date": "2026-07-10",
       "close": 63012,
       "ahr999": 0.3252,
       "cost_200d": 74101.34,
-      "fitted_price": 164779.01
+      "fitted_price": 164779.01,
+      "fitted_price_v2": 127497.86,
+      "ahr999_3d": 0.4203
     },
     {
       "date": "2026-07-11",
       "close": 64071,
       "ahr999": 0.3364,
       "cost_200d": 73990.05,
-      "fitted_price": 164929.5
+      "fitted_price": 164929.5,
+      "fitted_price_v2": 127607.89,
+      "ahr999_3d": 0.4348
     },
     {
       "date": "2026-07-12",
       "close": 63807,
       "ahr999": 0.3339,
       "cost_200d": 73870.12,
-      "fitted_price": 165080.1
+      "fitted_price": 165080.1,
+      "fitted_price_v2": 127718.0,
+      "ahr999_3d": 0.4315
     },
     {
       "date": "2026-07-13",
       "close": 63956,
       "ahr999": 0.3357,
       "cost_200d": 73753.33,
-      "fitted_price": 165230.82
+      "fitted_price": 165230.82,
+      "fitted_price_v2": 127828.2,
+      "ahr999_3d": 0.4339
     },
     {
       "date": "2026-07-14",
       "close": 62454,
       "ahr999": 0.3204,
       "cost_200d": 73620.47,
-      "fitted_price": 165381.65
+      "fitted_price": 165381.65,
+      "fitted_price_v2": 127938.46,
+      "ahr999_3d": 0.4141
     },
     {
       "date": "2026-07-15",
       "close": 64736,
       "ahr999": 0.3444,
       "cost_200d": 73517.72,
-      "fitted_price": 165532.59
+      "fitted_price": 165532.59,
+      "fitted_price_v2": 128048.81,
+      "ahr999_3d": 0.4452
     },
     {
       "date": "2026-07-16",
       "close": 64550,
       "ahr999": 0.3426,
       "cost_200d": 73401.3,
-      "fitted_price": 165683.65
+      "fitted_price": 165683.65,
+      "fitted_price_v2": 128159.24,
+      "ahr999_3d": 0.4429
     },
     {
       "date": "2026-07-17",
       "close": 63834,
       "ahr999": 0.3353,
       "cost_200d": 73281.06,
-      "fitted_price": 165834.82
+      "fitted_price": 165834.82,
+      "fitted_price_v2": 128269.74,
+      "ahr999_3d": 0.4335
     },
     {
       "date": "2026-07-18",
       "close": 63852,
       "ahr999": 0.3357,
       "cost_200d": 73158.56,
-      "fitted_price": 165986.11
+      "fitted_price": 165986.11,
+      "fitted_price_v2": 128380.32,
+      "ahr999_3d": 0.4341
     },
     {
       "date": "2026-07-19",
       "close": 64737,
       "ahr999": 0.3453,
       "cost_200d": 73049.36,
-      "fitted_price": 166137.51
+      "fitted_price": 166137.51,
+      "fitted_price_v2": 128490.98,
+      "ahr999_3d": 0.4465
     },
     {
       "date": "2026-07-20",
       "close": 64505,
       "ahr999": 0.3431,
       "cost_200d": 72927.91,
-      "fitted_price": 166289.03
+      "fitted_price": 166289.03,
+      "fitted_price_v2": 128601.71,
+      "ahr999_3d": 0.4437
     },
     {
       "date": "2026-07-21",
       "close": 65490,
       "ahr999": 0.3539,
       "cost_200d": 72809.18,
-      "fitted_price": 166440.66
+      "fitted_price": 166440.66,
+      "fitted_price_v2": 128712.53,
+      "ahr999_3d": 0.4577
     },
     {
       "date": "2026-07-22",
       "close": 66597,
       "ahr999": 0.3662,
       "cost_200d": 72694.26,
-      "fitted_price": 166592.4
+      "fitted_price": 166592.4,
+      "fitted_price_v2": 128823.42,
+      "ahr999_3d": 0.4736
     },
     {
       "date": "2026-07-23",
       "close": 66023,
       "ahr999": 0.3603,
       "cost_200d": 72565.07,
-      "fitted_price": 166744.26
+      "fitted_price": 166744.26,
+      "fitted_price_v2": 128934.39,
+      "ahr999_3d": 0.4659
     },
     {
       "date": "2026-07-24",
       "close": 64922,
       "ahr999": 0.3489,
       "cost_200d": 72389.58,
-      "fitted_price": 166896.23
+      "fitted_price": 166896.23,
+      "fitted_price_v2": 129045.44,
+      "ahr999_3d": 0.4512
     },
     {
       "date": "2026-07-25",
       "close": 64065,
       "ahr999": 0.3401,
       "cost_200d": 72238.21,
-      "fitted_price": 167048.32
+      "fitted_price": 167048.32,
+      "fitted_price_v2": 129156.57,
+      "ahr999_3d": 0.4399
     },
     {
       "date": "2026-07-26",
       "close": 64469,
       "ahr999": 0.3447,
       "cost_200d": 72105.43,
-      "fitted_price": 167200.53
+      "fitted_price": 167200.53,
+      "fitted_price_v2": 129267.78,
+      "ahr999_3d": 0.4459
     },
     {
       "date": "2026-07-27",
       "close": 65061,
       "ahr999": 0.3508,
       "cost_200d": 72108.47,
-      "fitted_price": 167352.85
+      "fitted_price": 167352.85,
+      "fitted_price_v2": 129379.06,
+      "ahr999_3d": 0.4537
     },
     {
       "date": "2026-07-28",
       "close": 63419,
       "ahr999": 0.3341,
       "cost_200d": 71862.74,
-      "fitted_price": 167505.28
+      "fitted_price": 167505.28,
+      "fitted_price_v2": 129490.42,
+      "ahr999_3d": 0.4322
     },
     {
       "date": "2026-07-29",
       "close": 63872,
       "ahr999": 0.3393,
       "cost_200d": 71706.89,
-      "fitted_price": 167657.83
+      "fitted_price": 167657.83,
+      "fitted_price_v2": 129601.86,
+      "ahr999_3d": 0.439
     },
     {
       "date": "2026-07-30",
       "close": 63622,
       "ahr999": 0.3369,
       "cost_200d": 71596.38,
-      "fitted_price": 167810.49
+      "fitted_price": 167810.49,
+      "fitted_price_v2": 129713.38,
+      "ahr999_3d": 0.4359
     },
     {
       "date": "2026-07-31",
       "close": 64745,
       "ahr999": 0.3487,
       "cost_200d": 71576.9,
-      "fitted_price": 167963.27
+      "fitted_price": 167963.27,
+      "fitted_price_v2": 129824.98,
+      "ahr999_3d": 0.4511
     },
     {
       "date": "2026-08-01",
       "close": 62897,
       "ahr999": 0.3302,
       "cost_200d": 71272.51,
-      "fitted_price": 168116.16
+      "fitted_price": 168116.16,
+      "fitted_price_v2": 129936.66,
+      "ahr999_3d": 0.4272
     },
     {
       "date": "2026-08-02",
       "close": 62788,
       "ahr999": 0.3295,
       "cost_200d": 71101.7,
-      "fitted_price": 168269.17
+      "fitted_price": 168269.17,
+      "fitted_price_v2": 130048.42,
+      "ahr999_3d": 0.4264
     },
     {
       "date": "2026-08-03",
       "close": 63204,
       "ahr999": 0.3336,
       "cost_200d": 71103.93,
-      "fitted_price": 168422.3
+      "fitted_price": 168422.3,
+      "fitted_price_v2": 130160.25,
+      "ahr999_3d": 0.4316
     },
     {
       "date": "2026-08-04",
       "close": 63332,
       "ahr999": 0.3361,
       "cost_200d": 70783.82,
-      "fitted_price": 168575.54
+      "fitted_price": 168575.54,
+      "fitted_price_v2": 130272.16,
+      "ahr999_3d": 0.435
     },
     {
       "date": "2026-08-05",
       "close": 63949,
       "ahr999": 0.3431,
       "cost_200d": 70633.07,
-      "fitted_price": 168728.9
+      "fitted_price": 168728.9,
+      "fitted_price_v2": 130384.16,
+      "ahr999_3d": 0.4441
     },
     {
       "date": "2026-08-09",
       "close": 64918,
       "ahr999": 0.355,
       "cost_200d": 70112.15,
-      "fitted_price": 169343.48
+      "fitted_price": 169343.48,
+      "fitted_price_v2": 130832.91,
+      "ahr999_3d": 0.4594
     },
     {
       "date": "2026-08-10",
       "close": 64944,
       "ahr999": 0.3555,
       "cost_200d": 69989.17,
-      "fitted_price": 169497.41
+      "fitted_price": 169497.41,
+      "fitted_price_v2": 130945.3,
+      "ahr999_3d": 0.4602
     },
     {
       "date": "2026-08-11",
       "close": 63912.5,
       "ahr999": 0.3455,
       "cost_200d": 69687.61,
-      "fitted_price": 169651.46
+      "fitted_price": 169651.46,
+      "fitted_price_v2": 131057.76,
+      "ahr999_3d": 0.4473
     },
     {
       "date": "2026-08-12",
       "close": 63547.05,
       "ahr999": 0.3418,
       "cost_200d": 69568.62,
-      "fitted_price": 169805.63
+      "fitted_price": 169805.63,
+      "fitted_price_v2": 131170.31,
+      "ahr999_3d": 0.4425
     },
     {
       "date": "2026-08-13",
       "close": 63410.39,
       "ahr999": 0.3406,
       "cost_200d": 69450.08,
-      "fitted_price": 169959.91
+      "fitted_price": 169959.91,
+      "fitted_price_v2": 131282.93,
+      "ahr999_3d": 0.441
     },
     {
       "date": "2026-08-14",
       "close": 63418.16,
       "ahr999": 0.3409,
       "cost_200d": 69342.59,
-      "fitted_price": 170114.31
+      "fitted_price": 170114.31,
+      "fitted_price_v2": 131395.63,
+      "ahr999_3d": 0.4414
     },
     {
       "date": "2026-08-15",
       "close": 62977.61,
       "ahr999": 0.3365,
       "cost_200d": 69225.37,
-      "fitted_price": 170268.83
+      "fitted_price": 170268.83,
+      "fitted_price_v2": 131508.42,
+      "ahr999_3d": 0.4357
     },
     {
       "date": "2026-08-16",
       "close": 63024.64,
       "ahr999": 0.3373,
       "cost_200d": 69105.01,
-      "fitted_price": 170423.46
+      "fitted_price": 170423.46,
+      "fitted_price_v2": 131621.28,
+      "ahr999_3d": 0.4367
     },
     {
       "date": "2026-08-17",
       "close": 62829.64,
       "ahr999": 0.3355,
       "cost_200d": 68984.11,
-      "fitted_price": 170578.2
+      "fitted_price": 170578.2,
+      "fitted_price_v2": 131734.22,
+      "ahr999_3d": 0.4344
     },
     {
       "date": "2026-08-18",
       "close": 64487.65,
       "ahr999": 0.3536,
       "cost_200d": 68890.87,
-      "fitted_price": 170733.07
+      "fitted_price": 170733.07,
+      "fitted_price_v2": 131847.24,
+      "ahr999_3d": 0.4578
     },
     {
       "date": "2026-08-19",
       "close": 64681.22,
       "ahr999": 0.3558,
       "cost_200d": 68800.84,
-      "fitted_price": 170888.05
+      "fitted_price": 170888.05,
+      "fitted_price_v2": 131960.34,
+      "ahr999_3d": 0.4608
     },
     {
       "date": "2026-08-20",
       "close": 69289.44,
       "ahr999": 0.4082,
       "cost_200d": 68757.03,
-      "fitted_price": 171043.15
+      "fitted_price": 171043.15,
+      "fitted_price_v2": 132073.52,
+      "ahr999_3d": 0.5287
     },
     {
       "date": "2026-08-21",
       "close": 73013.0,
       "ahr999": 0.453,
       "cost_200d": 68739.15,
-      "fitted_price": 171198.36
+      "fitted_price": 171198.36,
+      "fitted_price_v2": 132186.77,
+      "ahr999_3d": 0.5867
     },
     {
       "date": "2026-08-22",
       "close": 78326.97,
       "ahr999": 0.5209,
       "cost_200d": 68737.45,
-      "fitted_price": 171353.69
+      "fitted_price": 171353.69,
+      "fitted_price_v2": 132300.11,
+      "ahr999_3d": 0.6746
     },
     {
       "date": "2026-08-23",
       "close": 77076.07,
       "ahr999": 0.5039,
       "cost_200d": 68743.71,
-      "fitted_price": 171509.14
+      "fitted_price": 171509.14,
+      "fitted_price_v2": 132413.53,
+      "ahr999_3d": 0.6526
     },
     {
       "date": "2026-08-24",
       "close": 77727.61,
       "ahr999": 0.5118,
       "cost_200d": 68764.83,
-      "fitted_price": 171664.7
+      "fitted_price": 171664.7,
+      "fitted_price_v2": 132527.03,
+      "ahr999_3d": 0.6629
     },
     {
       "date": "2026-08-25",
       "close": 78982.26,
       "ahr999": 0.5274,
       "cost_200d": 68839.92,
-      "fitted_price": 171820.38
+      "fitted_price": 171820.38,
+      "fitted_price_v2": 132640.6,
+      "ahr999_3d": 0.6832
     },
     {
       "date": "2026-08-26",
       "close": 78528.42,
       "ahr999": 0.5206,
       "cost_200d": 68876.33,
-      "fitted_price": 171976.18
+      "fitted_price": 171976.18,
+      "fitted_price_v2": 132754.26,
+      "ahr999_3d": 0.6744
     },
     {
       "date": "2026-08-27",
       "close": 79026.75,
       "ahr999": 0.5264,
       "cost_200d": 68922.24,
-      "fitted_price": 172132.1
+      "fitted_price": 172132.1,
+      "fitted_price_v2": 132868.0,
+      "ahr999_3d": 0.682
     },
     {
       "date": "2026-08-28",
       "close": 80261.86,
       "ahr999": 0.5422,
       "cost_200d": 68966.83,
-      "fitted_price": 172288.13
+      "fitted_price": 172288.13,
+      "fitted_price_v2": 132981.81,
+      "ahr999_3d": 0.7024
     },
     {
       "date": "2026-08-29",
       "close": 77838.39,
       "ahr999": 0.5092,
       "cost_200d": 69002.24,
-      "fitted_price": 172444.28
+      "fitted_price": 172444.28,
+      "fitted_price_v2": 133095.71,
+      "ahr999_3d": 0.6597
     },
     {
       "date": "2026-08-30",
       "close": 78234.75,
       "ahr999": 0.5136,
       "cost_200d": 69047.15,
-      "fitted_price": 172600.55
+      "fitted_price": 172600.55,
+      "fitted_price_v2": 133209.68,
+      "ahr999_3d": 0.6655
     },
     {
       "date": "2026-08-31",
       "close": 77695.49,
       "ahr999": 0.5057,
       "cost_200d": 69098.17,
-      "fitted_price": 172756.93
+      "fitted_price": 172756.93,
+      "fitted_price_v2": 133323.74,
+      "ahr999_3d": 0.6553
     },
     {
       "date": "2026-09-01",
       "close": 78559.11,
       "ahr999": 0.5161,
       "cost_200d": 69157.32,
-      "fitted_price": 172913.43
+      "fitted_price": 172913.43,
+      "fitted_price_v2": 133437.87,
+      "ahr999_3d": 0.6688
     },
     {
       "date": "2026-09-02",
       "close": 77395.89,
       "ahr999": 0.5002,
       "cost_200d": 69197.75,
-      "fitted_price": 173070.05
+      "fitted_price": 173070.05,
+      "fitted_price_v2": 133552.09,
+      "ahr999_3d": 0.6482
     },
     {
       "date": "2026-09-03",
       "close": 77310.18,
       "ahr999": 0.4984,
       "cost_200d": 69233.32,
-      "fitted_price": 173226.79
+      "fitted_price": 173226.79,
+      "fitted_price_v2": 133666.38,
+      "ahr999_3d": 0.6459
     },
     {
       "date": "2026-09-04",
       "close": 81271.92,
       "ahr999": 0.5498,
       "cost_200d": 69291.14,
-      "fitted_price": 173383.64
+      "fitted_price": 173383.64,
+      "fitted_price_v2": 133780.76,
+      "ahr999_3d": 0.7125
     },
     {
       "date": "2026-09-05",
       "close": 79676.33,
       "ahr999": 0.5275,
       "cost_200d": 69341.74,
-      "fitted_price": 173540.62
+      "fitted_price": 173540.62,
+      "fitted_price_v2": 133895.21,
+      "ahr999_3d": 0.6838
     },
     {
       "date": "2026-09-06",
       "close": 79830.38,
       "ahr999": 0.5287,
       "cost_200d": 69400.07,
-      "fitted_price": 173697.7
+      "fitted_price": 173697.7,
+      "fitted_price_v2": 134009.75,
+      "ahr999_3d": 0.6852
     },
     {
       "date": "2026-09-07",
       "close": 80351.4,
       "ahr999": 0.5346,
       "cost_200d": 69466.06,
-      "fitted_price": 173854.91
+      "fitted_price": 173854.91,
+      "fitted_price_v2": 134124.37,
+      "ahr999_3d": 0.693
     },
     {
       "date": "2026-09-08",
       "close": 79093.85,
       "ahr999": 0.5171,
       "cost_200d": 69523.93,
-      "fitted_price": 174012.24
+      "fitted_price": 174012.24,
+      "fitted_price_v2": 134239.06,
+      "ahr999_3d": 0.6703
     },
     {
       "date": "2026-09-09",
       "close": 78446.18,
       "ahr999": 0.5078,
       "cost_200d": 69573.64,
-      "fitted_price": 174169.68
+      "fitted_price": 174169.68,
+      "fitted_price_v2": 134353.84,
+      "ahr999_3d": 0.6583
     },
     {
       "date": "2026-09-10",
       "close": 78291.64,
       "ahr999": 0.505,
       "cost_200d": 69622.76,
-      "fitted_price": 174327.24
+      "fitted_price": 174327.24,
+      "fitted_price_v2": 134468.69,
+      "ahr999_3d": 0.6547
     },
     {
       "date": "2026-09-11",
       "close": 76535.95,
       "ahr999": 0.4819,
       "cost_200d": 69665.91,
-      "fitted_price": 174484.92
+      "fitted_price": 174484.92,
+      "fitted_price_v2": 134583.63,
+      "ahr999_3d": 0.6248
     },
     {
       "date": "2026-09-12",
       "close": 77201.89,
       "ahr999": 0.4894,
       "cost_200d": 69727.84,
-      "fitted_price": 174642.72
+      "fitted_price": 174642.72,
+      "fitted_price_v2": 134698.65,
+      "ahr999_3d": 0.6346
     },
     {
       "date": "2026-09-13",
       "close": 77270.22,
       "ahr999": 0.4894,
       "cost_200d": 69793.28,
-      "fitted_price": 174800.64
+      "fitted_price": 174800.64,
+      "fitted_price_v2": 134813.75,
+      "ahr999_3d": 0.6346
     },
     {
       "date": "2026-09-14",
       "close": 76806.19,
       "ahr999": 0.4828,
       "cost_200d": 69835.88,
-      "fitted_price": 174958.67
+      "fitted_price": 174958.67,
+      "fitted_price_v2": 134928.93,
+      "ahr999_3d": 0.626
     },
     {
       "date": "2026-09-15",
       "close": 78181.33,
       "ahr999": 0.4994,
       "cost_200d": 69887.32,
-      "fitted_price": 175116.82
+      "fitted_price": 175116.82,
+      "fitted_price_v2": 135044.18,
+      "ahr999_3d": 0.6476
     },
     {
       "date": "2026-09-16",
       "close": 75586.51,
       "ahr999": 0.4661,
       "cost_200d": 69935.42,
-      "fitted_price": 175275.09
+      "fitted_price": 175275.09,
+      "fitted_price_v2": 135159.52,
+      "ahr999_3d": 0.6044
     },
     {
       "date": "2026-09-17",
       "close": 76143.81,
       "ahr999": 0.4723,
       "cost_200d": 69980.22,
-      "fitted_price": 175433.48
+      "fitted_price": 175433.48,
+      "fitted_price_v2": 135274.95,
+      "ahr999_3d": 0.6125
     },
     {
       "date": "2026-09-18",
       "close": 76350.68,
       "ahr999": 0.474,
       "cost_200d": 70032.5,
-      "fitted_price": 175591.99
+      "fitted_price": 175591.99,
+      "fitted_price_v2": 135390.45,
+      "ahr999_3d": 0.6148
     },
     {
       "date": "2026-09-19",
       "close": 80877.28,
       "ahr999": 0.531,
       "cost_200d": 70089.13,
-      "fitted_price": 175750.62
+      "fitted_price": 175750.62,
+      "fitted_price_v2": 135506.03,
+      "ahr999_3d": 0.6887
     },
     {
       "date": "2026-09-20",
       "close": 81226.62,
       "ahr999": 0.5347,
       "cost_200d": 70149.81,
-      "fitted_price": 175909.37
+      "fitted_price": 175909.37,
+      "fitted_price_v2": 135621.69,
+      "ahr999_3d": 0.6935
     },
     {
       "date": "2026-09-21",
       "close": 81162.18,
       "ahr999": 0.533,
       "cost_200d": 70188.3,
-      "fitted_price": 176068.23
+      "fitted_price": 176068.23,
+      "fitted_price_v2": 135737.43,
+      "ahr999_3d": 0.6914
     },
     {
       "date": "2026-09-22",
       "close": 86597.82,
       "ahr999": 0.6057,
       "cost_200d": 70258.63,
-      "fitted_price": 176227.21
+      "fitted_price": 176227.21,
+      "fitted_price_v2": 135853.26,
+      "ahr999_3d": 0.7857
     },
     {
       "date": "2026-09-23",
       "close": 86195.28,
       "ahr999": 0.5988,
       "cost_200d": 70341.33,
-      "fitted_price": 176386.32
+      "fitted_price": 176386.32,
+      "fitted_price_v2": 135969.16,
+      "ahr999_3d": 0.7768
     },
     {
       "date": "2026-09-24",
       "close": 84370.41,
       "ahr999": 0.5726,
       "cost_200d": 70421.15,
-      "fitted_price": 176545.54
+      "fitted_price": 176545.54,
+      "fitted_price_v2": 136085.15,
+      "ahr999_3d": 0.7428
     },
     {
       "date": "2026-09-25",
       "close": 84378.13,
       "ahr999": 0.5714,
       "cost_200d": 70507.83,
-      "fitted_price": 176704.88
+      "fitted_price": 176704.88,
+      "fitted_price_v2": 136201.22,
+      "ahr999_3d": 0.7414
     },
     {
       "date": "2026-09-26",
       "close": 84081.91,
       "ahr999": 0.5663,
       "cost_200d": 70580.41,
-      "fitted_price": 176864.34
+      "fitted_price": 176864.34,
+      "fitted_price_v2": 136317.36,
+      "ahr999_3d": 0.7348
     },
     {
       "date": "2026-09-27",
       "close": 84429.02,
       "ahr999": 0.57,
       "cost_200d": 70646.8,
-      "fitted_price": 177023.92
+      "fitted_price": 177023.92,
+      "fitted_price_v2": 136433.59,
+      "ahr999_3d": 0.7396
     },
     {
       "date": "2026-09-28",
       "close": 84457.3,
       "ahr999": 0.5693,
       "cost_200d": 70712.13,
-      "fitted_price": 177183.62
+      "fitted_price": 177183.62,
+      "fitted_price_v2": 136549.9,
+      "ahr999_3d": 0.7387
     },
     {
       "date": "2026-09-29",
       "close": 83488.0,
       "ahr999": 0.5554,
       "cost_200d": 70771.89,
-      "fitted_price": 177343.43
+      "fitted_price": 177343.43,
+      "fitted_price_v2": 136666.3,
+      "ahr999_3d": 0.7207
     },
     {
       "date": "2026-09-30",
       "close": 83624.79,
       "ahr999": 0.5562,
       "cost_200d": 70830.06,
-      "fitted_price": 177503.37
+      "fitted_price": 177503.37,
+      "fitted_price_v2": 136782.77,
+      "ahr999_3d": 0.7218
     },
     {
       "date": "2026-10-01",
       "close": 83566.34,
       "ahr999": 0.5545,
       "cost_200d": 70886.73,
-      "fitted_price": 177663.43
+      "fitted_price": 177663.43,
+      "fitted_price_v2": 136899.32,
+      "ahr999_3d": 0.7196
     },
     {
       "date": "2026-10-02",
       "close": 84849.93,
       "ahr999": 0.5707,
       "cost_200d": 70940.94,
-      "fitted_price": 177823.6
+      "fitted_price": 177823.6,
+      "fitted_price_v2": 137015.96,
+      "ahr999_3d": 0.7407
     },
     {
       "date": "2026-10-03",
       "close": 84506.33,
       "ahr999": 0.5652,
       "cost_200d": 70983.89,
-      "fitted_price": 177983.9
+      "fitted_price": 177983.9,
+      "fitted_price_v2": 137132.67,
+      "ahr999_3d": 0.7336
     },
     {
       "date": "2026-10-04",
       "close": 84742.47,
       "ahr999": 0.5679,
       "cost_200d": 70984.88,
-      "fitted_price": 178144.31
+      "fitted_price": 178144.31,
+      "fitted_price_v2": 137249.47,
+      "ahr999_3d": 0.7371
     },
     {
       "date": "2026-10-05",
       "close": 86513.38,
       "ahr999": 0.5909,
       "cost_200d": 71040.67,
-      "fitted_price": 178304.85
+      "fitted_price": 178304.85,
+      "fitted_price_v2": 137366.35,
+      "ahr999_3d": 0.767
     },
     {
       "date": "2026-10-06",
       "close": 85750.58,
       "ahr999": 0.5794,
       "cost_200d": 71106.49,
-      "fitted_price": 178465.51
+      "fitted_price": 178465.51,
+      "fitted_price_v2": 137483.31,
+      "ahr999_3d": 0.7522
     },
     {
       "date": "2026-10-07",
       "close": 85546.23,
       "ahr999": 0.5751,
       "cost_200d": 71242.66,
-      "fitted_price": 178626.28
+      "fitted_price": 178626.28,
+      "fitted_price_v2": 137600.36,
+      "ahr999_3d": 0.7465
     },
     {
       "date": "2026-10-08",
       "close": 83275.52,
       "ahr999": 0.5439,
       "cost_200d": 71310.18,
-      "fitted_price": 178787.18
+      "fitted_price": 178787.18,
+      "fitted_price_v2": 137717.48,
+      "ahr999_3d": 0.7061
     },
     {
       "date": "2026-10-09",
       "close": 81690.49,
       "ahr999": 0.5225,
       "cost_200d": 71376.38,
-      "fitted_price": 178948.19
+      "fitted_price": 178948.19,
+      "fitted_price_v2": 137834.69,
+      "ahr999_3d": 0.6783
     },
     {
       "date": "2026-10-10",
       "close": 82554.99,
       "ahr999": 0.5327,
       "cost_200d": 71430.72,
-      "fitted_price": 179109.33
+      "fitted_price": 179109.33,
+      "fitted_price_v2": 137951.97,
+      "ahr999_3d": 0.6916
     },
     {
       "date": "2026-10-11",
       "close": 82911.78,
       "ahr999": 0.5364,
       "cost_200d": 71488.53,
-      "fitted_price": 179270.58
+      "fitted_price": 179270.58,
+      "fitted_price_v2": 138069.34,
+      "ahr999_3d": 0.6965
     },
     {
       "date": "2026-10-12",
       "close": 83673.01,
       "ahr999": 0.5454,
       "cost_200d": 71545.69,
-      "fitted_price": 179431.96
+      "fitted_price": 179431.96,
+      "fitted_price_v2": 138186.79,
+      "ahr999_3d": 0.7081
     },
     {
       "date": "2026-10-13",
       "close": 81754.48,
       "ahr999": 0.5197,
       "cost_200d": 71607.54,
-      "fitted_price": 179593.45
+      "fitted_price": 179593.45,
+      "fitted_price_v2": 138304.33,
+      "ahr999_3d": 0.6749
     },
     {
       "date": "2026-10-14",
       "close": 83092.65,
       "ahr999": 0.5358,
       "cost_200d": 71688.08,
-      "fitted_price": 179755.07
+      "fitted_price": 179755.07,
+      "fitted_price_v2": 138421.94,
+      "ahr999_3d": 0.6958
     },
     {
       "date": "2026-10-15",
       "close": 81573.1,
       "ahr999": 0.5154,
       "cost_200d": 71762.25,
-      "fitted_price": 179916.81
+      "fitted_price": 179916.81,
+      "fitted_price_v2": 138539.64,
+      "ahr999_3d": 0.6693
     },
     {
       "date": "2026-10-16",
       "close": 82132.23,
       "ahr999": 0.5214,
       "cost_200d": 71840.99,
-      "fitted_price": 180078.67
+      "fitted_price": 180078.67,
+      "fitted_price_v2": 138657.42,
+      "ahr999_3d": 0.6772
     },
     {
       "date": "2026-10-17",
       "close": 81501.61,
       "ahr999": 0.5125,
       "cost_200d": 71912.87,
-      "fitted_price": 180240.65
+      "fitted_price": 180240.65,
+      "fitted_price_v2": 138775.28,
+      "ahr999_3d": 0.6656
     },
     {
       "date": "2026-10-18",
       "close": 81383.29,
       "ahr999": 0.5101,
       "cost_200d": 71976.31,
-      "fitted_price": 180402.75
+      "fitted_price": 180402.75,
+      "fitted_price_v2": 138893.22,
+      "ahr999_3d": 0.6625
     },
     {
       "date": "2026-10-19",
       "close": 82012.33,
       "ahr999": 0.517,
       "cost_200d": 72043.27,
-      "fitted_price": 180564.97
+      "fitted_price": 180564.97,
+      "fitted_price_v2": 139011.24,
+      "ahr999_3d": 0.6716
     },
     {
       "date": "2026-10-20",
       "close": 81844.43,
       "ahr999": 0.514,
       "cost_200d": 72116.0,
-      "fitted_price": 180727.31
+      "fitted_price": 180727.31,
+      "fitted_price_v2": 139129.35,
+      "ahr999_3d": 0.6676
     },
     {
       "date": "2026-10-21",
       "close": 82940.14,
       "ahr999": 0.5268,
       "cost_200d": 72193.33,
-      "fitted_price": 180889.77
+      "fitted_price": 180889.77,
+      "fitted_price_v2": 139247.54,
+      "ahr999_3d": 0.6843
     },
     {
       "date": "2026-10-22",
       "close": 84024.44,
       "ahr999": 0.5395,
       "cost_200d": 72273.53,
-      "fitted_price": 181052.35
+      "fitted_price": 181052.35,
+      "fitted_price_v2": 139365.81,
+      "ahr999_3d": 0.7009
     },
     {
       "date": "2026-10-23",
       "close": 81316.2,
       "ahr999": 0.5045,
       "cost_200d": 72333.02,
-      "fitted_price": 181215.06
+      "fitted_price": 181215.06,
+      "fitted_price_v2": 139484.16,
+      "ahr999_3d": 0.6554
     },
     {
       "date": "2026-10-24",
       "close": 81079.97,
       "ahr999": 0.5007,
       "cost_200d": 72392.12,
-      "fitted_price": 181377.88
+      "fitted_price": 181377.88,
+      "fitted_price_v2": 139602.6,
+      "ahr999_3d": 0.6505
     },
     {
       "date": "2026-10-25",
       "close": 80770.71,
       "ahr999": 0.4961,
       "cost_200d": 72434.11,
-      "fitted_price": 181540.83
+      "fitted_price": 181540.83,
+      "fitted_price_v2": 139721.11,
+      "ahr999_3d": 0.6446
     },
     {
       "date": "2026-10-26",
       "close": 80039.68,
       "ahr999": 0.4865,
       "cost_200d": 72477.05,
-      "fitted_price": 181703.9
+      "fitted_price": 181703.9,
+      "fitted_price_v2": 139839.71,
+      "ahr999_3d": 0.6321
     },
     {
       "date": "2026-10-27",
       "close": 80009.5,
       "ahr999": 0.4854,
       "cost_200d": 72516.38,
-      "fitted_price": 181867.08
+      "fitted_price": 181867.08,
+      "fitted_price_v2": 139958.4,
+      "ahr999_3d": 0.6307
     },
     {
       "date": "2026-10-28",
       "close": 80800.42,
       "ahr999": 0.4943,
       "cost_200d": 72553.32,
-      "fitted_price": 182030.39
+      "fitted_price": 182030.39,
+      "fitted_price_v2": 140077.16,
+      "ahr999_3d": 0.6424
     },
     {
       "date": "2026-10-29",
       "close": 81262.04,
       "ahr999": 0.4993,
       "cost_200d": 72591.95,
-      "fitted_price": 182193.83
+      "fitted_price": 182193.83,
+      "fitted_price_v2": 140196.01,
+      "ahr999_3d": 0.6489
     },
     {
       "date": "2026-10-30",
       "close": 77791.38,
       "ahr999": 0.4569,
       "cost_200d": 72626.44,
-      "fitted_price": 182357.38
+      "fitted_price": 182357.38,
+      "fitted_price_v2": 140314.94,
+      "ahr999_3d": 0.5938
+    },
+    {
+      "date": "2026-10-31",
+      "close": 77275.05,
+      "ahr999": 0.4504,
+      "cost_200d": 72640.0,
+      "fitted_price": 182521.06,
+      "fitted_price_v2": 140433.95,
+      "ahr999_3d": 0.5854
+    },
+    {
+      "date": "2026-11-01",
+      "close": 77520.89,
+      "ahr999": 0.4528,
+      "cost_200d": 72656.02,
+      "fitted_price": 182684.85,
+      "fitted_price_v2": 140553.05,
+      "ahr999_3d": 0.5885
+    },
+    {
+      "date": "2026-11-02",
+      "close": 78293.84,
+      "ahr999": 0.4613,
+      "cost_200d": 72672.55,
+      "fitted_price": 182848.77,
+      "fitted_price_v2": 140672.23,
+      "ahr999_3d": 0.5996
+    },
+    {
+      "date": "2026-11-03",
+      "close": 76709.41,
+      "ahr999": 0.4424,
+      "cost_200d": 72680.0,
+      "fitted_price": 183012.81,
+      "fitted_price_v2": 140791.49,
+      "ahr999_3d": 0.5751
+    },
+    {
+      "date": "2026-11-04",
+      "close": 77384.59,
+      "ahr999": 0.4498,
+      "cost_200d": 72681.22,
+      "fitted_price": 183176.98,
+      "fitted_price_v2": 140910.83,
+      "ahr999_3d": 0.5847
+    },
+    {
+      "date": "2026-11-05",
+      "close": 80442.71,
+      "ahr999": 0.4855,
+      "cost_200d": 72703.19,
+      "fitted_price": 183341.26,
+      "fitted_price_v2": 141030.26,
+      "ahr999_3d": 0.6311
+    },
+    {
+      "date": "2026-11-06",
+      "close": 76005.51,
+      "ahr999": 0.4329,
+      "cost_200d": 72713.8,
+      "fitted_price": 183505.67,
+      "fitted_price_v2": 141149.76,
+      "ahr999_3d": 0.5629
+    },
+    {
+      "date": "2026-11-07",
+      "close": 75775.28,
+      "ahr999": 0.4299,
+      "cost_200d": 72713.42,
+      "fitted_price": 183670.2,
+      "fitted_price_v2": 141269.36,
+      "ahr999_3d": 0.559
+    },
+    {
+      "date": "2026-11-08",
+      "close": 75776.38,
+      "ahr999": 0.4296,
+      "cost_200d": 72710.71,
+      "fitted_price": 183834.85,
+      "fitted_price_v2": 141389.03,
+      "ahr999_3d": 0.5585
+    },
+    {
+      "date": "2026-11-09",
+      "close": 74740.42,
+      "ahr999": 0.4176,
+      "cost_200d": 72694.3,
+      "fitted_price": 183999.62,
+      "fitted_price_v2": 141508.79,
+      "ahr999_3d": 0.543
+    },
+    {
+      "date": "2026-11-10",
+      "close": 75266.77,
+      "ahr999": 0.4232,
+      "cost_200d": 72680.04,
+      "fitted_price": 184164.52,
+      "fitted_price_v2": 141628.63,
+      "ahr999_3d": 0.5504
+    },
+    {
+      "date": "2026-11-11",
+      "close": 73721.18,
+      "ahr999": 0.4058,
+      "cost_200d": 72662.08,
+      "fitted_price": 184329.54,
+      "fitted_price_v2": 141748.55,
+      "ahr999_3d": 0.5277
+    },
+    {
+      "date": "2026-11-12",
+      "close": 73974.39,
+      "ahr999": 0.4083,
+      "cost_200d": 72644.54,
+      "fitted_price": 184494.68,
+      "fitted_price_v2": 141868.56,
+      "ahr999_3d": 0.531
+    },
+    {
+      "date": "2026-11-13",
+      "close": 71371.98,
+      "ahr999": 0.3799,
+      "cost_200d": 72609.19,
+      "fitted_price": 184659.94,
+      "fitted_price_v2": 141988.65,
+      "ahr999_3d": 0.4941
+    },
+    {
+      "date": "2026-11-14",
+      "close": 68313.71,
+      "ahr999": 0.348,
+      "cost_200d": 72564.01,
+      "fitted_price": 184825.33,
+      "fitted_price_v2": 142108.83,
+      "ahr999_3d": 0.4526
+    },
+    {
+      "date": "2026-11-15",
+      "close": 64120.24,
+      "ahr999": 0.3065,
+      "cost_200d": 72500.75,
+      "fitted_price": 184990.84,
+      "fitted_price_v2": 142229.08,
+      "ahr999_3d": 0.3987
+    },
+    {
+      "date": "2026-11-16",
+      "close": 65305.28,
+      "ahr999": 0.3179,
+      "cost_200d": 72446.98,
+      "fitted_price": 185156.47,
+      "fitted_price_v2": 142349.42,
+      "ahr999_3d": 0.4135
+    },
+    {
+      "date": "2026-11-17",
+      "close": 64840.87,
+      "ahr999": 0.3134,
+      "cost_200d": 72388.02,
+      "fitted_price": 185322.22,
+      "fitted_price_v2": 142469.85,
+      "ahr999_3d": 0.4077
+    },
+    {
+      "date": "2026-11-18",
+      "close": 64889.41,
+      "ahr999": 0.3139,
+      "cost_200d": 72320.45,
+      "fitted_price": 185488.1,
+      "fitted_price_v2": 142590.35,
+      "ahr999_3d": 0.4083
+    },
+    {
+      "date": "2026-11-19",
+      "close": 62996.68,
+      "ahr999": 0.2959,
+      "cost_200d": 72240.16,
+      "fitted_price": 185654.1,
+      "fitted_price_v2": 142710.94,
+      "ahr999_3d": 0.3849
+    },
+    {
+      "date": "2026-11-20",
+      "close": 61921.36,
+      "ahr999": 0.286,
+      "cost_200d": 72154.32,
+      "fitted_price": 185820.22,
+      "fitted_price_v2": 142831.62,
+      "ahr999_3d": 0.372
+    },
+    {
+      "date": "2026-11-21",
+      "close": 58817.93,
+      "ahr999": 0.2582,
+      "cost_200d": 72044.23,
+      "fitted_price": 185986.47,
+      "fitted_price_v2": 142952.38,
+      "ahr999_3d": 0.3359
+    },
+    {
+      "date": "2026-11-22",
+      "close": 60121.3,
+      "ahr999": 0.2699,
+      "cost_200d": 71937.38,
+      "fitted_price": 186152.84,
+      "fitted_price_v2": 143073.22,
+      "ahr999_3d": 0.3512
+    },
+    {
+      "date": "2026-11-23",
+      "close": 61172.02,
+      "ahr999": 0.2796,
+      "cost_200d": 71834.59,
+      "fitted_price": 186319.33,
+      "fitted_price_v2": 143194.14,
+      "ahr999_3d": 0.3638
+    },
+    {
+      "date": "2026-11-24",
+      "close": 61227.55,
+      "ahr999": 0.2802,
+      "cost_200d": 71738.53,
+      "fitted_price": 186485.95,
+      "fitted_price_v2": 143315.15,
+      "ahr999_3d": 0.3646
     }
   ]
 }

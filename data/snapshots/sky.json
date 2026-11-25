@@ -70,7 +70,7 @@
         "mechanism": "SBE 回购 + 质押奖励（DefiLlama holdersRevenue 混合口径）",
         "type": "buyback",
         "usd_365d": 55766359.0,
-        "yield_percent": 3.6154,
+        "yield_percent": 5.8686,
         "note": "计入股东回报（Boss 2026-10-08 定稿）：DefiLlama holdersRevenue = SKY token buybacks（买币数量×当日市价） + staking rewards（USDS 付给 SKY stakers）—— 混合代理，非纯现金支出/非纯销毁。⚠️ SBE 买币自 2024-09 起为「买 SKY 交国库」（库存受治理支配、可再分配），不等于销毁；只有实际 burn 才减少供应。实际买币发生额见 https://info.sky.money/buyback"
       },
       {
@@ -84,10 +84,10 @@
     "summary": {
       "destroy_usd_365d": 55766359.0,
       "yield_usd_365d": null,
-      "destroy_yield_percent": 3.6154,
+      "destroy_yield_percent": 5.8686,
       "yield_yield_percent": null,
       "shareholder_returns_usd_365d": 55766359.0,
-      "shareholder_yield_percent": 3.6154,
+      "shareholder_yield_percent": 5.8686,
       "status": "active",
       "basis_note": "股东回报 = DefiLlama holdersRevenue（买币 × 市价 + 质押奖励，混合代理）；非纯销毁，SBE 买币进国库可再分配"
     },
@@ -97,8 +97,8 @@
         "shareholder_returns_usd": 1097214.0,
         "destroy_usd": 1097214.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 3.7091,
-        "buyback_yield_percent": 3.7091,
+        "shareholder_yield_percent": 6.0207,
+        "buyback_yield_percent": 6.0207,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.4148,
         "status": "active",
@@ -109,8 +109,8 @@
         "shareholder_returns_usd": 5470531.0,
         "destroy_usd": 5470531.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 4.315,
-        "buyback_yield_percent": 4.315,
+        "shareholder_yield_percent": 7.0043,
+        "buyback_yield_percent": 7.0043,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.4243,
         "status": "active",
@@ -121,8 +121,8 @@
         "shareholder_returns_usd": 12834958.0,
         "destroy_usd": 12834958.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 3.3746,
-        "buyback_yield_percent": 3.3746,
+        "shareholder_yield_percent": 5.4778,
+        "buyback_yield_percent": 5.4778,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.3208,
         "status": "active",
@@ -133,8 +133,8 @@
         "shareholder_returns_usd": 55766359.0,
         "destroy_usd": 55766359.0,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 3.6154,
-        "buyback_yield_percent": 3.6154,
+        "shareholder_yield_percent": 5.8686,
+        "buyback_yield_percent": 5.8686,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 0.2876,
         "status": "active",
@@ -143,14 +143,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 1542469314.7497408,
+    "market_cap_usd": 950247896,
     "tvl_usd": 6773732996.1381645,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 27.6595,
-    "ps": 7.9555,
+    "pe": 17.0398,
+    "ps": 4.901,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 0.2876

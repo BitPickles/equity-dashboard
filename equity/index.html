@@ -417,10 +417,17 @@
         if (baseRes.ok) {
           const baseData = await baseRes.json();
           PROTOCOLS = baseData.protocols || {};
-          if (baseData.generated_at) {
-            const date = new Date(baseData.generated_at).toISOString().split('T')[0];
-            document.getElementById('data-update-time').textContent = (currentLang === 'zh' ? '数据更新: ' : 'Data updated: ') + date;
-          }
+          const zh = currentLang === 'zh';
+          const priceDates = Object.values(baseData.protocols || {}).map(p => p.last_updated).filter(Boolean).sort();
+          const snapDates = Object.values(baseData.protocols || {}).map(p => (p.financial_snapshot || {}).as_of).filter(Boolean).sort();
+          const gen = baseData.generated_at ? String(baseData.generated_at).slice(0, 10) : '—';
+          const price = priceDates.length ? priceDates[priceDates.length - 1] : '—';
+          const snap = snapDates.length ? snapDates[snapDates.length - 1] : '—';
+          const priceSpread = priceDates.length && priceDates[0] !== priceDates[priceDates.length - 1];
+          document.getElementById('data-update-time').textContent =
+            (zh ? '行情 ' : 'Prices ') + price + (priceSpread ? (zh ? '（部分更早）' : ' (some earlier)') : '')
+            + (zh ? ' · 快照 ' : ' · Snapshot ') + snap
+            + (zh ? ' · 生成 ' : ' · Built ') + gen;
         }
       } catch (e) { console.warn('Failed to load all-protocols.json'); }
       const entries = Object.entries(PROTOCOLS);

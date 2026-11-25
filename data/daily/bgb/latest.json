@@ -1,6 +1,6 @@
 {
   "protocol": "bgb",
-  "updated_at": "2026-11-25T00:09:09.000Z",
+  "updated_at": "2026-11-25T09:22:34.990345+00:00",
   "data_sources": {
     "defillama": "无（平台币/静态，专属脚本维护）",
     "coingecko": "bitget-token",
@@ -18,9 +18,9 @@
     "trailing_30d_shareholder_returns_usd": null,
     "trailing_365d_shareholder_returns_usd": null,
     "annualized_returns_usd": null,
-    "current_market_cap_usd": 1284392740,
+    "current_market_cap_usd": 1068584055,
     "tev_yield": null,
     "return_yield_decimal": null,
-    "calculated_at": "2026-11-25T00:09:09.000Z"
+    "calculated_at": "2026-11-25T09:22:34.990345+00:00"
   }
 }

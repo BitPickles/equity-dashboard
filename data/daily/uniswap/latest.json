@@ -1,6 +1,6 @@
 {
   "protocol": "uniswap",
-  "updated_at": "2026-11-25T00:09:40.000Z",
+  "updated_at": "2026-11-25T09:22:34.990345+00:00",
   "data_sources": {
     "defillama": "uniswap",
     "coingecko": "uniswap",
@@ -18,9 +18,9 @@
     "trailing_30d_shareholder_returns_usd": 1996110,
     "trailing_365d_shareholder_returns_usd": 2952151,
     "annualized_returns_usd": 23953320,
-    "current_market_cap_usd": 4017150553,
+    "current_market_cap_usd": 2737040396,
     "tev_yield": null,
     "return_yield_decimal": 0,
-    "calculated_at": "2026-11-25T00:09:40.000Z"
+    "calculated_at": "2026-11-25T09:22:34.990345+00:00"
   }
 }

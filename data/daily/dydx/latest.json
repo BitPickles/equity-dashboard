@@ -1,6 +1,6 @@
 {
   "protocol": "dydx",
-  "updated_at": "2026-11-25T00:09:14.000Z",
+  "updated_at": "2026-11-25T09:22:34.990345+00:00",
   "data_sources": {
     "defillama": "dydx",
     "coingecko": "dydx-chain",
@@ -18,9 +18,9 @@
     "trailing_30d_shareholder_returns_usd": 392345.0,
     "trailing_365d_shareholder_returns_usd": null,
     "annualized_returns_usd": 4708140.0,
-    "current_market_cap_usd": 103335947,
+    "current_market_cap_usd": 59059055,
     "tev_yield": null,
     "return_yield_decimal": 1.732376,
-    "calculated_at": "2026-11-25T00:09:14.000Z"
+    "calculated_at": "2026-11-25T09:22:34.990345+00:00"
   }
 }
