@@ -1,6 +1,6 @@
 {
   "protocol": "pendle",
-  "as_of": "2026-11-24",
+  "as_of": "2026-11-25",
   "income_statement": {
     "revenue": {
       "entity_type": "app",
@@ -62,7 +62,7 @@
         "mechanism": "sPENDLE 回购+分发（80% 协议收入）",
         "type": "yield",
         "usd_365d": 18665264,
-        "yield_percent": 8.4136,
+        "yield_percent": 8.8482,
         "verified": "partial",
         "note": "80% 协议收入回购 PENDLE → 分给 sPENDLE 质押者 🟢（2026-01-29 起 sPENDLE 时代，14 天解锁冷却或 5% 即时赎回费）；多链无单一 buyback executor，依赖 DefiLlama 聚合，80% 比例无法链上独立验证"
       }
@@ -71,9 +71,9 @@
       "destroy_usd_365d": null,
       "yield_usd_365d": 18665264,
       "destroy_yield_percent": null,
-      "yield_yield_percent": 8.4136,
+      "yield_yield_percent": 8.8482,
       "shareholder_returns_usd_365d": 18665264,
-      "shareholder_yield_percent": 8.4136
+      "shareholder_yield_percent": 8.8482
     },
     "by_period": {
       "7d": {
@@ -81,8 +81,8 @@
         "shareholder_returns_usd": 114103.68,
         "destroy_usd": 114103.68,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 2.6819,
-        "buyback_yield_percent": 2.6819,
+        "shareholder_yield_percent": 2.8204,
+        "buyback_yield_percent": 2.8204,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.3769,
         "status": "active",
@@ -93,8 +93,8 @@
         "shareholder_returns_usd": 619527.17,
         "destroy_usd": 619527.17,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 3.3976,
-        "buyback_yield_percent": 3.3976,
+        "shareholder_yield_percent": 3.5731,
+        "buyback_yield_percent": 3.5731,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.3769,
         "status": "active",
@@ -105,8 +105,8 @@
         "shareholder_returns_usd": 2311463.14,
         "destroy_usd": 2311463.14,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 4.2255,
-        "buyback_yield_percent": 4.2255,
+        "shareholder_yield_percent": 4.4438,
+        "buyback_yield_percent": 4.4438,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.3769,
         "status": "active",
@@ -117,8 +117,8 @@
         "shareholder_returns_usd": 18665264,
         "destroy_usd": 18665264,
         "yield_usd": 0.0,
-        "shareholder_yield_percent": 8.4136,
-        "buyback_yield_percent": 8.4136,
+        "shareholder_yield_percent": 8.8482,
+        "buyback_yield_percent": 8.8482,
         "dividend_yield_percent": 0.0,
         "payout_ratio": 1.3769,
         "status": "active",
@@ -127,14 +127,14 @@
     }
   },
   "balance_sheet": {
-    "market_cap_usd": 221847452,
+    "market_cap_usd": 210950709,
     "tvl_usd": 2092670655.1775405,
     "treasury_usd": null,
     "debt_usd": null
   },
   "valuation": {
-    "pe": 11.8856,
-    "ps": 16.3651,
+    "pe": 11.3018,
+    "ps": 15.5612,
     "pb": null,
     "ev_revenue": null,
     "payout_ratio": 1.3769
@@ -142,6 +142,6 @@
   "verification": {
     "method": "净利 = DefiLlama dailyRevenue 365d $13,556,172；股东回报 = dailyHoldersRevenue 365d $18,665,264（80% 口径 🟢，sPENDLE 时代 2026-01-29 起，payout_ratio=0.8）；tev-records 365d 合计 $9,240,483 交叉核对",
     "status": "partial",
-    "last_checked": "2026-11-24"
+    "last_checked": "2026-11-25"
   }
 }

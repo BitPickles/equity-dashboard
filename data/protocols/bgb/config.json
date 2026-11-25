@@ -41,13 +41,13 @@
     "primary_value_accrual": "回购销毁 - 季度用平台收入回购销毁 BGB"
   },
   "market_data": {
-    "price_usd": 1.55,
-    "circulating_market_cap": 1084269610,
+    "price_usd": 1.53,
+    "circulating_market_cap": 1068584055,
     "total_supply": 2000000000,
     "snapshot_date": "2026-02-05",
     "data_source": "CoinGecko",
     "circulating_supply": 699992029.648104,
-    "price_updated_at": "2026-11-24T11:13:41.139307+00:00"
+    "price_updated_at": "2026-11-25T09:22:34.990345+00:00"
   },
   "calculated_returns": {
     "shareholder_yield_percent": null,
@@ -100,7 +100,7 @@
     "BGB 销毁比例是多少？",
     "是否有其他 TEV 机制（如 Launchpad 参与权）？"
   ],
-  "last_updated": "2026-11-24",
+  "last_updated": "2026-11-25",
   "return_data": {
     "has_returns": false,
     "shareholder_yield_percent": 0,

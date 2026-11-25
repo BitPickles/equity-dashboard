@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-11-24T11:13:16.992187+00:00",
-  "total": 288,
-  "active_count": 34,
+  "updated_at": "2026-11-25T09:33:15.542977+00:00",
+  "total": 289,
+  "active_count": 35,
   "passed_count": 197,
   "tev_related": 56,
   "monitored_protocols": 18,
@@ -4316,6 +4316,21 @@
       "tev_keywords": [],
       "summary_en": "[Ethereum] Spark Liquidity Layer - Reduce Sentora x Spark RLUSD WBTC Relative Supply Cap",
       "summary_zh": "[Ethereum] Spark Liquidity Layer - Reduce Sentora x Spark RLUSD WBTC Relative Supply Cap",
+      "analysis_zh": "",
+      "translation": "source"
+    },
+    {
+      "source": "Snapshot",
+      "protocol": "Morpho",
+      "title": "MIP 137 – List MidnightAdapter in Morpho Registry",
+      "status": "active",
+      "link": "https://snapshot.box/#/s:morpho.eth/proposal/0x3c5f50c6a9f392979f5ceab894710df6360fca79ab24bf6cdc4a2741b65424ee",
+      "created": 1795533171,
+      "end": 1795792371,
+      "tev_related": false,
+      "tev_keywords": [],
+      "summary_en": "MIP 137 – List MidnightAdapter in Morpho Registry",
+      "summary_zh": "MIP 137 – List MidnightAdapter in Morpho Registry",
       "analysis_zh": "",
       "translation": "source"
     }

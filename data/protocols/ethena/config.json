@@ -76,10 +76,10 @@
     "data_source": "DefiLlama",
     "tvl": 6677560266.30153,
     "tvl_updated": "2026-03-27T01:00:33.623Z",
-    "price_usd": 0.098269,
-    "circulating_market_cap": 1326637107,
+    "price_usd": 0.095054,
+    "circulating_market_cap": 1283202868,
     "circulating_supply": 13500000000.0,
-    "price_updated_at": "2026-11-24T11:13:41.139307+00:00"
+    "price_updated_at": "2026-11-25T09:22:34.990345+00:00"
   },
   "confidence": "low",
   "data_sources": [
@@ -148,7 +148,7 @@
     }
   ],
   "analyst_notes": "【2026-04-27 governance-only 验证】\n\n## 现状\nEthena 协议收入 = USDe staking yield (~7.83% APY) 全部给 sUSDe 持有人. ENA 仅治理代币. 2025 历次大额回购来自 StablecoinX PIPE 融资 (资本运作非利润分红)\n\n## TEV: 0% (governance-only, low confidence)\n\n## 何时变化\n若未来治理提案启用 fee switch / buyback 给 token 持有人, 重新评估.\n\n## 类比\nLDO / COMP 等老牌纯治理代币模式.\n",
-  "last_updated": "2026-11-24",
+  "last_updated": "2026-11-25",
   "return_data": {
     "has_returns": false,
     "shareholder_yield_percent": 0,

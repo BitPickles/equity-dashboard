@@ -42,12 +42,12 @@
     "payout_ratio": 0
   },
   "market_data": {
-    "price_usd": 82.07,
+    "price_usd": 79.02,
     "circulating_supply": 21000000.0,
-    "circulating_market_cap": 1723371657,
+    "circulating_market_cap": 1659570475,
     "snapshot_date": "2026-02-05",
     "data_source": "CoinGecko / Etherscan",
-    "price_updated_at": "2026-11-24T11:13:41.139307+00:00"
+    "price_updated_at": "2026-11-25T09:22:34.990345+00:00"
   },
   "calculated_returns": {
     "shareholder_yield_percent": null,
@@ -110,7 +110,7 @@
     "OKB 30% 回购销毁比例是否为最新政策？",
     "是否需要整理历史季度销毁数据？"
   ],
-  "last_updated": "2026-11-24",
+  "last_updated": "2026-11-25",
   "return_data": {
     "has_returns": false,
     "shareholder_yield_percent": 0,

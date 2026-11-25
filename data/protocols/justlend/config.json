@@ -63,7 +63,7 @@
     }
   ],
   "notes": "⚠️ 维持 PARTIAL，原因：(1) JST staking 机制缺乏透明文档，无法确认具体分配比例；(2) TRON 生态整体透明度较低，缺少 Dune 等独立数据分析工具；(3) DefiLlama 无 tokenRights 数据；(4) JST 代币跨多个 JUST 产品使用，实际 TEV 归属不清；(5) 与 Justin Sun 团队关联，中心化程度较高。如需进一步确认，建议通过浏览器直接操作 JustLend DApp 验证 staking 功能。",
-  "last_updated": "2026-11-24",
+  "last_updated": "2026-11-25",
   "return_data": {
     "has_returns": true,
     "shareholder_yield_percent": 0,
@@ -96,10 +96,10 @@
   "market_data": {
     "tvl": 3292346561.2761326,
     "tvl_updated": "2026-03-27T01:01:03.555Z",
-    "price_usd": 0.145473,
-    "circulating_market_cap": 1166385847,
+    "price_usd": 0.14741,
+    "circulating_market_cap": 1182010779,
     "circulating_supply": 8018019892.341737,
-    "price_updated_at": "2026-11-24T11:13:41.139307+00:00"
+    "price_updated_at": "2026-11-25T09:22:34.990345+00:00"
   },
   "return_status": "none",
   "confidence_reason": {
