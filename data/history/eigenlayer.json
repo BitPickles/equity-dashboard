@@ -2,17 +2,6 @@
   "protocol": "eigenlayer",
   "records": [
     {
-      "as_of": "2025-11-21",
-      "net_income": 0.0,
-      "daily_value": 0.0,
-      "pe": null,
-      "ps": null,
-      "shareholder_yield": null,
-      "net_margin": null,
-      "_period": "daily",
-      "daily_value_status": "estimated"
-    },
-    {
       "as_of": "2025-11-22",
       "net_income": 0.0,
       "daily_value": 0.0,
@@ -3947,6 +3936,14 @@
     },
     {
       "as_of": "2026-11-24",
+      "net_income": 0.0,
+      "pe": null,
+      "ps": null,
+      "shareholder_yield": 0,
+      "net_margin": null
+    },
+    {
+      "as_of": "2026-11-25",
       "net_income": 0.0,
       "pe": null,
       "ps": null,
