@@ -2,17 +2,6 @@
   "protocol": "kamino",
   "records": [
     {
-      "as_of": "2025-11-26",
-      "net_income": 30552599.0,
-      "daily_value": 32173.1,
-      "pe": 4.458,
-      "ps": 4.458,
-      "shareholder_yield": 22.4321,
-      "net_margin": 100.0,
-      "_period": "daily",
-      "daily_value_status": "estimated"
-    },
-    {
       "as_of": "2025-11-27",
       "net_income": 30450056.0,
       "daily_value": 33542.1,
@@ -4015,6 +4004,14 @@
       "shareholder_yield": 0,
       "net_margin": 100.0,
       "_period": "snapshot"
+    },
+    {
+      "as_of": "2026-11-26",
+      "net_income": 9331408.0,
+      "pe": null,
+      "ps": 14.5959,
+      "shareholder_yield": 0,
+      "net_margin": 100.0
     }
   ]
 }
