@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-11-26",
+  "updated_at": "2026-11-27",
   "current": {
-    "date": "2026-11-26",
-    "value": 0.2728,
-    "price": 60374.15,
-    "cost_200d": 71529.49,
-    "fitted_price": 186819.56,
-    "fitted_price_v2": 143557.42,
-    "ahr999_3d": 0.355,
+    "date": "2026-11-27",
+    "value": 0.2742,
+    "price": 60510.4,
+    "cost_200d": 71420.16,
+    "fitted_price": 186986.54,
+    "fitted_price_v2": 143678.68,
+    "ahr999_3d": 0.3568,
     "status": "抄底区"
   },
   "history": [
@@ -51679,6 +51679,15 @@
       "fitted_price": 186819.56,
       "fitted_price_v2": 143557.42,
       "ahr999_3d": 0.355
+    },
+    {
+      "date": "2026-11-27",
+      "close": 60510.4,
+      "ahr999": 0.2742,
+      "cost_200d": 71420.16,
+      "fitted_price": 186986.54,
+      "fitted_price_v2": 143678.68,
+      "ahr999_3d": 0.3568
     }
   ]
 }
