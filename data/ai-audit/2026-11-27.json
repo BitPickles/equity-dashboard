@@ -1,0 +1,112 @@
+{
+  "date": "2026-11-27",
+  "generated_at": "2026-11-27T07:13:45.502113+00:00",
+  "protocols": [
+    "aave",
+    "aster",
+    "bgb",
+    "bnb",
+    "compound",
+    "curve",
+    "dydx",
+    "eigenlayer",
+    "ethena",
+    "fluid",
+    "gmx",
+    "hype",
+    "hyperliquid",
+    "jito",
+    "justlend",
+    "kamino",
+    "layerzero",
+    "lido",
+    "maple",
+    "mnt",
+    "morpho",
+    "okb",
+    "pancakeswap",
+    "pendle",
+    "sky",
+    "spark",
+    "uniswap"
+  ],
+  "tasks": [
+    "cross-validation",
+    "data-plausibility",
+    "freshness",
+    "mechanism-change",
+    "regression"
+  ],
+  "results": {
+    "mechanism-change": {
+      "skipped": "no-llm"
+    },
+    "data-plausibility": {
+      "skipped": "no-llm"
+    },
+    "cross-validation": {
+      "skipped": "no-llm"
+    },
+    "freshness": {
+      "alerts": [
+        {
+          "protocol": "indicators/marketcap.json",
+          "issue": "末条 2026-10-29（29 天前，容差 2）",
+          "severity": "medium"
+        },
+        {
+          "protocol": "indicators/btc-dominance.json",
+          "issue": "末条 2026-10-29（29 天前，容差 2）",
+          "severity": "medium"
+        },
+        {
+          "protocol": "indicators/fred-macro.json",
+          "issue": "末条 2026-10-05（53 天前，容差 10）",
+          "severity": "medium"
+        },
+        {
+          "protocol": "aster-onchain",
+          "issue": "链上采集末条 2026-07-04（146 天前）——链上无执行量或 Moralis 失效",
+          "severity": "low"
+        }
+      ],
+      "verdict": "alert",
+      "summary_zh": "新鲜度检查：4 项过期"
+    },
+    "regression": {
+      "regressed": [],
+      "verdict": "ok",
+      "summary_zh": "无 before 基线（首次运行），跳过回归检查"
+    }
+  },
+  "alerts": {
+    "alert": [
+      {
+        "task": "freshness",
+        "protocol": "indicators/marketcap.json",
+        "issue": "末条 2026-10-29（29 天前，容差 2）",
+        "severity": "medium"
+      },
+      {
+        "task": "freshness",
+        "protocol": "indicators/btc-dominance.json",
+        "issue": "末条 2026-10-29（29 天前，容差 2）",
+        "severity": "medium"
+      },
+      {
+        "task": "freshness",
+        "protocol": "indicators/fred-macro.json",
+        "issue": "末条 2026-10-05（53 天前，容差 10）",
+        "severity": "medium"
+      },
+      {
+        "task": "freshness",
+        "protocol": "aster-onchain",
+        "issue": "链上采集末条 2026-07-04（146 天前）——链上无执行量或 Moralis 失效",
+        "severity": "low"
+      }
+    ],
+    "review": [],
+    "ok": []
+  }
+}

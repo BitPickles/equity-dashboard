@@ -56,7 +56,7 @@
     }
   ],
   "notes": "Sky（原 MakerDAO）协议盈余经 Surplus Buffer / Splitter 分配：SBE 从市场买 SKY（2024-09 起为「买币交国库」，可再分配、非销毁）+ 付给 SKY stakers 的 USDS 奖励。股东回报口径 = DefiLlama dailyHoldersRevenue（混合代理）。",
-  "last_updated": "2026-11-25",
+  "last_updated": "2026-11-27",
   "return_data": {
     "has_returns": true,
     "shareholder_yield_percent": 2.8682,
@@ -92,10 +92,10 @@
   "market_data": {
     "tvl": 6773732996.1381645,
     "tvl_updated": "2026-03-27T01:01:13.420Z",
-    "price_usd": 0.04075194,
-    "circulating_market_cap": 950247896,
-    "circulating_supply": 23317859512.522655,
-    "price_updated_at": "2026-11-25T09:26:04.265913+00:00"
+    "price_usd": 0.04645838,
+    "circulating_market_cap": 1081645662,
+    "circulating_supply": 23282035031.812325,
+    "price_updated_at": "2026-11-27T07:02:35.279739+00:00"
   },
   "return_status": "active",
   "confidence_reason": {

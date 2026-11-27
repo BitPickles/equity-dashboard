@@ -46,13 +46,13 @@
     "primary_value_accrual": "待确认 - Gas 消耗 + 潜在的质押奖励"
   },
   "market_data": {
-    "price_usd": 0.359074,
+    "price_usd": 0.385442,
     "circulating_supply": 3312003382.53684,
-    "circulating_market_cap": 1189216860,
+    "circulating_market_cap": 1276586052,
     "total_supply": 6219316794,
     "snapshot_date": "2026-02-05",
     "data_source": "CoinGecko / Etherscan",
-    "price_updated_at": "2026-11-25T09:22:34.990345+00:00"
+    "price_updated_at": "2026-11-27T07:02:35.279739+00:00"
   },
   "calculated_returns": {
     "shareholder_yield_percent": null,
@@ -114,7 +114,7 @@
     "Bybit 收入与 MNT 的具体关联？",
     "MNT 是否有明确的回购/销毁/分红机制？"
   ],
-  "last_updated": "2026-11-25",
+  "last_updated": "2026-11-27",
   "return_data": {
     "has_returns": false,
     "shareholder_yield_percent": 0,
